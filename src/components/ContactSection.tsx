@@ -1,5 +1,32 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Facebook, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, Linkedin, Github, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+// Social links with Lucide icons and brand colors
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/rajeev-joshi/",
+    icon: Linkedin,
+    color: "text-[#0A66C2]"
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/Rajeev02",
+    icon: Github,
+    color: "text-foreground"
+  },
+  {
+    name: "X",
+    url: "https://x.com/Rajeev_Joshi91",
+    iconImage: "/assets/images/social/x.png"
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/RajeevJoshi05",
+    icon: Facebook,
+    color: "text-[#1877F2]"
+  }
+];
 
 const ContactSection = () => {
   return (
@@ -13,81 +40,82 @@ const ContactSection = () => {
             Interested in discussing opportunities or collaborations? I'd love to hear from you.
           </p>
           
-          <div className="glass-card p-5 sm:p-8 md:p-12">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+          <div className="glass-card p-4 sm:p-8 md:p-12">
+            {/* Contact Info Grid - Responsive */}
+            <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-10">
               <a 
                 href="mailto:rajeevjoshi91@gmail.com"
-                className="flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-secondary/50 transition-colors group"
+                className="flex flex-row xs:flex-col items-center gap-3 p-3 sm:p-4 rounded-xl hover:bg-secondary/50 transition-colors group"
               >
-                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-6 h-6" />
+                <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-center">
-                  <p className="font-medium">Email</p>
-                  <p className="text-sm text-muted-foreground">rajeevjoshi91@gmail.com</p>
+                <div className="text-left xs:text-center">
+                  <p className="font-medium text-sm sm:text-base">Email</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground break-all xs:break-normal">rajeevjoshi91@gmail.com</p>
                 </div>
               </a>
               
               <a 
                 href="tel:+918792169096"
-                className="flex flex-col items-center gap-3 p-4 rounded-xl hover:bg-secondary/50 transition-colors group"
+                className="flex flex-row xs:flex-col items-center gap-3 p-3 sm:p-4 rounded-xl hover:bg-secondary/50 transition-colors group"
               >
-                <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-6 h-6" />
+                <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-center">
-                  <p className="font-medium">Phone</p>
-                  <p className="text-sm text-muted-foreground">+91 8792169096</p>
+                <div className="text-left xs:text-center">
+                  <p className="font-medium text-sm sm:text-base">Phone</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">+91 8792169096</p>
                 </div>
               </a>
               
-              <div className="flex flex-col items-center gap-3 p-4 rounded-xl">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                  <MapPin className="w-6 h-6" />
+              <div className="flex flex-row xs:flex-col items-center gap-3 p-3 sm:p-4 rounded-xl">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-center">
-                  <p className="font-medium">Location</p>
-                  <p className="text-sm text-muted-foreground">Bengaluru, India</p>
+                <div className="text-left xs:text-center">
+                  <p className="font-medium text-sm sm:text-base">Location</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Bengaluru, India</p>
                 </div>
               </div>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
-              <Button size="default" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base">
+            {/* Social Icons - Lucide Icons with Brand Colors */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 sm:p-3 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors group"
+                  title={social.name}
+                >
+                  {social.icon ? (
+                    <social.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${social.color}`} />
+                  ) : (
+                    <img 
+                      src={social.iconImage} 
+                      alt={social.name}
+                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain dark:invert"
+                    />
+                  )}
+                </a>
+              ))}
+            </div>
+
+            {/* Action Buttons - Mobile Responsive */}
+            <div className="flex flex-col xs:flex-row items-center justify-center gap-2 sm:gap-3">
+              <Button size="default" asChild className="w-full xs:w-auto bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base">
                 <a href="mailto:rajeevjoshi91@gmail.com">
                   <Mail className="w-4 h-4" />
-                  <span className="hidden xs:inline">Send Email</span>
-                  <span className="xs:hidden">Email</span>
+                  Send Email
                 </a>
               </Button>
-              <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-                <a href="https://www.linkedin.com/in/rajeev-joshi/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-4 h-4" />
-                  <span className="hidden sm:inline">LinkedIn</span>
-                </a>
-              </Button>
-              <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-                <a href="https://github.com/Rajeev02" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4" />
-                  <span className="hidden sm:inline">GitHub</span>
-                </a>
-              </Button>
-              <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-                <a href="https://x.com/Rajeev_Joshi91" target="_blank" rel="noopener noreferrer">
-                  <Twitter className="w-4 h-4" />
-                  <span className="hidden sm:inline">X</span>
-                </a>
-              </Button>
-              <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base hidden md:inline-flex">
-                <a href="https://www.facebook.com/RajeevJoshi05" target="_blank" rel="noopener noreferrer">
-                  <Facebook className="w-4 h-4" />
-                  <span className="hidden lg:inline">Facebook</span>
-                </a>
-              </Button>
-              <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
+              <Button size="default" variant="outline" asChild className="w-full xs:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base">
                 <a href="https://rajeev02.github.io" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" />
-                  <span className="hidden sm:inline">Portfolio</span>
+                  View Portfolio
                 </a>
               </Button>
             </div>
