@@ -18,7 +18,7 @@ const socialLinks = [
   {
     name: "X",
     url: "https://x.com/Rajeev_Joshi91",
-    iconImage: "/assets/images/social/x.png"
+    iconImage: "/images/social/x.png"
   },
   {
     name: "Facebook",

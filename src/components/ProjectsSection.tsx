@@ -13,7 +13,7 @@ const projects = [
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.lv",
     appStoreUrl: "https://apps.apple.com/in/app/letsventure/id1073504019",
     webUrl: "https://lvxventures.com",
-    icon: "/assets/images/apps/lvx.png",
+    icon: "/images/apps/lvx.png",
     featured: true
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     skills: ["Capacitor", "TypeScript", "Auth0", "Branch", "PostHog", "Sentry"],
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.lvxventures.lvxq",
     appStoreUrl: "https://apps.apple.com/in/app/lvxq/id6755171264",
-    icon: "/assets/images/apps/lvxq.png",
+    icon: "/images/apps/lvxq.png",
     featured: true
   },
   {
@@ -37,7 +37,7 @@ const projects = [
     teamSize: 5,
     description: "Developed an integrated platform for startup founders to access community, capital, and customers. Worked in an Agile Scrum environment.",
     skills: ["React Native", "JavaScript", "Firebase", "AWS Cognito", "Auth0", "Chat", "Sentry"],
-    icon: "/assets/images/apps/scalix_ic_launcher_round.png",
+    icon: "/images/apps/scalix_ic_launcher_round.png",
     featured: true
   },
   {
@@ -49,7 +49,7 @@ const projects = [
     description: "Developed the app from scratch, supporting all Android devices. Implemented responsive UI for enhanced user experience in wildlife tourism.",
     skills: ["Java", "MVP", "Retrofit", "Glide", "Firebase"],
     playStoreUrl: "https://packages.wildtrails.in/#parks/",
-    icon: "/assets/images/apps/wildtrails.png",
+    icon: "/images/apps/wildtrails.png",
     featured: true
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     teamSize: 6,
     description: "Developed features for real-time wildlife sighting updates with trip planning module and media gallery.",
     skills: ["Java", "MVP", "Retrofit", "Glide", "Firebase"],
-    icon: "/assets/images/apps/forestguide.png",
+    icon: "/images/apps/forestguide.png",
     featured: false
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     teamSize: 5,
     description: "Developed an app for booking film festival tickets and viewing show timings with multimedia API integration.",
     skills: ["Java", "MVC", "Google Maps API", "REST API", "Multimedia"],
-    icon: "/assets/images/apps/siff.png",
+    icon: "/images/apps/siff.png",
     featured: false
   },
   {
@@ -92,7 +92,7 @@ const projects = [
     teamSize: 6,
     description: "Developed an entertainment app connecting users with theaters and movies. Focused on responsive UI design and third-party library integration.",
     skills: ["Java", "Retrofit", "Glide", "Firebase"],
-    icon: "/assets/images/apps/plurebus.png",
+    icon: "/images/apps/plurebus.png",
     featured: false
   }
 ];
