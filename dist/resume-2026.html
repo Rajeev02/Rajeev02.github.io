@@ -3,102 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rajeev Kumar Joshi Resume 2026</title>
+    <title>Rajeev Kumar Joshi — Senior React Native Developer · Resume 2026</title>
+    <meta name="description" content="Resume of Rajeev Kumar Joshi, Senior React Native Developer with 9+ years of experience shipping cross-platform Android and iOS apps." />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <style>
       :root {
         color-scheme: light;
-        --text: #0f172a;
-        --muted: #475569;
-        --border: #cbd5e1;
-        --accent: #2563eb;
-        --bg: #f8fafc;
+        --text: #0b1220;
+        --muted: #2f3a52;
+        --soft: #475067;
+        --border: #d8dde5;
+        --rule: #e4e8ef;
+        --accent: #1d4ed8;
+        --accent-soft: #eef2ff;
+        --bg: #f5f7fb;
         --card: #ffffff;
+        --chip-bg: #f1f4fa;
+        --chip-text: #1f2937;
       }
       * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
       body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.45;
+        line-height: 1.5;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
       }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
       .page {
-        max-width: 920px;
-        margin: 24px auto;
+        max-width: 880px;
+        margin: 28px auto;
         background: var(--card);
         border: 1px solid var(--border);
-        padding: 32px;
+        border-radius: 10px;
+        padding: 40px 44px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
       }
-      h1, h2, h3, p { margin: 0; }
-      h1 { font-size: 32px; margin-bottom: 8px; }
+
+      h1, h2, h3, h4, p { margin: 0; }
+      h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
       h2 {
-        font-size: 14px;
+        font-size: 11px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         color: var(--accent);
-        margin-top: 28px;
-        margin-bottom: 10px;
+        margin: 20px 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--rule);
       }
-      h3 { font-size: 17px; margin-bottom: 4px; }
-      .subtle { color: var(--muted); }
+      h3 { font-size: 15px; font-weight: 600; }
+
+      .subtitle {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
       .topline {
+        margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px 18px;
-        font-size: 14px;
+        gap: 6px 14px;
+        font-size: 13px;
         color: var(--muted);
       }
-      .summary {
-        margin-top: 14px;
-        font-size: 15px;
+      .topline span + span::before {
+        content: "·";
+        margin-right: 14px;
+        color: var(--border);
       }
-      .job {
-        margin-top: 16px;
-        padding-top: 14px;
-        border-top: 1px solid var(--border);
-      }
-      .job:first-of-type {
-        border-top: 0;
-        padding-top: 0;
-      }
+
+      .summary { margin-top: 14px; font-size: 14px; color: #1f2937; }
+
+      .job + .job { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); }
       .job-head {
         display: flex;
         justify-content: space-between;
-        gap: 16px;
         align-items: baseline;
+        gap: 16px;
+        flex-wrap: wrap;
       }
-      .job-meta {
-        font-size: 14px;
-        color: var(--muted);
-        margin-bottom: 8px;
+      .job-head .role { font-weight: 600; }
+      .job-head .company { color: var(--muted); font-weight: 500; }
+      .job-meta { font-size: 12.5px; color: var(--soft); margin-top: 2px; }
+      .job-dates {
+        font-size: 12.5px;
+        color: var(--soft);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
       }
-      ul {
-        margin: 8px 0 0 18px;
-        padding: 0;
-      }
-      li { margin: 5px 0; }
+      ul { margin: 8px 0 0 18px; padding: 0; }
+      li { margin: 4px 0; }
+
       .grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px 28px;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 22px 32px;
       }
-      .pill-list {
-        font-size: 14px;
-        color: var(--muted);
+
+      .skills {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        row-gap: 6px;
+        column-gap: 18px;
+        font-size: 13.5px;
       }
+      .skills dt { font-weight: 600; color: var(--text); }
+      .skills dd { margin: 0; color: #1f2937; }
+
+      .edu-item + .edu-item { margin-top: 8px; }
+      .edu-item .deg { font-weight: 600; font-size: 13.5px; }
+      .edu-item .meta { color: var(--muted); font-size: 12.5px; }
+
       @media print {
-        body { background: #fff; }
+        body { background: #fff; font-size: 11.5px; line-height: 1.42; }
         .page {
           margin: 0;
           border: 0;
-          padding: 0;
+          border-radius: 0;
+          padding: 18mm 16mm;
           max-width: 100%;
+          box-shadow: none;
         }
+        h1 { font-size: 22px; }
+        h2 { margin: 14px 0 8px; }
+        h3 { font-size: 13px; }
+        a { color: inherit; text-decoration: none; }
+        .skills { grid-template-columns: 170px 1fr; row-gap: 4px; font-size: 11px; }
       }
+
       @media (max-width: 720px) {
-        .page { padding: 22px; margin: 0; border: 0; }
+        .page { margin: 0; border: 0; border-radius: 0; padding: 24px; }
         .grid { grid-template-columns: 1fr; }
-        .job-head { flex-direction: column; gap: 4px; }
+        .job-head { flex-direction: column; gap: 2px; }
+        .skills { grid-template-columns: 1fr; row-gap: 2px; }
+        .skills dt { margin-top: 8px; }
+        .skills dt:first-child { margin-top: 0; }
       }
     </style>
   </head>
@@ -106,7 +153,7 @@
     <main class="page">
       <header>
         <h1>Rajeev Kumar Joshi</h1>
-        <p class="subtle">Senior React Native Developer</p>
+        <p class="subtitle">Senior React Native Developer</p>
         <div class="topline">
           <span>Bengaluru, India</span>
           <span><a href="tel:+918792169096">+91 8792169096</a></span>
@@ -116,7 +163,7 @@
           <span><a href="https://rajeev02.github.io/">Portfolio</a></span>
         </div>
         <p class="summary">
-          Senior React Native Developer with 9+ years of experience building secure, scalable Android and iOS mobile applications across fintech, student housing, travel, and consumer platforms. Strong experience in React Native, Expo, TypeScript, Android, React Navigation, Redux Toolkit, React Query, Firebase, authentication, payments, push notifications, analytics, and production releases.
+          Senior React Native Developer with 9+ years of experience shipping cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. Strong in React Native, Expo, TypeScript, Redux Toolkit, React Query, payments, push notifications, deep linking, and end-to-end Play Store / App Store release ownership. Uses AI-assisted engineering tools such as GitHub Copilot, Claude, OpenAI Codex, and Google Gemini to accelerate development, refactoring, debugging, and review workflows.
         </p>
       </header>
 
@@ -125,96 +172,110 @@
 
         <article class="job">
           <div class="job-head">
-            <h3>Lead Mobile Engineer · SpaceBasic</h3>
-            <span class="subtle">Feb 2026 – May 2026</span>
+            <h3><span class="role">Lead Mobile Engineer</span> · <span class="company">SpaceBasic</span></h3>
+            <span class="job-dates">Feb 2026 – May 2026</span>
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Worked on development of a new React Native mobile app for Android and iOS for a hostel and student housing management platform.</li>
-            <li>Contributed to mobile architecture, feature delivery, and modernisation of the existing app experience.</li>
-            <li>Supported workflows across housing operations, student-facing experiences, and release readiness.</li>
+            <li>Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform.</li>
+            <li>Contributed to mobile architecture, navigation, and state-management foundations for long-term scale.</li>
+            <li>Modernised legacy mobile flows for housing operations, student experiences, and release readiness.</li>
+            <li>Used GitHub Copilot and Claude to speed up scaffolding, testing support, and repetitive engineering workflows.</li>
           </ul>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>Senior React Native Developer · LetsVenture Technologies</h3>
-            <span class="subtle">Sep 2019 – Feb 2026</span>
+            <h3><span class="role">Senior React Native Developer</span> · <span class="company">LetsVenture Technologies</span></h3>
+            <span class="job-dates">Sep 2019 – Feb 2026</span>
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Led development of investor-facing mobile applications across React Native, Android, and Capacitor.</li>
-            <li>Built secure authentication, payments, analytics, push notifications, deep linking, and release workflows across Android and iOS.</li>
-            <li>Owned mobile delivery for key products including LVX, LVXQ, and Scalix.</li>
-            <li>Integrated Auth0, AWS Cognito, Firebase, PostHog, Sentry, Branch, Cashfree, and Razorpay.</li>
-            <li>Took ownership of Play Store and App Store releases, hotfixes, crash monitoring, and production stability.</li>
+            <li>Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix, building cross-platform Android and iOS apps using React Native, and later working with Capacitor for selected mobile product workflows.</li>
+            <li>Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase.</li>
+            <li>Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users.</li>
+            <li>Used GitHub Copilot, OpenAI Codex, and Gemini to speed up feature development, API integration support, and repetitive refactors across the React Native codebase.</li>
           </ul>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>Software Engineer (Android) · WildTrails India</h3>
-            <span class="subtle">Mar 2018 – Sep 2019</span>
+            <h3><span class="role">Software Engineer (Android)</span> · <span class="company">WildTrails India</span></h3>
+            <span class="job-dates">Mar 2018 – Sep 2019</span>
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Built Android app features for wildlife sighting discovery, trip planning, and media-driven user journeys.</li>
-            <li>Implemented API integrations and production workflows for travel and wildlife users.</li>
-            <li>Optimised app usability and performance for low-network field environments.</li>
+            <li>Built Android features for wildlife sighting discovery, trip planning, and media-rich user journeys.</li>
+            <li>Integrated REST APIs and optimised app performance for low-network safari and field environments.</li>
           </ul>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>Android Application Developer · Dunst Technology Pvt Ltd</h3>
-            <span class="subtle">Dec 2017 – Mar 2018</span>
+            <h3><span class="role">Android Application Developer</span> · <span class="company">Dunst Technology Pvt Ltd</span></h3>
+            <span class="job-dates">Dec 2017 – Mar 2018</span>
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Developed Android mobile features for Wanderlust and SIFF.</li>
-            <li>Worked on VR/travel content, multimedia experiences, event discovery, schedules, and ticket-related flows.</li>
+            <li>Developed Android features for Wanderlust and SIFF, including VR travel content, multimedia experiences, event schedules, and ticket-related flows.</li>
           </ul>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>R&amp;D Engineer · Plurebus Technology</h3>
-            <span class="subtle">Sep 2016 – Sep 2017</span>
+            <h3><span class="role">R&amp;D Engineer</span> · <span class="company">Plurebus Technology</span></h3>
+            <span class="job-dates">Sep 2016 – Sep 2017</span>
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Contributed to Android application development for an entertainment platform focused on movie discovery and user engagement.</li>
-            <li>Worked on app features, API integration, and mobile delivery.</li>
+            <li>Built Android features and API integrations for an entertainment platform focused on movie discovery and user engagement.</li>
           </ul>
         </article>
       </section>
 
       <section>
-        <h2>Projects</h2>
+        <h2>Featured Projects</h2>
         <ul>
-          <li><strong>SpaceBasic - Hostel Management App:</strong> New React Native Android/iOS app for student housing and hostel operations.</li>
-          <li><strong>LVX &amp; LVXQ:</strong> LetsVenture investor platform and portfolio app across React Native and Capacitor.</li>
-          <li><strong>WildTrails - Recent Sightings:</strong> Android app for wildlife discovery, media workflows, and trip planning.</li>
-          <li><strong>Wanderlust &amp; SIFF:</strong> Android apps for VR travel experiences and film festival schedules and ticket flows.</li>
+          <li><strong>SpaceBasic — Hostel Management App:</strong> New React Native Android and iOS app for student housing and hostel operations.</li>
+          <li><strong>LVX &amp; LVXQ:</strong> LetsVenture investor platform and portfolio apps built with React Native and Capacitor.</li>
+          <li><strong>WildTrails — Recent Sightings:</strong> Android app for wildlife discovery, media workflows, and trip planning.</li>
+          <li><strong>Wanderlust &amp; SIFF:</strong> Android apps for VR travel experiences and film-festival schedules and ticketing.</li>
           <li><strong>Plurebus:</strong> Android entertainment app for movie discovery and engagement.</li>
         </ul>
       </section>
 
-      <section class="grid">
-        <div>
-          <h2>Core Skills</h2>
-          <p class="pill-list">
-            React Native, Expo, TypeScript, JavaScript, Android, iOS, React Navigation, Redux Toolkit, React Query, Firebase, Auth0, AWS Cognito, Sentry, PostHog, Cashfree, Razorpay, Push Notifications, Deep Linking, App Store Releases, Play Store Releases, CI/CD
-          </p>
-        </div>
+      <section>
+        <h2>Core Skills</h2>
+        <dl class="skills">
+          <dt>Cross-Platform Mobile</dt>
+          <dd>React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor</dd>
 
-        <div>
-          <h2>Education</h2>
-          <p><strong>Master of Computer Applications (MCA)</strong></p>
-          <p class="subtle">National Institute of Technology, Durgapur · 2013 – 2016</p>
-          <br />
-          <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
-          <p class="subtle">Saraswati College of Computer Science, Chhatarpur · 2009 – 2012</p>
+          <dt>Native Platform Integration</dt>
+          <dd>Android and iOS build/signing, Xcode, Android Studio, native modules and bridge integration, permissions, deep linking</dd>
+
+          <dt>Backend &amp; Cloud Services</dt>
+          <dd>Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch</dd>
+
+          <dt>Payments</dt>
+          <dd>Cashfree, Razorpay</dd>
+
+          <dt>Release &amp; DevOps</dt>
+          <dd>Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows, push notifications, deep linking</dd>
+
+          <dt>AI-Assisted Development</dt>
+          <dd>GitHub Copilot, Claude, OpenAI Codex, Google Gemini</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-item">
+          <div class="deg">Master of Computer Applications (MCA)</div>
+          <div class="meta">National Institute of Technology, Durgapur · 2013 – 2016</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="meta">Saraswati College of Computer Science, Chhatarpur · 2009 – 2012</div>
         </div>
       </section>
     </main>
