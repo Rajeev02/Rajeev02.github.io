@@ -57,11 +57,11 @@ Sep 2016 – Sep 2017 · Bengaluru
 
 ## Core Skills
 
-React Native, Expo, TypeScript, JavaScript, Android, iOS, React Navigation, Redux Toolkit, React Query, Firebase, Auth0, AWS Cognito, Sentry, PostHog, Cashfree, Razorpay, Push Notifications, Deep Linking, App Store Releases, Play Store Releases, CI/CD
+React Native, Expo, TypeScript, JavaScript, Android, iOS, React Navigation, Redux Toolkit, React Query, Firebase, Auth0, AWS Cognito, Sentry, PostHog, Cashfree, Razorpay, Push Notifications, Deep Linking, App Store Releases, Play Store Releases, CI/CD Pipeline
 
 ## AI-Assisted Engineering
 
-GitHub Copilot, Claude, Codex, Gemini, ChatGPT
+GitHub Copilot, Claude, Codex, Gemini
 
 ## Education
 

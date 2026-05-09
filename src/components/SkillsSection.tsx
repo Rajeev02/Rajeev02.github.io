@@ -24,12 +24,17 @@ const skillCategories = [
   {
     title: "Payments & Delivery",
     icon: Cog,
-    skills: ["Cashfree", "Razorpay", "CI/CD", "EAS", "App Store Releases", "Play Store Releases"]
+    skills: ["Cashfree", "Razorpay", "CI/CD Pipeline", "EAS", "App Store Releases", "Play Store Releases"]
   },
   {
     title: "Testing & Engineering",
     icon: Sparkles,
     skills: ["Jest", "React Native Testing Library", "Detox", "Git", "Agile", "Cross-functional Collaboration"]
+  },
+  {
+    title: "AI-Assisted Engineering",
+    icon: Sparkles,
+    skills: ["GitHub Copilot", "Claude", "Codex", "Gemini"]
   }
 ];
 
