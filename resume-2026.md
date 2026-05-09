@@ -59,6 +59,10 @@ Sep 2016 – Sep 2017 · Bengaluru
 
 React Native, Expo, TypeScript, JavaScript, Android, iOS, React Navigation, Redux Toolkit, React Query, Firebase, Auth0, AWS Cognito, Sentry, PostHog, Cashfree, Razorpay, Push Notifications, Deep Linking, App Store Releases, Play Store Releases, CI/CD
 
+## AI-Assisted Engineering
+
+GitHub Copilot, Claude, Codex, Gemini, ChatGPT
+
 ## Education
 
 **Master of Computer Applications (MCA)**  
