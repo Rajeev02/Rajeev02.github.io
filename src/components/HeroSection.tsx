@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Linkedin, Github, ExternalLink, Download, Twitter, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Github, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -24,11 +24,11 @@ const HeroSection = () => {
           
           {/* Title */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-3 sm:mb-4 animate-fade-up opacity-0 delay-200">
-            Senior Mobile Application Developer
+            Senior React Native Developer
           </p>
           
           <p className="text-sm sm:text-base md:text-lg text-primary font-medium mb-6 sm:mb-8 animate-fade-up opacity-0 delay-300 px-2">
-            React Native (iOS & Android) · Android · Fintech · LetsVenture
+            Android & iOS · Fintech · Student Housing · Mobile Architecture
           </p>
           
           {/* Contact info */}
@@ -85,21 +85,9 @@ const HeroSection = () => {
               </a>
             </Button>
             <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-              <a href="https://x.com/Rajeev_Joshi91" target="_blank" rel="noopener noreferrer">
-                <Twitter className="w-4 h-4" />
-                <span className="hidden sm:inline">X</span>
-              </a>
-            </Button>
-            <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base hidden md:inline-flex">
-              <a href="https://www.facebook.com/RajeevJoshi05" target="_blank" rel="noopener noreferrer">
-                <Facebook className="w-4 h-4" />
-                <span className="hidden lg:inline">Facebook</span>
-              </a>
-            </Button>
-            <Button size="default" variant="outline" asChild className="gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-              <a href="https://rajeev02.github.io" target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4" />
-                <span className="hidden sm:inline">Portfolio</span>
+              <a href="/resume-2026.html" target="_blank" rel="noopener noreferrer">
+                <Download className="w-4 h-4" />
+                <span className="hidden sm:inline">Resume</span>
               </a>
             </Button>
           </div>

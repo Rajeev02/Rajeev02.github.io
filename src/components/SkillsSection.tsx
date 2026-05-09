@@ -4,32 +4,32 @@ const skillCategories = [
   {
     title: "Mobile Platforms",
     icon: Smartphone,
-    skills: ["React Native", "Android (Java)", "Capacitor", "iOS Integration"]
+    skills: ["React Native", "Expo", "Android", "iOS", "TypeScript", "JavaScript"]
   },
   {
-    title: "Platform & Backend",
+    title: "Data & App Architecture",
     icon: Cloud,
-    skills: ["Firebase", "Auth0", "AWS Cognito", "REST APIs", "Real-time Chat", "Push Notifications"]
+    skills: ["Redux Toolkit", "React Query", "React Navigation", "MMKV", "WatermelonDB", "REST APIs"]
   },
   {
-    title: "Analytics & Growth",
+    title: "Platform & Security",
     icon: BarChart3,
-    skills: ["PostHog", "Sentry", "Branch (Deep Linking)", "Crash Monitoring", "Performance Monitoring"]
+    skills: ["Firebase", "Auth0", "AWS Cognito", "Push Notifications", "Deep Linking", "Expo Secure Store"]
   },
   {
-    title: "Payments",
+    title: "Observability & Performance",
     icon: CreditCard,
-    skills: ["Cashfree", "Razorpay"]
+    skills: ["Sentry", "PostHog", "FlashList", "Reanimated", "Performance Optimisation", "Crash Monitoring"]
   },
   {
-    title: "Architecture & Delivery",
+    title: "Payments & Delivery",
     icon: Cog,
-    skills: ["MVVM", "Secure Architecture", "CI/CD", "App Store Releases", "Play Store Releases", "Agile"]
+    skills: ["Cashfree", "Razorpay", "CI/CD", "EAS", "App Store Releases", "Play Store Releases"]
   },
   {
-    title: "AI-Assisted Engineering",
+    title: "Testing & Engineering",
     icon: Sparkles,
-    skills: ["ChatGPT", "GitHub Copilot", "Claude", "Google Gemini", "Perplexity"]
+    skills: ["Jest", "React Native Testing Library", "Detox", "Git", "Agile", "Cross-functional Collaboration"]
   }
 ];
 

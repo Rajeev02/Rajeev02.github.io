@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ExternalLink, Linkedin, Github, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Social links with Lucide icons and brand colors
@@ -16,15 +16,10 @@ const socialLinks = [
     color: "text-foreground"
   },
   {
-    name: "X",
-    url: "https://x.com/Rajeev_Joshi91",
-    iconImage: "/images/social/x.png"
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/RajeevJoshi05",
-    icon: Facebook,
-    color: "text-[#1877F2]"
+    name: "Resume",
+    url: "/resume-2026.html",
+    icon: Download,
+    color: "text-primary"
   }
 ];
 
@@ -91,15 +86,7 @@ const ContactSection = () => {
                   className="p-2 sm:p-3 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors group"
                   title={social.name}
                 >
-                  {social.icon ? (
-                    <social.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${social.color}`} />
-                  ) : (
-                    <img 
-                      src={social.iconImage} 
-                      alt={social.name}
-                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain dark:invert"
-                    />
-                  )}
+                  <social.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${social.color}`} />
                 </a>
               ))}
             </div>
@@ -113,9 +100,9 @@ const ContactSection = () => {
                 </a>
               </Button>
               <Button size="default" variant="outline" asChild className="w-full xs:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-                <a href="https://rajeev02.github.io" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" />
-                  View Portfolio
+                <a href="/resume-2026.html" target="_blank" rel="noopener noreferrer">
+                  <Download className="w-4 h-4" />
+                  View Resume
                 </a>
               </Button>
             </div>

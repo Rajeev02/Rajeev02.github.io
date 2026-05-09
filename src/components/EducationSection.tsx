@@ -10,11 +10,6 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Saraswati College of Computer Science, Chhatarpur",
     period: "2009 - 2012"
-  },
-  {
-    degree: "12th Standard",
-    institution: "School for Excellence, Chhatarpur",
-    period: "2009"
   }
 ];
 

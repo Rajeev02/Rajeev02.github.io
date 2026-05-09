@@ -10,30 +10,30 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Calibri', 'Arial', sans-serif;
+            font-family: Calibri, Arial, sans-serif;
             line-height: 1.4;
             color: #333;
             background: #f5f5f5;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 850px;
             margin: 0 auto;
             background: white;
-            padding: 25px 35px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 28px 36px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             padding-bottom: 10px;
             border-bottom: 3px solid #2c3e50;
         }
-        
+
         .header h1 {
             font-size: 28px;
             color: #2c3e50;
@@ -41,29 +41,29 @@
             font-weight: 700;
             letter-spacing: 1px;
         }
-        
+
         .header .title {
             font-size: 12px;
             color: #555;
             font-weight: 600;
             margin-bottom: 8px;
         }
-        
+
         .header .contact {
             font-size: 10px;
             color: #444;
             line-height: 1.6;
         }
-        
+
         .header .contact a {
             color: #1a5276;
             text-decoration: none;
         }
-        
+
         .section {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        
+
         .section-title {
             font-size: 14px;
             font-weight: 700;
@@ -74,128 +74,122 @@
             margin-bottom: 6px;
             letter-spacing: 0.5px;
         }
-        
+
         .summary {
             font-size: 11px;
             text-align: justify;
             color: #444;
             line-height: 1.5;
         }
-        
+
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2px;
+            gap: 3px;
             font-size: 10px;
         }
-        
+
         .skill-item {
             display: flex;
         }
-        
+
         .skill-label {
             font-weight: 700;
             color: #2c3e50;
-            min-width: 150px;
+            min-width: 160px;
         }
-        
+
         .skill-value {
             color: #333;
         }
-        
+
         .experience-item {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        
+
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 2px;
+            gap: 12px;
         }
-        
+
         .job-title {
             font-size: 11px;
             font-weight: 700;
             color: #2c3e50;
         }
-        
+
         .company {
             font-size: 10px;
             color: #333;
             font-weight: 600;
         }
-        
+
         .duration {
             font-size: 10px;
             color: #444;
             font-style: italic;
+            white-space: nowrap;
         }
-        
+
         .products {
             font-size: 9px;
             color: #555;
             font-style: italic;
             margin-bottom: 4px;
         }
-        
+
         .experience-item ul {
             margin-left: 15px;
             margin-top: 3px;
         }
-        
+
         .experience-item li {
             font-size: 10px;
             color: #333;
             margin-bottom: 2px;
             line-height: 1.4;
         }
-        
+
         .projects-grid {
             display: grid;
             gap: 4px;
         }
-        
+
         .project-item {
             margin-bottom: 3px;
         }
-        
+
         .project-title {
             font-size: 10px;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 1px;
         }
-        
+
         .project-desc {
             font-size: 10px;
             color: #333;
             line-height: 1.4;
         }
-        
-        .subsection-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #34495e;
-            margin-top: 6px;
-            margin-bottom: 4px;
-        }
-        
+
         .education-item {
             margin-bottom: 4px;
         }
-        
+
         .degree {
             font-size: 11px;
             font-weight: 700;
             color: #2c3e50;
         }
-        
+
         .institution {
             font-size: 10px;
             color: #333;
         }
-        
+
         .button-container {
             position: fixed;
             top: 20px;
@@ -203,9 +197,10 @@
             display: flex;
             gap: 10px;
         }
-        
-        .download-btn {
-            background: #2980b9;
+
+        .download-btn,
+        .copy-btn,
+        .doc-btn {
             color: white;
             padding: 12px 24px;
             border: none;
@@ -213,52 +208,38 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
         }
-        
+
+        .download-btn {
+            background: #2980b9;
+        }
+
         .download-btn:hover {
             background: #2c3e50;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .copy-btn {
             background: #27ae60;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
         }
-        
+
         .copy-btn:hover {
             background: #229954;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .doc-btn {
             background: #8e44ad;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
         }
-        
+
         .doc-btn:hover {
             background: #732d91;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .instructions {
@@ -271,7 +252,7 @@
             padding: 15px;
             max-width: 300px;
             font-size: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .instructions h3 {
@@ -288,17 +269,20 @@
         .instructions li {
             margin-bottom: 5px;
         }
-        
+
         @media print {
             body {
                 background: white;
                 padding: 0;
             }
+
             .container {
                 box-shadow: none;
-                padding: 40px;
+                padding: 36px;
             }
-            .button-container, .instructions {
+
+            .button-container,
+            .instructions {
                 display: none;
             }
         }
@@ -307,6 +291,15 @@
             .instructions {
                 position: static;
                 margin: 20px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .duration {
+                white-space: normal;
             }
         }
     </style>
@@ -319,23 +312,23 @@
     </div>
 
     <div class="instructions">
-        <h3>📥 Download Instructions:</h3>
+        <h3>Download Instructions</h3>
         <ol>
-            <li>Click "Print to PDF" button</li>
-            <li>Select "Save as PDF" in printer options</li>
-            <li>Click Save</li>
+            <li>Click "Print to PDF"</li>
+            <li>Select "Save as PDF"</li>
+            <li>Save the file</li>
         </ol>
-        <p style="margin-top: 10px;"><strong>OR</strong> click "Copy Text" to copy resume content</p>
+        <p style="margin-top: 10px;"><strong>Or</strong> use "Copy Text" to copy the resume content.</p>
     </div>
-    
+
     <div class="container" id="resume">
         <div class="header">
             <h1>RAJEEV KUMAR JOSHI</h1>
-            <div class="title">Senior Mobile App Engineer | React Native, Android & iOS | Fintech Platforms</div>
+            <div class="title">Senior React Native Developer | Android & iOS | Fintech, Student Housing, Mobile Architecture</div>
             <div class="contact">
                 Bengaluru, India | +91 8792169096 | rajeevjoshi91@gmail.com<br>
-                <a href="https://www.linkedin.com/in/rajeev-joshi/">LinkedIn</a> | 
-                <a href="https://github.com/Rajeev02">GitHub</a> | 
+                <a href="https://www.linkedin.com/in/rajeev-joshi/">LinkedIn</a> |
+                <a href="https://github.com/Rajeev02">GitHub</a> |
                 <a href="https://rajeev02.github.io/">Portfolio</a>
             </div>
         </div>
@@ -343,7 +336,7 @@
         <div class="section">
             <div class="section-title">Professional Summary</div>
             <div class="summary">
-                Senior Mobile Application Engineer with <strong>9+ years of experience</strong> building secure, scalable, high-traffic iOS and Android applications using React Native, Android (Java), and Capacitor. Currently leading mobile development at <strong>LetsVenture</strong>, India's leading startup investment platform, with full ownership of <strong>LVX and LVXQ</strong>—large-scale fintech apps serving thousands of investors and founders. Specialized in authentication, payments, analytics, real-time systems, deep linking, and production-grade mobile architecture. Successfully delivered <strong>7 Android and 4 iOS applications</strong> across fintech, travel, and entertainment domains with complete ownership of Play Store and App Store releases.
+                Senior React Native Developer with <strong>9+ years of experience</strong> building secure, scalable Android and iOS mobile applications across fintech, student housing, travel, and consumer platforms. Strong experience in <strong>React Native, Expo, TypeScript, Android, React Navigation, Redux Toolkit, React Query, Firebase, authentication, payments, push notifications, analytics, and production releases</strong>. Previously led mobile delivery for investor-facing platforms at <strong>LetsVenture</strong> and more recently worked on a new React Native app at <strong>SpaceBasic</strong> focused on modernising the hostel and student housing mobile experience.
             </div>
         </div>
 
@@ -351,53 +344,66 @@
             <div class="section-title">Technical Skills</div>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <div class="skill-label">Mobile Development:</div>
-                    <div class="skill-value">React Native, Android (Java), Capacitor, iOS Integration</div>
+                    <div class="skill-label">Mobile Platforms:</div>
+                    <div class="skill-value">React Native, Expo, Android, iOS, TypeScript, JavaScript</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-label">Backend & Integration:</div>
-                    <div class="skill-value">Firebase, Auth0, AWS Cognito, REST APIs, Real-time Chat, Push Notifications</div>
+                    <div class="skill-label">State & App Data:</div>
+                    <div class="skill-value">Redux Toolkit, React Query, React Navigation, MMKV, WatermelonDB</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-label">Analytics & Monitoring:</div>
-                    <div class="skill-value">PostHog, Sentry, Branch (Deep Linking), Crash & Performance Monitoring</div>
+                    <div class="skill-label">Platform & Security:</div>
+                    <div class="skill-value">Firebase, Auth0, AWS Cognito, REST APIs, Push Notifications, Deep Linking, Expo Secure Store</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-label">Payments:</div>
-                    <div class="skill-value">Cashfree, Razorpay</div>
+                    <div class="skill-label">Observability:</div>
+                    <div class="skill-value">Sentry, PostHog, Crash Monitoring, Performance Optimisation</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-label">Architecture & DevOps:</div>
-                    <div class="skill-value">MVVM, Secure Mobile Architecture, CI/CD Pipelines, Git, GitHub, Agile</div>
+                    <div class="skill-label">Payments & Delivery:</div>
+                    <div class="skill-value">Cashfree, Razorpay, CI/CD, EAS, App Store Releases, Play Store Releases</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-label">AI Tools:</div>
-                    <div class="skill-value">ChatGPT, GitHub Copilot, Claude, Google Gemini, Perplexity</div>
+                    <div class="skill-label">Testing & Tools:</div>
+                    <div class="skill-value">Jest, React Native Testing Library, Detox, Git, Android Studio, Xcode</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
             <div class="section-title">Professional Experience</div>
-            
+
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
-                        <div class="job-title">Senior Mobile App Engineer</div>
+                        <div class="job-title">Lead Mobile Engineer</div>
+                        <div class="company">SpaceBasic | Bengaluru</div>
+                    </div>
+                    <div class="duration">Feb 2026 - May 2026</div>
+                </div>
+                <div class="products">Project: Student Housing & Hostel Management App</div>
+                <ul>
+                    <li>Worked on development of a new React Native mobile app for Android and iOS for a hostel and student housing management platform.</li>
+                    <li>Contributed to mobile architecture, feature delivery, and modernisation of the existing app experience.</li>
+                    <li>Supported workflows across housing operations, student-facing experiences, and release readiness.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior React Native Developer</div>
                         <div class="company">LetsVenture Technologies | Bengaluru</div>
                     </div>
-                    <div class="duration">Sept 2019 – Present</div>
+                    <div class="duration">Sep 2019 - Feb 2026</div>
                 </div>
-                <div class="products">Products: LVX, LVXQ, Scalix, LVX (Capacitor)</div>
+                <div class="products">Products: LVX, LVXQ, Scalix</div>
                 <ul>
-                    <li>Technical owner of LetsVenture's fintech investor mobile platforms serving thousands of active users</li>
-                    <li>Led end-to-end development of <strong>LVX</strong> (flagship investment app) and <strong>LVXQ</strong> (Capacitor-based investor portfolio app)</li>
-                    <li>Architected and implemented secure authentication systems, investor workflows, payment integrations, real-time chat, push notifications, and analytics infrastructure</li>
-                    <li>Successfully migrated large-scale React Native codebase to Capacitor, achieving significant improvements in stability, performance, and scalability</li>
-                    <li>Integrated critical third-party services: Auth0, AWS Cognito, Firebase, PostHog, Sentry, Branch, Cashfree, and Razorpay</li>
-                    <li>Owned complete Play Store and App Store release cycles, including crash monitoring, performance optimization, and production stability</li>
-                    <li>Implemented real-time data flows and analytics dashboards to drive investor engagement and platform growth</li>
-                    <li>Collaborated cross-functionally with Product, Backend, QA, and Design teams to deliver high-quality mobile experiences</li>
+                    <li>Led development of investor-facing mobile applications across React Native, Android, and Capacitor.</li>
+                    <li>Built secure authentication, payments, analytics, push notifications, deep linking, and release workflows across Android and iOS.</li>
+                    <li>Owned mobile delivery for key products including <strong>LVX</strong>, <strong>LVXQ</strong>, and <strong>Scalix</strong>.</li>
+                    <li>Integrated Auth0, AWS Cognito, Firebase, PostHog, Sentry, Branch, Cashfree, and Razorpay.</li>
+                    <li>Took ownership of Play Store and App Store releases, hotfixes, crash monitoring, and production stability.</li>
                 </ul>
             </div>
 
@@ -407,90 +413,69 @@
                         <div class="job-title">Software Engineer (Android)</div>
                         <div class="company">WildTrails India | Bengaluru</div>
                     </div>
-                    <div class="duration">Mar 2018 – Sept 2019</div>
+                    <div class="duration">Mar 2018 - Sep 2019</div>
                 </div>
                 <div class="products">Products: WildTrails App, Wildlife LiveUpdates</div>
                 <ul>
-                    <li>Built <strong>WildTrails</strong>, a comprehensive wildlife tourism platform featuring bookings, interactive maps, guided tours, and media galleries</li>
-                    <li>Developed <strong>Wildlife LiveUpdates</strong> app delivering real-time wildlife sighting feeds, trip planning tools, and curated image galleries</li>
-                    <li>Optimized app performance and UX for low-network, field-usage environments typical of wildlife reserves</li>
-                    <li>Implemented location-based services and offline-first architecture for remote area accessibility</li>
+                    <li>Built Android app features for wildlife sighting discovery, trip planning, and media-driven user journeys.</li>
+                    <li>Implemented API integrations and production workflows for travel and wildlife users.</li>
+                    <li>Optimised app usability and performance for low-network field environments.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
-                        <div class="job-title">Android Developer</div>
-                        <div class="company">Dunst Technologies | Bengaluru</div>
+                        <div class="job-title">Android Application Developer</div>
+                        <div class="company">Dunst Technology Pvt Ltd | Bengaluru</div>
                     </div>
-                    <div class="duration">Dec 2017 – Mar 2018</div>
+                    <div class="duration">Dec 2017 - Mar 2018</div>
                 </div>
-                <div class="products">Products: Wanderlust, SIFF</div>
+                <div class="products">Projects: Wanderlust & SIFF</div>
                 <ul>
-                    <li>Built <strong>Wanderlust</strong>, a VR-based travel application featuring 360° immersive views and map-based navigation</li>
-                    <li>Developed <strong>SIFF</strong> (film festival app) with integrated ticketing, event scheduling, and multimedia content delivery</li>
-                    <li>Implemented complex UI components and optimized performance for VR rendering and media playback</li>
+                    <li>Developed Android mobile features for two applications: Wanderlust, a VR-based travel experience app, and SIFF, a film festival app for schedules, ticket-related flows, and media content.</li>
+                    <li>Contributed to feature development, multimedia experiences, and mobile app delivery.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
-                        <div class="job-title">Junior R&D Engineer</div>
-                        <div class="company">Plurebus Technologies | Bengaluru</div>
+                        <div class="job-title">R&amp;D Engineer</div>
+                        <div class="company">Plurebus Technology | Bengaluru</div>
                     </div>
-                    <div class="duration">Sept 2016 – Sept 2017</div>
+                    <div class="duration">Sep 2016 - Sep 2017</div>
                 </div>
-                <div class="products">Product: Plurebus Entertainment App</div>
+                <div class="products">Project: Plurebus (Android App)</div>
                 <ul>
-                    <li>Developed production entertainment and movie discovery platform from ground up</li>
-                    <li>Implemented Firebase backend integration, REST API consumption, efficient image loading, and media playback features</li>
-                    <li>Contributed to architecture decisions and established coding standards for the mobile team</li>
+                    <li>Contributed to Android application development for an entertainment platform focused on movie discovery, content browsing, and user engagement.</li>
+                    <li>Worked on app features, API integration, and mobile delivery.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
             <div class="section-title">Key Projects</div>
-            
-            <div class="subsection-title">Primary Applications (Production Scale)</div>
             <div class="projects-grid">
                 <div class="project-item">
-                    <div class="project-title">LVX – LetsVenture Core Investment Platform</div>
-                    <div class="project-desc">Comprehensive investor platform with onboarding, startup discovery, deal tracking, real-time chat, payment processing, and advanced analytics</div>
+                    <div class="project-title">SpaceBasic - Hostel Management App</div>
+                    <div class="project-desc">New React Native Android and iOS app for student housing and hostel operations.</div>
                 </div>
                 <div class="project-item">
-                    <div class="project-title">LVXQ – Investor Portfolio & Engagement App</div>
-                    <div class="project-desc">Secure authentication, portfolio tracking, startup insights, deep linking, and engagement analytics built with Capacitor</div>
+                    <div class="project-title">LVX & LVXQ</div>
+                    <div class="project-desc">LetsVenture investor platform and portfolio app across React Native and Capacitor with authentication, payments, analytics, and release ownership.</div>
                 </div>
                 <div class="project-item">
-                    <div class="project-title">WildTrails – Wildlife Tourism App</div>
-                    <div class="project-desc">Booking engine, interactive maps, wildlife sighting reports, and media galleries for wildlife enthusiasts</div>
+                    <div class="project-title">WildTrails - Recent Sightings</div>
+                    <div class="project-desc">Android app for wildlife discovery, media workflows, and trip planning.</div>
                 </div>
                 <div class="project-item">
-                    <div class="project-title">Plurebus – Entertainment Discovery App</div>
-                    <div class="project-desc">Movie discovery platform with theater listings, media content, and Firebase-powered backend</div>
-                </div>
-            </div>
-
-            <div class="subsection-title">Supporting Projects</div>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <div class="project-title">Scalix (LetsVenture)</div>
-                    <div class="project-desc">Founder growth and community engagement platform</div>
+                    <div class="project-title">Wanderlust & SIFF</div>
+                    <div class="project-desc">Android apps for VR travel experiences and film festival schedules and ticket-related flows.</div>
                 </div>
                 <div class="project-item">
-                    <div class="project-title">Wanderlust</div>
-                    <div class="project-desc">VR-powered travel experiences with immersive 360° content</div>
-                </div>
-                <div class="project-item">
-                    <div class="project-title">SIFF</div>
-                    <div class="project-desc">Film festival ticketing, scheduling, and event management</div>
-                </div>
-                <div class="project-item">
-                    <div class="project-title">Wildlife LiveUpdates</div>
-                    <div class="project-desc">Real-time wildlife sighting feeds and trip planning</div>
+                    <div class="project-title">Plurebus (Android App)</div>
+                    <div class="project-desc">Android entertainment app for movie discovery and engagement.</div>
                 </div>
             </div>
         </div>
@@ -545,12 +530,11 @@
                     li { font-size: 10px; color: #555; margin-bottom: 3px; }
                     .project-title { font-size: 10px; font-weight: bold; color: #2c3e50; }
                     .project-desc { font-size: 10px; color: #555; }
-                    .subsection-title { font-size: 11px; font-weight: bold; color: #34495e; margin-top: 8px; }
                     .degree { font-size: 11px; font-weight: bold; color: #2c3e50; }
                     .institution { font-size: 10px; color: #555; }
                 </style>
             `;
-            
+
             const html = `
                 <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
                 <head>
@@ -558,48 +542,29 @@
                     <title>Rajeev Kumar Joshi - Resume</title>
                     ${styles}
                 </head>
-                <body>
-                    ${resumeElement.innerHTML}
-                </body>
+                <body>${resumeElement.innerHTML}</body>
                 </html>
             `;
-            
-            const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'Rajeev_Kumar_Joshi_Resume.doc';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-            
-            const btn = document.querySelector('.doc-btn');
-            const originalText = btn.textContent;
-            btn.textContent = '✓ Downloaded!';
-            btn.style.background = '#732d91';
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '#8e44ad';
-            }, 2000);
+
+            const blob = new Blob(['\ufeff', html], {
+                type: 'application/msword'
+            });
+
+            const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+            const downloadLink = document.createElement("a");
+            document.body.appendChild(downloadLink);
+            downloadLink.href = url;
+            downloadLink.download = 'Rajeev_Kumar_Joshi_Resume.doc';
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
         }
 
         function copyResume() {
-            const resumeElement = document.getElementById('resume');
-            const text = resumeElement.innerText;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Copied!';
-                btn.style.background = '#229954';
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '#27ae60';
-                }, 2000);
-            }).catch(err => {
-                alert('Failed to copy. Please try selecting and copying manually.');
+            const resumeText = document.getElementById('resume').innerText;
+            navigator.clipboard.writeText(resumeText).then(function() {
+                alert('Resume text copied to clipboard.');
+            }, function() {
+                alert('Failed to copy resume text.');
             });
         }
     </script>
