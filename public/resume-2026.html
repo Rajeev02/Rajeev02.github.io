@@ -10,10 +10,10 @@
       :root {
         color-scheme: light;
         --text: #0b1220;
-        --muted: #54607a;
-        --soft: #6b7790;
-        --border: #e4e8ef;
-        --rule: #eef1f6;
+        --muted: #2f3a52;
+        --soft: #475067;
+        --border: #d8dde5;
+        --rule: #e4e8ef;
         --accent: #1d4ed8;
         --accent-soft: #eef2ff;
         --bg: #f5f7fb;
@@ -107,25 +107,16 @@
         gap: 22px 32px;
       }
 
-      .skill-group { margin-bottom: 10px; }
-      .skill-group:last-child { margin-bottom: 0; }
-      .skill-label {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 4px;
+      .skills {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        row-gap: 6px;
+        column-gap: 18px;
+        font-size: 13.5px;
       }
-      .chips { display: flex; flex-wrap: wrap; gap: 5px; }
-      .chip {
-        background: var(--chip-bg);
-        color: var(--chip-text);
-        font-size: 11.5px;
-        padding: 3px 9px;
-        border-radius: 999px;
-        font-weight: 500;
-        white-space: nowrap;
-      }
-      .chip-accent { background: var(--accent-soft); color: var(--accent); }
+      .skills dt { font-weight: 600; color: var(--text); }
+      .skills dd { margin: 0; color: #1f2937; }
 
       .edu-item + .edu-item { margin-top: 8px; }
       .edu-item .deg { font-weight: 600; font-size: 13.5px; }
@@ -144,15 +135,17 @@
         h1 { font-size: 22px; }
         h2 { margin: 14px 0 8px; }
         h3 { font-size: 13px; }
-        .chip { background: #fff; border: 1px solid #cbd5e1; }
-        .chip-accent { border-color: #93c5fd; color: var(--accent); }
         a { color: inherit; text-decoration: none; }
+        .skills { grid-template-columns: 170px 1fr; row-gap: 4px; font-size: 11px; }
       }
 
       @media (max-width: 720px) {
         .page { margin: 0; border: 0; border-radius: 0; padding: 24px; }
         .grid { grid-template-columns: 1fr; }
         .job-head { flex-direction: column; gap: 2px; }
+        .skills { grid-template-columns: 1fr; row-gap: 2px; }
+        .skills dt { margin-top: 8px; }
+        .skills dt:first-child { margin-top: 0; }
       }
     </style>
   </head>
@@ -253,69 +246,25 @@
 
       <section>
         <h2>Core Skills</h2>
-        <div class="skill-group">
-          <div class="skill-label">Cross-Platform Mobile</div>
-          <div class="chips">
-            <span class="chip">React Native</span>
-            <span class="chip">Expo</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">React Navigation</span>
-            <span class="chip">Redux Toolkit</span>
-            <span class="chip">React Query</span>
-            <span class="chip">Capacitor</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Native Platform Integration</div>
-          <div class="chips">
-            <span class="chip">Android &amp; iOS build/signing</span>
-            <span class="chip">Xcode</span>
-            <span class="chip">Android Studio</span>
-            <span class="chip">Native modules &amp; bridge</span>
-            <span class="chip">Permissions</span>
-            <span class="chip">Deep linking</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Backend &amp; Cloud Services</div>
-          <div class="chips">
-            <span class="chip">Firebase</span>
-            <span class="chip">Auth0</span>
-            <span class="chip">AWS Cognito</span>
-            <span class="chip">Sentry</span>
-            <span class="chip">PostHog</span>
-            <span class="chip">Branch</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Payments</div>
-          <div class="chips">
-            <span class="chip">Cashfree</span>
-            <span class="chip">Razorpay</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Release &amp; DevOps</div>
-          <div class="chips">
-            <span class="chip">Play Store releases</span>
-            <span class="chip">App Store releases</span>
-            <span class="chip">CI/CD pipelines</span>
-            <span class="chip">Crash monitoring</span>
-            <span class="chip">Hotfix workflows</span>
-            <span class="chip">Push notifications</span>
-            <span class="chip">Deep linking</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">AI-Assisted Development</div>
-          <div class="chips">
-            <span class="chip chip-accent">GitHub Copilot</span>
-            <span class="chip chip-accent">Claude</span>
-            <span class="chip chip-accent">OpenAI Codex</span>
-            <span class="chip chip-accent">Google Gemini</span>
-          </div>
-        </div>
+        <dl class="skills">
+          <dt>Cross-Platform Mobile</dt>
+          <dd>React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor</dd>
+
+          <dt>Native Platform Integration</dt>
+          <dd>Android and iOS build/signing, Xcode, Android Studio, native modules and bridge integration, permissions, deep linking</dd>
+
+          <dt>Backend &amp; Cloud Services</dt>
+          <dd>Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch</dd>
+
+          <dt>Payments</dt>
+          <dd>Cashfree, Razorpay</dd>
+
+          <dt>Release &amp; DevOps</dt>
+          <dd>Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows, push notifications, deep linking</dd>
+
+          <dt>AI-Assisted Development</dt>
+          <dd>GitHub Copilot, Claude, OpenAI Codex, Google Gemini</dd>
+        </dl>
       </section>
 
       <section>

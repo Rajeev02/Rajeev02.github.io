@@ -7,13 +7,13 @@ const experiences = [
     role: "Lead Mobile Engineer",
     location: "Bengaluru",
     period: "February 2026 – May 2026",
-    description: "Worked on a new React Native app for hostel and student housing operations.",
+    description: "Led development of a new React Native app for hostel and student housing operations.",
     products: ["Student Housing App"],
     highlights: [
-      "Worked on development of a new React Native mobile app for Android and iOS",
-      "Contributed to architecture, feature delivery, and modernisation of the existing hostel management experience",
-      "Supported workflows across student housing operations, communication, and mobile usability improvements",
-      "Used Expo-based tooling and modern React Native patterns for delivery readiness"
+      "Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform",
+      "Contributed to mobile architecture, navigation, and state-management foundations for long-term scale",
+      "Modernised legacy mobile flows for housing operations, student experiences, and release readiness",
+      "Used GitHub Copilot and Claude to speed up scaffolding, testing support, and repetitive engineering workflows"
     ]
   },
   {
@@ -25,12 +25,10 @@ const experiences = [
     description: "Led mobile delivery for LetsVenture's fintech and investor mobile ecosystem.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Led development of investor-facing mobile apps across React Native, Android, and Capacitor",
-      "Built secure onboarding, authentication, payments, push notifications, analytics, and deep linking workflows",
-      "Developed and launched mobile products including LVX, LVXQ, and Scalix",
-      "Migrated large React Native codebase to Capacitor, improving crash stability and long-term scalability",
-      "Integrated Auth0, AWS Cognito, Firebase, PostHog, Sentry, Branch, Cashfree, Razorpay",
-      "Took full ownership of Play Store & App Store releases, hotfixes, crash monitoring, and production stability",
+      "Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix, building cross-platform Android and iOS apps using React Native (with Capacitor for selected mobile product workflows)",
+      "Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase",
+      "Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users",
+      "Used GitHub Copilot, OpenAI Codex, and Gemini to speed up feature development, API integration support, and repetitive refactors across the React Native codebase",
       "Collaborated with cross-functional teams including Product Managers, Backend Engineers, QA, and Designers"
     ]
   },

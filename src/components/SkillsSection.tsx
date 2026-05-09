@@ -2,39 +2,34 @@ import { Smartphone, Cloud, BarChart3, CreditCard, Cog, Sparkles } from "lucide-
 
 const skillCategories = [
   {
-    title: "Mobile Platforms",
+    title: "Cross-Platform Mobile",
     icon: Smartphone,
-    skills: ["React Native", "Expo", "Android", "iOS", "TypeScript", "JavaScript"]
+    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
   },
   {
-    title: "Data & App Architecture",
-    icon: Cloud,
-    skills: ["Redux Toolkit", "React Query", "React Navigation", "MMKV", "WatermelonDB", "REST APIs"]
-  },
-  {
-    title: "Platform & Security",
-    icon: BarChart3,
-    skills: ["Firebase", "Auth0", "AWS Cognito", "Push Notifications", "Deep Linking", "Expo Secure Store"]
-  },
-  {
-    title: "Observability & Performance",
-    icon: CreditCard,
-    skills: ["Sentry", "PostHog", "FlashList", "Reanimated", "Performance Optimisation", "Crash Monitoring"]
-  },
-  {
-    title: "Payments & Delivery",
+    title: "Native Platform Integration",
     icon: Cog,
-    skills: ["Cashfree", "Razorpay", "CI/CD Pipeline", "EAS", "App Store Releases", "Play Store Releases"]
+    skills: ["Android & iOS build/signing", "Xcode", "Android Studio", "Native modules & bridge", "Permissions", "Deep linking"]
   },
   {
-    title: "Testing & Engineering",
-    icon: Sparkles,
-    skills: ["Jest", "React Native Testing Library", "Detox", "Git", "Agile", "Cross-functional Collaboration"]
+    title: "Backend & Cloud Services",
+    icon: Cloud,
+    skills: ["Firebase", "Auth0", "AWS Cognito", "Sentry", "PostHog", "Branch"]
   },
   {
-    title: "AI-Assisted Engineering",
+    title: "Payments",
+    icon: CreditCard,
+    skills: ["Cashfree", "Razorpay"]
+  },
+  {
+    title: "Release & DevOps",
+    icon: BarChart3,
+    skills: ["Play Store releases", "App Store releases", "CI/CD pipelines", "Crash monitoring", "Hotfix workflows", "Push notifications"]
+  },
+  {
+    title: "AI-Assisted Development",
     icon: Sparkles,
-    skills: ["GitHub Copilot", "Claude", "Codex", "Gemini"]
+    skills: ["GitHub Copilot", "Claude", "OpenAI Codex", "Google Gemini"]
   }
 ];
 
