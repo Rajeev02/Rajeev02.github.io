@@ -10,9 +10,9 @@
       :root {
         color-scheme: light;
         --text: #0b1220;
-        --body: #1f2937;
-        --muted: #2b3445;
-        --soft: #4a5568;
+        --body: #18202f;
+        --muted: #1f2937;
+        --soft: #303a4d;
         --border: #d6dbe4;
         --rule: #e6eaf1;
         --accent: #1d4ed8;
@@ -52,9 +52,9 @@
       }
       h2 {
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.16em;
         color: var(--accent);
         margin: 24px 0 10px;
       }
@@ -76,7 +76,7 @@
         color: var(--muted);
       }
 
-      .summary { margin-top: 14px; font-size: 14px; color: var(--body); }
+      .summary { margin-top: 14px; font-size: 14px; color: var(--text); font-weight: 500; }
 
       .job + .job { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); }
       .job-head {
@@ -96,21 +96,20 @@
         font-variant-numeric: tabular-nums;
       }
       ul { margin: 8px 0 0 18px; padding: 0; }
-      li { margin: 4px 0; color: var(--body); }
+      li { margin: 5px 0; color: var(--body); line-height: 1.55; }
+      .projects li strong { color: var(--text); }
 
-      .footer-grid {
+      .edu-grid {
         display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 24px 36px;
-        margin-top: 8px;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 36px;
       }
-      .footer-grid h2 { margin-top: 0; }
 
       .skills-flow {
         margin: 0;
         font-size: 13.5px;
         color: var(--body);
-        line-height: 1.7;
+        line-height: 1.8;
       }
       .skills-flow strong { color: var(--text); font-weight: 700; }
 
@@ -137,7 +136,7 @@
 
       @media (max-width: 720px) {
         .page { margin: 0; border: 0; border-radius: 0; padding: 24px; }
-        .footer-grid { grid-template-columns: 1fr; }
+        .edu-grid { grid-template-columns: 1fr; }
         .job-head { flex-direction: column; gap: 2px; }
       }
     </style>
@@ -156,9 +155,21 @@
           <span><a href="https://rajeev02.github.io/">Portfolio</a></span>
         </div>
         <p class="summary">
-          Senior React Native Developer with 9+ years of experience shipping cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. Strong in React Native, Expo, TypeScript, Redux Toolkit, React Query, payments, push notifications, deep linking, and end-to-end Play Store / App Store release ownership. Uses AI-assisted engineering tools such as GitHub Copilot, Claude, OpenAI Codex, and Google Gemini to accelerate development, refactoring, debugging, and review workflows.
+          Senior React Native Developer with 9+ years building cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. End-to-end ownership from architecture and delivery through Play Store / App Store releases and production stability. Augments day-to-day engineering with AI-assisted tooling (GitHub Copilot, Claude, OpenAI Codex, Google Gemini) for faster development, refactoring, and code review.
         </p>
       </header>
+
+      <section>
+        <h2>Core Skills</h2>
+        <p class="skills-flow">
+          <strong>Cross-Platform Mobile:</strong> React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor.<br />
+          <strong>Native Platform Integration:</strong> Android &amp; iOS build/signing, Xcode, Android Studio, native modules, bridge integration, permissions, deep linking, push notifications.<br />
+          <strong>Backend &amp; Cloud:</strong> Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch.<br />
+          <strong>Payments:</strong> Cashfree, Razorpay.<br />
+          <strong>Release &amp; DevOps:</strong> Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows.<br />
+          <strong>AI-Assisted Development:</strong> GitHub Copilot, Claude, OpenAI Codex, Google Gemini.
+        </p>
+      </section>
 
       <section>
         <h2>Experience</h2>
@@ -171,9 +182,8 @@
           <p class="job-meta">Bengaluru, India</p>
           <ul>
             <li>Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform.</li>
-            <li>Contributed to mobile architecture, navigation, and state-management foundations for long-term scale.</li>
+            <li>Established mobile architecture, navigation, and state-management foundations for long-term scale.</li>
             <li>Modernised legacy mobile flows for housing operations, student experiences, and release readiness.</li>
-            <li>Used GitHub Copilot and Claude to speed up scaffolding, testing support, and repetitive engineering workflows.</li>
           </ul>
         </article>
 
@@ -184,10 +194,10 @@
           </div>
           <p class="job-meta">Bengaluru, India</p>
           <ul>
-            <li>Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix, building cross-platform Android and iOS apps using React Native, and later working with Capacitor for selected mobile product workflows.</li>
-            <li>Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase.</li>
+            <li>Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix — building cross-platform Android and iOS apps with React Native.</li>
+            <li>Built secure authentication (Auth0, AWS Cognito), payments (Cashfree, Razorpay), push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase.</li>
             <li>Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users.</li>
-            <li>Used GitHub Copilot, OpenAI Codex, and Gemini to speed up feature development, API integration support, and repetitive refactors across the React Native codebase.</li>
+            <li>Adopted AI-assisted workflows (Copilot, Codex, Gemini) for faster feature delivery, API integration, and large-scale refactors.</li>
           </ul>
         </article>
 
@@ -228,30 +238,19 @@
 
       <section>
         <h2>Featured Projects</h2>
-        <ul>
-          <li><strong>SpaceBasic — Hostel Management App:</strong> New React Native Android and iOS app for student housing and hostel operations.</li>
-          <li><strong>LVX &amp; LVXQ:</strong> LetsVenture investor platform and portfolio apps built with React Native and Capacitor.</li>
-          <li><strong>WildTrails — Recent Sightings:</strong> Android app for wildlife discovery, media workflows, and trip planning.</li>
-          <li><strong>Wanderlust &amp; SIFF:</strong> Android apps for VR travel experiences and film-festival schedules and ticketing.</li>
-          <li><strong>Plurebus:</strong> Android entertainment app for movie discovery and engagement.</li>
+        <ul class="projects">
+          <li><strong>SpaceBasic — Student Housing App:</strong> greenfield React Native (Android + iOS) build for hostel and housing operations; owned mobile architecture, navigation, and state foundations.</li>
+          <li><strong>LVX &amp; LVXQ (LetsVenture):</strong> investor-facing fintech platforms used for deal flow and portfolio tracking; cross-platform Android &amp; iOS with secure auth, KYC-grade flows, payments, and high release cadence.</li>
+          <li><strong>Scalix:</strong> investor portfolio and analytics product within the LetsVenture ecosystem; React Native with Sentry and PostHog for production observability.</li>
+          <li><strong>WildTrails — Recent Sightings:</strong> Android app for wildlife discovery and trip planning, optimised for low-network safari environments.</li>
+          <li><strong>Wanderlust &amp; SIFF:</strong> Android apps covering VR travel content and a film-festival schedule + ticketing experience.</li>
+          <li><strong>Plurebus:</strong> Android entertainment app for movie discovery and user engagement.</li>
         </ul>
       </section>
 
-      <div class="footer-grid">
-        <section>
-          <h2>Core Skills</h2>
-          <p class="skills-flow">
-            <strong>Cross-Platform Mobile:</strong> React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor.<br />
-            <strong>Native Platform Integration:</strong> Android and iOS build/signing, Xcode, Android Studio, native modules and bridge integration, permissions, deep linking.<br />
-            <strong>Backend &amp; Cloud:</strong> Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch.<br />
-            <strong>Payments:</strong> Cashfree, Razorpay.<br />
-            <strong>Release &amp; DevOps:</strong> Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows, push notifications, deep linking.<br />
-            <strong>AI-Assisted Development:</strong> GitHub Copilot, Claude, OpenAI Codex, Google Gemini.
-          </p>
-        </section>
-
-        <section>
-          <h2>Education</h2>
+      <section>
+        <h2>Education</h2>
+        <div class="edu-grid">
           <div class="edu-item">
             <div class="deg">Master of Computer Applications (MCA)</div>
             <div class="meta">National Institute of Technology, Durgapur · 2013 – 2016</div>
@@ -260,8 +259,8 @@
             <div class="deg">Bachelor of Computer Applications (BCA)</div>
             <div class="meta">Saraswati College of Computer Science, Chhatarpur · 2009 – 2012</div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

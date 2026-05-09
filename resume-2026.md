@@ -7,7 +7,16 @@ Bengaluru, India · +91 8792169096 · rajeevjoshi91@gmail.com
 
 ## Summary
 
-Senior React Native Developer with 9+ years of experience shipping cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. Strong in React Native, Expo, TypeScript, Redux Toolkit, React Query, payments, push notifications, deep linking, and end-to-end Play Store / App Store release ownership. Uses AI-assisted engineering tools such as GitHub Copilot, Claude, OpenAI Codex, and Google Gemini to accelerate development, refactoring, debugging, and review workflows.
+Senior React Native Developer with 9+ years building cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. End-to-end ownership from architecture and delivery through Play Store / App Store releases and production stability. Augments day-to-day engineering with AI-assisted tooling (GitHub Copilot, Claude, OpenAI Codex, Google Gemini) for faster development, refactoring, and code review.
+
+## Core Skills
+
+- **Cross-Platform Mobile:** React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor
+- **Native Platform Integration:** Android & iOS build/signing, Xcode, Android Studio, native modules, bridge integration, permissions, deep linking, push notifications
+- **Backend & Cloud:** Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch
+- **Payments:** Cashfree, Razorpay
+- **Release & DevOps:** Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows
+- **AI-Assisted Development:** GitHub Copilot, Claude, OpenAI Codex, Google Gemini
 
 ## Experience
 
@@ -15,17 +24,16 @@ Senior React Native Developer with 9+ years of experience shipping cross-platfor
 Feb 2026 – May 2026 · Bengaluru, India
 
 - Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform.
-- Contributed to mobile architecture, navigation, and state-management foundations for long-term scale.
+- Established mobile architecture, navigation, and state-management foundations for long-term scale.
 - Modernised legacy mobile flows for housing operations, student experiences, and release readiness.
-- Used GitHub Copilot and Claude to speed up scaffolding, testing support, and repetitive engineering workflows.
 
 ### Senior React Native Developer · LetsVenture Technologies
 Sep 2019 – Feb 2026 · Bengaluru, India
 
-- Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix, building cross-platform Android and iOS apps using React Native, and later working with Capacitor for selected mobile product workflows.
-- Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase.
+- Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix — building cross-platform Android and iOS apps with React Native.
+- Built secure authentication (Auth0, AWS Cognito), payments (Cashfree, Razorpay), push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase.
 - Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users.
-- Used GitHub Copilot, OpenAI Codex, and Gemini to speed up feature development, API integration support, and repetitive refactors across the React Native codebase.
+- Adopted AI-assisted workflows (Copilot, Codex, Gemini) for faster feature delivery, API integration, and large-scale refactors.
 
 ### Software Engineer (Android) · WildTrails India
 Mar 2018 – Sep 2019 · Bengaluru, India
@@ -45,20 +53,12 @@ Sep 2016 – Sep 2017 · Bengaluru, India
 
 ## Featured Projects
 
-- **SpaceBasic — Hostel Management App:** New React Native Android and iOS app for student housing and hostel operations.
-- **LVX & LVXQ:** LetsVenture investor platform and portfolio apps built with React Native and Capacitor.
-- **WildTrails — Recent Sightings:** Android app for wildlife discovery, media workflows, and trip planning.
-- **Wanderlust & SIFF:** Android apps for VR travel experiences and film-festival schedules and ticketing.
-- **Plurebus:** Android entertainment app for movie discovery and engagement.
-
-## Core Skills
-
-- **Cross-Platform Mobile:** React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor
-- **Native Platform Integration:** Android and iOS build/signing, Xcode, Android Studio, native modules and bridge integration, permissions, deep linking
-- **Backend & Cloud Services:** Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch
-- **Payments:** Cashfree, Razorpay
-- **Release & DevOps:** Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows, push notifications, deep linking
-- **AI-Assisted Development:** GitHub Copilot, Claude, OpenAI Codex, Google Gemini
+- **SpaceBasic — Student Housing App:** greenfield React Native (Android + iOS) build for hostel and housing operations; owned mobile architecture, navigation, and state foundations.
+- **LVX & LVXQ (LetsVenture):** investor-facing fintech platforms used for deal flow and portfolio tracking; cross-platform Android & iOS with secure auth, KYC-grade flows, payments, and high release cadence.
+- **Scalix:** investor portfolio and analytics product within the LetsVenture ecosystem; React Native with Sentry and PostHog for production observability.
+- **WildTrails — Recent Sightings:** Android app for wildlife discovery and trip planning, optimised for low-network safari environments.
+- **Wanderlust & SIFF:** Android apps covering VR travel content and a film-festival schedule + ticketing experience.
+- **Plurebus:** Android entertainment app for movie discovery and user engagement.
 
 ## Education
 

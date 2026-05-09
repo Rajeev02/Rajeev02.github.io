@@ -11,9 +11,8 @@ const experiences = [
     products: ["Student Housing App"],
     highlights: [
       "Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform",
-      "Contributed to mobile architecture, navigation, and state-management foundations for long-term scale",
-      "Modernised legacy mobile flows for housing operations, student experiences, and release readiness",
-      "Used GitHub Copilot and Claude to speed up scaffolding, testing support, and repetitive engineering workflows"
+      "Established mobile architecture, navigation, and state-management foundations for long-term scale",
+      "Modernised legacy mobile flows for housing operations, student experiences, and release readiness"
     ]
   },
   {
@@ -25,10 +24,10 @@ const experiences = [
     description: "Led mobile delivery for LetsVenture's fintech and investor mobile ecosystem.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix, building cross-platform Android and iOS apps using React Native (with Capacitor for selected mobile product workflows)",
+      "Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix — building cross-platform Android and iOS apps with React Native",
       "Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase",
       "Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users",
-      "Used GitHub Copilot, OpenAI Codex, and Gemini to speed up feature development, API integration support, and repetitive refactors across the React Native codebase",
+      "Adopted AI-assisted workflows (Copilot, Codex, Gemini) for faster feature delivery, API integration, and large-scale refactors",
       "Collaborated with cross-functional teams including Product Managers, Backend Engineers, QA, and Designers"
     ]
   },
