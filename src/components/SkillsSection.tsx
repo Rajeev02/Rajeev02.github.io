@@ -4,12 +4,17 @@ const skillCategories = [
   {
     title: "Cross-Platform Mobile",
     icon: Smartphone,
-    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
+    skills: ["React Native (Android + iOS)", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
   },
   {
-    title: "Native Platform Integration",
+    title: "Native Android (Legacy)",
+    icon: Smartphone,
+    skills: ["Java", "Android SDK", "Activities & Fragments", "REST integrations", "Play Store releases", "~4 yrs (last hands-on 2020)"]
+  },
+  {
+    title: "Platform Integration & Releases",
     icon: Cog,
-    skills: ["Android & iOS build/signing", "Xcode", "Android Studio", "Native modules & bridge", "Permissions", "Deep linking"]
+    skills: ["Android & iOS build/signing", "Xcode", "Android Studio", "Native modules via RN bridge", "Permissions", "Deep linking", "Play Store + App Store releases", "No native iOS / Swift"]
   },
   {
     title: "Backend & Cloud Services",

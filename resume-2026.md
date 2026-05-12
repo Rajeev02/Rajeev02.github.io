@@ -7,12 +7,13 @@ Bengaluru, India · +91 8792169096 · rajeevjoshi91@gmail.com
 
 ## Summary
 
-Senior React Native Developer with 9+ years building cross-platform Android and iOS apps across fintech, student housing, travel, and consumer products. End-to-end ownership from architecture and delivery through Play Store / App Store releases and production stability. Augments day-to-day engineering with AI-assisted tooling (GitHub Copilot, Claude, OpenAI Codex, Google Gemini) for faster development, refactoring, and code review.
+Senior React Native Developer with 9+ years of mobile experience, shipping cross-platform apps to both the Google Play Store and the Apple App Store across fintech, student housing, travel, and consumer products. Started with ~4 years of native Android development in Java (last hands-on in 2020) before moving to React Native for end-to-end Android + iOS delivery; comfortable with the iOS build, signing, and release pipeline via React Native, while native iOS (Swift/Objective-C) development is not part of my hands-on experience. Augments day-to-day engineering with AI-assisted tooling (GitHub Copilot, Claude, OpenAI Codex, Google Gemini) for faster development, refactoring, and code review.
 
 ## Core Skills
 
-- **Cross-Platform Mobile:** React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor
-- **Native Platform Integration:** Android & iOS build/signing, Xcode, Android Studio, native modules, bridge integration, permissions, deep linking, push notifications
+- **Cross-Platform Mobile:** React Native (Android + iOS), Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor
+- **Native Android (Legacy):** ~4 years building Android apps in Java (last hands-on in 2020) — Android SDK, Activities/Fragments, REST integrations, Play Store releases
+- **Platform Integration & Releases:** Android & iOS build/signing, Xcode, Android Studio, native modules and bridge integration via React Native, permissions, deep linking, push notifications; Play Store and App Store releases on both platforms (no hands-on native iOS / Swift / Objective-C development)
 - **Backend & Cloud:** Firebase, Auth0, AWS Cognito, Sentry, PostHog, Branch
 - **Payments:** Cashfree, Razorpay
 - **Release & DevOps:** Play Store and App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows
