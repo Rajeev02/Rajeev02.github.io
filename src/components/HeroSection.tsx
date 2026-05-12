@@ -28,7 +28,7 @@ const HeroSection = () => {
           </p>
           
           <p className="text-sm sm:text-base md:text-lg text-primary font-medium mb-6 sm:mb-8 animate-fade-up opacity-0 delay-300 px-2">
-            Cross-platform Android & iOS · Fintech · Student Housing · AI-Assisted Development
+            Mobile Engineer · Cross-platform Android &amp; iOS · Fintech · Student Housing
           </p>
           
           {/* Contact info */}

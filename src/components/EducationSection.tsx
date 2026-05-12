@@ -4,16 +4,16 @@ const education = [
   {
     degree: "Master of Computer Applications (MCA)",
     institution: "National Institute of Technology (NIT), Durgapur",
-    period: "2013 - 2016"
+    period: ""
   },
   {
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Saraswati College of Computer Science, Chhatarpur",
-    period: "2009 - 2012"
+    period: ""
   }
 ];
 
-const languages = ["English", "Hindi"];
+const languages = ["English (Fluent)", "Hindi (Native)"];
 
 const EducationSection = () => {
   return (
@@ -41,10 +41,12 @@ const EducationSection = () => {
                   <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-primary/30">
                     <h4 className="font-semibold text-sm sm:text-lg">{edu.degree}</h4>
                     <p className="text-muted-foreground text-xs sm:text-base">{edu.institution}</p>
-                    <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground mt-1">
-                      <Calendar className="w-3 h-3" />
-                      {edu.period}
-                    </div>
+                    {edu.period && (
+                      <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground mt-1">
+                        <Calendar className="w-3 h-3" />
+                        {edu.period}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

@@ -7,12 +7,13 @@ const experiences = [
     role: "Lead Mobile Engineer",
     location: "Bengaluru",
     period: "February 2026 – May 2026",
-    description: "Led development of a new React Native app for hostel and student housing operations.",
+    description: "Student Housing & Hostel Management Platform.",
     products: ["Student Housing App"],
     highlights: [
-      "Led development of a new React Native (Android + iOS) app for a hostel and student housing management platform",
-      "Established mobile architecture, navigation, and state-management foundations for long-term scale",
-      "Modernised legacy mobile flows for housing operations, student experiences, and release readiness"
+      "Joined as Lead Mobile Engineer to help establish a new React Native mobile foundation for a student housing and hostel management platform",
+      "Led development of cross-platform Android and iOS application flows using React Native",
+      "Contributed to mobile architecture, navigation systems, and scalable state-management foundations",
+      "Improved release readiness, development workflows, and modernised critical mobile experiences for operational teams and end users"
     ]
   },
   {
@@ -21,14 +22,14 @@ const experiences = [
     role: "Senior React Native Developer",
     location: "Bengaluru",
     period: "September 2019 – February 2026",
-    description: "Led mobile delivery for LetsVenture's fintech and investor mobile ecosystem.",
+    description: "Owned end-to-end mobile delivery for investor-facing fintech products.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Owned mobile delivery end-to-end for investor products LVX, LVXQ, and Scalix — building cross-platform Android and iOS apps with React Native",
-      "Built secure authentication using Auth0 and AWS Cognito, payments using Cashfree and Razorpay, push notifications, deep linking with Branch, analytics with PostHog, and crash monitoring with Sentry and Firebase",
-      "Drove Play Store and App Store releases, hotfixes, and production stability for high-trust fintech users",
-      "Adopted AI-assisted workflows (Copilot, Codex, Gemini) for faster feature delivery, API integration, and large-scale refactors",
-      "Collaborated with cross-functional teams including Product Managers, Backend Engineers, QA, and Designers"
+      "Owned end-to-end mobile delivery for investor-facing fintech products across Android and iOS platforms using React Native",
+      "Delivered secure authentication systems, payment integrations, analytics tracking, crash monitoring, and deep linking workflows for production-grade applications",
+      "Drove Play Store and App Store release cycles, production stability, hotfix management, and continuous feature delivery",
+      "Collaborated closely with backend, product, and design teams to deliver scalable and reliable user experiences",
+      "Improved engineering productivity through modern debugging, refactoring, and code review workflows"
     ]
   },
   {
@@ -37,41 +38,38 @@ const experiences = [
     role: "Software Engineer (Android)",
     location: "Bengaluru",
     period: "March 2018 – September 2019",
-    description: "Built wildlife tourism and real-time sightings applications.",
+    description: "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
-      "Built Android app features for wildlife sighting discovery, trip planning, and media-driven user journeys",
-      "Implemented API integrations and production app workflows for travel and wildlife users",
-      "Developed and launched 2 Android applications from scratch using Java",
-      "Optimized UX and performance for low-network field environments"
+      "Built Android application features for wildlife discovery, trip planning, and media-rich user experiences",
+      "Integrated REST APIs and optimised application performance for low-network safari and remote-field environments",
+      "Contributed to mobile stability improvements and user experience enhancements"
     ]
   },
   {
-    company: "Dunst Technologies",
+    company: "Dunst Technology Pvt Ltd",
     companyUrl: "https://www.linkedin.com/company/dunst-nolan-pvt-ltd/",
     role: "Android Application Developer",
     location: "Bengaluru",
     period: "December 2017 – March 2018",
-    description: "Developed VR travel and film festival applications.",
+    description: "Developed VR travel and film festival Android applications.",
     products: ["Wanderlust & SIFF"],
     highlights: [
-      "Built Android features for Wanderlust, a VR-based travel experience app with immersive 360-degree content",
-      "Built Android features for SIFF, a film festival app for schedules, ticket-related flows, and media content",
-      "Contributed to feature development, multimedia experiences, and mobile app delivery"
+      "Developed Android application features for VR travel experiences, multimedia content delivery, event schedules, and ticket-related workflows",
+      "Worked on performance optimisation and feature implementation for consumer-facing mobile applications"
     ]
   },
   {
-    company: "Plurebus Technologies",
+    company: "Plurebus Technology",
     companyUrl: "https://www.linkedin.com/company/plurebus/",
     role: "R&D Engineer",
     location: "Bengaluru",
     period: "September 2016 – September 2017",
-    description: "Built entertainment and media discovery platforms.",
-    products: ["Plurebus – Entertainment App"],
+    description: "Built entertainment platform Android features and integrations.",
+    products: ["Plurebus Android App"],
     highlights: [
-      "Contributed to Android application development for an entertainment platform focused on movie discovery and user engagement",
-      "Worked on app features, API integration, and mobile delivery",
-      "Developed and launched 1 Android application from scratch using Java"
+      "Built Android features and API integrations for an entertainment platform focused on movie discovery and user engagement",
+      "Contributed to application enhancements and mobile feature development initiatives"
     ]
   }
 ];

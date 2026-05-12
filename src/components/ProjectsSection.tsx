@@ -3,36 +3,36 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    name: "SpaceBasic - Hostel Management App",
+    name: "SpaceBasic — Student Housing Platform",
     subtitle: "Student Housing & Hostel Operations",
     period: "Feb 2026 - May 2026",
     tech: "React Native · Expo",
     teamSize: 6,
-    description: "Worked on a new React Native app to modernise the hostel and student housing mobile experience across Android and iOS.",
+    description: "Greenfield React Native Android & iOS application for hostel and housing operations with scalable mobile architecture foundations.",
     skills: ["React Native", "Expo", "TypeScript", "React Navigation", "Redux Toolkit", "React Query", "Sentry", "PostHog"],
     webUrl: "https://www.spacebasic.com/",
     icon: "/images/apps/spacebasic.png",
     featured: true
   },
   {
-    name: "LVX & LVXQ",
+    name: "LVX & LVXQ — LetsVenture",
     subtitle: "Investor Platform & Portfolio App",
     period: "Sep 2019 - Feb 2026",
     tech: "React Native · Capacitor",
     teamSize: 9,
-    description: "Led mobile development for LetsVenture’s investor platforms across React Native and Capacitor. Built secure onboarding, authentication, portfolio journeys, payments, push notifications, analytics, and Android/iOS release workflows.",
+    description: "Investor-facing fintech platforms supporting portfolio tracking, secure authentication, payments, analytics, and release management.",
     skills: ["React Native", "Capacitor", "TypeScript", "Firebase", "AWS Cognito", "Auth0", "Sentry", "PostHog", "Cashfree", "Razorpay"],
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
     featured: true
   },
   {
-    name: "WildTrails - Recent Sightings",
+    name: "WildTrails",
     subtitle: "Wildlife Discovery & Trip Planning",
     period: "Mar 2018 - Sep 2019",
     tech: "Android (Java)",
     teamSize: 6,
-    description: "Built Android app features for wildlife sighting discovery, trip planning, and media-driven user journeys. Focused on mobile usability, API integration, and production feature delivery for travel and wildlife users.",
+    description: "Android mobile application for wildlife discovery, trip planning, and low-network media workflows.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
     playStoreUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
@@ -44,17 +44,17 @@ const projects = [
     period: "Dec 2017 - Mar 2018",
     tech: "Android",
     teamSize: 3,
-    description: "Developed Android mobile features for two applications at Dunst Technology: Wanderlust, a VR-based travel experience app with immersive 360-degree content, and SIFF, a film festival application for schedules, ticket-related flows, and media content.",
+    description: "Android applications for VR travel experiences and film-festival schedules with multimedia and ticketing capabilities.",
     skills: ["Java", "Android Studio", "Android SDK", "REST APIs", "JSON", "Multimedia Integration", "Git"],
     featured: false
   },
   {
-    name: "Plurebus (Android App)",
+    name: "Plurebus",
     subtitle: "Entertainment App",
     period: "Sep 2016 - Sep 2017",
     tech: "Android (Java)",
     teamSize: 1,
-    description: "Contributed to Android application development for an entertainment platform focused on movie discovery, content browsing, and user engagement. Worked on app features, API integration, and mobile delivery.",
+    description: "Android entertainment platform for movie discovery and user engagement, built with Java and REST API integrations.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
     icon: "/images/apps/plurebus.png",
     featured: false

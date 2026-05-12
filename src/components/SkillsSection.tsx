@@ -2,39 +2,39 @@ import { Smartphone, Cloud, BarChart3, CreditCard, Cog, Sparkles } from "lucide-
 
 const skillCategories = [
   {
-    title: "Cross-Platform Mobile",
+    title: "Mobile Development",
     icon: Smartphone,
-    skills: ["React Native (Android + iOS)", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
+    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
   },
   {
-    title: "Native Android (Legacy)",
+    title: "Native Android Experience",
     icon: Smartphone,
-    skills: ["Java", "Android SDK", "Activities & Fragments", "REST integrations", "Play Store releases", "~4 yrs (last hands-on 2020)"]
+    skills: ["Java", "Android SDK", "Activities & Fragments", "REST API integration", "Play Store release management"]
   },
   {
-    title: "Platform Integration & Releases",
+    title: "Platform & Integrations",
     icon: Cog,
-    skills: ["Android & iOS build/signing", "Xcode", "Android Studio", "Native modules via RN bridge", "Permissions", "Deep linking", "Play Store + App Store releases", "No native iOS / Swift"]
+    skills: ["Android & iOS builds", "Xcode", "Android Studio", "Deep linking", "Push notifications", "Permissions", "Native module integration"]
   },
   {
     title: "Backend & Cloud Services",
     icon: Cloud,
-    skills: ["Firebase", "Auth0", "AWS Cognito", "Sentry", "PostHog", "Branch"]
+    skills: ["Firebase", "Auth0", "AWS Cognito", "Branch", "Sentry", "PostHog"]
   },
   {
-    title: "Payments",
+    title: "Payments & Security",
     icon: CreditCard,
-    skills: ["Cashfree", "Razorpay"]
+    skills: ["Cashfree", "Razorpay", "Secure authentication workflows"]
   },
   {
-    title: "Release & DevOps",
+    title: "Release Engineering",
     icon: BarChart3,
-    skills: ["Play Store releases", "App Store releases", "CI/CD pipelines", "Crash monitoring", "Hotfix workflows", "Push notifications"]
+    skills: ["Play Store releases", "App Store releases", "CI/CD pipelines", "Crash monitoring", "Hotfix workflows"]
   },
   {
-    title: "AI-Assisted Development",
+    title: "Engineering Productivity",
     icon: Sparkles,
-    skills: ["GitHub Copilot", "Claude", "OpenAI Codex", "Google Gemini"]
+    skills: ["AI-assisted debugging", "Refactoring workflows", "Code review automation", "Engineering productivity tooling"]
   }
 ];
 
