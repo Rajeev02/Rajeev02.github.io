@@ -438,5 +438,21 @@
         </p>
       </section>
     </main>
+    <script>
+      // Auto-trigger the browser print dialog when opened with ?print=1
+      // (lets the Download icon on the site act as a "Save as PDF" shortcut).
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          if (params.get("print") === "1") {
+            window.addEventListener("load", function () {
+              setTimeout(function () { window.print(); }, 350);
+            });
+          }
+        } catch (e) {
+          /* no-op */
+        }
+      })();
+    </script>
   </body>
 </html>

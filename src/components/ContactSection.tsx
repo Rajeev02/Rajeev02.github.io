@@ -16,8 +16,9 @@ const socialLinks = [
     color: "text-foreground"
   },
   {
-    name: "Resume",
-    url: "/resume-2026.html",
+    name: "Download Resume (PDF)",
+    // ?print=1 auto-opens the browser's Save as PDF dialog on the resume page
+    url: "/resume-2026.html?print=1",
     icon: Download,
     color: "text-primary"
   }
