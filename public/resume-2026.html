@@ -1,458 +1,589 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rajeev Kumar Joshi — Senior React Native Developer · Resume 2026</title>
-    <meta name="description" content="Resume of Rajeev Kumar Joshi, Senior React Native Developer and Mobile Engineer with 9+ years of cross-platform Android and iOS experience across fintech, student housing, travel, and consumer platforms." />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajeev Kumar Joshi - Resume</title>
     <style>
-      :root {
-        color-scheme: light;
-        --text: #0b1220;          /* near-black — name, headings */
-        --body: #1f2937;          /* gray-800 — body copy */
-        --muted: #374151;         /* gray-700 — subtitles, contact */
-        --soft: #4b5563;          /* gray-600 — dates, meta */
-        --border: #d1d5db;        /* gray-300 — card border */
-        --rule: #e5e7eb;          /* gray-200 — separators */
-        --accent: #2563eb;        /* blue-600 — section titles, links (React/mobile) */
-        --accent-deep: #1d4ed8;   /* blue-700 — hover */
-        --accent-soft: #dbeafe;   /* blue-100 — subtle highlight */
-        --android: #16a34a;       /* green-600 — Android accent */
-        --ios: #0ea5e9;           /* sky-500 — iOS accent */
-        --bg: #eef2f7;            /* cool gray page background */
-        --card: #ffffff;
-      }
-      * { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; }
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background:
-          radial-gradient(1100px 540px at 8% -10%, #dbeafe 0%, transparent 60%),
-          radial-gradient(900px 500px at 110% 0%, #e0f2fe 0%, transparent 55%),
-          var(--bg);
-        background-attachment: fixed;
-        color: var(--body);
-        line-height: 1.55;
-        font-size: 15.5px;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-      }
-      a { color: var(--accent); text-decoration: none; font-weight: 600; }
-      a:hover { color: var(--accent-deep); text-decoration: underline; }
-
-      .page {
-        position: relative;
-        max-width: 920px;
-        margin: 32px auto;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 52px 56px 48px;
-        box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
-        overflow: hidden;
-      }
-      .page::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 6px;
-        background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 50%, #16a34a 100%);
-      }
-
-      h1, h2, h3, h4, p { margin: 0; }
-      h1 {
-        font-size: 38px;
-        font-weight: 800;
-        letter-spacing: -0.022em;
-        color: var(--text);
-        line-height: 1.1;
-      }
-      h2 {
-        font-size: 13px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--accent);
-        margin: 28px 0 14px;
-        padding-bottom: 8px;
-        border-bottom: 2px solid var(--accent-soft);
-        position: relative;
-      }
-      h2::after {
-        content: "";
-        position: absolute;
-        left: 0; bottom: -2px;
-        width: 56px; height: 2px;
-        background: var(--accent);
-      }
-      h3 { font-size: 16.5px; font-weight: 700; color: var(--text); letter-spacing: -0.005em; }
-
-      .subtitle {
-        margin-top: 8px;
-        color: var(--accent);
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-      }
-
-      .topline {
-        margin-top: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px 16px;
-        font-size: 14px;
-        color: var(--muted);
-        font-weight: 500;
-      }
-
-      .summary {
-        margin-top: 18px;
-        font-size: 15px;
-        color: var(--text);
-        font-weight: 500;
-        line-height: 1.65;
-        padding: 14px 16px;
-        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-        border-left: 3px solid var(--accent);
-        border-radius: 0 8px 8px 0;
-      }
-
-      .job + .job { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule); }
-      .job-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .job-head .role { font-weight: 700; color: var(--text); }
-      .job-head .company { color: var(--accent); font-weight: 700; }
-      .job-meta { font-size: 13.5px; color: var(--soft); margin-top: 3px; font-weight: 500; }
-      .job-dates {
-        font-size: 13.5px;
-        color: var(--soft);
-        white-space: nowrap;
-        font-variant-numeric: tabular-nums;
-        font-weight: 600;
-        background: var(--accent-soft);
-        color: var(--accent-deep);
-        padding: 3px 10px;
-        border-radius: 999px;
-      }
-      ul { margin: 10px 0 0 20px; padding: 0; }
-      li { margin: 6px 0; color: var(--body); line-height: 1.6; }
-      li::marker { color: var(--accent); }
-      .projects li strong { color: var(--text); }
-
-      .edu-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px 36px;
-      }
-
-      .skills-flow {
-        margin: 0;
-        font-size: 14.5px;
-        color: var(--body);
-        line-height: 1.85;
-      }
-      .skills-flow strong { color: var(--text); font-weight: 700; }
-
-      .edu-item + .edu-item { margin-top: 10px; }
-      .edu-item .deg { font-weight: 700; font-size: 14.5px; color: var(--text); }
-      .edu-item .meta { color: var(--muted); font-size: 13px; margin-top: 2px; }
-
-      .page-break { display: none; }
-
-      @media print {
-        @page {
-          size: A4;
-          margin: 10mm 12mm;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        html, body { width: 210mm; }
+
         body {
-          background: #fff;
-          font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-          font-size: 8.8pt;
-          line-height: 1.38;
-          color: #1f2937;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+            font-family: Calibri, Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
         }
-        .page {
-          margin: 0 auto;
-          border: 0;
-          border-radius: 0;
-          padding: 0;
-          width: 100%;
-          max-width: 100%;
-          box-shadow: none;
-          overflow: visible;
-        }
-        .page::before { display: none; }
 
-        /* Compact single-page typographic hierarchy */
-        h1 {
-          font-size: 18pt;
-          line-height: 1.05;
-          font-weight: 800;
-          letter-spacing: -0.025em;
-          color: #0b1220;
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 28px 36px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        .subtitle {
-          font-size: 9.5pt;
-          margin-top: 2px;
-          font-weight: 600;
-          letter-spacing: 0.02em;
-          color: #2563eb;
-        }
-        .topline {
-          font-size: 8pt;
-          gap: 2px 12px;
-          margin-top: 4px;
-          color: #4b5563;
-          font-weight: 500;
-        }
-        .topline a { color: #2563eb; font-weight: 500; }
 
-        h2 {
-          font-size: 8.5pt;
-          margin: 9px 0 5px;
-          padding-bottom: 3px;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          font-weight: 800;
-          color: #2563eb;
-          border-bottom: 1px solid #cbd5e1;
+        .header {
+            text-align: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2c3e50;
         }
-        h2::after { width: 30px; height: 1.5px; bottom: -1px; background: #2563eb; }
-        h3 {
-          font-size: 9.5pt;
-          font-weight: 700;
-          color: #0b1220;
-          letter-spacing: -0.005em;
-        }
-        .job-head .role { color: #0b1220; font-weight: 700; }
-        .job-head .company { color: #2563eb; font-weight: 700; }
 
-        a { text-decoration: none; color: #2563eb; }
+        .header h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header .title {
+            font-size: 12px;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .contact {
+            font-size: 10px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .header .contact a {
+            color: #1a5276;
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
 
         .summary {
-          font-size: 8.8pt;
-          line-height: 1.45;
-          padding: 6px 10px;
-          margin-top: 8px;
-          border-left: 2px solid #2563eb;
-          background: #f8fafc;
-          border-radius: 0 3px 3px 0;
-          color: #1f2937;
-          font-weight: 400;
+            font-size: 11px;
+            text-align: justify;
+            color: #444;
+            line-height: 1.5;
         }
-        .skills-flow {
-          font-size: 8.5pt;
-          line-height: 1.55;
-          color: #1f2937;
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3px;
+            font-size: 10px;
         }
-        .skills-flow strong { color: #0b1220; font-weight: 700; }
 
-        .job + .job { margin-top: 6px; padding-top: 6px; border-top: 1px solid #e5e7eb; }
-        .job-meta { font-size: 7.8pt; color: #6b7280; margin-top: 1px; font-weight: 500; font-style: italic; }
-        .job-dates {
-          font-size: 8pt;
-          background: transparent;
-          color: #4b5563;
-          padding: 0;
-          border-radius: 0;
-          font-weight: 600;
-          font-variant-numeric: tabular-nums;
+        .skill-item {
+            display: flex;
         }
-        ul { margin: 3px 0 0 14px; }
-        li { margin: 1.5px 0; line-height: 1.4; color: #1f2937; }
-        li::marker { color: #2563eb; }
-        .projects li strong { color: #0b1220; }
 
-        .edu-grid { gap: 6px 28px; }
-        .edu-item .deg { font-size: 9pt; font-weight: 700; color: #0b1220; }
-        .edu-item .meta { font-size: 8pt; color: #4b5563; margin-top: 1px; }
-
-        /* Single-page layout — keep blocks together, no forced breaks */
-        .job, .edu-item { page-break-inside: avoid; }
-        h2, h3 { page-break-after: avoid; }
-        .page-break { display: none; }
-      }
-
-      /* Grayscale / monochrome printers — collapse all text to dark gray for legibility */
-      @media print and (monochrome) {
-        h1, h2, h3, h4, p, li, span, a, strong, .subtitle, .topline, .summary,
-        .job-head .role, .job-head .company, .job-meta, .job-dates,
-        .skills-flow, .skills-flow strong, .projects li, .projects li strong,
-        .edu-item .deg, .edu-item .meta, .topline a {
-          color: #111827 !important;
+        .skill-label {
+            font-weight: 700;
+            color: #2c3e50;
+            min-width: 160px;
         }
-        h2 { border-bottom-color: #6b7280 !important; }
-        h2::after { background: #111827 !important; }
-        li::marker { color: #111827 !important; }
-        .summary { border-left-color: #111827 !important; background: #fff !important; }
-      }
 
-      @media (max-width: 720px) {
-        body { font-size: 14.5px; }
-        .page { margin: 0; border: 0; border-radius: 0; padding: 28px 22px; }
-        h1 { font-size: 30px; }
-        .edu-grid { grid-template-columns: 1fr; }
-        .job-head { flex-direction: column; gap: 4px; align-items: flex-start; }
-      }
+        .skill-value {
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 12px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+            gap: 12px;
+        }
+
+        .job-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .company {
+            font-size: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .duration {
+            font-size: 10px;
+            color: #444;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .products {
+            font-size: 9px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .experience-item ul {
+            margin-left: 15px;
+            margin-top: 3px;
+        }
+
+        .experience-item li {
+            font-size: 10px;
+            color: #333;
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 4px;
+        }
+
+        .project-item {
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1px;
+        }
+
+        .project-desc {
+            font-size: 10px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .education-item {
+            margin-bottom: 4px;
+        }
+
+        .degree {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .institution {
+            font-size: 10px;
+            color: #333;
+        }
+
+        .button-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .download-btn,
+        .copy-btn,
+        .doc-btn {
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .download-btn {
+            background: #2980b9;
+        }
+
+        .download-btn:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .copy-btn {
+            background: #27ae60;
+        }
+
+        .copy-btn:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .doc-btn {
+            background: #8e44ad;
+        }
+
+        .doc-btn:hover {
+            background: #732d91;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .instructions {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            max-width: 300px;
+            font-size: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h3 {
+            margin-bottom: 8px;
+            color: #856404;
+            font-size: 14px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .instructions li {
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 36px;
+            }
+
+            .button-container,
+            .instructions {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .instructions {
+                position: static;
+                margin: 20px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .duration {
+                white-space: normal;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <main class="page">
-      <header>
-        <h1>Rajeev Kumar Joshi</h1>
-        <p class="subtitle">Senior React Native Developer · Mobile Engineer · Cross-platform Android &amp; iOS</p>
-        <div class="topline">
-          <span>Bengaluru, India</span>
-          <span><a href="tel:+918792169096">+91 8792169096</a></span>
-          <span><a href="mailto:rajeevjoshi91@gmail.com">rajeevjoshi91@gmail.com</a></span>
-          <span><a href="https://www.linkedin.com/in/rajeev-joshi/">LinkedIn</a></span>
-          <span><a href="https://github.com/Rajeev02">GitHub</a></span>
-          <span><a href="https://rajeev02.github.io/">Portfolio</a></span>
+</head>
+<body>
+    <div class="button-container">
+        <button class="download-btn" onclick="downloadPDF()">Print to PDF</button>
+        <button class="doc-btn" onclick="downloadWord()">Download Word</button>
+        <button class="copy-btn" onclick="copyResume()">Copy Text</button>
+    </div>
+
+    <div class="instructions">
+        <h3>Download Instructions</h3>
+        <ol>
+            <li>Click "Print to PDF"</li>
+            <li>Select "Save as PDF"</li>
+            <li>Save the file</li>
+        </ol>
+        <p style="margin-top: 10px;"><strong>Or</strong> use "Copy Text" to copy the resume content.</p>
+    </div>
+
+    <div class="container" id="resume">
+        <div class="header">
+            <h1>RAJEEV KUMAR JOSHI</h1>
+            <div class="title">Senior React Native Developer | Mobile Engineer | Cross-platform Android & iOS</div>
+            <div class="contact">
+                Bengaluru, India | +91 8792169096 | rajeevjoshi91@gmail.com<br>
+                <a href="https://www.linkedin.com/in/rajeev-joshi/">LinkedIn</a> |
+                <a href="https://github.com/Rajeev02">GitHub</a> |
+                <a href="https://rajeev02.github.io/">Portfolio</a>
+            </div>
         </div>
-        <p class="summary">
-          Senior React Native Developer with 9+ years of experience building and shipping scalable mobile applications across fintech, student housing, travel, and consumer platforms. Experienced in cross-platform Android and iOS development using React Native, Expo, TypeScript, Redux Toolkit, React Query, and modern mobile architecture practices. Strong background in production releases, authentication, payments, push notifications, deep linking, analytics, crash monitoring, CI/CD pipelines, and app lifecycle management. Earlier experience includes native Android development in Java before transitioning into end-to-end React Native mobile engineering and release ownership.
-        </p>
-      </header>
 
-      <section>
-        <h2>Technical Skills</h2>
-        <p class="skills-flow">
-          <strong>Mobile Development:</strong> React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor.<br />
-          <strong>Native Android Experience:</strong> Java, Android SDK, Activities &amp; Fragments, REST API integration, Play Store release management.<br />
-          <strong>Platform &amp; Integrations:</strong> Android &amp; iOS builds, Xcode, Android Studio, deep linking, push notifications, permissions, native module integration.<br />
-          <strong>Backend &amp; Cloud Services:</strong> Firebase, Auth0, AWS Cognito, Branch, Sentry, PostHog.<br />
-          <strong>Payments &amp; Security:</strong> Cashfree, Razorpay, secure authentication workflows.<br />
-          <strong>Release Engineering:</strong> Play Store &amp; App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows.<br />
-          <strong>Engineering Productivity:</strong> AI-assisted workflows for debugging, refactoring, code reviews, and engineering productivity.
-        </p>
-      </section>
-
-      <section>
-        <h2>Professional Experience</h2>
-
-        <article class="job">
-          <div class="job-head">
-            <h3><span class="role">Lead Mobile Engineer</span> · <span class="company">SpaceBasic</span></h3>
-            <span class="job-dates">Feb 2026 – May 2026</span>
-          </div>
-          <p class="job-meta">Bengaluru · Student Housing &amp; Hostel Management Platform</p>
-          <ul>
-            <li>Joined as Lead Mobile Engineer to help establish a new React Native mobile foundation for a student housing and hostel management platform.</li>
-            <li>Led development of cross-platform Android and iOS application flows using React Native.</li>
-            <li>Contributed to mobile architecture, navigation systems, and scalable state-management foundations.</li>
-            <li>Improved release readiness, development workflows, and modernised critical mobile experiences for operational teams and end users.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3><span class="role">Senior React Native Developer</span> · <span class="company">LetsVenture Technologies</span></h3>
-            <span class="job-dates">Sep 2019 – Feb 2026</span>
-          </div>
-          <p class="job-meta">Bengaluru · Products: LVX, LVXQ, Scalix</p>
-          <ul>
-            <li>Owned end-to-end mobile delivery for investor-facing fintech products across Android and iOS platforms using React Native.</li>
-            <li>Delivered secure authentication systems, payment integrations, analytics tracking, crash monitoring, and deep linking workflows for production-grade applications.</li>
-            <li>Drove Play Store and App Store release cycles, production stability, hotfix management, and continuous feature delivery.</li>
-            <li>Collaborated closely with backend, product, and design teams to deliver scalable and reliable user experiences.</li>
-            <li>Improved engineering productivity through modern debugging, refactoring, and code review workflows.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3><span class="role">Software Engineer (Android)</span> · <span class="company">WildTrails India</span></h3>
-            <span class="job-dates">Mar 2018 – Sep 2019</span>
-          </div>
-          <p class="job-meta">Bengaluru · WildTrails App, Wildlife LiveUpdates</p>
-          <ul>
-            <li>Built Android application features for wildlife discovery, trip planning, and media-rich user experiences.</li>
-            <li>Integrated REST APIs and optimised application performance for low-network safari and remote-field environments.</li>
-            <li>Contributed to mobile stability improvements and user experience enhancements.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3><span class="role">Android Application Developer</span> · <span class="company">Dunst Technology Pvt Ltd</span></h3>
-            <span class="job-dates">Dec 2017 – Mar 2018</span>
-          </div>
-          <p class="job-meta">Bengaluru · Wanderlust &amp; SIFF</p>
-          <ul>
-            <li>Developed Android application features for VR travel experiences, multimedia content delivery, event schedules, and ticket-related workflows.</li>
-            <li>Worked on performance optimisation and feature implementation for consumer-facing mobile applications.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3><span class="role">R&amp;D Engineer</span> · <span class="company">Plurebus Technology</span></h3>
-            <span class="job-dates">Sep 2016 – Sep 2017</span>
-          </div>
-          <p class="job-meta">Bengaluru · Plurebus Android App</p>
-          <ul>
-            <li>Built Android features and API integrations for an entertainment platform focused on movie discovery and user engagement.</li>
-            <li>Contributed to application enhancements and mobile feature development initiatives.</li>
-          </ul>
-        </article>
-      </section>
-
-      <section>
-        <h2>Featured Projects</h2>
-        <ul class="projects">
-          <li><strong>SpaceBasic — Student Housing Platform:</strong> Greenfield React Native Android &amp; iOS application for hostel and housing operations with scalable mobile architecture foundations.</li>
-          <li><strong>LVX &amp; LVXQ — LetsVenture:</strong> Investor-facing fintech platforms supporting portfolio tracking, secure authentication, payments, analytics, and release management.</li>
-          <li><strong>Scalix:</strong> Portfolio and analytics product within the LetsVenture ecosystem with production monitoring and observability workflows.</li>
-          <li><strong>WildTrails:</strong> Android mobile application for wildlife discovery, trip planning, and low-network media workflows.</li>
-          <li><strong>Wanderlust &amp; SIFF:</strong> Android applications for VR travel experiences and film-festival schedules with multimedia and ticketing capabilities.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Education</h2>
-        <div class="edu-grid">
-          <div class="edu-item">
-            <div class="deg">Master of Computer Applications (MCA)</div>
-            <div class="meta">National Institute of Technology (NIT), Durgapur</div>
-          </div>
-          <div class="edu-item">
-            <div class="deg">Bachelor of Computer Applications (BCA)</div>
-            <div class="meta">Saraswati College of Computer Science, Chhatarpur</div>
-          </div>
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <div class="summary">
+                Senior React Native Developer with <strong>9+ years</strong> of experience building and shipping scalable mobile applications across <strong>fintech, student housing, travel, and consumer platforms</strong>. Experienced in cross-platform Android and iOS development using React Native, Expo, TypeScript, Redux Toolkit, React Query, and modern mobile architecture practices. Strong background in production releases, authentication, payments, push notifications, deep linking, analytics, crash monitoring, CI/CD pipelines, and app lifecycle management. Earlier experience includes <strong>native Android development in Java</strong> before transitioning into end-to-end React Native mobile engineering and release ownership.
+            </div>
         </div>
-      </section>
 
-      <section>
-        <h2>Additional Information</h2>
-        <p class="skills-flow">
-          <strong>Languages:</strong> English (Fluent), Hindi (Native).
-        </p>
-      </section>
-    </main>
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-label">Mobile Development:</div>
+                    <div class="skill-value">React Native, Expo, TypeScript, JavaScript, React Navigation, Redux Toolkit, React Query, Capacitor</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Native Android Experience:</div>
+                    <div class="skill-value">Java, Android SDK, Activities &amp; Fragments, REST API integration, Play Store release management</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Platform &amp; Integrations:</div>
+                    <div class="skill-value">Android &amp; iOS builds, Xcode, Android Studio, deep linking, push notifications, permissions, native module integration</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Backend &amp; Cloud Services:</div>
+                    <div class="skill-value">Firebase, Auth0, AWS Cognito, Branch, Sentry, PostHog</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Payments &amp; Security:</div>
+                    <div class="skill-value">Cashfree, Razorpay, secure authentication workflows</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Release Engineering:</div>
+                    <div class="skill-value">Play Store &amp; App Store releases, CI/CD pipelines, crash monitoring, hotfix workflows</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label">Engineering Productivity:</div>
+                    <div class="skill-value">AI-assisted workflows for debugging, refactoring, code reviews, and engineering productivity</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Lead Mobile Engineer</div>
+                        <div class="company">SpaceBasic | Bengaluru</div>
+                    </div>
+                    <div class="duration">Feb 2026 - May 2026</div>
+                </div>
+                <div class="products">Project: Student Housing & Hostel Management Platform</div>
+                <ul>
+                    <li>Joined as Lead Mobile Engineer to help establish a new React Native mobile foundation for a student housing and hostel management platform.</li>
+                    <li>Led development of cross-platform Android and iOS application flows using React Native.</li>
+                    <li>Contributed to mobile architecture, navigation systems, and scalable state-management foundations.</li>
+                    <li>Improved release readiness, development workflows, and modernised critical mobile experiences for operational teams and end users.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior React Native Developer</div>
+                        <div class="company">LetsVenture Technologies | Bengaluru</div>
+                    </div>
+                    <div class="duration">Sep 2019 - Feb 2026</div>
+                </div>
+                <div class="products">Products: LVX, LVXQ, Scalix</div>
+                <ul>
+                    <li>Owned end-to-end mobile delivery for investor-facing fintech products across Android and iOS platforms using React Native.</li>
+                    <li>Delivered secure authentication systems, payment integrations, analytics tracking, crash monitoring, and deep linking workflows for production-grade applications.</li>
+                    <li>Drove Play Store and App Store release cycles, production stability, hotfix management, and continuous feature delivery.</li>
+                    <li>Collaborated closely with backend, product, and design teams to deliver scalable and reliable user experiences.</li>
+                    <li>Improved engineering productivity through modern debugging, refactoring, and code review workflows.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineer (Android)</div>
+                        <div class="company">WildTrails India | Bengaluru</div>
+                    </div>
+                    <div class="duration">Mar 2018 - Sep 2019</div>
+                </div>
+                <div class="products">Products: WildTrails App, Wildlife LiveUpdates</div>
+                <ul>
+                    <li>Built Android application features for wildlife discovery, trip planning, and media-rich user experiences.</li>
+                    <li>Integrated REST APIs and optimised application performance for low-network safari and remote-field environments.</li>
+                    <li>Contributed to mobile stability improvements and user experience enhancements.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Android Application Developer</div>
+                        <div class="company">Dunst Technology Pvt Ltd | Bengaluru</div>
+                    </div>
+                    <div class="duration">Dec 2017 - Mar 2018</div>
+                </div>
+                <div class="products">Projects: Wanderlust & SIFF</div>
+                <ul>
+                    <li>Developed Android application features for VR travel experiences, multimedia content delivery, event schedules, and ticket-related workflows.</li>
+                    <li>Worked on performance optimisation and feature implementation for consumer-facing mobile applications.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">R&amp;D Engineer</div>
+                        <div class="company">Plurebus Technology | Bengaluru</div>
+                    </div>
+                    <div class="duration">Sep 2016 - Sep 2017</div>
+                </div>
+                <div class="products">Project: Plurebus Android App</div>
+                <ul>
+                    <li>Built Android features and API integrations for an entertainment platform focused on movie discovery and user engagement.</li>
+                    <li>Contributed to application enhancements and mobile feature development initiatives.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Featured Projects</div>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-title">SpaceBasic — Student Housing Platform</div>
+                    <div class="project-desc">Greenfield React Native Android &amp; iOS application for hostel and housing operations with scalable mobile architecture foundations.</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">LVX &amp; LVXQ — LetsVenture</div>
+                    <div class="project-desc">Investor-facing fintech platforms supporting portfolio tracking, secure authentication, payments, analytics, and release management.</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Scalix</div>
+                    <div class="project-desc">Portfolio and analytics product within the LetsVenture ecosystem with production monitoring and observability workflows.</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">WildTrails</div>
+                    <div class="project-desc">Android mobile application for wildlife discovery, trip planning, and low-network media workflows.</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Wanderlust &amp; SIFF</div>
+                    <div class="project-desc">Android applications for VR travel experiences and film-festival schedules with multimedia and ticketing capabilities.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="education-item">
+                <div class="degree">Master of Computer Applications (MCA)</div>
+                <div class="institution">National Institute of Technology (NIT), Durgapur</div>
+            </div>
+            <div class="education-item">
+                <div class="degree">Bachelor of Computer Applications (BCA)</div>
+                <div class="institution">Saraswati College of Computer Science, Chhatarpur</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Additional Information</div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-label">Languages:</div>
+                    <div class="skill-value">English (Fluent), Hindi (Native)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-      // Auto-trigger the browser print dialog when opened with ?print=1
-      // (lets the Download icon on the site act as a "Save as PDF" shortcut).
-      (function () {
-        try {
-          var params = new URLSearchParams(window.location.search);
-          if (params.get("print") === "1") {
-            window.addEventListener("load", function () {
-              setTimeout(function () { window.print(); }, 350);
-            });
-          }
-        } catch (e) {
-          /* no-op */
+        function downloadPDF() {
+            window.print();
         }
-      })();
+
+        function downloadWord() {
+            const resumeElement = document.getElementById('resume');
+            const styles = `
+                <style>
+                    body { font-family: Calibri, Arial, sans-serif; line-height: 1.4; color: #333; }
+                    .header { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #2c3e50; }
+                    .header h1 { font-size: 24px; color: #2c3e50; margin-bottom: 5px; }
+                    .header .title { font-size: 12px; color: #555; margin-bottom: 8px; }
+                    .header .contact { font-size: 10px; color: #666; }
+                    .section { margin-bottom: 12px; }
+                    .section-title { font-size: 14px; font-weight: bold; color: #2c3e50; border-bottom: 1px solid #2c3e50; padding-bottom: 3px; margin-bottom: 8px; }
+                    .summary { font-size: 11px; color: #444; }
+                    .skill-item { font-size: 10px; margin-bottom: 3px; }
+                    .skill-label { font-weight: bold; color: #2c3e50; }
+                    .experience-item { margin-bottom: 12px; }
+                    .job-title { font-size: 11px; font-weight: bold; color: #2c3e50; }
+                    .company { font-size: 10px; color: #555; }
+                    .duration { font-size: 10px; color: #777; font-style: italic; }
+                    .products { font-size: 9px; color: #888; font-style: italic; }
+                    li { font-size: 10px; color: #555; margin-bottom: 3px; }
+                    .project-title { font-size: 10px; font-weight: bold; color: #2c3e50; }
+                    .project-desc { font-size: 10px; color: #555; }
+                    .degree { font-size: 11px; font-weight: bold; color: #2c3e50; }
+                    .institution { font-size: 10px; color: #555; }
+                </style>
+            `;
+
+            const html = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset="utf-8">
+                    <title>Rajeev Kumar Joshi - Resume</title>
+                    ${styles}
+                </head>
+                <body>${resumeElement.innerHTML}</body>
+                </html>
+            `;
+
+            const blob = new Blob(['\ufeff', html], {
+                type: 'application/msword'
+            });
+
+            const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+            const downloadLink = document.createElement("a");
+            document.body.appendChild(downloadLink);
+            downloadLink.href = url;
+            downloadLink.download = 'Rajeev_Kumar_Joshi_Resume.doc';
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function copyResume() {
+            const resumeText = document.getElementById('resume').innerText;
+            navigator.clipboard.writeText(resumeText).then(function() {
+                alert('Resume text copied to clipboard.');
+            }, function() {
+                alert('Failed to copy resume text.');
+            });
+        }
+
+        // Auto-trigger Save as PDF when opened with ?print=1
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('print') === '1') {
+                    window.addEventListener('load', function () {
+                        setTimeout(function () { window.print(); }, 350);
+                    });
+                }
+            } catch (e) { /* no-op */ }
+        })();
     </script>
-  </body>
+</body>
 </html>
