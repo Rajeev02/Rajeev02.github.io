@@ -1,15 +1,15 @@
-import { GraduationCap, Languages, Calendar } from "lucide-react";
+import { GraduationCap, Languages } from "lucide-react";
 
 const education = [
   {
     degree: "Master of Computer Applications (MCA)",
     institution: "National Institute of Technology (NIT), Durgapur",
-    period: ""
+    period: "2013 - 2016"
   },
   {
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Saraswati College of Computer Science, Chhatarpur",
-    period: ""
+    period: "2009 - 2012"
   }
 ];
 
@@ -42,10 +42,7 @@ const EducationSection = () => {
                     <h4 className="font-semibold text-sm sm:text-lg">{edu.degree}</h4>
                     <p className="text-muted-foreground text-xs sm:text-base">{edu.institution}</p>
                     {edu.period && (
-                      <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground mt-1">
-                        <Calendar className="w-3 h-3" />
-                        {edu.period}
-                      </div>
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{edu.period}</p>
                     )}
                   </div>
                 ))}
