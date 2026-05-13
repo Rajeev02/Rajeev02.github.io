@@ -6,7 +6,7 @@ const experiences = [
     companyUrl: "https://www.spacebasic.com/",
     role: "Lead Mobile Engineer",
     location: "Bengaluru",
-    period: "February 2026 – May 2026",
+    period: "16 Feb 2026 – 29 May 2026",
     description: "Student Housing & Hostel Management Platform.",
     products: ["Student Housing App"],
     highlights: [
@@ -21,7 +21,7 @@ const experiences = [
     companyUrl: "https://www.letsventure.com/",
     role: "Senior React Native Developer",
     location: "Bengaluru",
-    period: "September 2019 – February 2026",
+    period: "12 Sep 2019 – 12 Feb 2026",
     description: "Owned end-to-end mobile delivery for investor-facing fintech products.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
@@ -37,7 +37,7 @@ const experiences = [
     companyUrl: "https://packages.wildtrails.in/#parks/",
     role: "Software Engineer (Android)",
     location: "Bengaluru",
-    period: "March 2018 – September 2019",
+    period: "19 Mar 2018 – 11 Sep 2019",
     description: "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
@@ -51,7 +51,7 @@ const experiences = [
     companyUrl: "https://www.linkedin.com/company/dunst-nolan-pvt-ltd/",
     role: "Android Application Developer",
     location: "Bengaluru",
-    period: "December 2017 – March 2018",
+    period: "14 Dec 2017 – 14 Mar 2018",
     description: "Developed VR travel and film festival Android applications.",
     products: ["Wanderlust & SIFF"],
     highlights: [
@@ -64,7 +64,7 @@ const experiences = [
     companyUrl: "https://www.linkedin.com/company/plurebus/",
     role: "R&D Engineer",
     location: "Bengaluru",
-    period: "September 2016 – September 2017",
+    period: "27 Sep 2016 – 29 Sep 2017",
     description: "Built entertainment platform Android features and integrations.",
     products: ["Plurebus Android App"],
     highlights: [
