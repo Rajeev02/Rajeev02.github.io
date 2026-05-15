@@ -18,10 +18,10 @@ const projects = [
     name: "LVX & LVXQ — LetsVenture",
     subtitle: "Investor Platform & Portfolio App",
     period: "Sep 2019 - Feb 2026",
-    tech: "React Native · Capacitor",
+    tech: "React Native",
     teamSize: 9,
     description: "Investor-facing fintech platforms supporting portfolio tracking, secure authentication, payments, analytics, and release management.",
-    skills: ["React Native", "Capacitor", "TypeScript", "Firebase", "AWS Cognito", "Auth0", "Sentry", "PostHog", "Cashfree", "Razorpay"],
+    skills: ["React Native", "TypeScript", "Firebase", "AWS Cognito", "Auth0", "Sentry", "PostHog", "Cashfree", "Razorpay"],
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
     featured: true

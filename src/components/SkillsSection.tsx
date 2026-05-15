@@ -4,7 +4,7 @@ const skillCategories = [
   {
     title: "Mobile Development",
     icon: Smartphone,
-    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query", "Capacitor"]
+    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query"]
   },
   {
     title: "Native Android Experience",
