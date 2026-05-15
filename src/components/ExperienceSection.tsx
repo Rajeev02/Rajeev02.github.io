@@ -26,8 +26,8 @@ const experiences = [
     description: "Owned end-to-end mobile delivery for investor-facing fintech products and founder-focused mobile workflows.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Joined as an Android Developer; transitioned into React Native within the first year and operated as Senior React Native Developer for the remainder of the tenure, owning cross-platform Android & iOS delivery as an individual contributor",
-      "Independently handled end-to-end mobile delivery for investor-facing fintech products (LVX, LVXQ) and Scalix by LetsVenture — feature design, implementation, code reviews, releases, and post-release stability",
+      "Joined as an Android Developer; transitioned into React Native within the first year and worked primarily as a Senior React Native Developer for the remainder of the tenure, owning cross-platform Android & iOS delivery as an individual contributor",
+      "Owned end-to-end mobile delivery for investor-facing fintech products (LVX, LVXQ) and Scalix for LetsVenture — feature design, implementation, code reviews, releases, and post-release stability",
       "Built and maintained authentication (Auth0, AWS Cognito), payments (Razorpay, Cashfree), analytics (PostHog), crash monitoring (Sentry), deep linking (Branch), and push notifications (Firebase)",
       "Managed Play Store and App Store release cycles end-to-end — versioning, signing, store submissions, hotfix workflows, and CI/CD pipelines for predictable production deployments",
       "Worked closely with backend, product, and design teams; contributed to mobile architecture, navigation, and state-management patterns using Redux Toolkit and React Query"

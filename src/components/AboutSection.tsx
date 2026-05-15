@@ -22,7 +22,7 @@ const AboutSection = () => {
                 My earlier experience includes native <span className="text-foreground">Android development in Java</span> before transitioning into end-to-end React Native mobile engineering. I specialise in <span className="text-foreground">authentication</span>, <span className="text-foreground">payments</span>, <span className="text-foreground">analytics</span>, <span className="text-foreground">push notifications</span>, <span className="text-foreground">deep linking</span>, <span className="text-foreground">crash monitoring</span>, <span className="text-foreground">CI/CD pipelines</span>, and end-to-end app lifecycle management.
               </p>
               <p>
-                I also leverage <span className="text-foreground">AI-assisted workflows</span> for debugging, refactoring, code reviews, and engineering productivity to ship reliable mobile experiences faster.
+                I also use <span className="text-foreground">modern debugging, refactoring, code review, and development productivity workflows</span> to ship reliable mobile experiences faster.
               </p>
             </div>
           </div>
