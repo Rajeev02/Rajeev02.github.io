@@ -34,7 +34,7 @@ const projects = [
     teamSize: 6,
     description: "Android mobile application for wildlife discovery, trip planning, and low-network media workflows.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
-    playStoreUrl: "https://packages.wildtrails.in/#parks/",
+    webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
     featured: true
   },
