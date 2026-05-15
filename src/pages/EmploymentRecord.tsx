@@ -12,7 +12,8 @@ import { ArrowLeft } from "lucide-react";
 
 type Record = {
   company: string;
-  role: string;
+  role: string; // Official designation as on payroll / offer letter (used for BGV)
+  actualRole?: string; // Day-to-day role used on resume / LinkedIn
   offerDate: string;
   joiningDate: string;
   leavingDate: string;
@@ -22,7 +23,8 @@ type Record = {
 const records: Record[] = [
   {
     company: "Plurebus Technology",
-    role: "R&D Engineer",
+    role: "Junior R&D Engineer",
+    actualRole: "Android Developer",
     offerDate: "25 Sep 2016",
     joiningDate: "27 Sep 2016",
     leavingDate: "29 Sep 2017",
@@ -30,7 +32,8 @@ const records: Record[] = [
   },
   {
     company: "Dunst Technology Pvt Ltd",
-    role: "Android Application Developer",
+    role: "Junior Android Developer",
+    actualRole: "Android Developer",
     offerDate: "14 Dec 2017",
     joiningDate: "14 Dec 2017",
     leavingDate: "14 Mar 2018",
@@ -38,7 +41,8 @@ const records: Record[] = [
   },
   {
     company: "WildTrails India",
-    role: "Software Engineer (Android)",
+    role: "Software Development Engineer I",
+    actualRole: "Android Developer",
     offerDate: "14 Mar 2018",
     joiningDate: "19 Mar 2018",
     leavingDate: "11 Sep 2019",
@@ -46,7 +50,8 @@ const records: Record[] = [
   },
   {
     company: "LetsVenture Technologies",
-    role: "Senior React Native Developer",
+    role: "Senior Android Developer",
+    actualRole: "Senior React Native Developer (Android & iOS)",
     offerDate: "09 Sep 2019",
     joiningDate: "12 Sep 2019",
     leavingDate: "12 Feb 2026",
@@ -55,6 +60,7 @@ const records: Record[] = [
   {
     company: "SpaceBasic",
     role: "Lead Mobile Engineer",
+    actualRole: "Lead Mobile Engineer / Senior React Native Developer",
     offerDate: "01 Feb 2026",
     joiningDate: "16 Feb 2026",
     leavingDate: "29 May 2026",
@@ -95,7 +101,8 @@ const EmploymentRecord = () => {
             <thead className="bg-muted/50">
               <tr className="text-left">
                 <th className="px-3 py-2 font-semibold">Company</th>
-                <th className="px-3 py-2 font-semibold">Role</th>
+                <th className="px-3 py-2 font-semibold">Official Designation (BGV)</th>
+                <th className="px-3 py-2 font-semibold">Actual Role</th>
                 <th className="px-3 py-2 font-semibold whitespace-nowrap">Offer Date</th>
                 <th className="px-3 py-2 font-semibold whitespace-nowrap">Joining Date</th>
                 <th className="px-3 py-2 font-semibold whitespace-nowrap">Leaving Date</th>
@@ -106,7 +113,8 @@ const EmploymentRecord = () => {
               {records.map((r) => (
                 <tr key={r.company} className="border-t border-border">
                   <td className="px-3 py-2 font-medium">{r.company}</td>
-                  <td className="px-3 py-2 text-muted-foreground">{r.role}</td>
+                  <td className="px-3 py-2">{r.role}</td>
+                  <td className="px-3 py-2 text-muted-foreground">{r.actualRole ?? r.role}</td>
                   <td className="px-3 py-2 whitespace-nowrap">{r.offerDate}</td>
                   <td className="px-3 py-2 whitespace-nowrap">{r.joiningDate}</td>
                   <td className="px-3 py-2 whitespace-nowrap">{r.leavingDate}</td>
@@ -116,7 +124,7 @@ const EmploymentRecord = () => {
             </tbody>
             <tfoot className="bg-muted/30">
               <tr className="border-t border-border">
-                <td colSpan={5} className="px-3 py-2 text-right font-semibold">
+                <td colSpan={6} className="px-3 py-2 text-right font-semibold">
                   Total actual employment
                 </td>
                 <td className="px-3 py-2 font-semibold whitespace-nowrap">~9 yr 5 mo</td>
@@ -126,8 +134,10 @@ const EmploymentRecord = () => {
         </div>
 
         <p className="mt-4 text-xs text-muted-foreground">
-          Note: ~2.5 month gap between Plurebus (Sep 2017) and Dunst (Dec 2017) is excluded.
-          All other transitions were near-continuous.
+          Note: "Official Designation" matches payroll / offer-letter records used during
+          background verification. "Actual Role" reflects day-to-day responsibilities used on
+          resume, LinkedIn, and Naukri. ~2.5 month gap between Plurebus (Sep 2017) and Dunst
+          (Dec 2017) is excluded. All other transitions were near-continuous.
         </p>
       </div>
     </main>

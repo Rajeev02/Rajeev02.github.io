@@ -50,11 +50,11 @@ const projects = [
   },
   {
     name: "Plurebus",
-    subtitle: "Entertainment App",
+    subtitle: "Entertainment App (BookMyShow-style)",
     period: "Sep 2016 - Sep 2017",
     tech: "Android (Java)",
     teamSize: 1,
-    description: "Android entertainment platform for movie discovery and user engagement, built with Java and REST API integrations.",
+    description: "Android entertainment platform similar to BookMyShow — discovery and booking experiences for movies, theatre, drama, and live shows, with rich, media-driven user experiences and REST API integrations.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
     icon: "/images/apps/plurebus.png",
     featured: false

@@ -10,32 +10,33 @@ const experiences = [
     description: "Student Housing & Hostel Management Platform.",
     products: ["Student Housing App"],
     highlights: [
-      "Joined as Lead Mobile Engineer to help establish a new React Native mobile foundation for a student housing and hostel management platform",
-      "Led development of cross-platform Android and iOS application flows using React Native",
-      "Contributed to mobile architecture, navigation systems, and scalable state-management foundations",
-      "Improved release readiness, development workflows, and modernised critical mobile experiences for operational teams and end users"
+      "Worked on building a new React Native application for Android & iOS platforms",
+      "Contributed to setting up scalable mobile architecture, navigation flows, and project structure for a greenfield application",
+      "Developed core application modules, API integrations, authentication flows, and reusable mobile components",
+      "Collaborated with product, backend, and design teams to establish foundational mobile workflows and release readiness",
+      "Improved development productivity through modern debugging, refactoring, and engineering best practices"
     ]
   },
   {
     company: "LetsVenture Technologies",
     companyUrl: "https://www.letsventure.com/",
-    role: "Senior React Native Developer",
+    role: "Senior React Native Developer (Official Designation: Senior Android Developer)",
     location: "Bengaluru",
     period: "12 Sep 2019 – 12 Feb 2026",
-    description: "Owned end-to-end mobile delivery for investor-facing fintech products.",
+    description: "Owned end-to-end mobile delivery for investor-facing fintech products and founder-focused mobile workflows.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Owned end-to-end mobile delivery for investor-facing fintech products across Android and iOS platforms using React Native",
-      "Delivered secure authentication systems, payment integrations, analytics tracking, crash monitoring, and deep linking workflows for production-grade applications",
-      "Drove Play Store and App Store release cycles, production stability, hotfix management, and continuous feature delivery",
-      "Collaborated closely with backend, product, and design teams to deliver scalable and reliable user experiences",
-      "Improved engineering productivity through modern debugging, refactoring, and code review workflows"
+      "Joined as an Android Developer; transitioned into React Native within the first year and operated as Senior React Native Developer for the remainder of the tenure, owning cross-platform Android & iOS delivery as an individual contributor",
+      "Independently handled end-to-end mobile delivery for investor-facing fintech products (LVX, LVXQ) and Scalix by LetsVenture — feature design, implementation, code reviews, releases, and post-release stability",
+      "Built and maintained authentication (Auth0, AWS Cognito), payments (Razorpay, Cashfree), analytics (PostHog), crash monitoring (Sentry), deep linking (Branch), and push notifications (Firebase)",
+      "Managed Play Store and App Store release cycles end-to-end — versioning, signing, store submissions, hotfix workflows, and CI/CD pipelines for predictable production deployments",
+      "Worked closely with backend, product, and design teams; contributed to mobile architecture, navigation, and state-management patterns using Redux Toolkit and React Query"
     ]
   },
   {
     company: "WildTrails India",
     companyUrl: "https://packages.wildtrails.in/#parks/",
-    role: "Software Engineer (Android)",
+    role: "Android Developer (Official Designation: Software Development Engineer I)",
     location: "Bengaluru",
     period: "19 Mar 2018 – 11 Sep 2019",
     description: "Built wildlife discovery and trip-planning Android applications.",
@@ -49,7 +50,7 @@ const experiences = [
   {
     company: "Dunst Technology Pvt Ltd",
     companyUrl: "https://www.linkedin.com/company/dunst-nolan-pvt-ltd/",
-    role: "Android Application Developer",
+    role: "Android Developer (Official Designation: Junior Android Developer)",
     location: "Bengaluru",
     period: "14 Dec 2017 – 14 Mar 2018",
     description: "Developed VR travel and film festival Android applications.",
@@ -62,14 +63,14 @@ const experiences = [
   {
     company: "Plurebus Technology",
     companyUrl: "https://www.linkedin.com/company/plurebus/",
-    role: "R&D Engineer",
+    role: "Android Developer (Official Designation: Junior R&D Engineer)",
     location: "Bengaluru",
     period: "27 Sep 2016 – 29 Sep 2017",
-    description: "Built entertainment platform Android features and integrations.",
+    description: "Built entertainment-platform Android features and integrations (similar to BookMyShow).",
     products: ["Plurebus Android App"],
     highlights: [
-      "Built Android features and API integrations for an entertainment platform focused on movie discovery and user engagement",
-      "Contributed to application enhancements and mobile feature development initiatives"
+      "Built Android features and API integrations for an entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows",
+      "Worked on rich, media-driven user experiences, listings, schedules, and booking-related workflows, contributing to feature development and overall application enhancements"
     ]
   }
 ];
