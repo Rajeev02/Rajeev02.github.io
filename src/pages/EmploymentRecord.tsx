@@ -58,13 +58,13 @@ const records: Record[] = [
     tenure: "6 yr 5 mo",
   },
   {
-    company: "SpaceBasic",
-    role: "Lead Mobile Engineer",
-    actualRole: "Lead Mobile Engineer / Senior React Native Developer",
-    offerDate: "01 Feb 2026",
-    joiningDate: "16 Feb 2026",
-    leavingDate: "29 May 2026",
-    tenure: "3 mo 13 d",
+    company: "LetsVenture Technologies",
+    role: "Senior Android Developer",
+    actualRole: "Senior React Native Developer (Android & iOS)",
+    offerDate: "09 Sep 2019",
+    joiningDate: "12 Sep 2019",
+    leavingDate: "12 Feb 2026",
+    tenure: "6 yr 5 mo",
   },
 ];
 
@@ -89,10 +89,12 @@ const EmploymentRecord = () => {
         </div>
 
         <header className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">Employment Record</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
+            Employment Record
+          </h1>
           <p className="text-sm text-muted-foreground">
-            Private reference for background-verification and form-filling. Not linked from
-            the main site navigation.
+            Private reference for background-verification and form-filling. Not
+            linked from the main site navigation.
           </p>
         </header>
 
@@ -101,12 +103,22 @@ const EmploymentRecord = () => {
             <thead className="bg-muted/50">
               <tr className="text-left">
                 <th className="px-3 py-2 font-semibold">Company</th>
-                <th className="px-3 py-2 font-semibold">Official Designation (BGV)</th>
+                <th className="px-3 py-2 font-semibold">
+                  Official Designation (BGV)
+                </th>
                 <th className="px-3 py-2 font-semibold">Actual Role</th>
-                <th className="px-3 py-2 font-semibold whitespace-nowrap">Offer Date</th>
-                <th className="px-3 py-2 font-semibold whitespace-nowrap">Joining Date</th>
-                <th className="px-3 py-2 font-semibold whitespace-nowrap">Leaving Date</th>
-                <th className="px-3 py-2 font-semibold whitespace-nowrap">Tenure</th>
+                <th className="px-3 py-2 font-semibold whitespace-nowrap">
+                  Offer Date
+                </th>
+                <th className="px-3 py-2 font-semibold whitespace-nowrap">
+                  Joining Date
+                </th>
+                <th className="px-3 py-2 font-semibold whitespace-nowrap">
+                  Leaving Date
+                </th>
+                <th className="px-3 py-2 font-semibold whitespace-nowrap">
+                  Tenure
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -114,10 +126,16 @@ const EmploymentRecord = () => {
                 <tr key={r.company} className="border-t border-border">
                   <td className="px-3 py-2 font-medium">{r.company}</td>
                   <td className="px-3 py-2">{r.role}</td>
-                  <td className="px-3 py-2 text-muted-foreground">{r.actualRole ?? r.role}</td>
+                  <td className="px-3 py-2 text-muted-foreground">
+                    {r.actualRole ?? r.role}
+                  </td>
                   <td className="px-3 py-2 whitespace-nowrap">{r.offerDate}</td>
-                  <td className="px-3 py-2 whitespace-nowrap">{r.joiningDate}</td>
-                  <td className="px-3 py-2 whitespace-nowrap">{r.leavingDate}</td>
+                  <td className="px-3 py-2 whitespace-nowrap">
+                    {r.joiningDate}
+                  </td>
+                  <td className="px-3 py-2 whitespace-nowrap">
+                    {r.leavingDate}
+                  </td>
                   <td className="px-3 py-2 whitespace-nowrap">{r.tenure}</td>
                 </tr>
               ))}
@@ -127,17 +145,20 @@ const EmploymentRecord = () => {
                 <td colSpan={6} className="px-3 py-2 text-right font-semibold">
                   Total actual employment
                 </td>
-                <td className="px-3 py-2 font-semibold whitespace-nowrap">~9 yr 5 mo</td>
+                <td className="px-3 py-2 font-semibold whitespace-nowrap">
+                  ~9 yr 5 mo
+                </td>
               </tr>
             </tfoot>
           </table>
         </div>
 
         <p className="mt-4 text-xs text-muted-foreground">
-          Note: "Official Designation" matches payroll / offer-letter records used during
-          background verification. "Actual Role" reflects day-to-day responsibilities used on
-          resume, LinkedIn, and Naukri. ~2.5 month gap between Plurebus (Sep 2017) and Dunst
-          (Dec 2017) is excluded. All other transitions were near-continuous.
+          Note: "Official Designation" matches payroll / offer-letter records
+          used during background verification. "Actual Role" reflects day-to-day
+          responsibilities used on resume, LinkedIn, and Naukri. ~2.5 month gap
+          between Plurebus (Sep 2017) and Dunst (Dec 2017) is excluded. All
+          other transitions were near-continuous.
         </p>
       </div>
     </main>
