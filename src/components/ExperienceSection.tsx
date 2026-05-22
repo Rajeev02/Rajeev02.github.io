@@ -24,8 +24,7 @@ const experiences = [
     role: "Android Developer (Official Designation: Software Development Engineer I)",
     location: "Bengaluru",
     period: "19 Mar 2018 – 11 Sep 2019",
-    description:
-      "Built wildlife discovery and trip-planning Android applications.",
+    description: "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
       "Built Android application features for wildlife discovery, trip planning, and media-rich user experiences",
@@ -76,17 +75,17 @@ const ExperienceSection = () => {
             </p>
           </div>
 
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
 
-          <div className="space-y-8 sm:space-y-12">
-            {experiences.map((exp, index) => (
+            <div className="space-y-8 sm:space-y-12">
+              {experiences.map((exp, index) => (
                 <div
                   key={exp.company + exp.period}
                   className={`relative pl-6 sm:pl-8 md:pl-0 ${
                     index % 2 === 0 ? "md:pr-[52%]" : "md:pl-[52%]"
                   }`}
                 >
-                  {/* Timeline dot */}
                   <div className="timeline-dot md:left-1/2 md:-translate-x-1/2" />
 
                   <div className="glass-card p-4 sm:p-6 hover:border-primary/30 transition-all duration-300">
@@ -117,9 +116,7 @@ const ExperienceSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground mb-4">
-                      {exp.description}
-                    </p>
+                    <p className="text-muted-foreground mb-4">{exp.description}</p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {exp.products.map((product) => (
@@ -134,13 +131,8 @@ const ExperienceSection = () => {
 
                     <ul className="space-y-2">
                       {exp.highlights.slice(0, 4).map((highlight, i) => (
-                        <li
-                          key={i}
-                          className="text-sm text-muted-foreground flex gap-2"
-                        >
-                          <span className="text-primary mt-1 flex-shrink-0">
-                            •
-                          </span>
+                        <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                          <span className="text-primary mt-1 flex-shrink-0">•</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
