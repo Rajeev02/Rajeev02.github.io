@@ -23,7 +23,7 @@ const AboutSection = () => {
               </p>
               <p>
                 With{" "}
-                <span className="text-foreground font-semibold">9+ years</span>{" "}
+                <span className="text-foreground font-semibold">9 years</span>{" "}
                 of overall experience &mdash; including{" "}
                 <span className="text-foreground font-semibold">
                   5+ years working as a React Native developer
