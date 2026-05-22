@@ -24,7 +24,8 @@ const experiences = [
     role: "Android Developer (Official Designation: Software Development Engineer I)",
     location: "Bengaluru",
     period: "19 Mar 2018 – 11 Sep 2019",
-    description: "Built wildlife discovery and trip-planning Android applications.",
+    description:
+      "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
       "Built Android application features for wildlife discovery, trip planning, and media-rich user experiences",
@@ -116,7 +117,9 @@ const ExperienceSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <p className="text-muted-foreground mb-4">
+                      {exp.description}
+                    </p>
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {exp.products.map((product) => (
@@ -131,8 +134,13 @@ const ExperienceSection = () => {
 
                     <ul className="space-y-2">
                       {exp.highlights.slice(0, 4).map((highlight, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <li
+                          key={i}
+                          className="text-sm text-muted-foreground flex gap-2"
+                        >
+                          <span className="text-primary mt-1 flex-shrink-0">
+                            •
+                          </span>
                           <span>{highlight}</span>
                         </li>
                       ))}
