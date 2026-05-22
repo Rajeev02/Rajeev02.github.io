@@ -72,11 +72,14 @@ const ExperienceSection = () => {
               Professional <span className="text-gradient">Experience</span>
             </h2>
             <p className="section-subheading mx-auto px-2">
-                9 years of building production mobile applications
-            <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
+              9 years of building production mobile applications
+            </p>
+          </div>
 
-            <div className="space-y-8 sm:space-y-12">
-              {experiences.map((exp, index) => (
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
+
+          <div className="space-y-8 sm:space-y-12">
+            {experiences.map((exp, index) => (
                 <div
                   key={exp.company + exp.period}
                   className={`relative pl-6 sm:pl-8 md:pl-0 ${
