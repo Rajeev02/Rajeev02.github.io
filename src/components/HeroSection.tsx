@@ -50,7 +50,7 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="flex items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-10 animate-fade-up opacity-0 delay-400">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-primary">9+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary">9</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">

@@ -285,6 +285,22 @@
         .instructions {
           display: none;
         }
+
+        .section,
+        .experience-item,
+        .projects-grid,
+        .education-item {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .experience-item {
+          page-break-after: auto;
+        }
+
+        .section-title {
+          page-break-after: avoid;
+        }
       }
 
       @media (max-width: 768px) {
