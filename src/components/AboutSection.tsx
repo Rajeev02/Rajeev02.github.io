@@ -31,16 +31,13 @@ const AboutSection = () => {
                 &mdash; I have built and shipped mobile applications across{" "}
                 <span className="text-foreground">fintech</span>,{" "}
                 <span className="text-foreground">founder tooling</span>,{" "}
-                <span className="text-foreground">student housing</span>,{" "}
                 <span className="text-foreground">travel</span>, and{" "}
                 <span className="text-foreground">consumer platforms</span>,
                 owning end-to-end delivery and release ownership on both Play
                 Store and App Store.
               </p>
               <p>
-                Most recently, I worked as a Lead Mobile Engineer on a new React
-                Native application for a student housing and hostel management
-                platform. Before that, I spent{" "}
+                Most recently, I spent{" "}
                 <span className="text-foreground font-semibold">6+ years</span>{" "}
                 at{" "}
                 <a
