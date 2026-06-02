@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Preparation Resources</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .lock-screen {
+        width: 100%;
+        max-width: 400px;
+        background: white;
+        padding: 40px 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      .lock-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        color: #1a202c;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        color: #718096;
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #cbd5e0;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+      input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+      .error {
+        color: #c53030;
+        font-size: 13px;
+        margin-top: 10px;
+        display: none;
+      }
+      .info {
+        background: #edf2f7;
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #4a5568;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lock-screen">
+      <div class="lock-icon">🔒</div>
+      <h1>Preparation Portal</h1>
+      <p class="subtitle">Enter access code to continue</p>
+      <input
+        id="code"
+        type="password"
+        inputmode="numeric"
+        placeholder="Enter access code"
+        autocomplete="one-time-code"
+      />
+      <button id="submit">Unlock</button>
+      <div id="error" class="error"></div>
+      <div class="info">
+        <strong>Security:</strong> This uses client-side SHA-256 hashing. The
+        actual code is never stored in plaintext.
+      </div>
+    </div>
+
+    <script>
+      // SHA-256 of the access code (8792169096)
+      const ACCESS_HASH =
+        "cb7926f58653d799fa54fdf0803d1a66434fd0d3a75f61855405d539eb836abf";
+
+      async function sha256hex(str) {
+        const enc = new TextEncoder();
+        const data = enc.encode(str);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        const h = Array.from(new Uint8Array(hash))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        return h;
+      }
+
+      document.getElementById("submit").addEventListener("click", async () => {
+        const code = document.getElementById("code").value.trim();
+        if (!code) {
+          showError("Enter the access code");
+          return;
+        }
+        const h = await sha256hex(code);
+        if (h === ACCESS_HASH) {
+          sessionStorage.setItem("prepration_unlocked", "1");
+          location.href = "/prepration/viewer.html";
+        } else {
+          showError("Invalid code. Try again.");
+          document.getElementById("code").value = "";
+        }
+      });
+
+      document
+        .getElementById("code")
+        .addEventListener("keypress", async (e) => {
+          if (e.key === "Enter") {
+            document.getElementById("submit").click();
+          }
+        });
+
+      function showError(msg) {
+        const el = document.getElementById("error");
+        el.textContent = msg;
+        el.style.display = "block";
+      }
+
+      // Check if already unlocked
+      if (sessionStorage.getItem("prepration_unlocked") === "1") {
+        location.href = "/prepration/viewer.html";
+      }
+    </script>
+  </body>
+</html>
