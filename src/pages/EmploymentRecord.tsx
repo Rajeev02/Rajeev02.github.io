@@ -22,16 +22,16 @@ type Record = {
 
 const records: Record[] = [
   {
-    company: "Plurebus Technology",
+    company: "PLUREBUS TECHNOLOGIES PRIVATE LIMITED",
     role: "Junior R&D Engineer",
     actualRole: "Android Developer",
     offerDate: "25 Sep 2016",
     joiningDate: "27 Sep 2016",
     leavingDate: "29 Sep 2017",
-    tenure: "1 yr 0 mo",
+    tenure: "1 yr 0 mo 2 d",
   },
   {
-    company: "Dunst Technology Pvt Ltd",
+    company: "Dunst Technologies Pvt Ltd",
     role: "Junior Android Developer",
     actualRole: "Android Developer",
     offerDate: "14 Dec 2017",
@@ -40,8 +40,8 @@ const records: Record[] = [
     tenure: "3 mo",
   },
   {
-    company: "WildTrails India",
-    role: "Software Development Engineer I",
+    company: "WildTrails Technology Private Limited",
+    role: "Software Engineer",
     actualRole: "Android Developer",
     offerDate: "14 Mar 2018",
     joiningDate: "19 Mar 2018",
@@ -49,16 +49,7 @@ const records: Record[] = [
     tenure: "1 yr 5 mo 23 d",
   },
   {
-    company: "LetsVenture Technologies",
-    role: "Senior Android Developer",
-    actualRole: "Senior React Native Developer (Android & iOS)",
-    offerDate: "09 Sep 2019",
-    joiningDate: "12 Sep 2019",
-    leavingDate: "12 Feb 2026",
-    tenure: "6 yr 5 mo",
-  },
-  {
-    company: "LetsVenture Technologies",
+    company: "LetsVenture Technologies Private Limited",
     role: "Senior Android Developer",
     actualRole: "Senior React Native Developer (Android & iOS)",
     offerDate: "09 Sep 2019",
@@ -104,7 +95,7 @@ const EmploymentRecord = () => {
               <tr className="text-left">
                 <th className="px-3 py-2 font-semibold">Company</th>
                 <th className="px-3 py-2 font-semibold">
-                  Official Designation (BGV)
+                  Official Designation
                 </th>
                 <th className="px-3 py-2 font-semibold">Actual Role</th>
                 <th className="px-3 py-2 font-semibold whitespace-nowrap">
@@ -117,13 +108,13 @@ const EmploymentRecord = () => {
                   Leaving Date
                 </th>
                 <th className="px-3 py-2 font-semibold whitespace-nowrap">
-                  Tenure
+                  Duration
                 </th>
               </tr>
             </thead>
             <tbody>
               {records.map((r) => (
-                <tr key={r.company} className="border-t border-border">
+                <tr key={`${r.company}-${r.joiningDate}`} className="border-t border-border">
                   <td className="px-3 py-2 font-medium">{r.company}</td>
                   <td className="px-3 py-2">{r.role}</td>
                   <td className="px-3 py-2 text-muted-foreground">
@@ -146,7 +137,7 @@ const EmploymentRecord = () => {
                   Total actual employment
                 </td>
                 <td className="px-3 py-2 font-semibold whitespace-nowrap">
-                  ~9 yr 5 mo
+                  ~9 yr 2 mo
                 </td>
               </tr>
             </tfoot>
@@ -154,8 +145,8 @@ const EmploymentRecord = () => {
         </div>
 
         <p className="mt-4 text-xs text-muted-foreground">
-          Note: "Official Designation" matches payroll / offer-letter records
-          used during background verification. "Actual Role" reflects day-to-day
+          Note: "Official Designation" matches payroll / offer-letter records.
+          "Actual Role" reflects day-to-day
           responsibilities used on resume, LinkedIn, and Naukri. ~2.5 month gap
           between Plurebus (Sep 2017) and Dunst (Dec 2017) is excluded. All
           other transitions were near-continuous.

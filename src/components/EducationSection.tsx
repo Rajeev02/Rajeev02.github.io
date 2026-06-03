@@ -3,13 +3,20 @@ import { GraduationCap, Languages } from "lucide-react";
 const education = [
   {
     degree: "Master of Computer Applications (MCA)",
-    institution: "National Institute of Technology (NIT), Durgapur",
-    period: "2013 - 2016"
+    institution: "National Institute of Technology Durgapur",
+    startDate: "15 July 2013",
+    endDate: "30 June 2016",
+    duration: "2 yr 11 mo 15 d",
+    result: "6.97 CGPA",
   },
   {
     degree: "Bachelor of Computer Applications (BCA)",
-    institution: "Saraswati College of Computer Science, Chhatarpur",
-    period: "2009 - 2012"
+    institution:
+      "Dr. Harisingh Gour Vishwavidyalaya (University of Saugar), Sagar",
+    startDate: "15 July 2009",
+    endDate: "30 June 2012",
+    duration: "2 yr 11 mo 15 d",
+    result: "75.12%",
   }
 ];
 
@@ -41,9 +48,13 @@ const EducationSection = () => {
                   <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-primary/30">
                     <h4 className="font-semibold text-sm sm:text-lg">{edu.degree}</h4>
                     <p className="text-muted-foreground text-xs sm:text-base">{edu.institution}</p>
-                    {edu.period && (
-                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{edu.period}</p>
-                    )}
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                      {edu.startDate} - {edu.endDate}
+                    </p>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs sm:text-sm text-muted-foreground mt-1">
+                      <span>Duration: {edu.duration}</span>
+                      <span>Result: {edu.result}</span>
+                    </div>
                   </div>
                 ))}
               </div>

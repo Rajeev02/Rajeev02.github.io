@@ -2,11 +2,13 @@ import { MapPin, Calendar, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    company: "LetsVenture Technologies",
+    company: "LetsVenture Technologies Private Limited",
     companyUrl: "https://www.letsventure.com/",
-    role: "Senior React Native Developer (Official Designation: Senior Android Developer)",
+    role: "Senior Android Developer",
+    actualRole: "Senior React Native Developer (Android & iOS)",
     location: "Bengaluru",
-    period: "12 Sep 2019 – 12 Feb 2026",
+    period: "12 Sep 2019 - 12 Feb 2026",
+    duration: "6 yr 5 mo",
     description:
       "Owned end-to-end mobile delivery for investor-facing fintech products and founder-focused mobile workflows.",
     products: ["LVX", "LVXQ", "Scalix"],
@@ -19,11 +21,13 @@ const experiences = [
     ],
   },
   {
-    company: "WildTrails India",
+    company: "WildTrails Technology Private Limited",
     companyUrl: "https://packages.wildtrails.in/#parks/",
-    role: "Android Developer (Official Designation: Software Development Engineer I)",
+    role: "Software Engineer",
+    actualRole: "Android Developer",
     location: "Bengaluru",
-    period: "19 Mar 2018 – 11 Sep 2019",
+    period: "19 Mar 2018 - 11 Sep 2019",
+    duration: "1 yr 5 mo 23 d",
     description:
       "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
@@ -34,11 +38,13 @@ const experiences = [
     ],
   },
   {
-    company: "Dunst Technology Pvt Ltd",
+    company: "Dunst Technologies Pvt Ltd",
     companyUrl: "https://www.linkedin.com/company/dunst-nolan-pvt-ltd/",
-    role: "Android Developer (Official Designation: Junior Android Developer)",
+    role: "Junior Android Developer",
+    actualRole: "Android Developer",
     location: "Bengaluru",
-    period: "14 Dec 2017 – 14 Mar 2018",
+    period: "14 Dec 2017 - 14 Mar 2018",
+    duration: "3 mo",
     description: "Developed VR travel and film festival Android applications.",
     products: ["Wanderlust & SIFF"],
     highlights: [
@@ -47,11 +53,13 @@ const experiences = [
     ],
   },
   {
-    company: "Plurebus Technology",
+    company: "PLUREBUS TECHNOLOGIES PRIVATE LIMITED",
     companyUrl: "https://www.linkedin.com/company/plurebus/",
-    role: "Android Developer (Official Designation: Junior R&D Engineer)",
+    role: "Junior R&D Engineer",
+    actualRole: "Android Developer",
     location: "Bengaluru",
-    period: "27 Sep 2016 – 29 Sep 2017",
+    period: "27 Sep 2016 - 29 Sep 2017",
+    duration: "1 yr 0 mo 2 d",
     description:
       "Built entertainment-platform Android features and integrations (similar to BookMyShow).",
     products: ["Plurebus Android App"],
@@ -105,6 +113,11 @@ const ExperienceSection = () => {
                     <h3 className="text-lg sm:text-xl font-semibold mb-2">
                       {exp.role}
                     </h3>
+                    {exp.actualRole && (
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Actual Role: {exp.actualRole}
+                      </p>
+                    )}
 
                     <div className="flex flex-col xs:flex-row flex-wrap items-start xs:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
                       <div className="flex items-center gap-1">
@@ -115,6 +128,7 @@ const ExperienceSection = () => {
                         <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                         {exp.period}
                       </div>
+                      <div>Duration: {exp.duration}</div>
                     </div>
 
                     <p className="text-muted-foreground mb-4">
