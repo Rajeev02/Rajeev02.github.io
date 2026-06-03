@@ -3,9 +3,9 @@
 When interviewing for Senior/Lead roles (9+ years experience), you must present your career progression, architectural ownership, and business value metrics clearly.
 
 ### 1. The Walkthrough Pitch
-> *"I am a Senior Mobile Engineer with 9 years of hands-on experience building, shipping, and maintaining cross-platform Android and iOS applications. I started my career as a native Android developer (working with Java and the Android SDK), which gave me a deep understanding of native lifecycles, background services, threading, and performance optimization. Over the last several years, I transitioned into React Native, owning end-to-end mobile delivery for investor-facing products.*
+> *"I am a Senior Mobile Engineer with 9 years of hands-on experience building, shipping, and maintaining mobile applications. I started my career as a native Android developer using Java and the Android SDK, working at Plurebus, Dunst, and WildTrails, which gave me a deep understanding of native lifecycles, background services, threading, and performance optimization.
 >
-> *Most recently, at LetsVenture, I spent over 6 years leading mobile delivery for investor-facing fintech products like LVX, LVXQ, and Scalix. I was responsible for the entire architecture, from Auth0/Cognito authentication and secure payment gateway integrations to offline sync caching and Play Store/App Store releases. Because I understand both the JavaScript ecosystem and native mobile engineering, I can confidently take an application from greenfield setup to production while optimizing performance across both platforms."*
+> *Later, I joined LetsVenture, where I worked as a native Android (Java) developer for 1.5 years before transitioning into React Native to design, build, and ship our flagship investor-facing fintech products—LVX, LVXQ, and Scalix—from scratch in React Native. I spent over 5 years of my tenure at LetsVenture leading mobile delivery for these React Native apps, owning the entire architecture from Auth0/Cognito authentication and secure payments to offline sync caching and App Store/Play Store releases. Because I understand both the native mobile ecosystem and the cross-platform JavaScript ecosystem, I can confidently take applications from greenfield setup to production while optimizing performance across both platforms."*
 
 ---
 
@@ -47,20 +47,32 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 
 ---
 
-## ⛺ Section 4: Dunst & WildTrails Case Studies
+## ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
 
 ### 1. Offline-First Safari Syncing (WildTrails)
 - **Context**: A wildlife tracking app used in remote areas with poor network coverage. Users need to log sightings offline, and the data must sync when connection is restored.
-- **Challenge**: JavaScript background timers are throttled or killed by the mobile OS when the app is backgrounded.
-- **Solution**: Build a custom Android Native Module using the Android SDK's **`WorkManager` API** (in Java/Kotlin) and iOS **BackgroundTasks Framework**.
-  - Sightings are stored locally in an encrypted MMKV database.
-  - When offline, sighting uploads are placed in an Outbox Queue.
-  - NetInfo detects connection changes. The native background sync manager schedules execution queues that respect OS-level battery optimizations. Data is synced to the server, and the JavaScript layer is notified via `DeviceEventEmitter` when the sync finishes.
+- **Challenge**: Background sync must be reliable without draining battery, running even when the app is in the background or device is rebooted.
+- **Solution**: Built the application completely as a native Android application in Java using SQLite for local storage and structured background syncing:
+  - Implemented a SQLite database with a custom `SQLiteOpenHelper` to store sightings locally with transaction safety (ACID).
+  - Used the Android SDK's native **`WorkManager` API** (using Java) and background services to schedule opportunistic uploads.
+  - Registered constraints on the background jobs so that syncing only occurs when network connectivity is active (via `ConnectivityManager`) and the battery is not low.
+  - Handled device reboots using a `BroadcastReceiver` listening for `BOOT_COMPLETED` to reschedule critical pending sync tasks, ensuring no data loss.
 
-### 2. Dunst Technologies: VR and Ticketing
+### 2. VR and Ticketing (Dunst Technologies)
 - **Context**: Consumer-facing travel apps utilizing VR tours and ticketing.
-- **Challenge**: Seamless rendering of VR media and tickets on low-end devices without blocking the main thread.
-- **Solution**: Offload high-computation rendering processes and image decoding from the single JavaScript thread to the native OS layer. Leverage native views (Fragments/UIViews) inside custom native view wrappers in React Native to keep the main thread responsive during media playback.
+- **Challenge**: Smooth rendering of complex 360/VR media and interactive ticket widgets on lower-end Android devices without blocking the main UI thread.
+- **Solution**: Built completely as a native Android app in Java:
+  - Integrated native OpenGL ES-based VR rendering views, offloading heavy media rendering and decoding to the GPU.
+  - Handled bitmap decoding asynchronously using background thread pools (`ExecutorService`) and custom thread-safe queues.
+  - Optimized the native layout hierarchy (using custom ViewGroups and flat XML layouts) to reduce view nesting, preventing overdraw and maintaining 60 FPS rendering on target hardware.
+
+### 3. Media-Rich Booking and Discovery Platform (Plurebus)
+- **Context**: An entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows.
+- **Challenge**: Handling dynamic listing updates, image-heavy schedules, and seat-layout grids efficiently without memory leaks or UI lag on mid-range Android devices.
+- **Solution**: Built completely as a native Android application in Java using custom RecyclerView layouts and caching layers:
+  - Designed custom adapters for `RecyclerView` with view pooling and payload-based differential updates (`DiffUtil`) to prevent UI flashes during listing updates.
+  - Implemented asynchronous image loading and custom LRU cache handlers to manage movie poster caching, reducing heap consumption and preventing Out-Of-Memory (OOM) errors.
+  - Developed a highly interactive, custom Canvas-based view for seat selection, managing coordinate mappings and seat states natively in Java.
 
 ---
 
@@ -101,7 +113,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ### 1. Walk me through your experience and how it relates to this role.
 - **Answer**: 
-  I have over **9 years of professional software engineering experience**, with a strong background in native Android development (Java/Kotlin) before transitioning to React Native. Over the past 6+ years, I have served as the core mobile lead at LetsVenture, architecting and delivering high-stakes fintech products like **LVX**, **LVXQ**, and **Scalix**. 
+  I have over **9 years of professional software engineering experience**. I started my career as a native Android Developer (Java) at Plurebus, Dunst, and WildTrails, and continued as an Android Developer at LetsVenture for my first 1.5 years. Later at LetsVenture, I transitioned into React Native and spent the next 5 years leading mobile delivery, architecting and shipping our key investor-facing fintech products—**LVX**, **LVXQ**, and **Scalix**—from scratch in React Native.
   
   In this role, I owned the entire lifecycle: building a shared monorepo structure to maximize code reuse, establishing robust security systems (SSL Pinning, Keychain/Keystore encryption, App Attestation), integrating complex payment SDKs, and managing the release process for both Google Play Store and Apple App Store. 
   
@@ -132,10 +144,9 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
     1. The feature requires low-level OS APIs that are not exposed to JavaScript (e.g., persistent background processes, device hardware, or system broadcasts).
     2. The feature performs intense computations (like real-time image processing or decryption) that would freeze the single JavaScript thread.
     3. We need to integrate a third-party SDK that only provides native Android/iOS libraries with no official React Native wrapper.
-  - **Specific Example**: In our WildTrails application, we needed to implement an **offline-first background synchronizer** that syncs queued data back to the server. 
-    - Standard JS timer APIs (`setTimeout` or `setInterval`) are throttled or terminated by the OS when the app is placed in the background or when the phone enters Doze mode.
-    - **Native Implementation**: I built a custom React Native module exposing the native **Android `WorkManager` API**. The module accepts sync queue targets from the JS thread, stores them in an encrypted database, and registers a `PeriodicWorkRequest` with constraints (e.g., network must be connected, battery should not be low). 
-    - This native task runs reliably in its own background service thread managed by the OS, even if the user force-closes the app, notifying the JavaScript layer of completion via `DeviceEventEmitter` when the app is next active.
+  - **Specific Example**: In our LetsVenture React Native applications (like LVX or Scalix), we needed to implement a robust background task manager to handle queued transaction checks.
+    - Standard JS timer APIs (`setTimeout` or `setInterval`) are throttled or terminated by the OS when the app is placed in the background or when the phone enters battery-saver modes.
+    - **Native Implementation**: I built a custom React Native module in Java exposing the native **Android `WorkManager` API** to the JavaScript layer. The JavaScript side pushes transaction sync tasks down the bridge, and the native module registers a `OneTimeWorkRequest` with specific constraints (e.g., network must be active, device must be charging). This ensured tasks executed reliably even if the app was backgrounded or terminated, emitting a success/failure callback back to the JS thread using `RCTDeviceEventEmitter` once completed.
 
 ---
 
