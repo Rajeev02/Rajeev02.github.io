@@ -5,7 +5,7 @@ const projects = [
   {
     name: "LVX & LVXQ — LetsVenture",
     subtitle: "Investor Platform & Portfolio App",
-    period: "12 Sep 2019 - 12 Feb 2026",
+    period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     teamSize: 9,
     description:
@@ -28,7 +28,7 @@ const projects = [
   {
     name: "WildTrails",
     subtitle: "Wildlife Discovery & Trip Planning",
-    period: "19 Mar 2018 - 11 Sep 2019",
+    period: "Mar 2018 - Sep 2019",
     tech: "Android (Java)",
     teamSize: 6,
     description:
@@ -41,7 +41,7 @@ const projects = [
   {
     name: "Wanderlust & SIFF",
     subtitle: "VR Travel & Film Festival Apps",
-    period: "14 Dec 2017 - 14 Mar 2018",
+    period: "Dec 2017 - Mar 2018",
     tech: "Android",
     teamSize: 3,
     description:
@@ -60,7 +60,7 @@ const projects = [
   {
     name: "Plurebus",
     subtitle: "Entertainment App (BookMyShow-style)",
-    period: "27 Sep 2016 - 29 Sep 2017",
+    period: "Sep 2016 - Sep 2017",
     tech: "Android (Java)",
     teamSize: 1,
     description:

@@ -1,9 +1,9 @@
 Education
 
-| Degree | College / University | Start Date | End Date | Duration | CGPA / Percentage |
-| --- | --- | --- | --- | --- | --- |
-| MCA | National Institute of Technology Durgapur | 15-July-2013 | 30-June-2016 | 2 yr 11 mo 15 d | 6.97 CGPA |
-| BCA | Dr. Harisingh Gour Vishwavidyalaya (University of Saugar), Sagar | 15-July-2009 | 30-June-2012 | 2 yr 11 mo 15 d | 75.12% |
+| Degree | College / University | Period | CGPA / Percentage |
+| --- | --- | --- | --- |
+| MCA | National Institute of Technology Durgapur | 2013 - 2016 | 6.97 CGPA |
+| BCA | Dr. Harisingh Gour Vishwavidyalaya (University of Saugar), Sagar | 2009 - 2012 | 75.12% |
 
 Experience [9 Years]
 
