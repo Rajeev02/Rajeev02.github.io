@@ -1,5 +1,22 @@
 # ⚙️ Utility Coding Programs
 
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [Program 1: Custom Debounce Implementation](#program-1-custom-debounce-implementation)
+- [Program 2: Custom Throttle Implementation](#program-2-custom-throttle-implementation)
+- [Program 3: Polyfills for Map, Filter, and Reduce](#program-3-polyfills-for-map-filter-and-reduce)
+- [Program 4: Data Transformations (Array-to-Object & Object-to-Array)](#program-4-data-transformations-array-to-object-object-to-array)
+- [Program 5: Custom Event Emitter (Publish-Subscribe Broker)](#program-5-custom-event-emitter-publish-subscribe-broker)
+- [Program 6: Custom Memoize Function Wrapper](#program-6-custom-memoize-function-wrapper)
+- [Program 7: Mobile Device Token Deduplicator (CleanTokens)](#program-7-mobile-device-token-deduplicator-cleantokens)
+- [Program 8: Object Property Diff Tracker](#program-8-object-property-diff-tracker)
+- [Program 9: Paginated Transaction Amount Aggregator](#program-9-paginated-transaction-amount-aggregator)
+- [Program 10: Batch Concurrent Promise Coordinator (Network Throttler)](#program-10-batch-concurrent-promise-coordinator-network-throttler)
+</details>
+<!-- INDEX_END -->
+
 ---
 
 ## Program 1: Custom Debounce Implementation

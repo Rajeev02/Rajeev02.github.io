@@ -1,5 +1,19 @@
 # ⚛️ JavaScript & React Coding Programs
 
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [Program 1: Legacy React Class Component with Full Lifecycle Methods](#program-1-legacy-react-class-component-with-full-lifecycle-methods)
+- [Program 2: Functional Component Refactor Using Hooks](#program-2-functional-component-refactor-using-hooks)
+- [Program 3: Object Reference Copying & Mutability Evaluation](#program-3-object-reference-copying-mutability-evaluation)
+- [Program 4: Nested Array Flattening](#program-4-nested-array-flattening)
+- [Program 5: Substring Extraction](#program-5-substring-extraction)
+- [Program 6: Asynchronous Execution Order (Event Loop Timing)](#program-6-asynchronous-execution-order-event-loop-timing)
+- [Program 7: Loop Scoping & Variable Closures inside SetTimeout](#program-7-loop-scoping-variable-closures-inside-settimeout)
+</details>
+<!-- INDEX_END -->
+
 ---
 
 ## Program 1: Legacy React Class Component with Full Lifecycle Methods
@@ -145,7 +159,6 @@ const styles = StyleSheet.create({
 - **Time Complexity**: $O(1)$ for state updates and timer creation.
 - **Space Complexity**: $O(1)$ constant state references.
 - **Explanation**: A legacy React Class Component. Mounts and triggers polling intervals in `componentDidMount`. Reevaluates state/props differences inside `shouldComponentUpdate` to return a boolean, optimizing render calls. Clears interval timers inside `componentWillUnmount` to release callback references.
-
 
 ---
 
@@ -354,7 +367,6 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 - **Space Complexity**: $O(D)$ to allocate the cloned object graph.
 - **Explanation**: Accesses spaced keys using bracket indexes. Shallow cloning (e.g. spread operator `{ ...obj }`) only copies 1st level values. For nested properties, it copies memory address pointers, causing child mutations to overwrite the source object. Modern `structuredClone` performs a deep copy, completely isolating both graphs.
 
-
 ---
 
 ## Program 4: Nested Array Flattening
@@ -414,7 +426,6 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 - **Space Complexity**: $O(D)$ auxiliary call stack space where $D$ is maximum recursion depth, or $O(N)$ memory buffer for stack arrays.
 - **Explanation**: The recursive solution checks if an array item is itself an array using `Array.isArray`, recursively flattening and merging elements via `.concat()`. The iterative alternative mimics recursive frame execution using a local stack, avoiding call stack limits.
 
-
 ---
 
 ## Program 5: Substring Extraction
@@ -456,7 +467,6 @@ console.log("Method 3:", bananaMethod3); // "Banana"
 - **Space Complexity**: $O(W)$ where $W$ is the extracted substring size.
 - **Explanation**: Compares string parsing functions. Method 1 splits the input string by `,`, accesses index 1, and trims whitespace. Method 2 finds indices using `indexOf` and extracts via `slice(start, end)`. Method 3 slices characters using static index coordinates via `substring(start, end)`.
 
-
 ---
 
 ## Program 6: Asynchronous Execution Order (Event Loop Timing)
@@ -493,7 +503,6 @@ console.log("4: End");
   3. The `Promise.resolve` resolves immediately and queues its callback on the high-priority Microtask Queue.
   4. Once the Call Stack is empty, the Event Loop flushes all items in the Microtask Queue first before processing the first callback in the Macrotask Queue.
 
-
 ---
 
 ## Program 7: Loop Scoping & Variable Closures inside SetTimeout
@@ -528,5 +537,4 @@ for (var j = 0; j < 5; j++) {
   - **`let` (Block Scope)**: JavaScript allocates a new variable binding slot in memory on every single loop iteration. The callback closure binds to that iteration's instance, printing `0, 1, 2, 3, 4`.
   - **`var` (Function Scope)**: The iterator variable is hoisted and shared across all iterations. By the time the call stack clears and asynchronous timers execute, the loop has completed, leaving the variable at `5`. Thus, all timers print `5`.
   - **IIFE Fix**: Wrapping `var` statements in an Immediately Invoked Function Expression (IIFE) captures the current value of the iterator, creating a new lexical scope for each callback.
-
 

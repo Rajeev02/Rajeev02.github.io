@@ -1,5 +1,14 @@
 # 🟦 TypeScript Coding Programs
 
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [Program 1: Axios Silent Token Refresh Interceptor](#program-1-axios-silent-token-refresh-interceptor)
+- [Program 2: Generic Type-Safe Item Selection List Component](#program-2-generic-type-safe-item-selection-list-component)
+</details>
+<!-- INDEX_END -->
+
 ---
 
 ## Program 1: Axios Silent Token Refresh Interceptor

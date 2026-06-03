@@ -1,3 +1,22 @@
+
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [📈 Section 1: Complexity & Big O Notation](#section-1-complexity-big-o-notation)
+  - [1. Common Time Complexities (Ordered by Efficiency)](#1-common-time-complexities-ordered-by-efficiency)
+  - [2. Space Complexity](#2-space-complexity)
+- [🧩 Section 2: Key Algorithmic Patterns](#section-2-key-algorithmic-patterns)
+  - [1. HashMap & Set (Constant Time Lookup)](#1-hashmap-set-constant-time-lookup)
+  - [2. Two Pointers (Optimal Scans)](#2-two-pointers-optimal-scans)
+  - [3. Sliding Window (Subarrays)](#3-sliding-window-subarrays)
+  - [4. Stack (Last-In-First-Out)](#4-stack-last-in-first-out)
+  - [5. Graph Traversals: BFS vs. DFS](#5-graph-traversals-bfs-vs-dfs)
+    - [Breadth-First Search (BFS)](#breadth-first-search-bfs)
+    - [Depth-First Search (DFS)](#depth-first-search-dfs)
+</details>
+<!-- INDEX_END -->
+
 ## 📈 Section 1: Complexity & Big O Notation
 
 Interviewers evaluate algorithms based on their efficiency using **Big O Notation**, which describes the limiting behavior of a function when the argument tends towards infinity.

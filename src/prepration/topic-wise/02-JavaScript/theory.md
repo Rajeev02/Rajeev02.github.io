@@ -1,3 +1,41 @@
+
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [☕ Section 1: Engine Fundamentals & Scoping](#section-1-engine-fundamentals-scoping)
+  - [1. Lexical Scoping & Closures](#1-lexical-scoping-closures)
+  - [2. Variable Scoping: `var` vs. `let` vs. `const`](#2-variable-scoping-var-vs-let-vs-const)
+  - [3. The Event Loop & Concurrency Model](#3-the-event-loop-concurrency-model)
+- [🗑️ Section 2: Memory Management & Garbage Collection](#section-2-memory-management-garbage-collection)
+  - [1. Hermes Mark-and-Sweep Garbage Collection](#1-hermes-mark-and-sweep-garbage-collection)
+  - [2. Identifying & Diagnosing Memory Leaks](#2-identifying-diagnosing-memory-leaks)
+    - [Typical JS Memory Leak Scenarios:](#typical-js-memory-leak-scenarios)
+- [⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks](#section-3-react-lifecycle-class-components-vs-functional-hooks)
+  - [1. Structural Comparison: Classes vs. Hooks](#1-structural-comparison-classes-vs-hooks)
+  - [2. Lifecycle Mapping Reference](#2-lifecycle-mapping-reference)
+- [⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)](#section-4-react-optimization-hooks-usememo-usecallback-useref)
+  - [1. `useMemo` (Value Caching)](#1-usememo-value-caching)
+  - [2. `useCallback` (Reference Caching)](#2-usecallback-reference-caching)
+  - [3. `useRef` (Mutable Container)](#3-useref-mutable-container)
+  - [4. When NOT to Memoize](#4-when-not-to-memoize)
+- [🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query](#section-5-state-orchestration-redux-toolkit-vs-react-query)
+  - [1. Redux Toolkit (RTK) - Client UI State](#1-redux-toolkit-rtk-client-ui-state)
+  - [2. React Query (TanStack Query) - Server State](#2-react-query-tanstack-query-server-state)
+- [⚙️ Section 6: Advanced Core JS & React Engine Concepts](#section-6-advanced-core-js-react-engine-concepts)
+  - [1. Currying & Hoisting](#1-currying-hoisting)
+  - [2. Prototypal Inheritance & The Chain](#2-prototypal-inheritance-the-chain)
+  - [3. Shallow vs. Deep Copying](#3-shallow-vs-deep-copying)
+  - [4. Spread vs. Rest Operators (`...`)](#4-spread-vs-rest-operators)
+  - [5. Generators & Iterators](#5-generators-iterators)
+  - [6. Callbacks & Callback Hell](#6-callbacks-callback-hell)
+  - [7. Promises, Async/Await & Try/Catch](#7-promises-asyncawait-trycatch)
+  - [7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)](#7b-redux-async-workflow-synchronous-actions-middlewares-thunkssagas)
+  - [8. React Reconciliation & Diffing (React Fiber)](#8-react-reconciliation-diffing-react-fiber)
+  - [9. Lazy Loading & Code Splitting](#9-lazy-loading-code-splitting)
+</details>
+<!-- INDEX_END -->
+
 ## ☕ Section 1: Engine Fundamentals & Scoping
 
 ### 1. Lexical Scoping & Closures
@@ -222,7 +260,6 @@ Large-scale React applications split state management into two clear domains: **
       yield takeLatest('FETCH_USER_REQUEST', fetchUserSaga);
     }
     ```
-
 
 ### 8. React Reconciliation & Diffing (React Fiber)
 - **Virtual DOM**: React maintains a lightweight in-memory representation of the true UI layout tree.

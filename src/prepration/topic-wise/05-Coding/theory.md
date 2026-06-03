@@ -1,3 +1,17 @@
+
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [⚙️ Section 1: Execution Control Wrappers (Debounce vs. Throttle)](#section-1-execution-control-wrappers-debounce-vs-throttle)
+  - [1. Debouncing](#1-debouncing)
+  - [2. Throttling](#2-throttling)
+- [🏗️ Section 2: JavaScript Polyfills & Prototype Delegation](#section-2-javascript-polyfills-prototype-delegation)
+- [📢 Section 3: Event Emitters & The Publish-Subscribe Pattern](#section-3-event-emitters-the-publish-subscribe-pattern)
+- [🗄️ Section 4: Function Memoization Caching](#section-4-function-memoization-caching)
+</details>
+<!-- INDEX_END -->
+
 ## ⚙️ Section 1: Execution Control Wrappers (Debounce vs. Throttle)
 
 In client-side applications (especially mobile apps), user interactions can trigger highly frequent events (e.g., typing in a search bar, scrolling a list, or swiping). If these events execute network requests or heavy layout computations directly, they can saturate threads and degrade performance.

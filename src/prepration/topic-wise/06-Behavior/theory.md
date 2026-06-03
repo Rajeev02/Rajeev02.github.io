@@ -1,3 +1,57 @@
+
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [🧭 Section 1: Senior Career Walkthrough (STAR Format)](#section-1-senior-career-walkthrough-star-format)
+  - [1. The Walkthrough Pitch](#1-the-walkthrough-pitch)
+- [🏗️ Section 2: Monorepo & Multi-App Code Sharing](#section-2-monorepo-multi-app-code-sharing)
+  - [Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)](#scenario-code-sharing-across-sister-products-lvx-lvxq-scalix)
+- [🔒 Section 3: High-Stakes Fintech System Design](#section-3-high-stakes-fintech-system-design)
+  - [1. Data Security at Rest (Keychain / Keystore)](#1-data-security-at-rest-keychain-keystore)
+  - [2. Data in Transit (SSL Pinning & Attestation)](#2-data-in-transit-ssl-pinning-attestation)
+  - [3. Payment Gateway Resilience (Razorpay & Cashfree)](#3-payment-gateway-resilience-razorpay-cashfree)
+- [⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#section-4-plurebus-dunst-wildtrails-case-studies-native-android-java)
+  - [1. Offline-First Safari Syncing (WildTrails)](#1-offline-first-safari-syncing-wildtrails)
+  - [2. VR and Ticketing (Dunst Technologies)](#2-vr-and-ticketing-dunst-technologies)
+  - [3. Media-Rich Booking and Discovery Platform (Plurebus)](#3-media-rich-booking-and-discovery-platform-plurebus)
+- [🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#section-4b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context)
+  - [1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)](#1-enterprise-banking-fintech-architectural-imperatives-capco-alignment)
+  - [2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)](#2-native-vs-hybrid-performance-limits-architectural-decision-matrix)
+  - [3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)](#3-native-integration-mechanics-bridge-vs-jsiturbomodules)
+  - [4. Advanced Native Android SDK & Enterprise Java Architecture](#4-advanced-native-android-sdk-enterprise-java-architecture)
+- [🏆 Section 5: Standard Behavioral & Technical Interview Q&A](#section-5-standard-behavioral-technical-interview-qa)
+  - [1. Walk me through your experience and how it relates to this role.](#1-walk-me-through-your-experience-and-how-it-relates-to-this-role)
+  - [2. I see you have strong React Native experience. Describe a complex performance bottleneck you encountered in a React Native application. How did you identify it, and what specific tools or techniques did you use to resolve it?](#2-i-see-you-have-strong-react-native-experience-describe-a-complex-performance-bottleneck-you-encountered-in-a-react-native-application-how-did-you-identify-it-and-what-specific-tools-or-techniques-did-you-use-to-resolve-it)
+  - [3. You've worked with Android SDK. In a React Native project, when would you decide to implement a feature using a native Android module rather than sticking purely to JavaScript? Provide a specific example.](#3-youve-worked-with-android-sdk-in-a-react-native-project-when-would-you-decide-to-implement-a-feature-using-a-native-android-module-rather-than-sticking-purely-to-javascript-provide-a-specific-example)
+  - [4. Your resume mentions Xcode. For an iOS React Native application, what are the key steps you follow to diagnose and resolve a crash that only occurs on a specific iOS device model or version?](#4-your-resume-mentions-xcode-for-an-ios-react-native-application-what-are-the-key-steps-you-follow-to-diagnose-and-resolve-a-crash-that-only-occurs-on-a-specific-ios-device-model-or-version)
+  - [5. You have experience with CI/CD pipelines. How do you ensure code quality and prevent regressions in a React Native project's Git workflow before merging to the main branch?](#5-you-have-experience-with-cicd-pipelines-how-do-you-ensure-code-quality-and-prevent-regressions-in-a-react-native-projects-git-workflow-before-merging-to-the-main-branch)
+  - [6. You have extensive mobile app development experience. Describe a challenging system design decision you faced when architecting a new feature for a React Native application. What factors influenced your choices?](#6-you-have-extensive-mobile-app-development-experience-describe-a-challenging-system-design-decision-you-faced-when-architecting-a-new-feature-for-a-react-native-application-what-factors-influenced-your-choices)
+  - [7. You've worked with React Query and Redux Toolkit. How would you decide which state management solution is more appropriate for different types of data in a large-scale React Native application?](#7-youve-worked-with-react-query-and-redux-toolkit-how-would-you-decide-which-state-management-solution-is-more-appropriate-for-different-types-of-data-in-a-large-scale-react-native-application)
+  - [8. Your resume mentions JavaScript. How do JavaScript's asynchronous patterns (Promises, async/await) impact the performance and responsiveness of a React Native application, especially when dealing with network requests or heavy computations?](#8-your-resume-mentions-javascript-how-do-javascripts-asynchronous-patterns-promises-asyncawait-impact-the-performance-and-responsiveness-of-a-react-native-application-especially-when-dealing-with-network-requests-or-heavy-computations)
+  - [9. How do you structure a large-scale React Native application?](#9-how-do-you-structure-a-large-scale-react-native-application)
+  - [10. How do you handle offline support in React Native?](#10-how-do-you-handle-offline-support-in-react-native)
+  - [11. Explain the React Native Bridge and its limitations.](#11-explain-the-react-native-bridge-and-its-limitations)
+  - [12. How would you reduce app startup time?](#12-how-would-you-reduce-app-startup-time)
+  - [13. What is Hermes and why is it useful?](#13-what-is-hermes-and-why-is-it-useful)
+  - [14. How do you secure sensitive information in mobile apps?](#14-how-do-you-secure-sensitive-information-in-mobile-apps)
+  - [15. How would you investigate a memory leak?](#15-how-would-you-investigate-a-memory-leak)
+  - [16. Detail useMemo and useCallback optimizations.](#16-detail-usememo-and-usecallback-optimizations)
+  - [17. How would you implement Push Notifications?](#17-how-would-you-implement-push-notifications)
+  - [18. What would you monitor after a production release?](#18-what-would-you-monitor-after-a-production-release)
+  - [19. How do you handle API failures gracefully?](#19-how-do-you-handle-api-failures-gracefully)
+  - [20. Describe a difficult production issue you solved.](#20-describe-a-difficult-production-issue-you-solved)
+  - [21. Redux Toolkit vs. React Query: Why not use Redux for everything?](#21-redux-toolkit-vs-react-query-why-not-use-redux-for-everything)
+  - [22. If you became Tech Lead tomorrow, what improvements would you introduce?](#22-if-you-became-tech-lead-tomorrow-what-improvements-would-you-introduce)
+  - [23. How do you design a Super-App architecture using React Native, and what are the tooling implications?](#23-how-do-you-design-a-super-app-architecture-using-react-native-and-what-are-the-tooling-implications)
+  - [24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?](#24-how-do-you-secure-compile-time-client-secrets-and-defend-against-dynamic-analysis-tools-like-frida)
+  - [25. Detail your approach to identifying and optimizing App Startup latency (TTI).](#25-detail-your-approach-to-identifying-and-optimizing-app-startup-latency-tti)
+  - [26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA CodePush updates?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-codepush-updates)
+- [👥 Section 6: Agile vs. Scrum Methodologies](#section-6-agile-vs-scrum-methodologies)
+- [❓ Questions to Ask the Interviewers](#questions-to-ask-the-interviewers)
+</details>
+<!-- INDEX_END -->
+
 ## 🧭 Section 1: Senior Career Walkthrough (STAR Format)
 
 When interviewing for Senior/Lead roles (9+ years experience), you must present your career progression, architectural ownership, and business value metrics clearly.
@@ -453,5 +507,4 @@ At the end of senior technical interviews, asking strategic questions demonstrat
 3. *"How are releases and CI/CD pipelines managed? Do you automate TestFlight and Play Store internal track delivery?"*
 4. *"What is the testing coverage expectations for PR approvals? Is the team using Detox for E2E layouts checks?"*
 5. *"What does technical success look like for this position in the first 90 days?"*
-
 

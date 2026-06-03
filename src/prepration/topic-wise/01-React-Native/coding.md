@@ -1,5 +1,27 @@
 # 📱 React Native Coding Programs
 
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [Program 1: Performance-Optimized List Component](#program-1-performance-optimized-list-component)
+- [Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)](#program-2-custom-netinfo-connectivity-hook-usenetwork)
+- [Program 4: Native Android Module Bridge (Kotlin)](#program-4-native-android-module-bridge-kotlin)
+- [Program 5: Fetch and Render List from API (Todos)](#program-5-fetch-and-render-list-from-api-todos)
+- [Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)](#program-6-reusable-api-calling-wrappers-fetch-vs-axios)
+- [Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates](#program-7-mmkv-state-persist-react-query-offline-caching-with-optimistic-updates)
+- [Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)](#program-8-reanimated-swipe-pan-gesture-card-component-ui-cloning-animation)
+- [Program 9: Native Module Bridge (Kotlin Android & Swift iOS)](#program-9-native-module-bridge-kotlin-android-swift-ios)
+- [Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration](#program-10-complete-github-actions-fastlane-cicd-configuration)
+- [Program 11: State Management with MobX State Tree (MST)](#program-11-state-management-with-mobx-state-tree-mst)
+- [Program 12: SQLite Transactional Ledger Database Hook](#program-12-sqlite-transactional-ledger-database-hook)
+- [Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)](#program-13-multi-layered-testing-suite-jest-rntl-detox)
+- [Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#program-14-webpack-module-federation-configuration-repack-host-remote-bundle-setup)
+- [Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#program-15-hardened-c-jni-bridge-module-android-jnikotlin-ios-obj-cswift)
+- [Program 16: Secure Purchase Validation & Transaction Sync Hook](#program-16-secure-purchase-validation-transaction-sync-hook)
+</details>
+<!-- INDEX_END -->
+
 ---
 
 ## Program 1: Performance-Optimized List Component
@@ -294,7 +316,6 @@ const styles = StyleSheet.create({
 - **Space Complexity**: $O(N)$ to keep the items array in memory.
 - **Explanation**: This list implements several react performance optimizations. Individual rows are wrapped in `React.memo` using custom equality properties checks. Callbacks for scrolling and row updates are memoized using `useCallback` to avoid re-allocating reference addresses. FlatList's `getItemLayout` is configured to bypass dynamic cell dimension calculations, and virtual parameters (`windowSize`, `initialNumToRender`, `removeClippedSubviews`) are tuned to reduce runtime heap footprints.
 
-
 ---
 
 ## Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
@@ -492,7 +513,6 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 - **Time Complexity**: $O(B)$ where $B$ is the byte length of the input string being hashed. Running the operation inside a Kotlin background thread keeps the Java/Kotlin Main UI Thread free from blocking delays.
 - **Space Complexity**: $O(B)$ to buffer the byte array data during message digestion.
 - **Explanation**: A React Native Native Module implemented in Kotlin. It registers the class as `CryptoBridge` and runs cryptographic calculations asynchronously. By executing the hash computation in a separate `Thread`, it prevents blocking Android's Main UI thread, returning the hexadecimal hash string back to JS using React Native's `Promise` bridge interface.
-
 
 ---
 
@@ -736,7 +756,6 @@ const styles = StyleSheet.create({
 - **Time Complexity**: $O(N)$ where $N$ is the number of fetched todo items rendered by the FlatList. The API request takes $O(1)$ networking time.
 - **Space Complexity**: $O(N)$ space in memory to store the todo array list in state.
 - **Explanation**: This component fetches todo data from dummyjson and handles loading and error states. It uses an `AbortController` passed to the fetch signal inside a `useEffect` loop. If the component unmounts before the network call completes, the controller aborts the request, preventing memory leaks and attempts to run `setTodos` on an unmounted context.
-
 
 ---
 

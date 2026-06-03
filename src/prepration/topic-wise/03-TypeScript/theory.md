@@ -1,3 +1,24 @@
+
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [📘 Section 1: Types vs. Interfaces](#section-1-types-vs-interfaces)
+  - [1. Structural Similarities](#1-structural-similarities)
+  - [2. Key Differences](#2-key-differences)
+    - [Declaration Merging (Unique to Interfaces)](#declaration-merging-unique-to-interfaces)
+    - [Composition & Extensions](#composition-extensions)
+    - [Capability Limits](#capability-limits)
+- [🛠️ Section 2: Generics & Utility Types](#section-2-generics-utility-types)
+  - [1. Generics (Type Parametrization)](#1-generics-type-parametrization)
+  - [2. TypeScript Utility Types](#2-typescript-utility-types)
+- [📱 Section 3: Type Safety in React Native (Codegen Specs)](#section-3-type-safety-in-react-native-codegen-specs)
+  - [1. Codegen Specification Rules](#1-codegen-specification-rules)
+  - [2. TurboModule Spec Example](#2-turbomodule-spec-example)
+- [⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)](#section-4-strict-compiler-options-tsconfigjson)
+</details>
+<!-- INDEX_END -->
+
 ## 📘 Section 1: Types vs. Interfaces
 
 TypeScript provides two core ways to declare object structures and contracts: **Interfaces** and **Type Aliases**. Understanding when to use which is essential for senior engineering roles.

@@ -1,5 +1,14 @@
 # 📊 DSA Coding Programs
 
+<!-- INDEX_START -->
+<details>
+  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+
+- [🧮 Part 1: Mathematical Coding](#part-1-mathematical-coding)
+- [💻 Part 2: Core DSA Algorithms](#part-2-core-dsa-algorithms)
+</details>
+<!-- INDEX_END -->
+
 ---
 
 ## 🧮 Part 1: Mathematical Coding
@@ -50,7 +59,6 @@ function sieveOfEratosthenes(n) {
 - **Space Complexity**: isPrime: $O(1)$, sieveOfEratosthenes: $O(n)$
 - **Explanation**: isPrime checks for integer divisors up to the square root of n. Sieve of Eratosthenes initializes a boolean table of size n and iteratively marks multiples of primes as false, extracting all remaining primes in the range.
 
-
 ---
 
 ### 2. Greatest Common Divisor (GCD) & Least Common Multiple (LCM)
@@ -84,7 +92,6 @@ function lcm(a, b) {
 - **Time Complexity**: $O(\log(\min(a, b)))$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Greatest Common Divisor (GCD) is calculated using the Euclidean algorithm by modulo division iteratively. The Least Common Multiple (LCM) is derived using the formula: $(a \times b) / \text{GCD}(a, b)$.
-
 
 ---
 
@@ -120,7 +127,6 @@ function isPalindrome(n) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Extracts digits from the number from right-to-left using remainder modulo 10 operations, constructs the reversed integer mathematically, and checks if it equals the original number.
 
-
 ---
 
 ### 4. Factorial (Iterative & Recursive)
@@ -153,7 +159,6 @@ function factorialRecursive(n) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: Iterative: $O(1)$, Recursive: $O(n)$ call stack depth
 - **Explanation**: Calculates the product of integers from 2 to n. The recursive version allocates stack frames proportional to n, whereas the iterative loop uses a single accumulator variable.
-
 
 ---
 
@@ -202,7 +207,6 @@ function nthFibonacci(n) {
 - **Space Complexity**: Sequence: $O(n)$, N-th term: $O(1)$
 - **Explanation**: Calculates Fibonacci values. The sequence generator stores computed numbers in an array. The N-th term function only tracks the last two values in memory to optimize space.
 
-
 ---
 
 ### 6. Armstrong Number Verification
@@ -234,7 +238,6 @@ function isArmstrong(num) {
 - **Space Complexity**: $O(\log_{10} n)$ to store digits
 - **Explanation**: Determines if a number equals the sum of its digits raised to the power of the digit count. Converts the number to a string to parse digits, maps each digit, and aggregates the sum.
 
-
 ---
 
 ### 7. AP & GP Progression Terms
@@ -262,7 +265,6 @@ function nthTermGP(a, r, n) {
 - **Time Complexity**: AP: $O(1)$, GP: $O(\log n)$ due to exponentiation
 - **Space Complexity**: $O(1)$
 - **Explanation**: Calculates the N-th term of progressions. The Arithmetic Progression uses $a + (n-1)d$ directly. The Geometric Progression raises the ratio to the power of $n-1$ using exponentiation.
-
 
 ---
 
@@ -292,7 +294,6 @@ function isComposite(n) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Checks if a number is composite (has factors other than 1 and itself) by seeking any divisor between 2 and the square root of n.
 
-
 ---
 
 ### 9. Celsius to Fahrenheit Conversion
@@ -315,7 +316,6 @@ function celsiusToFahrenheit(c) {
 - **Time Complexity**: $O(1)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Converts temperatures from Celsius to Fahrenheit using the linear formula: $F = C \times \frac{9}{5} + 32$.
-
 
 ---
 
@@ -354,7 +354,6 @@ function findDivisors(n) {
 - **Space Complexity**: $O(\sqrt{n})$ to store factors
 - **Explanation**: Iterates from 1 up to the square root of n. When a factor d is found, both d and its division pair $n/d$ are recorded, bypassing linear scanning.
 
-
 ---
 
 ### 11. Number Has Exactly Three Divisors
@@ -391,7 +390,6 @@ function hasThreeDivisors(n) {
 - **Time Complexity**: $O(\sqrt{\sqrt{n}})$ check threshold
 - **Space Complexity**: $O(1)$
 - **Explanation**: A number has exactly three divisors if and only if it is the square of a prime number. The code verifies that the square root of n is a prime number.
-
 
 ---
 
@@ -436,7 +434,6 @@ function findNumberWithMostDivisors(limit) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Iterates through all numbers in the range, calculates their divisor count using the square-root method, and tracks the candidate containing the maximum factors.
 
-
 ---
 
 ### 13. Repeated Digit Sum (Single Digit Reduction)
@@ -474,7 +471,6 @@ function repeatedDigitSumO1(n) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Reduces a number to a single digit by calculating its digital root. Implemented efficiently using the math formula: $1 + (n - 1) \pmod 9$.
 
-
 ---
 
 ### 14. Count Trailing Zeroes in Factorial
@@ -504,7 +500,6 @@ function trailingZeroes(n) {
 - **Time Complexity**: $O(\log_5 n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Applies Legendre's formula by dividing n by powers of 5 and summing the quotients. This calculates the count of prime factor 5s, which determines trailing zeroes.
-
 
 ---
 
@@ -541,7 +536,6 @@ function twoSum(nums, target) {
 - **Space Complexity**: $O(n)$ to store elements map
 - **Explanation**: Iterates the array, tracking indices in a Map. For each element, checks if its difference complement ($target - current$) is already stored.
 
-
 ---
 
 ### 16. Contains Duplicate
@@ -569,7 +563,6 @@ function containsDuplicate(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ for the Set
 - **Explanation**: Scans the array and inserts items into a Set. If a duplicate is encountered, it returns true immediately, stopping further execution.
-
 
 ---
 
@@ -607,7 +600,6 @@ function isAnagram(s, t) {
 - **Space Complexity**: $O(1)$ since character set is bounded
 - **Explanation**: Counts letter frequencies. Increments counts for characters in the first string, decrements for the second string, and checks if all final counts are zero.
 
-
 ---
 
 ### 18. First Unique Character in a String
@@ -642,7 +634,6 @@ function firstUniqChar(s) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$ bounded hash map
 - **Explanation**: Performs a first pass to build a character frequency map, then a second pass to identify the first character with a frequency count of 1.
-
 
 ---
 
@@ -683,7 +674,6 @@ function moveZeroes(nums) {
 - **Space Complexity**: $O(1)$ in-place swaps
 - **Explanation**: Uses a write pointer index. Iterates the array, shifting all non-zero numbers to the front, and fills all remaining indices with zeroes.
 
-
 ---
 
 ### 20. Longest Substring Without Repeating Characters
@@ -720,7 +710,6 @@ function lengthOfLongestSubstring(s) {
 - **Space Complexity**: $O(\min(n, m))$ where m is character set size
 - **Explanation**: Maintains a sliding window represented by left and right pointers. It expands the right pointer, and contracts the left pointer whenever a repeating character is seen.
 
-
 ---
 
 ### 21. Maximum Subarray Sum (Kadane's Algorithm)
@@ -753,7 +742,6 @@ function maxSubArray(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Implements Kadane's algorithm. Iterates through the array, accumulating the current subarray sum and resetting it to 0 if it drops below zero while logging the max.
-
 
 ---
 
@@ -796,7 +784,6 @@ function isValid(s) {
 - **Space Complexity**: $O(n)$ stack allocation
 - **Explanation**: Uses a stack to match brackets. Pushes opening brackets onto the stack, and pops them when matching closing brackets are encountered, asserting correct nesting.
 
-
 ---
 
 ### 23. Product of Array Except Self
@@ -837,7 +824,6 @@ function productExceptSelf(nums) {
 - **Space Complexity**: $O(1)$ auxiliary space
 - **Explanation**: Iterates forward to accumulate prefix products, then loops backward to multiply suffix values directly into the result array to avoid divisions.
 
-
 ---
 
 ### 24. Group Anagrams
@@ -870,7 +856,6 @@ function groupAnagrams(strs) {
 - **Time Complexity**: $O(n \cdot k \log k)$ where k is max string length
 - **Space Complexity**: $O(n \cdot k)$
 - **Explanation**: Normalizes strings by sorting their characters, and clusters them as values inside a Map indexed by the sorted key representations.
-
 
 ---
 
@@ -933,7 +918,6 @@ function numIslands(grid) {
 - **Space Complexity**: $O(R \times C)$ stack frames in worst case
 - **Explanation**: Traverses the 2D grid. When land '1' is encountered, it increments the island count and triggers DFS to mark all adjacent connected land cells to '0'.
 
-
 ---
 
 ### 26. Climbing Stairs (Dynamic Programming)
@@ -968,7 +952,6 @@ function climbStairs(n) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Solves paths using a dynamic programming state machine, keeping track of only the last two step values to calculate the next step value.
-
 
 ---
 
@@ -1014,7 +997,6 @@ function thirdLargest(nums) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Scans the array and tracks three variables (`first`, `second`, `third`) initialized to `-Infinity`, shifting values dynamically when larger elements are found.
 
-
 ---
 
 ### 28. Range Sum Query (1D Static Array)
@@ -1049,7 +1031,6 @@ class NumArray {
 - **Space Complexity**: $O(n)$ prefix sum storage
 - **Explanation**: Constructs a prefix sum array. Computes range sums in constant time by subtracting the prefix sum before the left index from the prefix sum at the right index.
 
-
 ---
 
 ### 29. Find Single Number (Bit Manipulation / XOR)
@@ -1076,7 +1057,6 @@ function singleNumber(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Applies the XOR bitwise operator across all elements. Since duplicate numbers cancel out ($x \oplus x = 0$), the unique single number remains.
-
 
 ---
 
@@ -1130,7 +1110,6 @@ function searchMatrix(matrix, target) {
 - **Space Complexity**: $O(R \times C)$ queue or call stack
 - **Explanation**: Systematically traverses a 2D matrix starting from an origin coordinate, using directional offsets to scan neighbor cells.
 
-
 ---
 
 ### 31. String Subsequence Checker
@@ -1163,7 +1142,6 @@ function isSubsequence(s, t) {
 - **Time Complexity**: $O(n)$ where n is length of parent string
 - **Space Complexity**: $O(1)$
 - **Explanation**: Utilizes two pointers to scan both strings. Increments the subsequence pointer whenever characters match, checking if it reaches the end.
-
 
 ---
 
@@ -1202,7 +1180,6 @@ function compareVersions(version1, version2) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Splits both version strings by '.' and compares the integers at major, minor, and patch index positions from left to right.
 
-
 ---
 
 ### 33. Subarray Sum Equals K
@@ -1238,7 +1215,6 @@ function subarraySum(nums, k) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ prefix sums map
 - **Explanation**: Maintains a running prefix sum and records its frequencies in a Map. At each element, it checks if $currentPrefix - k$ exists in the map.
-
 
 ---
 
@@ -1277,7 +1253,6 @@ function maxSubArrayLen(nums, k) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ prefix index map
 - **Explanation**: Tracks the first occurrence index of prefix sums in a Map. When $currentPrefix - k$ is found, evaluates and records the max subarray distance.
-
 
 ---
 
@@ -1319,7 +1294,6 @@ function checkSubarraySum(nums, k) {
 - **Space Complexity**: $O(\min(n, k))$ mod values map
 - **Explanation**: Tracks running prefix sums modulo k in a Map. If a modulo remainder is seen twice at indexes separated by more than one step, it indicates a multiple of k.
 
-
 ---
 
 ### 36. Two Sum II (Sorted Array)
@@ -1355,7 +1329,6 @@ function twoSumSorted(numbers, target) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Uses two pointers at the boundaries of the sorted array, adjusting them inward depending on how the sum compares to the target.
-
 
 ---
 
@@ -1406,7 +1379,6 @@ function threeSum(nums) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Sorts the array and loops through. For each element, uses two pointers to search for complement pairs, skipping duplicate elements.
 
-
 ---
 
 ### 38. Container With Most Water
@@ -1445,7 +1417,6 @@ function maxArea(height) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Uses two boundary pointers. Measures capacity as $(right - left) \times \min(height[left], height[right])$, and shifts the pointer with the shorter bar.
-
 
 ---
 
@@ -1497,7 +1468,6 @@ function maximumSubarraySum(nums, k) {
 - **Space Complexity**: $O(k)$ Set
 - **Explanation**: Slides a window of size k. Tracks unique elements in a Set and maintains a running sum. When the Set size equals k, updates the maximum sum.
 
-
 ---
 
 ### 40. Maximum Average Subarray
@@ -1531,7 +1501,6 @@ function findMaxAverage(nums, k) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Slides a window of size k across the array, tracking the sum of the elements and dividing by k to maintain the maximum average value.
-
 
 ---
 
@@ -1573,7 +1542,6 @@ function secondHighestFrequency(arr) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ frequencies map
 - **Explanation**: Counts element frequencies in a Map, and scans the map to identify the element containing the second highest frequency value.
-
 
 ---
 
@@ -1618,7 +1586,6 @@ function mostFrequentChar(str) {
 - **Space Complexity**: $O(1)$ bounded character map
 - **Explanation**: Counts character frequencies in a Map and tracks the character with the maximum count value.
 
-
 ---
 
 ### 43. First Repeating Element
@@ -1652,7 +1619,6 @@ function firstRepeatingElement(arr) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ Set
 - **Explanation**: Scans the array backward, recording visited items in a Set. Whenever a visited element is re-encountered, it updates the repeating candidate.
-
 
 ---
 
@@ -1694,7 +1660,6 @@ function longestConsecutive(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ Set
 - **Explanation**: Inserts all numbers into a Set. Iterates through the set, and if $num - 1$ is not present, computes the length of the sequence starting at $num$.
-
 
 ---
 
@@ -1739,7 +1704,6 @@ function rotateArray(nums, k) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Reverses the entire array, then reverses the first k elements, and finally reverses the remaining $n - k$ elements to perform rotation in-place.
 
-
 ---
 
 ### 46. Maximum Sum Subarray of Size K
@@ -1776,7 +1740,6 @@ function maxSubarraySumK(arr, k) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Evaluates the sum of the first k elements, then slides the window by adding the next item and subtracting the leftmost item to maintain the sum.
 
-
 ---
 
 ### 47. Longest Common Prefix
@@ -1810,7 +1773,6 @@ function longestCommonPrefix(strs) {
 - **Time Complexity**: $O(N \cdot S)$ where S is length of smallest string
 - **Space Complexity**: $O(1)$
 - **Explanation**: Assumes the first string is the common prefix. Iterates through the list, shrinking the prefix string until it matches the beginning of each string.
-
 
 ---
 
@@ -1847,7 +1809,6 @@ function compressString(str) {
 - **Space Complexity**: $O(n)$
 - **Explanation**: Traverses the string, counting consecutive repeating characters. Compiles characters and counts, and returns the original if the output is not shorter.
 
-
 ---
 
 ### 49. Next Greater Element
@@ -1881,7 +1842,6 @@ function nextGreaterElement(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(n)$ stack allocation
 - **Explanation**: Maintains a monotonic stack of indices. When an element is larger than the element at the index on top of the stack, it resolves the next greater element.
-
 
 ---
 
@@ -1929,7 +1889,6 @@ function trap(height) {
 - **Space Complexity**: $O(1)$
 - **Explanation**: Uses left and right pointers. Tracks the maximum heights seen on both sides, and adds the trapped water difference at the lower pointer.
 
-
 ---
 
 ### 51. Missing Number
@@ -1955,7 +1914,6 @@ function missingNumber(nums) {
 - **Time Complexity**: $O(n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Calculates the expected mathematical sum of numbers from 0 to n using $\frac{n(n+1)}{2}$ and subtracts the actual sum of the array.
-
 
 ---
 
@@ -2000,7 +1958,6 @@ function topKFrequent(nums, k) {
 - **Space Complexity**: $O(n)$
 - **Explanation**: Counts frequencies in a Map, distributes numbers into buckets using frequency as index, and scans buckets backward to collect the top k elements.
 
-
 ---
 
 ### 53. Kth Largest Element in an Array
@@ -2024,7 +1981,6 @@ function findKthLargest(nums, k) {
 - **Time Complexity**: $O(n \log n)$
 - **Space Complexity**: $O(1)$
 - **Explanation**: Sorts the array in descending order, and resolves the value located at position $k-1$.
-
 
 ---
 
@@ -2067,6 +2023,5 @@ function mergeIntervals(intervals) {
 - **Time Complexity**: $O(n \log n)$
 - **Space Complexity**: $O(n)$ merged list
 - **Explanation**: Sorts intervals by their start times, then traverses them, merging overlapping boundaries dynamically into a results array.
-
 
 ```
