@@ -6,6 +6,48 @@
     <title>Preparation Resources</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+      :root {
+        --bg-primary: #f5f7fa;
+        --bg-card: #ffffff;
+        --bg-hover: #edf2f7;
+        --bg-active: #667eea;
+        --bg-active-hover: #5a67d8;
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --text-muted: #718096;
+        --border-color: #e2e8f0;
+        --code-bg: #f7fafc;
+        --code-text: #d63384;
+        --pre-bg: #2d3748;
+        --pre-text: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --header-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --btn-back-bg: #e2e8f0;
+        --btn-back-hover: #cbd5e0;
+        --loader-bg: rgba(255, 255, 255, 0.95);
+      }
+
+      [data-theme="dark"] {
+        --bg-primary: #0f172a;
+        --bg-card: #1e293b;
+        --bg-hover: #334155;
+        --bg-active: #8b5cf6;
+        --bg-active-hover: #7c3aed;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --code-bg: #0f172a;
+        --code-text: #f472b6;
+        --pre-bg: #0f172a;
+        --pre-text: #edf2f7;
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        --header-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        --btn-back-bg: #334155;
+        --btn-back-hover: #475569;
+        --loader-bg: rgba(15, 23, 42, 0.95);
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -20,9 +62,10 @@
           Helvetica,
           Arial,
           sans-serif;
-        background: #f5f7fa;
+        background: var(--bg-primary);
         line-height: 1.6;
-        color: #2d3748;
+        color: var(--text-primary);
+        transition: background-color 0.3s, color 0.3s;
       }
       .loader {
         position: fixed;
@@ -30,12 +73,13 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--loader-bg);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 9999;
+        transition: background-color 0.3s;
       }
       .loader.hidden {
         display: none;
@@ -43,10 +87,11 @@
       .spinner {
         width: 50px;
         height: 50px;
-        border: 4px solid #e2e8f0;
-        border-top-color: #667eea;
+        border: 4px solid var(--border-color);
+        border-top-color: var(--bg-active);
         border-radius: 50%;
         animation: spin 1s linear infinite;
+        transition: border-color 0.3s;
       }
       @keyframes spin {
         to {
@@ -55,8 +100,9 @@
       }
       .loader-text {
         margin-top: 16px;
-        color: #718096;
+        color: var(--text-muted);
         font-size: 14px;
+        transition: color 0.3s;
       }
       .container {
         max-width: 1200px;
@@ -64,7 +110,7 @@
         padding: 20px;
       }
       header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: var(--header-gradient);
         color: white;
         padding: 20px;
         border-radius: 8px;
@@ -72,22 +118,60 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-shadow: var(--shadow);
+        transition: background 0.3s, box-shadow 0.3s;
       }
       header h1 {
         font-size: 24px;
       }
+      .header-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .theme-toggle-btn {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        width: 38px;
+        height: 38px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, transform 0.2s;
+        backdrop-filter: blur(4px);
+      }
+      .theme-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+      }
+      .theme-toggle-btn:active {
+        transform: scale(0.95);
+      }
       .logout-btn {
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid white;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         color: white;
         padding: 8px 16px;
-        border-radius: 4px;
+        height: 38px;
+        border-radius: 6px;
         cursor: pointer;
         font-size: 14px;
-        transition: background 0.3s;
+        transition: background 0.3s, transform 0.2s;
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .logout-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.02);
+      }
+      .logout-btn:active {
+        transform: scale(0.98);
       }
       .content-wrapper {
         display: grid;
@@ -95,20 +179,23 @@
         gap: 20px;
       }
       .sidebar {
-        background: white;
+        background: var(--bg-card);
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
         height: fit-content;
         position: sticky;
         top: 20px;
         max-height: 80vh;
         overflow-y: auto;
+        transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
       }
       .sidebar h3 {
         margin-bottom: 15px;
         font-size: 16px;
-        color: #1a202c;
+        color: var(--text-primary);
+        transition: color 0.3s;
       }
       .section {
         margin-bottom: 20px;
@@ -116,10 +203,11 @@
       .section-title {
         font-weight: 600;
         font-size: 12px;
-        color: #718096;
+        color: var(--text-muted);
         text-transform: uppercase;
         margin-bottom: 8px;
         margin-top: 12px;
+        transition: color 0.3s;
       }
       .section-title:first-child {
         margin-top: 0;
@@ -128,40 +216,49 @@
         display: block;
         padding: 8px 12px;
         margin-bottom: 4px;
-        background: #f7fafc;
-        border-left: 3px solid #667eea;
+        background: var(--bg-primary);
+        border-left: 3px solid var(--bg-active);
         cursor: pointer;
         border-radius: 4px;
         font-size: 13px;
-        transition: all 0.2s;
+        transition: background-color 0.2s, color 0.2s, padding-left 0.2s, border-left-color 0.2s;
         text-decoration: none;
-        color: #2d3748;
+        color: var(--text-secondary);
       }
       .file-link:hover {
-        background: #edf2f7;
+        background: var(--bg-hover);
+        color: var(--text-primary);
         padding-left: 16px;
       }
       .file-link.active {
-        background: #667eea;
-        color: white;
-        border-left-color: #764ba2;
+        background: var(--bg-active);
+        color: white !important;
+        border-left-color: var(--text-primary);
       }
       .main-content {
-        background: white;
+        background: var(--bg-card);
         padding: 30px;
         border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
         max-height: 80vh;
         overflow-y: auto;
+        transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
       }
       .no-file {
         text-align: center;
         padding: 60px 20px;
-        color: #718096;
+        color: var(--text-muted);
+        transition: color 0.3s;
       }
       .no-file h2 {
         margin-bottom: 10px;
-        color: #4a5568;
+        color: var(--text-primary);
+        transition: color 0.3s;
+      }
+      .markdown-content {
+        color: var(--text-secondary);
+        transition: color 0.3s;
       }
       .markdown-content h1,
       .markdown-content h2,
@@ -172,16 +269,20 @@
         margin-top: 24px;
         margin-bottom: 16px;
         font-weight: 600;
+        color: var(--text-primary);
+        transition: color 0.3s;
       }
       .markdown-content h1 {
         font-size: 32px;
-        border-bottom: 2px solid #e2e8f0;
+        border-bottom: 2px solid var(--border-color);
         padding-bottom: 8px;
+        transition: border-bottom-color 0.3s;
       }
       .markdown-content h2 {
         font-size: 24px;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--border-color);
         padding-bottom: 6px;
+        transition: border-bottom-color 0.3s;
       }
       .markdown-content h3 {
         font-size: 20px;
@@ -190,21 +291,26 @@
         margin-bottom: 12px;
       }
       .markdown-content code {
-        background: #f7fafc;
+        background: var(--code-bg);
         padding: 2px 6px;
         border-radius: 3px;
-        font-family: "Courier New", monospace;
-        font-size: 14px;
-        color: #d63384;
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 13px;
+        color: var(--code-text);
+        word-break: break-word;
+        white-space: pre-wrap;
+        transition: background-color 0.3s, color 0.3s;
       }
       .markdown-content pre {
-        background: #2d3748;
-        color: #e2e8f0;
+        background: var(--pre-bg);
+        color: var(--pre-text);
         padding: 16px;
         border-radius: 6px;
         overflow-x: auto;
         margin: 16px 0;
         line-height: 1.4;
+        border: 1px solid var(--border-color);
+        transition: background-color 0.3s, border-color 0.3s;
       }
       .markdown-content pre code {
         background: none;
@@ -223,81 +329,119 @@
         border-collapse: collapse;
         width: 100%;
         margin: 16px 0;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .markdown-content th,
       .markdown-content td {
-        border: 1px solid #e2e8f0;
+        border: 1px solid var(--border-color);
         padding: 12px;
         text-align: left;
+        color: var(--text-secondary);
+        transition: border-color 0.3s, color 0.3s;
       }
       .markdown-content th {
-        background: #f7fafc;
+        background: var(--bg-hover);
         font-weight: 600;
+        color: var(--text-primary);
+        transition: background-color 0.3s, color 0.3s;
       }
       .markdown-content blockquote {
-        border-left: 4px solid #667eea;
-        padding-left: 16px;
-        color: #718096;
+        border-left: 4px solid var(--bg-active);
+        padding: 10px 16px;
+        color: var(--text-muted);
+        background: var(--bg-primary);
         margin: 16px 0;
         font-style: italic;
+        border-radius: 0 6px 6px 0;
+        transition: background-color 0.3s, border-left-color 0.3s;
       }
       .back-btn {
         display: inline-block;
         margin-bottom: 20px;
         padding: 8px 16px;
-        background: #e2e8f0;
-        color: #2d3748;
+        background: var(--btn-back-bg);
+        color: var(--text-primary);
         text-decoration: none;
-        border-radius: 4px;
+        border-radius: 6px;
         font-size: 14px;
-        transition: background 0.2s;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
         cursor: pointer;
-        border: none;
+        border: 1px solid var(--border-color);
       }
       .back-btn:hover {
-        background: #cbd5e0;
+        background: var(--btn-back-hover);
       }
       .code-file {
-        background: #2d3748;
-        color: #e2e8f0;
+        background: var(--pre-bg);
+        color: var(--pre-text);
         padding: 16px;
         border-radius: 6px;
         overflow-x: auto;
         line-height: 1.4;
-        font-family: "Courier New", monospace;
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
         font-size: 13px;
         white-space: pre-wrap;
         word-break: break-word;
+        border: 1px solid var(--border-color);
+        transition: background-color 0.3s, border-color 0.3s;
       }
       .info-box {
-        background: #edf2f7;
-        border-left: 4px solid #667eea;
+        background: var(--bg-hover);
+        border-left: 4px solid var(--bg-active);
         padding: 12px;
         margin-bottom: 20px;
         border-radius: 4px;
         font-size: 13px;
-        color: #4a5568;
+        color: var(--text-secondary);
+        transition: background-color 0.3s, border-left-color 0.3s;
       }
       .file-count {
         font-size: 12px;
-        color: #718096;
+        color: var(--text-muted);
         margin-top: 8px;
+        transition: color 0.3s;
       }
       @media (max-width: 768px) {
         .content-wrapper {
           grid-template-columns: 1fr;
         }
-        .sidebar {
-          position: static;
+
+        /* Master-Detail Layout Toggling on Mobile */
+        .content-wrapper:not(.has-active-file) .sidebar {
+          display: block;
+        }
+        .content-wrapper:not(.has-active-file) .main-content {
+          display: none;
+        }
+        .content-wrapper.has-active-file .sidebar {
+          display: none;
+        }
+        .content-wrapper.has-active-file .main-content {
+          display: block;
           max-height: none;
         }
-        .main-content {
+
+        .sidebar {
+          position: static;
           max-height: none;
         }
         header {
           flex-direction: column;
           gap: 15px;
           text-align: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 12px;
+        }
+        header {
+          padding: 16px;
+        }
+        .main-content {
+          padding: 20px 15px;
         }
       }
     </style>
@@ -311,7 +455,10 @@
     <div class="container">
       <header>
         <h1>📚 Preparation Resources</h1>
-        <button class="logout-btn" onclick="logout()">Lock & Exit</button>
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
+          <button class="logout-btn" onclick="logout()">Lock & Exit</button>
+        </div>
       </header>
 
       <div class="content-wrapper">
@@ -333,6 +480,14 @@
 
     <script src="embedded_data.js"></script>
     <script>
+      // Initialize theme early to avoid style flashing
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const currentTheme = savedTheme || systemTheme;
+        document.documentElement.setAttribute("data-theme", currentTheme);
+      })();
+
       if (sessionStorage.getItem("prepration_unlocked") !== "1") {
         location.href = "/prepration/index.html";
       }
@@ -346,6 +501,37 @@
         "06-Behavior": "6. Behavior",
       };
 
+      let themeInitialized = false;
+      function initThemeToggle() {
+        if (themeInitialized) return;
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        updateThemeToggleUI(currentTheme);
+        
+        const toggleBtn = document.getElementById("themeToggle");
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme");
+            const next = current === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            updateThemeToggleUI(next);
+          });
+          themeInitialized = true;
+        }
+      }
+
+      function updateThemeToggleUI(theme) {
+        const toggleBtn = document.getElementById("themeToggle");
+        if (!toggleBtn) return;
+        if (theme === "dark") {
+          toggleBtn.innerHTML = "☀️";
+          toggleBtn.title = "Switch to Light Mode";
+        } else {
+          toggleBtn.innerHTML = "🌙";
+          toggleBtn.title = "Switch to Dark Mode";
+        }
+      }
+
       function hideLoader() {
         const loader = document.getElementById("loader");
         if (loader) loader.classList.add("hidden");
@@ -358,6 +544,9 @@
 
       function initializeApp() {
         try {
+          // Initialize theme toggle
+          initThemeToggle();
+
           // Wait for marked to be available
           if (typeof marked === "undefined") {
             console.error("marked library not loaded yet");
@@ -440,6 +629,8 @@
         setTimeout(() => {
           displayContent(file.content, file.name, file.type);
           updateActiveLink(section, file.name);
+          const wrapper = document.querySelector(".content-wrapper");
+          if (wrapper) wrapper.classList.add("has-active-file");
           hideLoader();
         }, 300);
       }
@@ -512,6 +703,8 @@
         document
           .querySelectorAll(".file-link")
           .forEach((link) => link.classList.remove("active"));
+        const wrapper = document.querySelector(".content-wrapper");
+        if (wrapper) wrapper.classList.remove("has-active-file");
       }
 
       function logout() {
