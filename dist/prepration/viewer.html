@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Preparation Resources</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-gfm-heading-id/lib/index.umd.js"></script>
     <style>
       :root {
         --bg-primary: #f5f7fa;
@@ -502,6 +503,7 @@
       };
 
       let themeInitialized = false;
+      let markedInitialized = false;
       function initThemeToggle() {
         if (themeInitialized) return;
         const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -552,6 +554,13 @@
             console.error("marked library not loaded yet");
             setTimeout(initializeApp, 100);
             return;
+          }
+
+          if (!markedInitialized) {
+            if (typeof markedGfmHeadingId !== "undefined" && typeof marked.use === "function") {
+              marked.use(markedGfmHeadingId.gfmHeadingId());
+            }
+            markedInitialized = true;
           }
 
           if (typeof embeddedFileData === "undefined" || !embeddedFileData) {
