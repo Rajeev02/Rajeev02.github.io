@@ -26,6 +26,8 @@
         --btn-back-bg: #e2e8f0;
         --btn-back-hover: #cbd5e0;
         --loader-bg: rgba(255, 255, 255, 0.95);
+        --link-color: #4f46e5;
+        --link-color-hover: #3730a3;
       }
 
       [data-theme="dark"] {
@@ -47,6 +49,8 @@
         --btn-back-bg: #334155;
         --btn-back-hover: #475569;
         --loader-bg: rgba(15, 23, 42, 0.95);
+        --link-color: #a78bfa;
+        --link-color-hover: #c084fc;
       }
 
       * {
@@ -260,6 +264,35 @@
       .markdown-content {
         color: var(--text-secondary);
         transition: color 0.3s;
+      }
+      .markdown-content a {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s, text-decoration-color 0.2s;
+      }
+      .markdown-content a:hover {
+        color: var(--link-color-hover);
+        text-decoration: underline;
+      }
+      .markdown-content details {
+        background: var(--bg-hover);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin: 20px 0;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .markdown-content summary {
+        font-weight: 600;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+        color: var(--text-primary);
+        transition: color 0.2s;
+      }
+      .markdown-content summary:hover {
+        color: var(--link-color);
       }
       .markdown-content h1,
       .markdown-content h2,
