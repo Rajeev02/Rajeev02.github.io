@@ -364,6 +364,53 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
+### 23. How do you design a Super-App architecture using React Native, and what are the tooling implications?
+- **Answer**: 
+  - **Architecture Design**: We build a Super-App by dividing the product into a Host shell and independent Remote modules (mini-apps) using **Webpack Module Federation via Re.Pack**:
+    1. **Container (Host)**: Resolves authentication, dynamic routing navigation, global theme contexts, and runs the core engine.
+    2. **Mini-Apps (Remotes)**: Features (e.g., Credit Card billing, Loans, Rewards) compiled into separate JS/Hermes bytecode bundles and hosted on secure CDNs.
+  - **Runtime Resolution**: When a user selects a feature, the Host calls the dynamic script loader (`Federated.importModule`) to fetch the target bundle. We declare shared dependencies (React, React Native, Reanimated) as singletons in `webpack.config.js` to ensure the dynamic feature reuses the host's memory instances, avoiding loading duplicate libraries.
+  - **Tooling Implications**:
+    - **Re.Pack**: Replaces Metro, introducing Webpack configuration files (`webpack.config.js`) for mobile bundlers.
+    - **Dynamic Script Managers**: We implement dynamic URL resolver logic inside the native container code to fetch specific platform bundles (iOS/Android).
+    - **Offline Syncing**: Mini-apps must be cached locally to allow offline access. We write a custom native background loader to pre-download and hydrate remote bundles to device directories.
+
+---
+
+### 24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?
+- **Answer**: 
+  - **Secure Secrets (C++ JNI)**: Storing keys in `.env` is insecure since Metro compiles them into plain-text strings inside `index.bundle`. We secure keys by moving them into **C++ source files compiled directly to binary** (e.g. `.so` on Android, static library on iOS):
+    - The keys are stored as obfuscated byte arrays encrypted with XOR masks.
+    - We expose them to React Native using Kotlin JNI wrappers (`SecureKeysModule.kt`) and Objective-C++ files (`SecureKeysBridge.mm`).
+    - At runtime, the keys are resolved and decrypted in CPU memory only when requested.
+  - **Frida & Dynamic Analysis Defenses**:
+    - **Port Scanning**: Frida runs on default port `27042`. We write a native module to scan active local socket tables to detect running Frida servers.
+    - **Library Verification**: Check memory mapping logs (`/proc/self/maps` on Android, or calling `_dyld_get_image_name` on iOS) to detect the presence of Frida dynamic libraries (e.g., `frida-agent.so`).
+    - **Memory Hook Check**: Verify checksums of native method instructions at runtime to detect injection or modification by reverse-engineering frameworks.
+
+---
+
+### 25. Detail your approach to identifying and optimizing App Startup latency (TTI).
+- **Answer**: 
+  - **Triage Protocol**:
+    1. **Xcode Instruments (App Launch)** & **Android Studio Profiler (CPU/Method Traces)**: Capture pre-main execution (e.g., CocoaPods loading, JVM boot times).
+    2. **Systrace / Perfetto**: Capture time spent initializing the React Native Bridge, Hermes VM, and visual layout rendering.
+  - **Optimizations**:
+    - **Inline Requires**: Enable inline requires in `metro.config.js` to compile imports into dynamic require functions, avoiding loading unnecessary JS files at launch.
+    - **Hermes Bytecode AOT**: Pre-compile JavaScript code to Hermes bytecode during CI builds, skipping parsing and syntax compilation phases on launch.
+    - **Lazy SDK Instantiation**: Wrap third-party libraries (PostHog, Branch, Sentry) in initialization handlers that execute inside `InteractionManager.runAfterInteractions` or a background scheduler.
+    - **Native Framework Auditing**: Prune unused CocoaPods frameworks and Gradle implementation libraries to reduce pre-main dynamic linking overhead.
+
+---
+
+### 26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA CodePush updates?
+- **Answer**: 
+  - **Binary Version Locking**: Native modules must match JS code definitions. We set strict Target Binary Version rules (e.g., `^2.4.0`) inside the CodePush/Expo release scripts, ensuring the bundle runs only on shells built with the identical native library signatures.
+  - **Multi-Staged Deployments**: We release OTA updates in waves (e.g., 5% ➡️ 25% ➡️ 100%) and watch crash alerts on Sentry.
+  - **Native Recovery & Rollback**: We configure the native runtime shell to monitor startup health. If the app crashes repeatedly (e.g. 3 times in 2 minutes) immediately following a CodePush update, the native wrapper rolls back automatically, deleting the cache directory and loading the stable, embedded JS bundle.
+
+---
+
 ## 👥 Section 6: Agile vs. Scrum Methodologies
 
 Understanding the distinction between project frameworks and mindsets is essential for senior delivery roles:

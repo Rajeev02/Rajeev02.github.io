@@ -64,6 +64,13 @@ If flexDirection = 'row'
 - **`justifyContent`**: Aligns items along the **Main Axis** (options: `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, `space-evenly`).
 - **`alignItems`**: Aligns items along the **Cross Axis** (options: `flex-start`, `center`, `flex-end`, `stretch` [default]).
 
+### 4. Animations & UI Cloning (Animated vs. Reanimated)
+Animations are calculated on two different runtime threads in React Native:
+- **Legacy Animated API**: Compiles animation configurations. If `useNativeDriver: true` is set, layout attributes (such as opacity and transforms) are serialized and sent once across the bridge to run purely on the Native UI thread at 60 FPS. However, non-layout transformations (like width, height, and margins) cannot use the native driver and must run on the single-threaded JS main thread, causing frame stutter if the bridge or thread gets saturated.
+- **LayoutAnimation**: Instructs the native OS thread to pre-calculate transitions (fade, scale) automatically for the entire UI layout on the next render cycle. Extremely fast, but lacks fine-grained interactive control (e.g. pan gestures tracking).
+- **React Native Reanimated**: Fully asynchronous animation engine that eliminates the JS thread bottleneck. It utilizes **Worklets**—small JavaScript functions compiled to C++ that execute directly inside a secondary JS engine context on the UI/Render thread. Reanimated values (`shared values`) are modified directly on the UI thread at 60/120 FPS, binding seamlessly with gesture handlers (e.g., swiping cards, zooming views) with zero bridge round-trips.
+- **High-Fidelity UI Cloning**: To replicate complex layouts (like finance tracking charts, swipe-to-reveal lists, or drag-and-drop lists), developers structure views by nesting absolute positioned elements, binding gesture inputs (`Gesture.Pan()`), and applying Reanimated's `useAnimatedStyle` to interpolate values (e.g. mapping swipe distance to rotation angle and container opacity).
+
 ---
 
 ## 🔌 Section 3: Custom Native Modules & Expo CNG
@@ -91,6 +98,42 @@ To stream data asynchronously from Native to JS (e.g., continuous GPS coordinate
 In modern Expo projects, developers do not manually edit the `/android` and `/ios` native directories. Instead, they treat them as build artifacts that are generated dynamically.
 - **`npx expo prebuild`** reads the project configuration in `app.json` and generates clean native directories on the fly.
 - **Expo Config Plugins**: To configure native settings (like modifying `AndroidManifest.xml`, registering permissions, or adding custom CocoaPods settings), you write a JavaScript setup file called a Config Plugin. During prebuild, Expo runs this plugin to programmatically inject the native modifications, keeping your primary code repository 100% universal and folderless.
+
+### 3. Native Application Lifecycles & Bridging Mechanics
+Understanding the interaction between React Native and the host OS lifecycles is critical for managing memory, background tasks, and native modules safely.
+
+#### Android Activity & Fragment Lifecycles
+- **Android Activity** is the single visual screen context. Its lifecycle is:
+  - `onCreate()`: Initial setup (Vite/React Native loads the ReactActivity here).
+  - `onStart()`: Activity becomes visible.
+  - `onResume()`: Activity enters foreground, starts interacting.
+  - `onPause()`: Another activity takes focus (e.g., split-screen or permission alert).
+  - `onStop()`: Activity is no longer visible (hidden in background).
+  - `onDestroy()`: Activity is killed by the OS or finished.
+- **Android Fragment** represents a modular portion of an activity. Its lifecycle adds view-specific phases:
+  - `onAttach()` ➡️ `onCreate()` ➡️ `onCreateView()` (inflates XML layout) ➡️ `onViewCreated()` ➡️ `onStart()` ➡️ `onResume()` ➡️ `onPause()` ➡️ `onStop()` ➡️ `onDestroyView()` ➡️ `onDestroy()` ➡️ `onDetach()`.
+- **React Native Hook**: Custom modules implementing Android's **`LifecycleEventListener`** register callbacks for `onHostResume()`, `onHostPause()`, and `onHostDestroy()`. This lets native code release resources (like stop camera previews or GPS polling) when the containing Activity pauses.
+
+#### iOS Application & ViewController Lifecycles
+- **iOS App Lifecycle** is governed by `UIApplicationDelegate` states:
+  - `Active`: App is running in the foreground and receiving events.
+  - `Inactive`: App is transitioning or interrupted (e.g., incoming phone call, notification panel swipe).
+  - `Background`: App is hidden but executing background code (e.g. audio playing, location updates).
+  - `Suspended`: App is in background and execution is paused by the kernel.
+- **UIViewController Lifecycle** governs the native view tree:
+  - `viewDidLoad()`: View container is loaded in memory.
+  - `viewWillAppear()` / `viewDidAppear()`: Triggers before/after the view paints on screen.
+  - `viewWillDisappear()` / `viewDidDisappear()`: Triggers before/after the view is dismissed.
+- **React Native Hook**: Custom iOS modules subscribe to `UIApplication` events (like `UIApplicationDidBecomeActiveNotification` and `UIApplicationDidEnterBackgroundNotification`) to pause background animations or connection pools.
+
+#### React Native Library Creation Flow
+To package native modules and JS bindings as a reusable NPM library:
+1. **Initialize Directory**: Run `npx create-react-native-library react-native-my-feature` to generate a scaffold.
+2. **Package Structure**:
+   - `android/`: Contains `build.gradle`, Kotlin/Java module source files, and the ReactPackage registration.
+   - `ios/`: Contains Objective-C/Swift code, and the `<LibraryName>.podspec` file for CocoaPods integration.
+   - `src/`: Contains TypeScript/JavaScript API wrappers that define the public method interfaces.
+   - `package.json`: Configures peer dependencies on `react` and `react-native`.
 
 ---
 
@@ -176,6 +219,31 @@ Push notifications require a secure handshake between client, server, and APNs/F
 ### 4. Navigation Lifecycles (`useFocusEffect`)
 - Using standard `useEffect` hooks will not fire when a screen gets re-focused.
 - To execute data syncs or trigger screen entries cleanly, implement the **`useFocusEffect`** hook. This acts as a navigator-specific lifecycle controller, firing code only when the tab gains visual focus, and executing its cleanup callback when the screen loses focus.
+
+### 5. CI/CD Pipelines & Mobile Deployment Workflow
+Automating builds ensures reliable releases and prevents manual code signing errors.
+
+```text
+  [Git Commit] ➡️ Trigger CI (GitHub Actions)
+                    ⬇️
+  [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
+                    ⬇️
+  [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
+                    ⬇️
+  [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
+                    ⬇️
+  [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
+```
+
+#### Android Signing & Release
+- **Keystore**: The release APK/AAB must be cryptographically signed using a `.keystore` certificate file.
+- **GitHub Secrets**: The Keystore file is base64 encoded and stored in GitHub secrets along with the store password and alias. The CI runner decodes this file to sign the app dynamically.
+- **AAB format**: Android App Bundle format is built using `./gradlew bundleRelease`. It aggregates raw assets and binary files, allowing the Google Play Console to dynamically build optimized APKs sized for specific user devices.
+
+#### iOS Code Signing & Match
+- **Certificates & Provisioning**: iOS builds require dynamic code signing certificates (Development or Distribution) and provisioning profiles bound to specific App IDs and devices.
+- **Fastlane Match**: Automates iOS code signing by storing all certificates and provisioning profiles inside a private Git repository encrypted with a shared passcode. During CI runs, `fastlane match appstore` clones the repository, decrypts the files, and installs them onto the macOS runner, preventing signing mismatches.
+- **Fastfile**: Script containing "lanes" that compile the iOS app (`build_app` or `gym`) and submit the `.ipa` package to TestFlight (`upload_to_testflight` or `pilot`).
 
 ---
 
@@ -313,15 +381,24 @@ Push notifications require a secure handshake between client, server, and APNs/F
 - **Props**: Immutable data passed down from a parent component to configure the child.
 - **Prop Drilling**: The anti-pattern of passing props through multiple nested layers of child components that do not actually need the data, simply to deliver it to a deeply nested descendant. Avoided by using Context API or State Management libraries.
 
-### 2. State Management Solutions: Redux vs. Zustand vs. Context API
+### 2. State Management Solutions: Redux vs. Zustand vs. MobX vs. Context API
 - Choose the state management solution based on app scope and mutation frequencies:
 
-| Feature | Redux Toolkit (RTK) | Zustand | Context API |
-| :--- | :--- | :--- | :--- |
-| **Best For** | Massive enterprise-grade apps with high-frequency mutations and complex middleware rules. | Medium-to-large apps. Lightweight, atomic, and extremely fast. | Small-scale state (e.g., themes, language preferences). |
-| **Re-render Scope** | Only selectors re-render. Highly optimized. | Selectors prevent unneeded re-renders. | All context consumers re-render when the context value object changes. |
-| **Boilerplate** | Medium. Configured via slices and store. | Minimal. Defined in a single hook store. | Low. Native to React. |
-| **Async Support** | Native async thunks or sagas. | Integrated directly inside custom store actions. | Handled manually using asynchronous triggers in parent components. |
+| Feature | Redux Toolkit (RTK) | Zustand | MobX / MobX State Tree | Context API |
+| :--- | :--- | :--- | :--- | :--- |
+| **Best For** | Massive enterprise-grade apps with high-frequency mutations and complex middleware rules. | Medium-to-large apps. Lightweight, atomic, and extremely fast. | Complex object-graphs, spreadsheet-like reactivity, and OOP architectures. | Small-scale state (e.g., themes, language preferences). |
+| **Re-render Scope** | Only selectors re-render. Highly optimized. | Selectors prevent unneeded re-renders. | Fine-grained observer triggers. Only components accessing accessed properties re-render. | All context consumers re-render when the context value object changes. |
+| **Boilerplate** | Medium. Configured via slices and store. | Minimal. Defined in a single hook store. | Low to Medium. Managed via observables and actions. | Low. Native to React. |
+| **Async Support** | Native async thunks or sagas. | Integrated directly inside custom store actions. | Handled using flow/generators or custom action callbacks. | Handled manually using asynchronous triggers in parent components. |
+
+#### MobX Core Concepts & React Integration
+MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
+- **Observables (`makeObservable`)**: Marks object properties as observable state values. MobX wraps these properties in getters/setters to track property reads and writes.
+- **Computed Values (`@computed` / `computed`)**: Values derived from existing state (like filtering a list). They are cached automatically, only re-evaluating if their underlying observable dependencies change.
+- **Actions (`action`)**: Functions that modify observable state. In strict mode, MobX enforces that all state mutations must occur inside an action, batching updates for efficiency.
+- **Reactions (`autorun`, `reaction`, `when`)**: Side effects that run automatically whenever dependent observables change (like writing state to storage).
+- **Observer Wrappers (`observer`)**: High-Order Component wrapping React components. It automatically registers the component to listen to any observables accessed during its render method. If an accessed property updates, the component re-renders; if an unaccessed property updates, rendering is skipped.
+- **MobX State Tree (MST)**: A transactional wrapper around MobX that structures stores into a tree of typed nodes (models). MST provides runtime type-checking, snapshots (for time-travel debugging), and out-of-the-box state serialization.
 
 ### 3. Routing, RBAC & Deep Linking in React Navigation
 - **Role-Based Access Control (RBAC)**: Manage access limits using conditional navigation stacks:
@@ -492,5 +569,131 @@ Offline synchronization is modeled using a **Transactional Outbox Queue** patter
    - **Server-Wins / Merge**: The server merges non-conflicting fields, rejecting conflicts and forcing the client to re-fetch and resolve.
    - **Interactive User Reconciliation**: The app displays a comparison modal to let the user choose which state to keep (ideal for collaborative document models).
 4. **Persistent Background Workers**: If the user backgrounds the app during sync, the transaction is handed off to OS workers (`WorkManager` in Android / `BackgroundTasks` in iOS) to complete the queue execution in the background.
+
+---
+
+## 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
+
+For large-scale enterprise applications, building a single monolithic JavaScript bundle results in massive build-time bottlenecks, git merge conflicts, and regression risks. Senior architects design super-apps composed of independent, modular micro-frontends (mini-apps) using **Re.Pack** and **Webpack Module Federation**.
+
+### 1. Metro vs. Re.Pack (Webpack)
+- **Metro Bundler**: React Native’s default bundler compiles all source code, assets, and libraries statically into a singular `index.bundle` file at compile time. Metro does not natively support dynamic code splitting, remote URLs loading, or sharing runtimes at runtime.
+- **Re.Pack**: A Webpack-based compiler and runtime tool that replaces Metro. Re.Pack allows configuration of Webpack's core plugins, including **Module Federation**, enabling dynamic code loading, chunk splits, and multi-bundle mobile compilation.
+
+### 2. Webpack Module Federation Mechanics
+Module Federation separates code into **Hosts** (Container App) and **Remotes** (Mini-Apps).
+- **Host (Container)**: The main shell application. It sets up the navigation shell, imports core dependencies, and handles dynamic loader orchestration.
+- **Remotes (Mini-Apps)**: Independent features (e.g., Credit Card screen, Loan Application process, Rewards Hub). Each remote defines specific entry components it exposes (exports) to the host.
+- **Shared Dependencies (`shared` configuration)**: Both the Host and Remotes declare shared dependencies (e.g. `react`, `react-native`, `react-native-reanimated`). Webpack resolves these dynamically at runtime: if the host has already loaded React, the remote will utilize the host's runtime instance in memory rather than loading its own duplicate React version.
+
+```text
+       [Host Shell Container] (Registers Remotes & Shared Core Libs)
+         /               \
+   (Loads on-demand)   (Loads on-demand)
+       /                   \
+  [Remote Mini-App A]    [Remote Mini-App B] 
+  (Cards Feature)        (Loans Feature)
+```
+
+### 3. Dynamic Bundle Loading Workflow
+1. **On-Demand Resolution**: When a user navigates to the "Rewards" section, the Host app triggers a dynamic import (`import('rewards/Component')`).
+2. **Dynamic Script Loader**: Re.Pack interceptors load the remote Javascript/Hermes bytecode chunk from a remote CDN/Server URL (e.g., `https://cdn.mybank.com/rewards/1.0.0/bundle.js`).
+3. **Execution**: The script is downloaded, verified, and executed inside the Hermes virtual machine, rendering the component seamlessly inside the Host's navigation stack.
+4. **Offline Hydration**: To support offline launch, the Container App can eagerly pre-download and cache remote chunks to local MMKV/FileSystem storage during background sync cycles.
+
+---
+
+## 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
+
+Fintech, banking, and wealth-management applications deal with high-value transactions and sensitive PII. Security must be managed across multiple client-side vectors.
+
+### 1. Root & Jailbreak Detection
+Compromised operating systems (rooted Android, jailbroken iOS) bypass kernel sandbox isolation, allowing attackers to inspect active RAM, log keys, and bypass local authentication controls.
+- **Android Root Indicators**: 
+  - Presence of system files like `su` or `busybox` in directories like `/system/bin/`, `/system/xbin/`, `/sbin/`, `/system/sd/xbin/`.
+  - Installed root packages (e.g., SuperSU, Magisk manager).
+  - Writable `/system` directory permissions (checking mounting tables).
+- **iOS Jailbreak Indicators**:
+  - Presence of directories or files like `Cydia.app`, `MobileSubstrate.dylib`, `/etc/apt/`, `/Library/MobileSubstrate/MobileSubstrate.dylib`.
+  - Testing sandbox escaping by attempting to write a test file outside the app's document directory.
+  - Checking if system calls like `fork()` return valid process IDs (sandboxed iOS apps cannot spawn subprocesses).
+
+### 2. Runtime Debugging & Anti-Frida Protection
+Attackers use dynamic instrumentation frameworks to hook Javascript or Native methods in memory at runtime to alter application logic (e.g. bypassing biometric screens).
+- **Anti-Debugging Hooks**:
+  - **Android**: Custom modules query `android.os.Debug.isDebuggerConnected()` or inspect the `/proc/self/status` file for the `TracerPid` property. A non-zero `TracerPid` value indicates an attached debugger process.
+  - **iOS**: Invoking the `ptrace` system call with the `PT_DENY_ATTACH` flag in native C layer. This informs the kernel to terminate the application if a debugger (like LLDB) attempts to attach.
+- **Frida Defenses**:
+  - Frida typically runs a background server listening on TCP port `27042`. Native modules scan active socket tables on localhost to detect this port.
+  - Detecting the injection of Frida’s dynamic library (`frida-agent.so` or `frida-gadget.dylib`) by parsing local memory mappings (`/proc/self/maps` on Android, or calling `_dyld_get_image_name` on iOS).
+
+### 3. Native Code Obfuscation (R8 & ProGuard)
+- **ProGuard / R8**: Build-time tools that shrink, optimize, and obfuscate Android Java/Kotlin bytecode. They replace human-readable class, method, and variable names (e.g., `PaymentService.processTransaction`) with minified tokens (e.g., `a.b`), complicating static analysis in decompilers (like JADX).
+- Developers must maintain a `proguard-rules.pro` file specifying `-keep` directives for React Native library bindings; otherwise, ProGuard may optimize and strip native method interfaces called from JavaScript, resulting in `NoSuchMethodError` crashes.
+
+### 4. Hardened Secret Management (C++ JNI)
+- **The Vulnerability**: Storing access keys or encryption secrets in `.env` files is insecure. Metro compiles `.env` variables directly into plaintext strings inside the final Javascript bundle file (`index.bundle`), which can be extracted in seconds using standard string analysis tools (`strings index.bundle`).
+- **The Secure Solution (JNI/C++)**: Store cryptographic keys or API secrets inside C++ header files. C++ code compiles directly into native machine code binary files (`.so` library file on Android, `.a` static library on iOS), which cannot be read as plain text.
+  - The C++ library exposes JNI wrappers (Android) and Objective-C++ wrappers (iOS) to resolve keys dynamically.
+  - To prevent memory scanning, the keys are stored inside C++ as XOR-masked byte arrays and decrypted in memory only at the moment of request.
+
+---
+
+## ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)
+
+Optimizing startup speed directly drives user conversion. Senior developers split app launch calculations into discrete phases and utilize modern debugging tools.
+
+### 1. Breakdown of App Startup Phases
+1. **Pre-Main Phase (Native Init)**: 
+   - The OS loads the application binary.
+   - Dynamic linker (`dyld` on iOS) loads frameworks and CocoaPods.
+   - Native constructors and initializers run.
+   - Native libraries are initialized.
+2. **Main Phase (React Native Context Init)**:
+   - Android JVM / iOS Main runs.
+   - Hermes engine instance is instantiated.
+   - React Native core context and native module registries are loaded into memory.
+3. **JS Execution Phase**:
+   - The Hermes engine reads and parses the pre-compiled `.hbc` bytecode bundle.
+   - JavaScript global variables are allocated, files are imported, and initial execution starts.
+4. **Visual Paint Phase**:
+   - React mounts the initial component tree.
+   - The Yoga engine calculates Flexbox rules.
+   - Native UI views are instantiated on the Main Thread and rendered to the device screen (Time-to-Interactive - TTI achieved).
+
+### 2. TTI Optimization Strategies
+- **Inline Requires**: Enabled in `metro.config.js`. It wraps imports in helper functions that lazy-resolve files only when they are first referenced in code. This stops the JS execution engine from evaluating all imported modules at initial app boot.
+- **Lazy SDK Initialization**: Do not initialize heavy libraries (e.g., PostHog, Branch, Sentry) on the main app boot timeline. Initialize them asynchronously inside `InteractionManager.runAfterInteractions` or wrap them in background timers after the primary UI has painted.
+- **Hermes Bytecode AOT**: Ensure Hermes compilation is enabled so JavaScript compiles to bytecode during CI assembly, completely skipping the JS text parsing and optimization phases during runtime startup.
+
+### 3. Debugging in the Post-Flipper Era
+With **Flipper** deprecated and removed from modern React Native templates (0.73+), developers use lighter, protocol-based debugging environments:
+- **Hermes Chrome Inspector**: Hermes's debugging protocol connects directly with Chrome DevTools. Running `npx react-native start` exposes a WebSocket debug port. Open `chrome://inspect` in Chrome to attach the console debugger, inspect breakpoints, and analyze console outputs directly.
+- **Sampling Profiler**: Capture CPU usage profiles via Chrome DevTools to trace which JavaScript loops block execution queues.
+- **Memory Profiling**: Capture Hermes Heap snapshots over Chrome to identify leak vectors.
+- **Network Proxy Triage**: To inspect API network calls without debugging overlays, use **Charles Proxy** or **Proxyman**. 
+  - Install custom SSL certificate authorities on simulators.
+  - Configure `networkSecurityConfig` XML rules on Android to explicitly trust user certificates *only* inside debug/staging compilation schemes, keeping production binaries locked.
+
+---
+
+## 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)
+
+### 1. Over-the-Air (OTA) Bundle Delivery
+OTA systems (Expo Updates or Microsoft CodePush) bypass store approval times for JavaScript-only updates:
+- **Handshake Flow**: On launch, the native app shell calls the update registry API, passing the current binary version and active bundle hash. If a new bundle version matches the query, the client downloads the file in the background. On the next restart, the path reference shifts to execute the new Hermes bytecode.
+- **Binary Version Locks**: Native module libraries are compiled directly into APKs/IPAs. If an OTA update pushes new JS code that attempts to invoke a native API that does not exist in the client’s running binary code, it triggers an instant fatal crash. 
+  - *Mitigation*: OTA configurations enforce strict runtime locks mapping JS bundles to specific app binary version ranges.
+- **Rollback Systems**: The native update shell tracks initialization success. If the app crashes repeatedly within a few minutes of executing an OTA bundle, the native runner cancels the reference pointer and rolls back to the stable local embedded bundle.
+
+### 2. In-App Purchases & Subscription Lifecycles
+- **Client flow**: Standard libraries like `react-native-iap` fetch products and coordinate checkout transactions with Apple's StoreKit 2 and Google Play Billing.
+- **Hacking Risks**: Jailbroken devices can use local receipt-bypass scripts to intercept the billing transaction success handler, returning a mock "success" payload without charging the user. Thus, client-side receipt parsing is highly insecure.
+- **Secure Server-to-Server Validation Flow**:
+  1. The app executes a checkout flow. Apple/Google returns an encrypted transaction receipt.
+  2. The mobile app uploads this raw receipt to our secure backend database.
+  3. The backend makes a cryptographic call to Apple's App Store Connect API / Google's Developer API to validate the receipt.
+  4. Once validated by the store server, our database updates the user's subscription record, notifying the app.
+  5. **Subscription Webhooks**: The backend registers webhook endpoints with Apple and Google. When a user renews, cancels, refunds, or has a billing issue, Apple/Google hits our server directly, keeping the system database accurate even if the user never opens the app.
 
 

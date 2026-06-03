@@ -1142,3 +1142,1302 @@ export function useDeletePost() {
 - **Time Complexity**: $O(1)$ local read/write caches.
 - **Space Complexity**: $O(N)$ state memory to cache the transactions.
 - **Explanation**: Binds Zustand state storage and TanStack React Query with synchronous MMKV storage. Configures query client offline caching persisters. Implements optimistic query updates (POST, PUT, DELETE) that immediately update client-side caches, with `onError` rollbacks restoring previous values if remote API calls reject.
+
+---
+
+## Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
+
+### Question
+Implement an interactive swipe-to-dismiss dashboard payment card using `react-native-gesture-handler` and `react-native-reanimated`. The card layout must represent a high-fidelity credit card clone, animate rotation and transition dynamically based on drag coordinates, trigger callback events when swiped off-screen limits, and snap back smoothly using spring physics if released early.
+
+### Sample Input & Output
+#### Props Input:
+```tsx
+<SwipableCard 
+  onSwipeLeft={() => console.log('Discarded Card')}
+  onSwipeRight={() => console.log('Selected Card')}
+/>
+```
+#### Output:
+Renders a credit card component that can be dragged in 2D space. The card tilts dynamically as it is dragged. Swiping beyond 40% of the screen width animates the card off-screen and fires JS callbacks; releasing it early triggers a spring snap animation restoring card origin coordinate values.
+
+### Code
+```tsx
+import React from 'react';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
+import Animated, { 
+  useSharedValue, 
+  useAnimatedStyle, 
+  withSpring, 
+  runOnJS 
+} from 'react-native-reanimated';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.4;
+
+export function SwipableCard({ onSwipeLeft, onSwipeRight }: { 
+  onSwipeLeft: () => void; 
+  onSwipeRight: () => void; 
+}) {
+  // Shared values run in C++ thread, keeping the JS thread free
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+
+  const gesture = Gesture.Pan()
+    .onUpdate((event) => {
+      translateX.value = event.translationX;
+      translateY.value = event.translationY;
+    })
+    .onEnd((event) => {
+      if (translateX.value > SWIPE_THRESHOLD) {
+        // Swipe Right animation
+        translateX.value = withSpring(SCREEN_WIDTH, { velocity: event.velocityX });
+        runOnJS(onSwipeRight)();
+      } else if (translateX.value < -SWIPE_THRESHOLD) {
+        // Swipe Left animation
+        translateX.value = withSpring(-SCREEN_WIDTH, { velocity: event.velocityX });
+        runOnJS(onSwipeLeft)();
+      } else {
+        // Snap back to starting position using spring physics
+        translateX.value = withSpring(0);
+        translateY.value = withSpring(0);
+      }
+    });
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const rotate = `${(translateX.value / SCREEN_WIDTH) * 15}deg`;
+    return {
+      transform: [
+        { translateX: translateX.value },
+        { translateY: translateY.value },
+        { rotate: rotate },
+      ],
+    };
+  });
+
+  return (
+    <GestureHandlerRootView style={styles.container}>
+      <GestureDetector gesture={gesture}>
+        <Animated.View style={[styles.card, animatedStyle]}>
+          <Text style={styles.cardTitle}>PREMIUM LEDGER</Text>
+          <Text style={styles.cardNumber}>**** **** **** 9876</Text>
+          <View style={styles.cardFooter}>
+            <View>
+              <Text style={styles.cardHolderLabel}>CARD HOLDER</Text>
+              <Text style={styles.cardHolder}>RAJEEV JOSHI</Text>
+            </View>
+            <View>
+              <Text style={styles.cardHolderLabel}>EXPIRES</Text>
+              <Text style={styles.cardHolder}>12/30</Text>
+            </View>
+          </View>
+        </Animated.View>
+      </GestureDetector>
+    </GestureHandlerRootView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7fafc',
+  },
+  card: {
+    width: 320,
+    height: 200,
+    backgroundColor: '#1a202c',
+    borderRadius: 16,
+    padding: 24,
+    justifyContent: 'space-between',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.25,
+    shadowRadius: 15,
+    elevation: 8,
+  },
+  cardTitle: { 
+    color: '#ed8936', 
+    fontSize: 16, 
+    fontWeight: 'bold', 
+    letterSpacing: 1 
+  },
+  cardNumber: { 
+    color: '#ffffff', 
+    fontSize: 22, 
+    letterSpacing: 2, 
+    marginVertical: 16,
+    fontFamily: 'Courier'
+  },
+  cardFooter: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between' 
+  },
+  cardHolderLabel: { 
+    color: '#a0aec0', 
+    fontSize: 9, 
+    fontWeight: '600' 
+  },
+  cardHolder: { 
+    color: '#ffffff', 
+    fontSize: 13, 
+    fontWeight: 'bold',
+    marginTop: 2
+  },
+});
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ calculations. Gesture tracking compiles natively on the OS thread, bypassing event serialize delays.
+- **Space Complexity**: $O(1)$ space allocation for shared values.
+- **Explanation**: This program clones a premium card UI utilizing gesture pan configurations. By using Reanimated's `useSharedValue` and `useAnimatedStyle`, translation values are tracked and computed entirely on the UI thread via C++ modules (Worklets). This ensures the JS main thread never drops frames, executing swipe snapping at 60/120 FPS.
+
+---
+
+## Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
+
+### Question
+Create a custom Native Module package battery status bridge named `BatteryMonitor`.
+1. Implement the Android portion in **Kotlin** exposing a ReactMethod `getBatteryStatus()` to query battery level percentage and charging state.
+2. Implement the iOS portion in **Swift** with Objective-C macros to export variables and methods.
+3. Show how to interface the native module in TypeScript, including type configurations.
+
+### Sample Input & Output
+#### JS/TS Invocation:
+```typescript
+import NativeModules from 'react-native';
+const status = await NativeModules.BatteryMonitor.getBatteryStatus();
+```
+#### Output:
+```json
+{ "level": 84, "isCharging": true }
+```
+
+### Code
+
+#### 1. Android Native Kotlin Module (`BatteryMonitorModule.kt`)
+```kotlin
+package com.myportal.batterymonitor
+
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
+import com.facebook.react.bridge.*
+
+class BatteryMonitorModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+    
+    override fun getName(): String = "BatteryMonitor"
+
+    @ReactMethod
+    fun getBatteryStatus(promise: Promise) {
+        val filter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        val intent = reactApplicationContext.registerReceiver(null, filter)
+        
+        if (intent != null) {
+            val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
+            val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+            val percentage = (level.toFloat() / scale.toFloat() * 100).toInt()
+            
+            val status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
+            val isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING || 
+                             status == BatteryManager.BATTERY_STATUS_FULL
+
+            val response = Arguments.createMap().apply {
+                putInt("level", percentage)
+                putBoolean("isCharging", isCharging)
+            }
+            promise.resolve(response)
+        } else {
+            promise.reject("BATTERY_ERROR", "Could not fetch battery details from system intent")
+        }
+    }
+}
+```
+
+#### 2. iOS Native Swift Module (`BatteryMonitor.swift`)
+```swift
+import Foundation
+import UIKit
+
+@objc(BatteryMonitor)
+class BatteryMonitor: NSObject {
+  
+  @objc
+  static func requiresMainQueueSetup() -> Bool {
+    return false // Operations are not UI-bound, runs off main queue safely
+  }
+
+  @objc
+  func getBatteryStatus(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+    UIDevice.current.isBatteryMonitoringEnabled = true
+    let level = Int(UIDevice.current.batteryLevel * 100)
+    let isCharging = UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full
+    
+    // Check if device battery state is accessible (returns -100 if simulator)
+    if level >= 0 {
+      let response: [String: Any] = [
+        "level": level,
+        "isCharging": isCharging
+      ]
+      resolve(response)
+    } else {
+      reject("BATTERY_ERROR", "Battery monitoring unavailable or running on iOS Simulator", nil)
+    }
+  }
+}
+```
+
+#### 3. iOS Objective-C Bridge Export (`BatteryMonitorBridge.m`)
+```objc
+#import <React/RCTBridgeModule.h>
+
+@interface RCT_EXPORT_MODULE(BatteryMonitor)
+
+RCT_EXPORT_METHOD(getBatteryStatus:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
+@end
+```
+
+#### 4. TypeScript Typing Interface (`BatteryMonitor.ts`)
+```typescript
+import { NativeModules } from 'react-native';
+
+interface BatteryStatus {
+  level: number;
+  isCharging: boolean;
+}
+
+interface BatteryMonitorInterface {
+  getBatteryStatus(): Promise<BatteryStatus>;
+}
+
+export const BatteryMonitor = NativeModules.BatteryMonitor as BatteryMonitorInterface;
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ constant time queries.
+- **Space Complexity**: $O(1)$ mapping structures.
+- **Explanation**: Accesses platform-specific OS APIs synchronously and passes them back asynchronously through the bridge. Android retrieves details using System Broadcast Intents (`ACTION_BATTERY_CHANGED`), and iOS queries the `UIDevice` battery state properties, resolving values into JS Promises.
+
+---
+
+## Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
+
+### Question
+Write a complete, end-to-end production-grade automation setup for React Native deployment:
+1. Provide a **GitHub Actions workflow yaml** that installs environments, caches node/ruby nodes, builds and signs Android packages.
+2. Provide a **Fastlane Fastfile** defining automated lanes for Android bundle builds (signing via gradle environments) and iOS TestFlight uploads (managing certificates via Fastlane Match).
+
+### Sample Input & Output
+#### Input:
+- Developer pushes code modification to `master` branch.
+#### Output:
+- CI pipeline triggers: runs tests, compiles app binaries, code-signs iOS via Match profiles and Android via secrets keystores, and uploads files to stores consoles automatically.
+
+### Code
+
+#### 1. GitHub Actions Setup (`.github/workflows/deploy.yml`)
+```yaml
+name: Mobile App Production Build
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: macos-13 # macOS required for iOS compiling
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node Environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install JS Dependencies
+        run: npm ci
+
+      - name: Setup Ruby for Fastlane
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Install Bundler & Gems
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v3
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+
+      - name: Install iOS Pods
+        run: cd ios && pod install
+
+      - name: Setup Android JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Decode Keystore File
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/my-release-key.keystore
+
+      - name: Run CI Tests
+        run: npm test -- --watchAll=false
+
+      - name: Execute Fastlane Releases
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_DECRYPT_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          bundle exec fastlane android release
+          bundle exec fastlane ios beta
+```
+
+#### 2. Fastlane Automation Script (`fastlane/Fastfile`)
+```ruby
+default_platform(:ios)
+
+platform :ios do
+  desc "Build iOS IPA and deploy to TestFlight"
+  lane :beta do
+    # 1. Sync development/distribution profiles from Git match repo
+    match(
+      type: "appstore",
+      git_url: "git@github.com:myorg/certificates.git",
+      readonly: true
+    )
+    
+    # 2. Increment iOS bundle version
+    increment_build_number(xcodeproj: "ios/MyApp.xcodeproj")
+    
+    # 3. Build signed production IPA
+    build_app(
+      workspace: "ios/MyApp.xcworkspace",
+      scheme: "MyApp",
+      export_method: "app-store"
+    )
+    
+    # 4. Push package to Apple Connect TestFlight
+    upload_to_testflight(
+      skip_waiting_to_submit: true
+    )
+  end
+end
+
+platform :android do
+  desc "Compile Android AAB and push to Google Play Store"
+  lane :release do
+    # 1. Build and sign release AAB bundle via gradle task
+    gradle(
+      task: "bundle",
+      build_type: "Release",
+      project_dir: "android"
+    )
+    
+    # 2. Upload to play store internal testing track
+    upload_to_play_store(
+      track: "internal",
+      package_name: "com.mycompany.app",
+      json_key_data: ENV["GOOGLE_PLAY_JSON_API_KEY"]
+    )
+  end
+end
+```
+
+### Complexity & Explanation
+- **Time Complexity**: Build compile steps take $O(B)$ where $B$ is build complexity. Run loops take 5-15 mins depending on caching strategies.
+- **Space Complexity**: Runner disk allocation space scaled to standard compiler size (typically 4GB-8GB).
+- **Explanation**: Implements a complete CI/CD release workflow. Fastlane Match handles iOS code signing by pulling certificates from an encrypted git repository. The GitHub workflow manages environments, decodes the Android keystore from secret variables, runs Jest tests, and triggers Fastlane to compile Android bundles and iOS IPAs, distributing them directly to app store consoles.
+
+---
+
+## Program 11: State Management with MobX State Tree (MST)
+
+### Question
+Write a complete React Native state manager setup using **MobX State Tree (MST)**:
+1. Declare a transactional model `CartItem` representing product selections.
+2. Declare the root model store `CartStore` tracking items list, and compute reactive total price calculations.
+3. Write actions to safely modify observables (addItem, increment, decrement).
+4. Implement a shopping cart component wrapped in an `observer` HOC to listen and react to store property updates.
+
+### Sample Input & Output
+#### Input Action:
+- Client adds product item details to cart.
+#### Output:
+- Component detects changes and re-renders cart totals instantly. Clicking increment/decrement triggers MST model actions directly, updating prices without triggering rendering checks on unaffected properties.
+
+### Code
+```typescript
+import React from 'react';
+import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { types, Instance } from 'mobx-state-tree';
+import { observer } from 'mobx-react-lite';
+
+// 1. Define atomic model node for cart item
+export const CartItem = types
+  .model('CartItem', {
+    id: types.identifier,
+    name: types.string,
+    price: types.number,
+    quantity: types.number,
+  })
+  .actions((self) => ({
+    // Actions are strict: mutations are not allowed outside action closures
+    increment() {
+      self.quantity += 1;
+    },
+    decrement() {
+      if (self.quantity > 1) {
+        self.quantity -= 1;
+      }
+    },
+  }));
+
+// 2. Define root Cart Store
+export const CartStore = types
+  .model('CartStore', {
+    items: types.array(CartItem),
+  })
+  .views((self) => ({
+    // Derived values are computed: cached and only updated if dependencies change
+    get totalCount(): number {
+      return self.items.reduce((sum, item) => sum + item.quantity, 0);
+    },
+    get totalPrice(): number {
+      return self.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    },
+  }))
+  .actions((self) => ({
+    addItem(id: string, name: string, price: number) {
+      const existing = self.items.find((item) => item.id === id);
+      if (existing) {
+        existing.increment();
+      } else {
+        self.items.push(CartItem.create({ id, name, price, quantity: 1 }));
+      }
+    },
+    removeItem(id: string) {
+      const idx = self.items.findIndex((item) => item.id === id);
+      if (idx !== -1) {
+        self.items.splice(idx, 1);
+      }
+    },
+  }));
+
+// Generate TypeScript instance contracts
+export type ICartStore = Instance<typeof CartStore>;
+export type ICartItem = Instance<typeof CartItem>;
+
+// Initialize model instance (mock database lookup)
+export const cartStoreInstance = CartStore.create({
+  items: [
+    { id: "p101", name: "Fintech Token", price: 1.99, quantity: 2 },
+    { id: "p102", name: "Ledger Card", price: 15.50, quantity: 1 }
+  ]
+});
+
+// 3. React Component wrapped in observer to trigger reactive UI updates
+export const CartView = observer(({ store }: { store: ICartStore }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Portfolio Store Cart ({store.totalCount})</Text>
+      
+      <FlatList
+        data={store.items}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }: { item: ICartItem }) => (
+          <View style={styles.row}>
+            <View>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.sub}>${item.price.toFixed(2)} x {item.quantity}</Text>
+            </View>
+            <View style={styles.actions}>
+              <Button title="-" onPress={item.decrement} />
+              <Text style={styles.qty}>{item.quantity}</Text>
+              <Button title="+" onPress={item.increment} />
+              <Button title="✕" color="red" onPress={() => store.removeItem(item.id)} />
+            </View>
+          </View>
+        )}
+        ListEmptyComponent={<Text style={styles.empty}>Your cart is empty.</Text>}
+      />
+
+      <View style={styles.footer}>
+        <Text style={styles.totalLabel}>Grand Total:</Text>
+        <Text style={styles.totalValue}>${store.totalPrice.toFixed(2)}</Text>
+      </View>
+    </View>
+  );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#ffffff',
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2d3748',
+    marginBottom: 16,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e2e8f0',
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2d3748',
+  },
+  sub: {
+    fontSize: 13,
+    color: '#718096',
+    marginTop: 2,
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  qty: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    minWidth: 20,
+    textAlign: 'center',
+  },
+  empty: {
+    textAlign: 'center',
+    color: '#a0aec0',
+    marginTop: 40,
+  },
+  footer: {
+    marginTop: 20,
+    paddingTop: 16,
+    borderTopWidth: 2,
+    borderTopColor: '#cbd5e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  totalLabel: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#4a5568',
+  },
+  totalValue: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#38a169',
+  },
+});
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ average mutations and property resolution.
+- **Space Complexity**: $O(N)$ memory bounds where $N$ is product items size.
+- **Explanation**: MobX State Tree uses static type definitions to validate model nodes. The `observer` HOC tracks property getters called during render, ensuring updates only trigger re-renders for components accessing changed fields. Derived calculations (`totalCount`, `totalPrice`) are cached using `@computed` view properties, preventing redundant evaluations.
+
+---
+
+## Program 12: SQLite Transactional Ledger Database Hook
+
+### Question
+Write a custom React Native hook `useLedgerDatabase` that integrates a local **SQLite database** using `react-native-sqlite-storage`. The hook must:
+1. Initialize the SQLite database connection off-thread.
+2. Execute a database transaction to create tables if they do not exist.
+3. Provide a transactional action `addTransaction()` that inserts record fields within an ACID SQL transaction.
+4. Calculate net balance aggregates using SQL `SUM()` queries and clean up connection files on hook unmount.
+
+### Sample Input & Output
+#### Hook usage:
+```typescript
+const { balance, addTransaction } = useLedgerDatabase();
+await addTransaction("tx_999", 250.00, "credit");
+```
+#### Output:
+Saves transactions locally. Calculates balance via SQL aggregates, triggering updates to balance state. SQLite transactions run in a separate native SQL thread, leaving the main JS thread unblocked.
+
+### Code
+```typescript
+import { useEffect, useState, useCallback } from 'react';
+import SQLite from 'react-native-sqlite-storage';
+
+SQLite.enablePromise(true); // Enable promise-based SQLite calls
+
+const DB_PARAMS = { name: 'FintechLedger.db', location: 'default' };
+
+export function useLedgerDatabase() {
+  const [db, setDb] = useState<SQLite.SQLiteDatabase | null>(null);
+  const [balance, setBalance] = useState<number>(0);
+
+  // Helper to re-evaluate total balance via SQL sum query
+  const calculateBalance = async (database: SQLite.SQLiteDatabase) => {
+    try {
+      const results = await database.executeSql(
+        "SELECT SUM(CASE WHEN type = 'credit' THEN amount ELSE -amount END) as netBalance FROM ledger;"
+      );
+      const row = results[0].rows.item(0);
+      setBalance(row.netBalance || 0);
+    } catch (err: any) {
+      console.error("SQL aggregation failure:", err.message);
+    }
+  };
+
+  useEffect(() => {
+    let activeDb: SQLite.SQLiteDatabase | null = null;
+
+    const openDatabase = async () => {
+      try {
+        const openedDb = await SQLite.openDatabase(DB_PARAMS);
+        activeDb = openedDb;
+        setDb(openedDb);
+
+        // Execute table initialization inside a Transaction
+        await openedDb.transaction((tx) => {
+          tx.executeSql(
+            `CREATE TABLE IF NOT EXISTS ledger (
+              id TEXT PRIMARY KEY,
+              amount REAL NOT NULL,
+              type TEXT CHECK(type IN ('credit', 'debit')) NOT NULL,
+              timestamp INTEGER NOT NULL
+            );`
+          );
+        });
+
+        await calculateBalance(openedDb);
+      } catch (err: any) {
+        console.error("Database connection failure:", err.message);
+      }
+    };
+
+    openDatabase();
+
+    // Close connections on unmount to prevent resource locks
+    return () => {
+      if (activeDb) {
+        activeDb.close().catch(err => console.error("Database close failure:", err));
+      }
+    };
+  }, []);
+
+  // Expose transactional insert API
+  const addTransaction = useCallback(async (id: string, amount: number, type: 'credit' | 'debit') => {
+    if (!db) {
+      throw new Error("Database not initialized yet");
+    }
+
+    try {
+      await db.transaction((tx) => {
+        tx.executeSql(
+          "INSERT INTO ledger (id, amount, type, timestamp) VALUES (?, ?, ?, ?);",
+          [id, amount, type, Date.now()]
+        );
+      });
+      
+      // Update balance calculations
+      await calculateBalance(db);
+    } catch (err: any) {
+      console.error("SQL execution transaction rejected:", err.message);
+      throw err;
+    }
+  }, [db]);
+
+  return { balance, addTransaction };
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Transaction execution**: $O(1)$ average query insertions.
+  - **Balance summation query**: $O(K)$ where $K$ is transaction records size.
+- **Space Complexity**: $O(1)$ memory usage. Records are stored on disk.
+- **Explanation**: This hook establishes a local SQLite relational storage engine. It creates tables and runs write commands inside a SQL `transaction` to guarantee ACID properties (atomicity and data integrity). The computations are offloaded to a background native C++ thread by `react-native-sqlite-storage`, keeping the JS thread unblocked.
+
+---
+
+## Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
+
+### Question
+Write a complete, structured test automation suite for a React Native component.
+1. Provide a standard React Native **Authentication Screen** component (`LoginScreen`).
+2. Provide a **Jest unit test** suite using `@testing-library/react-native` to verify mock component actions, credentials verification, and button touch trigger calls.
+3. Provide a **Detox E2E test** specification script asserting visual view shifts and element matching.
+
+### Sample Input & Output
+#### Input:
+- User launches test runner.
+#### Output:
+- Jest outputs successful unit verification reports.
+- Detox spins up iOS/Android emulator, types keys into fields, clicks the login button, and verifies successful navigation transitions.
+
+### Code
+
+#### 1. React Native Target Component (`LoginScreen.tsx`)
+```tsx
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+export function LoginScreen({ onLoginSuccess }: { onLoginSuccess: () => void }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = () => {
+    if (username === 'admin' && password === 'secret') {
+      setError('');
+      onLoginSuccess();
+    } else {
+      setError('Invalid credentials');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Secure Gateway</Text>
+      
+      <TextInput
+        testID="username_input"
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+        autoCapitalize="none"
+      />
+      
+      <TextInput
+        testID="password_input"
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+        autoCapitalize="none"
+      />
+
+      {error ? <Text testID="error_text" style={styles.errorText}>{error}</Text> : null}
+
+      <TouchableOpacity 
+        testID="login_button" 
+        style={styles.button} 
+        onPress={handleLogin}
+      >
+        <Text style={styles.btnLabel}>AUTHORIZE</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', padding: 24, backgroundColor: '#ffffff' },
+  title: { fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 24 },
+  input: { borderWidth: 1, borderColor: '#cbd5e0', padding: 12, borderRadius: 8, marginVertical: 8 },
+  errorText: { color: '#e53e3e', fontSize: 13, textAlign: 'center', marginVertical: 8, fontWeight: '600' },
+  button: { backgroundColor: '#3182ce', padding: 14, borderRadius: 8, alignItems: 'center', marginTop: 16 },
+  btnLabel: { color: '#ffffff', fontWeight: 'bold', fontSize: 15 }
+});
+```
+
+#### 2. Jest & React Native Testing Library Integration Suite (`LoginScreen.test.tsx`)
+```tsx
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react-native';
+import { LoginScreen } from './LoginScreen';
+
+describe('LoginScreen Component', () => {
+  it('displays error message on invalid credentials', () => {
+    const mockSuccess = jest.fn();
+    const { getByTestId, queryByTestId } = render(<LoginScreen onLoginSuccess={mockSuccess} />);
+    
+    // Simulate typing text inputs
+    fireEvent.changeText(getByTestId('username_input'), 'wrong_user');
+    fireEvent.changeText(getByTestId('password_input'), 'wrong_pass');
+    
+    // Simulate press interaction
+    fireEvent.press(getByTestId('login_button'));
+    
+    expect(getByTestId('error_text').props.children).toBe('Invalid credentials');
+    expect(mockSuccess).not.toHaveBeenCalled();
+  });
+
+  it('triggers login callback on correct credentials', () => {
+    const mockSuccess = jest.fn();
+    const { getByTestId, queryByTestId } = render(<LoginScreen onLoginSuccess={mockSuccess} />);
+    
+    fireEvent.changeText(getByTestId('username_input'), 'admin');
+    fireEvent.changeText(getByTestId('password_input'), 'secret');
+    fireEvent.press(getByTestId('login_button'));
+    
+    expect(queryByTestId('error_text')).toBeNull();
+    expect(mockSuccess).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+#### 3. Detox End-to-End Test Spec (`login.spec.js`)
+```javascript
+describe('E2E Authentication Flow', () => {
+  beforeEach(async () => {
+    // Reload react native instance before each test
+    await device.reloadReactNative();
+  });
+
+  it('validates navigation stack swap upon correct login', async () => {
+    // Match elements using testID queries and enter test values
+    await element(by.id('username_input')).typeText('admin');
+    await element(by.id('password_input')).typeText('secret');
+    
+    // Dismiss keyboard and press login button
+    await element(by.id('login_button')).tap();
+    
+    // Verify error does not exist and target view transitions successfully
+    await expect(element(by.id('error_text'))).toNotExist();
+    await expect(element(by.text('Dashboard'))).toBeVisible();
+  });
+});
+```
+
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Unit testing**: $O(1)$ assertions running in ms.
+  - **E2E testing**: $O(S)$ where $S$ is scenario complexity. Takes seconds due to emulator launches.
+- **Space Complexity**: $O(N)$ virtualization heap memory.
+- **Explanation**: Shows a multi-layered testing workflow. Unit tests execute virtual rendering using JS/React Native Testing Library in node memory, asserting callbacks instantly. Detox runs grey-box E2E testing on compiled Android/iOS apps on real device simulators, waiting for background animations to finish before running checks.
+
+---
+
+## Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
+
+### Question
+Design and implement a Webpack configuration (`webpack.config.js`) for a React Native Container (Host) application using **Re.Pack** to enable Webpack Module Federation. Include the dynamic script component loader interface in TypeScript (`FederatedLoader.tsx`) that dynamically resolves and renders remote bundles on-demand.
+
+### Sample Input & Output
+#### Input:
+- React Native renders `<FederatedLoader remote="rewards" module="./RewardsHub" />`.
+#### Output:
+- Webpack ScriptManager fetches the remote JS/Hermes chunk from `https://cdn.mybank.com/rewards/1.0.0/rewards.container.bundle.js` at runtime, resolves dependencies, and mounts the RewardsHub screen dynamically.
+
+### Code
+
+#### 1. Webpack Federation Config (`webpack.config.js`)
+```javascript
+const path = require('path');
+const Repack = require('@callstack/repack');
+
+module.exports = (env) => {
+  const { mode, platform, devServer } = env;
+
+  return {
+    mode,
+    entry: './index.js',
+    output: {
+      path: path.join(__dirname, 'build', platform),
+      filename: 'index.bundle',
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.[jt]sx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['module:metro-react-native-babel-preset'],
+            },
+          },
+        },
+      ],
+    },
+    plugins: [
+      new Repack.RepackPlugin({
+        platform,
+        devServer,
+      }),
+      // Module Federation configuration
+      new Repack.plugins.ModuleFederationPlugin({
+        name: 'container',
+        shared: {
+          react: { singleton: true, eager: true },
+          'react-native': { singleton: true, eager: true },
+          'react-native-reanimated': { singleton: true, eager: true },
+          '@react-navigation/native': { singleton: true, eager: true },
+        },
+        remotes: {
+          // Remotes are loaded dynamically via URL script resolution
+          rewards: 'rewards@https://cdn.mybank.com/rewards/1.0.0/[platform]/rewards.container.bundle.js',
+          loans: 'loans@https://cdn.mybank.com/loans/1.0.0/[platform]/loans.container.bundle.js',
+        },
+      }),
+    ],
+  };
+};
+```
+
+#### 2. Dynamic Component Script Loader (`FederatedLoader.tsx`)
+```typescript
+import React, { Suspense, lazy } from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { Federated } from '@callstack/repack/client';
+
+interface FederatedLoaderProps {
+  remote: string;   // Remote container name (e.g. 'rewards')
+  module: string;   // Exposed module path (e.g. './RewardsHub')
+  fallback?: React.ComponentType;
+}
+
+export function FederatedLoader({ remote, module, fallback }: FederatedLoaderProps) {
+  // Load remote component dynamically using Federated resolver
+  const DynamicComponent = lazy(() => 
+    Federated.importModule(remote, module)
+      .then((m) => m)
+      .catch((err) => {
+        console.error('Failed to load federated module:', err);
+        return {
+          default: () => (
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorText}>Feature temporarily unavailable offline</Text>
+            </View>
+          ),
+        };
+      })
+  );
+
+  return (
+    <Suspense fallback={fallback || <ActivityIndicator size="large" color="#3182ce" style={styles.spinner} />}>
+      <DynamicComponent />
+    </Suspense>
+  );
+}
+
+const styles = StyleSheet.create({
+  spinner: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  errorContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  errorText: { color: '#718096', fontSize: 15, fontWeight: '500' },
+});
+```
+
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Resolution**: $O(1)$ lookup inside Webpack container registry.
+  - **Loading**: $O(N)$ network latency based on network capacity to download the chunk.
+- **Space Complexity**: $O(B)$ memory allocation inside the Hermes JS Virtual Machine corresponding to the dynamic chunk bundle size $B$.
+- **Explanation**: Metro cannot split or load remote code chunks at runtime. Re.Pack replaces Metro with Webpack, allowing the Host container to boot dynamically. When `<FederatedLoader>` is mounted, the ScriptManager downloads the remote Javascript/Hermes bytecode container, resolves shared singleton dependencies (`react`, `react-native`) from the host's active RAM space, and compiles the feature on-the-fly, creating a Super-App interface.
+
+---
+
+## Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
+
+### Question
+To prevent reverse engineering of sensitive client secrets (e.g., API keys) from plain-text Javascript bundles, implement a native secure storage module.
+1. Write the Android C++ source code (`secure-keys.cpp`) declaring a JNI wrapper returning XOR-obfuscated keys.
+2. Write the Android Kotlin Module (`SecureKeysModule.kt`) to bind JNI and register the bridge.
+3. Write the iOS Objective-C++ header/implementation files (`SecureKeysBridge.mm`) exporting the Swift methods to React Native.
+4. Write the iOS Swift code (`SecureKeys.swift`) to perform XOR decryption of keys stored in C-style byte arrays.
+
+### Sample Input & Output
+#### Input:
+- JS invokes `NativeModules.SecureKeysModule.getPaymentApiKey()`.
+#### Output:
+- Returns the decrypted string `sk_live_51M3f...` in JavaScript memory at runtime, while binary strings checks on static build files (e.g. `strings index.bundle` or decompiled Java classes) return only obfuscated byte hashes.
+
+### Code
+
+#### 1. Android JNI C++ Implementation (`secure-keys.cpp`)
+```cpp
+#include <jni.h>
+#include <string>
+
+// XOR Mask key used for obfuscation
+const uint8_t XOR_MASK = 0xAA;
+
+// Obfuscated representation of "sk_live_51M3f" using XOR operation
+// Hex values: 's' ^ 0xAA = 0xC9, 'k' ^ 0xAA = 0xC1, etc.
+const uint8_t OBFUSCATED_KEY[] = { 0xC9, 0xC1, 0xFD, 0xC2, 0xC3, 0xD0, 0xCE, 0xFD, 0x9F, 0x9B, 0x99, 0xC2 };
+const size_t KEY_LENGTH = sizeof(OBFUSCATED_KEY);
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_myportal_SecureKeysModule_getDecryptedApiKey(JNIEnv *env, jobject thiz) {
+    std::string decrypted = "";
+    for (size_t i = 0; i < KEY_LENGTH; i++) {
+        // Reverse XOR logic in memory
+        decrypted += (char)(OBFUSCATED_KEY[i] ^ XOR_MASK);
+    }
+    return env->NewStringUTF(decrypted.c_str());
+}
+```
+
+#### 2. Android Kotlin Module Wrapper (`SecureKeysModule.kt`)
+```kotlin
+package com.myportal
+
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.Promise
+
+class SecureKeysModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+
+    init {
+        // Load the compiled C++ library binary
+        System.loadLibrary("secure-keys")
+    }
+
+    override fun getName(): String = "SecureKeysModule"
+
+    // Declare external JNI C++ function signature
+    private external fun getDecryptedApiKey(): String
+
+    @ReactMethod
+    fun getPaymentApiKey(promise: Promise) {
+        try {
+            // Retrieve key computed dynamically in C++ binary space
+            val key = getDecryptedApiKey()
+            promise.resolve(key)
+        } catch (e: Exception) {
+            promise.reject("DECRYPTION_ERROR", "Failed to resolve native secure key", e)
+        }
+    }
+}
+```
+
+#### 3. iOS Objective-C++ Bridge Interface (`SecureKeysBridge.mm`)
+```objc
+#import <React/RCTBridgeModule.h>
+
+@interface RCT_EXTERN_MODULE(SecureKeysModule, NSObject)
+
+RCT_EXTERN_METHOD(getPaymentApiKey:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
++ (BOOL)requiresMainQueueSetup {
+    return NO;
+}
+
+@end
+```
+
+#### 4. iOS Swift Wrapper Implementation (`SecureKeys.swift`)
+```swift
+import Foundation
+import React
+
+@objc(SecureKeysModule)
+class SecureKeysModule: NSObject {
+
+  // XOR Mask used for key resolution
+  private let xorMask: UInt8 = 0xAA
+  
+  // Obfuscated representation of "sk_live_51M3f" using XOR operation
+  private let obfuscatedKey: [UInt8] = [0xC9, 0xC1, 0xFD, 0xC2, 0xC3, 0xD0, 0xCE, 0xFD, 0x9F, 0x9B, 0x99, 0xC2]
+
+  @objc(getPaymentApiKey:rejecter:)
+  func getPaymentApiKey(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+    var decryptedBytes = [UInt8]()
+    
+    for byte in obfuscatedKey {
+      // Reverse the XOR mask dynamically in RAM
+      decryptedBytes.append(byte ^ xorMask)
+    }
+    
+    if let decryptedString = String(bytes: decryptedBytes, encoding: .utf8) {
+      resolve(decryptedString)
+    } else {
+      reject("DECRYPTION_ERROR", "Failed to decrypt native iOS key", nil)
+    }
+  }
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(K)$ linear conversion where $K$ is key length. Runs in sub-millisecond execution times.
+- **Space Complexity**: $O(K)$ temporary memory heap allocation.
+- **Explanation**: Metro compiles `.env` variables into plaintext strings directly within `index.bundle`, making them easily discoverable via basic static analysis. This native bridge relocates keys into compiled C++ binary storage (`.so` / `.a` libraries). The strings are obfuscated using XOR masks, which ensures they do not reside as raw strings in binary data pools. They are assembled back into plaintext directly inside CPU register operations only at runtime.
+
+---
+
+## Program 16: Secure Purchase Validation & Transaction Sync Hook
+
+### Question
+Design a React Native custom hook (`usePurchaseManager.ts`) using `react-native-iap` to coordinate secure subscription transactions:
+1. Initialize the purchase event listeners, register purchase updates, and serialize purchase payloads into a local transactional SQLite database (outbox).
+2. Invoke a secure backend validation server endpoint (`/api/verify-receipt`) for verification.
+3. Automatically monitor connection recovery using `NetInfo` to reconcile and upload pending transactions offline.
+
+### Sample Input & Output
+#### Input:
+- User triggers `buyProduct("gold_monthly")`.
+- Device goes offline during transaction completion.
+#### Output:
+- Saves the transaction to SQLite.
+- On connection recovery, `NetInfo` fires, executing receipt uploads to the server, updates local logs, and confirms the purchase.
+
+### Code
+
+```typescript
+import { useEffect, useState, useCallback } from 'react';
+import * as RNIap from 'react-native-iap';
+import NetInfo from '@react-native-community/netinfo';
+import SQLite from 'react-native-sqlite-storage';
+
+const db = SQLite.openDatabase({ name: 'transactions.db', location: 'default' });
+
+export function usePurchaseManager() {
+  const [purchases, setPurchases] = useState<RNIap.ProductPurchase[]>([]);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  // Initialize SQLite Transaction Table
+  useEffect(() => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        `CREATE TABLE IF NOT EXISTS receipt_outbox (
+          id TEXT PRIMARY KEY,
+          productId TEXT,
+          transactionReceipt TEXT,
+          status TEXT
+        );`
+      );
+    });
+  }, []);
+
+  // Post receipt payload to backend database for secure validation
+  const validateReceiptWithServer = useCallback(async (purchase: RNIap.ProductPurchase) => {
+    const response = await fetch('https://api.mybank.com/api/verify-receipt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        productId: purchase.productId,
+        receipt: purchase.transactionReceipt,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Server receipt validation failed');
+    }
+
+    // Acknowledge validation directly with StoreKit / Play Console billing
+    await RNIap.finishTransaction({ purchase, isConsumable: false });
+  }, []);
+
+  // Sync outbox queue upon network restoration
+  const processOfflineOutbox = useCallback(async () => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        `SELECT * FROM receipt_outbox WHERE status = 'PENDING';`,
+        [],
+        async (_, results) => {
+          const rows = results.rows;
+          for (let i = 0; i < rows.length; i++) {
+            const item = rows.item(i);
+            try {
+              await validateReceiptWithServer({
+                productId: item.productId,
+                transactionReceipt: item.transactionReceipt,
+              } as RNIap.ProductPurchase);
+
+              // Update Outbox Status on Success
+              db.transaction((innerTx) => {
+                innerTx.executeSql(
+                  `UPDATE receipt_outbox SET status = 'COMPLETED' WHERE id = ?;`,
+                  [item.id]
+                );
+              });
+            } catch (err) {
+              console.error('Failed to sync offline receipt:', err);
+            }
+          }
+        }
+      );
+    });
+  }, [validateReceiptWithServer]);
+
+  // Monitor network status to trigger offline synchronization
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      if (state.isConnected && state.isInternetReachable) {
+        processOfflineOutbox();
+      }
+    });
+    return () => unsubscribe();
+  }, [processOfflineOutbox]);
+
+  // Set up IAP Transaction Update Listeners
+  useEffect(() => {
+    const purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async (purchase) => {
+      const receipt = purchase.transactionReceipt;
+      if (receipt) {
+        setIsProcessing(true);
+        try {
+          // 1. Immediately log to local SQLite outbox
+          db.transaction((tx) => {
+            tx.executeSql(
+              `INSERT OR REPLACE INTO receipt_outbox (id, productId, transactionReceipt, status) 
+               VALUES (?, ?, ?, 'PENDING');`,
+              [purchase.transactionId, purchase.productId, receipt]
+            );
+          });
+
+          // 2. Attempt validation
+          await validateReceiptWithServer(purchase);
+
+          // 3. Mark completed on success
+          db.transaction((tx) => {
+            tx.executeSql(
+              `UPDATE receipt_outbox SET status = 'COMPLETED' WHERE id = ?;`,
+              [purchase.transactionId]
+            );
+          });
+        } catch (err) {
+          console.warn('IAP error cached in outbox for offline retry:', err);
+        } finally {
+          setIsProcessing(false);
+        }
+      }
+    });
+
+    const purchaseErrorSubscription = RNIap.purchaseErrorListener((error) => {
+      console.warn('Purchase Error listener:', error);
+    });
+
+    return () => {
+      purchaseUpdateSubscription.remove();
+      purchaseErrorSubscription.remove();
+    };
+  }, [validateReceiptWithServer]);
+
+  const buyProduct = async (sku: string) => {
+    try {
+      await RNIap.requestPurchase({ sku });
+    } catch (err) {
+      console.error('Purchase request failed:', err);
+    }
+  };
+
+  return { buyProduct, isProcessing, syncOutbox: processOfflineOutbox };
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Database Logging**: $O(1)$ instant write.
+  - **Server validation**: $O(N)$ HTTP round-trip latency.
+- **Space Complexity**: $O(D)$ local storage growth proportional to queue size $D$.
+- **Explanation**: This system secures transactions using the Outbox pattern. If network connection fails or the app is closed mid-session, the purchase token remains saved inside local SQLite databases with a `'PENDING'` tag. The hook listens to `NetInfo` alerts, and when internet reaches stability, it flushes the queue sequentially, verifying transactions with the remote backend, ensuring no product purchases are lost.
