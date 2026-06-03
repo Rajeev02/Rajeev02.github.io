@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Preparation Resources</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/+esm"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -23,6 +23,40 @@
         background: #f5f7fa;
         line-height: 1.6;
         color: #2d3748;
+      }
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .loader.hidden {
+        display: none;
+      }
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #e2e8f0;
+        border-top-color: #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loader-text {
+        margin-top: 16px;
+        color: #718096;
+        font-size: 14px;
       }
       .container {
         max-width: 1200px;
@@ -68,6 +102,8 @@
         height: fit-content;
         position: sticky;
         top: 20px;
+        max-height: 80vh;
+        overflow-y: auto;
       }
       .sidebar h3 {
         margin-bottom: 15px;
@@ -115,6 +151,8 @@
         padding: 30px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        max-height: 80vh;
+        overflow-y: auto;
       }
       .no-file {
         text-align: center;
@@ -213,9 +251,37 @@
         border-radius: 4px;
         font-size: 14px;
         transition: background 0.2s;
+        cursor: pointer;
+        border: none;
       }
       .back-btn:hover {
         background: #cbd5e0;
+      }
+      .code-file {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 16px;
+        border-radius: 6px;
+        overflow-x: auto;
+        line-height: 1.4;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .info-box {
+        background: #edf2f7;
+        border-left: 4px solid #667eea;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #4a5568;
+      }
+      .file-count {
+        font-size: 12px;
+        color: #718096;
+        margin-top: 8px;
       }
       @media (max-width: 768px) {
         .content-wrapper {
@@ -223,6 +289,10 @@
         }
         .sidebar {
           position: static;
+          max-height: none;
+        }
+        .main-content {
+          max-height: none;
         }
         header {
           flex-direction: column;
@@ -233,6 +303,11 @@
     </style>
   </head>
   <body>
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <div class="loader-text">Loading resources...</div>
+    </div>
+
     <div class="container">
       <header>
         <h1>📚 Preparation Resources</h1>
@@ -243,6 +318,7 @@
         <div class="sidebar">
           <h3>Contents</h3>
           <div id="fileList"></div>
+          <div class="file-count" id="fileCount"></div>
         </div>
         <div class="main-content">
           <div id="content">
@@ -255,155 +331,91 @@
       </div>
     </div>
 
+    <script src="embedded_data.js"></script>
     <script>
-      // Security check
       if (sessionStorage.getItem("prepration_unlocked") !== "1") {
         location.href = "/prepration/index.html";
       }
 
-      const fileStructure = {
-        Coding: [
-          { name: "Class Component", file: "P001-classcomponent.js" },
-          { name: "Functional Component", file: "P002-FunctionalComponent.js" },
-          { name: "FlatList Sample", file: "P003-Flatlist-sample.js" },
-          { name: "Capco Interview", file: "P004-Capco.md" },
-          {
-            name: "Math Questions",
-            file: "P005-MathematicalMostAskQuestion.md",
-          },
-          { name: "Interview Guide P006", file: "P006.md" },
-          {
-            name: "Important Practice Questions",
-            file: "P007-IMP-Practice_Questions.md",
-          },
-          { name: "Interview P008", file: "P008.md" },
-          { name: "ChatGPT Interview", file: "P010-chatgpt.md" },
-          { name: "Extra DSA", file: "P011-ExtraDSA.md" },
-          { name: "Kashee Notes", file: "P012-Kashee.md" },
-        ],
-        Theory: [
-          { name: "Components", file: "000-Components.md" },
-          { name: "Native Library", file: "001-native_library.md" },
-          {
-            name: "How to Use Native Library",
-            file: "002-how_to_use_native_library.md",
-          },
-          {
-            name: "Native Equivalent Performance",
-            file: "003-NativeEquivalentPerformance.md",
-          },
-          {
-            name: "Class vs Functional Components",
-            file: "004-diffrencebetweenclassand functionalcomponent.md",
-          },
-          { name: "useEffect Hook", file: "005-useEffect.md" },
-          { name: "React Hooks", file: "006-Hooks.md" },
-          { name: "Async Handling", file: "007-AsynHandle.md" },
-          { name: "Garbage Collector", file: "008-GarbageCollector.md" },
-          {
-            name: "Handling Massive Lists",
-            file: "009-Handling a massive list of data with .md",
-          },
-          {
-            name: "useEffect without Dependency",
-            file: "010-useEffectwithoutdependcy.md",
-          },
-          { name: "Redux", file: "011-redux.md" },
-          {
-            name: "React Query & TanStack Query",
-            file: "012-ReactQuery_TanStackQuery.md",
-          },
-          {
-            name: "Redux Toolkit & React Query",
-            file: "013-redux-toolkit-react-query.md",
-          },
-          {
-            name: "GC & Memory Leaks",
-            file: "014-GC-GarbageCollector-MemoryLeak.md",
-          },
-          { name: "React Native Web", file: "015-ReactNativeWeb.md" },
-          {
-            name: "Web, Mobile, Tablet, Desktop",
-            file: "016-web-mobile-tablet-desktop.md",
-          },
-          { name: "Babel", file: "017-Babel.md" },
-          { name: "Yoga", file: "018-Yoga.md" },
-          { name: "Metro", file: "019-metro.md" },
-          { name: "Optimize App Size", file: "020-optimise-app-size.md" },
-          {
-            name: "Old vs New Architecture",
-            file: "021-oldVsNewArchitecture.md",
-          },
-          {
-            name: "Complete React Native Journey",
-            file: "022-CompleteReactNativeAppJourney.md",
-          },
-          {
-            name: "Justify Content & Align Items",
-            file: "023-justfycontent-alignitems.md",
-          },
-          {
-            name: "Legacy Code Compatibility",
-            file: "024-legacycodecompatibility.md",
-          },
-          { name: "Architecture", file: "025-Architecture.md" },
-          { name: "New Framework", file: "026-NewFramework.md" },
-          {
-            name: "Upcoming Questions Guide",
-            file: "027-upcoming-questions-guide.md",
-          },
-          {
-            name: "Custom Hook - useNetwork",
-            file: "028-customHoom-useNetwrok.md",
-          },
-          { name: "Interview Q&A", file: "029-InterviewQA.md" },
-          { name: "Important Q&A", file: "030-someinportantqa.md" },
-          { name: "Class Component", file: "031-classcompont.md" },
-          { name: "Yarn vs NPM", file: "032-YarnNPM.md" },
-          {
-            name: "Deep Linking & Referral Tracking",
-            file: "033-differed-deep-linking-Referral-Tracking.md",
-          },
-          { name: "Testing Types", file: "034-TestingTypes.md" },
-          { name: "Git Commands", file: "035-git-commands.md" },
-          { name: "Push Notifications", file: "036-pushnotificaition.md" },
-          {
-            name: "New Architecture Lifecycle",
-            file: "037-NewArchitectureLifeCycle.md",
-          },
-        ],
-        Others: [
-          {
-            name: "LaundryMate Interview",
-            file: "Interview-001-LaundryMate.md",
-          },
-          {
-            name: "React Native Async & Navigation",
-            file: "react_native_async_and_navigation_interview_notes_md.md",
-          },
-        ],
+      const categoryNames = {
+        coding: "Coding",
+        theory: "Theory",
+        others: "Others",
       };
+
+      function hideLoader() {
+        const loader = document.getElementById("loader");
+        if (loader) loader.classList.add("hidden");
+      }
+
+      function showLoader() {
+        const loader = document.getElementById("loader");
+        if (loader) loader.classList.remove("hidden");
+      }
+
+      function initializeApp() {
+        try {
+          // Wait for marked to be available
+          if (typeof marked === "undefined") {
+            console.error("marked library not loaded yet");
+            setTimeout(initializeApp, 100);
+            return;
+          }
+
+          if (typeof embeddedFileData === "undefined" || !embeddedFileData) {
+            console.error("embedded_data.js failed to load");
+            document.getElementById("content").innerHTML =
+              '<div class="info-box">❌ Error: Resources failed to load. Please refresh the page.</div>';
+            hideLoader();
+            return;
+          }
+
+          renderFileList();
+          countFiles();
+          hideLoader();
+        } catch (err) {
+          console.error("Error initializing:", err);
+          document.getElementById("content").innerHTML =
+            '<div class="info-box">❌ Error: ' + err.message + "</div>";
+          hideLoader();
+        }
+      }
+
+      function countFiles() {
+        let total = 0;
+        for (const [section, files] of Object.entries(embeddedFileData)) {
+          total += files.length;
+        }
+        document.getElementById("fileCount").textContent =
+          `Total: ${total} files`;
+      }
 
       function renderFileList() {
         const fileList = document.getElementById("fileList");
         fileList.innerHTML = "";
 
-        for (const [section, files] of Object.entries(fileStructure)) {
+        for (const [section, files] of Object.entries(embeddedFileData)) {
           const sectionDiv = document.createElement("div");
           sectionDiv.className = "section";
 
           const sectionTitle = document.createElement("div");
           sectionTitle.className = "section-title";
-          sectionTitle.textContent = section;
+          sectionTitle.textContent = `${categoryNames[section] || section} (${files.length})`;
           sectionDiv.appendChild(sectionTitle);
 
-          for (const file of files) {
+          const sortedFiles = [...files].sort((a, b) =>
+            a.name.localeCompare(b.name),
+          );
+
+          for (const file of sortedFiles) {
             const link = document.createElement("a");
             link.className = "file-link";
-            link.textContent = file.name;
+            link.textContent = formatFileName(file.name);
+            link.dataset.filename = file.name;
+            link.dataset.section = section;
             link.onclick = (e) => {
               e.preventDefault();
-              loadFile(file.file, section);
+              loadFile(file);
             };
             sectionDiv.appendChild(link);
           }
@@ -412,32 +424,59 @@
         }
       }
 
-      async function loadFile(filename, section) {
-        const sectionMap = {
-          Coding: "coding",
-          Theory: "theory",
-          Others: "others",
-        };
-        const path = `/src/prepration/${sectionMap[section]}/${filename}`;
-
-        try {
-          const response = await fetch(path);
-          if (!response.ok) throw new Error("File not found");
-          const content = await response.text();
-          displayContent(content, filename);
-          updateActiveLink(filename);
-        } catch (error) {
-          document.getElementById("content").innerHTML =
-            `<div class="no-file"><h2>Error</h2><p>Could not load file: ${filename}</p></div>`;
-        }
+      function formatFileName(name) {
+        const withoutExt = name.replace(/\.(md|js)$/, "");
+        return withoutExt
+          .replace(/[-_]/g, " ")
+          .replace(/\d+-/, "")
+          .replace(/\b\w/g, (l) => l.toUpperCase());
       }
 
-      function displayContent(content, filename) {
+      function loadFile(file) {
+        showLoader();
+        setTimeout(() => {
+          displayContent(file.content, file.name, file.type);
+          updateActiveLink(file.name);
+          hideLoader();
+        }, 300);
+      }
+
+      async function displayContent(content, filename, type) {
         const contentDiv = document.getElementById("content");
-        if (filename.endsWith(".md")) {
-          contentDiv.innerHTML = `<a href="#" class="back-btn" onclick="goBack(event)">← Back to Contents</a><div class="markdown-content">${marked.parse(content)}</div>`;
+        const backBtn =
+          '<button class="back-btn" onclick="goBack()">← Back to Contents</button>';
+
+        if (!content || content.trim().length === 0) {
+          contentDiv.innerHTML =
+            backBtn +
+            '<div class="info-box">⚠️ This file is empty or incomplete.</div>';
+          return;
+        }
+
+        if (type === "md") {
+          try {
+            // Use marked with both callback and promise support
+            let htmlContent;
+            if (typeof marked.parse === "function") {
+              htmlContent = await marked.parse(content);
+            } else if (typeof marked === "function") {
+              htmlContent = marked(content);
+            } else {
+              throw new Error("marked library not properly loaded");
+            }
+            contentDiv.innerHTML =
+              backBtn + `<div class="markdown-content">${htmlContent}</div>`;
+          } catch (err) {
+            console.error("Markdown render error:", err);
+            contentDiv.innerHTML =
+              backBtn +
+              `<div class="info-box">Error rendering markdown: ${err.message}</div>`;
+          }
         } else {
-          contentDiv.innerHTML = `<a href="#" class="back-btn" onclick="goBack(event)">← Back to Contents</a><pre><code>${escapeHtml(content)}</code></pre>`;
+          const escapedCode = escapeHtml(content);
+          contentDiv.innerHTML =
+            backBtn +
+            `<pre class="code-file"><code>${escapedCode}</code></pre>`;
         }
       }
 
@@ -454,18 +493,15 @@
 
       function updateActiveLink(filename) {
         document.querySelectorAll(".file-link").forEach((link) => {
-          link.classList.remove("active");
-        });
-        const allLinks = document.querySelectorAll(".file-link");
-        allLinks.forEach((link) => {
-          if (link.textContent && link.onclick.toString().includes(filename)) {
+          if (link.dataset.filename === filename) {
             link.classList.add("active");
+          } else {
+            link.classList.remove("active");
           }
         });
       }
 
-      function goBack(e) {
-        e.preventDefault();
+      function goBack() {
         document.getElementById("content").innerHTML = `<div class="no-file">
         <h2>👈 Select a resource</h2>
         <p>Choose a file from the sidebar to get started</p>
@@ -480,7 +516,7 @@
         location.href = "/prepration/index.html";
       }
 
-      renderFileList();
+      window.addEventListener("load", initializeApp);
     </script>
   </body>
 </html>
