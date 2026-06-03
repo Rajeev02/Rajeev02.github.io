@@ -148,9 +148,10 @@ Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects duri
 1. **Heap Snapshot Comparisons**: Open Chrome DevTools hooked into the Hermes execution thread. Capture Snapshot A at screen init and Snapshot B after performing actions (like scrolling or opening/closing pages). Filter by allocation differences to locate variables that are not being collected.
 2. **Native Memory Profiling**: Use **Android Studio Profiler (Memory)** or **Xcode Instruments (Allocations/Leaks)** to watch the native memory heap. A rising, staircase-like memory graph indicates that views or native allocations are leaking.
 3. **Common Culprits**:
-   - Long-running `setInterval` timers or event listeners (`DeviceEventEmitter`, `NetInfo`) initialized inside `useEffect` without returning a proper cleanup method.
-   - Retaining static references inside global Redux stores.
-   - Retaining un-recycled DOM/native views due to large scroll containers.
+   - **Lingering Subscriptions & Timers**: Timers and listeners must be explicitly cleared in the `useEffect` cleanup return.
+   - **Uncancelled Network Request Callbacks**: If a screen fetches data and the user backs out before the HTTP response returns, the JS thread will attempt to invoke `setState` on the unmounted component, resulting in memory leaks and console warnings.
+     - *Prevention*: Re-route requests using **`AbortController`** to cancel fetch events when components unmount, or implement an **`isMounted`** ref tracker flag to check the mount state defensively before calling state updates.
+   - **Global Redux References**: Retaining dead references in global stores.
 
 ---
 
@@ -171,3 +172,325 @@ Push notifications require a secure handshake between client, server, and APNs/F
 ### 3. Production Diagnostics (Sentry + PostHog)
 - **Symbolication**: Release builds are minified, converting readable stack traces into hexadecimal memory locations. To diagnose crashes, your build pipeline must upload **dSYM files** (iOS) and **ProGuard/Source Maps** (Android/JS) to Sentry to map those locations back to line-numbered source code.
 - **Telemetry Correlation**: Pair behavioral analytics (PostHog screen taps and network latency logs) with error reports (Sentry) using a shared session identifier. This allows you to view the exact sequence of user actions leading up to a production crash.
+
+### 4. Navigation Lifecycles (`useFocusEffect`)
+- Using standard `useEffect` hooks will not fire when a screen gets re-focused.
+- To execute data syncs or trigger screen entries cleanly, implement the **`useFocusEffect`** hook. This acts as a navigator-specific lifecycle controller, firing code only when the tab gains visual focus, and executing its cleanup callback when the screen loses focus.
+
+---
+
+## ⚛️ Section 7: React Architecture & Core Engine
+
+### 1. Virtual DOM, React Fiber, Reconciliation & Diffing
+- **Virtual DOM**: A lightweight, in-memory representation of the real DOM/Native UI layout tree. It acts as a blue-print stage where updates are calculated first to avoid expensive layouts reflows.
+- **Reconciliation**: The reconciliation process compares the new Virtual DOM tree with the previous one. In React 16+, this is powered by **React Fiber**.
+- **React Fiber**: A complete rewrite of React’s core reconciliation algorithm. 
+  - *Why Fiber*: The legacy reconciler used a synchronous call-stack recursion that could not be interrupted. If a rendering cycle took too long, it blocked the main thread, causing frame drops (jank).
+  - *How it works*: Fiber breaks rendering work down into small units called "fibers" and processes them incrementally in two phases:
+    1. **Render Phase**: Asynchronous and interruptible. React builds a new work-in-progress tree, calculates changes, and prioritizes updates (e.g., user inputs are prioritized over background list fetches).
+    2. **Commit Phase**: Synchronous and uninterruptible. Writes the final layout updates directly to the host platform (DOM or Native views).
+- **The Diffing Heuristic ($O(N)$)**:
+  - If elements have different types (e.g., changing a `<View>` to a `<ScrollView>`), React tears down the old tree and builds the new one from scratch.
+  - If elements are the same type, React compares and updates changed props or attributes only.
+  - **Keys in Lists**: React uses keys to match Virtual DOM elements across render frames. Without unique keys, list updates (reordering, inserting, deleting) force React to recreate all native view cells from scratch, destroying state and causing UI flickering.
+
+### 2. Component Lifecycles: Class vs. Functional Components
+- Components transition through three core phases: **Mounting**, **Updating**, and **Unmounting**.
+- **Method Execution Order**:
+
+```text
+[Mounting] 
+  Class: constructor() ➡️ static getDerivedStateFromProps() ➡️ render() ➡️ componentDidMount()
+  Functional: Function Executes (Initial Paint) ➡️ useEffect() execution
+
+[Updating]
+  Class: getDerivedStateFromProps() ➡️ shouldComponentUpdate() ➡️ render() ➡️ getSnapshotBeforeUpdate() ➡️ componentDidUpdate()
+  Functional: Function Executes (Re-render) ➡️ useEffect() cleanup ➡️ useEffect() execution
+
+[Unmounting]
+  Class: componentWillUnmount()
+  Functional: useEffect() cleanup function executes
+```
+
+### 3. Higher-Order Components (HOC)
+- **Definition**: An HOC is a pure function that takes a component as an argument and returns an enhanced component. It represents a structural pattern for sharing cross-cutting concerns (authentication, layouts, analytics tracking).
+- **When to Use**: Decoupling layout styles, injecting global contexts, or shielding screens with authorization wrappers.
+- **Example HOC**:
+  ```tsx
+  import React from 'react';
+  import { View, Text } from 'react-native';
+
+  export function withAuth<P extends object>(WrappedComponent: React.ComponentType<P>) {
+    return (props: P) => {
+      const isAuthenticated = true; // fetch from auth context
+
+      if (!isAuthenticated) {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Access Denied. Please log in.</Text>
+          </View>
+        );
+      }
+
+      return <WrappedComponent {...props} />;
+    };
+  }
+  ```
+
+### 4. React Hooks: Definitions & Code Examples
+- **`useState`**: Hook to declare local component state.
+  ```typescript
+  const [count, setCount] = useState<number>(0);
+  ```
+- **`useEffect`**: Hook to perform side effects (subscriptions, data fetches, listeners).
+  ```typescript
+  useEffect(() => {
+    const handleEvent = () => console.log('event');
+    window.addEventListener('resize', handleEvent);
+    return () => window.removeEventListener('resize', handleEvent); // cleanup
+  }, []);
+  ```
+- **`useContext`**: Reads and subscribes to a React context without nesting consumer components.
+  ```typescript
+  const theme = useContext(ThemeContext);
+  ```
+- **`useReducer`**: Alternative to `useState` for managing complex state objects with action dispatch rules.
+  ```typescript
+  const [state, dispatch] = useReducer(reducerFn, initialState);
+  ```
+- **`useMemo`**: Caches computed values to avoid recalculations on every render.
+  ```typescript
+  const sortedData = useMemo(() => data.sort(), [data]);
+  ```
+- **`useCallback`**: Memoizes function instances to preserve reference pointers.
+  ```typescript
+  const handleClick = useCallback(() => console.log(id), [id]);
+  ```
+- **`useRef`**: Returns a mutable ref object whose `.current` persists across renders and does not trigger re-renders upon mutation.
+  ```typescript
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  ```
+
+### 5. Custom Hooks: Rationale & Implementation
+- **Why**: Encourages code reusability, modularity, and readability. It separates UI presentation from business logic.
+- **Example (Encrypted Secure Storage Custom Hook)**:
+  ```typescript
+  import { useState, useEffect, useCallback } from 'react';
+  import { MMKV } from 'react-native-mmkv';
+
+  const storage = new MMKV();
+
+  export function useLocalStorage<T>(key: string, initialValue: T) {
+    const [storedValue, setStoredValue] = useState<T>(() => {
+      try {
+        const item = storage.getString(key);
+        return item ? JSON.parse(item) : initialValue;
+      } catch (error) {
+        return initialValue;
+      }
+    });
+
+    const setValue = useCallback((value: T | ((val: T) => T)) => {
+      try {
+        const valueToStore = value instanceof Function ? value(storedValue) : value;
+        setStoredValue(valueToStore);
+        storage.set(key, JSON.stringify(valueToStore));
+      } catch (error) {
+        console.error(error);
+      }
+    }, [key, storedValue]);
+
+    return [storedValue, setValue] as const;
+  }
+  ```
+
+---
+
+## 📦 Section 8: State Management & Routing Orchestration
+
+### 1. State vs. Props & Prop Drilling
+- **State**: Mutable data owned and managed internally by the component itself.
+- **Props**: Immutable data passed down from a parent component to configure the child.
+- **Prop Drilling**: The anti-pattern of passing props through multiple nested layers of child components that do not actually need the data, simply to deliver it to a deeply nested descendant. Avoided by using Context API or State Management libraries.
+
+### 2. State Management Solutions: Redux vs. Zustand vs. Context API
+- Choose the state management solution based on app scope and mutation frequencies:
+
+| Feature | Redux Toolkit (RTK) | Zustand | Context API |
+| :--- | :--- | :--- | :--- |
+| **Best For** | Massive enterprise-grade apps with high-frequency mutations and complex middleware rules. | Medium-to-large apps. Lightweight, atomic, and extremely fast. | Small-scale state (e.g., themes, language preferences). |
+| **Re-render Scope** | Only selectors re-render. Highly optimized. | Selectors prevent unneeded re-renders. | All context consumers re-render when the context value object changes. |
+| **Boilerplate** | Medium. Configured via slices and store. | Minimal. Defined in a single hook store. | Low. Native to React. |
+| **Async Support** | Native async thunks or sagas. | Integrated directly inside custom store actions. | Handled manually using asynchronous triggers in parent components. |
+
+### 3. Routing, RBAC & Deep Linking in React Navigation
+- **Role-Based Access Control (RBAC)**: Manage access limits using conditional navigation stacks:
+  ```tsx
+  const AppNavigator = () => {
+    const { userRole, isAuthenticated } = useAuth();
+    return (
+      <Stack.Navigator>
+        {!isAuthenticated ? (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        ) : userRole === 'admin' ? (
+          <Stack.Screen name="AdminDashboard" component={AdminDashboard} />
+        ) : (
+          <Stack.Screen name="UserDashboard" component={UserDashboard} />
+        )}
+      </Stack.Navigator>
+    );
+  };
+  ```
+- **Query Parameters & Dynamic Routing**: Configure deep linking rules:
+  ```typescript
+  const linking = {
+    prefixes: ['myportal://', 'https://myportal.com'],
+    config: {
+      screens: {
+        Details: 'details/:productId', // maps route params to query params
+      },
+    },
+  };
+  ```
+
+---
+
+## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
+
+### 1. SSR vs. CSR & React Native SEO
+- **Client-Side Rendering (CSR)**: The browser downloads a minimal HTML stub and executes JS to render the Virtual DOM. Faster interactions, but slower initial load and weaker SEO indexing.
+- **Server-Side Rendering (SSR)**: The server pre-renders HTML on each request, delivering complete layouts. Highly optimized for SEO crawlers and fast First Contentful Paint.
+- **React Native SEO / Indexing**:
+  - React Native applications run compiled binaries on devices, meaning traditional SEO crawlers cannot index application screens.
+  - **Mitigation**:
+    1. **App Indexing**: Register **Android App Links** and **iOS Universal Links** matching domain structures (e.g. `https://myportal.com/deals`).
+    2. **Companion Web App**: Deploy an SEO-optimized web companion built with Next.js (using SSR/Static Site Generation). Search engines index the web layouts. When users tap search results on mobile, Universal Links launch the native mobile app directly, routing them to the correct screen.
+
+### 2. Layout & Styling Frameworks
+- Styling decisions dictate layout compilation performance:
+  - **StyleSheet (Standard)**: Pre-compiled at compile time. Translates styles into native IDs on the native thread. High performance, zero runtime overhead.
+  - **Tailwind CSS (NativeWind)**: Compiles utility classes into standard `StyleSheet` objects at build time. Maintains high performance while improving developer speed.
+  - **StyleX**: Type-safe CSS-in-JS compiler. Very robust, but has minor build-time integrations.
+  - **Inline Styles (`style={{ flex: 1 }}`)**: Generates a brand-new style object on every single render. This forces style calculations and comparisons on every update cycle, degrading layout speeds.
+
+### 3. Accessibility, Themes, Security & Multi-language (i18n)
+- **Accessibility (a11y)**: Add `accessible={true}`, `accessibilityLabel`, and `accessibilityHint` elements to guarantee screens are readable by Screen Readers (TalkBack on Android, VoiceOver on iOS).
+- **Multi-language (i18n)**: Integrate `react-i18next` to translate text dictionaries. Translate strings inside hooks using `const { t } = useTranslation()`.
+- **Multi-theme**: Orchestrate themes using `useColorScheme()` or Redux theme stores, changing StyleSheet styles dynamically via style variables.
+- **Security Protocols**:
+  - SSL Pinning to prevent Man-in-the-Middle (MitM) attacks.
+  - App Attestation (Play Integrity / DeviceCheck) to confirm binary security integrity.
+  - Cryptographic Keychain/Keystore wrappers (`react-native-keychain`) to protect OAuth tokens.
+  - Disable screen recording or capture in high-security pages using native flags (e.g. `WindowManager.LayoutParams.FLAG_SECURE` in Android activity context).
+
+---
+
+## 🧪 Section 10: Testing Strategies & QA Automation
+
+### 1. The Mobile Testing Pyramid
+- **Test-Driven Development (TDD)**: The software development process where you write failing test cases first, then write minimal code to pass the tests, and finally refactor for clean patterns.
+
+```text
+       ▲
+      / \     E2E Testing (Detox) ➡️ Simulates real device layouts and flows
+     /   \    
+    /     \   Integration (Jest)  ➡️ Tests component updates, redux states and routing
+   /_______\  Unit (RNTL + Jest)  ➡️ Validates atomic hooks and logic calculations
+```
+
+### 2. Unit & Integration Testing (Jest + React Native Testing Library)
+- **RNTL** allows rendering components inside a virtual environment to assert UI elements and fire events.
+- **Example Test Code**:
+  ```typescript
+  import React from 'react';
+  import { render, fireEvent } from '@testing-library/react-native';
+  import { ButtonComponent } from './ButtonComponent';
+
+  describe('ButtonComponent', () => {
+    it('fires callback triggers when pressed', () => {
+      const mockPress = jest.fn();
+      const { getByText } = render(<ButtonComponent label="Submit" onPress={mockPress} />);
+      
+      fireEvent.press(getByText('Submit'));
+      expect(mockPress).toHaveBeenCalledTimes(1);
+    });
+  });
+  ```
+
+### 3. End-to-End Testing (Detox + JUnit)
+- **Detox**: A grey-box end-to-end testing library. It tests the compiled app on real simulators or devices, waiting for asynchronous network calls and animations to finish automatically before asserting elements, minimizing flaky tests.
+- **JUnit**: Used as the test runner reporting framework.
+- **Detox E2E Script Example**:
+  ```javascript
+  describe('Authentication Flow', () => {
+    beforeEach(async () => {
+      await device.reloadReactNative();
+    });
+
+    it('navigates to dashboard after successful login', async () => {
+      // Find element by unique testID and type inputs
+      await element(by.id('username_input')).typeText('admin_user');
+      await element(by.id('password_input')).typeText('secure_password');
+      await element(by.id('login_button')).tap();
+
+      // Assert visual element exists on the next page
+      await expect(element(by.text('Welcome Back, Admin'))).toBeVisible();
+    });
+  });
+  ```
+
+---
+
+## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
+
+Mobile banking, investment, and remote operations apps require reliable offline support. This section outlines local storage comparison, offline caching hydration, and ledger synchronization strategies.
+
+### 1. Storage Solution Comparison Matrix
+
+| Storage Engine | Paradigm | Threading | Benchmarks (Write 10k rows) | Best For | Limitations |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **AsyncStorage** | Key-Value (Plaintext JSON) | Asynchronous (Bridge serialized) | ~1500ms (Slow) | Simple UI configs, small auth tokens. | Bridge saturation, lacks index queries, leaks on large keys. |
+| **MMKV** | Key-Value (Binary serialized) | Synchronous (JSI C++ Bindings) | ~25ms (Ultra-Fast) | Redux/Zustand hydration states, rapid key lookups, local encrypted profiles. | Lacks complex relations, database query filters, or ACID table operations. |
+| **SQLite** | Relational (SQL Tables) | Synchronous / Async wrappers | ~280ms (Fast) | Raw transactional records, structured schemas, ledger reporting. | Heavy boilerplates, manual DB migration schemas. |
+| **WatermelonDB** | Reactive ORM (Built on SQLite) | Multi-threaded (Background SQLite thread) | ~110ms (Fast) | High-performance lists (50k+ records), dynamic search/lazy lists. | Requires wrapping models in decorators, high initial structural setup. |
+
+- **MMKV Optimization Mechanics**: MMKV maps files directly to memory using the kernel’s **`mmap`** call. Reads and writes bypass bridge queues and serialization delays. JSI allows React Native code to query MMKV directly on the main thread in under 1ms.
+- **WatermelonDB Reactive Architecture**: Designed to keep React threads responsive when managing large tables. It uses SQLite but runs queries on a separate native background thread. View components are connected to DB tables using observables (`@withObservables`). When a database record changes, only components displaying that specific record re-render.
+
+### 2. React Query Offline Caching & Persister Integration
+React Query (TanStack Query) manages remote state in memory. To support offline restarts, the query cache is serialized and written to disk (MMKV or AsyncStorage) using **persister adapters**:
+1. **Bootstrap**: Upon application launch, the persister reads the stored JSON cache from MMKV and hydrates the React Query client cache.
+2. **Persistence**: Every time a network request resolves and updates the cache in memory, the persister writes the serialized cache state back to MMKV.
+3. **Execution**: If the app is launched offline, the hydrated cache is served immediately with a `stale-while-revalidate` lifecycle. Queries return cached data, and background network refetches are paused until connection is recovered.
+
+### 3. Redux Toolkit Offline Hydration & Redux Persist
+To maintain client-side application state (e.g. user details, app theme settings) across launches, we configure `redux-persist` with an MMKV-backed storage adapter:
+1. **Hydration Phase**: The store is initialized in a blocked state. `PersistGate` intercepts component mounting, reading stored keys from MMKV.
+2. **Rehydration Action**: Once loaded, Redux dispatches `persist/REHYDRATE` containing the parsed payload. Slice state is updated, and the UI continues rendering.
+3. **Write-Through Caching**: Action triggers update slice states. The MMKV adapter writes state changes back to disk synchronously, preventing data loss if the app crashes mid-session.
+
+### 4. Enterprise Offline Sync Architecture
+Offline synchronization is modeled using a **Transactional Outbox Queue** pattern. This ensures data consistency, prevents data loss, and manages transaction ordering:
+
+```text
+ [App Action: Pay $10]
+          ⬇️
+   (Device Offline) ➡️ Write transaction details to SQLite Outbox & update UI state
+          ⬇️
+  [Connection Recovers] ➡️ NetInfo listener triggers Sync Process
+          ⬇️
+ [Outbox Sequencer] ➡️ Reads queue from SQLite ➡️ Sequentially sends API calls
+          ⬇️
+  (API Success) ➡️ Deletes item from SQLite outbox queue ➡️ Refreshes cache
+```
+
+#### Sync Reconciliation Core Rules:
+1. **NetInfo Connectivity Listener**: Monitors changes. On transition from offline to online, it triggers the synchronization processor.
+2. **Idempotency Keys**: A UUID is generated for each transaction and stored in the SQLite outbox. Retried API calls include this header. The server uses it to prevent executing the transaction twice.
+3. **Conflict Resolution Strategy**:
+   - **Last-Write-Wins (LWW)**: The client timestamp determines the final state (simplest, best for settings).
+   - **Server-Wins / Merge**: The server merges non-conflicting fields, rejecting conflicts and forcing the client to re-fetch and resolve.
+   - **Interactive User Reconciliation**: The app displays a comparison modal to let the user choose which state to keep (ideal for collaborative document models).
+4. **Persistent Background Workers**: If the user backgrounds the app during sync, the transaction is handed off to OS workers (`WorkManager` in Android / `BackgroundTasks` in iOS) to complete the queue execution in the background.
+
+

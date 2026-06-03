@@ -418,7 +418,7 @@
             link.dataset.section = section;
             link.onclick = (e) => {
               e.preventDefault();
-              loadFile(file);
+              loadFile(file, section);
             };
             sectionDiv.appendChild(link);
           }
@@ -435,11 +435,11 @@
           .replace(/\b\w/g, (l) => l.toUpperCase());
       }
 
-      function loadFile(file) {
+      function loadFile(file, section) {
         showLoader();
         setTimeout(() => {
           displayContent(file.content, file.name, file.type);
-          updateActiveLink(file.name);
+          updateActiveLink(section, file.name);
           hideLoader();
         }, 300);
       }
@@ -494,9 +494,9 @@
         return text.replace(/[&<>"']/g, (m) => map[m]);
       }
 
-      function updateActiveLink(filename) {
+      function updateActiveLink(section, filename) {
         document.querySelectorAll(".file-link").forEach((link) => {
-          if (link.dataset.filename === filename) {
+          if (link.dataset.section === section && link.dataset.filename === filename) {
             link.classList.add("active");
           } else {
             link.classList.remove("active");

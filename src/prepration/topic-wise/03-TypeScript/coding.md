@@ -126,6 +126,13 @@ export class AuthInterceptorService {
 }
 ```
 
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Intercepting & Queueing**: $O(1)$ constant time execution to check request authorization and queue elements.
+  - **Queue Flashing**: $O(Q)$ where $Q$ is the size of the queued requests list. Each request gets resolved or rejected sequentially.
+- **Space Complexity**: $O(Q)$ to store request resolution promises in the dynamic memory array queue.
+- **Explanation**: This interceptor handles session recovery by intercepting all HTTP responses. If a `401 Unauthorized` occurs, it sets `isRefreshing = true` and buffers subsequent requests into `refreshQueue`. Once the refresh API resolves with a new JWT, it updates the original config header, flushes the queue, and resets the lock state. If the refresh fails, it rejects all waiting promises to trigger clean logout redirects.
+
 ---
 
 ## Program 2: Generic Type-Safe Item Selection List Component
@@ -216,3 +223,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(N)$ where $N$ is the number of items rendered by the FlatList. The selection handler runs in $O(1)$ constant time.
+- **Space Complexity**: $O(1)$ auxiliary space as it wraps inputs using memoized React callbacks.
+- **Explanation**: This component leverages TypeScript Generics (`<T extends SelectableItem>`) to build an abstract, reusable list. The compiler statically checks that any object array passed contains at least the properties defined in `SelectableItem` (here, `id` and `label`). By binding the generic parameter `T` to both the `items` array and `onSelect` callback signature, the parent receives full type inference and autocompletion for custom object attributes (e.g. `item.email` or `item.userId`) without type-casting.
+

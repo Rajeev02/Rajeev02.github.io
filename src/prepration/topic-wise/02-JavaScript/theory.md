@@ -116,3 +116,122 @@ Large-scale React applications split state management into two clear domains: **
   - **Dependent Queries**: Block queries using the `enabled` configuration flag (e.g., `enabled: !!userId`) until parent credentials resolve.
   - **Exponential Backoff**: Configure automatic retries with increasing delay times to gracefully handle temporary network dropouts.
   - **Cache Invalidation**: Query keys (e.g., `['portfolio', userId]`) map variables to cache buckets. Calling `queryClient.invalidateQueries({ queryKey })` triggers background refetches to sync stale components.
+
+---
+
+## ⚙️ Section 6: Advanced Core JS & React Engine Concepts
+
+### 1. Currying & Hoisting
+- **Hoisting**: During the compilation phase, JavaScript moves declarations (variables and functions) to the top of their enclosing scopes.
+  - *Function Declarations* are fully hoisted (both declaration and implementation), allowing them to be invoked before their physical line position.
+  - *`var` variables* are hoisted and initialized to `undefined`.
+  - *`let` and `const` variables* are hoisted but remain uninitialized in the **Temporal Dead Zone (TDZ)**, throwing a `ReferenceError` if accessed early.
+  - *Function Expressions* (e.g., `const fn = () => {}`) behave like variables and are not fully hoisted.
+- **Currying**: A functional programming pattern where a function taking multiple arguments is transformed into a chain of nested functions, each taking a single argument. It leverages closures to retain arguments across evaluations.
+  - *Example*: `const multiply = a => b => a * b; multiply(2)(3); // 6`
+
+### 2. Prototypal Inheritance & The Chain
+- Every JavaScript object has a private link referencing another object called its **Prototype** (`__proto__`). 
+- **The Prototype Chain**: When accessing a property on an object, JavaScript first looks at the object's local properties. If not found, it traverses up the prototype chain (`object.__proto__`, `object.__proto__.__proto__`) recursively until the property is located or the chain terminates at `null`.
+- **Property Shadowing**: If an object defines a local property with the same name as a property on its prototype, the local property "shadows" (overrides) the prototype's property.
+
+### 3. Shallow vs. Deep Copying
+- **Shallow Copy**: Copies only the first level of keys. For nested objects, it copies the memory reference pointers, meaning mutating a nested object inside the copy will modify the original object.
+  - *Methods*: Spread operator (`{ ...obj }`), `Object.assign({}, obj)`.
+- **Deep Copy**: Copies all property levels recursively, allocating entirely new memory slots for all nested objects. Changes made to the copy do not affect the original.
+  - *Methods*: `structuredClone(obj)` (native modern standard), `JSON.parse(JSON.stringify(obj))` (basic, drops functions/undefined/dates), or custom recursive deep-cloning utilities.
+
+### 4. Spread vs. Rest Operators (`...`)
+- **Spread Operator**: Expands elements of an array or properties of an object. Used for cloning, merging arrays/objects, or passing arguments.
+- **Rest Parameter**: Aggregates separate arguments into a single structured array array. Used in function declarations to receive variable arguments.
+  - *Example*: `function sum(...nums) { return nums.reduce((a, b) => a + b); }`
+
+### 5. Generators & Iterators
+- **Iterators**: An object implementing the Iterator protocol with a `next()` method returning `{ value, done: boolean }`. Objects can declare custom iteration via `[Symbol.iterator]`.
+- **Generators**: Declared using **`function*`**, generators are functions that can pause and resume execution. They use the **`yield`** keyword to return states, maintaining their execution context (variable scopes) across calls.
+
+### 6. Callbacks & Callback Hell
+- **Callback**: A function passed as an argument to another function, which is then executed inside the outer function to handle completion of asynchronous events.
+- **Callback Hell**: Pyramid-shaped nesting of asynchronous callbacks, making code unreadable, hard to trace, and fragile to debug.
+  - *Example*:
+    ```javascript
+    fetchUser(userId, (user) => {
+      fetchOrders(user.id, (orders) => {
+        fetchOrderDetails(orders[0].id, (details) => {
+          console.log(details);
+        }, errorCallback);
+      }, errorCallback);
+    }, errorCallback);
+    ```
+  - *Resolution*: Resolved by replacing callbacks with Promises or Async/Await.
+
+### 7. Promises, Async/Await & Try/Catch
+- **Promise**: An object representing the eventual completion or failure of an asynchronous operation.
+  - *States*: `Pending` (in-flight), `Fulfilled` (success), `Rejected` (error).
+- **Promise Chaining**: The pattern of chaining multiple asynchronous operations sequentially by returning a new Promise from within `.then()` handlers.
+  - *Example*:
+    ```javascript
+    fetchUser(userId)
+      .then(user => fetchOrders(user.id))
+      .then(orders => fetchOrderDetails(orders[0].id))
+      .then(details => console.log(details))
+      .catch(err => console.error("Error in chain:", err));
+    ```
+- **Promises API**:
+  - **`Promise.all(iterable)`**: Resolves when **all** promises resolve; rejects immediately if **any** promise rejects (All-or-Nothing).
+  - **`Promise.allSettled(iterable)`**: Waits for **all** promises to settle (either resolve or reject) and returns an array of outcome descriptors: `{ status: 'fulfilled' | 'rejected', value?: any, reason?: any }`. Never rejects early.
+  - **`Promise.any(iterable)`**: Resolves as soon as the **first** promise resolves. Rejects with an `AggregateError` only if **all** promises reject.
+  - **`Promise.race(iterable)`**: Settles as soon as the **first** promise settles (either resolves or rejects).
+- **Async/Await**: Syntactic sugar built on top of Promises to write asynchronous code that reads like synchronous code, making it easier to follow.
+- **Try/Catch Boundaries**: Synchronous and asynchronous error boundaries. When using `async/await`, errors are caught cleanly inside `try-catch` blocks, preventing unhandled promise rejections.
+
+### 7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)
+- **Redux is Synchronous**: By design, Redux's core flow is purely synchronous: `dispatch(action) -> store calls reducer(state, action) -> state updates`. Reducers must be pure functions with no side effects (no API requests, no timers).
+- **How Redux handles Async Tasks**: To perform async tasks (e.g. calling multiple APIs), Redux uses **Middleware** that intercepts actions before they reach the reducer.
+- **Redux Thunk**:
+  - *How it works*: Allows dispatching a function (Thunk) instead of a plain action object. The middleware executes the function and passes the `dispatch` and `getState` methods.
+  - *Behavior*: It does **not** block the main JS execution loop. Multiple API calls can be executed sequentially or concurrently inside a Thunk using `await` or `Promise.all`.
+  - *Example*:
+    ```javascript
+    const fetchUserAndOrders = (userId) => async (dispatch) => {
+      dispatch({ type: 'FETCH_START' });
+      try {
+        const user = await api.fetchUser(userId);
+        dispatch({ type: 'FETCH_USER_SUCCESS', payload: user });
+        const orders = await api.fetchOrders(user.id);
+        dispatch({ type: 'FETCH_ORDERS_SUCCESS', payload: orders });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', error: err.message });
+      }
+    };
+    ```
+- **Redux Saga**:
+  - *How it works*: Uses ES6 **Generators** (`function*`) to orchestrate complex async flows. It listens for dispatched actions and runs background generator tasks (sagas).
+  - *Behavior*: Provides advanced concurrency control using helper functions (e.g., `takeLatest` to automatically cancel previous ongoing API requests if a new action is dispatched, `takeEvery` for parallel processing, `fork` for non-blocking calls).
+  - *Example*:
+    ```javascript
+    function* fetchUserSaga(action) {
+      try {
+        const user = yield call(api.fetchUser, action.payload);
+        yield put({ type: 'FETCH_USER_SUCCESS', payload: user });
+      } catch (err) {
+        yield put({ type: 'FETCH_FAIL', message: err.message });
+      }
+    }
+    function* watchFetchUser() {
+      yield takeLatest('FETCH_USER_REQUEST', fetchUserSaga);
+    }
+    ```
+
+
+### 8. React Reconciliation & Diffing (React Fiber)
+- **Virtual DOM**: React maintains a lightweight in-memory representation of the true UI layout tree.
+- **Reconciliation (React Fiber)**: The algorithm React uses to update the UI. It splits rendering into a non-blocking compilation phase (creating the Fiber work tree) and a commit phase (writing changes to the screen).
+- **The Diffing Algorithm**: React compares virtual DOM nodes using an $O(N)$ heuristic diffing approach:
+  1. If two elements are of different types, React tears down the old tree and builds a new one.
+  2. If elements are of the same type, React compares attributes and updates only changed properties.
+  3. **Keys in Lists**: Keys act as unique identifiers for list items. When a list changes, React uses keys to match nodes between the old and new trees. Failing to provide unique keys (or using array indexes as keys) causes React to destroy and recreate components needlessly or misalign local states during deletions/insertions.
+
+### 9. Lazy Loading & Code Splitting
+- **Code Splitting**: Splitting the JavaScript bundle into smaller chunks that can be downloaded dynamically.
+- **Lazy Loading**: Delaying load times of features until they are accessed. In React, this is achieved using **`React.lazy()`** (for dynamic component imports) wrapped in a **`<Suspense>`** boundary to display a loading fallback UI. This decreases app launch bundle size and improves startup time.
