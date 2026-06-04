@@ -86,6 +86,19 @@
 - [📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)](#section-15-over-the-air-ota-updates-in-app-purchases-iap)
   - [1. Over-the-Air (OTA) Bundle Delivery](#1-over-the-air-ota-bundle-delivery)
   - [2. In-App Purchases & Subscription Lifecycles](#2-in-app-purchases-subscription-lifecycles)
+- [🌐 Section 16: React Native for Web (Cross-Platform Development)](#section-16-react-native-for-web-cross-platform-development)
+  - [1. How It Works (Compilation & Mapping)](#1-how-it-works-compilation-mapping)
+  - [2. Monorepo Setup & Code Sharing](#2-monorepo-setup-code-sharing)
+  - [3. Key Differences & Limitations](#3-key-differences-limitations)
+- [📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)](#section-17-app-size-bundle-optimization-apk-ipa-reduction)
+  - [1. Android Specific Size Reduction (build.gradle)](#1-android-specific-size-reduction-buildgradle)
+  - [2. iOS Specific Size Reduction (Xcode Configurations)](#2-ios-specific-size-reduction-xcode-configurations)
+  - [3. JavaScript & Bundle Optimization](#3-javascript-bundle-optimization)
+- [⚡ Section 18: Senior-Level Performance Engineering Checklist](#section-18-senior-level-performance-engineering-checklist)
+  - [1. Minimizing Bridge & JSI Crossing Overhead](#1-minimizing-bridge-jsi-crossing-overhead)
+  - [2. Render Loop Optimization](#2-render-loop-optimization)
+  - [3. Dynamic Lists (FlashList / FlatList)](#3-dynamic-lists-flashlist-flatlist)
+  - [4. Memory Leak Triage](#4-memory-leak-triage)
 </details>
 <!-- INDEX_END -->
 
@@ -851,4 +864,123 @@ OTA systems (Expo Updates or Microsoft CodePush) bypass store approval times for
   3. The backend makes a cryptographic call to Apple's App Store Connect API / Google's Developer API to validate the receipt.
   4. Once validated by the store server, our database updates the user's subscription record, notifying the app.
   5. **Subscription Webhooks**: The backend registers webhook endpoints with Apple and Google. When a user renews, cancels, refunds, or has a billing issue, Apple/Google hits our server directly, keeping the system database accurate even if the user never opens the app.
+
+---
+
+## 🌐 Section 16: React Native for Web (Cross-Platform Development)
+*⏱️ 3 min read*
+
+React Native for Web (`react-native-web`) makes it possible to run React Native applications on the web using standard web technologies. It acts as a translation layer between React Native components/APIs and native HTML DOM equivalents.
+
+### 1. How It Works (Compilation & Mapping)
+- **Component Mapping**: At runtime, React Native components are mapped to semantic HTML elements:
+  - `<View>` ➡️ `<div>` (with `display: flex` and layout rules styling)
+  - `<Text>` ➡️ `<span>` (or `<div role="text">`)
+  - `<Image>` ➡️ `<img>`
+  - `<TextInput>` ➡️ `<input>` or `<textarea>`
+  - `<ScrollView>` ➡️ `<div>` with `overflow: auto`
+- **Style Compilation**: `StyleSheet.create` compiles style declarations into static, unique CSS classes at build time or initial render, attaching them using `className` elements to avoid the slow performance of runtime inline styles.
+
+### 2. Monorepo Setup & Code Sharing
+- To share code between iOS, Android, and Web, developers structure projects in monorepos (e.g., using Yarn Workspaces, Turborepo, or Nx):
+  - `packages/app/`: Core UI components, hooks, stores, and business logic.
+  - `apps/mobile/`: Native React Native shell (configured via Metro).
+  - `apps/web/`: Web application shell (Next.js, Vite, or Webpack).
+- **Metro and Webpack Integration**:
+  - Web builders use bundlers like Webpack or Vite. You configure them to resolve `.web.js` extensions first, and alias React Native dependencies to React Native for Web:
+    ```javascript
+    // webpack.config.js alias rules
+    resolve: {
+      alias: {
+        'react-native$': 'react-native-web'
+      },
+      extensions: ['.web.js', '.js', '.ts', '.tsx']
+    }
+    ```
+
+### 3. Key Differences & Limitations
+- **Platform-Specific Code**: Use the `Platform` API or platform-specific extensions:
+  - `MyComponent.android.tsx` / `MyComponent.ios.tsx` / `MyComponent.web.tsx`
+- **API Availability**:
+  - Many native APIs (e.g., `Camera`, `Keychain` secure storage, push notifications, and hardware sensor listeners) do not exist on the web.
+  - *Remedial Strategy*: Wrap these in abstract service wrappers. For storage, use `localStorage` or `IndexedDB` on Web, while using native `MMKV` or `AsyncStorage` on mobile.
+- **Layout Behavior**: Web scroll containers and focus accessibility outlines behave differently than mobile OS equivalents. You must explicitly configure `outlineStyle: 'none'` in styles to prevent focus rings on interactive divs.
+
+---
+
+## 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)
+*⏱️ 3 min read*
+
+Reducing app binary weight directly reduces user acquisition bounce rates. Senior developers target optimizations across both JavaScript assets and platform-specific native binaries.
+
+### 1. Android Specific Size Reduction (build.gradle)
+- **CPU Architecture (ABI) Splitting**:
+  - By default, a release build packs native `.so` binaries for all supported CPU architectures (arm64-v8a, armeabi-v7a, x86, x86_64) into a single "fat" APK.
+  - *Optimization*: Configure Gradle to split APKs per architecture or generate an **Android App Bundle (AAB)** which lets the Google Play Store serve optimized, single-architecture APKs to user devices:
+    ```groovy
+    // android/app/build.gradle
+    def enableSeparateBuildPerCPUArchitecture = true
+    ```
+- **Code Shrinking & Obfuscation (R8/ProGuard)**:
+  - R8 traverses the Java/Kotlin compile tree, performing static dead-code stripping (tree shaking) and class minification.
+  - *Optimization*: Enable ProGuard in release builds:
+    ```groovy
+    def enableProguardInReleaseBuilds = true
+    ```
+- **Locale & Resource Configurations (`resConfigs`)**:
+  - If third-party libraries (e.g. Google Play Services) bundle multiple localized resource dictionaries, strip unused translations to save several megabytes:
+    ```groovy
+    defaultConfig {
+        resConfigs "en", "es" // Bundles English and Spanish translations only
+    }
+    ```
+
+### 2. iOS Specific Size Reduction (Xcode Configurations)
+- **Apple App Slicing**:
+  - Organize raw image assets into **Asset Catalogs (`.xcassets`)** rather than bundling raw PNGs in the bundle root. The App Store uses App Slicing to package only the image densities (`@2x`, `@3x`) matching the target device.
+- **Stripping Debug Symbols**:
+  - Configure build settings to strip debugging logs and symbol mapping references from the final compiled binary:
+    - Set `Strip Debug Symbols During Copy` to `YES`.
+    - Set `Deployment Postprocessing` to `YES`.
+- **CocoaPods Optimization**:
+  - Avoid compiling unused native dependencies. Inspect `Podfile` configurations and use modular imports to limit framework inclusions.
+
+### 3. JavaScript & Bundle Optimization
+- **Hermes Bytecode Engine**:
+  - Ensure Hermes is enabled. Pre-compiling raw JS files into Hermes bytecode (`.hbc`) reduces bundle parse overhead and reduces final binary size.
+- **Bundle Auditing (react-native-bundle-visualizer)**:
+  - Run the visualizer to construct a tree-map of your `index.bundle`, highlighting which NPM packages consume the most space.
+- **Tree-Shaking & Dependency Pruning**:
+  - Avoid importing massive monolithic libraries like `lodash` in their entirety. Instead of `import { cloneDeep } from 'lodash'`, use `import cloneDeep from 'lodash/cloneDeep'` or migrate to lighter utilities.
+  - Replace heavy icons libraries with optimized vector files compiled via SVGR.
+  - Compress local assets (convert PNG/JPG backgrounds to highly optimized WebP format).
+
+---
+
+## ⚡ Section 18: Senior-Level Performance Engineering Checklist
+*⏱️ 3 min read*
+
+Ensure smooth 60/120 FPS interactions and minimize thread blocks by checking off these core performance vectors during code reviews:
+
+### 1. Minimizing Bridge & JSI Crossing Overhead
+- **The Rule**: Keep interactions on the native thread without jumping back to JavaScript.
+- **Implementation**:
+  - Use **React Native Reanimated** and **Gesture Handler** to run touch responses, scrolling, and dragging animations fully on the UI thread using C++ Worklets.
+  - Do not pass high-frequency events (like `onScroll` coordinates) back to the JS thread to update React state; bind them directly to native layout transforms using shared values.
+
+### 2. Render Loop Optimization
+- **Prevent Unnecessary Updates**:
+  - Wrap list items and heavy components in `React.memo` using strict dependency comparisons.
+  - Memoize complex calculations with `useMemo`, and callbacks with `useCallback` to preserve reference identities across renders.
+  - Avoid inline objects or arrow functions inside component render trees (e.g. `<Component style={{ padding: 10 }} onPress={() => execute()} />`).
+
+### 3. Dynamic Lists (FlashList / FlatList)
+- **Virtualization Tuning**:
+  - Set `windowSize` to a low value (e.g., `5` screens' worth of elements) to prevent excessive off-screen allocations.
+  - Pass `getItemLayout` (for FlatList) or `estimatedItemSize` (for FlashList) to completely bypass dynamic cell measurements.
+  - Use `keyExtractor` returning unique IDs to prevent reconciliation tree rebuilds.
+
+### 4. Memory Leak Triage
+- **Clean up Subscriptions**: Always return cleanup functions in `useEffect` hooks to destroy native event listeners (`DeviceEventEmitter`), interval timers, and database subscription queries.
+- **Request Aborting**: Use `AbortController` in Axios/Fetch configurations to abort active HTTP network promises if components unmount before the API resolves.
 
