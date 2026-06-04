@@ -471,6 +471,66 @@
         background: var(--btn-back-hover);
         transform: translateY(-1px);
       }
+      .content-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .content-header .back-btn {
+        margin-bottom: 0;
+      }
+      .layout-controls {
+        display: flex;
+        gap: 8px;
+      }
+      .layout-btn {
+        background: var(--btn-back-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .layout-btn:hover {
+        background: var(--btn-back-hover);
+        transform: translateY(-1px);
+      }
+      .layout-btn:active {
+        transform: translateY(0);
+      }
+      .layout-btn.active {
+        background: var(--bg-hover);
+        border-color: var(--bg-active);
+        color: var(--bg-active);
+      }
+      
+      .content-wrapper.sidebar-collapsed {
+        grid-template-columns: 1fr !important;
+      }
+      .content-wrapper.sidebar-collapsed .sidebar {
+        display: none !important;
+      }
+      .content-wrapper.wide-reading .markdown-content {
+        max-width: 100% !important;
+      }
+      .content-wrapper.wide-reading .code-file {
+        max-width: 100% !important;
+      }
+      
+      @media (max-width: 768px) {
+        #toggleSidebarBtn {
+          display: none !important;
+        }
+      }
       .code-file {
         background: var(--pre-bg);
         color: var(--pre-text);
@@ -596,11 +656,18 @@
           gap: 20px;
         }
 
-        .content-wrapper:not(.has-active-file) .sidebar {
-          display: block;
+        .content-wrapper:not(.has-active-file) {
+          display: flex;
+          flex-direction: column;
         }
         .content-wrapper:not(.has-active-file) .main-content {
-          display: none;
+          display: block;
+          max-height: none;
+          order: 1;
+        }
+        .content-wrapper:not(.has-active-file) .sidebar {
+          display: block;
+          order: 2;
         }
         .content-wrapper.has-active-file .sidebar {
           display: none;
@@ -647,6 +714,7 @@
       <header>
         <h1>📚 Preparation Resources</h1>
         <div class="header-actions">
+          <button id="langToggle" class="theme-toggle-btn" style="width: auto; padding: 0 12px; font-size: 13px; font-weight: 700; gap: 4px;" aria-label="Toggle language">🇬🇧 Eng</button>
           <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
           <button class="logout-btn" onclick="logout()">Lock & Exit</button>
         </div>
@@ -667,18 +735,18 @@
               <div class="metrics-grid">
                 <div class="metric-card">
                   <div class="metric-label">📚 Complete Tutorial</div>
-                  <div class="metric-value">⏱️ 5.5 Hours</div>
-                  <div class="metric-sub">330 mins total reading time</div>
+                  <div class="metric-value">⏱️ 7.0 Hours</div>
+                  <div class="metric-sub">420 mins total reading time</div>
                 </div>
                 <div class="metric-card">
                   <div class="metric-label">💡 Theory Guides</div>
-                  <div class="metric-value">⏱️ 3.0 Hours</div>
-                  <div class="metric-sub">180 mins total reading time</div>
+                  <div class="metric-value">⏱️ 3.8 Hours</div>
+                  <div class="metric-sub">225 mins total reading time</div>
                 </div>
                 <div class="metric-card">
                   <div class="metric-label">💻 Coding Challenges</div>
-                  <div class="metric-value">⏱️ 2.5 Hours</div>
-                  <div class="metric-sub">150 mins total reading time</div>
+                  <div class="metric-value">⏱️ 3.3 Hours</div>
+                  <div class="metric-sub">195 mins total reading time</div>
                 </div>
               </div>
 
@@ -726,6 +794,12 @@
                   <div class="topic-val">8 mins</div>
                   <div class="topic-total-val">24 mins</div>
                 </div>
+                <div class="topic-row">
+                  <div class="topic-name">7. System Design & OOP</div>
+                  <div class="topic-val">45 mins</div>
+                  <div class="topic-val">45 mins</div>
+                  <div class="topic-total-val">90 mins</div>
+                </div>
               </div>
             </div>
           </div>
@@ -754,10 +828,145 @@
         "04-DSA": "4. DSA",
         "05-Behavior": "5. Behavior",
         "06-MNC-Senior-Lead": "6. MNC Senior/Lead",
+        "07-System-Design-OOP": "7. System Design & OOP",
       };
 
       let themeInitialized = false;
       let markedInitialized = false;
+
+      // Layout preferences state
+      let isSidebarCollapsed = localStorage.getItem("sidebar_collapsed") === "true";
+      let isWideReading = localStorage.getItem("wide_reading") === "true";
+
+      // Language configuration state
+      let currentLanguage = localStorage.getItem("language") || "english";
+      let activeFile = null;
+      let activeSection = null;
+
+      let langInitialized = false;
+      function initLangToggle() {
+        if (langInitialized) return;
+        updateLangToggleUI(currentLanguage);
+        
+        const langBtn = document.getElementById("langToggle");
+        if (langBtn) {
+          langBtn.addEventListener("click", () => {
+            currentLanguage = currentLanguage === "english" ? "hinglish" : "english";
+            localStorage.setItem("language", currentLanguage);
+            updateLangToggleUI(currentLanguage);
+            
+            // Reload active file in the selected language
+            if (activeFile) {
+              const contentToDisplay = getLanguageContent(activeFile, activeSection);
+              displayContent(contentToDisplay, activeFile.name, activeFile.type);
+            }
+          });
+          langInitialized = true;
+        }
+      }
+
+      function updateLangToggleUI(lang) {
+        const langBtn = document.getElementById("langToggle");
+        if (!langBtn) return;
+        if (lang === "hinglish") {
+          langBtn.innerHTML = "🇮🇳 Hin";
+          langBtn.title = "Switch to English";
+        } else {
+          langBtn.innerHTML = "🇬🇧 Eng";
+          langBtn.title = "Switch to Hinglish";
+        }
+      }
+
+      function getLanguageContent(file, section) {
+        if (currentLanguage === "hinglish" && file.name.endsWith(".md")) {
+          const hinglishName = file.name.replace(".md", "_hinglish.md");
+          const sectionFiles = embeddedFileData[section] || [];
+          const hinglishFile = sectionFiles.find(f => f.name === hinglishName);
+          if (hinglishFile) {
+            return hinglishFile.content;
+          }
+        }
+        return file.content;
+      }
+
+      function renderContentHeader() {
+        const sidebarIcon = isSidebarCollapsed ? "📂" : "📁";
+        const sidebarText = isSidebarCollapsed ? "Show Sidebar" : "Hide Sidebar";
+        const widthIcon = isWideReading ? "📄" : "↔️";
+        const widthText = isWideReading ? "Standard Width" : "Full Width";
+
+        return `
+          <div class="content-header">
+            <button class="back-btn" onclick="goBack()">← Back to Contents</button>
+            <div class="layout-controls">
+              <button id="toggleSidebarBtn" class="layout-btn" onclick="toggleSidebar()" title="${sidebarText}">
+                <span>${sidebarIcon}</span> <span>${sidebarText}</span>
+              </button>
+              <button id="toggleWidthBtn" class="layout-btn" onclick="toggleReadingWidth()" title="${widthText}">
+                <span>${widthIcon}</span> <span>${widthText}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function updateLayoutButtonsUI() {
+        const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
+        if (toggleSidebarBtn) {
+          const sidebarIcon = isSidebarCollapsed ? "📂" : "📁";
+          const sidebarText = isSidebarCollapsed ? "Show Sidebar" : "Hide Sidebar";
+          toggleSidebarBtn.innerHTML = `<span>${sidebarIcon}</span> <span>${sidebarText}</span>`;
+          toggleSidebarBtn.title = sidebarText;
+          if (isSidebarCollapsed) {
+            toggleSidebarBtn.classList.add("active");
+          } else {
+            toggleSidebarBtn.classList.remove("active");
+          }
+        }
+
+        const toggleWidthBtn = document.getElementById("toggleWidthBtn");
+        if (toggleWidthBtn) {
+          const widthIcon = isWideReading ? "📄" : "↔️";
+          const widthText = isWideReading ? "Standard Width" : "Full Width";
+          toggleWidthBtn.innerHTML = `<span>${widthIcon}</span> <span>${widthText}</span>`;
+          toggleWidthBtn.title = widthText;
+          if (isWideReading) {
+            toggleWidthBtn.classList.add("active");
+          } else {
+            toggleWidthBtn.classList.remove("active");
+          }
+        }
+      }
+
+      function toggleSidebar() {
+        isSidebarCollapsed = !isSidebarCollapsed;
+        localStorage.setItem("sidebar_collapsed", isSidebarCollapsed);
+
+        const wrapper = document.querySelector(".content-wrapper");
+        if (wrapper) {
+          if (isSidebarCollapsed) {
+            wrapper.classList.add("sidebar-collapsed");
+          } else {
+            wrapper.classList.remove("sidebar-collapsed");
+          }
+        }
+        updateLayoutButtonsUI();
+      }
+
+      function toggleReadingWidth() {
+        isWideReading = !isWideReading;
+        localStorage.setItem("wide_reading", isWideReading);
+
+        const wrapper = document.querySelector(".content-wrapper");
+        if (wrapper) {
+          if (isWideReading) {
+            wrapper.classList.add("wide-reading");
+          } else {
+            wrapper.classList.remove("wide-reading");
+          }
+        }
+        updateLayoutButtonsUI();
+      }
       function initThemeToggle() {
         if (themeInitialized) return;
         const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -810,8 +1019,9 @@
 
       function initializeApp() {
         try {
-          // Initialize theme toggle
+          // Initialize theme and language toggles
           initThemeToggle();
+          initLangToggle();
 
           // Wait for marked to be available
           if (typeof marked === "undefined") {
@@ -835,8 +1045,13 @@
             return;
           }
 
+          calculateAllPrepTimes();
           renderFileList();
           countFiles();
+          
+          if (!activeFile) {
+            document.getElementById("content").innerHTML = renderDashboard();
+          }
           
           // Setup Table of Contents click handler for custom scrolling in container
           setupAnchorScrollHandler();
@@ -885,10 +1100,135 @@
       function countFiles() {
         let total = 0;
         for (const [section, files] of Object.entries(embeddedFileData)) {
-          total += files.length;
+          const filtered = files.filter(f => !f.name.endsWith("_hinglish.md"));
+          total += filtered.length;
         }
         document.getElementById("fileCount").textContent =
           `Total: ${total} files`;
+      }
+      const filePrepTimes = {};
+      const categoryPrepTotals = {};
+      let totalTheoryMinutes = 0;
+      let totalCodingMinutes = 0;
+
+      function estimatePrepTime(content, categoryKey, filename) {
+        const multipliers = {
+          "01-React-Native": 2.0,      // Advanced React Native
+          "02-JavaScript": 1.5,        // JS Fundamentals & OOP
+          "03-TypeScript": 1.5,        // TS Types & Generics
+          "04-DSA": 2.5,               // DSA needs heavy logic-tracing
+          "05-Behavior": 1.0,          // Behavioral text reading
+          "06-MNC-Senior-Lead": 1.8,    // System integration, Lead behavior
+          "07-System-Design-OOP": 2.2, // Mobile System Design & architecture
+        };
+        const multiplier = multipliers[categoryKey] || 1.5;
+
+        // Find code blocks to count lines of code
+        const codeBlockRegex = /```[\s\S]*?```/g;
+        const matches = content.match(codeBlockRegex) || [];
+        
+        let codeLines = 0;
+        let textContent = content;
+
+        matches.forEach(block => {
+          const lines = block.split('\n');
+          codeLines += Math.max(0, lines.length - 2);
+          textContent = textContent.replace(block, "");
+        });
+
+        const words = (textContent.match(/\w+/g) || []).length;
+
+        const baseTextMins = words / 130;
+        const baseCodeMins = codeLines / 10;
+
+        return Math.round((baseTextMins + baseCodeMins) * multiplier);
+      }
+
+      function calculateAllPrepTimes() {
+        totalTheoryMinutes = 0;
+        totalCodingMinutes = 0;
+
+        for (const [section, files] of Object.entries(embeddedFileData)) {
+          categoryPrepTotals[section] = { theory: 0, coding: 0, total: 0 };
+          
+          const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
+          for (const file of filteredFiles) {
+            const mins = estimatePrepTime(file.content, section, file.name);
+            const key = `${section}/${file.name}`;
+            filePrepTimes[key] = mins;
+            
+            const isCoding = file.name.toLowerCase().includes("coding");
+            if (isCoding) {
+              categoryPrepTotals[section].coding += mins;
+              totalCodingMinutes += mins;
+            } else {
+              categoryPrepTotals[section].theory += mins;
+              totalTheoryMinutes += mins;
+            }
+            categoryPrepTotals[section].total += mins;
+          }
+        }
+      }
+
+      function renderDashboard() {
+        const totalMinutes = totalTheoryMinutes + totalCodingMinutes;
+        
+        const totalHoursStr = (totalMinutes / 60).toFixed(1) + " Hours";
+        const theoryHoursStr = (totalTheoryMinutes / 60).toFixed(1) + " Hours";
+        const codingHoursStr = (totalCodingMinutes / 60).toFixed(1) + " Hours";
+
+        let rowsHtml = "";
+        const sortedSections = Object.keys(categoryPrepTotals).sort();
+        
+        for (const section of sortedSections) {
+          const stats = categoryPrepTotals[section];
+          const name = categoryNames[section] || section;
+          
+          rowsHtml += `
+            <div class="topic-row">
+              <div class="topic-name">${escapeHtml(name)}</div>
+              <div class="topic-val">${stats.theory > 0 ? stats.theory + ' mins' : '--'}</div>
+              <div class="topic-val">${stats.coding > 0 ? stats.coding + ' mins' : '--'}</div>
+              <div class="topic-total-val">${stats.total} mins</div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="no-file">
+            <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
+            <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
+            
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-label">📚 Complete Tutorial</div>
+                <div class="metric-value">⏱️ ${totalHoursStr}</div>
+                <div class="metric-sub">${totalMinutes} mins total prep time</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">💡 Theory Guides</div>
+                <div class="metric-value">⏱️ ${theoryHoursStr}</div>
+                <div class="metric-sub">${totalTheoryMinutes} mins total prep time</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">💻 Coding Challenges</div>
+                <div class="metric-value">⏱️ ${codingHoursStr}</div>
+                <div class="metric-sub">${totalCodingMinutes} mins total prep time</div>
+              </div>
+            </div>
+
+            <h3 style="text-align: left; font-size: 16px; margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">⏱️ Prep Time by Category</h3>
+            <div class="topic-list">
+              <div class="topic-row topic-header">
+                <div>Category</div>
+                <div>Theory</div>
+                <div>Coding</div>
+                <div>Total</div>
+              </div>
+              ${rowsHtml}
+            </div>
+          </div>
+        `;
       }
 
       function renderFileList() {
@@ -896,15 +1236,18 @@
         fileList.innerHTML = "";
 
         for (const [section, files] of Object.entries(embeddedFileData)) {
+          const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
+          if (filteredFiles.length === 0) continue;
+
           const sectionDiv = document.createElement("div");
           sectionDiv.className = "section";
 
           const sectionTitle = document.createElement("div");
           sectionTitle.className = "section-title";
-          sectionTitle.textContent = `${categoryNames[section] || section} (${files.length})`;
+          sectionTitle.textContent = `${categoryNames[section] || section} (${filteredFiles.length})`;
           sectionDiv.appendChild(sectionTitle);
 
-          const sortedFiles = [...files].sort((a, b) => {
+          const sortedFiles = [...filteredFiles].sort((a, b) => {
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
             if (nameA.includes("theory") && nameB.includes("coding")) return -1;
@@ -913,9 +1256,13 @@
           });
 
           for (const file of sortedFiles) {
+            const key = `${section}/${file.name}`;
+            const mins = filePrepTimes[key] || 0;
+            const timeLabel = mins > 0 ? ` (${mins}m)` : "";
+
             const link = document.createElement("a");
             link.className = "file-link";
-            link.textContent = formatFileName(file.name);
+            link.textContent = `${formatFileName(file.name)}${timeLabel}`;
             link.dataset.filename = file.name;
             link.dataset.section = section;
             link.onclick = (e) => {
@@ -938,12 +1285,28 @@
       }
 
       function loadFile(file, section) {
+        activeFile = file;
+        activeSection = section;
+        
         showLoader();
         setTimeout(() => {
-          displayContent(file.content, file.name, file.type);
+          const contentToDisplay = getLanguageContent(file, section);
+          displayContent(contentToDisplay, file.name, file.type);
           updateActiveLink(section, file.name);
           const wrapper = document.querySelector(".content-wrapper");
-          if (wrapper) wrapper.classList.add("has-active-file");
+          if (wrapper) {
+            wrapper.classList.add("has-active-file");
+            if (isSidebarCollapsed) {
+              wrapper.classList.add("sidebar-collapsed");
+            } else {
+              wrapper.classList.remove("sidebar-collapsed");
+            }
+            if (isWideReading) {
+              wrapper.classList.add("wide-reading");
+            } else {
+              wrapper.classList.remove("wide-reading");
+            }
+          }
           
           // Scroll main content to top on load
           const mainContent = document.querySelector(".main-content");
@@ -955,13 +1318,13 @@
 
       async function displayContent(content, filename, type) {
         const contentDiv = document.getElementById("content");
-        const backBtn =
-          '<button class="back-btn" onclick="goBack()">← Back to Contents</button>';
+        const contentHeader = renderContentHeader();
 
         if (!content || content.trim().length === 0) {
           contentDiv.innerHTML =
-            backBtn +
+            contentHeader +
             '<div class="info-box">⚠️ This file is empty or incomplete.</div>';
+          updateLayoutButtonsUI();
           return;
         }
 
@@ -977,19 +1340,21 @@
               throw new Error("marked library not properly loaded");
             }
             contentDiv.innerHTML =
-              backBtn + `<div class="markdown-content">${htmlContent}</div>`;
+              contentHeader + `<div class="markdown-content">${htmlContent}</div>`;
           } catch (err) {
             console.error("Markdown render error:", err);
             contentDiv.innerHTML =
-              backBtn +
+              contentHeader +
               `<div class="info-box">Error rendering markdown: ${err.message}</div>`;
           }
         } else {
           const escapedCode = escapeHtml(content);
           contentDiv.innerHTML =
-            backBtn +
+            contentHeader +
             `<pre class="code-file"><code>${escapedCode}</code></pre>`;
         }
+
+        updateLayoutButtonsUI();
       }
 
       function escapeHtml(text) {
@@ -1013,84 +1378,20 @@
         });
       }
 
-      const DASHBOARD_TEMPLATE = `
-        <div class="no-file">
-          <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
-          <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
-          
-          <div class="metrics-grid">
-            <div class="metric-card">
-              <div class="metric-label">📚 Complete Tutorial</div>
-              <div class="metric-value">⏱️ 5.5 Hours</div>
-              <div class="metric-sub">330 mins total reading time</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">💡 Theory Guides</div>
-              <div class="metric-value">⏱️ 3.0 Hours</div>
-              <div class="metric-sub">180 mins total reading time</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-label">💻 Coding Challenges</div>
-              <div class="metric-value">⏱️ 2.5 Hours</div>
-              <div class="metric-sub">150 mins total reading time</div>
-            </div>
-          </div>
-
-          <h3 style="text-align: left; font-size: 16px; margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">⏱️ Read Time by Category</h3>
-          <div class="topic-list">
-            <div class="topic-row topic-header">
-              <div>Category</div>
-              <div>Theory</div>
-              <div>Coding</div>
-              <div>Total</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">1. React Native</div>
-              <div class="topic-val">54 mins</div>
-              <div class="topic-val">47 mins</div>
-              <div class="topic-total-val">101 mins</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">2. JavaScript</div>
-              <div class="topic-val">42 mins</div>
-              <div class="topic-val">32 mins</div>
-              <div class="topic-total-val">74 mins</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">3. TypeScript</div>
-              <div class="topic-val">14 mins</div>
-              <div class="topic-val">8 mins</div>
-              <div class="topic-total-val">22 mins</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">4. DSA</div>
-              <div class="topic-val">7 mins</div>
-              <div class="topic-val">55 mins</div>
-              <div class="topic-total-val">62 mins</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">5. Behavior</div>
-              <div class="topic-val">47 mins</div>
-              <div class="topic-val">--</div>
-              <div class="topic-total-val">47 mins</div>
-            </div>
-            <div class="topic-row">
-              <div class="topic-name">6. MNC Senior/Lead</div>
-              <div class="topic-val">16 mins</div>
-              <div class="topic-val">8 mins</div>
-              <div class="topic-total-val">24 mins</div>
-            </div>
-          </div>
-        </div>
-      `;
-
       function goBack() {
-        document.getElementById("content").innerHTML = DASHBOARD_TEMPLATE;
+        activeFile = null;
+        activeSection = null;
+        
+        document.getElementById("content").innerHTML = renderDashboard();
         document
           .querySelectorAll(".file-link")
           .forEach((link) => link.classList.remove("active"));
         const wrapper = document.querySelector(".content-wrapper");
-        if (wrapper) wrapper.classList.remove("has-active-file");
+        if (wrapper) {
+          wrapper.classList.remove("has-active-file");
+          wrapper.classList.remove("sidebar-collapsed");
+          wrapper.classList.remove("wide-reading");
+        }
         
         // Scroll main content to top
         const mainContent = document.querySelector(".main-content");
