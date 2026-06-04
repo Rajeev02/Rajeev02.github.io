@@ -786,9 +786,13 @@
           sectionTitle.textContent = `${categoryNames[section] || section} (${files.length})`;
           sectionDiv.appendChild(sectionTitle);
 
-          const sortedFiles = [...files].sort((a, b) =>
-            a.name.localeCompare(b.name),
-          );
+          const sortedFiles = [...files].sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (nameA.includes("theory") && nameB.includes("coding")) return -1;
+            if (nameA.includes("coding") && nameB.includes("theory")) return 1;
+            return a.name.localeCompare(b.name);
+          });
 
           for (const file of sortedFiles) {
             const link = document.createElement("a");
