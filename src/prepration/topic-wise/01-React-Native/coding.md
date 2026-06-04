@@ -5,24 +5,160 @@
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
 - [Program 1: Performance-Optimized List Component](#program-1-performance-optimized-list-component)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)](#program-2-custom-netinfo-connectivity-hook-usenetwork)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Usage Input:](#usage-input)
+    - [Output (Online via Wifi):](#output-online-via-wifi)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 4: Native Android Module Bridge (Kotlin)](#program-4-native-android-module-bridge-kotlin)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [JS Input:](#js-input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 5: Fetch and Render List from API (Todos)](#program-5-fetch-and-render-list-from-api-todos)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [API Input:](#api-input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)](#program-6-reusable-api-calling-wrappers-fetch-vs-axios)
-- [Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates](#program-7-mmkv-state-persist-react-query-offline-caching-with-optimistic-updates)
-- [Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)](#program-8-reanimated-swipe-pan-gesture-card-component-ui-cloning-animation)
-- [Program 9: Native Module Bridge (Kotlin Android & Swift iOS)](#program-9-native-module-bridge-kotlin-android-swift-ios)
-- [Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration](#program-10-complete-github-actions-fastlane-cicd-configuration)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Usage:](#usage)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. Modern Fetch API Wrapper with Timeout and Request Cancellation](#1-modern-fetch-api-wrapper-with-timeout-and-request-cancellation)
+    - [2. Advanced Axios Wrapper with Request/Response Interceptors](#2-advanced-axios-wrapper-with-requestresponse-interceptors)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates](#program-7-mmkv-state-persist--react-query-offline-caching-with-optimistic-updates)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. MMKV Zustand Persistence Engine Setup](#1-mmkv-zustand-persistence-engine-setup)
+    - [2. TanStack Query Cache Persister Setup (MMKV-Backed)](#2-tanstack-query-cache-persister-setup-mmkv-backed)
+    - [3. CRUD Hooks & Optimistic Updates](#3-crud-hooks--optimistic-updates)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)](#program-8-reanimated-swipe--pan-gesture-card-component-ui-cloning--animation)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Props Input:](#props-input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 9: Native Module Bridge (Kotlin Android & Swift iOS)](#program-9-native-module-bridge-kotlin-android--swift-ios)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [JS/TS Invocation:](#jsts-invocation)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. Android Native Kotlin Module (`BatteryMonitorModule.kt`)](#1-android-native-kotlin-module-batterymonitormodulekt)
+    - [2. iOS Native Swift Module (`BatteryMonitor.swift`)](#2-ios-native-swift-module-batterymonitorswift)
+    - [3. iOS Objective-C Bridge Export (`BatteryMonitorBridge.m`)](#3-ios-objective-c-bridge-export-batterymonitorbridgem)
+    - [4. TypeScript Typing Interface (`BatteryMonitor.ts`)](#4-typescript-typing-interface-batterymonitorts)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration](#program-10-complete-github-actions--fastlane-cicd-configuration)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. GitHub Actions Setup (`.github/workflows/deploy.yml`)](#1-github-actions-setup-githubworkflowsdeployyml)
+    - [2. Fastlane Automation Script (`fastlane/Fastfile`)](#2-fastlane-automation-script-fastlanefastfile)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 11: State Management with MobX State Tree (MST)](#program-11-state-management-with-mobx-state-tree-mst)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input Action:](#input-action)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 12: SQLite Transactional Ledger Database Hook](#program-12-sqlite-transactional-ledger-database-hook)
-- [Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)](#program-13-multi-layered-testing-suite-jest-rntl-detox)
-- [Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#program-14-webpack-module-federation-configuration-repack-host-remote-bundle-setup)
-- [Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#program-15-hardened-c-jni-bridge-module-android-jnikotlin-ios-obj-cswift)
-- [Program 16: Secure Purchase Validation & Transaction Sync Hook](#program-16-secure-purchase-validation-transaction-sync-hook)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Hook usage:](#hook-usage)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)](#program-13-multi-layered-testing-suite-jest--rntl--detox)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. React Native Target Component (`LoginScreen.tsx`)](#1-react-native-target-component-loginscreentsx)
+    - [2. Jest & React Native Testing Library Integration Suite (`LoginScreen.test.tsx`)](#2-jest--react-native-testing-library-integration-suite-loginscreentesttsx)
+    - [3. Detox End-to-End Test Spec (`login.spec.js`)](#3-detox-end-to-end-test-spec-loginspecjs)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#program-14-webpack-module-federation-configuration-repack-host--remote-bundle-setup)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. Webpack Federation Config (`webpack.config.js`)](#1-webpack-federation-config-webpackconfigjs)
+    - [2. Dynamic Component Script Loader (`FederatedLoader.tsx`)](#2-dynamic-component-script-loader-federatedloadertsx)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#program-15-hardened-c-jni-bridge-module-android-jnikotlin--ios-obj-cswift)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+    - [1. Android JNI C++ Implementation (`secure-keys.cpp`)](#1-android-jni-c-implementation-secure-keyscpp)
+    - [2. Android Kotlin Module Wrapper (`SecureKeysModule.kt`)](#2-android-kotlin-module-wrapper-securekeysmodulekt)
+    - [3. iOS Objective-C++ Bridge Interface (`SecureKeysBridge.mm`)](#3-ios-objective-c-bridge-interface-securekeysbridgemm)
+    - [4. iOS Swift Wrapper Implementation (`SecureKeys.swift`)](#4-ios-swift-wrapper-implementation-securekeysswift)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 16: Secure Purchase Validation & Transaction Sync Hook](#program-16-secure-purchase-validation--transaction-sync-hook)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
 - [Program 17: GraphQL API Client Integration with Apollo Client](#program-17-graphql-api-client-integration-with-apollo-client)
-- [Program 18: Recoil State Management (Atoms & Selectors)](#program-18-recoil-state-management-atoms-selectors)
-- [Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)](#program-19-unified-production-telemetry-hook-firebase-sentry-azure-insights)
-- [Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL](#program-20-test-driven-development-tdd-workflow-with-jest-rntl)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [GraphQL Schema (Queries & Mutations):](#graphql-schema-queries--mutations)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 18: Recoil State Management (Atoms & Selectors)](#program-18-recoil-state-management-atoms--selectors)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)](#program-19-unified-production-telemetry-hook-firebase--sentry--azure-insights)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Code](#code)
+  - [Complexity & Explanation](#complexity--explanation)
+- [Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL](#program-20-test-driven-development-tdd-workflow-with-jest--rntl)
+  - [Question](#question)
+  - [Sample Input & Output](#sample-input--output)
+    - [TDD Stage 1 (Tests execution output):](#tdd-stage-1-tests-execution-output)
+    - [TDD Stage 2 (Execution code integration):](#tdd-stage-2-execution-code-integration)
+  - [Code](#code)
+    - [1. The Test Suite File (`ValidationLabel.test.tsx` - Written First)](#1-the-test-suite-file-validationlabeltesttsx---written-first)
+    - [2. The Minimal Component Code (`ValidationLabel.tsx` - Written Second to pass the assertions)](#2-the-minimal-component-code-validationlabeltsx---written-second-to-pass-the-assertions)
+  - [Complexity & Explanation](#complexity--explanation)
 </details>
 <!-- INDEX_END -->
 
@@ -3193,3 +3329,222 @@ const styles = StyleSheet.create({
 - **Space Complexity**: $O(1)$ constant stack memory allocations.
 - **Explanation**: This demonstrates a full TDD pipeline loop. In Stage 1 (Red), we write test specifications verifying styles and event dispatches. In Stage 2 (Green), we construct the component containing state validation flags and conditional layouts to resolve the test blocks. In Stage 3 (Refactor), we optimize the RegExp expressions or stylesheets safely without fear of regressions because the Jest test suite immediately catches any broken logic.
 ```
+
+
+---
+
+## 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
+*⏱️ 8 min read*
+
+Senior mobile interviews often require basic-to-medium DSA to test logical thinking. These are framed in real-world mobile contexts.
+
+### Program 21: Two Pointers / Sliding Window (Transaction Fraud Detection)
+**Question**: Given an array of daily transaction amounts and a window size `k`, find the maximum average transaction amount in any contiguous window of `k` days. (Variation of Maximum Average Subarray I).
+```typescript
+function findMaxAverage(transactions: number[], k: number): number {
+    let sum = 0;
+    for (let i = 0; i < k; i++) {
+        sum += transactions[i];
+    }
+    
+    let maxSum = sum;
+    for (let i = k; i < transactions.length; i++) {
+        sum = sum - transactions[i - k] + transactions[i];
+        maxSum = Math.max(maxSum, sum);
+    }
+    
+    return maxSum / k;
+}
+```
+
+### Program 22: HashMaps & Arrays (Two Sum / Contact Syncing)
+**Question**: You are syncing a user's address book. Given an array of phone numbers (represented as integers for simplicity) and a `target` sum, return the indices of the two numbers that add up to the target.
+```typescript
+function twoSum(nums: number[], target: number): number[] {
+    const map = new Map<number, number>();
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement)!, i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+}
+```
+
+### Program 23: Trees / Graphs (Nested Folder/Comment Hierarchy)
+**Question**: Given a nested folder structure (or Reddit-style comment thread) represented as a tree, write a function to return the maximum depth (depth of the deepest comment thread).
+```typescript
+class TreeNode {
+    val: number;
+    children: TreeNode[];
+    constructor(val?: number, children?: TreeNode[]) {
+        this.val = (val===undefined ? 0 : val);
+        this.children = (children===undefined ? [] : children);
+    }
+}
+
+function maxDepth(root: TreeNode | null): number {
+    if (!root) return 0;
+    let maxChildDepth = 0;
+    for (const child of root.children) {
+        maxChildDepth = Math.max(maxChildDepth, maxDepth(child));
+    }
+    return maxChildDepth + 1;
+}
+```
+
+---
+
+## 🏗️ Section: System Design Coding
+*⏱️ 8 min read*
+
+### Program 24: Implement an LRU Cache (Memory Management)
+**Question**: Image caching is critical in React Native. Implement an LRU (Least Recently Used) cache with `get` and `put` methods in $O(1)$ time complexity using a Hash Map and a Doubly Linked List.
+```typescript
+class DLinkedNode {
+    key: number;
+    value: number;
+    prev: DLinkedNode | null = null;
+    next: DLinkedNode | null = null;
+    constructor(key: number = 0, value: number = 0) {
+        this.key = key;
+        this.value = value;
+    }
+}
+
+class LRUCache {
+    private capacity: number;
+    private cache: Map<number, DLinkedNode>;
+    private head: DLinkedNode;
+    private tail: DLinkedNode;
+
+    constructor(capacity: number) {
+        this.capacity = capacity;
+        this.cache = new Map();
+        this.head = new DLinkedNode();
+        this.tail = new DLinkedNode();
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+    }
+
+    private addNode(node: DLinkedNode) {
+        node.prev = this.head;
+        node.next = this.head.next;
+        this.head.next!.prev = node;
+        this.head.next = node;
+    }
+
+    private removeNode(node: DLinkedNode) {
+        let prev = node.prev;
+        let next = node.next;
+        prev!.next = next;
+        next!.prev = prev;
+    }
+
+    private moveToHead(node: DLinkedNode) {
+        this.removeNode(node);
+        this.addNode(node);
+    }
+
+    private popTail(): DLinkedNode {
+        let res = this.tail.prev;
+        this.removeNode(res!);
+        return res!;
+    }
+
+    get(key: number): number {
+        const node = this.cache.get(key);
+        if (!node) return -1;
+        this.moveToHead(node);
+        return node.value;
+    }
+
+    put(key: number, value: number): void {
+        const node = this.cache.get(key);
+        if (!node) {
+            const newNode = new DLinkedNode(key, value);
+            this.cache.set(key, newNode);
+            this.addNode(newNode);
+            if (this.cache.size > this.capacity) {
+                const tail = this.popTail();
+                this.cache.delete(tail.key);
+            }
+        } else {
+            node.value = value;
+            this.moveToHead(node);
+        }
+    }
+}
+```
+
+### Program 25: Implement an Event Bus (Pub/Sub)
+**Question**: Implement a lightweight Event Emitter (Pub/Sub) class for cross-component communication without using React Context or Redux.
+```typescript
+type Callback = (...args: any[]) => void;
+
+class EventBus {
+    private events: Map<string, Callback[]>;
+
+    constructor() {
+        this.events = new Map();
+    }
+
+    subscribe(event: string, callback: Callback) {
+        if (!this.events.has(event)) {
+            this.events.set(event, []);
+        }
+        this.events.get(event)!.push(callback);
+
+        // Return unsubscribe function
+        return () => {
+            const listeners = this.events.get(event)!;
+            this.events.set(event, listeners.filter(cb => cb !== callback));
+        };
+    }
+
+    publish(event: string, ...args: any[]) {
+        if (this.events.has(event)) {
+            this.events.get(event)!.forEach(callback => callback(...args));
+        }
+    }
+}
+```
+
+### Program 26: State Machine for Checkout Flow
+**Question**: Build a finite state machine (FSM) hook to manage a complex checkout flow (Cart -> Shipping -> Payment -> Success / Error).
+```typescript
+import { useReducer } from 'react';
+
+type State = 'CART' | 'SHIPPING' | 'PAYMENT' | 'SUCCESS' | 'ERROR';
+type Action = 
+  | { type: 'NEXT_TO_SHIPPING' }
+  | { type: 'NEXT_TO_PAYMENT' }
+  | { type: 'COMPLETE_PAYMENT' }
+  | { type: 'FAIL_PAYMENT' }
+  | { type: 'RETRY' };
+
+const checkoutReducer = (state: State, action: Action): State => {
+  switch (state) {
+    case 'CART':
+      return action.type === 'NEXT_TO_SHIPPING' ? 'SHIPPING' : state;
+    case 'SHIPPING':
+      return action.type === 'NEXT_TO_PAYMENT' ? 'PAYMENT' : state;
+    case 'PAYMENT':
+      if (action.type === 'COMPLETE_PAYMENT') return 'SUCCESS';
+      if (action.type === 'FAIL_PAYMENT') return 'ERROR';
+      return state;
+    case 'ERROR':
+      return action.type === 'RETRY' ? 'PAYMENT' : state;
+    default:
+      return state;
+  }
+};
+
+export const useCheckoutStateMachine = () => {
+  const [state, dispatch] = useReducer(checkoutReducer, 'CART');
+  return { state, dispatch };
+};
+```
+
