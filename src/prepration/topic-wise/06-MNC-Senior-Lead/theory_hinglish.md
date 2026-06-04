@@ -34,6 +34,21 @@
 
 MNC client architectures को robust Separation of Concerns, scalability, और long-term maintainability की आवश्यकता होती है। Senior और Lead developers को ऐसी architectures design करनी चाहिए जो बड़ी teams और multi-year product cycles में scale हो सकें।
 
+### 0. Mandatory Skills Coverage Matrix
+
+इस matrix को JD keywords के हिसाब से interview answer align करने के लिए use करें, लेकिन इसे रटकर बोलने की जगह real project examples से जोड़ें।
+
+| Skill Area | Must Mention | Interview Positioning |
+| :--- | :--- | :--- |
+| **Mandatory Mobile Stack** | React Native, Android, Redux Toolkit | "मैं cross-platform RN delivery own कर सकता हूं, native Android issues debug कर सकता हूं, और predictable RTK state flows design कर सकता हूं." |
+| **Core App Layer** | TypeScript/JavaScript, React Navigation, Redux/RTK or Zustand, React Query/TanStack Query | "Server state के लिए React Query, client/app state के लिए RTK/Zustand, और guarded navigation/deep links के लिए React Navigation use करता हूं." |
+| **Interaction Layer** | RN Reanimated, RN Gesture Handler | "Gestures और animations को UI thread पर shared values, worklets और gesture composition से smooth रखता हूं." |
+| **Build & Runtime** | Hermes, Metro bundler, Gradle, CocoaPods | "JS bundling, Hermes bytecode, Android build variants/signing और iOS Pod/linking issues समझता हूं." |
+| **Native Tooling** | Android Studio, Xcode, Kotlin, Swift | "Light native modules लिख सकता हूं, native crashes inspect कर सकता हूं, permissions manage कर सकता हूं और platform-specific profiling कर सकता हूं." |
+| **Testing & Quality** | Jest, React Native Testing Library, Detox/Appium, ESLint, Prettier, Husky | "Business logic, component behavior, device flows और pre-CI code quality gates cover करता हूं." |
+| **CI/CD & Release** | Fastlane, CodePush/App Center maintenance, GitHub Actions, Bitrise, Azure DevOps, Play Console, App Store Connect | "Signing, build distribution, staged rollout, OTA risk controls और store release operations automate कर सकता हूं." |
+| **Analytics & Observability** | Firebase/GA4, Segment, Amplitude, Sentry/Crashlytics, Datadog | "Product analytics, crash diagnostics, RUM/APM और event routing को अलग-अलग responsibility के हिसाब से choose करता हूं." |
+
 ### 1. Clean Architecture & SOLID Principles in React Native
 
 React Native में **Clean Architecture** लागू करने से यह सुनिश्चित होता है कि business logic पूरी तरह से UI framework, styling libraries, और state management frameworks से decoupled (अलग) हो जाए:
@@ -41,7 +56,7 @@ React Native में **Clean Architecture** लागू करने से �
 ```text
 [UI Components (Views)] ➡️ [React Hooks (Presenters)] ➡️ [Use Cases (Domain)] ➡️ [Repositories / Adapters (Data)]
        |                           |                                                  |
-(Styles, Native Components)  (Local State/Recoil)                             (Axios, Apollo, MMKV)
+(Styles, Native Components)  (Local State/Zustand/RTK)                         (Axios, Apollo, MMKV)
 ```
 
 - **Domain Layer (Core)**: इसमें शुद्ध business entities और use cases होते हैं। इस layer की React, React Native, या third-party storage/networking APIs पर शून्य dependency होनी चाहिए। यह data fetching के लिए interface contracts (interfaces) को परिभाषित (define) करता है।

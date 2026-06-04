@@ -5,6 +5,7 @@
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
 - [🏗️ Section 1: MNC & Consulting Architectural Expectations](#section-1-mnc-consulting-architectural-expectations)
+  - [0. Mandatory Skills Coverage Matrix](#0-mandatory-skills-coverage-matrix)
   - [1. Clean Architecture & SOLID Principles in React Native](#1-clean-architecture-solid-principles-in-react-native)
   - [2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams](#2-monorepos-vs-multirepos-yarn-pnpm-nx-for-large-teams)
   - [3. Legacy Migration & Upgrades (e.g., v0.60 to Modern RN)](#3-legacy-migration-upgrades-eg-v060-to-modern-rn)
@@ -33,6 +34,21 @@
 *⏱️ 4 min read*
 
 MNC client architectures require robust separation of concerns, scalability, and long-term maintainability. Senior and Lead developers must design architectures that can scale across large teams and multi-year product cycles.
+
+### 0. Mandatory Skills Coverage Matrix
+
+Use this matrix to align answers with common Senior React Native JD keywords without sounding like you are reading a checklist.
+
+| Skill Area | Must Mention | Interview Positioning |
+| :--- | :--- | :--- |
+| **Mandatory Mobile Stack** | React Native, Android, Redux Toolkit | "I can own cross-platform RN delivery while debugging native Android issues and designing predictable RTK state flows." |
+| **Core App Layer** | TypeScript/JavaScript, React Navigation, Redux/RTK or Zustand, React Query/TanStack Query | "I separate server state from client state: React Query for remote cache, RTK/Zustand for app state, React Navigation for guarded flows and deep links." |
+| **Interaction Layer** | RN Reanimated, RN Gesture Handler | "I keep gestures and animations on the UI thread using shared values, worklets, and gesture composition." |
+| **Build & Runtime** | Hermes, Metro bundler, Gradle, CocoaPods | "I understand JS bundling, Hermes bytecode, Android build variants/signing, and iOS pod/linking issues." |
+| **Native Tooling** | Android Studio, Xcode, Kotlin, Swift | "I can write light native modules, inspect native crashes, manage permissions, and profile platform-specific performance." |
+| **Testing & Quality** | Jest, React Native Testing Library, Detox/Appium, ESLint, Prettier, Husky | "I cover business logic, component behavior, device flows, and enforce code quality before CI." |
+| **CI/CD & Release** | Fastlane, CodePush/App Center maintenance, GitHub Actions, Bitrise, Azure DevOps, Play Console, App Store Connect | "I can automate signing, build distribution, staged rollout, OTA risk controls, and store release operations." |
+| **Analytics & Observability** | Firebase/GA4, Segment, Amplitude, Sentry/Crashlytics, Datadog | "I separate product analytics, crash diagnostics, RUM/APM, and event routing based on team and compliance needs." |
 
 ### 1. Clean Architecture & SOLID Principles in React Native
 

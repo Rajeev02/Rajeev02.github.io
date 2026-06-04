@@ -40,9 +40,10 @@
   - [3. Production Diagnostics (Sentry + PostHog)](#3-production-diagnostics-sentry-posthog)
   - [4. Navigation Lifecycles (`useFocusEffect`)](#4-navigation-lifecycles-usefocuseffect)
   - [5. CI/CD Pipelines & Mobile Deployment Workflow](#5-cicd-pipelines-mobile-deployment-workflow)
+    - [CI/CD Tooling Matrix](#cicd-tooling-matrix)
     - [Android Signing & Release](#android-signing-release)
     - [iOS Code Signing & Match](#ios-code-signing-match)
-  - [6. Telemetry & Analytics Orchestration: Firebase, Sentry & Azure App Insights](#6-telemetry-analytics-orchestration-firebase-sentry-azure-app-insights)
+  - [6. Telemetry & Analytics Orchestration: Firebase/GA4, Segment, Amplitude, Sentry, Datadog & Azure App Insights](#6-telemetry-analytics-orchestration-firebasega4-segment-amplitude-sentry-datadog-azure-app-insights)
 - [⚛️ Section 7: React Architecture & Core Engine](#section-7-react-architecture-core-engine)
   - [1. Virtual DOM, React Fiber, Reconciliation & Diffing](#1-virtual-dom-react-fiber-reconciliation-diffing)
   - [2. Component Lifecycles: Class vs. Functional Components](#2-component-lifecycles-class-vs-functional-components)
@@ -62,8 +63,10 @@
 - [🧪 Section 10: Testing Strategies & QA Automation](#section-10-testing-strategies-qa-automation)
   - [1. The Mobile Testing Pyramid](#1-the-mobile-testing-pyramid)
   - [2. Unit & Integration Testing (Jest + React Native Testing Library)](#2-unit-integration-testing-jest-react-native-testing-library)
-  - [3. End-to-End Testing (Detox + JUnit)](#3-end-to-end-testing-detox-junit)
-  - [4. Test-Driven Development (TDD) Workflow in React Native](#4-test-driven-development-tdd-workflow-in-react-native)
+  - [3. End-to-End Testing (Detox / Appium + JUnit)](#3-end-to-end-testing-detox-appium-junit)
+    - [Detox vs. Appium Interview Answer](#detox-vs-appium-interview-answer)
+  - [4. Code Quality Gates (ESLint + Prettier + Husky)](#4-code-quality-gates-eslint-prettier-husky)
+  - [5. Test-Driven Development (TDD) Workflow in React Native](#5-test-driven-development-tdd-workflow-in-react-native)
 - [💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures](#section-11-enterprise-offline-storage-synchronizer-architectures)
   - [1. Storage Solution Comparison Matrix](#1-storage-solution-comparison-matrix)
   - [2. React Query Offline Caching & Persister Integration](#2-react-query-offline-caching-persister-integration)
@@ -360,6 +363,16 @@ Automating builds ensures reliable releases and prevents manual code signing err
   [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
 ```
 
+#### CI/CD Tooling Matrix
+| Tool | Best Use | Interview Talking Point |
+| :--- | :--- | :--- |
+| **GitHub Actions** | Repository-native CI, lint/test/build workflows, secret-backed signing. | Good default for teams already on GitHub; cache Node, Gradle, and CocoaPods aggressively. |
+| **Bitrise** | Mobile-first pipelines with ready-made Android/iOS signing, simulator, and store-upload steps. | Strong for mobile teams that want less custom YAML and more visual workflow control. |
+| **Azure DevOps** | Enterprise pipelines, approvals, artifacts, environment gates, and Microsoft ecosystem integration. | Common in MNCs and regulated clients where release gates and audit trails matter. |
+| **Fastlane** | Shared release automation across CI providers. | Use lanes for `match`, `gym/build_app`, `pilot`, `supply`, screenshots, metadata, and staged releases. |
+| **CodePush / App Center** | Legacy OTA maintenance where existing apps still depend on it. | Know how to support and migrate it, but do not recommend App Center CodePush as the default for new apps. |
+| **Expo/EAS Update** | OTA updates for Expo/CNG-friendly apps. | Use runtime version locks, staged rollout, and rollback checks. |
+
 #### Android Signing & Release
 - **Keystore**: The release APK/AAB must be cryptographically signed using a `.keystore` certificate file.
 - **GitHub Secrets**: The Keystore file is base64 encoded and stored in GitHub secrets along with the store password and alias. The CI runner decodes this file to sign the app dynamically.
@@ -370,7 +383,7 @@ Automating builds ensures reliable releases and prevents manual code signing err
 - **Fastlane Match**: Automates iOS code signing by storing all certificates and provisioning profiles inside a private Git repository encrypted with a shared passcode. During CI runs, `fastlane match appstore` clones the repository, decrypts the files, and installs them onto the macOS runner, preventing signing mismatches.
 - **Fastfile**: Script containing "lanes" that compile the iOS app (`build_app` or `gym`) and submit the `.ipa` package to TestFlight (`upload_to_testflight` or `pilot`).
 
-### 6. Telemetry & Analytics Orchestration: Firebase, Sentry & Azure App Insights
+### 6. Telemetry & Analytics Orchestration: Firebase/GA4, Segment, Amplitude, Sentry, Datadog & Azure App Insights
 Production-grade applications rely on a multi-tiered monitoring stack to track stability, usability, and execution performance.
 - **Sentry (Crash & Error Diagnostics)**: Focuses strictly on debugging and runtime stability. It captures uncaught exceptions, promise rejections, and native crashes (JVM/C++ on Android, Objective-C/Swift on iOS). It reconstructs readable stack traces via dSYM and source map symbolication. Sentry is optimized for developer diagnostics.
 - **Firebase (Engagement & Operational Telemetry)**:
@@ -380,11 +393,23 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 - **Azure App Insights (Enterprise Performance Monitor)**:
   - Often used in Microsoft-backed enterprise architectures to correlate client-side telemetry with backend API transaction logs.
   - Tracks web request latency, custom client-side events, component rendering durations, and network failure rates, allowing end-to-end trace correlation using a shared `Correlation ID` across frontend and backend services.
+- **GA4 (Google Analytics 4)**:
+  - Tracks product funnels, conversion events, campaign attribution, and user properties. In interviews, mention event naming discipline and avoiding PII in analytics payloads.
+- **Segment (Customer Data Platform)**:
+  - Routes a single normalized event stream to multiple destinations such as GA4, Amplitude, Braze, or internal warehouses. Best when product, marketing, and data teams all consume mobile events.
+- **Amplitude (Product Analytics)**:
+  - Strong for cohort analysis, retention, funnels, feature adoption, and experiment analysis. Use it when product teams need behavioral insight beyond crash stability.
+- **Datadog (RUM/APM/Logs)**:
+  - Used for real-user monitoring, frontend/backend trace correlation, logs, dashboards, and alerting. Strong in enterprise systems where mobile actions must be linked to backend spans.
 
 | Tool | Primary Purpose | Key Metrics | Developer vs. Product Focus |
 | :--- | :--- | :--- | :--- |
 | **Sentry** | Real-time JS and Native crash reporting and symbolication. | Crash-free sessions, breadcrumbs, stack traces. | Highly Developer focused. |
 | **Firebase** | Behavioral analytics, dynamic configuration, notification handling. | Screen views, event conversions, active users. | Highly Product/Marketing focused. |
+| **GA4** | Acquisition and funnel analytics. | Campaign attribution, conversions, audiences. | Product/Marketing focused. |
+| **Segment** | Event routing and customer data pipeline. | Event delivery health, destination syncs. | Data Platform focused. |
+| **Amplitude** | Product analytics and experimentation. | Cohorts, retention, funnels, feature adoption. | Product focused. |
+| **Datadog** | RUM, APM, logs, dashboards, alerting. | Latency, traces, errors, device/session health. | Engineering/Operations focused. |
 | **Azure App Insights** | End-to-end performance tracing and enterprise APM. | Latency, dependency tracking, transaction correlation. | Operational/Infrastructure focused. |
 
 ---
@@ -653,8 +678,9 @@ Recoil is useful to understand historically, but it is no longer the default rec
   });
   ```
 
-### 3. End-to-End Testing (Detox + JUnit)
+### 3. End-to-End Testing (Detox / Appium + JUnit)
 - **Detox**: A grey-box end-to-end testing library. It tests the compiled app on real simulators or devices, waiting for asynchronous network calls and animations to finish automatically before asserting elements, minimizing flaky tests.
+- **Appium**: A black-box, WebDriver-based E2E tool that automates iOS and Android apps like an external user. It is slower than Detox but useful when QA teams need cross-platform device farms, language-agnostic tests, or shared automation across native and React Native apps.
 - **JUnit**: Used as the test runner reporting framework.
 - **Detox E2E Script Example**:
   ```javascript
@@ -675,7 +701,19 @@ Recoil is useful to understand historically, but it is no longer the default rec
   });
   ```
 
-### 4. Test-Driven Development (TDD) Workflow in React Native
+#### Detox vs. Appium Interview Answer
+| Tool | Best For | Tradeoff |
+| :--- | :--- | :--- |
+| **Detox** | React Native teams needing fast, grey-box E2E on simulators/emulators with RN synchronization. | Requires app instrumentation and RN-aware setup. |
+| **Appium** | Enterprise QA/device-farm automation across RN, native Android, native iOS, and hybrid apps. | Slower and more brittle if selectors/accessibility IDs are not maintained. |
+
+### 4. Code Quality Gates (ESLint + Prettier + Husky)
+- **ESLint**: Enforces TypeScript, React, React Hooks, import-order, accessibility, and React Native-specific rules before code reaches review.
+- **Prettier**: Owns formatting so code review focuses on behavior, architecture, and test quality rather than style debates.
+- **Husky + lint-staged**: Runs lightweight checks only on changed files before commit, commonly `eslint --fix`, `prettier --write`, and focused tests.
+- **CI Enforcement**: Pre-commit hooks are convenience, not security. CI must still run `tsc --noEmit`, lint, unit tests, and build checks.
+
+### 5. Test-Driven Development (TDD) Workflow in React Native
 Test-Driven Development (TDD) is a development methodology where code is written in a strict iterative feedback loop:
 1. **Red**: Write a failing unit or integration test defining a small, single requirement.
 2. **Green**: Write the minimal application code required to make the test pass.
