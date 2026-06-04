@@ -837,12 +837,48 @@
 
           renderFileList();
           countFiles();
+          
+          // Setup Table of Contents click handler for custom scrolling in container
+          setupAnchorScrollHandler();
+          
           hideLoader();
         } catch (err) {
           console.error("Error initializing:", err);
           document.getElementById("content").innerHTML =
             '<div class="info-box">❌ Error: ' + err.message + "</div>";
           hideLoader();
+        }
+      }
+
+      function setupAnchorScrollHandler() {
+        const contentDiv = document.getElementById("content");
+        if (contentDiv) {
+          contentDiv.removeEventListener("click", handleAnchorClick);
+          contentDiv.addEventListener("click", handleAnchorClick);
+        }
+      }
+
+      function handleAnchorClick(e) {
+        const anchor = e.target.closest("a");
+        if (anchor) {
+          const href = anchor.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            e.preventDefault();
+            const targetId = decodeURIComponent(href.slice(1));
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+              history.pushState(null, null, href);
+            } else {
+              // Fallback to searching by lowercase sluggified header text if marked uses a custom slugify
+              const slugTarget = targetId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+              const fallbackEl = document.getElementById(slugTarget);
+              if (fallbackEl) {
+                fallbackEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.pushState(null, null, "#" + slugTarget);
+              }
+            }
+          }
         }
       }
 
@@ -908,6 +944,11 @@
           updateActiveLink(section, file.name);
           const wrapper = document.querySelector(".content-wrapper");
           if (wrapper) wrapper.classList.add("has-active-file");
+          
+          // Scroll main content to top on load
+          const mainContent = document.querySelector(".main-content");
+          if (mainContent) mainContent.scrollTop = 0;
+          
           hideLoader();
         }, 300);
       }
@@ -1050,6 +1091,10 @@
           .forEach((link) => link.classList.remove("active"));
         const wrapper = document.querySelector(".content-wrapper");
         if (wrapper) wrapper.classList.remove("has-active-file");
+        
+        // Scroll main content to top
+        const mainContent = document.querySelector(".main-content");
+        if (mainContent) mainContent.scrollTop = 0;
       }
 
       function logout() {
