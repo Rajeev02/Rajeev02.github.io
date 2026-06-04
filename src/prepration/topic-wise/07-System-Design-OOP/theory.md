@@ -148,6 +148,45 @@ To maintain a large React Native codebase (100k+ lines of code) with high testab
   - **View**: Pure React components (`features/checkout/components/PaymentForm.tsx`) focusing on UI layout and styles.
   - **ViewModel**: Custom React hooks (`features/checkout/hooks/usePaymentHandler.ts`) managing UI state, input validation, and business logic.
 
+#### Feature-First Clean MVVM Directory Layout Example (Auth, Profile, Home)
+```text
+src/
+├── features/
+│   ├── auth/                      # Authentication Feature Module
+│   │   ├── components/            # [View] Presentation UI layouts
+│   │   │   ├── LoginForm.tsx
+│   │   │   └── RegisterForm.tsx
+│   │   ├── hooks/                 # [ViewModel] Auth states & validation hooks
+│   │   │   ├── useLoginViewModel.ts
+│   │   │   └── useRegisterViewModel.ts
+│   │   ├── services/              # [Data Layer] API clients & storage adapters
+│   │   │   └── AuthService.ts
+│   │   └── domain/                # [Domain Layer] Pure rules & validation entities
+│   │       └── AuthValidation.ts
+│   │
+│   ├── profile/                   # Profile Management Feature Module
+│   │   ├── components/            # [View] User Profile details & edit inputs
+│   │   │   ├── ProfileDetails.tsx
+│   │   │   └── EditProfileForm.tsx
+│   │   ├── hooks/                 # [ViewModel] Avatar updates & edit form controls
+│   │   │   └── useProfileViewModel.ts
+│   │   ├── services/              # [Data Layer] MMKV secure storage & synchronization
+│   │   │   └── ProfileRepository.ts
+│   │   └── domain/                # [Domain Layer] User entity schemas
+│   │       └── UserEntity.ts
+│   │
+│   └── home/                      # Dashboard / Home Feature Module
+│       ├── components/            # [View] Feed lists, headers, cards & items
+│       │   ├── HomeDashboard.tsx
+│       │   └── FeedCard.tsx
+│       ├── hooks/                 # [ViewModel] Paginated scrolling & refresh state handlers
+│       │   └── useHomeViewModel.ts
+│       ├── services/              # [Data Layer] Feed request fetching & local cache
+│       │   └── FeedService.ts
+│       └── domain/                # [Domain Layer] Feed item structures
+│           └── FeedItemEntity.ts
+```
+
 ---
 
 ### 3. Edge-Case Situation Handling
