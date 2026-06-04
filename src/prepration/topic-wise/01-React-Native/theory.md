@@ -90,6 +90,7 @@
 <!-- INDEX_END -->
 
 ## 🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)
+*⏱️ 2 min read*
 
 React Native's runtime environment has undergone a complete architectural rewrite. To show senior-level engineering depth, you must contrast the legacy JSON Bridge model with the modern JSI-based New Architecture.
 
@@ -128,6 +129,7 @@ The New Architecture eliminates the asynchronous JSON bridge entirely, replacing
 ---
 
 ## 🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)
+*⏱️ 3 min read*
 
 ### 1. Yoga Layout Engine
 React Native does not compile to HTML/CSS. Instead, it embeds **Yoga**, a custom C++ layout engine that translates a subset of Flexbox rules into native Android and iOS view layouts.
@@ -165,6 +167,7 @@ Animations are calculated on two different runtime threads in React Native:
 ---
 
 ## 🔌 Section 3: Custom Native Modules & Expo CNG
+*⏱️ 4 min read*
 
 ### 1. Implementing Custom Native Modules
 When a feature requires native OS hardware interfaces, background services, or proprietary native SDKs (e.g., payment gateways, secure enclaves), you write a custom native module to bridge the JavaScript and Native domains.
@@ -229,6 +232,7 @@ To package native modules and JS bindings as a reusable NPM library:
 ---
 
 ## 📦 Section 4: App Compilation, Metro & Babel
+*⏱️ 2 min read*
 
 The lifecycle of React Native code from a local developer laptop to a compiled production app follows a structured compilation pipeline.
 
@@ -264,6 +268,7 @@ For release builds, React Native uses **Hermes**, a lightweight JS engine optimi
 ---
 
 ## ⚡ Section 5: List Optimization & Memory Profiling
+*⏱️ 2 min read*
 
 ### 1. Virtualized List Optimizations
 Displaying massive datasets (e.g., a ledger of 50,000 transactions in a fintech app) will instantly crash the app if rendered inside a standard ScrollView. ScrollView mounts all items immediately, flooding native memory.
@@ -290,6 +295,7 @@ Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects duri
 ---
 
 ## 🔒 Section 6: Release Engineering & Diagnostic Workflows
+*⏱️ 5 min read*
 
 ### 1. Deep Linking & Attribution (Branch SDK)
 Deep links route users directly to a specific feature inside the app (e.g., `/deals/123`).
@@ -356,6 +362,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 ---
 
 ## ⚛️ Section 7: React Architecture & Core Engine
+*⏱️ 7 min read*
 
 ### 1. Virtual DOM, React Fiber, Reconciliation & Diffing
 - **Virtual DOM**: A lightweight, in-memory representation of the real DOM/Native UI layout tree. It acts as a blue-print stage where updates are calculated first to avoid expensive layouts reflows.
@@ -483,6 +490,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 ---
 
 ## 📦 Section 8: State Management & Routing Orchestration
+*⏱️ 5 min read*
 
 ### 1. State vs. Props & Prop Drilling
 - **State**: Mutable data owned and managed internally by the component itself.
@@ -550,6 +558,7 @@ Recoil is an experimental state management library developed by Meta that resolv
 ---
 
 ## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
+*⏱️ 2 min read*
 
 ### 1. SSR vs. CSR & React Native SEO
 - **Client-Side Rendering (CSR)**: The browser downloads a minimal HTML stub and executes JS to render the Virtual DOM. Faster interactions, but slower initial load and weaker SEO indexing.
@@ -580,6 +589,7 @@ Recoil is an experimental state management library developed by Meta that resolv
 ---
 
 ## 🧪 Section 10: Testing Strategies & QA Automation
+*⏱️ 3 min read*
 
 ### 1. The Mobile Testing Pyramid
 - **Test-Driven Development (TDD)**: The software development process where you write failing test cases first, then write minimal code to pass the tests, and finally refactor for clean patterns.
@@ -649,6 +659,7 @@ Test-Driven Development (TDD) is a development methodology where code is written
 ---
 
 ## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
+*⏱️ 5 min read*
 
 Mobile banking, investment, and remote operations apps require reliable offline support. This section outlines local storage comparison, offline caching hydration, and ledger synchronization strategies.
 
@@ -714,6 +725,7 @@ GraphQL enables mobile clients to request only the specific fields required, red
 ---
 
 ## 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
+*⏱️ 2 min read*
 
 For large-scale enterprise applications, building a single monolithic JavaScript bundle results in massive build-time bottlenecks, git merge conflicts, and regression risks. Senior architects design super-apps composed of independent, modular micro-frontends (mini-apps) using **Re.Pack** and **Webpack Module Federation**.
 
@@ -745,6 +757,7 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
 ---
 
 ## 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
+*⏱️ 3 min read*
 
 Fintech, banking, and wealth-management applications deal with high-value transactions and sensitive PII. Security must be managed across multiple client-side vectors.
 
@@ -781,6 +794,7 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
 ---
 
 ## ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)
+*⏱️ 2 min read*
 
 Optimizing startup speed directly drives user conversion. Senior developers split app launch calculations into discrete phases and utilize modern debugging tools.
 
@@ -819,6 +833,7 @@ With **Flipper** deprecated and removed from modern React Native templates (0.73
 ---
 
 ## 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)
+*⏱️ 2 min read*
 
 ### 1. Over-the-Air (OTA) Bundle Delivery
 OTA systems (Expo Updates or Microsoft CodePush) bypass store approval times for JavaScript-only updates:

@@ -29,6 +29,7 @@
 ---
 
 ## Program 1: Performance-Optimized List Component
+*⏱️ 2 min read*
 
 ### Question
 Write a performance-optimized list component that displays a massive dataset of items (such as product listings or transactions). The list must prevent unnecessary cell re-renders, handle scroll operations efficiently, and utilize layout caching rules to maintain 60 FPS scrolling on low-end devices.
@@ -323,6 +324,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
+*⏱️ 2 min read*
 
 ### Question
 Create a custom React Native hook `useNetwork` that monitors network connectivity status. The hook should track whether the user is online, their connection type (WiFi, cellular, etc.), and clean up active listeners properly when components unmount to prevent memory leaks.
@@ -385,6 +387,7 @@ export function useNetwork(): NetworkState {
 ---
 
 ## Program 3: Expo Config Plugin configuration
+*⏱️ 2 min read*
 
 ### Question
 Write a JavaScript Expo Config Plugin function that programmatically modifies the native `AndroidManifest.xml` during `npx expo prebuild` to inject custom security permissions (e.g. `REQUEST_INSTALL_PACKAGES`) without editing the native Android directory files manually.
@@ -450,6 +453,7 @@ module.exports = withCustomPermissions;
 ---
 
 ## Program 4: Native Android Module Bridge (Kotlin)
+*⏱️ 2 min read*
 
 ### Question
 Implement a custom Android Native Module structure written in Kotlin that provides a bridge to compute SHA-256 hashes of string buffers natively. The module must register its namespace, declare the hash calculations asynchronously, and return the outputs through a React Native Promise back to the JS thread.
@@ -521,6 +525,7 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 ---
 
 ## Program 5: Fetch and Render List from API (Todos)
+*⏱️ 2 min read*
 
 ### Question
 Write a complete, optimized React Native component structure that fetches a list of todos from `https://dummyjson.com/todos` on component mount, handles loading and error states, and renders the list using a `FlatList` container displaying each todo's status and title.
@@ -764,6 +769,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
+*⏱️ 2 min read*
 
 ### Question
 Write generic, production-ready asynchronous API call wrappers in React Native using both **Fetch API** and **Axios**. The wrappers must support authorization headers, custom timeouts, request cancellation via `AbortController`, global interceptors (for handling token refreshes or logouts on `401 Unauthorized`), and fetch the mock posts from `https://dummy-json.mock.beeceptor.com/posts`.
@@ -928,6 +934,7 @@ export const axiosClient = new AxiosClient('https://dummy-json.mock.beeceptor.co
 ---
 
 ## Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates
+*⏱️ 3 min read*
 
 ### Question
 Implement a complete React Native state and query cache synchronization setup:
@@ -1169,6 +1176,7 @@ export function useDeletePost() {
 ---
 
 ## Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
+*⏱️ 2 min read*
 
 ### Question
 Implement an interactive swipe-to-dismiss dashboard payment card using `react-native-gesture-handler` and `react-native-reanimated`. The card layout must represent a high-fidelity credit card clone, animate rotation and transition dynamically based on drag coordinates, trigger callback events when swiped off-screen limits, and snap back smoothly using spring physics if released early.
@@ -1320,6 +1328,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
+*⏱️ 4 min read*
 
 ### Question
 Create a custom Native Module package battery status bridge named `BatteryMonitor`.
@@ -1449,6 +1458,7 @@ export const BatteryMonitor = NativeModules.BatteryMonitor as BatteryMonitorInte
 ---
 
 ## Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
+*⏱️ 2 min read*
 
 ### Question
 Write a complete, end-to-end production-grade automation setup for React Native deployment:
@@ -1586,6 +1596,7 @@ end
 ---
 
 ## Program 11: State Management with MobX State Tree (MST)
+*⏱️ 1 min read*
 
 ### Question
 Write a complete React Native state manager setup using **MobX State Tree (MST)**:
@@ -1779,6 +1790,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 12: SQLite Transactional Ledger Database Hook
+*⏱️ 2 min read*
 
 ### Question
 Write a custom React Native hook `useLedgerDatabase` that integrates a local **SQLite database** using `react-native-sqlite-storage`. The hook must:
@@ -1895,6 +1907,7 @@ export function useLedgerDatabase() {
 ---
 
 ## Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
+*⏱️ 3 min read*
 
 ### Question
 Write a complete, structured test automation suite for a React Native component.
@@ -2045,6 +2058,7 @@ describe('E2E Authentication Flow', () => {
 ---
 
 ## Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
+*⏱️ 2 min read*
 
 ### Question
 Design and implement a Webpack configuration (`webpack.config.js`) for a React Native Container (Host) application using **Re.Pack** to enable Webpack Module Federation. Include the dynamic script component loader interface in TypeScript (`FederatedLoader.tsx`) that dynamically resolves and renders remote bundles on-demand.
@@ -2167,6 +2181,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
+*⏱️ 3 min read*
 
 ### Question
 To prevent reverse engineering of sensitive client secrets (e.g., API keys) from plain-text Javascript bundles, implement a native secure storage module.
@@ -2298,6 +2313,7 @@ class SecureKeysModule: NSObject {
 ---
 
 ## Program 16: Secure Purchase Validation & Transaction Sync Hook
+*⏱️ 2 min read*
 
 ### Question
 Design a React Native custom hook (`usePurchaseManager.ts`) using `react-native-iap` to coordinate secure subscription transactions:
@@ -2468,6 +2484,7 @@ export function usePurchaseManager() {
 ---
 
 ## Program 17: GraphQL API Client Integration with Apollo Client
+*⏱️ 2 min read*
 
 ### Question
 Write a complete React Native component structure that integrates with a GraphQL API endpoint using Apollo Client. 
@@ -2749,6 +2766,7 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 ---
 
 ## Program 18: Recoil State Management (Atoms & Selectors)
+*⏱️ 2 min read*
 
 ### Question
 Implement a complete state management structure in React Native using **Recoil**.
@@ -2928,6 +2946,7 @@ export function RecoilAppWrapper() {
 ---
 
 ## Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
+*⏱️ 2 min read*
 
 ### Question
 Write a custom React Native telemetry hook `useTelemetry` that coordinates diagnostic logging across three major platforms: **Sentry**, **Firebase Analytics**, and **Azure App Insights**.
@@ -3074,6 +3093,7 @@ export function useTelemetry(): TelemetryClient {
 ---
 
 ## Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
+*⏱️ 2 min read*
 
 ### Question
 Demonstrate a Test-Driven Development (TDD) cycle inside a React Native setting. 

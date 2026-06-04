@@ -14,6 +14,7 @@
 ---
 
 ## Program 1: Axios Silent Token Refresh Interceptor
+*⏱️ 2 min read*
 
 ### Question
 Write a strongly-typed Axios network interceptor middleware in TypeScript that automatically handles silent JWT access token refreshment. When an API call returns a `401 Unauthorized` response:
@@ -147,6 +148,7 @@ export class AuthInterceptorService {
 ---
 
 ## Program 2: Generic Type-Safe Item Selection List Component
+*⏱️ 2 min read*
 
 ### Question
 Write a generic, type-safe React Native Component in TypeScript that displays a list of objects and supports single item selection callbacks. The component must enforce that the list items extend a base structure containing an `id` and `label`, and it must statically type the selection handler.
@@ -243,6 +245,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 3: Advanced Conditional Types & Mapped Type Parser
+*⏱️ 1 min read*
 
 ### Question
 Write two advanced TypeScript type-level programs:
@@ -321,6 +324,7 @@ EventPayloads resolves to:
 ---
 
 ## Program 4: Nominal Type Branding (Type Branded Currency Operations)
+*⏱️ 1 min read*
 
 ### Question
 Design a nominal type-safety system in TypeScript that enforces strict compile-time checks on currency values:

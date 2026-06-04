@@ -30,6 +30,7 @@
 ---
 
 ## 🏗️ Section 1: MNC & Consulting Architectural Expectations
+*⏱️ 4 min read*
 
 MNC client architectures require robust separation of concerns, scalability, and long-term maintainability. Senior and Lead developers must design architectures that can scale across large teams and multi-year product cycles.
 
@@ -96,6 +97,7 @@ Tech Leads are frequently tasked with resolving technical debt by migrating lega
 ---
 
 ## 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
+*⏱️ 2 min read*
 
 Enterprise banking, healthcare, and telecom clients require strict mobile security standards. Lead developers must design applications to protect user data and binary integrity.
 
@@ -141,6 +143,7 @@ The OWASP Mobile Top 10 highlights **Insecure Data Storage** as a top vulnerabil
 ---
 
 ## ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
+*⏱️ 2 min read*
 
 Enterprise applications running complex data graphs require advanced performance triage strategies.
 
@@ -192,6 +195,7 @@ When rendering massive datasets (e.g., directory listings in telecom portals or 
 ---
 
 ## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
+*⏱️ 2 min read*
 
 In large MNC teams, manual app compilation is unacceptable. Automated deployment guarantees reproducibility and consistency.
 
@@ -233,6 +237,7 @@ Tech Leads must navigate compliance requirements to avoid release delays:
 ---
 
 ## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
+*⏱️ 3 min read*
 
 These scenarios evaluate consulting capabilities, leadership skills, and architectural decision-making.
 

@@ -21,6 +21,7 @@
 <!-- INDEX_END -->
 
 ## 📘 Section 1: Types vs. Interfaces
+*⏱️ 3 min read*
 
 TypeScript provides two core ways to declare object structures and contracts: **Interfaces** and **Type Aliases**. Understanding when to use which is essential for senior engineering roles.
 
@@ -82,6 +83,7 @@ type Position = [number, number]; // Tuple
 ---
 
 ## 🛠️ Section 2: Generics & Utility Types
+*⏱️ 2 min read*
 
 ### 1. Generics (Type Parametrization)
 Generics allow you to write reusable, type-safe components, classes, or functions that work over a variety of types rather than a single concrete type. They act as type variables captured during compilation.
@@ -151,6 +153,7 @@ TypeScript provides built-in utilities to facilitate common type transformations
 ---
 
 ## 📱 Section 3: Type Safety in React Native (Codegen Specs)
+*⏱️ 1 min read*
 
 In the New Architecture, **Codegen** bridges the type-safety gap between JavaScript and native C++/Java/Obj-C code. To configure this, you write strict TypeScript Specification files.
 
@@ -175,6 +178,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
 ---
 
 ## ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)
+*⏱️ 1 min read*
 
 To prevent runtime crashes and enforce code quality, enterprise configurations enable strict compiler options in `tsconfig.json`.
 
@@ -197,6 +201,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 ---
 
 ## 🔬 Section 5: Advanced TypeScript Q&A
+*⏱️ 6 min read*
 
 ### Q1: Explain Conditional Types and how they are used to write dynamic, responsive typings. Provide an example showing how to build custom Utility Types using `infer`.
 - **Answer**:

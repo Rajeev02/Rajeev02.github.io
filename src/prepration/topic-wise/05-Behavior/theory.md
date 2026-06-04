@@ -56,6 +56,7 @@
 <!-- INDEX_END -->
 
 ## 🧭 Section 1: Senior Career Walkthrough (STAR Format)
+*⏱️ 1 min read*
 
 When interviewing for Senior/Lead roles (9+ years experience), you must present your career progression, architectural ownership, and business value metrics clearly.
 
@@ -67,6 +68,7 @@ When interviewing for Senior/Lead roles (9+ years experience), you must present 
 ---
 
 ## 🏗️ Section 2: Monorepo & Multi-App Code Sharing
+*⏱️ 1 min read*
 
 ### Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)
 - **Challenge**: Building three separate, siloed products would lead to massive duplication of business logic (authentication, caching, API wrappers) and UI components (fintech tables, input states). However, a simple copy-paste approach would create a maintenance nightmare.
@@ -80,6 +82,7 @@ When interviewing for Senior/Lead roles (9+ years experience), you must present 
 ---
 
 ## 🔒 Section 3: High-Stakes Fintech System Design
+*⏱️ 2 min read*
 
 Fintech platforms handle transactions, investments, and PII. Security and resilience are core requirements.
 
@@ -105,6 +108,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 ---
 
 ## ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+*⏱️ 2 min read*
 
 ### 1. Offline-First Safari Syncing (WildTrails)
 - **Context**: A wildlife tracking app used in remote areas with poor network coverage. Users need to log sightings offline, and the data must sync when connection is restored.
@@ -134,6 +138,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 ---
 
 ## 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+*⏱️ 3 min read*
 
 ### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
 Banking and capital market systems require uncompromising standards of security, auditability, data integrity, and transactional safety:
@@ -167,6 +172,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 ---
 
 ## 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
+*⏱️ 23 min read*
 
 ### 1. Walk me through your experience and how it relates to this role.
 - **Answer**: 
@@ -480,6 +486,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 ---
 
 ## 👥 Section 6: Agile vs. Scrum Methodologies
+*⏱️ 1 min read*
 
 Understanding the distinction between project frameworks and mindsets is essential for senior delivery roles:
 
@@ -508,6 +515,7 @@ Understanding the distinction between project frameworks and mindsets is essenti
 ---
 
 ## 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+*⏱️ 2 min read*
 
 Product and Delivery Managers evaluate your leadership traits, execution ownership, delivery metrics, and cross-functional collaboration styles.
 
@@ -537,6 +545,7 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
 ---
 
 ## 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+*⏱️ 2 min read*
 
 HR evaluation assesses cultural fit, communication clarity, stability, career goals, and interpersonal conflict resolution.
 
@@ -567,6 +576,7 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 ---
 
 ## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+*⏱️ 2 min read*
 
 A strategic approach to compensation ensures you are valued appropriately while aligning with the employer's salary structures.
 
@@ -600,6 +610,7 @@ A strategic approach to compensation ensures you are valued appropriately while 
 ---
 
 ## ❓ Questions to Ask the Interviewers
+*⏱️ 1 min read*
 
 At the end of senior technical and manager interviews, asking strategic questions demonstrates leadership, system ownership, and domain interest:
 1. *"How large is the React Native codebase, and are you planning or currently adopting the New Architecture (JSI/Fabric)?"*

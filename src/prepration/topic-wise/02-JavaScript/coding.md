@@ -27,6 +27,7 @@
 ---
 
 ## Program 1: Legacy React Class Component with Full Lifecycle Methods
+*⏱️ 2 min read*
 
 ### Question
 Create a production-grade legacy React **Class Component** that models a **Live Portfolio Monitor**. The component must implement Mounting, Updating, and Unmounting phases, establish an active background interval timer to update rates, optimize rendering checks using `shouldComponentUpdate` to prevent redundant draw iterations, and clean up all resources (timers, listeners) to prevent memory leaks.
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 2: Functional Component Refactor Using Hooks
+*⏱️ 2 min read*
 
 ### Question
 Refactor the legacy `LegacyPortfolioMonitor` class component into a modern, functional React component `ModernPortfolioMonitor` using **Hooks** (`useState`, `useEffect`, `useRef`). The refactored component must maintain the exact same polling behaviors, clean up timers during dependencies mutations, and optimize rendering commits using `React.memo`.
@@ -296,6 +298,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 3: Object Reference Copying & Mutability Evaluation
+*⏱️ 2 min read*
 
 ### Question
 Given the `person` object structure below, write a JavaScript script that demonstrates the differences between shallow and deep copying:
@@ -380,6 +383,7 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 ---
 
 ## Program 4: Nested Array Flattening
+*⏱️ 2 min read*
 
 ### Question
 Write a function `flattenArray(arr)` that flattens a deeply nested array of numbers into a single flat array without using the native `Array.prototype.flat()` method.
@@ -439,6 +443,7 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 ---
 
 ## Program 5: Substring Extraction
+*⏱️ 2 min read*
 
 ### Question
 Given a string `"Apple, Banana, Kiwi"`, extract the substring `"Banana"` using appropriate JavaScript string slicing methods.
@@ -480,6 +485,7 @@ console.log("Method 3:", bananaMethod3); // "Banana"
 ---
 
 ## Program 6: Asynchronous Execution Order (Event Loop Timing)
+*⏱️ 1 min read*
 
 ### Question
 Predict and explain the console execution output order of the following synchronous and asynchronous operations, identifying the roles of the Call Stack, Microtask Queue (Promises), and Macrotask Queue (setTimeout).
@@ -516,6 +522,7 @@ console.log("4: End");
 ---
 
 ## Program 7: Loop Scoping & Variable Closures inside SetTimeout
+*⏱️ 1 min read*
 
 ### Question
 Given the following loop structure, resolve the syntax bugs and explain the output difference between declaring the loop iterator `i` with `var` versus `let` inside asynchronous timers.
@@ -550,6 +557,7 @@ for (var j = 0; j < 5; j++) {
 ---
 
 ## Program 8: Deep Memoization Wrapper with Cache Expiration
+*⏱️ 2 min read*
 
 ### Question
 Write a high-performance, generic JavaScript **Memoization Wrapper** function `memoize(fn, options)`. The wrapper must:
@@ -625,6 +633,7 @@ function memoize(fn, options = {}) {
 ---
 
 ## Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
+*⏱️ 1 min read*
 
 ### Question
 Implement a complete JavaScript **Event Emitter / Broker** class supporting a Publish-Subscribe pattern.
@@ -714,6 +723,7 @@ class EventEmitter {
 ---
 
 ## Program 10: Custom Debounce Implementation
+*⏱️ 2 min read*
 
 ### Question
 Write a custom debounce wrapper function `debounce(func, delay)` from scratch that postpones the execution of `func` until `delay` milliseconds have passed since the last invocation. Ensure it maintains execution contexts and arguments.
@@ -760,6 +770,7 @@ function debounce(func, delay = 500) {
 ---
 
 ## Program 11: Custom Throttle Implementation
+*⏱️ 2 min read*
 
 ### Question
 Implement a custom throttle wrapper function `throttle(func, limit)` that ensures the target function is executed at most once every `limit` milliseconds, regardless of how frequently it is triggered.
@@ -806,6 +817,7 @@ function throttle(func, limit = 200) {
 ---
 
 ## Program 12: Polyfills for Map, Filter, and Reduce
+*⏱️ 2 min read*
 
 ### Question
 Write prototype polyfills for JavaScript Array methods: `myMap`, `myFilter`, and `myReduce`. Do not use native array methods in your implementations.
@@ -884,6 +896,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
 ---
 
 ## Program 13: Data Transformations (Array-to-Object & Object-to-Array)
+*⏱️ 2 min read*
 
 ### Question
 Provide functions to transform flat structures:
@@ -947,6 +960,7 @@ function objectToArrayManual(obj) {
 ---
 
 ## Program 14: Mobile Device Token Deduplicator (CleanTokens)
+*⏱️ 2 min read*
 
 ### Question
 Write a function `cleanTokens(sessions)` in JavaScript that takes an array of mobile session objects containing push notification tokens. The function must filter out invalid tokens (such as `null`, `undefined`, or empty string tokens), ignore inactive sessions, remove duplicate tokens, and return a sorted array of clean tokens.
@@ -1003,6 +1017,7 @@ function cleanTokens(sessions) {
 ---
 
 ## Program 15: Object Property Diff Tracker
+*⏱️ 2 min read*
 
 ### Question
 Write a function `getChangedKeys(previousState, currentState)` that performs a flat key comparison between two states and returns an array of keys that have changed (either updated, added, or deleted).
@@ -1052,6 +1067,7 @@ function getChangedKeys(previousState, currentState) {
 ---
 
 ## Program 16: Paginated Transaction Amount Aggregator
+*⏱️ 2 min read*
 
 ### Question
 Write an asynchronous function `aggregateTransactions(apiEndpoint, pagesCount)` that fetches transaction list data across multiple pages sequentially or concurrently using `fetch()`. The function must sum the `amount` fields of all transaction nodes and return the total sum.
@@ -1124,6 +1140,7 @@ async function aggregateTransactions(apiEndpoint, pagesCount) {
 ---
 
 ## Program 17: Batch Concurrent Promise Coordinator (Network Throttler)
+*⏱️ 1 min read*
 
 ### Question
 Write a utility wrapper function `batchPromises(tasks, batchSize)` that coordinates a large queue of asynchronous promise-returning tasks. The utility must run at most `batchSize` tasks concurrently, starting new tasks immediately as running ones resolve, preventing server rate-limiting.

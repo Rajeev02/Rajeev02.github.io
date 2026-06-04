@@ -431,6 +431,91 @@
         color: var(--text-secondary);
         transition: background-color 0.3s, border-left-color 0.3s;
       }
+      .dashboard-title {
+        font-size: 22px;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+        font-weight: 700;
+        text-align: left;
+      }
+      .dashboard-desc {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin-bottom: 24px;
+        text-align: left;
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .metric-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        padding: 18px;
+        border-radius: 8px;
+        text-align: left;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      .metric-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .metric-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--bg-active);
+        margin: 6px 0 2px;
+      }
+      .metric-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .topic-list {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .topic-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 13px;
+        align-items: center;
+        text-align: left;
+      }
+      .topic-row:last-child {
+        border-bottom: none;
+      }
+      .topic-header {
+        background: var(--bg-hover);
+        font-weight: 700;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      .topic-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .topic-val {
+        color: var(--text-secondary);
+      }
+      .topic-total-val {
+        font-weight: 700;
+        color: var(--bg-active);
+      }
       .file-count {
         font-size: 12px;
         color: var(--text-muted);
@@ -504,8 +589,72 @@
         <div class="main-content">
           <div id="content">
             <div class="no-file">
-              <h2>👈 Select a resource</h2>
-              <p>Choose a file from the sidebar to get started</p>
+              <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
+              <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
+              
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-label">📚 Complete Tutorial</div>
+                  <div class="metric-value">⏱️ 5.5 Hours</div>
+                  <div class="metric-sub">330 mins total reading time</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">💡 Theory Guides</div>
+                  <div class="metric-value">⏱️ 3.0 Hours</div>
+                  <div class="metric-sub">180 mins total reading time</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">💻 Coding Challenges</div>
+                  <div class="metric-value">⏱️ 2.5 Hours</div>
+                  <div class="metric-sub">150 mins total reading time</div>
+                </div>
+              </div>
+
+              <h3 style="text-align: left; font-size: 16px; margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">⏱️ Read Time by Category</h3>
+              <div class="topic-list">
+                <div class="topic-row topic-header">
+                  <div>Category</div>
+                  <div>Theory</div>
+                  <div>Coding</div>
+                  <div>Total</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">1. React Native</div>
+                  <div class="topic-val">54 mins</div>
+                  <div class="topic-val">47 mins</div>
+                  <div class="topic-total-val">101 mins</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">2. JavaScript</div>
+                  <div class="topic-val">42 mins</div>
+                  <div class="topic-val">32 mins</div>
+                  <div class="topic-total-val">74 mins</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">3. TypeScript</div>
+                  <div class="topic-val">14 mins</div>
+                  <div class="topic-val">8 mins</div>
+                  <div class="topic-total-val">22 mins</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">4. DSA</div>
+                  <div class="topic-val">7 mins</div>
+                  <div class="topic-val">55 mins</div>
+                  <div class="topic-total-val">62 mins</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">5. Behavior</div>
+                  <div class="topic-val">47 mins</div>
+                  <div class="topic-val">--</div>
+                  <div class="topic-total-val">47 mins</div>
+                </div>
+                <div class="topic-row">
+                  <div class="topic-name">6. MNC Senior/Lead</div>
+                  <div class="topic-val">16 mins</div>
+                  <div class="topic-val">8 mins</div>
+                  <div class="topic-total-val">24 mins</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -737,11 +886,79 @@
         });
       }
 
+      const DASHBOARD_TEMPLATE = `
+        <div class="no-file">
+          <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
+          <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
+          
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">📚 Complete Tutorial</div>
+              <div class="metric-value">⏱️ 5.5 Hours</div>
+              <div class="metric-sub">330 mins total reading time</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">💡 Theory Guides</div>
+              <div class="metric-value">⏱️ 3.0 Hours</div>
+              <div class="metric-sub">180 mins total reading time</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">💻 Coding Challenges</div>
+              <div class="metric-value">⏱️ 2.5 Hours</div>
+              <div class="metric-sub">150 mins total reading time</div>
+            </div>
+          </div>
+
+          <h3 style="text-align: left; font-size: 16px; margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">⏱️ Read Time by Category</h3>
+          <div class="topic-list">
+            <div class="topic-row topic-header">
+              <div>Category</div>
+              <div>Theory</div>
+              <div>Coding</div>
+              <div>Total</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">1. React Native</div>
+              <div class="topic-val">54 mins</div>
+              <div class="topic-val">47 mins</div>
+              <div class="topic-total-val">101 mins</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">2. JavaScript</div>
+              <div class="topic-val">42 mins</div>
+              <div class="topic-val">32 mins</div>
+              <div class="topic-total-val">74 mins</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">3. TypeScript</div>
+              <div class="topic-val">14 mins</div>
+              <div class="topic-val">8 mins</div>
+              <div class="topic-total-val">22 mins</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">4. DSA</div>
+              <div class="topic-val">7 mins</div>
+              <div class="topic-val">55 mins</div>
+              <div class="topic-total-val">62 mins</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">5. Behavior</div>
+              <div class="topic-val">47 mins</div>
+              <div class="topic-val">--</div>
+              <div class="topic-total-val">47 mins</div>
+            </div>
+            <div class="topic-row">
+              <div class="topic-name">6. MNC Senior/Lead</div>
+              <div class="topic-val">16 mins</div>
+              <div class="topic-val">8 mins</div>
+              <div class="topic-total-val">24 mins</div>
+            </div>
+          </div>
+        </div>
+      `;
+
       function goBack() {
-        document.getElementById("content").innerHTML = `<div class="no-file">
-        <h2>👈 Select a resource</h2>
-        <p>Choose a file from the sidebar to get started</p>
-      </div>`;
+        document.getElementById("content").innerHTML = DASHBOARD_TEMPLATE;
         document
           .querySelectorAll(".file-link")
           .forEach((link) => link.classList.remove("active"));

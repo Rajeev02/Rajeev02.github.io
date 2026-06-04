@@ -18,6 +18,7 @@
 <!-- INDEX_END -->
 
 ## 📈 Section 1: Complexity & Big O Notation
+*⏱️ 1 min read*
 
 Interviewers evaluate algorithms based on their efficiency using **Big O Notation**, which describes the limiting behavior of a function when the argument tends towards infinity.
 
@@ -42,6 +43,7 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 ---
 
 ## 🧩 Section 2: Key Algorithmic Patterns
+*⏱️ 5 min read*
 
 Most screening interview problems can be decomposed into five foundational patterns.
 

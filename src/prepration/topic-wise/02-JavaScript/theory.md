@@ -42,6 +42,7 @@
 <!-- INDEX_END -->
 
 ## ☕ Section 1: Engine Fundamentals & Scoping
+*⏱️ 4 min read*
 
 ### 1. Lexical Scoping & Closures
 - **Lexical Scoping**: JavaScript resolves variables based on the physical position of the variables' declarations within the nested source code structures. Inner functions have access to variables declared in their outer parent scopes.
@@ -141,6 +142,7 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
 ---
 
 ## 🗑️ Section 2: Memory Management & Garbage Collection
+*⏱️ 3 min read*
 
 ### 1. Hermes Mark-and-Sweep Garbage Collection
 React Native's Hermes engine manages memory using a **Mark-and-Sweep Garbage Collector (GC)**:
@@ -192,6 +194,7 @@ A memory leak occurs when variables or objects that are no longer needed by the 
 ---
 
 ## ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks
+*⏱️ 2 min read*
 
 React manages component lifecycles in three distinct phases: **Mounting** (initial paint), **Updating** (re-renders due to prop/state mutations), and **Unmounting** (removal from DOM/Native layout tree).
 
@@ -245,6 +248,7 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 ---
 
 ## ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
+*⏱️ 4 min read*
 
 ### 1. `useMemo` (Value Caching)
 - **Purpose**: Caches the result of an expensive computation across render cycles.
@@ -350,6 +354,7 @@ Overusing `useMemo` and `useCallback` is a common mistake that degrades performa
 ---
 
 ## 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query
+*⏱️ 3 min read*
 
 Large-scale React applications split state management into two clear domains: **Client UI State** and **Remote Server State**.
 
@@ -433,6 +438,7 @@ Large-scale React applications split state management into two clear domains: **
 ---
 
 ## ⚙️ Section 6: Advanced Core JS & React Engine Concepts
+*⏱️ 24 min read*
 
 ### 1. Currying & Hoisting
 - **Hoisting**: During the compilation phase, JavaScript moves declarations (variables and functions) to the top of their enclosing scopes.
