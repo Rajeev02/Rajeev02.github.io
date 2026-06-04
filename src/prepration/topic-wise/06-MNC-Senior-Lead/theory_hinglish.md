@@ -1,297 +1,298 @@
-# 🏛️ senior aur lead reactive native developer guide (mnc aur gsi focus)
+# 🏛️ Senior & Lead React Native Developer Guide (MNC & GSI Focus)
 
 <!-- INDEX_START -->
 <details>
- <summary>📖<b>samagri taalika (vistar karne ke liye click karen)</b></summary> 
+  <summary>📖 <b>विषय सूची (Table of Contents - विस्तार करने के लिए क्लिक करें)</b></summary>
 
--[🏗️ dhara 1: mnc aur paramarsh vastushilp apekshayen](#section-1-mnc-consulting-architectural-expectations)
- -[1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)
- -[2. badi teamon ke liye monorepos banaam malterepos (yarn, pnpm, nx)।](#2-monorepos-vs-multirepos-yarn-pnpm-nx-for-large-teams)
- -[3. legacy migration aur upgrade (udaharan ke liye, v0.60 se v0.75+)](#3-legacy-migration-upgrades-eg-v060-to-v075)
--[🔒 dhara 2: enterprise suraksha, anupalan aur OWASP mobile top 10](#section-2-enterprise-security-compliance-owasp-mobile-top-10)
- -[1. ssl pinning aur certificate rotation](#1-ssl-pinning-certificate-rotation)
- -[2. jailbrek/root detection aur frida instrumentation defence](#2-jailbreakroot-detection-and-frida-instrumentation-defenses)
- -[3. surakshit sthaniya bhandaran aur data algaav (kichen/kistor)](#3-secure-local-storage-data-isolation-keychainkeystore)
--[⚡ dhara 3: pradarshan engineering aur memory triage (leed pariprekshya)](#section-3-performance-engineering-memory-triage-lead-perspective)
- -[1. native profiling (excod instruments aur android profiler)](#1-native-profiling-xcode-instruments-android-profiler)
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)0 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)1 
-- [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)2 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)3 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)4 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)5 
-- [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)6 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)7 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)8 
- - [1. react native mein swachh vastukala aur thos siddhant](#1-clean-architecture-solid-principles-in-react-native)9 
+- [🏗️ Section 1: MNC & Consulting Architectural Expectations](#section-1-mnc-consulting-architectural-expectations)
+  - [1. Clean Architecture & SOLID Principles in React Native](#1-clean-architecture-solid-principles-in-react-native)
+  - [2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams](#2-monorepos-vs-multirepos-yarn-pnpm-nx-for-large-teams)
+  - [3. Legacy Migration & Upgrades (e.g., v0.60 to v0.75+)](#3-legacy-migration-upgrades-eg-v060-to-v075)
+- [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#section-2-enterprise-security-compliance-owasp-mobile-top-10)
+  - [1. SSL Pinning & Certificate Rotation](#1-ssl-pinning-certificate-rotation)
+  - [2. Jailbreak/Root Detection and Frida Instrumentation Defenses](#2-jailbreakroot-detection-and-frida-instrumentation-defenses)
+  - [3. Secure Local Storage & Data Isolation (Keychain/Keystore)](#3-secure-local-storage-data-isolation-keychainkeystore)
+- [⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)](#section-3-performance-engineering-memory-triage-lead-perspective)
+  - [1. Native Profiling (Xcode Instruments & Android Profiler)](#1-native-profiling-xcode-instruments-android-profiler)
+  - [2. Triage of Memory Leaks, Frame Drops, and ANRs/Crashes](#2-triage-of-memory-leaks-frame-drops-and-anrscrashes)
+  - [3. Large List Optimizations (Shopify FlashList & Layout Caching)](#3-large-list-optimizations-shopify-flashlist-layout-caching)
+- [📦 Section 4: CI/CD Pipelines, Fastlane & Release Management](#section-4-cicd-pipelines-fastlane-release-management)
+  - [1. Fastlane Match & Provisioning Profile Automation](#1-fastlane-match-provisioning-profile-automation)
+  - [2. Over-the-Air (OTA) Updates Rollback & Versioning Strategy](#2-over-the-air-ota-updates-rollback-versioning-strategy)
+  - [3. Managing App Store Rejections & Play Store Compliance](#3-managing-app-store-rejections-play-store-compliance)
+- [💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A](#section-5-mnc-client-scenarios-tech-lead-behavior-q-a)
+  - [1. Client-Facing Communication & React Native Recommendations](#1-client-facing-communication-react-native-recommendations)
+  - [2. Project Estimation & Resource Planning Methods](#2-project-estimation-resource-planning-methods)
+  - [3. Resolving Technical Debt and Team Performance Bottlenecks](#3-resolving-technical-debt-and-team-performance-bottlenecks)
 </details>
 <!-- INDEX_END -->
 
 ---
 
-## 🏗️ dhara 1: mnc aur paramarsh vastukala apekshaen
-*⏱️ 4 minute padhen*
+## 🏗️ Section 1: MNC & Consulting Architectural Expectations
+*⏱️ 4 min read*
 
-mnc client architecture ko chintaon, skelebility aur dirghkaalik rakhrakhav ki majboot prithakkaran ki aavashyakta hoti hai। varishth aur lead developers ko aise architecture design karne chahiye jo badi teamon aur bahu-varshiy utpad chakron mein scale kar saken।
+MNC client architectures को robust Separation of Concerns, scalability, और long-term maintainability की आवश्यकता होती है। Senior और Lead developers को ऐसी architectures design करनी चाहिए जो बड़ी teams और multi-year product cycles में scale हो सकें।
 
-### 1. react native mein swachh vastukala aur thos siddhant
+### 1. Clean Architecture & SOLID Principles in React Native
 
-react native mein **clin arkitectur** ko lagu karne se yah sunishchit hota hai ki vyavasayik tark ui fremwark, styling libreries aur rajya prabandhan framework se puri tarah se alag ho gaya hai:
+React Native में **Clean Architecture** लागू करने से यह सुनिश्चित होता है कि business logic पूरी तरह से UI framework, styling libraries, और state management frameworks से decoupled (अलग) हो जाए:
 
 ```text
 [UI Components (Views)] ➡️ [React Hooks (Presenters)] ➡️ [Use Cases (Domain)] ➡️ [Repositories / Adapters (Data)]
- | | |
-(Styles, Native Components) (Local State/Recoil) (Axios, Apollo, MMKV)
+       |                           |                                                  |
+(Styles, Native Components)  (Local State/Recoil)                             (Axios, Apollo, MMKV)
 ```
 
-- **domen parat (kor)**: isme shuddh vyavasayik ikaiyan aur upyog ke mamle shamil han। is parat mein react, react nativ, ya thard-parti storage/netwarking api par shunya nirbharta honi chahiye। yah data laane ke liye interface anubandh (interfess) ko paribhashit karta hai।
-- **deta layer (infrastructur)**: domain layer dwara paribhashit repository interface ko lagu karta hai। remote api call (exios, apollo clint), sthaniya storage operations (mmkv, squlight), aur cashing ko sambhalta hai।
-- **prastuti parat (ui)**: isme react ghatak, styling (stylesheet, telvind), aur sthaniya rajya hook shamil han। yah vyavasayik tark nishpadit karne ke liye domain upyog mamlon ko call karta hai।
+- **Domain Layer (Core)**: इसमें शुद्ध business entities और use cases होते हैं। इस layer की React, React Native, या third-party storage/networking APIs पर शून्य dependency होनी चाहिए। यह data fetching के लिए interface contracts (interfaces) को परिभाषित (define) करता है।
+- **Data Layer (Infrastructure)**: Domain layer द्वारा परिभाषित repository interfaces को implement करता है। यह remote API calls (Axios, Apollo Client), local storage operations (MMKV, SQLite), और caching को संभालता है।
+- **Presentation Layer (UI)**: इसमें React components, styling (StyleSheet, Tailwind), और local state hooks होते हैं। यह business logic को execute करने के लिए Domain use cases को call करता है।
 
-#### thos siddhant lagu karna:
-- **ekal uttardayitva siddhant (srp)**: screen ko prastut drishya (ui-keval ghatak) aur rajya container (deta laane aur form niyantran tark wale custom huk) mein vibhajit karen।
-- **khula/band siddhant (ocp)**: sidhe ghatakon ke andar hardcoding platform ya fichar check ke bajay shailiyon, custom action rendrors, ya configuration ko props ke roop mein sweekar karne ke liye ghatakon ko design karen।
-- **liskov pratisthapan siddhant (lsp)**: sunishchit karen ki custom rapper ghatak (jaise `CustomTextInput`) vyavahar ko tode bina react native ke`<TextInput>`ke mool gun interface ka vistar aur rakhrakhav karen।
-- **interfess prithakkaran siddhant (isp)**: bade vaishvik upyogkarta object ko un ghatakon mein bhejne ke bajay ghatakon aur api model ke liye chhote, kendrit typescript interface banaen, jinke liye keval upyogkarta naam ki aavashyakta hoti hai।
-- **nirbharta vyutkram siddhant (dip)**: nirbharta injection (di) ka upyog karen। ui ghatak sidhe thos api client singleton aayat karne ke bajay amurt hook ya domain interface par nirbhar karte han।
+#### SOLID Principles को लागू करना:
+- **Single Responsibility Principle (SRP)**: Screens को presenting views (UI-only components) और state containers (custom hooks जिसमें data fetching और form control logic हो) में विभाजित (split) करें।
+- **Open/Closed Principle (OCP)**: Components को इस तरह design करें कि वे props के रूप में styles, custom action renderers, या configurations स्वीकार कर सकें, बजाय इसके कि components के अंदर सीधे platform या feature checks को hardcode किया जाए।
+- **Liskov Substitution Principle (LSP)**: सुनिश्चित करें कि custom wrapper components (जैसे `CustomTextInput`) बिना किसी व्यवहार (behavior) को तोड़े React Native के `<TextInput>` के native properties interface को extend और बनाए रखें।
+- **Interface Segregation Principle (ISP)**: Components और API models के लिए छोटे, केंद्रित (focused) typescript interfaces बनाएं, बजाय इसके कि उन components को बड़े global user objects पास किए जाएं जिन्हें केवल user name की आवश्यकता होती है।
+- **Dependency Inversion Principle (DIP)**: Dependency Injection (DI) का उपयोग करें। UI components सीधे concrete API client singletons को import करने के बजाय abstract hooks या domain interfaces पर निर्भर (depend) करते हैं।
 
 ---
 
-### 2. badi teamon ke liye monorepos banaam malterepos (yarn, pnpm, nx)
+### 2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) बड़ी Teams के लिए
 
-badi mnc pariyojnaon mein kai sahyogi anuprayogon (jaise, grahak, bhagidar, agent apps) mein vikas ka samanvay karte samay, repository model chunna ek mahatvapurn nirnay hai।
+MNC projects में कई sister applications (जैसे, customer, partner, agent apps) में development को coordinate करते समय, सही repository model चुनना एक महत्वपूर्ण निर्णय है।
 
-| model/fichar | yarn/pnpm karyasthan monorepo | nx/torborepo monorepo | malterepos (alg git repos) |
+| Model / Feature | Yarn/pnpm Workspaces Monorepo | Nx/Turborepo Monorepo | Multirepos (Separate Git Repos) |
 | :--- | :--- | :--- | :--- |
-| **ke liye sarvashreshth** | madhyam teamein buniyadi ts interface aur ui tatv sajha kar rahi han। | sajha deshi module ke saath anterpriz-gred malti-app sistm। | puri tarah se swatantra release chakra ke saath silband temen। |
-| **kod ka pun: upyog** | ucch। karyakshetra simlink ke saath sajha sthaniya folder। | charam। sakht nirbharta maanchitran niyam lagu karta hai। | kam। niji npm package prakashit karne ki aavashyakta hai। |
-| **ci/cd build cashing** | buniyadi। jab tak custom script maujood na ho, har cheez ka punarnirmaan karta hai। | viksit। code hash ke aadhar par cash ko amanya karen। | alag nirman. koi cross-repo cash sharing nahin। |
-| **nirbharta lock** | single lockfyle। packagon ko samaan sanskaranon par rakhta hai। | single lockfil ya varkaspace scoping vikalp। | ekadhik lockfilen। varjan bahav aam baat hai. |
+| **Best For** | Medium teams जो basic TS interfaces और UI elements साझा (share) करती हैं। | Enterprise-grade multi-app systems जिसमें shared native modules हों। | पूरी तरह से स्वतंत्र (independent) release cycles वाली अलग-अलग teams। |
+| **Code Reuse** | High. workspace symlinks के साथ shared local folders। | Extreme. सख्त dependency mapping rules लागू करता है। | Low. private npm packages को publish करने की आवश्यकता होती है। |
+| **CI/CD Build caching** | Basic. जब तक custom scripts न हों, सब कुछ फिर से build करता है। | Advanced. code hashes के आधार पर cache को अमान्य (invalidate) करता है। | Separate builds. कोई cross-repo cache sharing नहीं। |
+| **Dependency Lock** | Single Lockfile. packages को समान versions पर रखता है। | Single lockfile या workspace scoping options। | Multiple lockfiles. Version drift होना आम बात है। |
 
-#### architectural lead ranniti:
-bade paimane ki teamon (50+ engineeron) ke liye, **Nx Monorepos** ko **pnpm** ke saath configar karen:
-- nx module tag ka upyog karke seemaen lagu karen (udaharan ke liye,`app:customer`sidhe`app:agent`se aayat nahin kiya ja sakta)।
-- sapeksh aayat pathon ko rokne ke liye`tsconfig.json`mein gatisheel path mapping ka upyog karen (udaharan ke liye,`../../shared/ui`ke bajay`@shared/ui`se aayat karen)।
-- ekal-srot code bhandaran ko banae rakhte hue tainati chakron ko alag karne ke liye packagon ke andar swatantra sanskaran tagging lagu karen।
-
----
-
-### 3. legacy migration aur upgrade (udaharan ke liye, v0.60 se v0.75+)
-
-tek leads ko aksar purane apps ko migrate karke ya pramukh sanskaran upgrade nishpadit karke takniki rin ko hal karne ka kaam saunpa jata hai।
-
-#### A. ligacy react native ko upgrade karna (udaharan ke liye, v0.63 se v0.75+):
-1. **nirbhartaon ka vishleshan karen**: lakshya reactive native sanskaran aur harmis ke saath tritiy-paksh deshi pustakaalayon ki sangatata ki jaanch karne ke liye audit chalaen।
-2. **react native upgrade helper ka upyog karen**: samudayik upgrade tool ka upyog karke mool filon (`AndroidManifest.xml`, `AppDelegate.mm`, `build.gradle`, `<TextInput>`0) ke liye code bhinn utpann karen।
-3. **upgred charan nishpadit karen (vriddhishil roop se)**: kai pramukh sanskaranon mein upgrade karna (udaharan ke liye, 0.63 ➡️ 0.68 ➡️ 0.72 ➡️ 0.75) sidhe kudne ki tulna mein adhik surakshit hai।
-4. **hemiz aur new architecture migration**:
- - ios (podfil mein `<TextInput>`1) aur android (gradel.proparties mein `<TextInput>`2) par hemiz ko saksham karen।
- - nai `<TextInput>`3 sanrachna mein parivartan ke liye Xcode mein objectiv-si compyler flag ka samadhan karen।
- - TurboModules/Fabric anukulta lagu karen। yadi legacy library naye C++ JSI vinirdeshon ko lagu karne mein vifal rehti han, to asthayi brising sangatata paraten banaen।
-
-#### bi. native android/ios ko react native mein migrate karna:
-- **charan 1: hybrid ekikaran (up-drishya)**: poore app ko phir se likhne ke bajay, react native ko mool application ke andar ek ekal tukde/niyantrak ke roop mein ekikrit karen। `<TextInput>`4 ko Android gatividhi ya iOS UIViewController ke andar load karen।
-- **charan 2: data bridge sinkronization**: custom bridge event ka upyog karke mool container aur react native js sandarbh ke beech pramanikaran sthiti, database registriyon aur configuration ko sinkroniz karen।
-- **charan 3: vriddhishil screen pratisthapan**: feature update ke aadhar par purani screen ko ek-ek karke badlen। ek baar jab container navigation puri tarah se react navigation dwara badal diya jata hai, to mool routing filon ko puri tarah se hata den।
+#### Architectural Lead Strategy:
+बड़े पैमाने की teams (50+ engineers) के लिए, **pnpm** के साथ **Nx Monorepos** configure करें:
+- Nx module tags का उपयोग करके सीमाएं (boundaries) लागू करें (जैसे, `app:customer` सीधे `app:agent` से import नहीं कर सकता)।
+- relative import paths से बचने के लिए `tsconfig.json` में dynamic path mapping का उपयोग करें (जैसे, `../../shared/ui` के बजाय `@shared/ui` से import करें)।
+- package के अंदर स्वतंत्र version tagging लागू करें ताकि single-source code storage को बनाए रखते हुए deployment cycles को decoupled किया जा सके।
 
 ---
 
-## 🔒 dhara 2: enterprise suraksha, anupalan aur OWASP mobile top 10
-*⏱️ 2 minute padhen*
+### 3. Legacy Migration & Upgrades (जैसे, v0.60 से v0.75+)
 
-anterprise banking, healthcare aur telecom grahakon ko sakht mobile suraksha maanakon ki aavashyakta hoti hai। lead developers ko upyogkarta data aur binary akhandata ki suraksha ke liye application design karna chahiye।
+Tech Leads को अक्सर legacy apps को migrate करके या major version upgrades करके technical debt को हल करने का काम सौंपा जाता है।
 
-### 1. ssl pinning aur certificate rotation
+#### A. Legacy React Native को Upgrade करना (जैसे, v0.63 से v0.75+):
+1. **Analyze Dependencies**: target React Native version और Hermes के साथ third-party native libraries की compatibility जांचने के लिए audit चलाएं।
+2. **React Native Upgrade Helper का उपयोग करें**: community upgrade tool का उपयोग करके native files (`AndroidManifest.xml`, `AppDelegate.mm`, `build.gradle`, `Podfile`) के लिए code diffs उत्पन्न (generate) करें।
+3. **Upgrade Steps को क्रमिक रूप से (Incrementally) निष्पादित करें**: सीधे कूदने के बजाय कई major versions (जैसे, 0.63 ➡️ 0.68 ➡️ 0.72 ➡️ 0.75) में अपग्रेड करना अधिक सुरक्षित है।
+4. **Hermes & New Architecture Migration**:
+   - iOS पर Hermes सक्षम (enable) करें (Podfile में `use_hermes => true`) और Android पर (`gradle.properties` में `hermesEnabled=true`)।
+   - नए `RCTAppDelegate` structure में transition करने के लिए Xcode में Objective-C compiler flags को हल करें।
+   - TurboModules/Fabric compatibility लागू करें। यदि legacy libraries नई C++ JSI specs को implement करने में विफल रहती हैं, तो अस्थायी (temporary) bridging compatibility layers बनाएं।
 
-sarvjanik network par man-in-d-middle (mitm) hamlon se bachav ke liye, enterprise configuration **ssl pining** lagu karte han:
+#### B. Native Android/iOS को React Native में Migrate करना:
+- **Phase 1: Hybrid Integration (Sub-views)**: पूरे ऐप को दोबारा लिखने के बजाय, React Native को native application के अंदर एक fragment/controller के रूप में एकीकृत (integrate) करें। native Android Activity या iOS UIViewController के अंदर `ReactRootView` लोड करें।
+- **Phase 2: Data Bridge Synchronization**: custom bridge events का उपयोग करके native container और React Native JS context के बीच authentication states, database registries, और configurations को synchronize करें।
+- **Phase 3: Incremental Screen Replaces**: feature updates के आधार पर एक-एक करके legacy screens को बदलें। एक बार जब container navigation पूरी तरह से React Navigation द्वारा बदल दिया जाता है, तो native routing files को पूरी तरह से हटा दें।
+
+---
+
+## 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
+*⏱️ 2 min read*
+
+Enterprise banking, healthcare, और telecom clients को सख्त mobile security standards की आवश्यकता होती है। Lead developers को user data और binary integrity की रक्षा करने के लिए applications design करने चाहिए।
+
+### 1. SSL Pinning & Certificate Rotation
+
+Public networks पर Man-in-the-Middle (MitM) हमलों से बचाव के लिए, enterprise configurations **SSL Pinning** लागू करती हैं:
 
 ```text
 [Mobile App Request] ➡️ Check server certificate hash ➡️ Does it match pre-bundled pin?
- |
- Yes ➡️ Execute request
- No ➡️ Drop connection immediately
+                                                                 |
+                                                Yes ➡️ Execute request
+                                                No  ➡️ Drop connection immediately
 ```
 
-- **karyanvan**: javascript-lar pinning se bachen (jise frida jaise runtime instrumentation tools dwara aasani se bypass kiya jata hai)। mool platform paraton par SSL pinning lagu karen:
- - **android**: server ke sarvajanik kunji pramanpatra ke SHA-256 hash ke saath `<TextInput>`5 ke `<TextInput>`6 ka upyog karen।
- - **ios**: podfil configuration ke madhyam se `<TextInput>`7 ko ekikrit karen।
-- **pramanpatra rotation ranniti**: app binary mein sthir pin ko bandal karne se pramanpatra samapt hone par app toot jata hai। surakshit configaration:
- - bandal **backup pin** (udaharan ke liye, root ca pin ya secondary intermediate ca kunji)।
- - ek **dynamik certificate rotation link** lagu karen (memori mein mukhya api client configuration ko update karne se pehle ek pramanit madhyamik surakshit andpoint se hastaksharit, adyatan pin suchiyan prapt karen)।
+- **Implementation**: JavaScript-layer pinning से बचें (जिसे Frida जैसे runtime instrumentation tools द्वारा आसानी से बाईपास किया जा सकता है)। SSL pinning को native platform layers पर लागू करें:
+  - **Android**: server की public key certificate के SHA-256 hashes के साथ `OkHttpClient` के `CertificatePinner` का उपयोग करें।
+  - **iOS**: Podfile config के माध्यम से `TrustKit` को एकीकृत (integrate) करें।
+- **Certificate Rotation Strategy**: app binary में static pins को बंडल करने से certificates समाप्त (expire) होने पर ऐप टूट जाता है। सुरक्षित configurations:
+  - **backup pins** बंडल करें (जैसे, root CA pins या secondary intermediate CA keys)।
+  - एक **dynamic certificate rotation link** लागू करें (main API client configurations को memory में update करने से पहले एक authenticated secondary secure endpoint से signed, updated pin lists प्राप्त करें)।
 
 ---
 
-### 2. jailbrek/root detection aur frida instrumentation defence
+### 2. Jailbreak/Root Detection और Frida Instrumentation से बचाव
 
-sakriya memory ka nirikshan karne aur suraksha karyon ko badhit karne ke liye hamlavar bineriz ko vighatit karte hain aur unhen root kiye gaye/jailbrek kiye gaye upkaranon par chalate han।
+Attackers binaries को decompile करते हैं और active memory का निरीक्षण (inspect) करने और security functions को बाधित करने के लिए उन्हें rooted/jailbroken devices पर चलाते हैं।
 
-- **rakshatmak upay**:
- - **jailbrek detection (ios)**: jailbreak nirdeshikaon ki jaanch karen (udaharan ke liye, `<TextInput>`8), pratibandhit folderon mein likhkar sandbox akhandata ki jaanch karen, aur mulyankan karen ki kya manak deshi fork call safal hote han।
-- **root detection (android)**: `<TextInput>`9 binary ki upasthiti ki khoj karen, magic manager package registriyon ki talash karen, aur janchen ki kya parikshan-kunji hastakshar chal rahe karnel par sakriya han।
- - **anti-frida suraksha upay**: freeda dynamic agent libreries ko inject karta hai aur defolt port `app:customer`0 par sunta hai। injected `app:customer`2 filon ka pata lagane ke liye startup par `app:customer`1 ko scan karne ke liye C/C++ native module ka upyog karen, aur yadi frida port sakriya hain to connection drop karne ke liye sthaniya socket ko scan karen।
-
----
-
-### 3. surakshit sthaniya bhandaran aur data algaav (kichen/kistor)
-
-OWASP mobile top 10 mein **asurakshit data storage** ko sheersh bhedyata ke roop mein ujagar kiya gaya hai।
-
-- **deta algav**: pramanikaran vivran, upyogkarta profyle, ya lenden sthiti ko kabhi bhi saade JSON text praroop (udaharan ke liye, manak `app:customer`3) mein na likhen।
-- **encripted MMKV**: MMKV instancess ko AES-256 encription kunji ke saath lapeten।
-- **hardwar enclave binding**: encription kunji ko device ke hardware enclave mein likhkar surakshit karen: **ios kichen** aur **android kistor** (`app:customer`4 ke madhyam se)। kunji ko memory mein tabhi hal kiya jata hai jab application sandarbh launch hota hai aur biometrics ka upyog karke satyapit kiya jata hai।
+- **Defensive Measures**:
+  - **Jailbreak Detection (iOS)**: jailbreak directories की जांच करें (जैसे, `/Applications/Cydia.app`), restricted folders में लिखकर sandbox integrity का मूल्यांकन करें, और जांचें कि क्या standard native fork calls सफल होती हैं।
+  - **Root Detection (Android)**: `su` binary की उपस्थिति की खोज करें, Magisk Manager package registries की तलाश करें, और जांचें कि क्या चल रहे kernel पर test-keys signatures active हैं।
+  - **Anti-Frida Safeguards**: Frida dynamic agent libraries को inject करता है और default port `27042` पर सुनता है। startup पर `/proc/self/maps` को scan करने के लिए C/C++ native modules का उपयोग करें ताकि injected `.so` files का पता लगाया जा सके, और यदि Frida ports active हैं तो connections को समाप्त करने के लिए local sockets को scan करें।
 
 ---
 
-## ⚡ dhara 3: pradarshan engineering aur memory triage (leed pariprekshya)
-*⏱️ 2 minute padhen*
+### 3. Secure Local Storage & Data Isolation (Keychain/Keystore)
 
-jatil data graph chalane wale enterprise anuprayogon ko unnat pradarshan triage ranneetiyon ki aavashyakta hoti hai।
+OWASP Mobile Top 10 **Insecure Data Storage** को एक प्रमुख vulnerability के रूप में उजागर करता है।
 
-### 1. native profiling (excod instruments aur android profiler)
-
-jab javascript thread diagnostics aparyapt hote han, to take leads deshi platform profiling tool ka upyog karte han:
-
-- **excod upkaran**:
- - **aavantan**: smriti vriddhi pravrittiyon ki pehchan karta hai। screen interaction anukramon se pehle aur baad mein memory snapshot capture karen। lagatar badhti pidhi ki unchai heep leak ki pushti karti hai।
- - **time profiler**: cpu core nishpaadan pathon ka vishleshan karta hai। deshi pustakaalayon (si++, swift, objectiv-si) mein thred-blocking nishpaadan stack ka pata lagata hai।
-- **android studio profiler**:
- - **cpu profiler**: android men thread (anr chetavniyon ke karan) ko avruddh karne wale mool tareekon ka pata lagane ke liye vidhi ke nishan (coll chart/flame graph) ko record karta hai।
- - **memori profiler**: dher dump capture karta hai। uchch aavritti ganana wale vargon ka vishleshan karen (udaharan ke liye, asangrahit bitmaps ya leak hue fragment binding)।
- - **netwark profiler**: outbound anurodh samay, data aakar, aur anavashyak ya duplicate api call ki jaanch karta hai।
+- **Data Isolation**: authentication details, user profiles, या transaction states को कभी भी plain JSON text format में न लिखें (जैसे, standard `AsyncStorage`)।
+- **Encrypted MMKV**: MMKV instances को AES-256 encryption key से सुरक्षित करें।
+- **Hardware Enclave Binding**: encryption key को device के hardware enclaves में लिखकर सुरक्षित करें: **iOS Keychain** और **Android Keystore** (`react-native-keychain` के माध्यम से)। key को memory में केवल तब resolve किया जाता है जब application context लॉन्च होता है और biometrics का उपयोग करके सत्यापित (verify) किया जाता है।
 
 ---
 
-### 2. memory leak, frame drops aur anr/crash ka triage
+## ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
+*⏱️ 2 min read*
 
-#### diagnostics piplin:
+Complex data graphs चलाने वाले Enterprise applications को advanced performance triage strategies की आवश्यकता होती है।
+
+### 1. Native Profiling (Xcode Instruments & Android Profiler)
+
+जब JavaScript thread diagnostics अपर्याप्त होते हैं, तो Tech Leads native platform profiling tools का उपयोग करते हैं:
+
+- **Xcode Instruments**:
+  - **Allocations**: memory growth trends की पहचान करता है। screen interaction sequences से पहले और बाद में memory snapshots लें। लगातार persistent generation heights बढ़ने से heap leaks की पुष्टि होती है।
+  - **Time Profiler**: CPU core execution paths का विश्लेषण करता है। native libraries (C++, Swift, Objective-C) में thread-blocking execution stacks का पता लगाता है।
+- **Android Studio Profiler**:
+  - **CPU Profiler**: Android Main Thread को ब्लॉक करने वाले native methods (ANR warnings के कारण) का पता लगाने के लिए method traces (Call Charts/Flame Graphs) रिकॉर्ड करता है।
+  - **Memory Profiler**: Heap Dumps कैप्चर करता है। उच्च instance counts वाले classes का विश्लेषण करें (जैसे, uncollected Bitmaps या leaked Fragment bindings)।
+  - **Network Profiler**: outbound request timings, data sizes को track करता है और redundant या duplicate API calls की जांच करता है।
+
+---
+
+### 2. Triage of Memory Leaks, Frame Drops, और ANRs/Crashes
+
+#### Diagnostics Pipeline:
 
 ```mermaid
 graph TD
- A[Crash / Frame Drop Alert] --> B{What type of crash?}
- B -->|JavaScript Exception| C[Sentry / JS Stack Trace Analysis]
- B -->|Native App Crash| D[Symbolicate Logs using dSYMs/Proguard]
- B -->|ANR / Frame Freeze| E[Attach Android Profiler / Xcode Time Profiler]
- 
- C --> F[Identify component unmount leaks / lingering listeners]
- D --> G[Check native types conversion or Swift forced unwraps]
- E --> H[Locate heavy loops on JS thread or Main UI blocks]
+    A[Crash / Frame Drop Alert] --> B{What type of crash?}
+    B -->|JavaScript Exception| C[Sentry / JS Stack Trace Analysis]
+    B -->|Native App Crash| D[Symbolicate Logs using dSYMs/Proguard]
+    B -->|ANR / Frame Freeze| E[Attach Android Profiler / Xcode Time Profiler]
+    
+    C --> F[Identify component unmount leaks / lingering listeners]
+    D --> G[Check native types conversion or Swift forced unwraps]
+    E --> H[Locate heavy loops on JS thread or Main UI blocks]
 ```
 
-- **anr ka samadhan karna (app pratikriya nahin de raha hai)**: tab hota hai jab android ka mukhya thread $>5$ second ke liye avruddh ho jata hai। sunishchit karen ki sabhi native module logic kotlin coreoutin ya java thread pool (`app:customer`5) ka upyog karke background worker thread par chalte han, jo collback ko acinkrones roop se react native mein lautate han।
-- **pratikatmakta**: aspasht stack trace (jaise `app:customer`6 ) ko padhne yogya pathon (jaise, `app:customer`7 ) mein hal karne ke liye pratyek build par sentry par srot manchitra upload karen।
+- **ANRs (App Not Responding) को हल करना**: यह तब होता है जब Android का Main Thread $>5$ seconds के लिए ब्लॉक हो जाता है। सुनिश्चित करें कि सभी Native Module logic background worker threads पर Kotlin coroutines या Java thread pools (`ExecutorService`) का उपयोग करके चलें, और callbacks को React Native में asynchronously लौटाएं।
+- **Symbolication**: obfuscated stack traces (जैसे `Bundle.js:1:2034`) को पठनीय paths (जैसे, `PaymentScreen.tsx:L142`) में बदलने के लिए हर build पर Sentry पर source maps अपलोड करें।
 
 ---
 
-### 3. badi suchi anukulan (shopifai flashalist aur layout cashing)
+### 3. Large List Optimizations (Shopify FlashList & Layout Caching)
 
-bade paimane par dataset prastut karte samay (udaharan ke liye, telecom portal mein nirdeshika listing ya banking platform mein statement), paramparik `app:customer`8 mein view node manoranjan ke karan uchch memory footprint hote han।
+Massive datasets (जैसे banking platforms में statements या telecom portals में directory listings) को render करते समय, traditional `FlatList` में view node recreation के कारण memory footprints बहुत अधिक होते हैं।
 
-- **shopifai flashalist**: **sel recycling** ka upyog karta hai (android ke `app:customer`9 ya ios ke `app:agent`0 ke saman)। jab sale drishya seema se bahar scroll karte han, to ve mool memory se anmount nahin hote han। iske bajay, mool drishya sanrachna ko barkarar rakha jata hai, aur keval antarnihit dataset ki adla-badli ki jaati hai।
-- **pradarshan dishanirdesh**:
- - sale layout ghatakon ko halka rakhen। suchi tatvon ke andar jatil drishya padanukram se bachen।
- - layout engine ko memory bafars ko sateek roop se aavantit karne ki anumati dene ke liye flashalist mein `app:agent`1 ka upyog karen।
- - suchi adyatan hone par rendering chakra ko bypass karne ke liye sakht mulya jaanch ke saath suchi panktiyon ko `app:agent`2 mein lapeten।
-
----
-
-## 📦 dhara 4: ci/cd piplin, fastlane aur release prabandhan
-*⏱️ 2 minute padhen*
-
-badi bahurashtriya companiyon men, manual app sankalan aswikarya hai। swachalit pariniyojan pratilipi prastut karne yogyata aur sthirta ki guarantee deta hai।
-### 1. fastlane match aur provisioning profile automation
-
-iOS pramanpatra filon ko prabandhit karna aur kai developers aur build agenton ke beech profile ka pravdhan karna aksar build vifaltaon ka karan banta hai।
-
-- **fastlen match**: Git-aadharit code hastakshar ranneeti lagu karta hai:
- - sabhi developer aur vitran pramanpatra, unke milan pravdhan profile ke sath, ek samumit pasafrez ka upyog karke encrypt kiye jaate hain aur ek niji Git repository mein sangrahit hote han।
- - sthaniya ya ci/cd build ke dauran, fastlane is repository ko clone karta hai, pramanpatron ko dicript karta hai, aur unhen sidhe build machine par sthapit karta hai।
- - provizaning profile bemel, duplicate pramanpatra nirman ko rokta hai, aur yah sunishchit karta hai ki Xcode build safaltapurvak nishpadit ho।
+- **Shopify FlashList**: यह **Cell Recycling** का उपयोग करता है (Android के `RecyclerView` या iOS के `UICollectionView` के समान)। जब cell views screen से बाहर scroll होते हैं, तो वे native memory से unmount नहीं होते हैं। इसके बजाय, native view structure को बनाए रखा जाता है, और केवल underlying dataset को बदला (swap) जाता है।
+- **Performance Guidelines**:
+  - cell layout components को हल्का रखें। list elements के अंदर जटिल view hierarchies से बचें।
+  - layout engine को memory buffers को सटीक रूप से allocate करने की अनुमति देने के लिए FlashList में `estimatedItemSize` का उपयोग करें।
+  - यदि list updates होते हैं तो rendering cycles को बायपास करने के लिए list rows को strict value checks के साथ `React.memo` में लपेटें।
 
 ---
 
-### 2. over-d-air (ota) update rollback aur varjaning ranniti
+## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
+*⏱️ 2 min read*
 
-ota update (kodapush/expo update) app store samikshaon ke bina tatkal js-keval update ki anumati deta hai। halanki, agar kharab tarike se prabandhit kiya jaye to unme mahatvapurn runtime crash jokhim hota hai।
+बड़ी MNC teams में, manual app compilation अस्वीकार्य है। Automated deployment प्रतिरूपकता (reproducibility) और निरंतरता सुनिश्चित करता है।
 
-- **ota sanskaran ke swarn nium**:
- - **lakshya binary locking**: pratyek ota bandal ko vishisht deshi binary sanskaranon (udaharan ke liye, `app:agent`3 ya `app:agent`4) ko lakshit karna chahiye। yadi mool nirbhartaen adyatan hain to kabhi bhi khuli shreniyon ko lakshit na karen।
- - **mul hastaksharon ki janch karna**: yadi koi update mool module binding ko badalta hai (udaharan ke liye ek nai mool library jodna), to aapko binary sanskaran ko band karna hoga। yadi koi purana binary naya js bandal download karta hai, to yah deshi chayankartaon ke gayab hone ke karan turant crash ho jaega।
-- **rolback orkestration**:
- - app start health ko track karne ke liye updater client ko configar karen। yadi ota bandal lagu karne ke 2 minute ke bhitar app do baar crash ho jata hai, to updater client ko turant sthir sthaniya embedded bandal mein wapas roll karna hoga।
+### 1. Fastlane Match & Provisioning Profile Automation
 
----
+कई developers और build agents में iOS certificate files और provisioning profiles को प्रबंधित (manage) करने से अक्सर build failures होते हैं।
 
-### 3. app store aswikritiyon aur play store anupalan ka prabandhan
-
-relies mein deri se bachne ke liye take leads ko anupalan avashyaktaon par dhyan dena chahiye:
-
-- **app store aswikaran (apppal dishanirdesh)**:
- - *dishanirdesh 2.1 (pradarshan)*: sunishchit karen ki apple samikshak log in kar sakte hain (manya nakli cradential pradan karen) aur app placeholder data ya network timeout ke bina chalta hai।
- - *dishanirdesh 4.8 (apppal ke saath sign in karen)*: yadi app tritiy-paksh samajik login (Google, facebook) lagu karta hai, to aapko samkaksh vikalp ke roop mein apple sin-in bhi pradan karna hoga।
- - *dishanirdesh 5.1.1 (gopniyata)*: `app:agent`5 (jaise, sthan, camra) mein sabhi prusthbhoomi anumatiyon ko spasht roop se ghoshit karen aur upyog pradhikaran sheeghra sandeshon ka anurodh karen।
-- **ple store anupalan (Google nitiyan)**:
- - *lakshya sdk update*: android ko haal ke android api sanskaranon ko lakshit karne ke liye apps ki aavashyakta hoti hai। sunishchit karen ki `app:agent`6 aur `app:agent`7 salana update kiye jaen।
- - *Google Play biling*: bhugtan suvidhaon ko bahari bhugtan portal ke bajay Google billing API ke madhyam se root kiya jana chahiye।
+- **Fastlane Match**: एक Git-आधारित code signing strategy लागू करता है:
+  - सभी developer और distribution certificates, उनके matching provisioning profiles के साथ, एक symmetric passphrase का उपयोग करके encrypt किए जाते हैं और एक private Git repository में संग्रहीत (store) किए जाते हैं।
+  - local या CI/CD builds के दौरान, Fastlane इस repository को clone करता है, certificates को decrypt करता है, और उन्हें सीधे build machine पर install करता है।
+  - यह provisioning profile mismatches, duplicate certificate creations को रोकता है, और सुनिश्चित करता है कि Xcode builds सफलतापूर्वक निष्पादित (execute) हों।
 
 ---
 
-## 💼 dhara 5: mnc grahak paridrishya aur takniki lead vyavahar prashnottar
-*⏱️ 3 minute padhen*
+### 2. Over-the-Air (OTA) Updates Rollback & Versioning Strategy
 
-ye paridrishya paramarsh kshamtaon, netritva kaushal aur vastushilp nirnay lene ka mulyankan karte han।
+OTA updates (CodePush / Expo Updates) App Store reviews के बिना तत्काल JS-only updates की अनुमति देते हैं। हालांकि, यदि उन्हें ठीक से प्रबंधित नहीं किया जाता है, तो वे महत्वपूर्ण runtime crash जोखिम पैदा करते हैं।
 
-### 1. grahak-samna sanchar aur pratikriyasheel mool sifarishen
-
-#### sakshatkar paridrishya:
-> *"ek banking grahak puchta hai ki kya unhen react native ka upyog karke apne maujuda mool ios aur android retail banking app ka punarnirmaan karna chahiye। aap unhen kaise salah denge?"*
-
-- **rannitik pratikriya**:
- "main grahak ko ek vastunishth nirnay matrix ke madhyam se margdarshan karunga, unke utpad rodmap, engineering sansadhanon aur pradarshan avashyaktaon ka mulyankan karunga:
- - **react native ki anushansa kab karen**:
- - yadi utpad roadmap ui interaction, form, statement, data chart aur gatisheel samagri update par kendrit hai।
- - yadi grahak vyavasayik tark (typascript) ko ekikrit karke aur ek hi team mein style karke, feature release chakra ko kam karke rakhrakhav laagat ko kam karna chahta hai।
- - **nativ (swift/kotlin) ko kab banae rakhen**:
- - yadi app nimn-stariy hardware ya os sevaon (jaise, nirantar prusthbhoomi sthan tracking, prusthbhoomi audio procesing) ko ekikrit karta hai।
- - yadi app ko ucch-pradarshan gpu-bound processing (udaharan ke liye, real-time face detection model, ar/vr scaning) ki aavashyakta hai।
- - **hibrid anushansa (anterpriz ve)**:
-- bade bankon ke liye, main **hibrid ranniti** ki anushansa karta hun। mukhya suraksha dhanche, device token panjikaran aur biometrics ke liye deshi containeron ko banae rakhen। feature screen (jaise, rin, puraskar) dene ke liye deshi gatividhiyon/niyantrakon ke andar react native ko ekikrit karen। yah deshi suraksha ko cross-platform release gati ke saath jodti hai।"
+- **OTA Versioning के सुनहरे नियम (Gold Rules)**:
+  - **Target Binary Locking**: प्रत्येक OTA bundle को विशिष्ट native binary versions (जैसे, `~1.4.0` या `1.4.x`) को target करना चाहिए। यदि native dependencies को update किया जाता है, तो open ranges को कभी target न करें।
+  - **Native Signatures की जांच**: यदि कोई update native module binding को बदलता है (जैसे कि एक नई native library जोड़ना), तो आपको binary version बढ़ाना (bump) होगा। यदि कोई पुराना binary नया JS bundle डाउनलोड करता है, तो missing native selectors के कारण यह तुरंत crash हो जाएगा।
+- **Rollback Orchestration**:
+  - app start health को track करने के लिए updater client को configure करें। यदि OTA bundle लागू करने के 2 मिनट के भीतर ऐप दो बार crash हो जाता है, तो updater client को तुरंत stable local embedded bundle पर वापस (roll back) आ जाना चाहिए।
 
 ---
 
-### 2. pariyojna anumaan aur sansadhan yojana ke tarike
+### 3. App Store Rejections & Play Store Compliance को संभालना
 
-#### sakshatkar paridrishya:
-> *"aap legacy architecture se react native mein ek jatil project migration ka anumaan kaise lagate han?"*
+Tech Leads को release में देरी से बचने के लिए compliance आवश्यकताओं को नेविगेट करना चाहिए:
 
-- **rannitik pratikriya**:
- "main sateekta sunishchit karne aur ekikaran jokhimon ko dhyan mein rakhne ke liye bahu-stariy anumaan drishtikon lagu karta hun:
- - **1. fichar decomposition**: application ko modular ghatakon mein vibhajit karen: core infrastructure (auth, netwarking, surakshit storage), sajha ui kit ghatak, fichar screen aur native integration (kastm brij, push notification)।
- - **2. teen-bindu anuman**: pratyek ghatak ke liye, main ganana karne ke liye varishth team ke sadasyon se input ekatra karta hun:
- - $O$: ashavadi avdhi
- - $P$: nirashawadi avdhi
- - $M$: sarvadhik sambhavit avdhi
- - apekshit avadhi ki ganana karen: $E = \frac{O + 4M + P}{6}$
- - **3. jokhim bafar aavantan**: vishesh roop se mool module ekikaran, pipeline setup banane aur tritiy-paksh sdk upgrade ke liye 20-30% bafar joden।
- - **4. sprint yojana ekikaran**: 2-saptah ke sprint ke liye feature ghatakon ko map karen, veg, parikshan chakra aur store anumodan kataron ka lekha-jokha rakhen।"
+- **App Store Rejections (Apple Guidelines)**:
+  - *Guideline 2.1 (Performance)*: सुनिश्चित करें कि Apple reviewers log in कर सकें (वैध mock credentials प्रदान करें) और ऐप बिना placeholder data या network timeouts के चले।
+  - *Guideline 4.8 (Sign in with Apple)*: यदि ऐप third-party social logins (Google, Facebook) लागू करता है, तो आपको Apple Sign-In को एक समान विकल्प के रूप में प्रदान **करना होगा**।
+  - *Guideline 5.1.1 (Privacy)*: `Info.plist` में सभी background permissions को स्पष्ट रूप से घोषित (declare) करें (जैसे, Location, Camera) और usage authorization prompt messages का अनुरोध करें।
+- **Play Store Compliance (Google Policies)**:
+  - *Target SDK Updates*: Android को हाल के Android API versions को target करने के लिए ऐप्स की आवश्यकता होती है। सुनिश्चित करें कि `compileSdkVersion` और `targetSdkVersion` सालाना updated हों।
+  - *Google Play Billing*: भुगतान वाली सुविधाओं (paid features) को external payment portals के बजाय Google Billing APIs के माध्यम से रूट किया जाना चाहिए।
 
 ---
 
-### 3. takniki rin aur team pradarshan badhaon ka samadhan
+## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
+*⏱️ 3 min read*
 
-#### sakshatkar paridrishya:
-> *"aap ek aisi team mein shamil hote hain jahan react native app ka nirman behad dheema hai, developers lagatar merge vivadon ke baare mein shikayat karte han, aur utpadan mein crash dar badh rahi hai। aapki pehli 30-divasiy karya yojana kya hai?"*
+ये scenarios consulting capabilities, leadership skills, और architectural decision-making का मूल्यांकन करते हैं।
 
-- **rannitik pratikriya**:
- "mere pehle 30 din ek sanrachit mulyankan aur sudharatmak dhanche ka palan karenge:
- - **din 1-10: audit aur diagnostics**:
- - sheersh 3 crash karnon ki pehchan karne ke liye sentry mein crash log ka vishleshan karen।
- - vartmaan ci/cd pipeline badhaon ka audit karen (udaharan ke liye, pahchanen ki node module punarsthapan ke dauran sthaniya cashing aksham kyon hai)।
- - sanskaran bemel ka pata lagane ke liye nirbharta graph map karen।
- - **din 11-20: tatkal upchar (tvarit jeet)**:
- - commit hone se pehle linting aur type-chek lagu karne ke liye sakht git hook (haski, lint-staged) lagu karen, jisse compyler tutna kam ho jaye।
- - utpadan ko sthir karne ke liye sheersh 3 crash karnon ko theek karen।
- - nirman samay ko 40-50% tak kam karne ke liye ci/cd runner par nirbharta cash nirdeshikaon ko configar karen।
- - **din 21-30: dirghkaalik vastukala setup**:
- - code parivartanon ko alag karne, git merge vivadon ko kam karne ke liye feechar-aadharit folder sangathan ka parichay den।
- - yadi kai teamein sajha package par kaam kar rahi hain to ek monorepo ranneeti sthapit karen।
- - spasht dastavezikaran, sanrekhan dishanirdesh taiyar karen, aur swachalit code samiksha niyamon ko paribhashit karen।"
+### 1. Client-Facing Communication & React Native Recommendations
+
+#### Interview Scenario:
+> *"एक banking client पूछता है कि क्या उन्हें अपने मौजूदा native iOS और Android retail banking apps को React Native का उपयोग करके फिर से बनाना चाहिए। आप उन्हें क्या सलाह देते हैं?"*
+
+- **Strategic Response**:
+  "मैं client को उनके product roadmap, engineering resources, और performance आवश्यकताओं का मूल्यांकन करते हुए एक Objective Decision Matrix के माध्यम से गाइड करूँगा:
+  - **React Native की सिफारिश कब करें**:
+    - यदि product roadmap UI interactions, forms, statements, data charts, और dynamic content updates पर केंद्रित है।
+    - यदि client shared typescript code और styling के माध्यम से single team के साथ maintenance लागत को कम करना चाहता है, जिससे feature release cycles कम हो जाते हैं।
+  - **Native (Swift/Kotlin) को कब बनाए रखें**:
+    - यदि ऐप low-level hardware या OS services को एकीकृत करता है (जैसे, continuous background location tracking, background audio processing)।
+    - यदि ऐप को उच्च-प्रदर्शन GPU-bound processing की आवश्यकता होती है (जैसे, real-time face detection models, AR/VR scanning)।
+  - **Hybrid Recommendation (The Enterprise Way)**:
+    - बड़े बैंकों के लिए, मैं एक **Hybrid Strategy** की सिफारिश करता हूँ। core security frameworks, device token registrations, और biometrics के लिए native containers को बनाए रखें। feature screens (जैसे, loans, rewards) वितरित करने के लिए native Activities/Controllers के अंदर React Native को एकीकृत करें। यह native security को cross-platform release speeds के साथ जोड़ता है।"
+
+---
+
+### 2. Project Estimation & Resource Planning Methods
+
+#### Interview Scenario:
+> *"आप legacy architectures से React Native में एक जटिल project migration का अनुमान (estimate) कैसे लगाते हैं?"*
+
+- **Strategic Response**:
+  "मैं सटीकता सुनिश्चित करने और integration जोखिमों को ध्यान में रखने के लिए एक multi-tier estimation दृष्टिकोण लागू करता हूँ:
+  - **1. Feature Decomposition**: application को modular components में विभाजित करें: Core Infrastructure (Auth, Networking, Secure Storage), Shared UI Kit components, Feature Screens, और Native Integrations (Custom bridges, push notifications)।
+  - **2. Three-Point Estimation**: प्रत्येक component के लिए, मैं senior team members से इनपुट एकत्र करता हूँ ताकि गणना की जा सके:
+    - $O$: Optimistic duration
+    - $P$: Pessimistic duration
+    - $M$: Most Likely duration
+    - Expected duration की गणना इस formula से करें: $E = \frac{O + 4M + P}{6}$
+  - **3. Risk Buffer Allocation**: native module integration, build pipeline setups, और third-party SDK upgrades के लिए विशेष रूप से 20-30% का buffer जोड़ें।
+  - **4. Sprint Planning Integration**: velocity, testing cycles, और store approval queues को ध्यान में रखते हुए, feature components को 2-week sprints में map करें।"
+
+---
+
+### 3. Technical Debt और Team Performance Bottlenecks को हल करना
+
+#### Interview Scenario:
+> *"आप एक ऐसी team में शामिल होते हैं जहाँ React Native app build बेहद धीमा है, developers लगातार merge conflicts की शिकायत करते हैं, और production में crash rates बढ़ रहे हैं। आपकी पहली 30 दिनों की कार्य योजना (action plan) क्या होगी?"*
+
+- **Strategic Response**:
+  "मेरी पहली 30 दिन एक संरचित (structured) मूल्यांकन और सुधार ढांचे का पालन करेंगे:
+  - **Days 1–10: Audit and Diagnostics**:
+    - top 3 crash कारणों की पहचान करने के लिए Sentry में crash logs का विश्लेषण करें।
+    - वर्तमान CI/CD pipeline bottlenecks का audit करें (जैसे, पहचानें कि node module restorations के दौरान local caching क्यों अक्षम है)।
+    - version mismatches का पता लगाने के लिए dependency graphs का नक्शा बनाएं।
+  - **Days 11–20: Immediate Remediations (Quick Wins)**:
+    - commits होने से पहले linting और type-checks को लागू करने के लिए सख्त Git hooks (Husky, lint-staged) पेश करें, जिससे compiler breakages कम होते हैं।
+    - production को स्थिर करने के लिए top 3 crash कारणों को ठीक करें।
+    - build times को 40-50% तक कम करने के लिए CI/CD runners पर dependency cache directories configure करें।
+  - **Days 21–30: Long-Term Architecture Setup**:
+    - code changes को अलग करने के लिए feature-based folder organization शुरू करें, जिससे git merge conflicts न्यूनतम हो जाते हैं।
+    - यदि कई teams shared packages पर काम कर रही हैं, तो एक monorepo strategy स्थापित करें।
+    - स्पष्ट documentation, alignment guidelines तैयार करें, और automated code review rules को परिभाषित करें।"

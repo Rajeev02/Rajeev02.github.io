@@ -1,996 +1,772 @@
-<!-- INDEX_START --> 
-<details>
- <summary>📖<b>samagri taalika (vistar karne ke liye click karen)</b></summary> 
+प्रोटेक्टHTML0 
+ प्रोटेक्टएचटीएमएल1 <summary> 📖 <b> सामग्री तालिका (विस्तार करने के लिए क्लिक करें) </b> </summary> -प्रोटेक्टलिंक0 
+ -प्रोटेक्टलिंक1 
+ - प्रोटेक्टलिंक2 
+ -प्रोटेक्टलिंक3 
+ -प्रोटेक्टलिंक4 
+ -प्रोटेक्टलिंक5 
+ -प्रोटेक्टलिंक6 
+-प्रोटेक्टलिंक7 
+ -प्रोटेक्टलिंक8 
+ -प्रोटेक्टलिंक9 
+ -प्रोटेक्टलिंक10 
+ - प्रोटेक्टलिंक11 
+- प्रोटेक्टलिंक12 
+ -प्रोटेक्टलिंक13 
+ -प्रोटेक्टलिंक14 
+ - प्रोटेक्टलिंक15 
+ - प्रोटेक्टलिंक16 
+ - प्रोटेक्टलिंक17 
+ - प्रोटेक्टलिंक18 
+ - प्रोटेक्टलिंक19 
+ - प्रोटेक्टलिंक20 
+ - प्रोटेक्टलिंक21 
+- प्रोटेक्टलिंक22 
+ - प्रोटेक्टलिंक23 
+ - प्रोटेक्टलिंक24 
+ - प्रोटेक्टलिंक25 
+- प्रोटेक्टलिंक26 
+ - प्रोटेक्टलिंक27 
+ - प्रोटेक्टलिंक28 
+ - प्रोटेक्टलिंक29 
+- प्रोटेक्टलिंक30 
+ -प्रोटेक्टलिंक31 
+ -प्रोटेक्टलिंक32 
+ -प्रोटेक्टलिंक33 
+ -प्रोटेक्टलिंक34 
+ -प्रोटेक्टलिंक35 
+ - प्रोटेक्टलिंक36 
+ -प्रोटेक्टलिंक37 
+ - प्रोटेक्टलिंक38 
+- प्रोटेक्टलिंक39 
+ -प्रोटेक्टलिंक40 
+ - प्रोटेक्टलिंक41 
+ -प्रोटेक्टलिंक42 
+ -प्रोटेक्टलिंक43 
+ -प्रोटेक्टलिंक44 
+- प्रोटेक्टलिंक45 
+ - प्रोटेक्टलिंक46 
+ -प्रोटेक्टलिंक47 
+ - प्रोटेक्टलिंक48 
+ - प्रोटेक्टलिंक49 
+ - प्रोटेक्टलिंक50 
+-प्रोटेक्टलिंक51 
+ -प्रोटेक्टलिंक52 
+ -प्रोटेक्टलिंक53 
+ -प्रोटेक्टलिंक54 
+- प्रोटेक्टलिंक55 
+ - प्रोटेक्टलिंक56 
+ - प्रोटेक्टलिंक57 
+ - प्रोटेक्टलिंक58 
+ - प्रोटेक्टलिंक59 
+-प्रोटेक्टलिंक60 
+ -प्रोटेक्टलिंक61 
+ -प्रोटेक्टलिंक62 
+ -प्रोटेक्टलिंक63 
+ - प्रोटेक्टलिंक64 
+ - प्रोटेक्टलिंक65 
+ - प्रोटेक्टलिंक66 
+-प्रोटेक्टलिंक67 
+ - प्रोटेक्टलिंक68 
+ - प्रोटेक्टलिंक69 
+ - प्रोटेक्टलिंक70 
+- प्रोटेक्टलिंक71 
+ - प्रोटेक्टलिंक72 
+ - प्रोटेक्टलिंक73 
+ - प्रोटेक्टलिंक74 
+ - प्रोटेक्टलिंक75 
+- प्रोटेक्टलिंक76 
+ -प्रोटेक्टलिंक77 
+ - प्रोटेक्टलिंक78 
+ - प्रोटेक्टलिंक79 
+- प्रोटेक्टलिंक80 
+ -प्रोटेक्टलिंक81 
+ - प्रोटेक्टलिंक82 
+- प्रोटेक्टलिंक83 
+ - प्रोटेक्टलिंक84 
+ - प्रोटेक्टलिंक85 
+ - प्रोटेक्टलिंक86 
+- प्रोटेक्टलिंक87 
+ - प्रोटेक्टलिंक88 
+ - प्रोटेक्टलिंक89 
+ - प्रोटेक्टलिंक90 
+- प्रोटेक्टलिंक91 
+ - प्रोटेक्टलिंक92 
+ -प्रोटेक्टलिंक93 
+ - प्रोटेक्टलिंक94 
+ -प्रोटेक्टलिंक95 
+ प्रोटेक्टHTML6 
+ प्रोटेक्टएचटीएमएल7 
 
--[🏗️ dhara 1: core architecture (virasat banaam nai vastukala)](#section-1-core-architecture-legacy-vs-new-architecture)
- -[1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)
- -[2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)
- -[javascript interface (jsi)](#javascript-interface-jsi)
- -[torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)
- -[fabric rendering engine](#fabric-rendering-engine)
- -[kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)
--[🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)
- -[1. yoga layout engine](#1-yoga-layout-engine)
- -[2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)0 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)1 
-- [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)2 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)3 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)4 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)5 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)6 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)7 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)8 
- - [1. ligacy bridge vastukala](#1-the-legacy-bridge-architecture)9 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)0 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)1 
-- [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)2 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)3 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)4 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)5 
-- [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)6 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)7 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)8 
- - [2. nai vastukala (jsi, torbomodul, fabrik)](#2-the-new-architecture-jsi-turbomodules-fabric)9 
-- [javascript interface (jsi)](#javascript-interface-jsi)0 
- - [javascript interface (jsi)](#javascript-interface-jsi)1 
- - [javascript interface (jsi)](#javascript-interface-jsi)2 
- - [javascript interface (jsi)](#javascript-interface-jsi)3 
- - [javascript interface (jsi)](#javascript-interface-jsi)4 
- - [javascript interface (jsi)](#javascript-interface-jsi)5 
- - [javascript interface (jsi)](#javascript-interface-jsi)6 
- - [javascript interface (jsi)](#javascript-interface-jsi)7 
- - [javascript interface (jsi)](#javascript-interface-jsi)8 
-- [javascript interface (jsi)](#javascript-interface-jsi)9 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)0 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)1 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)2 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)3 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)4 
-- [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)5 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)6 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)7 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)8 
- - [torbomodul (mul module punarjanm)](#turbomodules-native-modules-reborn)9 
- - [fabric rendering engine](#fabric-rendering-engine)0 
-- [fabric rendering engine](#fabric-rendering-engine)1 
- - [fabric rendering engine](#fabric-rendering-engine)2 
- - [fabric rendering engine](#fabric-rendering-engine)3 
- - [fabric rendering engine](#fabric-rendering-engine)4 
-- [fabric rendering engine](#fabric-rendering-engine)5 
- - [fabric rendering engine](#fabric-rendering-engine)6 
- - [fabric rendering engine](#fabric-rendering-engine)7 
- - [fabric rendering engine](#fabric-rendering-engine)8 
- - [fabric rendering engine](#fabric-rendering-engine)9 
-- [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)0 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)1 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)2 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)3 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)4 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)5 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)6 
-- [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)7 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)8 
- - [kodzen (prakar-suraksha garanti)](#codegen-type-safety-guarantee)9 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)0 
-- [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)1 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)2 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)3 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)4 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)5 
-- [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)6 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)7 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)8 
- - [🎨 dhara 2: leyout, flexbox aur styling (yog injan)](#section-2-layout-flexbox-styling-yoga-engine)9 
-- [1. yoga layout engine](#1-yoga-layout-engine)0 
- - [1. yoga layout engine](#1-yoga-layout-engine)1 
- - [1. yoga layout engine](#1-yoga-layout-engine)2 
-- [1. yoga layout engine](#1-yoga-layout-engine)3 
- - [1. yoga layout engine](#1-yoga-layout-engine)4 
- - [1. yoga layout engine](#1-yoga-layout-engine)5 
- - [1. yoga layout engine](#1-yoga-layout-engine)6 
-- [1. yoga layout engine](#1-yoga-layout-engine)7 
- - [1. yoga layout engine](#1-yoga-layout-engine)8 
- - [1. yoga layout engine](#1-yoga-layout-engine)9 
- - [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)0 
-- [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)1 
- - [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)2 
- - [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)3 
- - [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)4 
- - [2. react native banaam web mein flexbox vyavahar antar](#2-flexbox-behavior-differences-in-react-native-vs-web)5 
-</details>
-<!-- INDEX_END -->
+## 🏗️ धारा 1: कोर आर्किटेक्चर (विरासत बनाम नया आर्किटेक्चर)
+*⏱️ 2 मिनट पढ़ें* React Native का रनटाइम वातावरण पूरी तरह से वास्तुशिल्प पुनर्लेखन से गुजर चुका है। वरिष्ठ स्तर की इंजीनियरिंग गहराई दिखाने के लिए, आपको पुराने JSON Bridge मॉडल की तुलना आधुनिक JSI -आधारित नए आर्किटेक्चर से करनी होगी।
 
-## 🏗️ dhara 1: core architecture (virasat banaam naya arkitectur)
-*⏱️ 2 minute padhen*
+### 1. द लिगेसी प्रोटेक्टटरम3 आर्किटेक्चर
+ऐतिहासिक रूप से, React Native तीन मुख्य धागों पर निर्भर था:
+- **जावास्क्रिप्ट थ्रेड**: संकलित जेएस/टीएस एप्लिकेशन कोड (रिएक्ट घटक, व्यावसायिक तर्क) निष्पादित करता है।
+- **नेटिव UI थ्रेड (मुख्य थ्रेड)**: नेटिव OS रेंडरिंग ( Android व्यू, iOS UIKit), लेआउट और उपयोगकर्ता इंटरैक्शन को संभालता है।
+- **शैडो थ्रेड**: नेटिव थ्रेड में भेजने से पहले Yoga इंजन का उपयोग करके Flexbox लेआउट आयामों की गणना करता है।
 
-react native ka runtime vatavaran puri tarah se vastushilp punarlekhan se gujra hai। varishth star ki engineering gahrai dikhane ke liye, aapko purane JSON bridge model ki tulna aadhunik JSI-aadharit new architecture se karni hogi।
-
-### 1. ligacy bridge vastukala
-aitihasik roop se, react native teen mukhya dhaagon par nirbhar tha:
-- **javascript thred**: sankalit js/ts application code (react ghatak, vyavasayik tark) nishpadit karta hai।
-- **nativ ui thread (mukhya thred)**: native os rendering (android vyu, ios uikit), layout aur upyogkarta interaction ko sambhalta hai।
-- **shaido thred**: native thread mein bhejne se pehle yog engine ka upyog karke flexbox layout aayamon ki ganana karta hai।
-
-**d botlnek**: js thread aur native thread ke beech sanchar **d brij** dwara niyantrit kiya jata tha। 
-- jab bhi data ya ui kriyaen paraton ke beech se gujarti han, to unhen JSON strings mein krambaddh kiya jata hai, pul par atulyakalik roop se bheja jata hai, aur dusri taraf decerieliz kiya jata hai।
-- is atulyakalik, batch-aadharit krambaddhta ne tivra suchi scroling, isharon, mool animation aur input satyapan jaise ucch-aavritti interaction ke liye gambhir pradarshan badhayen paida kin। yadi pul par pani bhar gaya tha, to ui thread peeche rah gaya, jisse drishya haklana aur frame girna shuru ho gaya।
+**द बॉटलनेक**: JS थ्रेड और नेटिव थ्रेड के बीच Bridge 0 **The Bridge 1 ** द्वारा शासित था। 
+- जब भी डेटा या Bridge 2 Bridge 3 परतों के बीच से गुजरता है, तो उन्हें JSON स्ट्रिंग्स में क्रमबद्ध करना पड़ता है, Bridge 4 पर एसिंक्रोनस रूप से भेजा जाता है, और दूसरी तरफ डीसेरिएलाइज़ किया जाता है।
+- इस अतुल्यकालिक, बैच-आधारित क्रमबद्धता ने तीव्र सूची स्क्रॉलिंग, इशारों, मूल एनिमेशन और इनपुट सत्यापन जैसे उच्च-आवृत्ति इंटरैक्शन के लिए गंभीर प्रदर्शन बाधाएं पैदा कीं। यदि Bridge 5 में बाढ़ आ गई, तो Bridge 6 थ्रेड पिछड़ गया, जिससे दृश्य हकलाना और फ्रेम गिरना शुरू हो गया।
 
 ---
 
-### 2. nai vastukala (jsi, torbomodul, fabrik)
-naya architecture acinkrones JSON bridge ko puri tarah se hata deta hai, ise direct memory binding se badal deta hai।
+### 2. नई वास्तुकला (प्रोटेक्टटरएम17, प्रोटेक्टटरएम18, प्रोटेक्टटरएम19)
+नया आर्किटेक्चर एसिंक्रोनस JSON JSI 0 को पूरी तरह से हटा देता है, इसे डायरेक्ट मेमोरी बाइंडिंग से बदल देता है।
 
-#### javascript interface (jsi)
-- **jsi** ek halki si++ abstraction parat hai jo javascript engine (harmis) ko deshi si++ objects ko host karne ke liye sidhe sandarbh rakhne ki anumati deti hai।
-- javascript JSON krambaddhta ya thread jumping ke bina, mool vastuon par sidhe samkalik roop se vidhiyon ko lagu kar sakta hai। yah ek ekikrit nishpaadan sandarbh ko saksham banata hai jahan js aur native sath-sath chalte han।
+#### जावास्क्रिप्ट इंटरफ़ेस ( JSI 1)
+- ** JSI 2 ** एक हल्की C++ एब्स्ट्रैक्शन परत है जो जावास्क्रिप्ट इंजन ( JSI 3) को मूल C++ ऑब्जेक्ट को होस्ट करने के लिए सीधे संदर्भ रखने की अनुमति देती है।
+- जावास्क्रिप्ट JSON क्रमबद्धता या थ्रेड जंपिंग के बिना, मूल वस्तुओं पर सीधे समकालिक रूप से विधियों को लागू कर सकता है। यह एक एकीकृत निष्पादन संदर्भ को सक्षम बनाता है जहां जेएस और नेटिव साथ-साथ चलते हैं।
 
-#### turbo module (mul module punarjanm)
-- legacy model men, sabhi mool module (udaharan ke liye, camra, blutooth, storage) ko app startup par utsukta se prarambh kiya gaya tha, bhale hi upyogkarta ne un tak pahunch banai ho ya nahin। yah phoola hua app launch ka samay hai।
-- **TurboModules** deshi pustakaalayon ko aalsi-lod karne ke liye JSI ka labh uthata hai। unhen keval tabhi prarambh kiya jata hai aur memory mein load kiya jata hai jab spasht roop se javascript code dwara lagu kiya jata hai, jisse app startup vilambta kafi kam ho jaati hai।
+#### JSI 4 (मूल मॉड्यूल पुनर्जन्म)
+- लीगेसी मॉडल में, सभी मूल मॉड्यूल (उदाहरण के लिए, कैमरा, ब्लूटूथ, स्टोरेज) को ऐप स्टार्टअप पर उत्सुकता से प्रारंभ किया गया था, भले ही उपयोगकर्ता ने उन तक पहुंच बनाई हो या नहीं। यह फूला हुआ ऐप लॉन्च का समय है।
+- ** JSI 5 ** देशी पुस्तकालयों को आलसी-लोड करने के लिए JSI 6 का लाभ उठाएं। उन्हें केवल तभी प्रारंभ किया जाता है और मेमोरी में लोड किया जाता है जब स्पष्ट रूप से जावास्क्रिप्ट कोड द्वारा लागू किया जाता है, जिससे ऐप स्टार्टअप विलंबता काफी कम हो जाती है।
 
-#### fabric rendering engine
-- fabric samvarti rendering engine hai jo purane UIManager ko pratisthapit karta hai।
-- fabric C++ ke andar UI layout parivartanon ki ganana karta hai aur unhen sidhe mool OS layout thread mein bhejta hai। kyonki jsi synchronous access ki anumati deta hai, fabric mukhya thread par ui mutation ko turant nishpadit kar sakta hai, layout jump aur flikaring ko khatm kar sakta hai (udaharan ke liye, teji se scroll drishyon ke dauran)।
-- fabric react 18 samvarti suvidhaon (jaise badlav aur update prathmikta) ka samarthan karta hai।
+#### JSI 7 रेंडरिंग इंजन
+- JSI 8 समवर्ती रेंडरिंग इंजन है जो पुराने UIManager को प्रतिस्थापित करता है।
+- JSI 9 C++ के अंदर Bridge 0 लेआउट परिवर्तनों की गणना करता है और उन्हें सीधे मूल OS लेआउट थ्रेड पर भेजता है। क्योंकि Bridge 1 सिंक्रोनस एक्सेस की अनुमति देता है, Bridge 2 मुख्य थ्रेड पर Bridge 3 म्यूटेशन को तुरंत निष्पादित कर सकता है, लेआउट जंप और फ़्लिकरिंग को समाप्त कर सकता है (उदाहरण के लिए, तेजी से स्क्रॉल दृश्यों के दौरान)।
+- Bridge 4 रिएक्ट 18 समवर्ती सुविधाओं (जैसे बदलाव और अपडेट प्राथमिकता) का समर्थन करता है।
 
-#### kodjan (prakar-suraksha garanti)
-- kodzen ek bild-time compyler tool hai jo aapke typescript interface (jo javascript aur mool module ke beech anubandh ko paribhashit karta hai) ko padhta hai aur swachalit roop se sambandhit si ++ binding code utpann karta hai।
-- yadi koi developer javascript se ek amanya prakar ke parameter ko paas karne ka prayas karta hai (udaharan ke liye, ek mool function ke liye ek string ke bajay ek sarni paas karna), to build ci pipeline mein turant vifal ho jata hai। yah javascript-mul seema ke paar runtime prakar-suraksha ki guarantee deta hai।
-
----
-
-## 🎨 dhara 2: leyout, flexbox aur styling (yog injan)
-*⏱️ 3 minute padhen*
-
-### 1. yog layout injan
-react native HTML/CSS par sankalit nahin hota hai। iske bajay, yah ek custom C++ layout engine **yog** ko ambed karta hai jo flexbox niyamon ke ek sabset ko mool android aur ios view layout mein anuvadit karta hai।
-
-### 2. react native banaam web mein flexbox vyavahar antar
-jabki yog web flexbox ko pratibimbit karta hai, vahan mahatvapurn defolt configuration antar han:
-- **`flexDirection`default se`column`**: web par div default`row`par। react native men, flex container`column`par defolt hote han।
-- **koi ikai maan nahin**: aayam aur margin ko android par **ghanatv-swatantra pixel (dp)** ya ios par **point (pt)** ka pratinidhitva karne wale kacche number ke roop mein nirdisht kiya jata hai। aap`%`(vishisht stylesheet niyamon ko chhodkar),`vh`,`vw`, ya`em`ka upyog nahin kar sakte।
-- **`boxSizing`ko `flexDirection`0 par lock kar diya gaya hai **: sabhi layout paiding aur border sahit chaudai aur unchai ki ganana karte han।
-- ** `flexDirection`1 vyakhya**: web par, `flexDirection`2 ekadhik parameter (badhna, sikudna, aadhar) sweekar karta hai। react native men, `flexDirection`3 ek ekal sankhya hai। `flexDirection`4 ka arth hai "sabhi uplabdh sthan bharen"।
-
-### 3. aksh sanrekhan gid
-sanrekhan vyavahar puri tarah se mata-pita ke `flexDirection`5 par nirbhar karta hai:
-
-```text
-If flexDirection = 'column' (Default)
- - Main Axis: Vertical ↕️ (Controlled by justifyContent)
- - Cross Axis: Horizontal ↔️ (Controlled by alignItems)
-
-If flexDirection = 'row'
- - Main Axis: Horizontal ↔️ (Controlled by justifyContent)
- - Cross Axis: Vertical ↕️ (Controlled by alignItems)
-```
-
-- ** `flexDirection`6 **: vastuon ko **mukhya aksh** ke saath sanrekhit karta hai (vikalp: `flexDirection`7, `flexDirection`8, `flexDirection`9, `column`0, `column`1, `column`2)।
-- ** `column`3 **: item ko **cross exis** ke saath sanrekhit karta hai (vikalp: `column`4, `column`5, `column`6, `column`7 [defolt])।
-
-### 4. animation aur ui cloning (animated banaam reanimated)
-react native mein animation ki ganana do alg-alg runtime thread par ki jaati hai:
-- **ligacy animated api**: animation configuration sankalit karta hai। yadi `column`8 set hai, to layout visheshtaon (jaise apardarshita aur parivertan) ko krambaddh kiya jata hai aur 60 fps par mool ui thread par puri tarah se chalane ke liye bridge ke paar ek baar bheja jata hai। halanki, gair-leyout parivartan (jaise chaudai, unchai aur marjin) mool driver ka upyog nahin kar sakte hain aur unhen singal-threded js mukhya thread par chalna chahiye, jisse bridge ya thread santript hone par frame ruk jata hai।
-- **leyoutanimation**: native os thread ko agle render chakra par sampurna ui layout ke liye swachalit roop se tranzition (fed, skel) ki purv-ganna karne ka nirdesh deta hai। atyadhik tez, lekin isme sookshm interactive niyantran (udaharan ke liye pan gesture tracking) ka abhav hai।
-- **react native reanimated**: puri tarah se acinkrones animation engine jo js thread ki adchan ko khatm karta hai। yah **varkalets** ka upyog karta hai - C++ mein sankalit chhote javascript function jo sidhe ui/render thread par dwitiyak js engine sandarbh ke andar nishpadit hote han। reanimated maan (`column`9) ko sidhe ui thread par 60/120 fps par sanshodhit kiya jata hai, jo shunya bridge round-trip ke saath gesture handler (jaise, swiping kard, zuming vyu) ke saath sahajta se judta hai।
-- **high-fidelity ui cloning**: jatil layout (jaise vitt tracking chart, swip-tu-riveel suchiyan, ya drag-and-drop suchiyan) ko dohrane ke liye, developers purna sthiti wale tatvon ko nest karke, gesture input (`row`0) ko bind karke, aur mulyon ko prakshepit karne ke liye reanimated ke `row`1 ko lagu karke drishyon ki sanrachna karte hain (udaharan ke liye swipe doori ko rotation kon par map karna aur container apardarshita)।
+#### Bridge 5 (प्रकार-सुरक्षा गारंटी)
+- Bridge 6 एक बिल्ड-टाइम कंपाइलर Bridge 7 है जो आपके टाइपस्क्रिप्ट इंटरफेस (जो जावास्क्रिप्ट और मूल मॉड्यूल के बीच अनुबंध को परिभाषित करता है) को पढ़ता है और स्वचालित रूप से संबंधित C++ बाइंडिंग कोड उत्पन्न करता है।
+- यदि कोई Bridge 8 जावास्क्रिप्ट से एक अमान्य प्रकार के पैरामीटर को पास करने का प्रयास करता है (उदाहरण के लिए, एक मूल फ़ंक्शन के लिए एक स्ट्रिंग के बजाय एक सरणी पास करना), तो बिल्ड सीआई पाइपलाइन में तुरंत विफल हो जाता है। यह जावास्क्रिप्ट-मूल सीमा के पार रनटाइम प्रकार-सुरक्षा की गारंटी देता है।
 
 ---
 
-## 🔌 dhara 3: custom native module aur expo cng
-*⏱️ 4 minute padhen*
+## 🎨 धारा 2: लेआउट, Bridge 9 और स्टाइलिंग ( React Native 0 इंजन)
+*⏱️ 3 मिनट पढ़ें*
 
-### 1. custom native module lagu karna
-jab kisi suvidha ke liye deshi os hardware interface, prusthbhoomi sevaon, ya malikana deshi sdk (jaise, bhugtan gatewe, surakshit enclev) ki aavashyakta hoti hai, to aap javascript aur native domain ko patne ke liye ek custom deshi module likhte han।
+### 1. React Native 1 लेआउट इंजन React Native 2 HTML/CSS पर संकलित नहीं होता है। इसके बजाय, यह ** React Native 3 ** को एम्बेड करता है, एक कस्टम C++ लेआउट इंजन जो React Native 4 नियमों के एक सबसेट को मूल React Native 5 और React Native 6 व्यू लेआउट में अनुवादित करता है।
 
-#### mool android module (kotlin/java)
-1. **modul ko paribhashit karen**: `row`2 (java) ka vistar karte hue ya kotlin mein interface lagu karte hue ek class banaen।
-2. **register vidhiyan**: vidhiyon ko javascript mein ujagar karne ke liye `row`3 ke saath anotet karen।
-3. **package panjikrit karen**: module ko map karne ke liye `row`4 lagu karen।
-4. **js ko niryat**: js mein `row`5 ke madhyam se pahunch।
+### 2. React Native 7 व्यवहार React Native 8 बनाम वेब में अंतर
+जबकि React Native 9 वेब UI 0 को प्रतिबिंबित करता है, महत्वपूर्ण डिफ़ॉल्ट कॉन्फ़िगरेशन अंतर हैं:
+- ** `flexDirection` डिफ़ॉल्ट रूप से `column` पर सेट होता है **: वेब पर, divs डिफ़ॉल्ट रूप से `row` पर सेट होता है। UI 1 में, फ्लेक्स कंटेनर डिफ़ॉल्ट रूप से `column` होते हैं।
+- **कोई इकाई मान नहीं**: आयाम और मार्जिन को UI 2 पर **घनत्व-स्वतंत्र पिक्सेल (dp)** या UI 3 पर **अंक (pt)** का प्रतिनिधित्व करने वाली कच्ची संख्याओं के रूप में निर्दिष्ट किया जाता है। आप `%` (विशिष्ट स्टाइलशीट नियमों को छोड़कर), `vh` , `vw` , या `em` का उपयोग नहीं कर सकते।
+- ** `boxSizing` को `flexDirection` 0 पर लॉक किया गया है **: सभी लेआउट पैडिंग और बॉर्डर सहित चौड़ाई और ऊंचाई की गणना करते हैं।
+- ** `flexDirection` 1 व्याख्या**: वेब पर, `flexDirection` 2 कई मापदंडों को स्वीकार करता है (बढ़ना, सिकुड़ना, आधार)। UI 4 में, `flexDirection` 3 एक एकल संख्या है। `flexDirection` 4 का अर्थ है "सभी उपलब्ध स्थान भरें"।
 
-#### native ios module (swift/objectiv-si)
-1. **objectiv-si brij**: ios brising ke liye objectiv-si rapper ki aavashyakta hoti hai kyonki react native runtime si++ mein likha jata hai।
-2. **swift mein paribhashit karen**: `row`6 ka upvarg banakar aur `row`7 ka upyog karke ek swift class banaen।
-3. **niryat macroz**: swift hastakshar panjikrit karne ke liye `row`8 aur `row`9 par call karke ek objectiv-si file banaen।
+### 3. अक्ष संरेखण गाइड
+संरेखण व्यवहार पूरी तरह से माता-पिता के `flexDirection` 5 पर निर्भर करता है:
 
-#### mool ghatnaon ka preshan (atulyakalik coll)
-nativ se js tak data ko acinkrones roop se stream karne ke liye (udaharan ke liye, nirantar gps nirdeshank ya network connectivity sthiti update), aap manak collback ka upyog nahin karte han। iske bajay, aap iska upyog karke mool event update bhejte han:
-- **android**: `column`041 ka upyog kar 
-- **ios**: `column`2 ko upvargit karna aur `column`3 par call karna 
+ प्रोटेक्टकोडब्लॉक0 
 
-### 2. expo continuous native generation (cng)
-aadhunik expo pariyojnaon men, developers `column`4 aur `column`5 mool nirdeshikaon ko manual roop se sampadit nahin karte han। iske bajay, ve unhen nirmit kalakritiyon ke roop mein maante hain jo gatisheel roop se utpann hoti han।
-- ** `column`6 ** `column`7 mein project configuration ko padhta hai aur turant swachh deshi nirdeshika utpann karta hai।
-- **expo config plugins**: mool settings ko configar karne ke liye (jaise `column`8 ko sanshodhit karna, anumatiyan panjikrit karna, ya custom cocopods settings jodna), aap ek javascript setup file likhte hain jise config plugin kaha jata hai। pribild ke dauran, expo aapke prathmik code repository ko 100% sarvbhaumik aur folder rahit rakhte hue, mool sanshodhanon ko programetic roop se inject karne ke liye is plugin ko chalata hai।
+- **प्रोटेक्टिनलाइन16**: आइटम को **मुख्य अक्ष** के साथ संरेखित करता है (विकल्प: प्रोटेक्टइनलाइन17, प्रोटेक्टइनलाइन18, प्रोटेक्टइनलाइन19, प्रोटेक्टइनलाइन20, प्रोटेक्टइनलाइन21, प्रोटेक्टइनलाइन22)।
+- ** `column` 3 **: आइटम को **क्रॉस एक्सिस** के साथ संरेखित करता है (विकल्प: `column` 4, `column` 5, `column` 6, `column` 7 [डिफ़ॉल्ट])।
 
-### 3. mool anuprayog jivanchakra aur brising yantriki
-memori, prusthbhoomi karyon aur mool module ko surakshit roop se prabandhit karne ke liye react native aur host os jivanchakra ke beech baatcheet ko samajhna mahatvapurn hai।
-
-#### android gatividhi aur fragment jivanchakra
-- **android gatividhi** ekal drishya screen sandarbh hai। iska jivanchakra hai:
- - `column`9 : aarambhik setup (Vite/React Native yahan ReactActivity ko load karta hai)।
- - `%`0 : gatividhi drishyaman ho jaati hai।
- - `%`1 : gatividhi agrbhumi mein pravesh karti hai, baatcheet shuru karti hai।
- - `%`2 : anya gatividhi focus leti hai (udaharan ke liye, split-scrin ya anumati chetavni)।
- - `%`3 : gatividhi ab drishyaman nahin hai (prishthbhumi mein chipi hui)।
- - `%`4 : gatividhi os dwara samapt ho gai hai ya samapt ho gai hai।
-- **android fragment** kisi gatividhi ke modular hisse ka pratinidhitva karta hai। iska jivanchakra drishya-vishisht charan jodta hai:
- - `%`5 ➡️ `%`6 ➡️ `%`7 (XML layout fulata hai) ➡️ `%`8 ➡️ `%`9 ➡️ `vh`0 ➡️ `vh`1 ➡️ `vh`2 ➡️ `vh`3 ➡️ `vh`4 ➡️ `vh`5 .
-- **react native huk**: android ke ** `vh`6 ** ko lagu karne wale custom module `vh`7, `vh`8, aur `vh`9 ke liye collback panjikrit karte han। jab gatividhi ruk ​​jati hai to yah mool code ko sansadhan (jaise camera purvavlokan ya gps polling band karna) jaari karne deta hai।
-
-#### ios application aur viewcontroler jivanchakra
-- **ios app jivanchakra** `vw`0 rajyon dwara shasit hai:
-- `vw`1 : app agrbhumi mein chal raha hai aur event prapt kar raha hai।
- - `vw`2 : app parivartit ho raha hai ya badhit hai (udaharan ke liye, incoming phone coll, adhisuchna panel swip)।
- - `vw`3 : app chhipa hua hai lekin prusthbhoomi code nishpadit kar raha hai (udaharan ke liye audio chalana, sthan update)।
- - `vw`4 : app prusthbhoomi mein hai aur karnel dwara nishpaadan rok diya gaya hai।
-- **UIViewController jivanchakra** mool drishya vriksh ko niyantrit karta hai:
- - `vw`5 : view container memory mein load ho gaya hai।
- - `vw`6/`vw`7: screen par drishya paint hone se pahle/bad mein trigar।
- - `vw`8 / `vw`9 : drishya kharij hone se pahle/bad mein trigar।
-- **react native huk**: custom iOS module background animation ya connection pool ko rokne ke liye `em`0 event (jaise `em`1 aur `em`2) ki sadasyata lete han।
-
-#### pratikriyasheel mool pustakalaya nirman pravah
-pun: prayojya npm library ke roop mein deshi module aur js binding ko package karne ke liye:
-1. **nirdeshika prarambh karen**: ek machan utpann karne ke liye `em`3 chalaen।
-2. **package sanrchna**:
- - `em`4 : isme `em`5, kotlin/java module srot filein aur reactpackage panjikaran shamil han।
- - `em`6 : isme objectiv-si/swift code aur cocopods ekikaran ke liye `em`7 file shamil hai।
- - `em`8: isme typascript/javascript api rapper shamil hain jo sarvajanik vidhi interface ko paribhashit karte han।
- - `em`9: `boxSizing`0 aur `boxSizing`1 par sahkarmi nirbharta ko configar karta hai।
+### 4. एनिमेशन और UI 5 क्लोनिंग (एनिमेटेड बनाम रीएनिमेटेड) UI 6 में एनिमेशन की गणना दो अलग-अलग रनटाइम थ्रेड पर की जाती है:
+- **लिगेसी एनिमेटेड एपीआई**: एनीमेशन कॉन्फ़िगरेशन संकलित करता है। यदि `column` 8 UI 7 है, तो लेआउट विशेषताओं (जैसे अपारदर्शिता और परिवर्तन) को क्रमबद्ध किया जाता है और 60 FPS पर मूल UI 9 थ्रेड पर पूरी तरह चलाने के लिए UI 8 पर एक बार भेजा जाता है। हालाँकि, गैर-लेआउट परिवर्तन (जैसे चौड़ाई, ऊंचाई और मार्जिन) मूल ड्राइवर का उपयोग नहीं कर सकते हैं और उन्हें सिंगल-थ्रेडेड जेएस मुख्य थ्रेड पर चलना चाहिए, जिससे Android 0 या थ्रेड संतृप्त होने पर फ्रेम रुक जाता है।
+- **लेआउटएनीमेशन**: नेटिव ओएस थ्रेड को अगले रेंडर चक्र पर संपूर्ण Android 1 लेआउट के लिए स्वचालित रूप से ट्रांज़िशन (फ़ेड, स्केल) की पूर्व-गणना करने का निर्देश देता है। अत्यधिक तेज़, लेकिन इसमें सूक्ष्म इंटरैक्टिव नियंत्रण (उदाहरण के लिए पैन जेस्चर ट्रैकिंग) का अभाव है।
+- ** Android 2 रीएनिमेटेड**: पूरी तरह से एसिंक्रोनस एनिमेशन इंजन जो जेएस थ्रेड की अड़चन को दूर करता है। It utilizes **Worklets**—small JavaScript functions compiled to C++ that execute directly inside a secondary JS engine context on the Android 3 /Render thread. रीएनिमेटेड मान ( `column` 9) को सीधे Android 4 थ्रेड पर 60/120 FPS पर संशोधित किया जाता है, जो शून्य Android 5 राउंड-ट्रिप के साथ जेस्चर हैंडलर (जैसे, कार्ड स्वाइप करना, ज़ूमिंग व्यू) के साथ सहजता से जुड़ता है।
+- **हाई-फिडेलिटी Android 6 क्लोनिंग**: जटिल लेआउट (जैसे वित्त ट्रैकिंग चार्ट, स्वाइप-टू-रिवील सूचियां, या ड्रैग-एंड-ड्रॉप सूचियां) को दोहराने के लिए, Android 7 पूर्ण रूप से स्थित तत्वों को नेस्ट करके, जेस्चर इनपुट बाइंडिंग ( `row` 0) द्वारा संरचना दृश्य, और मूल्यों को प्रक्षेपित करने के लिए Reanimated के `row` 1 को लागू करना (जैसे मैपिंग)। रोटेशन कोण और कंटेनर अपारदर्शिता के लिए दूरी स्वाइप करें)।
 
 ---
 
-## 📦 dhara 4: app sankalan, metro aur bable
-*⏱️ 2 minute padhen*
+## 🔌 धारा 3: कस्टम नेटिव मॉड्यूल और Android 8 Android 9 
+*⏱️ 4 मिनट पढ़ें*
 
-sthaniy developer laptop se sankalit utpadan app tak react native code ka jivanchakra ek sanrachit sankalan pipeline ka anusaran karta hai।
+### 1. कस्टम नेटिव मॉड्यूल लागू करना
+जब किसी सुविधा के लिए नेटिव OS हार्डवेयर इंटरफेस, पृष्ठभूमि सेवाओं, या मालिकाना नेटिव iOS 0 (जैसे, भुगतान गेटवे, सुरक्षित एन्क्लेव) की आवश्यकता होती है, तो आप जावास्क्रिप्ट और नेटिव डोमेन को iOS 1 में एक कस्टम नेटिव मॉड्यूल लिखते हैं।
 
-```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```
+#### नेटिव iOS 2 मॉड्यूल (कोटलिन/जावा)
+1. **मॉड्यूल को परिभाषित करें**: `row` 2 (जावा) का विस्तार करने या कोटलिन में इंटरफ़ेस लागू करने वाला एक वर्ग बनाएं।
+2. **पंजीकरण विधियां**: विधियों को जावास्क्रिप्ट में उजागर करने के लिए `row` 3 के साथ एनोटेट करें।
+3. **पैकेज पंजीकृत करें**: मॉड्यूल को मैप करने के लिए `row` 4 लागू करें।
+4. **जेएस को निर्यात**: जेएस में `row` 5 के माध्यम से पहुंच।
 
-### 1. bebel (transpilation charan)
-bebel js/ts filon ko pars karta hai aur code ko abstract sintax tree (ast) mein parivartit karta hai। iske baad yah preset lagu karta hai (udaharan ke liye, `boxSizing`2 , `boxSizing`3 ):
-- strip typescript anotation।
-- JSX tag ko manak `boxSizing`4 functions mein badlen।
-- aadhunik ES6+ JS suvidhaon ko backward-sangat ES5 code mein tranpil karen।
+#### नेटिव iOS 3 मॉड्यूल (स्विफ्ट/ऑब्जेक्टिव-सी)
+1. **ऑब्जेक्टिव-C iOS 4 **: iOS 5 ब्रिजिंग के लिए ऑब्जेक्टिव-C रैपर की आवश्यकता होती है क्योंकि iOS 6 रनटाइम C++ में लिखा गया है।
+2. **स्विफ्ट में परिभाषित करें**: `row` 6 का उपवर्गीकरण करके और `row` 7 का उपयोग करके एक स्विफ्ट क्लास बनाएं।
+3. **निर्यात मैक्रोज़**: स्विफ्ट हस्ताक्षर पंजीकृत करने के लिए `row` 8 और `row` 9 को कॉल करते हुए एक ऑब्जेक्टिव-सी फ़ाइल बनाएं।
 
-### 2. metro bandler (packaging charan)
-metro react native ke liye samarpit bandler hai। yah teen alg-alg charanon mein chalta hai:
-1. **resolution**: metro `boxSizing`7 se shuru hone wale sabhi `boxSizing`5 aur `boxSizing`6 statement ko scan karke ek nirbharta graph banata hai।
-2. **parivertan**: vyaktigat srot filon ko tranpil karne ke liye bable ko call karta hai।
-3. **crambaddhta**: sabhi rupantarit srot filon ko ek ekal, vishal javascript bandal file (udaharan ke liye, `boxSizing`8) mein sanyojit karta hai।
+#### मूल घटनाओं का प्रेषण (अतुल्यकालिक कॉल)
+नेटिव से जेएस तक डेटा को एसिंक्रोनस रूप से स्ट्रीम करने के लिए (उदाहरण के लिए, निरंतर जीपीएस निर्देशांक या नेटवर्क कनेक्टिविटी स्थिति अपडेट), आप मानक कॉलबैक का उपयोग नहीं करते हैं। इसके बजाय, आप इसका उपयोग करके मूल ईवेंट अपडेट भेजते हैं:
+- ** iOS 7 **: `column` 0 `column` 1 का उपयोग कर 
+- ** iOS 8 **: `column` 2 को उपवर्गित करना और `column` 3 को कॉल करना 
 
-### 3. harmis sankalan (utpadan charan)
-relies build ke liye, react native **harmis** ka upyog karta hai, jo mobile upkaranon ke liye anukulit ek halka js engine hai।
-- runtime par kacche javascript text ko download karne aur pars karne ke bajay (jo cpu ki khapat karta hai aur app launch ko dheema kar deta hai), harmis build charan ke dauran javascript bandal ko anukulit **bitakod** mein purv-sankalit karta hai।
-- sankalit apk (android) ya ipa (ios) is `boxSizing`9 binary file ke saath aata hai, jise harmis engine launch hone par turant nishpadit karta hai, jiske parinamswaroop startup samay tej hota hai, memory upyog kam hota hai aur bandal aakaar chhota hota hai।
+### 2. iOS 9 सतत मूल पीढ़ी ( Flexbox 0)
+आधुनिक Flexbox 1 परियोजनाओं में, Flexbox 2 `column` 4 और `column` 5 मूल निर्देशिकाओं को मैन्युअल रूप से संपादित नहीं करता है। इसके बजाय, वे उन्हें निर्मित कलाकृतियों के रूप में मानते हैं जो गतिशील रूप से उत्पन्न होती हैं।
+- ** `column` 6 ** `column` 7 में प्रोजेक्ट कॉन्फ़िगरेशन को पढ़ता है और तुरंत स्वच्छ देशी निर्देशिका उत्पन्न करता है।
+- ** Flexbox 3 Flexbox 4 **: मूल सेटिंग्स को कॉन्फ़िगर करने के लिए (जैसे `column` 8 को संशोधित करना, अनुमतियाँ पंजीकृत करना, या कस्टम CocoaPods सेटिंग्स जोड़ना), आप कॉन्फिग प्लगइन नामक एक जावास्क्रिप्ट सेटअप फ़ाइल लिखते हैं। प्रीबिल्ड के दौरान, Flexbox 5 आपके प्राथमिक कोड रिपॉजिटरी को 100% सार्वभौमिक और फ़ोल्डर रहित रखते हुए, मूल संशोधनों को प्रोग्रामेटिक रूप से इंजेक्ट करने के लिए इस प्लगइन को चलाता है।
+
+### 3. मूल अनुप्रयोग जीवनचक्र और ब्रिजिंग यांत्रिकी
+मेमोरी, पृष्ठभूमि कार्यों और मूल मॉड्यूल को सुरक्षित रूप से प्रबंधित करने के लिए Flexbox 6 और होस्ट OS जीवनचक्र के बीच की बातचीत को समझना महत्वपूर्ण है।
+
+#### Flexbox 7 गतिविधि और खंड जीवनचक्र
+- ** Flexbox 8 गतिविधि** एकल दृश्य स्क्रीन संदर्भ है। इसका जीवनचक्र है:
+ - `column` 9 : प्रारंभिक सेटअप ( Flexbox 9 / Yoga 0 यहां ReactActivity को लोड करता है)।
+ - `%` 0 : गतिविधि दृश्यमान हो जाती है।
+ - `%` 1 : गतिविधि अग्रभूमि में प्रवेश करती है, अंतःक्रिया शुरू करती है।
+ - `%` 2 : अन्य गतिविधि फोकस लेती है (उदाहरण के लिए, स्प्लिट-स्क्रीन या अनुमति चेतावनी)।
+ - `%` 3 : गतिविधि अब दृश्यमान नहीं है (पृष्ठभूमि में छिपी हुई)।
+ - `%` 4 : गतिविधि OS द्वारा समाप्त हो जाती है या समाप्त हो जाती है।
+- ** Yoga 1 फ्रैगमेंट** किसी गतिविधि के मॉड्यूलर हिस्से का प्रतिनिधित्व करता है। इसका जीवनचक्र दृश्य-विशिष्ट चरण जोड़ता है:
+ - `%` 5 ➡️ `%` 6 ➡️ `%` 7 (XML लेआउट को फुलाता है) ➡️ `%` 8 ➡️ `%` 9 ➡️ `vh` 0 ➡️ `vh` 1 ➡️ प्रोटेक्टिनलाइन62 ➡️ प्रोटेक्टिनलाइन63 ➡️ प्रोटेक्टिनलाइन64 ➡️ प्रोटेक्टिनलाइन65।
+- ** Yoga 2 हुक**: Yoga 3 के ** `vh` 6 ** को लागू करने वाले कस्टम मॉड्यूल `vh` 7 , `vh` 8 , और `vh` 9 के लिए कॉलबैक पंजीकृत करते हैं। जब गतिविधि रुक ​​जाती है तो यह मूल कोड को संसाधन (जैसे कैमरा पूर्वावलोकन या जीपीएस पोलिंग बंद करना) जारी करने देता है।
+
+#### Yoga 4 एप्लिकेशन और व्यूकंट्रोलर जीवनचक्र
+- ** Yoga 5 ऐप जीवनचक्र** `vw` 0 राज्यों द्वारा शासित होता है:
+- `vw` 1 : ऐप अग्रभूमि में चल रहा है और ईवेंट प्राप्त कर रहा है।
+ - `vw` 2 : ऐप परिवर्तित हो रहा है या बाधित है (उदाहरण के लिए, इनकमिंग फ़ोन कॉल, नोटिफिकेशन पैनल स्वाइप)।
+ - `vw` 3: ऐप छिपा हुआ है लेकिन बैकग्राउंड कोड निष्पादित कर रहा है (उदाहरण के लिए ऑडियो प्ले करना, लोकेशन अपडेट)।
+ - `vw` 4 : ऐप पृष्ठभूमि में है और कर्नेल द्वारा निष्पादन रोक दिया गया है।
+- **UIViewController जीवनचक्र** मूल दृश्य वृक्ष को नियंत्रित करता है:
+ - `vw` 5 : व्यू कंटेनर मेमोरी में लोड किया गया है।
+ - `vw` 6 / `vw` 7 : स्क्रीन पर दृश्य पेंट होने से पहले/बाद में ट्रिगर।
+ - `vw` 8 / `vw` 9 : दृश्य खारिज होने से पहले/बाद में ट्रिगर।
+- ** Yoga 6 हुक**: कस्टम Yoga 7 मॉड्यूल बैकग्राउंड एनिमेशन या कनेक्शन पूल को रोकने के लिए `em` 0 इवेंट (जैसे `em` 1 और `em` 2) की सदस्यता लेते हैं।
+
+#### Yoga 8 लाइब्रेरी निर्माण प्रवाह
+पुन: प्रयोज्य एनपीएम लाइब्रेरी के रूप में देशी मॉड्यूल और जेएस बाइंडिंग को पैकेज करने के लिए:
+1. **निर्देशिका प्रारंभ करें**: एक मचान उत्पन्न करने के लिए `em` 3 चलाएँ।
+2. **पैकेज संरचना**:
+ - `em` 4: इसमें `em` 5, कोटलिन/जावा मॉड्यूल स्रोत फ़ाइलें और रिएक्टपैकेज पंजीकरण शामिल हैं।
+ - `em` 6: इसमें ऑब्जेक्टिव-सी/स्विफ्ट कोड और कोकोपोड्स एकीकरण के लिए `em` 7 फ़ाइल शामिल है।
+ - `em` 8: इसमें टाइपस्क्रिप्ट/जावास्क्रिप्ट एपीआई रैपर शामिल हैं जो सार्वजनिक विधि इंटरफेस को परिभाषित करते हैं।
+ - `em` 9: `boxSizing` 0 और `boxSizing` 1 पर सहकर्मी निर्भरता को कॉन्फ़िगर करता है।
 
 ---
 
-## ⚡ dhara 5: suchi anukulan aur memory profiling
-*⏱️ 2 minute padhen*
+## 📦 धारा 4: ऐप संकलन, Yoga 9 और Bridge 00 
+*⏱️ 2 मिनट पढ़ें*
 
-### 1. vartualized suchi anukulan
-bade paimane par dataset pradarshit karna (udaharan ke liye, fintake app mein 50,000 lenden ka khata) manak scrolavyu ke andar prastut kiye jaane par app turant crash ho jaega। scrolavyu sabhi itemon ko turant mount karta hai, jisse mool memory bhar jaati hai।
-suchi sanrachnaon ko anukulit karne ke liye, aap vartualized layout configar karte hain ( `flexDirection`00 ya Shopify `flexDirection`01 ):
+स्थानीय Bridge 02 लैपटॉप से संकलित उत्पादन ऐप तक Bridge 01 कोड का जीवनचक्र एक संरचित संकलन पाइपलाइन का अनुसरण करता है।
 
-- **pankti punarchakran**: Shopify `flexDirection`02 sale container drishyon ko punarchakrit karta hai kyonki ve off-scrin scroll karte han, mool drishyon ko nasht karne aur banane ke bajay keval antarnihit data ki adla-badli karte han।
-- ** `flexDirection`03 **: prarambhik mount ko tej karne ke liye prarambh mein itemon ka keval ek chhota sa upsamuh prastut karta hai।
-- ** `flexDirection`04 **: off-scrin rendering seema (fold ke upar/niche render kiye gaye screen ke layak item ki sankhya) ko pratibandhit karta hai। ise chhota rakhne se (udaharan ke liye, 5) smriti dabav kam ho jata hai।
-- ** `flexDirection`05 **: deshi memory bafars se off-scrin drishyon ko gatisheel roop se unload karta hai।
-- ** `flexDirection`06 **: yadi pankti ki unchai nishchit hai, to is sampatti ko paas karne se layout engine ko pratyek pankti ke sateek offset nirdeshank bataye jaate han। yah cpu ko drishyon ko gatisheel roop se mapne se puri tarah se bachata hai।
+ प्रोटेक्टकोडब्लॉक1 
 
-### 2. memory leak auditing piplin
-memori leak tab hota hai jab js engine (harmis) apne **mark-and-sweep garbej kalection** chakra ke dauran mrit vastuon ko saaf nahin kar sakta kyonki majboot sandarbh sakriya kataar mein rahte han।
+### 1. Bridge 03 (ट्रांसपिलेशन चरण) Bridge 04 JS/TS फ़ाइलों को पार्स करता है और कोड को एक सार सिंटेक्स ट्री (AST) में परिवर्तित करता है। इसके बाद यह प्रीसेट लागू करता है (उदाहरण के लिए, `boxSizing` 2 , `boxSizing` 3 ):
+- स्ट्रिप टाइपस्क्रिप्ट एनोटेशन।
+- JSX टैग को मानक `boxSizing` 4 फ़ंक्शन में बदलें।
+- आधुनिक ES6+ JS सुविधाओं को बैकवर्ड-संगत ES5 कोड में ट्रांसपाइल करें।
 
-#### naidanik kadam:
-1. **heep snapshot tulna**: hemiz nishpaadan thread se jude Chrome DevTools kholen। snapshot ae ko screen init par aur snapshot bee ko kriyaen karne ke baad capture karen (jaise scroll karna ya page kholna/band karna)। un charon ka pata lagane ke liye aavantan antar ke aadhar par filter karen jinhen ekatra nahin kiya ja raha hai।
-2. **nativ memory profiling**: native memory heep dekhne ke liye **android studio profiler (memori)** ya **excod instruments (alocation/leak)** ka upyog karen। ek badhta hua, sidhi jaisa memory graph ingit karta hai ki drishya ya mool aavantan leak ho rahe han।
-3. **samanya apradhi**:
- - **lambi sadsyataein aur timer**: timer aur shrotaon ko `flexDirection`07 cleanup return mein spasht roop se saaf kiya jana chahiye।
- - **radd kiye gaye network anurodh collback**: yadi koi screen data prapt karti hai aur upyogkarta HTTP pratikriya wapas aane se pehle wapas aa jata hai, to js thread anmount kiye gaye ghatak par `flexDirection`08 ko lagu karne ka prayas karega, jiske parinamswaroop memory leak aur console chetavniyan hongi।
- - *roktham*: ghatakon ke anmount hone par fech event ko radd karne ke liye ** `flexDirection`09 ** ka upyog karke anurodhon ko phir se root karen, ya rajya update ko call karne se pehle mount sthiti ko rakshatmak roop se jaanchne ke liye ** `flexDirection`10 ** referi tracker dhvaj ko lagu karen।
- - **global reducs sandarbh**: vaishvik storon mein mrit sandarbhon ko banae rakhna।
+### 2. Bridge 05 बंडलर (पैकेजिंग चरण) Bridge 06, Bridge 08 के लिए समर्पित Bridge 07 है। यह तीन अलग-अलग चरणों में चलता है:
+1. **रिज़ॉल्यूशन**: Bridge 09 `boxSizing` 7 से शुरू होने वाले सभी `boxSizing` 5 और `boxSizing` 6 कथनों को स्कैन करके एक निर्भरता Bridge 10 का निर्माण करता है।
+2. **परिवर्तन**: व्यक्तिगत स्रोत फ़ाइलों को ट्रांसपाइल करने के लिए Bridge 11 पर कॉल करता है।
+3. **क्रमबद्धता**: सभी परिवर्तित स्रोत फ़ाइलों को एक एकल, विशाल जावास्क्रिप्ट बंडल फ़ाइल (उदाहरण के लिए, `boxSizing` 8) में संयोजित करता है।
+
+### 3. Bridge 12 संकलन (उत्पादन चरण)
+रिलीज़ बिल्ड के लिए, Bridge 13 ** Bridge 14 ** का उपयोग करता है, जो मोबाइल उपकरणों के लिए अनुकूलित एक हल्का JS इंजन है।
+- रनटाइम पर कच्चे जावास्क्रिप्ट टेक्स्ट को डाउनलोड करने और पार्स करने के बजाय (जो सीपीयू की खपत करता है और ऐप लॉन्च को धीमा कर देता है), Bridge 15 बिल्ड चरण के दौरान जावास्क्रिप्ट बंडल को अनुकूलित ** Bridge 16 ** में पूर्व-संकलित करता है।
+- संकलित APK ( Bridge 17) या IPA ( Bridge 18) इस `boxSizing` 9 बाइनरी फ़ाइल के साथ आता है, जिसे Bridge 19 इंजन लॉन्च होने पर तुरंत निष्पादित करता है, जिसके परिणामस्वरूप तेज़ स्टार्टअप समय, कम मेमोरी उपयोग और छोटे बंडल आकार होते हैं।
 
 ---
 
-## 🔒 dhara 6: engineering aur diagnostic workflow jaari karen
-*⏱️ 5 minute padhen*
+## ⚡ धारा 5: सूची अनुकूलन और मेमोरी प्रोफाइलिंग
+*⏱️ 2 मिनट पढ़ें*
 
-### 1. deep linking evam atribution (shakha sdk)
-dep link upyogkartaon ko sidhe app ke andar ek vishisht suvidha tak le jata hai (udaharan ke liye, `flexDirection`11)।
-- **vilambit deep linking**: yadi kisi upyogkarta ke paas app install nahin hai, to branch link par click karne se wah app store par redirect ho jata hai। ek baar install ho jaane par, shakha poore install ke dauran mool referral data ko barkarar rakhti hai। launch hone par, shakha sdk is data ko punah prapt karta hai aur ise app routing sthiti mein bhejta hai।
-- **rooting intigration**: shakha payload mapdandon ko `flexDirection`12 sthiti mein map kiya jana chahiye, yah jaanchte hue ki pramanikaran ki aavashyakta hai ya nahin (udaharan ke liye, yadi upyogkarta ko apne portfolio sheet par root karne se pehle Auth0/Cognito ke madhyam se log in karne ki aavashyakta hai)।
+### 1. वर्चुअलाइज्ड सूची अनुकूलन
+बड़े पैमाने पर डेटासेट प्रदर्शित करना (उदाहरण के लिए, फिनटेक ऐप में 50,000 लेनदेन का खाता) यदि मानक Bridge 21 के अंदर प्रस्तुत किया जाता है तो ऐप तुरंत Bridge 20 हो जाएगा। Bridge 22 सभी वस्तुओं को तुरंत माउंट करता है, जिससे मूल मेमोरी भर जाती है।
+सूची संरचनाओं को अनुकूलित करने के लिए, आप Bridge 23 लेआउट ( `flexDirection` 00 या Bridge 24 `flexDirection` 01) कॉन्फ़िगर करें:
 
-### 2. push suchnaen
-push suchnaon ke liye clint, server aur apn/fcm ke beech surakshit handshake ki aavashyakta hoti hai:
-1. app apple push notification service (apn) aur firbes cloud messaging (fcm) ke saath register hota hai।
-2. os ek advitiya **device tokan** pradan karta hai।
-3. app is token ko aapke backnd database par upload karta hai aur ise upyogkarta ke satra profile par map karta hai।
-4. adhisuchna bhejte samay, aapka backnd fcm/apn ke liye token yukt ek payload trigger karta hai, jo ise sidhe lakshya device par root karta hai।
+- **पंक्ति रीसाइक्लिंग**: Bridge 25 `flexDirection` 02 सेल कंटेनर दृश्यों को रीसायकल करता है क्योंकि वे ऑफ-स्क्रीन स्क्रॉल करते हैं, मूल दृश्यों को नष्ट करने और बनाने के बजाय केवल अंतर्निहित डेटा को स्वैप करते हैं।
+- ** `flexDirection` 03 **: प्रारंभिक माउंट को तेज करने के लिए प्रारंभ में आइटमों का केवल एक छोटा सा उपसमूह प्रस्तुत करता है।
+- ** `flexDirection` 04 **: ऑफ-स्क्रीन रेंडरिंग सीमा (फोल्ड के ऊपर/नीचे रेंडर किए गए स्क्रीन के लायक आइटम की संख्या) को प्रतिबंधित करता है। इसे छोटा रखने से (उदाहरण के लिए, 5) स्मृति दबाव कम हो जाता है।
+- ** `flexDirection` 05 **: देशी मेमोरी बफ़र्स से ऑफ-स्क्रीन दृश्यों को गतिशील रूप से अनलोड करता है।
+- ** `flexDirection` 06 **: यदि पंक्ति की ऊंचाई निश्चित है, तो इस प्रॉपर्टी को पास करने से लेआउट इंजन को प्रत्येक पंक्ति के सटीक ऑफसेट निर्देशांक बताए जाते हैं। यह सीपीयू को दृश्यों को गतिशील रूप से मापने से पूरी तरह से बचाता है।
 
-### 3. utpadan nidaan (santri + posthog)
-- **pratikatmakta**: release build ko chhota kiya jata hai, padhne yogya stack trace ko hexadecimal memory sthanon mein parivartit kiya jata hai। crash ka nidaan karne ke liye, aapki build pipeline ko un sthanon ko lin-cramankit srot code par wapas map karne ke liye **dSYM filen** (iOS) aur **ProGuard/Source Maps** (Android/JS) ko sentry par upload karna hoga।
-- **telemetri sahsambandh**: ek sajha satra pahchankarta ka upyog karke truti report (sentri) ke saath vyavahar vishleshan (posthog screen tap aur network vilambta log) ko joden। yah aapko utpadan crash ki or le jaane wali upyogkarta kriyaon ka sateek anukram dekhne ki anumati deta hai।
+### 2. मेमोरी लीक ऑडिटिंग पाइपलाइन
+मेमोरी Bridge 26 तब उत्पन्न होती है जब JS इंजन ( Bridge 27) अपने **मार्क-एंड-स्वीप गारबेज कलेक्शन** चक्र के दौरान मृत वस्तुओं को साफ नहीं कर सकता क्योंकि मजबूत संदर्भ सक्रिय कतार में रहते हैं।
 
-### 4. navigation jivanchakra (`flexDirection`13)
-- manak `flexDirection`14 ka upyog karne par screen punah focus hone par hook sakriya nahin honge।
-- data sink nishpadit karne ya screen pravishtiyon ko saf-saf tarike se trigger karne ke liye, ** `flexDirection`15 ** hook lagu karen। yah ek nevigater-vishisht jivanchakra niyantrak ke roop mein karya karta hai, code ko tabhi sakriya karta hai jab tab drishya focus prapt karta hai, aur jab screen focus kho deti hai to apne cleanup collback ko nishpadit karta hai।
-### 5. ci/cd pipeline aur mobile pariniyojan varkflo
-bild ko swachalit karna vishvasniya release sunishchit karta hai aur manual code hastakshar trutiyon ko rokta hai।
+#### नैदानिक कदम:
+1. **हीप स्नैपशॉट तुलना**: Bridge 28 निष्पादन थ्रेड से जुड़े Chrome DevTools खोलें। स्क्रीन इनिट पर स्नैपशॉट ए कैप्चर करें और Bridge 29 (जैसे स्क्रॉल करना या पेज खोलना/बंद करना) करने के बाद स्नैपशॉट बी कैप्चर करें। उन चरों का पता लगाने के लिए आवंटन अंतर के आधार पर फ़िल्टर करें जिन्हें एकत्र नहीं किया जा रहा है।
+2. **नेटिव मेमोरी प्रोफाइलिंग**: नेटिव मेमोरी Bridge 32 देखने के लिए ** Bridge 30 प्रोफाइलर (मेमोरी)** या ** Bridge 31 (आवंटन/लीक)** का उपयोग करें। एक उभरती हुई, सीढ़ी जैसी मेमोरी Bridge 33 इंगित करती है कि दृश्य या मूल आवंटन लीक हो रहे हैं।
+3. **सामान्य अपराधी**:
+ - **लंबी सदस्यताएं और टाइमर**: `flexDirection` 07 क्लीनअप रिटर्न में टाइमर और श्रोताओं को स्पष्ट रूप से साफ़ किया जाना चाहिए।
+ - **रद्द किए गए नेटवर्क अनुरोध कॉलबैक**: यदि कोई स्क्रीन डेटा प्राप्त करती है और उपयोगकर्ता HTTP प्रतिक्रिया वापस आने से पहले वापस आ जाता है, तो जेएस थ्रेड अनमाउंट किए गए घटक पर `flexDirection` 08 को लागू करने का प्रयास करेगा, जिसके परिणामस्वरूप Bridge 34 और कंसोल चेतावनियां होंगी।
+ - *रोकथाम*: घटकों के अनमाउंट होने पर फ़ेच ईवेंट को रद्द करने के लिए ** `flexDirection` 09 ** का उपयोग करके अनुरोधों को फिर से रूट करें, या राज्य अपडेट को कॉल करने से पहले माउंट स्थिति को रक्षात्मक रूप से जांचने के लिए ** `flexDirection` 10 ** रेफरी ट्रैकर ध्वज को लागू करें।
+ - **ग्लोबल Bridge 35 सन्दर्भ**: वैश्विक स्टोरों में मृत सन्दर्भों को बनाए रखना।
 
-```text
- [Git Commit] ➡️ Trigger CI (GitHub Actions)
- ⬇️
- [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
- ⬇️
- [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
- ⬇️
- [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
- ⬇️
- [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
-```
+---
 
-#### android signing aur relies
-- **kistor**: release apk/ab ko `flexDirection`16 pramanpatra file ka upyog karke criptografik roop se hastaksharit kiya jana chahiye।
-- **githab secrats**: kistor file bes64 encoded hai aur store password aur upnaam ke saath githab secrets mein sangrahit hai। ci runner app ko gatisheel roop se sign karne ke liye is file ko decode karta hai।
-- **ab praarup**: android app bandal praroop `flexDirection`17 ka upyog karke banaya gaya hai। yah kacchi sampattiyon aur binary filon ko ekatrit karta hai, jisse Google Play console ko vishisht upyogkarta upkaranon ke liye gatisheel roop se anukulit apk aakaar banane ki anumati milti hai।
+## 🔒 धारा 6: इंजीनियरिंग और डायग्नोस्टिक वर्कफ़्लो जारी करें
+*⏱️ 5 मिनट पढ़ें*
 
-#### ios code hastakshar aur milan
-- **pramanpatra aur provijaning**: ios build ke liye dynamic code signing certificate (davelopment ya distribution) aur vishisht app id aur device se jude provisioning profile ki aavashyakta hoti hai।
-- **fastlen match**: ek sajha passcode ke saath encrypted niji git repository ke andar sabhi pramanpatron aur pravdhan profile ko sangrahit karke ios code hastakshar ko swachalit karta hai। CI run ke dauran, `flexDirection`18 repository ko clone karta hai, filon ko dicript karta hai, aur unhen macOS runner par install karta hai, jisse signing bemel ko roka ja sakta hai।
-- **fastfil**: "len" wali script jo ios app (`flexDirection`19 ya `flexDirection`20) ko sankalit karti hai aur `flexDirection`21 package ko testflight (`flexDirection`22 ya `flexDirection`23) par submit karti hai।
+### 1. डीप लिंकिंग एवं एट्रिब्यूशन (ब्रांच Bridge 36)
+डीप लिंक उपयोगकर्ताओं को सीधे ऐप के अंदर एक विशिष्ट सुविधा तक ले जाता है (उदाहरण के लिए, `flexDirection` 11)।
+- **विलंबित डीप लिंकिंग**: यदि किसी उपयोगकर्ता के पास ऐप इंस्टॉल नहीं है, तो ब्रांच लिंक पर क्लिक करने से वह Bridge 37 पर रीडायरेक्ट हो जाता है। एक बार इंस्टाल हो जाने पर, शाखा पूरे इंस्टाल के दौरान मूल रेफरल डेटा को बरकरार रखती है। लॉन्च पर, शाखा Bridge 38 इस डेटा को पुनः प्राप्त करता है और इसे ऐप रूटिंग स्थिति में भेजता है।
+- **रूटिंग इंटीग्रेशन**: शाखा पेलोड मापदंडों को `flexDirection` 12 स्थिति में मैप किया जाना चाहिए, यह जांचते हुए कि प्रमाणीकरण की आवश्यकता है या नहीं (उदाहरण के लिए, यदि उपयोगकर्ता को अपने पोर्टफोलियो शीट पर रूट करने से पहले Auth0/Cognito के माध्यम से लॉग इन करने की आवश्यकता है)।
 
-### 6. telemetry aur analytics orkestration: firbes, sentry aur azur app insights
-utpadan-gred application sthirta, prayojyata aur nishpaadan pradarshan ko track karne ke liye bahu-stariy monitoring stack par nirbhar karte han।
-- **santri (crash aur error diagnostics)**: debugging aur runtime sthirta par sakhti se dhyan kendrit karta hai। yah dhyan mein na aaye apvadon, vaade aswikritiyon aur mool crash (android par jvm/si++, ios par objectiv-si/swift) ko pakadta hai। yah dsym aur srot manchitra pratikatmakta ke madhyam se padhne yogya stack trace ka punarnirmaan karta hai। sentry ko developer diagnostics ke liye anukulit kiya gaya hai।
-- **firbes (sagai aur parichalan telemetri)**:
- - **firbes analitics**: upyogkarta ke vyavahar pravah, screen drishya, rupantaran aur janasaankhikiya matrix ko track karta hai।
- - **firbes crashalitics**: track sentry ki tarah hi crash hote han, lekin Google/Android Play ecosystem ke saath majbuti se ekikrit hote han।
- - **firbes remote configaration**: e/bi parikshan aur sashart suvidha vitran ko saksham karte hue, over-d-air fichar flag aur maanon ko gatisheel roop se update karta hai।
-- **azur app insights (anterpriz performance moniter)**:
- - backnd api lenden log ke saath clint-sid telemetry ko sahasambandhit karne ke liye aksar microsoft samarthit enterprise architecture mein upyog kiya jata hai।
- - web anurodh vilambata, custom clint-sid event, ghatak rendering avadhi aur network vifalta dar ko track karta hai, jisse frontend aur backnd sevaon mein sajha `flexDirection`24 ka upyog karke and-tu-and trace sahasambandh ki anumati milti hai।
+### 2. प्रोटेक्टटर्म139 
+पुश सूचनाओं के लिए क्लाइंट, सर्वर और एपीएन/एफसीएम के बीच सुरक्षित हैंडशेक की आवश्यकता होती है:
+1. ऐप Apple Bridge 40 सेवा (APNs) और फायरबेस क्लाउड मैसेजिंग (FCM) के साथ पंजीकृत होता है।
+2. ओएस एक अद्वितीय **डिवाइस टोकन** प्रदान करता है।
+3. ऐप इस Bridge 41 को आपके बैकएंड डेटाबेस पर अपलोड करता है और इसे उपयोगकर्ता के सत्र प्रोफ़ाइल पर मैप करता है।
+4. अधिसूचना भेजते समय, आपका बैकएंड FCM/APNs के लिए Bridge 42 युक्त एक पेलोड को ट्रिगर करता है, जो इसे सीधे लक्ष्य डिवाइस पर रूट करता है।
 
-| upkaran | prathmik uddeshya | mukhya matrix | developer banaam utpad focus |
+### 3. उत्पादन निदान ( Bridge 43 + Bridge 44)
+- **प्रतीकात्मकता**: रिलीज़ बिल्ड को छोटा किया जाता है, पढ़ने योग्य Bridge 45 ट्रेस को हेक्साडेसिमल मेमोरी स्थानों में परिवर्तित किया जाता है। Bridge 46 का निदान करने के लिए, आपकी बिल्ड पाइपलाइन को ** Bridge 47 फ़ाइलें** ( Bridge 48 ) और ** Bridge 49 /Source Maps** ( Bridge 50 /JS) को Bridge 51 पर अपलोड करना होगा ताकि उन स्थानों को लाइन-क्रमांकित स्रोत कोड पर वापस मैप किया जा सके।
+- **टेलीमेट्री सहसंबंध**: एक साझा सत्र पहचानकर्ता का उपयोग करके त्रुटि रिपोर्ट ( Bridge 54) के साथ व्यवहारिक Bridge 52 ( Bridge 53 स्क्रीन टैप और नेटवर्क विलंबता लॉग) को जोड़ें। यह आपको Bridge 56 के उत्पादन तक ले जाने वाले उपयोगकर्ता Bridge 55 के सटीक अनुक्रम को देखने की अनुमति देता है।
+
+### 4. नेविगेशन जीवनचक्र ( `flexDirection` 13)
+- मानक `flexDirection` 14 Bridge 57 का उपयोग करने पर स्क्रीन पुनः फोकस होने पर सक्रिय नहीं होगी।
+- डेटा सिंक निष्पादित करने या स्क्रीन प्रविष्टियों को साफ़-साफ़ तरीके से ट्रिगर करने के लिए, ** `flexDirection` 15 ** Bridge 58 लागू करें। यह एक नेविगेटर-विशिष्ट जीवनचक्र नियंत्रक के रूप में कार्य करता है, कोड को तभी सक्रिय करता है जब Bridge 59 दृश्य फोकस प्राप्त करता है, और जब स्क्रीन फोकस खो देती है तो अपने क्लीनअप कॉलबैक को निष्पादित करता है।
+
+### 5. सीआई/सीडी पाइपलाइन और मोबाइल परिनियोजन वर्कफ़्लो
+बिल्ड को स्वचालित करना विश्वसनीय रिलीज़ सुनिश्चित करता है और मैन्युअल Bridge 60 त्रुटियों को रोकता है।
+
+ प्रोटेक्टकोडब्लॉक2 
+
+#### Bridge 61 हस्ताक्षर एवं विमोचन
+- ** Bridge 62 **: रिलीज़ एपीके/एएबी को `flexDirection` 16 प्रमाणपत्र फ़ाइल का उपयोग करके क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित किया जाना चाहिए।
+- **GitHub रहस्य**: Bridge 63 फ़ाइल बेस 64 एन्कोडेड है और स्टोर पासवर्ड और उपनाम के साथ GitHub रहस्यों में संग्रहीत है। सीआई रनर ऐप को गतिशील रूप से साइन करने के लिए इस फ़ाइल को डीकोड करता है।
+- **AAB प्रारूप**: Bridge 64 ऐप बंडल प्रारूप `flexDirection` 17 का उपयोग करके बनाया गया है। यह कच्ची संपत्तियों और बाइनरी फ़ाइलों को एकत्रित करता है, जिससे Bridge 65 कंसोल को विशिष्ट उपयोगकर्ता उपकरणों के लिए गतिशील रूप से अनुकूलित एपीके आकार बनाने की अनुमति मिलती है।
+
+#### प्रोटेक्टटरएम166 प्रोटेक्टटरएम167 और प्रोटेक्टटरएम168 
+- **प्रमाणपत्र और प्रावधान**: Bridge 69 बिल्ड के लिए विशिष्ट ऐप आईडी और उपकरणों से जुड़े गतिशील Bridge 70 प्रमाणपत्र (विकास या वितरण) और Bridge 71 की आवश्यकता होती है।
+- ** Bridge 72 Bridge 73 **: एक साझा पासकोड के साथ एन्क्रिप्टेड निजी Git रिपॉजिटरी के अंदर सभी प्रमाणपत्रों और Bridge 76 को संग्रहीत करके Bridge 74 Bridge 75 को स्वचालित करता है। सीआई रन के दौरान, `flexDirection` 18 रिपॉजिटरी को क्लोन करता है, फाइलों को डिक्रिप्ट करता है, और उन्हें Bridge 77 रनर पर इंस्टॉल करता है, जिससे साइनिंग बेमेल को रोका जा सकता है।
+- **फास्टफाइल**: "लेन" वाली स्क्रिप्ट जो Bridge 78 ऐप ( `flexDirection` 19 या `flexDirection` 20) को संकलित करती है और `flexDirection` 21 पैकेज को Bridge 79 ( `flexDirection` 22 या `flexDirection` 23) पर सबमिट करती है।
+
+### 6. टेलीमेट्री और एनालिटिक्स ऑर्केस्ट्रेशन: फायरबेस, Bridge 80 और Bridge 81 ऐप इनसाइट्स
+उत्पादन-ग्रेड एप्लिकेशन स्थिरता, प्रयोज्यता और निष्पादन प्रदर्शन को ट्रैक करने के लिए बहु-स्तरीय निगरानी Bridge 82 पर निर्भर करते हैं।
+- ** Bridge 83 (क्रैश एंड एरर डायग्नोस्टिक्स)**: डिबगिंग और रनटाइम स्थिरता पर सख्ती से ध्यान केंद्रित करता है। यह न देखे गए अपवादों, वादों की अस्वीकृतियों और मूल Bridge 84 ( Bridge 85 पर JVM/C++, Bridge 86 पर ऑब्जेक्टिव-सी/स्विफ्ट) को कैप्चर करता है। यह Bridge 88 और स्रोत मानचित्र प्रतीकीकरण के माध्यम से पढ़ने योग्य Bridge 87 निशानों का पुनर्निर्माण करता है। Bridge 89 को Bridge 90 डायग्नोस्टिक्स के लिए अनुकूलित किया गया है।
+- **फायरबेस (सगाई और परिचालन टेलीमेट्री)**:
+ - **फ़ायरबेस एनालिटिक्स**: उपयोगकर्ता के व्यवहार प्रवाह, स्क्रीन दृश्य, रूपांतरण और जनसांख्यिकीय मेट्रिक्स को ट्रैक करता है।
+ - **फायरबेस क्रैशलाइटिक्स**: Bridge 91 को Bridge 92 की तरह ही ट्रैक करता है, लेकिन यह Google/ Bridge 93 Play इकोसिस्टम के साथ मजबूती से एकीकृत है।
+ - **फ़ायरबेस रिमोट कॉन्फ़िगरेशन**: ए/बी परीक्षण और सशर्त सुविधा वितरण को सक्षम करते हुए, ओवर-द-एयर फ़ीचर फ़्लैग और मानों को गतिशील रूप से अपडेट करता है।
+- ** Bridge 94 ऐप इनसाइट्स (एंटरप्राइज़ परफॉर्मेंस मॉनिटर)**:
+ - बैकएंड एपीआई लेनदेन लॉग के साथ क्लाइंट-साइड Bridge 95 को सहसंबंधित करने के लिए अक्सर Microsoft समर्थित एंटरप्राइज़ आर्किटेक्चर में उपयोग किया जाता है।
+ - वेब अनुरोध विलंबता, कस्टम क्लाइंट-साइड ईवेंट, घटक रेंडरिंग अवधि और नेटवर्क विफलता दर को ट्रैक करता है, जिससे फ्रंटएंड और बैकएंड सेवाओं में साझा `flexDirection` 24 का उपयोग करके एंड-टू-एंड ट्रेस सहसंबंध की अनुमति मिलती है।
+
+| प्रोटेक्टटर्म196 | प्राथमिक उद्देश्य | मुख्य मेट्रिक्स | Bridge 97 बनाम उत्पाद फोकस |
 | :--- | :--- | :--- | :--- |
-| **santri** | real-time js aur native crash reporting aur pratikatmakta। | crash-mukt satra, bradcramb, stack tress। | atyadhik developer kendrit। |
-| **firbes** | vyavahar vishleshan, gatisheel vinyas, adhisuchna prabandhan। | screen drishya, event rupantran, sakriya upyogkarta। | atyadhik utpad/vipanan par dhyan kendrit। |
-| **azur app insights** | and-tu-and pradarshan anurekhan aur enterprise apm। | vilambata, nirbharta tracking, lenden sahsambandh। | parichalan/buniyadi dhanche par dhyan kendrit। |
+| **प्रोटेक्टर्म198** | वास्तविक समय जेएस और नेटिव Bridge 99 रिपोर्टिंग और प्रतीकात्मकता। | क्रैश-मुक्त सत्र, ब्रेडक्रंब, JSI 00 निशान। | अत्यधिक JSI 01 केंद्रित। |
+| **फ़ायरबेस** | व्यवहारिक JSI 02, गतिशील कॉन्फ़िगरेशन, अधिसूचना प्रबंधन। | स्क्रीन दृश्य, ईवेंट रूपांतरण, सक्रिय उपयोगकर्ता। | अत्यधिक उत्पाद/विपणन पर ध्यान केंद्रित। |
+| ** JSI 03 ऐप इनसाइट्स** | एंड-टू-एंड प्रदर्शन अनुरेखण और एंटरप्राइज़ एपीएम। | विलंबता, निर्भरता ट्रैकिंग, लेनदेन सहसंबंध। | परिचालन/बुनियादी ढांचे पर ध्यान केंद्रित। |
 
 ---
 
-## ⚛️ dhara 7: react architecture aur core injan
-*⏱️ 7 minute padhen*
+## ⚛️ धारा 7: रिएक्ट आर्किटेक्चर और कोर इंजन
+*⏱️ 7 मिनट पढ़ें*
 
-### 1. virtual dom, react fiber, sulah aur antar
-- **vartual dom**: vastavik dom/nativ ui layout tree ka ek halka, in-memori pratinidhitv। yah ek blu-print charan ke roop mein karya karta hai jahan mahange layout reflo se bachne ke liye update ki ganana pehle ki jaati hai।
-- **sulah**: sulah prakriya naye virtual DOM tree ki tulna pichle wale se karti hai। react 16+ men, yah **react fiber** dwara sanchalit hai।
-- **react fiber**: react ke mool samanjasya algorithm ka ek purna punarlekhan।
-- *fiber kyon*: legacy ricansilar ne ek synchronous coll-stack rikarson ka upyog kiya jise badhit nahin kiya ja saka। yadi rendering chakra mein bahut adhik samay lagta hai, to yah mukhya thread ko avruddh kar deta hai, jisse frame drop (jank) ho jata hai।
- - *yah kaise kaam karta hai*: fiber kaam ko "fiber" naamak chhoti ikaiyon mein todta hai aur unhen do charanon mein kramik roop se sansadhit karta hai:
- 1. **render charan**: atulyakalik aur badhit। react ek naya karya-pragati vriksh banata hai, parivartanon ki ganana karta hai, aur update ko prathmikta deta hai (udaharan ke liye, upyogkarta input ko prusthbhoomi suchi laane par prathmikta di jaati hai)।
- 2. **pratibaddh charan**: tulyakalik aur abadhit। antim layout update ko sidhe host platform (DOM ya native vyu) par likhta hai।
-- **di defing huristic ($O(N)$)**:
- - yadi tatvon ke alg-alg prakar hain (udaharan ke liye, `flexDirection`25 ko `flexDirection`26 mein badalna), to react purane ped ko tod deta hai aur kharonch se naya banata hai।
- - yadi tatv ek hi prakar ke han, to react keval parivartit props ya visheshtaon ki tulna aur update karta hai।
- - **suchiyon mein kunjiyan**: react render frame mein virtual DOM tatvon se milan karne ke liye kunjiyon ka upyog karta hai। advitiya kunjiyon ke bina, suchi adyatan (punah vyavasthit karna, sammilit karna, hatana) react ko sabhi mool drishya koshikaon ko scratch se phir se banane, sthiti ko nasht karne aur ui flikaring ka karan banne ke liye majboor karta hai।
+### 1. वर्चुअल डोम, रिएक्ट फाइबर, सुलह और अंतर
+- **वर्चुअल DOM**: वास्तविक DOM/नेटिव JSI 04 लेआउट ट्री का एक हल्का, इन-मेमोरी प्रतिनिधित्व। यह एक ब्लू-प्रिंट चरण के रूप में कार्य करता है जहां महंगे लेआउट रीफ़्लो से बचने के लिए अपडेट की गणना पहले की जाती है।
+- **सुलह**: सुलह प्रक्रिया नए वर्चुअल DOM ट्री की तुलना पिछले वाले से करती है। रिएक्ट 16+ में, यह **रिएक्ट फाइबर** द्वारा संचालित है।
+- **रिएक्ट फ़ाइबर**: रिएक्ट के मूल सामंजस्य एल्गोरिथ्म का एक पूर्ण पुनर्लेखन। 
+ - *फाइबर क्यों*: लीगेसी रिकन्सिलर ने एक सिंक्रोनस कॉल- JSI 05 रिकर्सन का उपयोग किया जिसे बाधित नहीं किया जा सका। यदि रेंडरिंग चक्र में बहुत अधिक समय लगता है, तो यह मुख्य थ्रेड को अवरुद्ध कर देता है, जिससे फ्रेम ड्रॉप (जैंक) हो जाता है।
+ - *यह कैसे काम करता है*: फाइबर काम को "फाइबर" नामक छोटी इकाइयों में तोड़ता है और उन्हें दो चरणों में क्रमिक रूप से संसाधित करता है:
+1. **रेंडर चरण**: अतुल्यकालिक और बाधित। रिएक्ट एक नया कार्य-प्रगति वृक्ष बनाता है, परिवर्तनों की गणना करता है, और अपडेट को प्राथमिकता देता है (उदाहरण के लिए, उपयोगकर्ता इनपुट को पृष्ठभूमि सूची लाने पर प्राथमिकता दी जाती है)।
+ 2. **प्रतिबद्ध चरण**: तुल्यकालिक और अबाधित। अंतिम लेआउट अपडेट को सीधे होस्ट प्लेटफ़ॉर्म (DOM या नेटिव व्यू) पर लिखता है।
+- **दि डिफिंग ह्यूरिस्टिक ($O(N)$)**:
+ - यदि तत्वों के अलग-अलग प्रकार हैं (उदाहरण के लिए, `flexDirection` 25 को `flexDirection` 26 में बदलना), तो रिएक्ट पुराने पेड़ को तोड़ देता है और नए सिरे से बनाता है।
+ - यदि तत्व एक ही प्रकार के हैं, तो रिएक्ट तुलना करता है और अपडेट केवल JSI 06 या विशेषताओं को बदलता है।
+ - **सूचियों में कुंजियाँ**: रिएक्ट रेंडर फ़्रेम में वर्चुअल DOM तत्वों से मिलान करने के लिए कुंजियों का उपयोग करता है। अद्वितीय कुंजियों के बिना, सूची अद्यतन (पुनः व्यवस्थित करना, सम्मिलित करना, हटाना) रिएक्ट को सभी मूल दृश्य कोशिकाओं को स्क्रैच से फिर से बनाने, स्थिति को नष्ट करने और JSI 07 को झिलमिलाहट पैदा करने के लिए मजबूर करता है।
 
-### 2. ghatak jivanchakra: varg banaam karyatmak ghatak
-- ghatak teen mukhya charanon ke madhyam se parivartit hote han: **mounting**, **updating**, aur **anmounting**।
-- **vidhi nishpaadan aadesh**:
+### 2. घटक जीवनचक्र: वर्ग बनाम कार्यात्मक घटक
+- घटक तीन मुख्य चरणों के माध्यम से परिवर्तित होते हैं: **माउंटिंग**, **अपडेटिंग**, और **अनमाउंटिंग**।
+- **विधि निष्पादन आदेश**:
 
-```text
-[Mounting] 
- Class: constructor() ➡️ static getDerivedStateFromProps() ➡️ render() ➡️ componentDidMount()
- Functional: Function Executes (Initial Paint) ➡️ useEffect() execution
+ प्रोटेक्टकोडब्लॉक3 
 
-[Updating]
- Class: getDerivedStateFromProps() ➡️ shouldComponentUpdate() ➡️ render() ➡️ getSnapshotBeforeUpdate() ➡️ componentDidUpdate()
- Functional: Function Executes (Re-render) ➡️ useEffect() cleanup ➡️ useEffect() execution
+### 3. उच्च-क्रम घटक (HOC)
+- **परिभाषा**: एक एचओसी एक शुद्ध फ़ंक्शन है जो एक घटक को तर्क के रूप में लेता है और एक उन्नत घटक लौटाता है। यह क्रॉस-कटिंग चिंताओं (प्रमाणीकरण, लेआउट, JSI 08 ट्रैकिंग) को साझा करने के लिए एक संरचनात्मक पैटर्न का प्रतिनिधित्व करता है।
+- **कब उपयोग करें**: लेआउट शैलियों को अलग करना, वैश्विक संदर्भों को इंजेक्ट करना, या प्राधिकरण रैपर के साथ स्क्रीन को ढालना।
+- **उदाहरण एचओसी**:
+ प्रोटेक्टकोडब्लॉक4 
 
-[Unmounting]
- Class: componentWillUnmount()
- Functional: useEffect() cleanup function executes
-```
+### 4. रिएक्ट हुक: परिभाषाएँ और कोड उदाहरण
+- ** `flexDirection` 27 **: स्थानीय घटक स्थिति घोषित करने के लिए हुक।
+ प्रोटेक्टकोडब्लॉक5 
+- ** `flexDirection` 28 **: साइड इफेक्ट्स (सदस्यता, डेटा फ़ेच, श्रोता) करने के लिए हुक।
+ प्रोटेक्टकोडब्लॉक6 
+- ** `flexDirection` 29 **: उपभोक्ता घटकों को नेस्ट किए बिना रिएक्ट संदर्भ को पढ़ता है और उसकी सदस्यता लेता है।
+ प्रोटेक्टकोडब्लॉक7 
+- ** `flexDirection` 30 **: JSI 09 प्रेषण नियमों के साथ जटिल स्थिति वस्तुओं के प्रबंधन के लिए `flexDirection` 31 का विकल्प।
+ प्रोटेक्टकोडब्लॉक8 
+- ** `flexDirection` 32 **: प्रत्येक रेंडर पर पुनर्गणना से बचने के लिए कैश गणना किए गए मान।
+ प्रोटेक्टकोडब्लॉक9 
+- ** `flexDirection` 33 **: संदर्भ संकेतकों को संरक्षित करने के लिए फ़ंक्शन इंस्टेंस को याद रखता है।
+ प्रोटेक्टकोडब्लॉक10 
+- ** `flexDirection` 34 **: एक परिवर्तनशील रेफरी ऑब्जेक्ट लौटाता है जिसका `flexDirection` 35 रेंडर के दौरान बना रहता है और म्यूटेशन पर री-रेंडर को ट्रिगर नहीं करता है।
+ प्रोटेक्टकोडब्लॉक11 
 
-### 3. ucch-cram ghatak (HOC)
-- **paribhasha**: ek hoc ek shuddh function hai jo ek ghatak ko tark ke roop mein leta hai aur ek unnat ghatak lautata hai। yah cross-kating chintaon (pramanikaran, leyout, analytics tracking) ko sajha karne ke liye ek sanrachnatmak pattern ka pratinidhitva karta hai।
-- **kab upyog karen**: layout shailiyon ko alag karna, vaishvik sandarbhon ko inject karna, ya pradhikaran rapper ke saath screen ko dhalna।
-- **udaharan hoc**:
- ```tsx
- import React from 'react';
- import { View, Text } from 'react-native';
-
- export function withAuth<P extends object>(WrappedComponent: React.ComponentType<P>) {
- return (props: P) => {
- const isAuthenticated = true; // fetch from auth context
-
- if (!isAuthenticated) {
- return (
- <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
- <Text>Access Denied. Please log in.</Text>
- </View>
- );
- }
-
- return <WrappedComponent {...props} />;
- };
- }
- ```
-
-### 4. react huk: paribhashaein aur code udaharan
-- ** `flexDirection`27 **: sthaniya ghatak sthiti ghoshit karne ke liye huk।
- ```typescript
- const [count, setCount] = useState<number>(0);
- ```
-- ** `flexDirection`28 **: side effects (sadsyata, data fech, shrota) karne ke liye huk।
- ```typescript
- useEffect(() => {
- const handleEvent = () => console.log('event');
- window.addEventListener('resize', handleEvent);
- return () => window.removeEventListener('resize', handleEvent); // cleanup
- }, []);
- ```
-- ** `flexDirection`29 **: upbhokta ghatakon ko nest kiye bina react sandarbh ko padhta hai aur uski sadasyata leta hai।
- ```typescript
- const theme = useContext(ThemeContext);
- ```
-- ** `flexDirection`30 **: karvai preshan niyamon ke saath jatil sthiti vastuon ke prabandhan ke liye `flexDirection`31 ka vikalp।
- ```typescript
- const [state, dispatch] = useReducer(reducerFn, initialState);
- ```
-- ** `flexDirection`32 **: pratyek render par punarganana se bachne ke liye cash dwara ganana kiye gaye man।
- ```typescript
- const sortedData = useMemo(() => data.sort(), [data]);
- ```
-- ** `flexDirection`33 **: sandarbh sanketkon ko sanrakshit karne ke liye function instance ko yaad rakhta hai।
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```0 
-- ** `flexDirection`34 **: ek parivartansheel ref object lautata hai jiska `flexDirection`35 render ke dauran bana rahata hai aur utparivartan par pun: render ko trigger nahin karta hai।
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```1 
-
-### 5. custom huk: tark aur karyanvan
-- **kyon**: code pun: prayojyata, modularity aur pathniyata ko protsahit karta hai। yah ui presentation ko business logic se alag karta hai।
-- **udaharan (encripted surakshit storage custom huk)**:
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```2 
+### 5. कस्टम हुक: तर्क और कार्यान्वयन
+- **क्यों**: कोड पुन: प्रयोज्यता, मॉड्यूलरिटी और पठनीयता को प्रोत्साहित करता है। यह JSI 10 प्रेजेंटेशन को व्यावसायिक तर्क से अलग करता है।
+- **उदाहरण (एन्क्रिप्टेड सुरक्षित स्टोरेज कस्टम हुक)**:
+ प्रोटेक्टकोडब्लॉक12 
 
 ---
 
-## 📦 dhara 8: rajya prabandhan aur routing orkestration
-*⏱️ 5 minute padhen*
+## 📦 धारा 8: JSI 11 और रूटिंग ऑर्केस्ट्रेशन
+*⏱️ 5 मिनट पढ़ें*
 
-### 1. rajya banaam props aur props driling
-- **rajya**: parivartaniya data ka swamitva aur prabandhan aantarik roop se ghatak dwara hi kiya jata hai।
-- **props**: bacche ko configar karne ke liye mool ghatak se aparivartaniya data paas kiya gaya।
-- **prop driling**: child ghatakon ki kai nested paraton ke madhyam se props ko paarit karne ka anti-patern, jinhen vaastav mein data ki aavashyakta nahin hoti hai, bus ise ek gahre nested vanshaj tak pahunchaane ke liye। context api ya rajya prabandhan pustakaalayon ka upyog karne se bachen।
+### 1. राज्य बनाम JSI 12 और प्रोप ड्रिलिंग
+- **राज्य**: परिवर्तनीय डेटा का स्वामित्व और प्रबंधन आंतरिक रूप से घटक द्वारा ही किया जाता है।
+- ** JSI 13 **: बच्चे को कॉन्फ़िगर करने के लिए मूल घटक से अपरिवर्तनीय डेटा पास किया गया।
+- **प्रोप ड्रिलिंग**: चाइल्ड घटकों की कई नेस्टेड परतों के माध्यम से JSI 14 को पारित करने का विरोधी पैटर्न, जिन्हें वास्तव में डेटा की आवश्यकता नहीं होती है, बस इसे एक गहरे नेस्टेड वंशज तक पहुंचाने के लिए। JSI 15 या JSI 16 लाइब्रेरी का उपयोग करने से बचें।
 
-### 2. rajya prabandhan samadhan: Redux banaam Zustand banaam MobX banaam Context API
-- app scope aur mutation aavrittiyon ke aadhar par rajya prabandhan samadhan chunen:
+### 2. JSI 17 समाधान: JSI 18 बनाम JSI 19 बनाम JSI 20 बनाम JSI 21
+- ऐप स्कोप और म्यूटेशन आवृत्तियों के आधार पर JSI 22 समाधान चुनें:
 
-| fichar | reducs toolkit (rtk) | zastand | MobX / MobX state tree | prasang api |
+| फ़ीचर | प्रोटेक्टटर्म223 (आरटीके) | प्रोटेक्टटर्म224 | JSI 25 / JSI 26 राज्य वृक्ष | प्रोटेक्टटर्म227 |
 | :--- | :--- | :--- | :--- | :--- |
-| **ke liye sarvashreshth** | ucch-aavritti utparivartan aur jatil midalwar niyamon ke saath bade paimane par anterpriz-gred apps। | madhyam se bade apps. halka, parmanu aur behad tez। | jatil object-graf, spredsheet-jaisi pratikriyashilta aur oop arkitectur। | chhote paimane ki sthiti (jaise, vishay-vastu, bhasha prathmiktaen)। |
-| **scop punah prastut karen** | keval chayankarta punah prastut karte han। atyadhik anukulit. | chayankarta anavashyak pun: prastutikaran ko rokte han। | barik kan wale paryavekshak trigar। keval access ki gai sampattiyon tak pahunchne wale ghatak hi punah prastut hote han। | jab sandarbh mulya vastu badalti hai to sabhi sandarbh upbhokta punah prastut karte han। |
-| **boilerplate** | madhyam। slice aur store ke madhyam se configar kiya gaya। | nuntam. ekal hook store mein paribhashit। | nimn se madhyam. avlokan aur karyon ke madhyam se prabandhit। | kam। pratikriya karne ke mool nivasi. |
-| **acink samarthan** | deshi acinks thunks ya saga। | custom store kriyaon ke andar sidhe ekikrit। | pravah/janrater ya custom action collback ka upyog karke prabandhit kiya gaya। | mool ghatakon mein acinkrones triggers ka upyog karke manual roop se niyantrit kiya jata hai। |
+| **के लिए सर्वश्रेष्ठ** | उच्च-आवृत्ति उत्परिवर्तन और जटिल मिडलवेयर नियमों के साथ बड़े पैमाने पर एंटरप्राइज़-ग्रेड ऐप्स। | मध्यम से बड़े ऐप्स. हल्का, परमाणु और बेहद तेज़। | जटिल ऑब्जेक्ट-ग्राफ, स्प्रेडशीट-जैसी प्रतिक्रियाशीलता और ओओपी आर्किटेक्चर। | छोटे पैमाने की स्थिति (जैसे, विषय-वस्तु, भाषा प्राथमिकताएँ)। |
+| **स्कोप पुनः प्रस्तुत करें** | केवल JSI 28 पुनः प्रस्तुत करें। अत्यधिक अनुकूलित. | चयनकर्ता अनावश्यक पुन: प्रस्तुतीकरण को रोकते हैं। | बारीक कण वाले पर्यवेक्षक ट्रिगर। केवल एक्सेस की गई संपत्तियों तक पहुंचने वाले घटक ही पुनः प्रस्तुत होते हैं। | जब संदर्भ मूल्य वस्तु बदलती है तो सभी संदर्भ उपभोक्ता पुनः प्रस्तुत करते हैं। |
+| **बॉयलरप्लेट** | मध्यम। स्लाइस और स्टोर के माध्यम से कॉन्फ़िगर किया गया। | न्यूनतम. एकल JSI 29 स्टोर में परिभाषित। | निम्न से मध्यम. वेधशालाओं और JSI 30 के माध्यम से प्रबंधित। | कम। प्रतिक्रिया करने के मूल निवासी. |
+| **एसिंक समर्थन** | मूल async JSI 31 या JSI 32। | सीधे कस्टम स्टोर JSI 33 के अंदर एकीकृत। | प्रवाह/जनरेटर या कस्टम JSI 34 कॉलबैक का उपयोग करके प्रबंधित किया गया। | मूल घटकों में एसिंक्रोनस ट्रिगर्स का उपयोग करके मैन्युअल रूप से नियंत्रित किया जाता है। |
 
-#### MobX core avdharnaen aur pratikriya ekikaran
-MobX **pardarshi karyatmak pratikriyasheel programming (TFRP)** model par kaam karta hai:
-- **observables (`flexDirection`36 )**: object gunon ko avlokaniy sthiti maan ke roop mein chinhit karta hai। property padhne aur likhne ko track karne ke liye MobX in gunon ko gaters/saters mein lapetata hai।
-- **ganna kiye gaye maan (`flexDirection`37/`flexDirection`38)**: maujuda sthiti se prapt maan (jaise kisi suchi ko filter karna)। ve swachalit roop se cash kiye jaate han, keval tabhi punarmulyankan kiya jata hai jab unki antarnihit avlokaniy nirbharta badal jaati hai।
-- **criyaen (`flexDirection`39)**: karya jo avlokan yogya sthiti ko sanshodhit karte han। sakht mode men, MobX lagu karta hai ki sabhi rajya utparivartan ek kriya ke andar hone chahiye, dakshata ke liye batching update।
-- **pratikriyaen (`flexDirection`40, `flexDirection`41, `flexDirection`42)**: jab bhi aashrit avlokan badalte hain to side effect swachalit roop se chalte hain (jaise bhandaran ke liye sthiti likhna)।
-- **observar rappers (`flexDirection`43)**: high-order component rapping react components। yah apne render vidhi ke dauran access kiye gaye kisi bhi avlokan ko sunne ke liye ghatak ko swachalit roop se panjikrit karta hai। yadi koi access ki gai sampatti adyatan hoti hai, to ghatak punah prastut hota hai; yadi koi aprapya sampatti update ho jaati hai, to rendering chhod di jaati hai।
-- **MobX state tree (MST)**: MobX ke charon or ek tranjectional rapper jo type kiye gaye nodes (model) ke ped mein sangrahit hota hai। mst runtime type-cheking, snapshot (time-traval debugging ke liye), aur out-off-d-box state kramankan pradan karta hai।
+#### JSI 35 कोर अवधारणाएँ और प्रतिक्रिया एकीकरण JSI 36 **पारदर्शी कार्यात्मक प्रतिक्रियाशील प्रोग्रामिंग (टीएफआरपी)** मॉडल पर काम करता है:
+- **ऑब्जर्वेबल्स (प्रोटेक्टिनलाइन136)**: ऑब्जेक्ट गुणों को अवलोकन योग्य स्थिति मान के रूप में चिह्नित करता है। JSI 37 संपत्ति पढ़ने और लिखने को ट्रैक करने के लिए इन गुणों को गेटर्स/सेटर्स में लपेटता है।
+- **गणना किए गए मान ( `flexDirection` 37 / `flexDirection` 38)**: मौजूदा स्थिति से प्राप्त मान (जैसे किसी सूची को फ़िल्टर करना)। वे स्वचालित रूप से कैश किए जाते हैं, केवल तभी पुनर्मूल्यांकन किया जाता है जब उनकी अंतर्निहित अवलोकनीय निर्भरता बदल जाती है।
+- **क्रियाएं (प्रोटेक्टिनलाइन139)**: ऐसे कार्य जो अवलोकन योग्य स्थिति को संशोधित करते हैं। सख्त मोड में, JSI 38 लागू करता है कि सभी राज्य उत्परिवर्तन JSI 39 के अंदर होने चाहिए, दक्षता के लिए बैचिंग अपडेट।
+- **प्रतिक्रियाएं ( `flexDirection` 40, `flexDirection` 41, `flexDirection` 42)**: जब भी आश्रित अवलोकन बदलते हैं तो साइड इफेक्ट स्वचालित रूप से चलते हैं (जैसे भंडारण के लिए स्थिति लिखना)।
+- **ऑब्जर्वर रैपर्स (प्रोटेक्टिनलाइन143)**: हाई-ऑर्डर कंपोनेंट रैपिंग रिएक्ट कंपोनेंट्स। यह अपने रेंडर विधि के दौरान एक्सेस किए गए किसी भी अवलोकन को सुनने के लिए घटक को स्वचालित रूप से पंजीकृत करता है। यदि कोई एक्सेस की गई संपत्ति अद्यतन होती है, तो घटक पुनः प्रस्तुत होता है; यदि कोई अप्राप्य संपत्ति अपडेट हो जाती है, तो रेंडरिंग छोड़ दी जाती है।
+- ** JSI 40 स्टेट ट्री (MST)**: JSI 41 के चारों ओर एक ट्रांजेक्शनल रैपर जो टाइप किए गए नोड्स (मॉडल) के पेड़ में संग्रहीत होता है। एमएसटी रनटाइम टाइप-चेकिंग, स्नैपशॉट (टाइम-ट्रैवल डिबगिंग के लिए), और आउट-ऑफ-द-बॉक्स स्टेट क्रमांकन प्रदान करता है।
 
-### 3. react navigation mein rooting, rbac aur deep linking
-- **bhumika-aadharit pahunch niyantran (rbac)**: sashart navigation stack ka upyog karke pahunch seemaen prabandhit karen:
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```3 
-- **queri parameter aur dynamic rooting**: deep linking niyam configar karen:
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```4 
+### 3. JSI 42 में रूटिंग, आरबीएसी और डीप लिंकिंग 
+- **भूमिका-आधारित पहुंच नियंत्रण (आरबीएसी)**: सशर्त JSI 43 स्टैक का उपयोग करके पहुंच सीमाएं प्रबंधित करें:
+ प्रोटेक्टकोडब्लॉक13 
+- **क्वेरी पैरामीटर और डायनेमिक रूटिंग**: डीप लिंकिंग नियम कॉन्फ़िगर करें:
+ प्रोटेक्टकोडब्लॉक14 
 
-#### recoil: parmanu aur chayankarta vastukala
-recoil meta dwara viksit ek prayogik rajya prabandhan library hai jo gahre ghatak pedon aur context api (jo sabhi vanshajon ko phir se prastut karne ke liye majboor karta hai) ke saath react ki pradarshan samasyaon ko hal karta hai।
-- **parmanu (satya ka srot)**: rajya ki ikaiyon ka pratinidhitva karne wale gatisheel data contaner। ghatak parmanuon ki sadasyata le sakte han। jab koi parmanu adyatan hota hai, to us vishisht parmanu ki sadasyata lene wale *keval* ghatak punah prastut hote han।
-- **chayankarta (vyutpann sthiti)**: shuddh karya jo parmanuon ya anya chayankartaon ko parivartit karte han। chayankartaon ko swachalit roop se cash kiya jata hai, keval tabhi punarganana ki jaati hai yadi unki upstream nirbhartaen (parmanu/chayankarta) badalti han। ve atulyakalik sanchalan ka bhi pratinidhitva kar sakte hain (udaharan ke liye server se record laana)।
-- **Redux/MobX se tulna**:
- - *Redux*: sabhi rajyon wale ekal, vaishvik store par nirbhar karta hai। preshan kriyaon ke liye midalwar nium, chayankarta aur reducer setup (ucch boilerplate, macro-stariy sthiti) ki aavashyakta hoti hai।
- - *MobX*: avlokan yogya vastuon aur pardarshi karyatmak pratikriyasheel tracking ka upyog karta hai। bahut kam boilerplate, lekin object mutability aur rapper ghatakon (`flexDirection`44) par nirbhar karta hai।
-- *recoil*: parmanu design vishesh roop se *react* ke liye banaya gaya hai। samvarti mod, suspense aur manak hook pattern (udaharan ke liye, `flexDirection`45 jo bilkul `flexDirection`46 ki tarah kaam karta hai) jaise react suvidhaon ke saath mool roop se ekikrit hota hai।
+#### JSI 44: परमाणु और चयनकर्ता वास्तुकला JSI 45 मेटा द्वारा विकसित एक प्रायोगिक JSI 46 लाइब्रेरी है जो गहरे घटक पेड़ों और JSI 47 (जो सभी वंशजों को फिर से प्रस्तुत करने के लिए मजबूर करता है) के साथ रिएक्ट की प्रदर्शन समस्याओं को हल करता है।
+- **परमाणु (सत्य का स्रोत)**: राज्य की इकाइयों का प्रतिनिधित्व करने वाले गतिशील डेटा कंटेनर। घटक परमाणुओं की सदस्यता ले सकते हैं। जब कोई परमाणु अद्यतन होता है, तो उस विशिष्ट परमाणु की सदस्यता लेने वाले *केवल* घटक पुनः प्रस्तुत होते हैं।
+- **चयनकर्ता (व्युत्पन्न अवस्था)**: शुद्ध कार्य जो परमाणुओं या अन्य JSI 48 को परिवर्तित करते हैं। चयनकर्ताओं को स्वचालित रूप से कैश किया जाता है, केवल तभी पुनर्गणना की जाती है जब उनकी अपस्ट्रीम निर्भरताएँ (परमाणु/ JSI 49 ) बदल जाती हैं। वे अतुल्यकालिक संचालन का भी प्रतिनिधित्व कर सकते हैं (उदाहरण के लिए सर्वर से रिकॉर्ड लाना)।
+- ** JSI 50 / JSI 51 से तुलना **:
+ - * JSI 52*: सभी राज्यों वाले एकल, वैश्विक स्टोर पर निर्भर करता है। JSI 53 को भेजने के लिए मिडलवेयर नियम, JSI 54 और JSI 55 सेटअप (उच्च बॉयलरप्लेट, मैक्रो-लेवल स्थिति) की आवश्यकता होती है।
+ - * JSI 56*: अवलोकन योग्य वस्तुओं और पारदर्शी कार्यात्मक प्रतिक्रियाशील ट्रैकिंग का उपयोग करता है। बहुत कम बॉयलरप्लेट, लेकिन ऑब्जेक्ट म्यूटेबिलिटी और रैपर घटकों ( `flexDirection` 44) पर निर्भर करता है।
+ - * JSI 57*: परमाणु डिज़ाइन विशेष रूप से *रिएक्ट* के लिए बनाया गया है। समवर्ती मोड, सस्पेंस और मानक JSI 58 पैटर्न (उदाहरण के लिए, `flexDirection` 45 जो बिल्कुल `flexDirection` 46 की तरह काम करता है) जैसे रिएक्ट सुविधाओं के साथ मूल रूप से एकीकृत होता है।
 
 ---
 
-## 🌐 dhara 9: server rendaring, styling aur platform vishishttaen
-*⏱️ 2 minute padhen*
+## 🌐 धारा 9: सर्वर रेंडरिंग, स्टाइलिंग और प्लेटफ़ॉर्म विशिष्टताएँ
+*⏱️ 2 मिनट पढ़ें*
 
-### 1. ssr banaam csr aur react native seo
-- **clint-sid rendering (csr)**: browser ek nyuntam HTML stub download karta hai aur virtual dome render karne ke liye js nishpadit karta hai। tez interaction, lekin dheema prarambhik load aur kamzor SEO anukraman।
-- **sarvar-sid rendering (ssr)**: server pratyek anurodh par HTML ko pri-render karta hai, sampurna layout pradan karta hai। seo croller aur tez farst contentful paint ke liye atyadhik anukulit।
-- **react native seo/indexing**:
- - react native application upkaranon par sankalit bineriz chalate han, jiska arth hai ki paramparik seo croller application screen ko anukramit nahin kar sakte han।
- - **shaman**:
- 1. **app indexing**: domain sanrachnaon se mail khane wale **android app link** aur **ios universal link** ko register karen (udaharan ke liye `flexDirection`47)।
- 2. **sathi web app**: next.js (ssr/static site generation ka upyog karke) ke saath nirmit ek seo-anukulit web saathi tainat karen। khoj engine web layout ko anukramit karte han। jab upyogkarta mobile par khoj parinamon ko tap karte han, to universal link sidhe mool mobile app launch karte han, unhen sahi screen par le jaate han।
+### 1. SSR बनाम CSR और JSI 59 SEO
+- **क्लाइंट-साइड रेंडरिंग (सीएसआर)**: ब्राउज़र एक न्यूनतम HTML स्टब डाउनलोड करता है और वर्चुअल डोम रेंडर करने के लिए जेएस निष्पादित करता है। तेज़ इंटरैक्शन, लेकिन धीमा प्रारंभिक लोड और कमज़ोर SEO अनुक्रमण।
+- **सर्वर-साइड रेंडरिंग (एसएसआर)**: सर्वर प्रत्येक अनुरोध पर HTML को प्री-रेंडर करता है, संपूर्ण लेआउट प्रदान करता है। एसईओ क्रॉलर और तेज़ फ़र्स्ट कंटेंटफुल पेंट के लिए अत्यधिक अनुकूलित।
+- ** JSI 60 SEO / इंडेक्सिंग**:
+ - JSI 61 एप्लिकेशन उपकरणों पर संकलित बायनेरिज़ चलाते हैं, जिसका अर्थ है कि पारंपरिक एसईओ क्रॉलर एप्लिकेशन स्क्रीन को अनुक्रमित नहीं कर सकते हैं।
+ - **शमन**:
+ 1. **ऐप इंडेक्सिंग**: रजिस्टर ** JSI 62 ऐप लिंक** और ** JSI 63 यूनिवर्सल लिंक** मिलान डोमेन संरचनाएं (उदाहरण के लिए `flexDirection` 47)।
+ 2. **साथी वेब ऐप**: नेक्स्ट.जेएस (एसएसआर/स्टेटिक साइट जेनरेशन का उपयोग करके) के साथ निर्मित एक एसईओ-अनुकूलित वेब साथी तैनात करें। खोज इंजन वेब लेआउट को अनुक्रमित करते हैं। जब उपयोगकर्ता मोबाइल पर खोज परिणामों को टैप करते हैं, तो यूनिवर्सल लिंक सीधे मूल मोबाइल ऐप लॉन्च करते हैं, उन्हें सही स्क्रीन पर ले जाते हैं।
 
-### 2. layout aur styling fremwark
-- styling nirnay layout sankalan pradarshan ko nirdeshit karte han:
- - **stylesheet (manak)**: sankalan samay par purv-sankalit। mool thread par shailiyon ko mool id mein anuvadit karta hai। uchch pradarshan, shunya runtime overhed।
- - **telvind css (nativvind)**: nirman samay par upyogita kakshaon ko manak `flexDirection`48 object mein sankalit karta hai। developer gati mein sudhar karte hue uchch pradarshan banae rakhta hai।
- - **stylx**: type-surakshit css-in-js compyler। bahut majbut, lekin isme mamuli bild-time ekikaran han।
- - **inlin shailiyaan (`flexDirection`49)**: pratyek render par ek bilkul naya style object utpann karta hai। yah pratyek adyatan chakra par shaili ganana aur tulna ko badhya karta hai, jisse layout gati kam ho jaati hai।
+### 2. लेआउट और स्टाइलिंग JSI 64 
+- स्टाइलिंग निर्णय लेआउट संकलन प्रदर्शन को निर्देशित करते हैं:
+ - ** JSI 65 (मानक)**: संकलन समय पर पूर्व-संकलित। मूल थ्रेड पर शैलियों को मूल आईडी में अनुवादित करता है। उच्च प्रदर्शन, शून्य रनटाइम ओवरहेड।
+ - **टेलविंड सीएसएस (नेटिवविंड)**: निर्माण के समय उपयोगिता कक्षाओं को मानक `flexDirection` 48 ऑब्जेक्ट में संकलित करता है। JSI 66 गति में सुधार करते हुए उच्च प्रदर्शन बनाए रखता है।
+ - **स्टाइलएक्स**: टाइप-सुरक्षित सीएसएस-इन-जेएस कंपाइलर। बहुत मजबूत, लेकिन इसमें मामूली बिल्ड-टाइम एकीकरण हैं।
+ - **इनलाइन स्टाइल्स (प्रोटेक्टिनलाइन149)**: प्रत्येक रेंडर पर एक बिल्कुल नया स्टाइल ऑब्जेक्ट उत्पन्न करता है। यह प्रत्येक अद्यतन चक्र पर शैली गणना और तुलना को बाध्य करता है, जिससे लेआउट गति कम हो जाती है।
 
-### 3. pahunch, vishay-vastu, suraksha aur bahubhashi (i18n)
-- **pahunch-yogyata (e11vai)**: yah sunishchit karne ke liye ki screen screen readers dwara padhne yogya hain (android par tockback, ios par voisover) `flexDirection`50, `flexDirection`51, aur `flexDirection`52 tatv joden।
-- **bahubhashi (i18n)**: path shabdkoshon ka anuvaad karne ke liye `flexDirection`53 ko ekikrit karen। `flexDirection`54 ka upyog karke hook ke andar string ka anuvaad karen।
-- **malti-thim**: `flexDirection`55 ya Redux theme store ka upyog karke theme ko orkestrate karen, style veriables ke madhyam se stylesheet shailiyon ko gatisheel roop se badlen।
-- **suraksha protocall**:
- - man-in-d-middle (mittm) hamlon ko rokne ke liye ssl pining।
- - binary suraksha akhandata ki pushti karne ke liye app satyapan (ple intigrity/devichake)।
- - OAuth token ki suraksha ke liye criptografik kichen/kistor rapper (`flexDirection`56)।
- - deshi jhande ka upyog karke ucch-suraksha prishthon mein screen recording ya capture aksham karen (udaharan ke liye android gatividhi sandarbh mein `flexDirection`57)।
-
----
-
-## 🧪 dhara 10: parikshan rannitiyan aur qa swachalan
-*⏱️ 3 minute padhen*
-
-### 1. mobile parikshan piramid
-- **parikshan-sanchalit vikas (tdd)**: software vikas prakriya jahan aap pehle asafal parikshan mamle likhte han, phir parikshan paas karne ke liye nyuntam code likhte han, aur ant mein swachh pattern ke liye refacter likhte han।
-
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```5 
-
-### 2. ikai evam ekikaran parikshan (jest + reactive native testing libreri)
-- **rntl** ui tatvon aur aag ki ghatnaon par jor dene ke liye aabhasi vatavaran ke andar ghatakon ko prastut karne ki anumati deta hai।
-- **udaharan parikshan kod**:
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```6 
-
-### 3. and-tu-and parikshan (detox + junit)
-- **detox**: ek gre-box and-tu-and testing libreri। yah vastavik simulator ya upkaranon par sankalit app ka parikshan karta hai, tatvon par jor dene se pehle acinkrones network call aur animation ke swachalit roop se samapt hone ki pratiksha karta hai, jisse paratdaar parikshan kam ho jaate han।
-- **JUnit**: parikshan dhavak reporting dhanche ke roop mein upyog kiya jata hai।
-- **detox E2E script udaharan**:
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```7 
-
-### 4. react native mein test-sanchalit vikas (tdd) workflow
-test-sanchalit vikas (tdd) ek vikas paddhati hai jahan code ek sakht punaravritt feedback loop mein likha jata hai:
-1. **lal**: ek chhoti, ekal aavashyakta ko paribhashit karne wali ek asafal ikai ya ekikaran parikshan likhen।
-2. **hara**: pariksha uttirn karne ke liye aavashyak nyuntam aavedan code likhen।
-3. **refacter**: code style ko saaf karen, ghatakon ko nikalen, ya pradarshan mein sudhar karen aur yah sunishchit karen ki parikshan hare rahen।
-
-- **mobyle tdd ke liye mansik model**:
- - karyanvayan vivaran ke bajay *vyvhar* aur *sthiti* ke parikshan par dhyan den। ghatak aantrikta par jor dene se bachen; iske bajay, yah batayen ki upyogkarta kya dekhta hai (udaharan ke liye text tatv, batan) ya kaun se collback event sakriya hote han।
- - custom hook (manak query fech rapper ki tarah) ka parikshan karte samay, pratinidhitva karne wale parikshan mamle likhen: prarambhik loading sthiti ➡️ safal payload resolution ➡️ network truti aswikriti।
-- **majak udaane ki ranniti**:
- - nakli deshi pustakalaya jo Node.js vatavaran ke andar nahin chalte hain (jaise `flexDirection`58, `flexDirection`59, ya `flexDirection`60)।
- - jatil deshi nirbharta ya bhari network rapper (jaise `flexDirection`62 ya apollo client ka mock pradata) ko purvanumanit mock function (`flexDirection`63) se badalne ke liye `flexDirection`61 ka upyog karen।
+### 3. पहुंच, विषय-वस्तु, सुरक्षा और बहुभाषी (i18n)
+- **पहुंच-योग्यता (ए11वाई)**: यह गारंटी देने के लिए कि स्क्रीन स्क्रीन रीडर्स द्वारा पढ़ने योग्य है, `flexDirection` 50 , `flexDirection` 51 और `flexDirection` 52 तत्व जोड़ें ( JSI 67 पर टॉकबैक, JSI 68 पर वॉयसओवर)।
+- **बहु-भाषा (i18n)**: पाठ शब्दकोशों का अनुवाद करने के लिए `flexDirection` 53 को एकीकृत करें। `flexDirection` 54 का उपयोग करके JSI 69 के अंदर स्ट्रिंग्स का अनुवाद करें।
+- **मल्टी-थीम**: `flexDirection` 55 या JSI 70 थीम स्टोर का उपयोग करके थीम को व्यवस्थित करें, स्टाइल वेरिएबल्स के माध्यम से JSI 71 शैलियों को गतिशील रूप से बदलें।
+- **सुरक्षा प्रोटोकॉल**:
+ - मैन-इन-द-मिडिल (मिटएम) हमलों को रोकने के लिए JSI 72।
+ - बाइनरी सुरक्षा अखंडता की पुष्टि करने के लिए ऐप सत्यापन (प्ले इंटीग्रिटी/डिवाइसचेक)।
+ - OAuth JSI 75 की सुरक्षा के लिए क्रिप्टोग्राफ़िक JSI 73 / JSI 74 रैपर ( `flexDirection` 56)।
+ - देशी झंडे का उपयोग करके उच्च-सुरक्षा पृष्ठों में स्क्रीन रिकॉर्डिंग या कैप्चर को अक्षम करें (उदाहरण के लिए JSI 76 गतिविधि संदर्भ में `flexDirection` 57)।
 
 ---
 
-## 💾 dhara 11: enterprise offeline storage aur sinkronizar arkitectur
-*⏱️ 5 minute padhen*
+## 🧪 धारा 10: परीक्षण रणनीतियाँ और क्यूए स्वचालन
+*⏱️ 3 मिनट पढ़ें*
 
-mobyle banking, nivesh aur durasth sanchalan apps ko vishvasniya offeline samarthan ki aavashyakta hoti hai। yah anubhag sthaniya bhandaran tulna, offeline cashing hydration aur laser synchronization ranneetiyon ki rooprekha deta hai।
+### 1. मोबाइल परीक्षण पिरामिड
+- **परीक्षण-संचालित विकास (टीडीडी)**: सॉफ्टवेयर विकास प्रक्रिया जहां आप पहले असफल परीक्षण मामले लिखते हैं, फिर परीक्षण पास करने के लिए न्यूनतम कोड लिखते हैं, और अंत में स्वच्छ पैटर्न के लिए रिफैक्टर लिखते हैं।
 
-### 1. bhandaran samadhan tulna matriks
+ प्रोटेक्टकोडब्लॉक15 
 
-| bhandaran engine | pratiman | threading | benchmark (10 hajar panktiyan likhen) | ke liye sarvshreshth | seemaen |
+### 2. इकाई एवं एकीकरण परीक्षण (जेस्ट + JSI 77 परीक्षण लाइब्रेरी)
+- **RNTL** JSI 78 तत्वों और आग की घटनाओं पर जोर देने के लिए आभासी वातावरण के अंदर घटकों को प्रस्तुत करने की अनुमति देता है।
+- **उदाहरण परीक्षण कोड**:
+ प्रोटेक्टकोडब्लॉक16 
+
+### 3. एंड-टू-एंड परीक्षण (डिटॉक्स + जुनिट)
+- **डिटॉक्स**: एक ग्रे-बॉक्स एंड-टू-एंड टेस्टिंग लाइब्रेरी। यह वास्तविक सिमुलेटर या उपकरणों पर संकलित ऐप का परीक्षण करता है, तत्वों पर जोर देने से पहले एसिंक्रोनस नेटवर्क कॉल और एनिमेशन के स्वचालित रूप से समाप्त होने की प्रतीक्षा करता है, जिससे परतदार परीक्षण कम हो जाते हैं।
+- **JUnit**: परीक्षण धावक रिपोर्टिंग JSI 79 के रूप में उपयोग किया जाता है।
+- **डिटॉक्स E2E स्क्रिप्ट उदाहरण**:
+ प्रोटेक्टकोडब्लॉक17 
+
+### 4. JSI 80 में परीक्षण-संचालित विकास (टीडीडी) वर्कफ़्लो 
+टेस्ट-संचालित विकास (टीडीडी) एक विकास पद्धति है जहां कोड एक सख्त पुनरावृत्त फीडबैक लूप में लिखा जाता है:
+1. **लाल**: एक छोटी, एकल आवश्यकता को परिभाषित करने वाली एक असफल इकाई या एकीकरण परीक्षण लिखें।
+2. **हरा**: परीक्षा उत्तीर्ण करने के लिए आवश्यक न्यूनतम आवेदन कोड लिखें।
+3. **रिफैक्टर**: कोड स्टाइल को साफ़ करें, घटकों को निकालें, या प्रदर्शन में सुधार करें और यह सुनिश्चित करें कि परीक्षण हरे रहें।
+
+- **मोबाइल टीडीडी के लिए मानसिक मॉडल**:
+ - कार्यान्वयन विवरण के बजाय *व्यवहार* और *स्थिति* के परीक्षण पर ध्यान दें। घटक आंतरिकता पर जोर देने से बचें; इसके बजाय, यह बताएं कि उपयोगकर्ता क्या देखता है (उदाहरण के लिए टेक्स्ट तत्व, बटन) या कौन से कॉलबैक इवेंट सक्रिय होते हैं।
+ - JSI 81 (मानक क्वेरी फ़ेच रैपर की तरह) का परीक्षण करते समय, प्रतिनिधित्व करने वाले परीक्षण मामले लिखें: प्रारंभिक लोडिंग स्थिति ➡️ सफल पेलोड रिज़ॉल्यूशन ➡️ नेटवर्क त्रुटि अस्वीकृति।
+- **मजाक उड़ाने की रणनीति**:
+ - नकली देशी पुस्तकालय जो Node.js वातावरण के अंदर नहीं चलते हैं (जैसे `flexDirection` 58, `flexDirection` 59, या `flexDirection` 60)।
+ - जटिल मूल निर्भरता या भारी नेटवर्क रैपर (जैसे `flexDirection` 62 या अपोलो क्लाइंट के नकली प्रदाता) को पूर्वानुमानित नकली कार्यों ( `flexDirection` 63) से बदलने के लिए `flexDirection` 61 का उपयोग करें।
+
+---
+
+## 💾 धारा 11: एंटरप्राइज ऑफ़लाइन स्टोरेज और सिंक्रोनाइज़र आर्किटेक्चर
+*⏱️ 5 मिनट पढ़ें*
+
+मोबाइल बैंकिंग, निवेश और दूरस्थ संचालन ऐप्स को विश्वसनीय ऑफ़लाइन समर्थन की आवश्यकता होती है। यह अनुभाग स्थानीय भंडारण तुलना, ऑफ़लाइन कैशिंग हाइड्रेशन और लेज़र सिंक्रनाइज़ेशन रणनीतियों की रूपरेखा देता है।
+
+### 1. भंडारण समाधान तुलना मैट्रिक्स
+
+| भंडारण इंजन | प्रतिमान | थ्रेडिंग | बेंचमार्क (10 हजार पंक्तियाँ लिखें) | के लिए सर्वश्रेष्ठ | सीमाएँ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **AsyncStorage** | kunji-mulya (plantext JSON) | acinkrones (brij crambaddh) | ~1500 ms (dhima) | saral ui configaration, chhote pramanikaran tokan। | bridge santripti, suchkank prashnon ka abhav, badi chabiyon par leak। |
-| **mmkv** | kunji-mulya (binery crambaddh) | synchronous (jsi si++ bindings) | ~25 ms (altra-fast) | Redux/Zustand hydration sthiti, tivra kunji lukup, sthaniya encrypted profyle। | jatil sambandhon, database query filter, ya ACID taalika sanchalan ka abhav hai। |
-| **squlight** | relational (squl tables) | synchronous / acink rappers | ~280 ms (tej) | kacche lenden record, sanrachit skima, khata bahi reporting। | bhari boilerplate, manual db migration skima। |
-| **tarbujdb** | pratikriyasheel ORM (SQLite par nirmit) | malti-threded (background SQLite thred) | ~110ms (tez) | ucch-pradarshan suchiyan (50k+ record), gatisheel khoj/aalsi suchiyan। | decorators mein rapping model, uchch prarambhik sanrachnatmak setup ki aavashyakta hoti hai। |
+| **प्रोटेक्टर्म282** | कुंजी-मूल्य (प्लेनटेक्स्ट JSON) | एसिंक्रोनस ( JSI 83 क्रमबद्ध) | ~1500 एमएस (धीमा) | सरल JSI 84 कॉन्फ़िगरेशन, छोटा प्रमाणीकरण JSI 85। | JSI 86 संतृप्ति, सूचकांक प्रश्नों का अभाव, बड़ी कुंजियों पर JSI 87। |
+| **प्रोटेक्टर्म288** | कुंजी-मूल्य (बाइनरी क्रमबद्ध) | सिंक्रोनस ( JSI 89 C++ बाइंडिंग्स) | ~25 एमएस (अल्ट्रा-फास्ट) | JSI 90 / JSI 91 हाइड्रेशन स्थिति, त्वरित कुंजी लुकअप, स्थानीय एन्क्रिप्टेड प्रोफ़ाइल। | जटिल संबंधों, डेटाबेस क्वेरी फ़िल्टर, या ACID तालिका संचालन का अभाव है। |
+| **प्रोटेक्टर्म292** | रिलेशनल (एसक्यूएल टेबल्स) | सिंक्रोनस / एसिंक रैपर्स | ~280 एमएस (तेज) | कच्चे लेनदेन रिकॉर्ड, संरचित स्कीमा, खाता बही रिपोर्टिंग। | भारी बॉयलरप्लेट, मैनुअल डीबी माइग्रेशन स्कीमा। |
+| **प्रोटेक्टर्म293** | प्रतिक्रियाशील ORM ( JSI 94 पर निर्मित) | मल्टी-थ्रेडेड (बैकग्राउंड JSI 95 थ्रेड) | ~110ms (तेज़) | उच्च-प्रदर्शन सूचियाँ (50k+ रिकॉर्ड), गतिशील खोज/आलसी सूचियाँ। | डेकोरेटर्स में रैपिंग मॉडल, उच्च प्रारंभिक संरचनात्मक सेटअप की आवश्यकता होती है। |
 
-- **MMKV anukulan yantriki**: MMKV karnel ke ** `flexDirection`64 ** call ka upyog karke filon ko sidhe memory mein map karta hai। bypass bridge kataron aur kramankan vilambon ko padhta aur likhta hai। JSI react native code ko 1ms se kam samay mein sidhe mukhya thread par MMKV ko query karne ki anumati deta hai।
-- **watermelandb reactive arkitectur**: badi talikaon ko prabandhit karte samay react threads ko uttardayi banae rakhne ke liye design kiya gaya। yah SQLite ka upyog karta hai lekin ek alag mool prusthbhoomi thread par query chalata hai। drishya ghatak vedhshalaon (`flexDirection`65) ka upyog karke db talikaon se jude hue han। jab koi database record badalta hai, to keval us vishisht record ko pradarshit karne wale ghatak punah prastut hote han।
+- ** JSI 96 ऑप्टिमाइज़ेशन मैकेनिक्स**: JSI 97 कर्नेल के ** `flexDirection` 64 ** कॉल का उपयोग करके फ़ाइलों को सीधे मेमोरी में मैप करता है। JSI 98 कतारों और क्रमांकन विलंबों को बायपास करके पढ़ता और लिखता है। JSI 99 Bridge 00 कोड को 1ms से कम समय में सीधे मुख्य थ्रेड पर Bridge 01 को क्वेरी करने की अनुमति देता है।
+- ** Bridge 02 रिएक्टिव आर्किटेक्चर**: बड़ी तालिकाओं को प्रबंधित करते समय रिएक्ट थ्रेड्स को उत्तरदायी बनाए रखने के लिए डिज़ाइन किया गया। यह Bridge 03 का उपयोग करता है लेकिन एक अलग मूल पृष्ठभूमि थ्रेड पर क्वेरी चलाता है। दृश्य घटक वेधशालाओं ( `flexDirection` 65) का उपयोग करके DB तालिकाओं से जुड़े हुए हैं। जब कोई डेटाबेस रिकॉर्ड बदलता है, तो केवल उस विशिष्ट रिकॉर्ड को प्रदर्शित करने वाले घटक पुनः प्रस्तुत होते हैं।
 
-### 2. react query offline cashing aur parsister intigration
-react query (tanastack queri) memory mein durasth sthiti ka prabandhan karti hai। offeline punararambh ka samarthan karne ke liye, query cash ko krambaddh kiya jata hai aur **parsister adepter** ka upyog karke disk (mmkv ya acinkastorage) par likha jata hai:
-1. **bootastrap**: application launch hone par, parsister MMKV se sangrahit JSON cash ko padhta hai aur react query client cash ko hydrate karta hai।
-2. **dradhta**: har baar jab koi network anurodh memory mein cash ka samadhan aur adyatan karta hai, to parsister krambaddh cash sthiti ko mmkv mein wapas likhta hai।
-3. **nishpadan**: yadi app offeline launch kiya gaya hai, to hydrated cash turant `flexDirection`66 jivanchakra ke saath parosa jata hai। queries cashed data lautati han, aur connection punarprapt hone tak prusthbhoomi network refech ko rok diya jata hai।
-### 3. Redux toolkit offeline hydration aur Redux kayam rahata hai
-lonch ke dauran clint-sid application sthiti (jaise upyogkarta vivran, app theme setings) banae rakhne ke liye, hum `flexDirection`67 ko mmkv-samarthit storage adaptor ke saath configar karte han:
-1. **hydration charan**: store ko avruddh sthiti mein prarambh kiya gaya hai। `flexDirection`68 ghatak mounting ko rokta hai, mmkv se sangrahit kunjiyon ko padhta hai।
-2. **punarjalikaran criya**: ek baar load hone ke bad, Redux pars kiye gaye payload wale `flexDirection`69 ko bhejta hai। slice sthiti adyatan ki gai hai, aur ui pratipadan jaari rakhta hai।
-3. **right-thru cashing**: action triggers update slice stats। mmkv adopter rajya parivartanon ko disk par wapas samkalik roop se likhta hai, yadi app satra ke madhya mein crash ho jata hai to data haani ko rokta hai।
+### 2. रिएक्ट क्वेरी ऑफलाइन कैशिंग और पर्सिस्टर इंटीग्रेशन
+रिएक्ट क्वेरी (टैनस्टैक क्वेरी) मेमोरी में दूरस्थ स्थिति का प्रबंधन करती है। ऑफ़लाइन पुनरारंभ का समर्थन करने के लिए, क्वेरी कैश को क्रमबद्ध किया जाता है और **पर्सिस्टर एडाप्टर** का उपयोग करके डिस्क ( Bridge 04 या Bridge 05) पर लिखा जाता है:
+1. **बूटस्ट्रैप**: एप्लिकेशन लॉन्च होने पर, पर्सिस्टर Bridge 06 से संग्रहीत JSON कैश को पढ़ता है और रिएक्ट क्वेरी क्लाइंट कैश को हाइड्रेट करता है।
+2. **दृढ़ता**: जब भी कोई नेटवर्क अनुरोध मेमोरी में कैश का समाधान और अद्यतन करता है, तो पर्सिस्टर क्रमबद्ध कैश स्थिति को Bridge 07 पर वापस लिखता है।
+3. **निष्पादन**: यदि ऐप ऑफ़लाइन लॉन्च किया गया है, तो हाइड्रेटेड कैश तुरंत `flexDirection` 66 जीवनचक्र के साथ परोसा जाता है। क्वेरीज़ कैश्ड डेटा लौटाती हैं, और कनेक्शन पुनर्प्राप्त होने तक पृष्ठभूमि नेटवर्क रीफ़ेच को रोक दिया जाता है।
 
-### 4. enterprise offeline sink arkitectur
-oflin synchronization ko **transectional outbox cu** pattern ka upyog karke taiyar kiya gaya hai। yah data sthirta sunishchit karta hai, data haani ko rokta hai, aur lenden order ko prabandhit karta hai:
+### 3. Bridge 08 ऑफ़लाइन हाइड्रेशन और Bridge 09 कायम रहें
+लॉन्च के दौरान क्लाइंट-साइड एप्लिकेशन स्थिति (जैसे उपयोगकर्ता विवरण, ऐप थीम सेटिंग्स) को बनाए रखने के लिए, हम `flexDirection` 67 को Bridge 10-समर्थित स्टोरेज एडाप्टर के साथ कॉन्फ़िगर करते हैं:
+1. **हाइड्रेशन चरण**: स्टोर को अवरुद्ध स्थिति में प्रारंभ किया गया है। `flexDirection` 68 घटक माउंटिंग को रोकता है, Bridge 11 से संग्रहीत कुंजियों को पढ़ता है।
+2. **पुनर्जलीकरण क्रिया**: एक बार लोड होने के बाद, Bridge 12 पार्स किए गए पेलोड वाले `flexDirection` 69 को भेजता है। स्लाइस स्थिति अद्यतन की गई है, और Bridge 13 प्रतिपादन जारी रखता है।
+3. **राइट-थ्रू कैशिंग**: एक्शन ट्रिगर्स अपडेट स्लाइस स्टेट्स। Bridge 14 एडॉप्टर राज्य परिवर्तनों को डिस्क पर वापस समकालिक रूप से लिखता है, यदि ऐप Bridge 15 मध्य सत्र में डेटा हानि को रोकता है।
 
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```8 
+### 4. एंटरप्राइज़ ऑफ़लाइन सिंक आर्किटेक्चर
+ऑफ़लाइन सिंक्रनाइज़ेशन को **ट्रांसेक्शनल आउटबॉक्स Bridge 16 ** पैटर्न का उपयोग करके तैयार किया गया है। यह डेटा स्थिरता सुनिश्चित करता है, डेटा हानि को रोकता है, और लेनदेन ऑर्डर को प्रबंधित करता है:
 
-#### samanvayan samadhan mukhya nium:
-1. **netinfo connectivity shrota**: parivartan par nazar rakhta hai। offeline se online mein sankraman par, yah sinkronization processor ko trigger karta hai।
-2. **idempotency kunji**: pratyek lenden ke liye ek uuid utpann hota hai aur SQLite outbox mein sangrahit kiya jata hai। punah prayas kiye gaye api call mein yah header shamil hai। server iska upyog lenden ko do baar nishpadit karne se rokne ke liye karta hai।
-3. **sangharsh samadhan ranniti**:
- - **last-right-vins (LWW)**: client timestamp antim sthiti nirdharit karta hai (subse saral, settings ke liye sarvottam)।
- - **sarvar-vins / marj**: server gair-paraspar virodhi field ko merge karta hai, virodhon ko aswikar karta hai aur client ko phir se laane aur hal karne ke liye majboor karta hai।
- - **interactiv upyogkarta sulah**: app upyogkarta ko yah chunne ki suvidha dene ke liye ek tulna model pradarshit karta hai ki use kaun si sthiti rakhni hai (sahyogi dastavej model ke liye aadarsh)।
-4. **parsistent background varkars**: yadi upyogkarta sink ke dauran app ko background karta hai, to prusthbhoomi mein kataar nishpaadan ko pura karne ke liye lenden os workers (android mein `flexDirection`70 / ios mein `flexDirection`71) ko saunp diya jata hai।
+ प्रोटेक्टकोडब्लॉक18 
 
-### 5. apollo client ke saath grafcul ekikaran aur cashing
-grafcul mobile grahakon ko keval aavashyak vishisht field ka anurodh karne mein saksham banata hai, jisse pratibandhit cellular connection par network payload aakaar kam ho jata hai।
-- **clint configaration**: `flexDirection`73 udaharan ka upyog karke `flexDirection`72 ke madhyam se prarambh kiya gaya। client query samanyikaran ka prabandhan karta hai (`flexDirection`74 aur `flexDirection`75 ka upyog karke server object ko cash kunjiyon mein map karta hai)।
-- **nitiyan prapt karen**:
- - `flexDirection`76 (defolt): yadi uplabdh ho to cashed data lautata hai; anyatha network anurodh karta hai.
- - `flexDirection`77 : server se navintam sthiti prapt karne ke liye hamesha sthaniya cash ko bypass karta hai।
- - `flexDirection`78 : cash aur drishya ko adyatan karne ke liye prusthbhoomi network anurodh ko trigger karte hue turant cashed data pradan karta hai।
- - `flexDirection`79 : cash se vishesh roop se padhta hai, yadi data anuplabdh hai to truti utpann hoti hai (oflin-lock screen ke liye aadarsh)।
-- **truti prabandhan**: link shrinkhalaon ka upyog karta hai (jaise `flexDirection`80)। aap vaishvik trutiyan (jaise `flexDirection`81 ya `flexDirection`82) pakadte hain aur unhen punah prayas tark ya routing reset ke madhyam se sambhalte han।
-- **oflin sink aur store hydration**: apollo client ko `flexDirection`83 ka upyog karke sthaniya storage mein banae rakha ja sakta hai। app startup par, sthaniya cash database (udaharan ke liye, SQLite ya MMKV) ko client cash ko hydrate karne ke liye padha jata hai, jisse antim baar dekhe gaye graph ki tatkal offeline rendering ki anumati milti hai।
+#### समन्वयन समाधान मुख्य नियम:
+1. **नेटइन्फो कनेक्टिविटी श्रोता**: परिवर्तन पर नज़र रखता है। ऑफ़लाइन से ऑनलाइन में संक्रमण पर, यह सिंक्रोनाइज़ेशन प्रोसेसर को ट्रिगर करता है।
+2. **इडेम्पोटेंसी कुंजी**: प्रत्येक लेनदेन के लिए एक यूयूआईडी उत्पन्न होता है और Bridge 17 आउटबॉक्स में संग्रहीत किया जाता है। पुनः प्रयास किए गए एपीआई कॉल में यह हेडर शामिल है। सर्वर इसका उपयोग लेनदेन को दो बार निष्पादित करने से रोकने के लिए करता है।
+3. **संघर्ष समाधान रणनीति**:
+ - **लास्ट-राइट-विंस (LWW)**: क्लाइंट टाइमस्टैम्प अंतिम स्थिति निर्धारित करता है (सबसे सरल, सेटिंग्स के लिए सर्वोत्तम)।
+ - **सर्वर-विंस / मर्ज**: सर्वर गैर-परस्पर विरोधी फ़ील्ड को मर्ज करता है, विरोधों को अस्वीकार करता है और क्लाइंट को फिर से लाने और हल करने के लिए मजबूर करता है।
+ - **इंटरएक्टिव उपयोगकर्ता सुलह**: ऐप उपयोगकर्ता को यह चुनने की सुविधा देने के लिए एक तुलना मॉडल प्रदर्शित करता है कि उसे कौन सी स्थिति रखनी है (सहयोगी दस्तावेज़ मॉडल के लिए आदर्श)।
+4. **पर्सिस्टेंट बैकग्राउंड वर्कर्स**: यदि उपयोगकर्ता सिंक के दौरान ऐप को बैकग्राउंड करता है, तो पृष्ठभूमि में Bridge 20 निष्पादन को पूरा करने के लिए लेन-देन ओएस वर्कर्स ( Bridge 18 में `flexDirection` 70 / Bridge 19 में `flexDirection` 71) को सौंप दिया जाता है।
+
+### 5. Bridge 21 अपोलो क्लाइंट के साथ एकीकरण और कैशिंग Bridge 22 मोबाइल ग्राहकों को केवल आवश्यक विशिष्ट फ़ील्ड का अनुरोध करने में सक्षम बनाता है, जिससे प्रतिबंधित सेलुलर कनेक्शन पर नेटवर्क पेलोड आकार कम हो जाता है।
+- **क्लाइंट कॉन्फ़िगरेशन**: `flexDirection` 73 उदाहरण का उपयोग करके `flexDirection` 72 के माध्यम से प्रारंभ किया गया। क्लाइंट क्वेरी सामान्यीकरण का प्रबंधन करता है ( `flexDirection` 74 और `flexDirection` 75 का उपयोग करके सर्वर ऑब्जेक्ट को कैश कुंजियों में मैप करता है)।
+- **नीतियाँ प्राप्त करें**:
+ - `flexDirection` 76 (डिफ़ॉल्ट): यदि उपलब्ध हो तो कैश्ड डेटा लौटाता है; अन्यथा नेटवर्क अनुरोध करता है.
+ - `flexDirection` 77 : सर्वर से नवीनतम स्थिति प्राप्त करने के लिए हमेशा स्थानीय कैश को बायपास करता है।
+ - `flexDirection` 78 : कैश और व्यू को अपडेट करने के लिए बैकग्राउंड नेटवर्क अनुरोध को ट्रिगर करते हुए तुरंत कैश्ड डेटा परोसता है।
+ - `flexDirection` 79 : कैश से विशेष रूप से पढ़ता है, यदि डेटा गायब है तो त्रुटि उत्पन्न होती है (ऑफ़लाइन-लॉक स्क्रीन के लिए आदर्श)।
+- **त्रुटि प्रबंधन**: लिंक श्रृंखलाओं का उपयोग करता है (उदाहरण के लिए `flexDirection` 80)। आप वैश्विक त्रुटियों (जैसे `flexDirection` 81 या `flexDirection` 82) को पकड़ते हैं और उन्हें पुनः प्रयास तर्क या रूटिंग रीसेट के माध्यम से संभालते हैं।
+- **ऑफ़लाइन सिंक और स्टोर हाइड्रेशन**: अपोलो क्लाइंट को `flexDirection` 83 का उपयोग करके स्थानीय स्टोरेज में बनाए रखा जा सकता है। ऐप स्टार्टअप पर, स्थानीय कैश डेटाबेस (उदाहरण के लिए, Bridge 23 या Bridge 24) को क्लाइंट कैश को हाइड्रेट करने के लिए पढ़ा जाता है, जिससे अंतिम बार देखे गए ग्राफ़ की तत्काल ऑफ़लाइन रेंडरिंग की अनुमति मिलती है।
 
 ---
 
-## 🗺️ dhara 12: micro-frantend aur super-app architecture (re.pack aur module fedration)
-*⏱️ 2 minute padhen*
+## 🗺️ धारा 12: माइक्रो-फ्रंटेंड और सुपर-ऐप आर्किटेक्चर (री.पैक और मॉड्यूल फेडरेशन)
+*⏱️ 2 मिनट पढ़ें*
 
-bade paimane par udyam anuprayogon ke liye, ekal akhand javascript bandal ke nirman se bade paimane par bild-time badhaen, git merge sangharsh aur pratigaman jokhim hote han। varishth architect **Re.Pack** aur **webpack module fedration** ka upyog karke swatantra, modular micro-frantend (mini-app) se bane super-app design karte han।
+बड़े पैमाने के उद्यम अनुप्रयोगों के लिए, एकल अखंड जावास्क्रिप्ट बंडल के निर्माण से बड़े पैमाने पर बिल्ड-टाइम बाधाएं, git Bridge 25 और प्रतिगमन जोखिम होते हैं। वरिष्ठ आर्किटेक्ट **Re.Pack** और **वेबपैक मॉड्यूल फेडरेशन** का उपयोग करके स्वतंत्र, मॉड्यूलर माइक्रो-फ्रंटेंड (मिनी-ऐप) से बने सुपर-ऐप डिज़ाइन करते हैं।
 
-### 1. metro banaam re.pack (webpack)
-- **metro bandler**: react native ka defolt bandler sankalan samay par sabhi srot kod, sampattiyon aur pustakaalayon ko ek ekal `flexDirection`84 file mein sthir roop se sankalit karta hai। metro mool roop se dynamic code vibhajan, remote url loding, ya runtime par runtime sajha karne ka samarthan nahin karta hai।
-- **re.pack**: ek webpack-aadharit compyler aur runtime tool jo metro ki jagah leta hai। re.pack webpack ke mukhya plugins ke configuration ki anumati deta hai, jisme **modul fedration** shamil hai, jo dynamic code loding, chunk splits aur malti-bandal mobile sankalan ko saksham karta hai।
+### 1. Bridge 26 बनाम री.पैक (वेबपैक)
+- ** Bridge 27 बंडलर**: Bridge 28 का डिफ़ॉल्ट Bridge 29 संकलन समय पर सभी स्रोत कोड, संपत्तियों और पुस्तकालयों को एक एकल `flexDirection` 84 फ़ाइल में स्थिर रूप से संकलित करता है। Bridge 30 मूल रूप से डायनामिक कोड विभाजन, दूरस्थ यूआरएल लोडिंग, या रनटाइम पर रनटाइम साझा करने का समर्थन नहीं करता है।
+- **Re.Pack**: एक वेबपैक-आधारित कंपाइलर और रनटाइम Bridge 31 जो Bridge 32 को प्रतिस्थापित करता है। री.पैक वेबपैक के मुख्य प्लगइन्स के कॉन्फ़िगरेशन की अनुमति देता है, जिसमें **मॉड्यूल फेडरेशन** शामिल है, जो डायनेमिक कोड लोडिंग, चंक स्प्लिट्स और मल्टी-बंडल मोबाइल संकलन को सक्षम करता है।
 
-### 2. webpack module federation mcanix
-modul federation code ko **host** (contaner app) aur **remot** (mini-app) mein alag karta hai।
-- **host (contaner)**: mukhya shell application। yah navigation shell set karta hai, mukhya nirbhartaen aayat karta hai, aur gatisheel loader orkestration ko sambhalta hai।
-- **remots (mini-apps)**: swatantra suvidhaen (jaise, credit card scrin, rin aavedan prakriya, rewards hab)। pratyek remote vishisht pravishti ghatakon ko paribhashit karta hai jo ise host ko ujagar (niryat) karta hai।
-- **sajha nirbharta (`flexDirection`85 configaration)**: host aur remote donon sajha nirbharta ki ghoshana karte hain (udaharan ke liye `flexDirection`86, `flexDirection`87, `flexDirection`88)। webpack inhen runtime par gatisheel roop se hal karta hai: yadi host ne pehle hi react load kar diya hai, to remote apne swayam ke duplicate react sanskaran ko load karne ke bajay memory mein host ke runtime instance ka upyog karega।
+### 2. वेबपैक मॉड्यूल फेडरेशन मैकेनिक्स
+मॉड्यूल फेडरेशन कोड को **होस्ट** (कंटेनर ऐप) और **रिमोट** (मिनी-ऐप) में अलग करता है।
+- **होस्ट (कंटेनर)**: मुख्य शेल एप्लिकेशन। यह Bridge 33 शेल सेट करता है, कोर निर्भरता आयात करता है, और डायनेमिक लोडर ऑर्केस्ट्रेशन को संभालता है।
+- **रिमोट्स (मिनी-ऐप्स)**: स्वतंत्र सुविधाएं (जैसे, क्रेडिट कार्ड स्क्रीन, ऋण आवेदन प्रक्रिया, रिवार्ड्स हब)। प्रत्येक रिमोट विशिष्ट प्रविष्टि घटकों को परिभाषित करता है जो इसे होस्ट को उजागर (निर्यात) करता है।
+- **साझा निर्भरताएँ ( `flexDirection` 85 कॉन्फ़िगरेशन)**: होस्ट और रिमोट दोनों साझा निर्भरताएँ घोषित करते हैं (जैसे `flexDirection` 86, `flexDirection` 87, `flexDirection` 88)। वेबपैक इन्हें रनटाइम पर गतिशील रूप से हल करता है: यदि होस्ट ने पहले ही रिएक्ट लोड कर दिया है, तो रिमोट अपने स्वयं के डुप्लिकेट रिएक्ट संस्करण को लोड करने के बजाय मेमोरी में होस्ट के रनटाइम इंस्टेंस का उपयोग करेगा।
 
- ```text
-[Source JS/TS Code] 
- ⬇️
- (Babel) ➡️ Transpiles syntax, strips TS annotations
- ⬇️
- (Metro) ➡️ Resolves dependencies, aggregates into a singular bundle
- ⬇️
- (Hermes compiler) ➡️ Compiles bundle into bytecode (.hbc)
- ⬇️
-[Native APK/IPA Assembly]
-```9 
+ प्रोटेक्टकोडब्लॉक19 
 
-### 3. dynamic bandal loading varkflo
-1. **on-demand resolution**: jab koi upyogkarta "rivards" anubhag par navigate karta hai, to host app ek gatisheel aayat (`flexDirection`89) trigger karta hai।
-2. **dynamik script loder**: re.pack interceptor remote cdn/sarvar url (udaharan ke liye, `flexDirection`90) se remote javascript/harmis bitakod khand ko load karta hai।
-3. **nishpadan**: script ko harmis virtual machine ke andar downlod, satyapit aur nishpadit kiya jata hai, jo host ke navigation stack ke andar ghatak ko nirbaadh roop se prastut karta hai।
-4. **oflin hydration**: offeline launch ka samarthan karne ke liye, container app prusthbhoomi sink chakron ke dauran sthaniya mmkv/fyle system storage mein remote chunks ko utsukta se pri-downlod aur cash kar sakta hai।
+### 3. डायनेमिक बंडल लोडिंग वर्कफ़्लो
+1. **ऑन-डिमांड रिज़ॉल्यूशन**: जब कोई उपयोगकर्ता "रिवार्ड्स" अनुभाग पर नेविगेट करता है, तो होस्ट ऐप एक गतिशील आयात ( `flexDirection` 89) ट्रिगर करता है।
+2. **डायनेमिक स्क्रिप्ट लोडर**: री.पैक इंटरसेप्टर रिमोट सीडीएन/सर्वर यूआरएल (उदाहरण के लिए, `flexDirection` 90) से रिमोट जावास्क्रिप्ट/ Bridge 34 Bridge 35 चंक को लोड करता है।
+3. **निष्पादन**: स्क्रिप्ट को Bridge 36 वर्चुअल मशीन के अंदर डाउनलोड, सत्यापित और निष्पादित किया जाता है, जो घटक को होस्ट के Bridge 37 Bridge 38 के अंदर निर्बाध रूप से प्रस्तुत करता है।
+4. **ऑफ़लाइन हाइड्रेशन**: ऑफ़लाइन लॉन्च का समर्थन करने के लिए, कंटेनर ऐप पृष्ठभूमि सिंक चक्र के दौरान स्थानीय Bridge 39 / फ़ाइल सिस्टम स्टोरेज में दूरस्थ हिस्सों को उत्सुकता से प्री-डाउनलोड और कैश कर सकता है।
 
 ---
 
-## 🔒 dhara 13: unnat mobile suraksha aur reverse engineering suraksha
-*⏱️ 3 minute padhen*
+## 🔒 धारा 13: उन्नत मोबाइल सुरक्षा और रिवर्स इंजीनियरिंग सुरक्षा
+*⏱️ 3 मिनट पढ़ें*
 
-fintek, banking aur dhan-prabandhan application ucch-mulya wale lenden aur samvedansheel pii se nipatate han। suraksha ko kai clint-sid vactoron mein prabandhit kiya jana chahiye।
+फिनटेक, बैंकिंग और धन-प्रबंधन एप्लिकेशन उच्च-मूल्य वाले लेनदेन और संवेदनशील पीआईआई से निपटते हैं। सुरक्षा को कई क्लाइंट-साइड वैक्टरों में प्रबंधित किया जाना चाहिए।
 
-### 1. root aur jailbreak ka pata lagaana
-samjhauta kiye gaye operating system (rooted android, jailbreak ios) karnel sandbox algaav ko bypass karte han, jisse hamlavaron ko sakriya ram, log kunjiyon ka nirikshan karne aur sthaniya pramanikaran niyantranon ko bypass karne ki anumati milti hai।
-- **android root sanketak**: 
- - `flexDirection`93 , `flexDirection`94 , `flexDirection`95 , `flexDirection`96 jaisi nirdeshikaon mein `flexDirection`91 ya `flexDirection`92 jaisi system filon ki upsthiti।
- - sthapit root package (udaharan ke liye, supersu, magic manager)।
- - likhne yogya `flexDirection`97 nirdeshika anumatiyan (badhte talikaon ki jaanch)।
-- **ios jailbreak sanketak**:
- - `flexDirection`98, `flexDirection`99, `column`00, `column`01 jaisi nirdeshikaon ya filon ki upsthiti।
- - app ki dastavej nirdeshika ke bahar ek parikshan file likhne ka prayas karke sandbox bhagne ka parikshan karna।
- - janch kar raha hai ki kya `column`02 jaise system call vaidh prakriya id lautate hain (sandbox wale ios apps upprakriyaon ko utpann nahin kar sakte han)।
+### 1. प्रोटेक्टटर्म340 और प्रोटेक्टटरम341 
+समझौता किए गए ऑपरेटिंग सिस्टम (रूट किए गए Bridge 42, जेलब्रेक किए गए Bridge 43) कर्नेल सैंडबॉक्स अलगाव को बायपास करते हैं, जिससे हमलावरों को सक्रिय रैम, लॉग कुंजियों का निरीक्षण करने और स्थानीय प्रमाणीकरण नियंत्रणों को बायपास करने की अनुमति मिलती है।
+- ** Bridge 44 Bridge 45 संकेतक**: 
+ - `flexDirection` 93 , `flexDirection` 94 , `flexDirection` 95 , `flexDirection` 96 जैसी निर्देशिकाओं में `flexDirection` 91 या `flexDirection` 92 जैसी सिस्टम फ़ाइलों की उपस्थिति।
+ - स्थापित रूट पैकेज (उदाहरण के लिए, SuperSU, Bridge 46 प्रबंधक)।
+ - लिखने योग्य `flexDirection` 97 निर्देशिका अनुमतियाँ (बढ़ते तालिकाओं की जाँच)।
+- ** Bridge 47 Bridge 48 संकेतक**:
+ - `flexDirection` 98 , `flexDirection` 99 , `column` 00 , `column` 01 जैसी निर्देशिकाओं या फ़ाइलों की उपस्थिति।
+ - ऐप की दस्तावेज़ निर्देशिका के बाहर एक परीक्षण फ़ाइल लिखने का प्रयास करके सैंडबॉक्स भागने का परीक्षण करना।
+- जाँच कर रहा है कि क्या `column` 02 जैसी सिस्टम कॉल वैध प्रक्रिया आईडी लौटाती है (सैंडबॉक्स्ड Bridge 49 ऐप्स उपप्रक्रियाएँ उत्पन्न नहीं कर सकते हैं)।
 
-### 2. runtime debugging aur anti-frida suraksha
-hamlawar application logic ko badalne ke liye runtime par memory mein javascript ya native tareekon ko hook karne ke liye dynamic instrumentation framework ka upyog karte hain (udaharan ke liye biometric screen ko bypass karna)।
-- **anti-dibging huk**:
- - **android**: custom module query `column`03 ya `column`05 property ke liye `column`04 file ka nirikshan karen। ek gair-shunya `column`06 maan ek sanlagn dibgar prakriya ko ingit karta hai।
- - **ios**: mool si parat mein `column`08 dhvaj ke saath `column`07 system call ko lagu karna। yadi koi dibgar (jaise lldb) sanlagn karne ka prayas karta hai to yah karnel ko application ko samapt karne ke liye suchit karta hai।
-- **frida defence**:
-- frida aamtaur par tcp port `column`09 par sunne wala ek background server chalata hai। is port ka pata lagane ke liye native module lokalhost par sakriya socket table ko scan karte han।
- - sthaniya memory mapping (android par `column`12, ya ios par `column`13 par call karke) ko pars karke frida ki dynamic library (`column`10 ya `column`11) ke injection ka pata lagaana।
+### 2. रनटाइम डिबगिंग और एंटी-प्रोटेक्टटरएम350 सुरक्षा
+हमलावर एप्लिकेशन लॉजिक को बदलने के लिए रनटाइम पर मेमोरी में डायनेमिक इंस्ट्रूमेंटेशन Bridge 51 से Bridge 52 जावास्क्रिप्ट या नेटिव तरीकों का उपयोग करते हैं (उदाहरण के लिए बायोमेट्रिक स्क्रीन को बायपास करना)।
+- **एंटी-डिबगिंग हुक**:
+ - ** Bridge 53 **: कस्टम मॉड्यूल `column` 03 को क्वेरी करते हैं या `column` 05 प्रॉपर्टी के लिए `column` 04 फ़ाइल का निरीक्षण करते हैं। एक गैर-शून्य `column` 06 मान एक संलग्न डिबगर प्रक्रिया को इंगित करता है।
+ - ** Bridge 54 **: मूल C परत में `column` 08 ध्वज के साथ `column` 07 सिस्टम कॉल को लागू करना। यदि कोई डिबगर (जैसे एलएलडीबी) संलग्न करने का प्रयास करता है तो यह कर्नेल को एप्लिकेशन को समाप्त करने के लिए सूचित करता है।
+- ** Bridge 55 सुरक्षा**:
+ - Bridge 56 आमतौर पर TCP पोर्ट `column` 09 पर सुनने वाला एक बैकग्राउंड सर्वर चलाता है। इस पोर्ट का पता लगाने के लिए नेटिव मॉड्यूल लोकलहोस्ट पर सक्रिय सॉकेट टेबल को स्कैन करते हैं।
+ - स्थानीय मेमोरी मैपिंग ( Bridge 58 पर `column` 12, या Bridge 59 पर `column` 13 को कॉल करके) को पार्स करके Bridge 57 की डायनेमिक लाइब्रेरी ( `column` 10 या `column` 11) के इंजेक्शन का पता लगाना।
 
-### 3. mool code aspashtata (r8 aur progard)
-- **progard / r8**: bild-time tool jo android java/kotlin bitakod ko sikodte, anukulit aur aspasht karte han। ve manav-pathniy varg, vidhi aur char naamon (udaharan ke liye, `column`14 ) ko chhote token (udaharan ke liye, `column`15 ) se pratisthapit karte han, jisse decompylers (jaise jdx) mein sthaitik vishleshan jatil ho jata hai।
-- developers ko reactive native library binding ke liye `column`17 nirdeshon ko nirdisht karne wali `column`16 file banae rakhni hogi; anyatha, progard javascript se bulaye gaye mool vidhi interface ko anukulit aur hata sakta hai, jiske parinamswaroop `column`18 crash ho sakte han।
+### 3. मूल कोड अस्पष्टता (R8 और Bridge 60)
+- ** Bridge 61 / R8**: बिल्ड-टाइम Bridge 62 जो Bridge 63 Java/Kotlin Bridge 64 को सिकोड़ता है, अनुकूलित करता है और अस्पष्ट करता है। वे मानव-पठनीय वर्ग, विधि और चर नामों (उदाहरण के लिए, `column` 14 ) को न्यूनतम Bridge 65 (उदाहरण के लिए, `column` 15 ) से बदल देते हैं, जिससे डिकंपाइलर्स (जैसे JADX) में स्थैतिक विश्लेषण जटिल हो जाता है।
+- Bridge 66 को Bridge 67 लाइब्रेरी बाइंडिंग के लिए `column` 17 निर्देशों को निर्दिष्ट करने वाली एक `column` 16 फ़ाइल बनाए रखनी होगी; अन्यथा, Bridge 68 जावास्क्रिप्ट से बुलाए गए मूल विधि इंटरफेस को अनुकूलित और हटा सकता है, जिसके परिणामस्वरूप `column` 18 Bridge 69 हो सकता है।
 
-### 4. kathor gupt prabandhan (si++ jni)
-- **bhedyata**: `column`19 filon mein access kunjiyan ya encription rahasya sangrahit karna asurakshit hai। metro antim javascript bandal file (`column`21) ke andar `column`20 veriables ko sidhe plantext strings mein sankalit karta hai, jise manak string vishleshan tool (`column`22) ka upyog karke second mein nikala ja sakta hai।
-- **surakshit samadhan (jni/si++)**: criptografik kunji ya api rahasyon ko si++ header filon ke andar sangrahit karen। C++ code sidhe mool machine code binary filon (android par `column`23 library fyle, iOS par `column`24 static libreri) mein sankalit hota hai, jise saade path ke roop mein nahin padha ja sakta hai।
- - si++ library kunji ko gatisheel roop se hal karne ke liye jni rappers (android) aur objectiv-si++ rappers (ios) ko ujagar karti hai।
- - memory scanning ko rokne ke liye, kunjiyan C++ ke andar XOR-mascd bite saraniyon ke roop mein sangrahit ki jaati hain aur keval anurodh ke samay memory mein dicript ki jaati han।
-
----
-
-## ⚡ dhara 14: app startup pradarshan aur aadhunik debugging (post-flipar)
-*⏱️ 2 minute padhen*
-
-startup gati ko anukulit karne se sidhe upyogkarta rupantaran hota hai। varishth developers app launch gananaon ko alg-alg charanon mein vibhajit karte hain aur aadhunik debugging tool ka upyog karte han।
-
-### 1. app startup charanon ka vivran
-1. **pri-men charan (nativ init)**: 
- - os application binary ko load karta hai।
- - dynamic linker (ios par `column`25) framework aur cocopods ko load karta hai।
- - native constructor aur inicializar chalte han।
- - mool pustakalaya prarambh kiye gaye han।
-2. **mukhya charan (pratikriya mool sandarbh Init)**:
- - android jvm/ios men chalta hai।
- - harmis engine ka udaharan tvarit hai।
- - react native core sandarbh aur native module registriyon ko memory mein load kiya jata hai।
-3. **js nishpaadan charan**:
- - harmis engine purv-sankalit `column`26 bitakod bandal ko padhta hai aur pars karta hai।
- - javascript vaishvik char aavantit kiye jaate han, filein aayat ki jaati han, aur prarambhik nishpaadan shuru hota hai।
-4. **drishya paint charan**:
- - react prarambhik ghatak tree ko mount karta hai।
- - yog engine flexbox niyamon ki ganana karta hai।
- - mool ui drishyon ko mukhya thread par tvarit kiya jata hai aur device screen par prastut kiya jata hai (time-tu-interactiv - tti prapt)।
-
-### 2. tti anukulan rannitiyan
-- **inlin aavshyak**: `column`27 mein saksham। yah aayat ko sahayak functions mein lapetata hai jo filon ko keval tabhi hal karta hai jab unhen pehli baar code mein sandarbhit kiya jata hai। yah js nishpaadan engine ko prarambhik app boot par sabhi ayatit module ka mulyankan karne se rokta hai।
-- **aalsi sdk inicialization**: mukhya app boot timeline par bhari libreries (jaise, posthog, branch, sentri) ko inicializ na karen। unhen `column`28 ke andar acinkrones roop se aarambh karen ya prathmik ui ke paint hone ke baad unhen prusthbhoomi timer mein lapeten।
-- **harmis bitakod aot**: sunishchit karen ki harmis sankalan saksham hai taki javascript ci assembly ke dauran bitakod mein sankalit ho, runtime startup ke dauran js text parcing aur anukulan charanon ko puri tarah se chhod de।
-
-### 3. flipar ke baad ke yug mein dibging
-aadhunik react native template (0.73+) se **flipar** ko hata diye jaane ke sath, developers halke, protocall-aadharit debugging vatavaran ka upyog karte han:
-- **harmis chrome inspecter**: harmis ka debugging protocol sidhe chrome devatuls se judta hai। `column`29 chalane se ek websocket debug port ujagar hota hai। console dbagar sanlagn karne, brekpoint ka nirikshan karne aur sidhe console output ka vishleshan karne ke liye chrome mein `column`30 kholen।
-- **sampling profiler**: kaun se javascript loop nishpaadan kataron ko avruddh karte han, iska pata lagane ke liye chrome devatuls ke madhyam se cpu upyog profile capture karen।
-- **memori profiling**: leak vactor ki pehchan karne ke liye chrome par harmis heep snapshot capture karen।
-- **netwark proxy triage**: debugging overle ke bina api network call ka nirikshan karne ke liye, **charls proxy** ya **proxyman** ka upyog karen। 
- - simulator par custom ssl pramanpatra pradhikaran sthapit karen।
- - utpadan bineriz ko lock rakhte hue, dibg/staging sankalan yojanaon ke andar *keval* upyogkarta pramanpatron par spasht roop se bharosa karne ke liye android par `column`31 XML niyamon ko configar karen।
+### 4. कठोर गुप्त प्रबंधन (सी++ जेएनआई)
+- **भेद्यता**: `column` 19 फ़ाइलों में एक्सेस कुंजियाँ या एन्क्रिप्शन रहस्य संग्रहीत करना असुरक्षित है। Bridge 70 `column` 20 वेरिएबल्स को सीधे अंतिम जावास्क्रिप्ट बंडल फ़ाइल ( `column` 21) के अंदर प्लेनटेक्स्ट स्ट्रिंग्स में संकलित करता है, जिसे मानक स्ट्रिंग विश्लेषण Bridge 71 ( `column` 22) का उपयोग करके सेकंड में निकाला जा सकता है।
+- **सुरक्षित समाधान (जेएनआई/सी++)**: क्रिप्टोग्राफ़िक कुंजी या एपीआई रहस्यों को सी++ हेडर फ़ाइलों के अंदर संग्रहीत करें। C++ कोड सीधे मूल मशीन कोड बाइनरी फ़ाइलों ( Bridge 72 पर `column` 23 लाइब्रेरी फ़ाइल, Bridge 73 पर `column` 24 स्थिर लाइब्रेरी) में संकलित होता है, जिसे सादे पाठ के रूप में नहीं पढ़ा जा सकता है।
+ - C++ लाइब्रेरी कुंजियों को गतिशील रूप से हल करने के लिए JNI रैपर्स ( Bridge 74) और ऑब्जेक्टिव-C++ रैपर्स ( Bridge 75) को उजागर करती है।
+ - मेमोरी स्कैनिंग को रोकने के लिए, कुंजियाँ C++ के अंदर XOR-मास्क्ड बाइट सरणियों के रूप में संग्रहीत की जाती हैं और केवल अनुरोध के समय मेमोरी में डिक्रिप्ट की जाती हैं।
 
 ---
 
-## 📦 dhara 15: over-d-air (ota) update aur in-app kharidari (iap)
-*⏱️ 2 minute padhen*
+## ⚡ धारा 14: ऐप स्टार्टअप प्रदर्शन और आधुनिक डिबगिंग (पोस्ट-फ़्लिपर)
+*⏱️ 2 मिनट पढ़ें*
 
-### 1. over-d-air (ota) bandal delevari
-ota system (expo update ya microsoft kodapush) keval-javascript update ke liye store anumodan samay ko bypass karta hai:
-- **handshek flo**: launch hone par, mool app shell update registry api ko call karta hai, vartmaan binary sanskaran aur sakriya bandal hash ko paas karta hai। yadi koi naya bandal sanskaran query se mail khata hai, to client prusthbhoomi mein file download karta hai। agle punararambh par, path sandarbh naye harmis bitakod ko nishpadit karne ke liye badal jata hai।
-- **binery varjan lox**: native module library sidhe apk/ipa mein sankalit ki jaati han। yadi koi ota update naye js code ko dhakelta hai jo ek mool api ko lagu karne ka prayas karta hai jo client ke chal rahe binary code mein maujood nahin hai, to yah tatkal ghatak durghatna ko trigger karta hai। 
- - *shaman*: ota configuration js bandalon ko vishisht app binary sanskaran shreniyon mein map karte hue sakht runtime lock lagu karta hai।
-- **rolback sistm**: mool adyatan shell arambhikaran safalta ko track karta hai। yadi ota bandal nishpadit karne ke kuch minuton ke bhitar app bar-bar crash ho jata hai, to mool dhavak sandarbh suchak ko radd kar deta hai aur sthir sthaniya embedded bandal par wapas aa jata hai।
+स्टार्टअप गति को अनुकूलित करने से सीधे उपयोगकर्ता रूपांतरण होता है। वरिष्ठ Bridge 76 ने ऐप लॉन्च गणनाओं को अलग-अलग चरणों में विभाजित किया और आधुनिक डिबगिंग Bridge 77 का उपयोग किया।
 
-### 2. in-app kharidari aur sadasyata jivanchakra
-- **grahak pravah**: `column`32 jaisi manak libreries utpad laati hain aur apple ke storkit 2 aur google play billing ke saath checkout lenden ka samanvay karti han।
-- **hacking jokhim**: jailbreak device billing lenden safalta handler ko rokne ke liye sthaniya rasid-baipas script ka upyog kar sakte han, upyogkarta se shulk liye bina ek nakli "safalta" payload lauta sakte han। is prakar, clint-sid rasid parcing atyadhik asurakshit hai।
-- **surakshit sarvar-tu-sarvar satyapan pravah**:
- 1. app checkout pravah nishpadit karta hai। Apple/Google ek encrypted lenden rasid lautata hai।
- 2. mobile app is kacchi rasid ko hamare surakshit backnd database par upload karta hai।
- 3. rasid ko satyapit karne ke liye backnd apple ke app store connect api/Google ke developer api par ek criptografik call karta hai।
- 4. ek baar store server dwara manya hone ke bad, hamara database app ko suchit karte hue upyogkarta ke sadasyata record ko update karta hai।
- 5. **sadsyata webahuk**: backnd Apple aur Google ke saath webahuk andpoint panjikrit karta hai। jab koi upyogkarta navinikaran karta hai, radd karta hai, dhanwapasi karta hai, ya koi billing samasya hoti hai, to Apple/Google sidhe hamare server par pahunchta hai, jisse system database sateek rahata hai, bhale hi upyogkarta kabhi bhi app na khole।
+### 1. ऐप स्टार्टअप चरणों का विवरण
+1. **प्री-मेन चरण (नेटिव इनिट)**: 
+ - ओएस एप्लिकेशन बाइनरी को लोड करता है।
+ - डायनेमिक लिंकर ( `column` 25 on Bridge 78) Bridge 79 और CocoaPods को लोड करता है।
+- नेटिव कंस्ट्रक्टर और इनिशियलाइज़र चलते हैं।
+ - मूल पुस्तकालय प्रारंभ किए गए हैं।
+2. **मुख्य चरण ( Bridge 80 Bridge 81 Init)**:
+ - Bridge 82 JVM / Bridge 83 मुख्य रन।
+ - Bridge 84 इंजन इंस्टेंस चालू हो गया है।
+ - Bridge 85 कोर संदर्भ और मूल मॉड्यूल रजिस्ट्रियां मेमोरी में लोड की जाती हैं।
+3. **जेएस निष्पादन चरण**:
+ - Bridge 86 इंजन पूर्व-संकलित `column` 26 Bridge 87 बंडल को पढ़ता है और पार्स करता है।
+ - जावास्क्रिप्ट वैश्विक चर आवंटित किए जाते हैं, फ़ाइलें आयात की जाती हैं, और प्रारंभिक निष्पादन शुरू होता है।
+4. **दृश्य पेंट चरण**:
+ - रिएक्ट प्रारंभिक घटक ट्री को माउंट करता है।
+ - Bridge 88 इंजन Bridge 89 नियमों की गणना करता है।
+ - नेटिव Bridge 90 दृश्यों को मुख्य थ्रेड पर त्वरित किया जाता है और डिवाइस स्क्रीन पर प्रस्तुत किया जाता है (टाइम-टू-इंटरएक्टिव - टीटीआई प्राप्त)।
 
----
+### 2. टीटीआई अनुकूलन रणनीतियाँ
+- **इनलाइन आवश्यक**: `column` 27 में सक्षम। यह आयात को सहायक फ़ंक्शंस में लपेटता है जो फ़ाइलों को केवल तभी हल करता है जब उन्हें पहली बार कोड में संदर्भित किया जाता है। यह जेएस निष्पादन इंजन को प्रारंभिक ऐप बूट पर सभी आयातित मॉड्यूल का मूल्यांकन करने से रोकता है।
+- **लेज़ी Bridge 91 इनिशियलाइज़ेशन**: मुख्य ऐप बूट टाइमलाइन पर भारी लाइब्रेरीज़ (जैसे, Bridge 92, ब्रांच, Bridge 93) को इनिशियलाइज़ न करें। उन्हें `column` 28 के अंदर अतुल्यकालिक रूप से प्रारंभ करें या प्राथमिक Bridge 94 के पेंट होने के बाद उन्हें पृष्ठभूमि टाइमर में लपेटें।
+- ** Bridge 95 बाइटकोड AOT**: सुनिश्चित करें कि Bridge 96 संकलन सक्षम है ताकि जावास्क्रिप्ट CI असेंबली के दौरान Bridge 97 पर संकलित हो, रनटाइम स्टार्टअप के दौरान JS टेक्स्ट पार्सिंग और अनुकूलन चरणों को पूरी तरह से छोड़ दे।
 
-## 🌐 dhara 16: web ke liye react native (cross-platform davelopment)
-*⏱️ 3 minute padhen*
-
-web ke liye react native (`column`33) manak web taknikon ka upyog karke web par react native application chalana sambhav banata hai। yah react native ghatkon/api aur mool HTML DOM samkakshon ke beech anuvaad parat ke roop mein karya karta hai।
-
-### 1. yah kaise kaam karta hai (sankalan evam manchitran)
-- **ghatak manchitran**: runtime par, react native ghatakon ko simentic HTML tatvon mein map kiya jata hai:
- - `column`34 ➡️ `column`35 (`column`36 aur layout niyam style ke sath)
- - `column`37 ➡️ `column`38 (ya `column`39 )
- - `column`40 ➡️ `column`41 
- - `column`42 ➡️ `column`43 ya `column`44 
- - `column`45 ➡️ `column`46 `column`47 ke saath
-- **shaili sankalan**: `column`48 build samay ya prarambhik render par shaili ghoshnaon ko sthir, advitiya css kakshaon mein sankalit karta hai, runtime inline shailiyon ke dheeme pradarshan se bachne ke liye unhen `column`49 tatvon ka upyog karke sanlagn karta hai।
-
-### 2. monorepo setup aur code sharing
-- ios, android aur web ke beech code sajha karne ke liye, developers monorepos mein pariyojnaon ki sanrachna karte hain (udaharan ke liye, yarn varkaspace, torborepo ya nx ka upyog karke):
- - `column`50 : core ui ghatak, huk, store aur vyavasayik tark।
- - `column`51 : native react native shell (metro ke madhyam se configar kiya gaya)।
- - `column`52 : web application shell (next.js, wit, ya webpack)।
-- **metro aur webpack ekikaran**:
- - web builder webpack ya white jaise bandler ka upyog karte han। aap unhen pehle `column`53 extension ko hal karne ke liye configar karte han, aur upnaam react native nirbharta ko web ke liye react native mein configar karte han:
- ```text
- [Git Commit] ➡️ Trigger CI (GitHub Actions)
- ⬇️
- [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
- ⬇️
- [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
- ⬇️
- [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
- ⬇️
- [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
-```0 
-
-### 3. mukhya antar evam simaen
-- **platform-vishisht kod**: `column`54 api ya platform-vishisht extension ka upyog karen:
- - `column`55 / `column`56 / `column`57 
-- **api uplabdhta**:
- - kai mool api (udaharan ke liye, `column`58, `column`59 surakshit bhandaran, push suchnayen aur hardware sensor shrota) web par maujood nahin han।
- - *upcharatmak ranniti*: inhen amurt seva rapper mein lapeten। bhandaran ke liye, web par `column`60 ya `column`61 ka upyog karen, jabki mobile par mool `column`62 ya `column`63 ka upyog karen।
-- **leyout vyvhar**: web scroll container aur focus accessibility rooprekha mobile os samkakshon ki tulna mein alag vyavahar karti hai। interactive div par focus ring ko rokne ke liye aapko shailiyon mein `column`64 ko spasht roop se configar karna hoga।
+### 3. फ़्लिपर के बाद के युग में डिबगिंग
+आधुनिक Bridge 98 टेम्प्लेट (0.73+) से **Flipper** को हटा दिए जाने के साथ, Bridge 99 हल्के, प्रोटोकॉल-आधारित डिबगिंग वातावरण का उपयोग करता है:
+- ** React Native 00 क्रोम इंस्पेक्टर**: React Native 01 का डिबगिंग प्रोटोकॉल सीधे Chrome DevTools से जुड़ता है। `column` 29 चलाने से एक WebSocket डिबग पोर्ट उजागर हो जाता है। कंसोल डीबगर संलग्न करने, ब्रेकप्वाइंट का निरीक्षण करने और सीधे कंसोल आउटपुट का विश्लेषण करने के लिए क्रोम में `column` 30 खोलें।
+- **सैंपलिंग प्रोफाइलर**: कौन से जावास्क्रिप्ट लूप निष्पादन कतारों को अवरुद्ध करते हैं, इसका पता लगाने के लिए क्रोम डेवटूल्स के माध्यम से सीपीयू उपयोग प्रोफाइल कैप्चर करें।
+- **मेमोरी प्रोफाइलिंग**: React Native 03 वैक्टर की पहचान करने के लिए क्रोम पर React Native 02 हीप स्नैपशॉट कैप्चर करें।
+- **नेटवर्क प्रॉक्सी ट्राइएज**: डिबगिंग ओवरले के बिना एपीआई नेटवर्क कॉल का निरीक्षण करने के लिए, **चार्ल्स प्रॉक्सी** या **प्रॉक्सीमैन** का उपयोग करें। 
+ - सिमुलेटर पर कस्टम एसएसएल प्रमाणपत्र प्राधिकरण स्थापित करें।
+ - उत्पादन बायनेरिज़ को लॉक रखते हुए, डिबग/स्टेजिंग संकलन योजनाओं के अंदर *केवल* उपयोगकर्ता प्रमाणपत्रों पर स्पष्ट रूप से भरोसा करने के लिए React Native 04 पर `column` 31 XML नियमों को कॉन्फ़िगर करें।
 
 ---
 
-## 📦 dhara 17: app ka aakaar aur bandal anukulan (apk aur ipa katauti)
-*⏱️ 3 minute padhen*
+## 📦 धारा 15: ओवर-द-एयर ( React Native 05) अपडेट और इन-ऐप खरीदारी (आईएपी)
+*⏱️ 2 मिनट पढ़ें*
 
-app binary vazan kam karne se sidhe upyogkarta adhigrahan bounce dar kam ho jaati hai। varishth developers javascript parisampattiyon aur platform-vishisht deshi bineriz donon mein anukulan ko lakshit karte han।
+### 1. ओवर-द-एयर ( React Native 06) बंडल डिलीवरी React Native 07 सिस्टम ( React Native 08 या Microsoft React Native 09) केवल-जावास्क्रिप्ट अपडेट के लिए स्टोर अनुमोदन समय को बायपास करें:
+- **हैंडशेक फ़्लो**: लॉन्च होने पर, मूल ऐप शेल अपडेट रजिस्ट्री एपीआई को कॉल करता है, वर्तमान बाइनरी संस्करण और सक्रिय बंडल हैश को पास करता है। यदि कोई नया बंडल संस्करण क्वेरी से मेल खाता है, तो क्लाइंट पृष्ठभूमि में फ़ाइल डाउनलोड करता है। अगले पुनरारंभ पर, पथ संदर्भ नए React Native 10 React Native 11 को निष्पादित करने के लिए बदल जाता है।
+- **बाइनरी वर्जन लॉक्स**: नेटिव मॉड्यूल लाइब्रेरी सीधे एपीके/आईपीए में संकलित की जाती हैं। यदि कोई React Native 12 अपडेट नए JS कोड को पुश करता है जो एक मूल एपीआई को लागू करने का प्रयास करता है जो क्लाइंट के चल रहे बाइनरी कोड में मौजूद नहीं है, तो यह तत्काल घातक React Native 13 को ट्रिगर करता है। 
+ - *शमन*: React Native 14 कॉन्फ़िगरेशन जेएस बंडलों को विशिष्ट ऐप बाइनरी संस्करण श्रेणियों में मैप करते हुए सख्त रनटाइम लॉक लागू करता है।
+- **रोलबैक सिस्टम**: मूल अद्यतन शेल आरंभीकरण सफलता को ट्रैक करता है। यदि ऐप React Native 15 किसी React Native 16 बंडल को निष्पादित करने के कुछ मिनटों के भीतर बार-बार आता है, तो मूल धावक संदर्भ सूचक को रद्द कर देता है और स्थिर स्थानीय एम्बेडेड बंडल पर वापस आ जाता है।
 
-### 1. android vishisht aakaar mein kami (bild.gradel)
-- **cpu architecture (abi) vibhajan**:
- - defolt roop se, ek release build sabhi samarthit cpu architecture (arm64-v8a, Armeabi-v7a, x86, x86_64) ke liye mool `column`65 bineriz ko ek "vasa" apk mein pack karta hai।
- - *anukulan*: apk ko prati architecture mein vibhajit karne ke liye gradal ko configar karen ya ek **android app bandal (ab)** utpann karen jo Google Play Store ko upyogkarta upkaranon ke liye anukulit, ekal-arkitectur apk pradan karne deta hai:
- ```text
- [Git Commit] ➡️ Trigger CI (GitHub Actions)
- ⬇️
- [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
- ⬇️
- [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
- ⬇️
- [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
- ⬇️
- [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
-```1 
-- **kod sikudan aur aspashtata (r8/progard)**:
- - R8 java/kotlin compile tree ko paar karta hai, static ded-kod stripping (tri shaking) aur class minimification karta hai।
- - *anukulan*: release build mein progard saksham karen:
- ```text
- [Git Commit] ➡️ Trigger CI (GitHub Actions)
- ⬇️
- [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
- ⬇️
- [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
- ⬇️
- [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
- ⬇️
- [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
-```2 
-- **sthan aur sansadhan configuration (`column`66)**:
- - yadi tritiy-paksh library (jaise Google Play Services) kai sthaniyakrit sansadhan shabdkoshon ko bandal karti han, to kai megabyte bachane ke liye aprayukt anuvadon ko hata den:
- ```text
- [Git Commit] ➡️ Trigger CI (GitHub Actions)
- ⬇️
- [Build Steps] ➡️ Lint, compile Typescript, execute Jest unit tests
- ⬇️
- [Signing Steps] ➡️ decrypt Keystore (Android) / sync Certificates via Match (iOS)
- ⬇️
- [Fastlane Lanes] ➡️ build APK/AAB (Android) / compile IPA (iOS)
- ⬇️
- [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
-```3 
-
-### 2. iOS vishisht aakaar mein kami (Xcode configaration)
-- **apppal app slicing**:
- - kacchi chhavi parisampattiyon ko bandal root mein kacchi png ko bandal karne ke bajay **asset catalogue (`column`67)** mein vyavasthit karen। app store keval lakshya device se mail khane wali chhavi ghanatv (`column`68, `column`69) ko package karne ke liye app slicing ka upyog karta hai।
-- **dibg pratikon ko alag karna**:
- - antim sankalit binary se debugging log aur prateek mapping sandarbhon ko hatane ke liye build settings configar karen:
- - `column`70 se `column`71 par set karen।
- - `column`72 ko `column`73 par set karen।
-- **cocopods anukulan**:
- - aprayukt deshi nirbhartaon ko sankalit karne se bachen। `column`74 configuration ka nirikshan karen aur fremwark samaveshan ko seemit karne ke liye modular aayat ka upyog karen।
-
-### 3. javascript aur bandal anukulan
-- **harmis bitakod injan**:
- - sunishchit karen ki hemiz saksham hai। kacchi js filon ko harmis bitakod (`column`75) mein purv-sankalit karne se bandal pars overhead kam ho jata hai aur antim binary aakaar kam ho jata hai।
-- **bandal auditing (pratikriya-mul-bandal-vizualizar)**:
- - apne `column`76 ka tri-map banane ke liye vizualizar chalaen, jisme yah darshaya gaya ho ki kaun se npm package sabse adhik sthan ki khapat karte han।
-- **ped-hilana aur nirbharta chhantai**:
-- `column`77 jaise vishal akhand pustakaalayon ko sampurna roop se aayat karne se bachen। `column`78 ke bajay, `column`79 ka upyog karen ya halki upyogitaon par migrate karen।
- - bhari icon library ko svgr ke madhyam se sankalit anukulit vector filon se badlen।
- - sthaniya parisampattiyon ko sampidit karen (png/jpg prusthbhoomi ko atyadhik anukulit webp praroop mein parivartit karen)।
+### 2. इन-ऐप खरीदारी और सदस्यता जीवनचक्र
+- **ग्राहक प्रवाह**: `column` 32 जैसी मानक लाइब्रेरीज़ उत्पाद लाती हैं और Apple के StoreKit 2 और React Native 17 बिलिंग के साथ चेकआउट लेनदेन का समन्वय करती हैं।
+- **हैकिंग जोखिम**: जेलब्रेक डिवाइस बिलिंग लेनदेन सफलता हैंडलर को रोकने के लिए स्थानीय रसीद-बाईपास स्क्रिप्ट का उपयोग कर सकते हैं, उपयोगकर्ता से शुल्क लिए बिना एक नकली "सफलता" पेलोड लौटा सकते हैं। इस प्रकार, क्लाइंट-साइड रसीद पार्सिंग अत्यधिक असुरक्षित है।
+- **सुरक्षित सर्वर-टू-सर्वर सत्यापन प्रवाह**:
+ 1. ऐप चेकआउट प्रवाह निष्पादित करता है। Apple/Google एक एन्क्रिप्टेड लेनदेन रसीद लौटाता है।
+ 2. मोबाइल ऐप इस कच्ची रसीद को हमारे सुरक्षित बैकएंड डेटाबेस पर अपलोड करता है।
+ 3. रसीद को मान्य करने के लिए बैकएंड Apple के React Native 18 API / Google के React Native 19 API पर एक क्रिप्टोग्राफ़िक कॉल करता है।
+ 4. एक बार स्टोर सर्वर द्वारा मान्य होने के बाद, हमारा डेटाबेस ऐप को सूचित करते हुए उपयोगकर्ता के सदस्यता रिकॉर्ड को अपडेट करता है।
+ 5. **सदस्यता वेबहुक**: बैकएंड Apple और Google के साथ React Native 20 एंडपॉइंट पंजीकृत करता है। जब कोई उपयोगकर्ता नवीनीकरण करता है, रद्द करता है, धनवापसी करता है, या कोई बिलिंग समस्या होती है, तो Apple/Google सीधे हमारे सर्वर पर पहुंचता है, जिससे सिस्टम डेटाबेस सटीक रहता है, भले ही उपयोगकर्ता कभी भी ऐप न खोले।
 
 ---
 
-## ⚡ dhara 18: varishth-stariy pradarshan engineering chekalist
-*⏱️ 3 minute padhen*
+## 🌐 धारा 16: वेब के लिए React Native 21 (क्रॉस-प्लेटफ़ॉर्म डेवलपमेंट)
+*⏱️ 3 मिनट पढ़ें*
 
-kod samiksha ke dauran in mukhya pradarshan vactoron ki jaanch karke sucharu 60/120 fps interaction sunishchit karen aur thread block ko kam karen:
+ वेब के लिए React Native 22 ( `column` 33) मानक वेब प्रौद्योगिकियों का उपयोग करके वेब पर React Native 23 अनुप्रयोगों को चलाना संभव बनाता है। यह React Native 24 घटकों/एपीआई और मूल HTML DOM समकक्षों के बीच अनुवाद परत के रूप में कार्य करता है।
 
-### 1. bridge aur jsi crossing overhead ko chhota karna
-- **nium**: javascript par wapas aaye bina mool thread par interaction banae rakhen।
-- **karyanvan**:
- - C++ varkalets ka upyog karke ui thread par touch respons chalane, scroll karne aur animation ko puri tarah se kheechne ke liye **react native reanimated** aur **jestur handler** ka upyog karen।
- - react sthiti ko adyatan karne ke liye ucch-aavritti ghatnaon (jaise `column`80 nirdeshank) ko wapas js thread par paas na karen; sajha mulyon ka upyog karke unhen sidhe mool layout parivartanon se bandhen।
+### 1. यह कैसे काम करता है (संकलन एवं मानचित्रण)
+- **घटक मैपिंग**: रनटाइम पर, React Native 25 घटकों को सिमेंटिक HTML तत्वों में मैप किया जाता है:
+ - `column` 34 ➡️ `column` 35 ( `column` 36 और लेआउट नियम स्टाइल के साथ)
+ - `column` 37 ➡️ `column` 38 (या `column` 39 )
+ - प्रोटेक्टिनलाइन240 ➡️ प्रोटेक्टिनलाइन241 
+ - `column` 42 ➡️ `column` 43 या `column` 44 
+ - `column` 45 ➡️ `column` 46 के साथ `column` 47 
+- **शैली संकलन**: `column` 48 बिल्ड समय या प्रारंभिक रेंडर पर स्थिर, अद्वितीय सीएसएस कक्षाओं में शैली घोषणाओं को संकलित करता है, रनटाइम इनलाइन शैलियों के धीमे प्रदर्शन से बचने के लिए उन्हें `column` 49 तत्वों का उपयोग करके संलग्न करता है।
 
-### 2. render loop optimization
-- **anavashyak update roken**:
- - sakht nirbharta tulnaon ka upyog karke suchi item aur bhari ghatakon ko `column`81 mein lapeten।
- - `column`82 ke saath jatil gananaon ko yaad rakhen, aur rendrors mein sandarbh pehchan ko sanrakshit karne ke liye `column`83 ke saath collback karen।
- - component render tree ke andar inline object ya aero function se bachen (udaharan ke liye `column`84)।
+### 2. React Native 26 सेटअप और कोड शेयरिंग
+- React Native 27 , React Native 28 , और वेब के बीच कोड साझा करने के लिए, मोनोरेपोज़ में React Native 29 संरचना परियोजनाएं (उदाहरण के लिए, React Native 30 वर्कस्पेस, Turborepo, या React Native 31 का उपयोग करके):
+ - `column` 50: कोर React Native 32 घटक, React Native 33, स्टोर और व्यावसायिक तर्क।
+ - `column` 51 : नेटिव React Native 34 शेल ( React Native 35 के माध्यम से कॉन्फ़िगर किया गया)।
+- `column` 52 : वेब एप्लिकेशन शेल (Next.js, React Native 36, या Webpack)।
+- ** React Native 37 और वेबपैक इंटीग्रेशन**:
+ - वेब बिल्डर्स Webpack या React Native 38 जैसे बंडलर्स का उपयोग करते हैं। आप उन्हें पहले `column` 53 एक्सटेंशन और वेब के लिए React Native 40 उपनाम React Native 39 निर्भरता को हल करने के लिए कॉन्फ़िगर करते हैं:
+ प्रोटेक्टकोडब्लॉक20 
 
-### 3. gatisheel suchiyan (flashalist / flatlist)
-- **vartualisation tuning**:
- - atyadhik off-scrin aavantan ko rokne ke liye `column`85 ko kam maan (udaharan ke liye, `column`86 screen ke layak tatv) par set karen।
- - gatisheel sale maap ko puri tarah se bypass karne ke liye `column`87 (flatlist ke liye) ya `column`88 (flashalist ke liye) paas karen।
- - sulah vriksh ke punarnirmaan ko rokne ke liye advitiya id lautane wale `column`89 ka upyog karen।
+### 3. मुख्य अंतर एवं सीमाएँ
+- **प्लेटफ़ॉर्म-विशिष्ट कोड**: `column` 54 API या प्लेटफ़ॉर्म-विशिष्ट एक्सटेंशन का उपयोग करें:
+ - प्रोटेक्टिनलाइन255 / प्रोटेक्टिनलाइन256 / प्रोटेक्टिनलाइन257 
+- **एपीआई उपलब्धता**:
+ - कई मूल एपीआई (उदाहरण के लिए, `column` 58, `column` 59 सुरक्षित भंडारण, React Native 41, और हार्डवेयर सेंसर श्रोता) वेब पर मौजूद नहीं हैं।
+ - *उपचारात्मक रणनीति*: इन्हें अमूर्त सेवा रैपर में लपेटें। भंडारण के लिए, वेब पर `column` 60 या `column` 61 का उपयोग करें, जबकि मोबाइल पर मूल `column` 62 या `column` 63 का उपयोग करें।
+- **लेआउट व्यवहार**: वेब स्क्रॉल कंटेनर और फोकस एक्सेसिबिलिटी रूपरेखा मोबाइल ओएस समकक्षों की तुलना में अलग व्यवहार करती है। इंटरैक्टिव डिव पर फोकस रिंग को रोकने के लिए आपको शैलियों में `column` 64 को स्पष्ट रूप से कॉन्फ़िगर करना होगा।
 
-### 4. memory leak triage
-- **sabsakription saaf karen**: mool event shrotaon (`column`91), antral timer aur database sadasyata query ko nasht karne ke liye hamesha `column`90 hook mein cleanup function lautaen।
-- **nirast karne ka anurodh**: yadi api ke samadhan se pehle ghatak anmount ho jaate han, to sakriya HTTP network vaadon ko nirast karne ke liye Axios/Fetch configuration mein `column`92 ka upyog karen।
+---
+
+## 📦 धारा 17: ऐप का आकार और बंडल अनुकूलन (एपीके और आईपीए कटौती)
+*⏱️ 3 मिनट पढ़ें*
+
+ऐप बाइनरी वज़न कम करने से सीधे उपयोगकर्ता अधिग्रहण बाउंस दर कम हो जाती है। वरिष्ठ React Native 42 जावास्क्रिप्ट परिसंपत्तियों और प्लेटफ़ॉर्म-विशिष्ट देशी बायनेरिज़ दोनों में अनुकूलन को लक्षित करता है।
+
+### 1. React Native 43 विशिष्ट आकार में कमी (बिल्ड.ग्रेडल)
+- **सीपीयू आर्किटेक्चर (एबीआई) विभाजन**:
+ - डिफ़ॉल्ट रूप से, एक रिलीज़ बिल्ड सभी समर्थित सीपीयू आर्किटेक्चर (arm64-v8a, Armeabi-v7a, x86, x86_64) के लिए मूल `column` 65 बायनेरिज़ को एक "वसा" एपीके में पैक करता है।
+ - *अनुकूलन*: प्रति आर्किटेक्चर एपीके को विभाजित करने के लिए React Native 44 को कॉन्फ़िगर करें या एक ** React Native 45 ऐप बंडल (AAB)** उत्पन्न करें जो React Native 46 स्टोर को उपयोगकर्ता उपकरणों के लिए अनुकूलित, एकल-आर्किटेक्चर एपीके प्रदान करने देता है:
+ प्रोटेक्टकोडब्लॉक21 
+- **कोड सिकुड़न और अस्पष्टता (R8/ React Native 47 )**:
+ - R8 जावा/कोटलिन कंपाइल ट्री को पार करता है, स्टैटिक डेड-कोड स्ट्रिपिंग (ट्री शेकिंग) और क्लास मिनिमिफिकेशन करता है।
+ - *अनुकूलन*: रिलीज़ बिल्ड में React Native 48 सक्षम करें:
+ प्रोटेक्टकोडब्लॉक22 
+- **लोकेल और संसाधन कॉन्फ़िगरेशन ( `column` 66)**:
+ - यदि तृतीय-पक्ष लाइब्रेरी (जैसे React Native 49 सेवाएँ) कई स्थानीयकृत संसाधन शब्दकोशों को बंडल करती हैं, तो कई मेगाबाइट बचाने के लिए अप्रयुक्त अनुवादों को हटा दें:
+ प्रोटेक्टकोडब्लॉक23 
+
+### 2. React Native 50 विशिष्ट आकार में कमी ( React Native 51 कॉन्फ़िगरेशन)
+- **ऐप्पल ऐप स्लाइसिंग**:
+ - कच्चे पीएनजी को बंडल रूट में बंडल करने के बजाय कच्ची छवि परिसंपत्तियों को **एसेट कैटलॉग ( `column` 67)** में व्यवस्थित करें। React Native 52 लक्ष्य डिवाइस से मेल खाने वाली केवल छवि घनत्व ( `column` 68, `column` 69) को पैकेज करने के लिए ऐप स्लाइसिंग का उपयोग करता है।
+- **डीबग प्रतीकों को अलग करना**:
+ - अंतिम संकलित बाइनरी से डिबगिंग लॉग और प्रतीक मैपिंग संदर्भों को हटाने के लिए बिल्ड सेटिंग्स कॉन्फ़िगर करें:
+ - React Native 53 `column` 70 से `column` 71 तक।
+ - React Native 54 `column` 72 से `column` 73 तक।
+- **कोकोपोड्स अनुकूलन**:
+ - अप्रयुक्त देशी निर्भरताओं को संकलित करने से बचें। `column` 74 कॉन्फ़िगरेशन का निरीक्षण करें और React Native 55 समावेशन को सीमित करने के लिए मॉड्यूलर आयात का उपयोग करें।
+
+### 3. जावास्क्रिप्ट और बंडल अनुकूलन
+- ** React Native 56 बाइटकोड इंजन**:
+- सुनिश्चित करें कि React Native 57 सक्षम है। React Native 58 React Native 59 ( `column` 75) में कच्ची JS फ़ाइलों को पूर्व-संकलित करने से बंडल पार्स ओवरहेड कम हो जाता है और अंतिम बाइनरी आकार कम हो जाता है।
+- **बंडल ऑडिटिंग ( React Native 60 -बंडल-विज़ुअलाइज़र)**:
+ - अपने `column` 76 का ट्री-मैप बनाने के लिए विज़ुअलाइज़र चलाएँ, जिसमें यह दर्शाया गया हो कि कौन से NPM पैकेज सबसे अधिक स्थान लेते हैं।
+- **पेड़-हिलाना और निर्भरता छंटाई**:
+ - `column` 77 जैसे विशाल अखंड पुस्तकालयों को संपूर्ण रूप से आयात करने से बचें। `column` 78 के बजाय, `column` 79 का उपयोग करें या हल्की उपयोगिताओं पर माइग्रेट करें।
+ - भारी आइकन लाइब्रेरी को एसवीजीआर के माध्यम से संकलित अनुकूलित वेक्टर फ़ाइलों से बदलें।
+ - स्थानीय परिसंपत्तियों को संपीड़ित करें (पीएनजी/जेपीजी पृष्ठभूमि को अत्यधिक अनुकूलित वेबपी प्रारूप में परिवर्तित करें)।
+
+---
+
+## ⚡ धारा 18: वरिष्ठ-स्तरीय प्रदर्शन इंजीनियरिंग चेकलिस्ट
+*⏱️ 3 मिनट पढ़ें*
+
+कोड समीक्षा के दौरान इन मुख्य प्रदर्शन वैक्टरों की जांच करके सुचारू 60/120 एफपीएस इंटरैक्शन सुनिश्चित करें और थ्रेड ब्लॉक को कम करें:
+
+### 1. React Native 61 और React Native 62 क्रॉसिंग ओवरहेड को न्यूनतम करना
+- **नियम**: जावास्क्रिप्ट पर वापस आए बिना मूल थ्रेड पर इंटरैक्शन बनाए रखें।
+- **कार्यान्वयन**:
+ - C++ वर्कलेट्स का उपयोग करके React Native 64 थ्रेड पर टच रिस्पॉन्स चलाने, स्क्रॉल करने और एनिमेशन को पूरी तरह से खींचने के लिए ** React Native 63 रीएनिमेटेड** और **जेस्चर हैंडलर** का उपयोग करें।
+ - रिएक्ट स्थिति को अद्यतन करने के लिए उच्च-आवृत्ति घटनाओं (जैसे `column` 80 निर्देशांक) को JS थ्रेड पर वापस न भेजें; साझा मूल्यों का उपयोग करके उन्हें सीधे मूल लेआउट परिवर्तनों से बांधें।
+
+### 2. रेंडर लूप ऑप्टिमाइज़ेशन
+- **अनावश्यक अपडेट रोकें**:
+ - सख्त निर्भरता तुलनाओं का उपयोग करके `column` 81 में सूची आइटम और भारी घटकों को लपेटें।
+ - `column` 82 के साथ जटिल गणनाओं को याद रखें, और रेंडरर्स में संदर्भ पहचान को संरक्षित करने के लिए `column` 83 के साथ कॉलबैक करें।
+ - कंपोनेंट रेंडर ट्री (उदाहरण के लिए `column` 84) के अंदर इनलाइन ऑब्जेक्ट या एरो फ़ंक्शन से बचें।
+
+### 3. गतिशील सूचियाँ ( React Native 65 / React Native 66)
+- **वर्चुअलाइजेशन ट्यूनिंग**:
+ - अत्यधिक ऑफ-स्क्रीन आवंटन को रोकने के लिए React Native 67 `column` 85 को कम मान (उदाहरण के लिए, `column` 86 स्क्रीन के लायक तत्व) पर सेट करें।
+ - गतिशील सेल माप को पूरी तरह से बायपास करने के लिए `column` 87 ( React Native 68 के लिए) या `column` 88 ( React Native 69 के लिए) पास करें।
+ - सुलह वृक्ष के पुनर्निर्माण को रोकने के लिए अद्वितीय आईडी लौटाने वाले `column` 89 का उपयोग करें।
+
+### 4. मेमोरी लीक ट्राइएज
+- **सदस्यता साफ़ करें**: मूल ईवेंट श्रोताओं ( `column` 91), अंतराल टाइमर और डेटाबेस सदस्यता क्वेरी को नष्ट करने के लिए हमेशा `column` 90 React Native 70 में क्लीनअप फ़ंक्शन लौटाएँ।
+- **निरस्त करने का अनुरोध**: यदि एपीआई के समाधान से पहले घटक अनमाउंट हो जाते हैं, तो सक्रिय HTTP नेटवर्क वादों को निरस्त करने के लिए Axios/Fetch कॉन्फ़िगरेशन में `column` 92 का उपयोग करें।
