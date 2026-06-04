@@ -141,37 +141,37 @@ def translate_to_hindi_devnagari(text):
     return text
 
 def translate_markdown_to_devnagari_hinglish(content):
-    # 1. Protect code blocks (9999000...)
+    # 1. Protect code blocks (99990000)
     code_blocks = []
     def save_code_block(match):
         code_blocks.append(match.group(0))
-        return f" 9999000{len(code_blocks)-1} "
+        return f" 9999{len(code_blocks)-1:04d} "
     content = re.sub(r'```[\s\S]*?```', save_code_block, content)
     
-    # 2. Protect inline code (8888000...)
+    # 2. Protect inline code (88880000)
     inline_codes = []
     def save_inline_code(match):
         inline_codes.append(match.group(0))
-        return f" 8888000{len(inline_codes)-1} "
+        return f" 8888{len(inline_codes)-1:04d} "
     content = re.sub(r'`[^`\n]+`', save_inline_code, content)
     
-    # 3. Protect HTML tags (6666000...)
+    # 3. Protect HTML tags (66660000)
     html_tags = []
     def save_html(match):
         html_tags.append(match.group(0))
-        return f" 6666000{len(html_tags)-1} "
+        return f" 6666{len(html_tags)-1:04d} "
     content = re.sub(r'<[^>]+>', save_html, content)
 
-    # 4. Protect markdown links but parse their text (7777000...)
+    # 4. Protect markdown links (77770000)
     links = []
     def save_link(match):
         text = match.group(1)
         link = match.group(2)
         links.append((text, link))
-        return f" 7777000{len(links)-1} "
+        return f" 7777{len(links)-1:04d} "
     content = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', save_link, content)
     
-    # 5. Protect technical keywords using regex word boundaries (5555000...)
+    # 5. Protect technical keywords using regex word boundaries (55550000)
     protected_terms = []
     
     pattern_parts = [r'\b' + re.escape(kw) + r'\b' for kw in tech_keywords]
@@ -180,7 +180,7 @@ def translate_markdown_to_devnagari_hinglish(content):
     def save_tech_term(match):
         term = match.group(0)
         protected_terms.append(term)
-        return f" 5555000{len(protected_terms)-1} "
+        return f" 5555{len(protected_terms)-1:04d} "
         
     content = keyword_regex.sub(save_tech_term, content)
     
@@ -214,31 +214,33 @@ def translate_markdown_to_devnagari_hinglish(content):
     translated_content = '\n'.join(translated_chunks)
     
     # Clean up spacing around numeric tokens first
-    # This prevents replacement failures due to weird spacing from translate
-    # e.g., "5555000 0" or similar
     translated_content = re.sub(r'(\d+)\s+(\d+)', r'\1\2', translated_content)
     
     # 6. Restore technical keywords
     for i, term in enumerate(protected_terms):
-        translated_content = translated_content.replace(f"5555000{i}", f" {term} ")
+        translated_content = translated_content.replace(f"5555{i:04d}", f" {term} ")
         
     # 7. Restore links
     for i, (text, link) in enumerate(links):
-        translated_text = translate_markdown_to_devnagari_hinglish(text)
+        clean_text = text.strip()
+        if clean_text in tech_keywords:
+            translated_text = clean_text
+        else:
+            translated_text = translate_to_hindi_devnagari(clean_text)
         restored_link = f"[{translated_text.strip()}]({link})"
-        translated_content = translated_content.replace(f"7777000{i}", f" {restored_link} ")
+        translated_content = translated_content.replace(f"7777{i:04d}", f" {restored_link} ")
         
     # 8. Restore HTML tags
     for i, tag in enumerate(html_tags):
-        translated_content = translated_content.replace(f"6666000{i}", f" {tag} ")
+        translated_content = translated_content.replace(f"6666{i:04d}", f" {tag} ")
         
     # 9. Restore inline codes
     for i, code in enumerate(inline_codes):
-        translated_content = translated_content.replace(f"8888000{i}", f" {code} ")
+        translated_content = translated_content.replace(f"8888{i:04d}", f" {code} ")
         
     # 10. Restore code blocks
     for i, block in enumerate(code_blocks):
-        translated_content = translated_content.replace(f"9999000{i}", f"\n\n{block}\n\n")
+        translated_content = translated_content.replace(f"9999{i:04d}", f"\n\n{block}\n\n")
         
     # Clean up excess whitespace and double-spacing
     translated_content = re.sub(r'[ \t]+', ' ', translated_content)
