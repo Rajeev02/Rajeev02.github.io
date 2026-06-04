@@ -4,76 +4,152 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Preparation Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const currentTheme = savedTheme || systemTheme;
+        document.documentElement.setAttribute("data-theme", currentTheme);
+      })();
+    </script>
     <style>
+      :root {
+        --bg-gradient: linear-gradient(135deg, #1a8917 0%, #115c0f 100%);
+        --card-bg: #ffffff;
+        --text-color: #1a1a1a;
+        --subtitle-color: #757575;
+        --input-bg: #ffffff;
+        --input-border: #e6e6e6;
+        --input-text: #1a1a1a;
+        --btn-gradient: linear-gradient(135deg, #1a8917 0%, #115c0f 100%);
+        --info-bg: #f2f2f2;
+        --info-text: #5c5c5c;
+        --btn-color: #ffffff;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --theme-btn-bg: rgba(255, 255, 255, 0.2);
+        --theme-btn-border: rgba(255, 255, 255, 0.3);
+        --theme-btn-color: #ffffff;
+      }
+
+      [data-theme="dim"] {
+        --bg-gradient: linear-gradient(135deg, #151922 0%, #0f131a 100%);
+        --card-bg: #1e2430;
+        --text-color: #f1f5f9;
+        --subtitle-color: #94a3b8;
+        --input-bg: #151922;
+        --input-border: #2d3748;
+        --input-text: #f1f5f9;
+        --btn-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+        --info-bg: #151922;
+        --info-text: #cbd5e1;
+        --btn-color: #ffffff;
+        --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        --theme-btn-bg: rgba(255, 255, 255, 0.1);
+        --theme-btn-border: rgba(255, 255, 255, 0.2);
+        --theme-btn-color: #cbd5e1;
+      }
+
+      [data-theme="dark"] {
+        --bg-gradient: linear-gradient(135deg, #030712 0%, #080a10 100%);
+        --card-bg: #0e121e;
+        --text-color: #f9fafb;
+        --subtitle-color: #9ca3af;
+        --input-bg: #030712;
+        --input-border: #1f2937;
+        --input-text: #f9fafb;
+        --btn-gradient: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+        --info-bg: #030712;
+        --info-text: #d1d5db;
+        --btn-color: #ffffff;
+        --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        --theme-btn-bg: rgba(255, 255, 255, 0.05);
+        --theme-btn-border: rgba(255, 255, 255, 0.15);
+        --theme-btn-color: #9ca3af;
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       body {
-        font-family:
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background: var(--bg-gradient);
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
+        transition: background 0.3s;
       }
       .lock-screen {
         width: 100%;
         max-width: 400px;
-        background: white;
+        background: var(--card-bg);
         padding: 40px 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
         text-align: center;
+        border: 1px solid var(--input-border);
+        transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
       }
       .lock-icon {
         font-size: 48px;
         margin-bottom: 20px;
       }
       h1 {
-        color: #1a202c;
-        font-size: 24px;
+        color: var(--text-color);
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
         margin-bottom: 10px;
+        transition: color 0.3s;
       }
       .subtitle {
-        color: #718096;
+        color: var(--subtitle-color);
         font-size: 14px;
         margin-bottom: 30px;
+        transition: color 0.3s;
       }
       input {
         width: 100%;
-        padding: 12px;
-        margin-bottom: 10px;
-        border: 1px solid #cbd5e0;
-        border-radius: 6px;
+        padding: 12px 16px;
+        margin-bottom: 12px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        color: var(--input-text);
+        border-radius: 8px;
         font-size: 16px;
-        transition: border-color 0.3s;
+        transition: all 0.3s;
       }
       input:focus {
         outline: none;
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #1a8917;
+        box-shadow: 0 0 0 3px rgba(26, 137, 23, 0.15);
+      }
+      [data-theme="dim"] input:focus {
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      }
+      [data-theme="dark"] input:focus {
+        border-color: #a855f7;
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
       }
       button {
         width: 100%;
         padding: 12px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: var(--btn-gradient);
+        color: var(--btn-color);
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: transform 0.2s, background 0.3s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       }
       button:hover {
         transform: translateY(-2px);
@@ -88,17 +164,47 @@
         display: none;
       }
       .info {
-        background: #edf2f7;
-        padding: 12px;
-        border-radius: 6px;
-        margin-top: 20px;
-        font-size: 12px;
-        color: #4a5568;
+        background: var(--info-bg);
+        padding: 14px 16px;
+        border-radius: 8px;
+        margin-top: 24px;
+        font-size: 13px;
+        color: var(--info-text);
         line-height: 1.5;
+        text-align: left;
+        border: 1px solid var(--input-border);
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+      .theme-toggle-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .theme-toggle-btn {
+        background: var(--theme-btn-bg);
+        border: 1px solid var(--theme-btn-border);
+        color: var(--theme-btn-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(8px);
+      }
+      .theme-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
       }
     </style>
   </head>
   <body>
+    <div class="theme-toggle-container">
+      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌗</button>
+    </div>
     <div class="lock-screen">
       <div class="lock-icon">🔒</div>
       <h1>Preparation Portal</h1>
@@ -161,6 +267,47 @@
         el.textContent = msg;
         el.style.display = "block";
       }
+
+      function initThemeToggle() {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        updateThemeToggleUI(currentTheme);
+        
+        const toggleBtn = document.getElementById("themeToggle");
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme") || "light";
+            let next;
+            if (current === "light") {
+              next = "dim";
+            } else if (current === "dim") {
+              next = "dark";
+            } else {
+              next = "light";
+            }
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            updateThemeToggleUI(next);
+          });
+        }
+      }
+
+      function updateThemeToggleUI(theme) {
+        const toggleBtn = document.getElementById("themeToggle");
+        if (!toggleBtn) return;
+        if (theme === "dark") {
+          toggleBtn.innerHTML = "☀️";
+          toggleBtn.title = "Switch to Light Theme";
+        } else if (theme === "dim") {
+          toggleBtn.innerHTML = "🌙";
+          toggleBtn.title = "Switch to Dark Theme";
+        } else {
+          toggleBtn.innerHTML = "🌗";
+          toggleBtn.title = "Switch to Dim Theme";
+        }
+      }
+
+      // Run theme initialization on DOM load
+      window.addEventListener("DOMContentLoaded", initThemeToggle);
 
       // Check if already unlocked
       if (sessionStorage.getItem("prepration_unlocked") === "1") {
