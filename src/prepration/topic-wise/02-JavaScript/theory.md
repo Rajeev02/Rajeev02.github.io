@@ -33,7 +33,11 @@
   - [7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)](#7b-redux-async-workflow-synchronous-actions-middlewares-thunkssagas)
   - [8. React Reconciliation & Diffing (React Fiber)](#8-react-reconciliation-diffing-react-fiber)
   - [9. Lazy Loading & Code Splitting](#9-lazy-loading-code-splitting)
-  - [10. Advanced JS Engine & Concurrency Q&A](#10-advanced-js-engine-concurrency-qa)
+  - [10. Debounce vs. Throttle (Execution Control Wrappers)](#10-debounce-vs-throttle-execution-control-wrappers)
+  - [11. Event Emitters & The Publish-Subscribe Pattern](#11-event-emitters-the-publish-subscribe-pattern)
+  - [12. Function Memoization Caching](#12-function-memoization-caching)
+  - [13. JavaScript Polyfills & Prototype Delegation](#13-javascript-polyfills-prototype-delegation)
+  - [14. Advanced JS Engine & Concurrency Q&A](#14-advanced-js-engine-concurrency-qa)
 </details>
 <!-- INDEX_END -->
 
@@ -41,15 +45,56 @@
 
 ### 1. Lexical Scoping & Closures
 - **Lexical Scoping**: JavaScript resolves variables based on the physical position of the variables' declarations within the nested source code structures. Inner functions have access to variables declared in their outer parent scopes.
+  - *Example*:
+    ```javascript
+    function outer() {
+      const outerVar = "I am from the outer scope";
+      function inner() {
+        console.log(outerVar); // Accesses outerVar because of lexical placement
+      }
+      inner();
+    }
+    outer(); // Logs: "I am from the outer scope"
+    ```
 - **Closure**: A closure is the combination of a function bundled together with references to its surrounding state (its **lexical environment**). 
   - In JavaScript, closures are created every time a function is defined, at function creation time.
   - A closure allows an inner function to access variables from its outer scope even after the outer function has finished executing and its execution context has been popped off the Call Stack.
+  - *Example*:
+    ```javascript
+    function createCounter() {
+      let count = 0; // State variable in outer scope
+      return function() {
+        count++; // Accesses and modifies the outer variable
+        return count;
+      };
+    }
+    const counter = createCounter();
+    console.log(counter()); // 1
+    console.log(counter()); // 2 (count variable persists in memory due to closure)
+    ```
 
 ### 2. Variable Scoping: `var` vs. `let` vs. `const`
 - **`var` (Function Scope)**: Variables declared with `var` are scoped to the nearest function block. They do not respect block boundaries (like `if` statements or `for` loops). They are hoisted to the top of their scope and initialized with `undefined`.
 - **`let` and `const` (Block Scope)**: Variables declared with `let` or `const` are scoped to the nearest enclosing curly braces `{}`. They are hoisted but are not initialized, remaining inside the **Temporal Dead Zone (TDZ)** until their actual declaration line is executed.
   - `let` allows re-assignment of values.
   - `const` prevents re-assignment of the variable reference (though object properties inside a `const` object can still be mutated).
+  - *Example*:
+    ```javascript
+    // Block Scope vs. Function Scope
+    if (true) {
+      var functionScoped = "var is NOT block-scoped";
+      let blockScoped = "let IS block-scoped";
+    }
+    console.log(functionScoped); // Logs: "var is NOT block-scoped"
+    // console.log(blockScoped); // ReferenceError: blockScoped is not defined
+
+    // Hoisting & TDZ
+    console.log(hoistedVar); // Logs: undefined (var is hoisted and initialized to undefined)
+    var hoistedVar = 10;
+
+    // console.log(tdzVar); // ReferenceError: Cannot access 'tdzVar' before initialization
+    let tdzVar = 20;
+    ```
 
 ### 3. The Event Loop & Concurrency Model
 JavaScript is a single-threaded language, meaning it has one Call Stack and executes one operation at a time. Concurrency is handled by the browser or Node.js runtime environment using the **Event Loop**.
@@ -72,6 +117,26 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
   1. The event loop waits until the Call Stack is completely empty.
   2. It then flushes the **entire** Microtask Queue (including any microtasks queued during the flush).
   3. Once the Microtask Queue is completely empty, it takes the **first** task from the Macrotask Queue, pushes it to the Call Stack to execute, and repeats the cycle.
+  - *Example (Prioritization Order)*:
+    ```javascript
+    console.log("1. Synchronous");
+
+    setTimeout(() => {
+      console.log("4. Macrotask (setTimeout)");
+    }, 0);
+
+    Promise.resolve().then(() => {
+      console.log("3. Microtask (Promise)");
+    });
+
+    console.log("2. Synchronous End");
+
+    // Execution Output:
+    // 1. Synchronous
+    // 2. Synchronous End
+    // 3. Microtask (Promise)
+    // 4. Macrotask (setTimeout)
+    ```
 
 ---
 
@@ -87,9 +152,42 @@ A memory leak occurs when variables or objects that are no longer needed by the 
 
 #### Typical JS Memory Leak Scenarios:
 - **LINGERING TIMERS/INTERVALS**: Creating a `setInterval` inside a React component without calling `clearInterval` during unmounting. The interval callback closure continues running, retaining references to all component state variables.
+  - *Example*:
+    ```javascript
+    // ❌ LEAK: Missing clearInterval on unmount
+    useEffect(() => {
+      setInterval(() => { console.log("Timer ticking..."); }, 1000);
+    }, []);
+
+    // ✅ FIX: Clean up the interval using return cleanup function
+    useEffect(() => {
+      const id = setInterval(() => { console.log("Timer ticking..."); }, 1000);
+      return () => clearInterval(id);
+    }, []);
+    ```
 - **UNREMOVED EVENT LISTENERS**: Registering global listeners (e.g., `DeviceEventEmitter`, `AppState.addEventListener`, or custom event dispatchers) and failing to call `.remove()` in the cleanup block.
+  - *Example*:
+    ```javascript
+    // ❌ LEAK: window listener remains attached after component unmounts
+    useEffect(() => {
+      window.addEventListener("resize", handleResize);
+    }, []);
+
+    // ✅ FIX: Clean up the event listener
+    useEffect(() => {
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    ```
 - **CLOSURE LEAKS**: Outer scopes holding large arrays or references that are trapped by long-lived inner functions.
 - **GLOBAL VARIABLES**: Accidentally attaching large objects or lists to the global `global` or `window` scope.
+  - *Example*:
+    ```javascript
+    // ❌ LEAK: Attaching big data to global object
+    function processData() {
+      global.leakData = new Array(1000000).fill("Data");
+    }
+    ```
 
 ---
 
@@ -109,6 +207,41 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 | **`componentDidUpdate(prevProps, prevState)`** | `useEffect(() => {}, [dep1, dep2])` | Runs after props or state changes. The dependency array compares variables using shallow equality (`Object.is`). |
 | **`componentWillUnmount`** | `useEffect(() => { return () => { /* clean up */ } }, [])` | Runs immediately before unmounting. The returned cleanup function acts as the unmount event. |
 
+- *Side-by-Side Example*:
+  ```javascript
+  // --- CLASS COMPONENT APPROACH ---
+  class ProfileClass extends React.Component {
+    componentDidMount() {
+      console.log("Component mounted");
+    }
+    componentDidUpdate(prevProps) {
+      if (this.props.userId !== prevProps.userId) {
+        console.log("userId updated");
+      }
+    }
+    componentWillUnmount() {
+      console.log("Cleanup before unmounting");
+    }
+    render() { return <div>User ID: {this.props.userId}</div>; }
+  }
+
+  // --- FUNCTIONAL COMPONENT + HOOKS APPROACH ---
+  function ProfileHook({ userId }) {
+    useEffect(() => {
+      console.log("Component mounted equivalent");
+      return () => {
+        console.log("Cleanup before unmounting equivalent");
+      };
+    }, []); // Empty dependencies = runs on mount, cleanup runs on unmount
+
+    useEffect(() => {
+      console.log("userId updated equivalent");
+    }, [userId]); // Runs only when userId changes
+
+    return <div>User ID: {userId}</div>;
+  }
+  ```
+
 ---
 
 ## ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
@@ -116,20 +249,103 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 ### 1. `useMemo` (Value Caching)
 - **Purpose**: Caches the result of an expensive computation across render cycles.
 - **Mechanism**: Evaluates the computation only when variables inside its dependency array change. If dependencies remain identical, it intercepts the execution and serves the cached result, skipping the CPU-heavy logic.
-- **Fintech Example**: Filtering and sorting an array of 5,000 market securities based on a user's search text.
+- **Fintech Example**:
+  ```javascript
+  const FinancialPortfolio = ({ assets, filterText }) => {
+    // Expensive filtering/sorting calculation only runs when assets or filterText change
+    const filteredAssets = useMemo(() => {
+      console.log("Filtering financial securities...");
+      return assets
+        .filter(asset => asset.name.toLowerCase().includes(filterText.toLowerCase()))
+        .sort((a, b) => b.value - a.value);
+    }, [assets, filterText]);
+
+    return (
+      <ul>
+        {filteredAssets.map(asset => <li key={asset.id}>{asset.name}: ${asset.value}</li>)}
+      </ul>
+    );
+  };
+  ```
 
 ### 2. `useCallback` (Reference Caching)
 - **Purpose**: Memoizes a function instance reference across render cycles.
 - **Mechanism**: In JavaScript, functions are objects. Creating an inline function (`onPress={() => {}}`) allocates a brand-new object reference in memory on every render. If this callback is passed to a child component optimized with `React.memo`, the child will detect a "changed" prop reference and trigger a complete, unnecessary re-render. Wrapping the callback in `useCallback` maintains the exact same memory address reference pointer unless dependency array values mutate.
+- **Example**:
+  ```javascript
+  const Parent = () => {
+    const [count, setCount] = useState(0);
+    
+    // Caches the handleClick function reference so it does not change on Parent re-renders
+    const handleClick = useCallback(() => {
+      console.log("Child button clicked!");
+    }, []); // Empty dependencies = function reference never changes
+
+    return (
+      <div>
+        <button onClick={() => setCount(count + 1)}>Increment Parent ({count})</button>
+        {/* MemoizedButton will skip re-rendering because handleClick keeps the same reference */}
+        <MemoizedButton onClick={handleClick} />
+      </div>
+    );
+  };
+
+  const MemoizedButton = React.memo(({ onClick }) => {
+    console.log("MemoizedButton Rendered!");
+    return <button onClick={onClick}>Click Me</button>;
+  });
+  ```
 
 ### 3. `useRef` (Mutable Container)
 - **Purpose**: Persists a mutable container whose `.current` property holds a value throughout the entire lifecycle of the component.
 - **Key Feature**: Mutating `.current` **does not trigger a component re-render**. It is used to store mutable state values that should not affect the visual UI paint cycles, such as WebSocket references, animation objects, or timer IDs.
+- **Example**:
+  ```javascript
+  const TimerComponent = () => {
+    const timerRef = useRef(null); // Holds the interval ID persistently
+    const [seconds, setSeconds] = useState(0);
+
+    const startTimer = () => {
+      if (timerRef.current !== null) return;
+      timerRef.current = setInterval(() => {
+        setSeconds(prev => prev + 1);
+      }, 1000);
+    };
+
+    const stopTimer = () => {
+      clearInterval(timerRef.current);
+      timerRef.current = null; // Clearing this ref value does NOT trigger a re-render
+    };
+
+    useEffect(() => {
+      return () => clearInterval(timerRef.current); // Cleanup on unmount
+    }, []);
+
+    return (
+      <div>
+        <h3>Timer: {seconds}s</h3>
+        <button onClick={startTimer}>Start</button>
+        <button onClick={stopTimer}>Stop</button>
+      </div>
+    );
+  };
+  ```
 
 ### 4. When NOT to Memoize
 Overusing `useMemo` and `useCallback` is a common mistake that degrades performance:
 - **Trivial Logic**: Wrapping simple computations (e.g., adding two numbers or concatenating string props) in `useMemo` adds unnecessary overhead. The cost of allocating memory slots for dependencies and running shallow comparisons on every render exceeds the cost of re-calculating the primitive value.
+  - *Example*:
+    ```javascript
+    // ❌ BAD: Trivial math is cheaper than hook validation setup
+    const total = useMemo(() => price + tax, [price, tax]);
+    ```
 - **Unnecessary Dependencies**: Wrapping functions in `useCallback` when they are passed to standard HTML/Native elements (like `<View>` or `<Button>`) is redundant, as standard elements do not implement reference checking optimizations like `React.memo`.
+  - *Example*:
+    ```javascript
+    // ❌ BAD: Native <button> does not check reference equality
+    const onNativeClick = useCallback(() => { console.log("clicked"); }, []);
+    return <button onClick={onNativeClick}>Click</button>;
+    ```
 
 ---
 
@@ -147,6 +363,28 @@ Large-scale React applications split state management into two clear domains: **
 - **Best For**: Localized application configuration, UI themes, active session authentication flags, user preferences, and multi-step inputs (e.g., a signup wizard).
 - **Core Principle**: Unidirectional data flow governed by synchronous actions and reducers. Changes are predictable, trackable via devtools, and run entirely within client memory.
 - **Asynchronous Data**: Uses Thunks or Sagas. Orchestrating sequential API calls requires manual loading flags, error tracking, and caching logics.
+- **Example**:
+  ```javascript
+  import { createSlice, configureStore } from '@reduxjs/toolkit';
+
+  // 1. Create slice
+  const uiSlice = createSlice({
+    name: 'ui',
+    initialState: { darkMode: false },
+    reducers: {
+      toggleTheme: (state) => {
+        state.darkMode = !state.darkMode; // Immer library handles safe state copying under the hood
+      }
+    }
+  });
+
+  export const { toggleTheme } = uiSlice.actions;
+
+  // 2. Configure store
+  const store = configureStore({
+    reducer: { ui: uiSlice.reducer }
+  });
+  ```
 
 ### 2. React Query (TanStack Query) - Server State
 - **Best For**: Data that lives on a remote database (e.g., bank accounts, trade history, transactions).
@@ -155,6 +393,42 @@ Large-scale React applications split state management into two clear domains: **
   - **Dependent Queries**: Block queries using the `enabled` configuration flag (e.g., `enabled: !!userId`) until parent credentials resolve.
   - **Exponential Backoff**: Configure automatic retries with increasing delay times to gracefully handle temporary network dropouts.
   - **Cache Invalidation**: Query keys (e.g., `['portfolio', userId]`) map variables to cache buckets. Calling `queryClient.invalidateQueries({ queryKey })` triggers background refetches to sync stale components.
+- **Example**:
+  ```javascript
+  import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+
+  function UserDashboard({ userId }) {
+    const queryClient = useQueryClient();
+
+    // 1. Querying data (Server State)
+    const { data: user, isLoading, error } = useQuery({
+      queryKey: ['user', userId],
+      queryFn: () => fetch(`/api/users/${userId}`).then(res => res.json())
+    });
+
+    // 2. Dependent Query: Only runs after 'user' is fetched and username is available
+    const { data: orders } = useQuery({
+      queryKey: ['orders', user?.username],
+      queryFn: () => fetch(`/api/orders?user=${user.username}`).then(res => res.json()),
+      enabled: !!user?.username // Blocks execution until condition evaluates to true
+    });
+
+    // 3. Mutating data + Cache Invalidation
+    const mutation = useMutation({
+      mutationFn: (newProfile) => fetch(`/api/users/${userId}`, {
+        method: 'PUT',
+        body: JSON.stringify(newProfile)
+      }),
+      onSuccess: () => {
+        // Automatically triggers background fetch to update outdated components
+        queryClient.invalidateQueries({ queryKey: ['user', userId] });
+      }
+    });
+
+    if (isLoading) return <span>Loading...</span>;
+    return <div>User: {user.name} (Orders: {orders?.length ?? 0})</div>;
+  }
+  ```
 
 ---
 
@@ -166,28 +440,155 @@ Large-scale React applications split state management into two clear domains: **
   - *`var` variables* are hoisted and initialized to `undefined`.
   - *`let` and `const` variables* are hoisted but remain uninitialized in the **Temporal Dead Zone (TDZ)**, throwing a `ReferenceError` if accessed early.
   - *Function Expressions* (e.g., `const fn = () => {}`) behave like variables and are not fully hoisted.
+  - *Example*:
+    ```javascript
+    console.log(greet()); // Logs: "Hello!" (Function declaration hoisted)
+    function greet() { return "Hello!"; }
+
+    console.log(hoistedVar); // Logs: undefined (var declaration hoisted, not initialized)
+    var hoistedVar = "Var is here";
+
+    // console.log(letVar); // ReferenceError: Cannot access 'letVar' before initialization (in TDZ)
+    let letVar = "Let is here";
+
+    // console.log(sum(1, 2)); // TypeError: sum is not a function (function expression hoisted as var)
+    var sum = function(a, b) { return a + b; };
+    ```
 - **Currying**: A functional programming pattern where a function taking multiple arguments is transformed into a chain of nested functions, each taking a single argument. It leverages closures to retain arguments across evaluations.
-  - *Example*: `const multiply = a => b => a * b; multiply(2)(3); // 6`
+  - *Example*:
+    ```javascript
+    const multiply = a => b => a * b; 
+    multiply(2)(3); // 6
+
+    // Practical application: Configuring partial arguments
+    const discountCalculator = (discount) => (price) => price * (1 - discount);
+    const tenPercentOff = discountCalculator(0.10);
+    console.log(tenPercentOff(100)); // 90
+    console.log(tenPercentOff(250)); // 225
+    ```
 
 ### 2. Prototypal Inheritance & The Chain
 - Every JavaScript object has a private link referencing another object called its **Prototype** (`__proto__`). 
 - **The Prototype Chain**: When accessing a property on an object, JavaScript first looks at the object's local properties. If not found, it traverses up the prototype chain (`object.__proto__`, `object.__proto__.__proto__`) recursively until the property is located or the chain terminates at `null`.
 - **Property Shadowing**: If an object defines a local property with the same name as a property on its prototype, the local property "shadows" (overrides) the prototype's property.
+- *Example*:
+  ```javascript
+  const animal = {
+    eats: true,
+    walk() { console.log("Animal walks"); }
+  };
+
+  const rabbit = Object.create(animal); // Links rabbit.__proto__ to animal
+  rabbit.jumps = true;
+
+  console.log(rabbit.jumps); // Logs: true (Local property)
+  console.log(rabbit.eats);  // Logs: true (Inherited property from prototype)
+  rabbit.walk();             // Logs: "Animal walks" (Inherited method)
+
+  // Property Shadowing
+  rabbit.walk = function() { console.log("Rabbit hops"); };
+  rabbit.walk();             // Logs: "Rabbit hops" (Local walk shadows prototype's walk)
+  ```
 
 ### 3. Shallow vs. Deep Copying
 - **Shallow Copy**: Copies only the first level of keys. For nested objects, it copies the memory reference pointers, meaning mutating a nested object inside the copy will modify the original object.
   - *Methods*: Spread operator (`{ ...obj }`), `Object.assign({}, obj)`.
 - **Deep Copy**: Copies all property levels recursively, allocating entirely new memory slots for all nested objects. Changes made to the copy do not affect the original.
   - *Methods*: `structuredClone(obj)` (native modern standard), `JSON.parse(JSON.stringify(obj))` (basic, drops functions/undefined/dates), or custom recursive deep-cloning utilities.
+- *Example*:
+  ```javascript
+  const original = { name: "Rajeev", details: { age: 30 } };
+
+  // --- SHALLOW COPY ---
+  const shallowCopy = { ...original };
+  shallowCopy.details.age = 35; // Mutating nested object
+  console.log(original.details.age); // Logs: 35 (Shared reference mutated!)
+
+  // --- DEEP COPY ---
+  const originalObj = { name: "Rajeev", details: { age: 30 } };
+  const deepCopy = structuredClone(originalObj);
+  deepCopy.details.age = 40; // Mutating nested object in deep copy
+  console.log(originalObj.details.age); // Logs: 30 (Completely isolated)
+  ```
 
 ### 4. Spread vs. Rest Operators (`...`)
-- **Spread Operator**: Expands elements of an array or properties of an object. Used for cloning, merging arrays/objects, or passing arguments.
-- **Rest Parameter**: Aggregates separate arguments into a single structured array array. Used in function declarations to receive variable arguments.
-  - *Example*: `function sum(...nums) { return nums.reduce((a, b) => a + b); }`
+Although they use the same syntax (`...`), they perform opposite operations depending on where they are used:
+- **Spread Operator (Unpacks/Expands)**: Expands elements of an array or properties of an object. Used in expression contexts (like array/object literals or function calls) to unpack values.
+  - *Array/Object Cloning & Merging*:
+    ```javascript
+    const original = [1, 2];
+    const cloneAndAdd = [...original, 3, 4]; // [1, 2, 3, 4]
+    
+    const user = { name: "Rajeev", role: "Dev" };
+    const updatedUser = { ...user, active: true }; // { name: "Rajeev", role: "Dev", active: true }
+    ```
+  - *Function Arguments (Unpacking)*:
+    ```javascript
+    const coordinates = [10, 20];
+    function drawPoint(x, y) { console.log(x, y); }
+    drawPoint(...coordinates); // equivalent to drawPoint(10, 20)
+    ```
+- **Rest Parameter / Rest Pattern (Gathers/Packs)**: Aggregates separate values/arguments into a single structured container (array or object). Used in parameter lists or destructuring.
+  - *Function Parameters*:
+    ```javascript
+    function sum(...nums) { // Gathers all arguments into a 'nums' array
+      return nums.reduce((a, b) => a + b, 0);
+    }
+    sum(1, 2, 3, 4); // Returns 10 (nums is [1, 2, 3, 4])
+    ```
+  - *Destructuring*:
+    ```javascript
+    const [first, second, ...remaining] = [10, 20, 30, 40, 50];
+    console.log(remaining); // [30, 40, 50]
+    
+    const { name, ...otherInfo } = { name: "Rajeev", age: 30, country: "India" };
+    console.log(otherInfo); // { age: 30, country: "India" }
+    ```
+
+#### Key Mnemonic
+- **Rest** = *Gathers* separate elements into one container (used on the left side of assignments / parameters).
+- **Spread** = *Spreads* one container out into separate elements (used on the right side of assignments / inside arguments/literals).
 
 ### 5. Generators & Iterators
 - **Iterators**: An object implementing the Iterator protocol with a `next()` method returning `{ value, done: boolean }`. Objects can declare custom iteration via `[Symbol.iterator]`.
+  - *Example*:
+    ```javascript
+    // Custom Iterator representing a count sequence
+    const countIterator = {
+      data: [10, 20, 30],
+      [Symbol.iterator]() {
+        let index = 0;
+        return {
+          next: () => {
+            if (index < this.data.length) {
+              return { value: this.data[index++], done: false };
+            } else {
+              return { value: undefined, done: true };
+            }
+          }
+        };
+      }
+    };
+
+    for (const item of countIterator) {
+      console.log(item); // Logs: 10, 20, 30
+    }
+    ```
 - **Generators**: Declared using **`function*`**, generators are functions that can pause and resume execution. They use the **`yield`** keyword to return states, maintaining their execution context (variable scopes) across calls.
+  - *Example*:
+    ```javascript
+    function* numberGenerator() {
+      yield 1;
+      yield 2;
+      yield 3;
+    }
+    const gen = numberGenerator();
+
+    console.log(gen.next()); // { value: 1, done: false }
+    console.log(gen.next()); // { value: 2, done: false }
+    console.log(gen.next()); // { value: 3, done: false }
+    console.log(gen.next()); // { value: undefined, done: true }
+    ```
 
 ### 6. Callbacks & Callback Hell
 - **Callback**: A function passed as an argument to another function, which is then executed inside the outer function to handle completion of asynchronous events.
@@ -273,8 +674,122 @@ Large-scale React applications split state management into two clear domains: **
 ### 9. Lazy Loading & Code Splitting
 - **Code Splitting**: Splitting the JavaScript bundle into smaller chunks that can be downloaded dynamically.
 - **Lazy Loading**: Delaying load times of features until they are accessed. In React, this is achieved using **`React.lazy()`** (for dynamic component imports) wrapped in a **`<Suspense>`** boundary to display a loading fallback UI. This decreases app launch bundle size and improves startup time.
+- *Example*:
+  ```javascript
+  import React, { Suspense } from 'react';
 
-### 10. Advanced JS Engine & Concurrency Q&A
+  // Lazy load the Profile component dynamically (separate chunk is only loaded when needed)
+  const LazyProfile = React.lazy(() => import('./components/Profile'));
+
+  function App() {
+    return (
+      <div>
+        <h1>My App</h1>
+        <Suspense fallback={<div>Loading component...</div>}>
+          <LazyProfile />
+        </Suspense>
+      </div>
+    );
+  }
+  ```
+
+### 10. Debounce vs. Throttle (Execution Control Wrappers)
+In client-side applications (especially mobile apps), user interactions can trigger highly frequent events (e.g., typing in a search bar, scrolling a list, or swiping). If these events execute network requests or heavy layout computations directly, they can saturate threads and degrade performance.
+
+- **Debouncing**: Delays function execution until a specified quiet period has elapsed since the last time the event was triggered. Every time a new trigger occurs, the pending timer is cancelled and restarted.
+  - *Trigger Rule*: Executes the function **only once** after the user has completely stopped interacting.
+  - *Example*:
+    ```javascript
+    function debounce(func, delay = 500) {
+      let timeoutId = null;
+      return function (...args) {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+        }, delay);
+      };
+    }
+    ```
+- **Throttling**: Limits function execution to a maximum of once every specified time interval. Even if events fire hundreds of times per second, the function is executed at a controlled, regular pace.
+  - *Trigger Rule*: Guarantees periodic execution at a defined frequency (e.g., maximum once every 200ms).
+  - *Example*:
+    ```javascript
+    function throttle(func, limit = 200) {
+      let inThrottle = false;
+      return function (...args) {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    }
+    ```
+
+### 11. Event Emitters & The Publish-Subscribe Pattern
+- **Publish-Subscribe (PubSub)**: A design pattern where senders (publishers) do not programmatically target messages to specific receivers (subscribers). Instead, events are categorized into channels or namespaces.
+- **Event Emitter**: The central broker maintaining a map of active channels to callback subscriber lists.
+  - When a subscriber registers (`on("event", callback)`), the broker adds their listener function reference to the event array.
+  - When an event publishes (`emit("event", payload)`), the broker iterates over the subscriber array, invoking callbacks.
+  - **Memory Safety**: Subscribers must unsubscribe or clear references (e.g., in a React component's unmount cleanup); otherwise, the event emitter retains a strong reference to the callbacks and the enclosing component state, leading to a memory leak.
+  - *Example*:
+    ```javascript
+    class EventEmitter {
+      constructor() { this.events = {}; }
+      on(event, listener) {
+        if (!this.events[event]) this.events[event] = [];
+        this.events[event].push(listener);
+        return () => this.off(event, listener); // Unsubscribe helper
+      }
+      off(event, listenerToRemove) {
+        if (!this.events[event]) return;
+        this.events[event] = this.events[event].filter(l => l !== listenerToRemove);
+      }
+      emit(event, data) {
+        if (!this.events[event]) return;
+        this.events[event].forEach(listener => listener(data));
+      }
+    }
+    ```
+
+### 12. Function Memoization Caching
+- **Memoization**: An optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+- **Implementation**: The wrapper wraps the target function inside a closure containing a private `cache` map object. It stringifies the input arguments to construct a key hash. If the key exists inside the cache mapping, it returns the value immediately, bypassing function execution.
+  - *Example*:
+    ```javascript
+    function memoize(fn) {
+      const cache = {};
+      return function (...args) {
+        const key = JSON.stringify(args);
+        if (key in cache) {
+          return cache[key];
+        }
+        const result = fn.apply(this, args);
+        cache[key] = result;
+        return result;
+      };
+    }
+    ```
+
+### 13. JavaScript Polyfills & Prototype Delegation
+- **Polyfill**: A piece of code used to provide modern functionality on older browsers or JavaScript engines that do not natively support it (e.g., using old syntax to recreate `Array.prototype.map`).
+- **Prototype Delegation**: JavaScript resolves methods on arrays or objects by traversing their prototype chain (`Array.prototype`). To build a polyfill, we define custom methods directly on the base prototype array interface if the native compiler checks resolve to `undefined`.
+  - *Example*:
+    ```javascript
+    if (!Array.prototype.myMap) {
+      Array.prototype.myMap = function (callback) {
+        const result = [];
+        for (let i = 0; i < this.length; i++) {
+          if (i in this) { // Handle sparse arrays safely
+            result.push(callback(this[i], i, this));
+          }
+        }
+        return result;
+      };
+    }
+    ```
+
+### 14. Advanced JS Engine & Concurrency Q&A
 
 #### Q1: Explain the V8/Hermes memory layout (Stack vs. Heap) and how JavaScript variables are allocated and referenced.
 - **Answer**:
@@ -309,10 +824,27 @@ Large-scale React applications split state management into two clear domains: **
 - **Answer**:
   - **Proxy**: An ES6 object wrapping a target object, allowing you to intercept and customize fundamental operations (like property access `get`, assignment `set`, deletion `deleteProperty`).
   - **Reflect**: A global object providing static helper methods corresponding to Proxy traps (e.g., `Reflect.get(target, prop)`). It returns boolean success markers and makes default object operations predictable.
-  - **Building Reactivity (Concept)**:
+  - **Building Reactivity (Concept & Example)**:
     - State systems (like Vue 3 reactivity or custom state libraries) wrap plain objects in a Proxy.
     - **`get` Trap**: Tracks active component dependencies (Dependency Tracking). When a component renders and reads `proxy.price`, the system registers the component as a subscriber to that property.
     - **`set` Trap**: Triggers reactivity triggers. When a mutation occurs (`proxy.price = 100`), the proxy intercepts, calls `Reflect.set()`, and automatically loops through all subscribed components to force UI re-renders.
+    - *Example*:
+      ```javascript
+      const item = { price: 100 };
+      const reactiveItem = new Proxy(item, {
+        get(target, prop, receiver) {
+          console.log(`Getting value for prop: "${prop}" (Dependency Tracking)`);
+          return Reflect.get(target, prop, receiver);
+        },
+        set(target, prop, value, receiver) {
+          console.log(`Setting value for "${prop}" to ${value}. Triggering render update!`);
+          return Reflect.set(target, prop, value, receiver);
+        }
+      });
+
+      reactiveItem.price;      // Logs: Getting value for prop: "price"
+      reactiveItem.price = 120; // Logs: Setting value for "price" to 120. Triggering render update!
+      ```
 
 ---
 
@@ -325,6 +857,22 @@ Large-scale React applications split state management into two clear domains: **
   - **Use Cases**:
     - **Caching/Memoization**: Mapping temporary metadata (like user fetch status maps) to object references. Once the user object is dereferenced during unmounts, the cache is freed from memory automatically.
     - **Encapsulation**: Storing private object variables.
+  - *Example*:
+    ```javascript
+    let userObject = { id: 101, name: "Rajeev" };
+    const cacheMap = new WeakMap();
+
+    // Cache metadata about userObject
+    cacheMap.set(userObject, { loginTime: Date.now() });
+
+    console.log(cacheMap.has(userObject)); // true
+
+    // Break the strong reference to userObject
+    userObject = null; 
+
+    // Once garbage collection occurs, cacheMap will automatically clear the entry
+    // for this user object, preventing a memory leak.
+    ```
 
 ---
 
