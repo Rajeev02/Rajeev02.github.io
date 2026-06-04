@@ -2097,7 +2097,7 @@ module.exports = (env) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['module:metro-react-native-babel-preset'],
+              presets: ['module:@react-native/babel-preset'],
             },
           },
         },
@@ -2768,6 +2768,8 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 ## Program 18: Recoil State Management (Atoms & Selectors)
 *⏱️ 2 min read*
 
+> Interview note: understand Recoil as an atomic-state pattern, but avoid presenting it as the default choice for new React Native projects. For production architecture, prefer Redux Toolkit, Zustand, Jotai, MobX, or TanStack Query depending on whether the state is client state or server state.
+
 ### Question
 Implement a complete state management structure in React Native using **Recoil**.
 1. Create a Recoil State module defining an Atom to track an array of active trade listings (`tradeListingsState`).
@@ -3191,4 +3193,3 @@ const styles = StyleSheet.create({
 - **Space Complexity**: $O(1)$ constant stack memory allocations.
 - **Explanation**: This demonstrates a full TDD pipeline loop. In Stage 1 (Red), we write test specifications verifying styles and event dispatches. In Stage 2 (Green), we construct the component containing state validation flags and conditional layouts to resolve the test blocks. In Stage 3 (Refactor), we optimize the RegExp expressions or stylesheets safely without fear of regressions because the Jest test suite immediately catches any broken logic.
 ```
-

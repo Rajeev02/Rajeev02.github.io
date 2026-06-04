@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
 
 ---
 
-## 2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Library Bridge)
+## 2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)
 
 ### Overview
 This project is an **Advanced Fleet Management & Real-Time Driver Tracking App** created using the standard React Native CLI. It handles constant geo-coordinate streams, local data synchronizations containing millions of records, and requires optimized hardware access.
@@ -436,8 +436,8 @@ export class KalmanLocationFilter {
 }
 ```
 
-#### B. Turbo Modules / C++ JSI Bridge Pattern (`native-bridge/JsiLocationModule.cpp`)
-The legacy JSON bridge is slow and operates asynchronously. By wrapping native tracking streams in a **C++ JSI Module**, coordinates are sent straight to JavaScript memory arrays synchronously, eliminating JSON serialization latency.
+#### B. TurboModules / C++ JSI Native Module Pattern (`native-bridge/JsiLocationModule.cpp`)
+The legacy JSON bridge is slow and operates asynchronously. By wrapping native tracking streams in a **C++ JSI/TurboModule-style module**, coordinates can be exposed to JavaScript without JSON serialization latency. Keep high-frequency reads carefully bounded so synchronous access does not block the JS runtime.
 
 ```cpp
 #include "JsiLocationModule.h"
@@ -483,7 +483,7 @@ Senior engineers are regularly tasked with wrapping proprietary native SDKs (e.g
 
 ```mermaid
 graph TD
-    A[JavaScript Thread] -->|Invokes Native Module Wrapper| B[React Native NativeModules Bridge]
+    A[JavaScript Thread] -->|Invokes Typed Native Module Wrapper| B[JSI / TurboModule Boundary]
     B -->|Binds to iOS via Objective-C Registry| C[Swift SDK Module]
     B -->|Binds to Android via ReactContext| D[Kotlin SDK Module]
     C -->|Trigger Completion callback| A
@@ -695,7 +695,7 @@ export const CustomSDKBridge = {
 | **Database Encryption** | WatermelonDB running over an encrypted SQLite driver using **SQLCipher**. | Secures customer data against memory dumps and unauthorized disk extraction. |
 | **Root & Jailbreak Protection** | Runtime checks using `JailMonkey` API (checking for Magisk, Cydia, or unlocked bootloaders). | Protects system assets by shutting down execution if high-risk root access is detected. |
 | **Memory Profiling** | Tracking references via **Xcode Instruments (Leak Profile)** and **Android Studio Memory Profiler**. | Prevents Native Out-Of-Memory (OOM) failures by pinpointing unreleased Event Emitters. |
-| **Hermes Engine Opt-in** | Configured inside `android/app/build.gradle` and `Podfile`. | Pre-compiles JS into bytecode, lowering app startup latency and heap sizes. |
+| **Hermes Engine Baseline** | Verified in Gradle/Pods and release CI; Hermes is the expected engine for modern RN. | Pre-compiles JS into bytecode, lowering app startup latency and heap sizes. |
 
 ---
 

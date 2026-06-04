@@ -8,6 +8,7 @@
  - [टर्बोमॉड्यूल (मूल मॉड्यूल पुनर्जन्म)](#turbomodules-native-modules-reborn) 
  - [फैब्रिक रेंडरिंग इंजन](#fabric-rendering-engine) 
  - [कोडजेन (प्रकार-सुरक्षा गारंटी)](#codegen-type-safety-guarantee) 
+ - [3. Legacy से Modern Architecture Migration Plan](#3-legacy-से-modern-architecture-migration-plan) 
 - [🎨 धारा 2: लेआउट, फ्लेक्सबॉक्स और स्टाइलिंग (योग इंजन)](#section-2-layout-flexbox-styling-yoga-engine) 
  - [1. योगा लेआउट इंजन](#1-yoga-layout-engine) 
  - [2. रिएक्ट नेटिव बनाम वेब में फ्लेक्सबॉक्स व्यवहार अंतर](#2-flexbox-behavior-differences-in-react-native-vs-web) 
@@ -102,7 +103,7 @@
 ## 🏗️ धारा 1: कोर आर्किटेक्चर (विरासत बनाम नया आर्किटेक्चर)
 *⏱️ 2 मिनट पढ़ें*
 
- React Native के रनटाइम परिवेश का संपूर्ण वास्तुशिल्प पुनर्लेखन हुआ है। वरिष्ठ स्तर की इंजीनियरिंग गहराई दिखाने के लिए, आपको पुराने JSON Bridge मॉडल की तुलना आधुनिक JSI -आधारित न्यू आर्किटेक्चर से करनी होगी।
+ React Native architecture में बड़ा transition आया है। Interview के लिए आपको **legacy Bridge architecture** और **modern New Architecture** दोनों समझनी चाहिए, क्योंकि कई production apps अभी भी older versions पर चलते हैं, जबकि नए projects और upgrades में Hermes, JSI, Fabric, TurboModules और Codegen knowledge expect होती है।
 
 ### 1. विरासत Bridge वास्तुकला
 ऐतिहासिक रूप से, React Native तीन मुख्य धागों पर निर्भर था:
@@ -117,11 +118,11 @@
 ---
 
 ### 2. नई वास्तुकला ( JSI , TurboModules , Fabric )
-नया आर्किटेक्चर एसिंक्रोनस JSON bridge को पूरी तरह से हटा देता है, इसे डायरेक्ट मेमोरी बाइंडिंग से बदल देता है।
+नया आर्किटेक्चर core rendering और modern native-module access से पुराने async JSON bridge को हटाकर JSI-backed C++ interfaces का उपयोग करता है।
 
 #### जावास्क्रिप्ट इंटरफ़ेस ( JSI )
 - ** JSI ** एक हल्की सी++ एब्स्ट्रैक्शन परत है जो जावास्क्रिप्ट इंजन ( Hermes ) को देशी सी++ ऑब्जेक्ट्स को होस्ट करने के लिए सीधे संदर्भ रखने की अनुमति देती है।
-- जावास्क्रिप्ट JSON क्रमबद्धता या थ्रेड जंपिंग के बिना, मूल वस्तुओं पर सीधे समकालिक रूप से विधियों को लागू कर सकता है। यह एक एकीकृत निष्पादन संदर्भ को सक्षम बनाता है जहां जेएस और नेटिव साथ-साथ चलते हैं।
+- जावास्क्रिप्ट JSON serialization के बिना host methods call कर सकता है। कुछ APIs synchronous हो सकती हैं, लेकिन senior engineers slow I/O या heavy native work को synchronous नहीं रखते, क्योंकि इससे JS runtime block हो सकता है।
 
 #### TurboModules (मूल मॉड्यूल पुनर्जन्म)
 - लीगेसी मॉडल में, सभी मूल मॉड्यूल (उदाहरण के लिए, कैमरा, ब्लूटूथ, स्टोरेज) को ऐप स्टार्टअप पर उत्सुकता से प्रारंभ किया गया था, भले ही उपयोगकर्ता ने उन तक पहुंच बनाई हो या नहीं। यह फूला हुआ ऐप लॉन्च का समय है।
@@ -130,11 +131,25 @@
 #### Fabric रेंडरिंग इंजन
 - Fabric समवर्ती रेंडरिंग इंजन है जो पुराने UIManager को प्रतिस्थापित करता है।
 - Fabric C++ के अंदर UI लेआउट परिवर्तनों की गणना करता है और उन्हें सीधे मूल OS लेआउट थ्रेड पर भेजता है। क्योंकि JSI सिंक्रोनस एक्सेस की अनुमति देता है, Fabric मुख्य थ्रेड पर तुरंत UI म्यूटेशन निष्पादित कर सकता है, लेआउट जंप और फ़्लिकरिंग को समाप्त कर सकता है (उदाहरण के लिए, तेजी से स्क्रॉल दृश्यों के दौरान)।
-- Fabric रिएक्ट 18 समवर्ती सुविधाओं (जैसे बदलाव और अद्यतन प्राथमिकता) का समर्थन करता है।
+- Fabric modern React concurrent rendering, update prioritization और native UI commits के बेहतर coordination को support करता है।
 
 #### Codegen (प्रकार-सुरक्षा गारंटी)
 - Codegen एक बिल्ड-टाइम कंपाइलर tool है जो आपके टाइपस्क्रिप्ट इंटरफेस (जो जावास्क्रिप्ट और मूल मॉड्यूल के बीच अनुबंध को परिभाषित करता है) को पढ़ता है और स्वचालित रूप से संबंधित सी++ बाइंडिंग कोड उत्पन्न करता है।
 - यदि developer जावास्क्रिप्ट से एक अमान्य प्रकार पैरामीटर को पास करने का प्रयास करता है (उदाहरण के लिए, एक मूल फ़ंक्शन के लिए एक स्ट्रिंग के बजाय एक सरणी पास करना), तो बिल्ड सीआई पाइपलाइन में तुरंत विफल हो जाता है। यह जावास्क्रिप्ट-मूल सीमा के पार रनटाइम प्रकार-सुरक्षा की गारंटी देता है।
+
+### 3. Legacy से Modern Architecture Migration Plan
+जब interviewer पूछे कि legacy React Native app को modern architecture में कैसे migrate करेंगे, तो इसे one-shot upgrade की तरह नहीं बल्कि phased risk-management plan की तरह answer करें।
+
+1. **Current Baseline Audit**: Current RN version, React version, Hermes/JSC usage, Gradle, AGP, Kotlin, Xcode, CocoaPods, Node, navigation, state libraries, native modules, CI scripts, crash rate और startup metrics capture करें।
+2. **Dependency Compatibility Matrix**: हर dependency को New-Architecture-ready, legacy-only, replaceable या internally owned category में रखें। Camera, maps, push, analytics, payment, storage, animation और custom native SDK wrappers पर special ध्यान दें।
+3. **Upgrade से पहले Stabilize करें**: Smoke tests, core E2E flows, source-map upload, crash reporting और rollback plan add करें। Observability के बिना migration risky होती है।
+4. **Controlled Hops में Upgrade करें**: React Native Upgrade Helper use करें और native templates छोटे steps में update करें। हर hop के बाद Android और iOS build करें।
+5. **Hermes Validate करें**: Release bytecode builds, startup time, memory, source maps, debugging और engine-specific issues verify करें।
+6. **New Architecture Readiness**: Internal build में Fabric/TurboModules enable करके library incompatibilities, native event emitters, Codegen specs और synchronous native calls fix करें।
+7. **Native Modules Modernize करें**: Simple legacy `RCTBridgeModule` modules temporarily चल सकते हैं, लेकिन performance-sensitive modules को TurboModules/JSI और typed specs की तरफ migrate करें।
+8. **UI और Animation Validation**: Gestures, Reanimated, LayoutAnimation, navigation transitions, lists, keyboard handling, modals और accessibility thoroughly test करें।
+9. **Gradual Release करें**: पहले internal/beta tracks, फिर staged production rollout। Crash-free sessions, ANRs, startup, memory और key business flows monitor करें।
+10. **Cleanup Phase**: Deprecated APIs, old Flipper configs, unused bridge shims, stale Gradle/Pod settings और temporary wrappers production stability prove होने के बाद हटाएं।
 
 ---
 
@@ -169,7 +184,7 @@ If flexDirection = 'row'
 
 ### 4. एनिमेशन और UI क्लोनिंग (एनिमेटेड बनाम रीएनिमेटेड)
  React Native में एनिमेशन की गणना दो अलग-अलग रनटाइम थ्रेड्स पर की जाती है:
-- **लिगेसी एनिमेटेड एपीआई**: एनीमेशन कॉन्फ़िगरेशन संकलित करता है। यदि `useNativeDriver: true` set है, तो लेआउट विशेषताओं (जैसे अपारदर्शिता और परिवर्तन) को क्रमबद्ध किया जाता है और bridge पर एक बार भेजा जाता है ताकि 60 एफपीएस पर शुद्ध रूप से मूल UI थ्रेड पर चलाया जा सके। हालाँकि, गैर-लेआउट परिवर्तन (जैसे चौड़ाई, ऊंचाई और मार्जिन) मूल ड्राइवर का उपयोग नहीं कर सकते हैं और उन्हें सिंगल-थ्रेडेड जेएस मुख्य थ्रेड पर चलना चाहिए, जिससे bridge या थ्रेड संतृप्त होने पर फ्रेम रुक जाता है।
+- **Animated API**: Animation configuration compile करता है। `useNativeDriver: true` होने पर supported non-layout properties जैसे `opacity` और `transform` native/UI side पर run होती हैं। Legacy और ज्यादातर stable app code में layout props जैसे `width`, `height`, margins और flex values native driver से unsupported माने जाते हैं। Modern RN shared animation backend के साथ इस area को evolve कर रहा है, इसलिए strong interview answer होगा: "legacy apps में traditionally unsupported; newer RN versions में support expand हो रहा है, लेकिन production use से पहले verify करूंगा."
 - **लेआउटएनीमेशन**: नेटिव ओएस थ्रेड को अगले रेंडर चक्र पर संपूर्ण UI लेआउट के लिए स्वचालित रूप से ट्रांज़िशन (फ़ेड, स्केल) की पूर्व-गणना करने का निर्देश देता है। अत्यधिक तेज़, लेकिन इसमें सूक्ष्म इंटरैक्टिव नियंत्रण (उदाहरण के लिए पैन जेस्चर ट्रैकिंग) का अभाव है।
 - ** React Native रीएनिमेटेड**: पूरी तरह से एसिंक्रोनस एनिमेशन इंजन जो जेएस थ्रेड की अड़चन को दूर करता है। यह **वर्कलेट्स** का उपयोग करता है - C++ में संकलित छोटे जावास्क्रिप्ट फ़ंक्शन जो UI /रेंडर थ्रेड पर सीधे द्वितीयक जेएस इंजन संदर्भ के अंदर निष्पादित होते हैं। रीएनिमेटेड मान ( `shared values` ) को सीधे UI थ्रेड पर 60/120 एफपीएस पर संशोधित किया जाता है, जो शून्य bridge राउंड-ट्रिप के साथ जेस्चर हैंडलर (जैसे, स्वाइपिंग कार्ड, ज़ूमिंग व्यू) के साथ सहजता से जुड़ता है।
 - **हाई-फिडेलिटी UI क्लोनिंग**: जटिल लेआउट (जैसे वित्त ट्रैकिंग चार्ट, स्वाइप-टू-रिवील सूचियां, या ड्रैग-एंड-ड्रॉप सूचियां) को दोहराने के लिए, पूर्ण स्थिति वाले तत्वों को नेस्ट करके, जेस्चर इनपुट ( `Gesture.Pan()` ) को बाइंड करके, और मूल्यों को प्रक्षेपित करने के लिए रीएनिमेटेड के `useAnimatedStyle` को लागू करके developers संरचना दृश्य (उदाहरण के लिए स्वाइप दूरी को रोटेशन कोण और कंटेनर अपारदर्शिता तक मैप करना)।
@@ -259,7 +274,7 @@ If flexDirection = 'row'
 ```
 
 ### 1. Babel (ट्रांसपिलेशन चरण)
- Babel जेएस/टीएस फाइलों को पार्स करता है और कोड को एब्सट्रैक्ट सिंटैक्स ट्री (एएसटी) में परिवर्तित करता है। इसके बाद यह प्रीसेट (उदाहरण के लिए, `@babel/preset-typescript` , `metro-react-native-babel-preset` ) लागू करता है:
+ Babel जेएस/टीएस फाइलों को पार्स करता है और कोड को एब्सट्रैक्ट सिंटैक्स ट्री (एएसटी) में परिवर्तित करता है। इसके बाद modern React Native preset जैसे `module:@react-native/babel-preset` लागू करता है, जो template में उपयोग होने वाले JSX और TypeScript syntax को cover करता है:
 - स्ट्रिप टाइपस्क्रिप्ट एनोटेशन।
 - JSX टैग को मानक `React.createElement` फ़ंक्शंस में बदलें।
 - आधुनिक ES6+ JS सुविधाओं को बैकवर्ड-संगत ES5 कोड में ट्रांसपाइल करें।
@@ -294,7 +309,7 @@ If flexDirection = 'row'
 मेमोरी leaks तब उत्पन्न होती है जब जेएस इंजन ( Hermes ) अपने **मार्क-एंड-स्वीप गारबेज कलेक्शन** चक्र के दौरान मृत वस्तुओं को साफ नहीं कर सकता क्योंकि मजबूत संदर्भ सक्रिय कतार में रहते हैं।
 
 #### नैदानिक कदम:
-1. **हीप स्नैपशॉट तुलना**: Hermes निष्पादन थ्रेड से जुड़े Chrome DevTools खोलें। actions (जैसे स्क्रॉल करना या पेज खोलना/बंद करना) करने के बाद स्क्रीन इनिट पर स्नैपशॉट ए और स्नैपशॉट बी कैप्चर करें। उन चरों का पता लगाने के लिए आवंटन अंतर के आधार पर फ़िल्टर करें जिन्हें एकत्र नहीं किया जा रहा है।
+1. **हीप स्नैपशॉट तुलना**: React Native DevTools / Hermes-compatible heap tooling से Snapshot A और Snapshot B capture करें। स्क्रीन खोलने-बंद करने, scroll करने या repeated navigation के बाद allocation differences देखकर uncollected objects पहचानें।
 2. **नेटिव मेमोरी प्रोफाइलिंग**: नेटिव मेमोरी heap देखने के लिए ** Android Studio प्रोफाइलर (मेमोरी)** या ** Xcode Instruments (एलोकेशन/लीक)** का उपयोग करें। एक उभरती हुई, सीढ़ी जैसी मेमोरी graph इंगित करती है कि दृश्य या मूल आवंटन लीक हो रहे हैं।
 3. **सामान्य अपराधी**:
 - **लंबी सदस्यताएँ और टाइमर**: टाइमर और श्रोताओं को `useEffect` क्लीनअप रिटर्न में स्पष्ट रूप से साफ़ किया जाना चाहिए।
@@ -475,7 +490,7 @@ If flexDirection = 'row'
 - ** `useRef` **: एक परिवर्तनशील रेफ ऑब्जेक्ट लौटाता है जिसका `.current` रेंडर के दौरान बना रहता है और उत्परिवर्तन पर पुन: रेंडर को ट्रिगर नहीं करता है।
 
 ```typescript
- const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
  ```
 
 ### 5. कस्टम हुक: तर्क और कार्यान्वयन
@@ -575,7 +590,7 @@ If flexDirection = 'row'
  ```
 
 #### Recoil : परमाणु और चयनकर्ता वास्तुकला
- Recoil मेटा द्वारा विकसित एक प्रायोगिक state management लाइब्रेरी है जो गहरे घटक पेड़ों और Context API (जो सभी वंशजों को फिर से प्रस्तुत करने के लिए मजबूर करता है) के साथ रिएक्ट की प्रदर्शन समस्याओं का समाधान करता है।
+ Recoil को atomic-state pattern समझने के लिए useful माना जा सकता है, लेकिन इसे नए enterprise React Native projects के लिए default recommendation की तरह present न करें। Modern production choices में Redux Toolkit, Zustand, Jotai, MobX या server-state के लिए TanStack Query ज्यादा practical हैं।
 - **परमाणु (सत्य का स्रोत)**: राज्य की इकाइयों का प्रतिनिधित्व करने वाले गतिशील डेटा कंटेनर। घटक परमाणुओं की सदस्यता ले सकते हैं। जब कोई परमाणु अद्यतन होता है, तो उस विशिष्ट परमाणु की सदस्यता लेने वाले *केवल* घटक पुनः प्रस्तुत होते हैं।
 - **चयनकर्ता (व्युत्पन्न अवस्था)**: शुद्ध कार्य जो परमाणुओं या अन्य selectors को परिवर्तित करते हैं। चयनकर्ताओं को स्वचालित रूप से कैश किया जाता है, केवल तभी पुनर्गणना की जाती है यदि उनकी अपस्ट्रीम निर्भरताएँ (परमाणु/ selectors ) बदलती हैं। वे अतुल्यकालिक संचालन का भी प्रतिनिधित्व कर सकते हैं (उदाहरण के लिए सर्वर से रिकॉर्ड लाना)।
 - ** Redux / MobX से तुलना**:
@@ -697,10 +712,10 @@ If flexDirection = 'row'
 
 | भंडारण इंजन | प्रतिमान | थ्रेडिंग | बेंचमार्क (10 हजार पंक्तियाँ लिखें) | के लिए सर्वश्रेष्ठ | सीमाएँ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| ** AsyncStorage ** | कुंजी-मूल्य (प्लेनटेक्स्ट JSON) | अतुल्यकालिक ( Bridge क्रमबद्ध) | ~1500 एमएस (धीमा) | सरल UI कॉन्फ़िगरेशन, छोटा प्रमाणीकरण tokens । | Bridge संतृप्ति, सूचकांक प्रश्नों का अभाव, बड़ी कुंजियों पर leaks । |
-| ** MMKV ** | कुंजी-मूल्य (बाइनरी क्रमबद्ध) | सिंक्रोनस ( JSI सी++ बाइंडिंग्स) | ~25 एमएस (अल्ट्रा-फास्ट) | Redux / Zustand हाइड्रेशन स्थिति, त्वरित कुंजी लुकअप, स्थानीय एन्क्रिप्टेड प्रोफाइल। | जटिल संबंधों, डेटाबेस क्वेरी फ़िल्टर, या ACID तालिका संचालन का अभाव है। |
-| ** SQLite ** | रिलेशनल (एसक्यूएल टेबल्स) | सिंक्रोनस / एसिंक रैपर्स | ~280 एमएस (तेज) | कच्चे लेनदेन रिकॉर्ड, संरचित स्कीमा, खाता बही रिपोर्टिंग। | भारी बॉयलरप्लेट, मैनुअल डीबी माइग्रेशन स्कीमा। |
-| ** WatermelonDB ** | रिएक्टिव ओआरएम ( SQLite पर निर्मित) | बहु-थ्रेडेड (पृष्ठभूमि SQLite थ्रेड) | ~110ms (तेज़) | उच्च-प्रदर्शन सूचियाँ (50k+ रिकॉर्ड), गतिशील खोज/आलसी सूचियाँ। | डेकोरेटर्स में रैपिंग मॉडल, उच्च प्रारंभिक संरचनात्मक सेटअप की आवश्यकता होती है। |
+| ** AsyncStorage ** | कुंजी-मूल्य (प्लेनटेक्स्ट JSON) | Async native storage API | Relative सबसे slow | Simple UI configs और non-sensitive preferences. | Indexing/query model नहीं; tokens और large datasets के लिए avoid करें। |
+| ** MMKV ** | कुंजी-मूल्य (बाइनरी serialized) | Synchronous JSI/C++ bindings | Small key-value reads/writes के लिए fastest | Redux/Zustand hydration, rapid key lookups, encrypted local profiles. | Complex relations, database filters, ACID table operations नहीं। |
+| ** SQLite ** | Relational (SQL Tables) | Library के हिसाब से sync/async wrappers | Strong transactional performance | Raw transactional records, schemas, ledger reporting. | Manual migrations और query/schema ownership चाहिए। |
+| ** WatermelonDB ** | Reactive ORM (SQLite पर built) | Background SQLite work + observable models | Large reactive datasets के लिए strong | 50k+ records, dynamic search/lazy lists. | Model/decorator structure और careful migrations चाहिए। |
 
 - ** MMKV अनुकूलन यांत्रिकी**: MMKV कर्नेल के ** `mmap` ** कॉल का उपयोग करके फ़ाइलों को सीधे मेमोरी में मैप करता है। bridge कतारों और क्रमांकन विलंबों को बायपास करके पढ़ता और लिखता है। JSI React Native कोड को 1 एमएस से कम समय में सीधे मुख्य थ्रेड पर MMKV को क्वेरी करने की अनुमति देता है।
 - ** WatermelonDB रिएक्टिव आर्किटेक्चर**: बड़ी तालिकाओं को प्रबंधित करते समय रिएक्ट थ्रेड्स को उत्तरदायी बनाए रखने के लिए डिज़ाइन किया गया। यह SQLite का उपयोग करता है लेकिन एक अलग मूल पृष्ठभूमि थ्रेड पर क्वेरी चलाता है। दृश्य घटक वेधशालाओं ( `@withObservables` ) का उपयोग करके डीबी तालिकाओं से जुड़े हुए हैं। जब कोई डेटाबेस रिकॉर्ड बदलता है, तो केवल उस विशिष्ट रिकॉर्ड को प्रदर्शित करने वाले घटक पुनः प्रस्तुत होते हैं।
@@ -852,10 +867,12 @@ If flexDirection = 'row'
 - ** Hermes बाइटकोड एओटी**: सुनिश्चित करें कि Hermes संकलन सक्षम है ताकि जावास्क्रिप्ट सीआई असेंबली के दौरान bytecode पर संकलित हो, रनटाइम स्टार्टअप के दौरान जेएस टेक्स्ट पार्सिंग और अनुकूलन चरणों को पूरी तरह से छोड़ दे।
 
 ### 3. फ़्लिपर के बाद के युग में डिबगिंग
-आधुनिक React Native टेम्प्लेट (0.73+) से **फ़्लिपर** को हटा दिए जाने के साथ, developers हल्के, प्रोटोकॉल-आधारित डिबगिंग वातावरण का उपयोग करते हैं:
-- ** Hermes क्रोम इंस्पेक्टर**: Hermes का डिबगिंग प्रोटोकॉल सीधे क्रोम डेवटूल्स से जुड़ता है। `npx react-native start` चलाने से एक वेबसॉकेट डीबग पोर्ट उजागर होता है। कंसोल डिबगर संलग्न करने, ब्रेकप्वाइंट का निरीक्षण करने और सीधे कंसोल आउटपुट का विश्लेषण करने के लिए क्रोम में `chrome://inspect` खोलें।
-- **सैंपलिंग प्रोफाइलर**: कौन से जावास्क्रिप्ट लूप निष्पादन कतारों को अवरुद्ध करते हैं, इसका पता लगाने के लिए क्रोम डेवटूल्स के माध्यम से सीपीयू उपयोग प्रोफाइल कैप्चर करें।
-- **मेमोरी प्रोफाइलिंग**: leak वैक्टर की पहचान करने के लिए क्रोम पर Hermes हीप स्नैपशॉट कैप्चर करें।
+आधुनिक React Native templates से **Flipper** हट चुका है। Teams bundled **React Native DevTools** और native profilers का उपयोग करते हैं:
+- **React Native DevTools Desktop App**: Modern RN releases bundled DevTools app देते हैं, browser window पर depend नहीं करते। इसमें component inspection, console, breakpoints और modern debugging flows मिलते हैं।
+- **Network Panel**: Modern DevTools में `fetch`, `XMLHttpRequest` और image requests के लिए built-in network inspection available है।
+- **Performance Panel**: JavaScript execution, React performance tracks, user timings और network events को एक timeline में record करके JS-side performance bottlenecks detect किए जाते हैं।
+- **Native Profilers**: Main-thread stalls, native heap growth, startup tracing और OS crashes के लिए Android Studio Profiler, Perfetto और Xcode Instruments use करें।
+- **मेमोरी प्रोफाइलिंग**: Hermes-compatible heap snapshots और native memory tools दोनों साथ में use करें; JS heap leaks और native view leaks अक्सर अलग root cause रखते हैं।
 - **नेटवर्क प्रॉक्सी ट्राइएज**: डिबगिंग ओवरले के बिना एपीआई नेटवर्क कॉल का निरीक्षण करने के लिए, **चार्ल्स प्रॉक्सी** या **प्रॉक्सीमैन** का उपयोग करें। 
  - सिमुलेटर पर कस्टम एसएसएल प्रमाणपत्र प्राधिकरण स्थापित करें।
  - डिबग/स्टेजिंग संकलन योजनाओं के अंदर *केवल* उपयोगकर्ता प्रमाणपत्रों पर स्पष्ट रूप से भरोसा करने के लिए, उत्पादन बायनेरिज़ को लॉक रखते हुए, Android पर `networkSecurityConfig` XML नियमों को कॉन्फ़िगर करें।
@@ -866,7 +883,7 @@ If flexDirection = 'row'
 *⏱️ 2 मिनट पढ़ें*
 
 ### 1. ओवर-द-एयर ( OTA ) बंडल डिलीवरी
- OTA सिस्टम ( Expo Updates या माइक्रोसॉफ्ट CodePush ) केवल जावास्क्रिप्ट अपडेट के लिए स्टोर अनुमोदन समय को बायपास करते हैं:
+ OTA सिस्टम केवल जावास्क्रिप्ट अपडेट के लिए store approval time को bypass करते हैं। Interview में पहले general OTA model explain करें, फिर बताएं कि Expo/CNG apps में **Expo/EAS Updates** common है, जबकि bare RN teams self-hosted या New-Architecture-compatible OTA provider use कर सकती हैं। Microsoft App Center CodePush को नए projects के default managed service की तरह present न करें, क्योंकि App Center service retire हो चुकी है:
 - **हैंडशेक फ़्लो**: लॉन्च होने पर, मूल ऐप शेल अपडेट रजिस्ट्री एपीआई को कॉल करता है, वर्तमान बाइनरी संस्करण और सक्रिय बंडल हैश को पास करता है। यदि कोई नया बंडल संस्करण क्वेरी से मेल खाता है, तो क्लाइंट पृष्ठभूमि में फ़ाइल डाउनलोड करता है। अगले पुनरारंभ पर, पथ संदर्भ नए Hermes bytecode को निष्पादित करने के लिए बदल जाता है।
 - **बाइनरी वर्जन लॉक्स**: नेटिव मॉड्यूल लाइब्रेरी सीधे एपीके/आईपीए में संकलित की जाती हैं। यदि OTA अपडेट नए जेएस कोड को पुश करता है जो एक मूल एपीआई को लागू करने का प्रयास करता है जो क्लाइंट के चल रहे बाइनरी कोड में मौजूद नहीं है, तो यह तत्काल घातक crash को ट्रिगर करता है। 
  - *शमन*: OTA कॉन्फ़िगरेशन जेएस बंडलों को विशिष्ट ऐप बाइनरी संस्करण श्रेणियों में मैप करते हुए सख्त रनटाइम लॉक लागू करते हैं।

@@ -46,7 +46,8 @@
   - [23. How do you design a Super-App architecture using React Native, and what are the tooling implications?](#23-how-do-you-design-a-super-app-architecture-using-react-native-and-what-are-the-tooling-implications)
   - [24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?](#24-how-do-you-secure-compile-time-client-secrets-and-defend-against-dynamic-analysis-tools-like-frida)
   - [25. Detail your approach to identifying and optimizing App Startup latency (TTI).](#25-detail-your-approach-to-identifying-and-optimizing-app-startup-latency-tti)
-  - [26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA CodePush updates?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-codepush-updates)
+  - [26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA updates?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-updates)
+  - [27. How would you plan a migration from a legacy React Native app to a modern React Native architecture?](#27-how-would-you-plan-a-migration-from-a-legacy-react-native-app-to-a-modern-react-native-architecture)
 - [👥 Section 6: Agile vs. Scrum Methodologies](#section-6-agile-vs-scrum-methodologies)
 - [📈 Section 7: Program & Product Delivery Manager (PDM) Round](#section-7-program-product-delivery-manager-pdm-round)
 - [🤝 Section 8: Human Resources (HR) & Leadership Evaluation](#section-8-human-resources-hr-leadership-evaluation)
@@ -157,7 +158,7 @@ Banking and capital market systems require uncompromising standards of security,
 ### 3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)
 Integrating custom native Android/iOS SDKs or wrapping Java/Kotlin and Swift libraries in React Native follows two architectures:
 - **Legacy Bridge (RCTBridgeModule)**: Exposes native classes through JSON-based asynchronous serialization. Native method arguments are serialized on the JS thread, sent across the C++ bridge queue, deserialized on the native UI/Background thread, executed, and returned asynchronously via callbacks or promises.
-- **Modern JSI (TurboModules)**: Eliminates the bridge. C++ bindings allow the JS engine to hold a reference pointer directly to the native object in memory. Methods can be invoked **synchronously** (e.g. synchronous cryptography or reading device memory) with zero type conversion or batching delays, ensuring immediate responses.
+- **Modern JSI (TurboModules/Fabric)**: Removes the legacy JSON bridge from modern native-module and rendering paths. C++ bindings allow the JS engine to call typed host functions without JSON serialization. Some calls can be synchronous, but slow I/O and heavy native work should still run asynchronously to avoid blocking the JS runtime.
 
 ### 4. Advanced Native Android SDK & Enterprise Java Architecture
 Leveraging a native Java/Kotlin background enables designing highly resilient custom native modules and services inside enterprise applications:
@@ -189,7 +190,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
   - **The Problem**: In our investor platform, users scrolled through a long transaction ledger consisting of hundreds of complex cards. When scrolling quickly, the UI would freeze, keyframes dropped, and the JS thread frame rate plunged from 60 FPS down to **8-12 FPS**.
   - **Identification & Diagnostics**:
     1. I used the React Native **Performance Monitor** overlay (`Cmd + D` menu) to confirm the bottleneck was on the JS Thread (which dropped significantly), while the UI/Render Thread remained close to 60 FPS.
-    2. I attached **Flipper** and ran the **Hermes Debugger** to capture CPU profiles. The profile highlighted massive call stacks originating from currency conversions and date formatting inside render methods.
+    2. I used **React Native DevTools Performance profiling** and Hermes sampling profiles to capture CPU timelines. The profile highlighted massive call stacks originating from currency conversions and date formatting inside render methods.
     3. I used **React DevTools Profiler** to record render cycles. I noticed that parent updates caused the entire list of items to re-render, even if individual list item details had not changed.
   - **Resolution**:
     1. **Pre-computation**: I moved CPU-intensive formatting (e.g., date formats, exchange rate calculations) out of the render loop. I formatted the objects immediately after the API fetch, storing the ready-to-render strings in the state.
@@ -209,7 +210,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
     3. We need to integrate a third-party SDK that only provides native Android/iOS libraries with no official React Native wrapper.
   - **Specific Example**: In our LetsVenture React Native applications (like LVX or Scalix), we needed to implement a robust background task manager to handle queued transaction checks.
     - Standard JS timer APIs (`setTimeout` or `setInterval`) are throttled or terminated by the OS when the app is placed in the background or when the phone enters battery-saver modes.
-    - **Native Implementation**: I built a custom React Native module in Java exposing the native **Android `WorkManager` API** to the JavaScript layer. The JavaScript side pushes transaction sync tasks down the bridge, and the native module registers a `OneTimeWorkRequest` with specific constraints (e.g., network must be active, device must be charging). This ensured tasks executed reliably even if the app was backgrounded or terminated, emitting a success/failure callback back to the JS thread using `RCTDeviceEventEmitter` once completed.
+    - **Native Implementation**: I built a custom React Native module in Java/Kotlin exposing the native **Android `WorkManager` API** to the JavaScript layer. The JavaScript side schedules transaction sync tasks through a typed native-module boundary, and the native module registers a `OneTimeWorkRequest` with specific constraints (e.g., network must be active, device must be charging). This ensured tasks executed reliably even if the app was backgrounded or terminated, emitting success/failure updates back to JS through native events.
 
 ---
 
@@ -221,7 +222,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
   3. **Xcode Organizer**: Open the **Organizer** window in Xcode and review the "Crashes" panel to view official logs sent directly from Apple devices, highlighting patterns.
   4. **Targeted Reproduction**: Spin up an iOS Simulator with the exact iOS version in Xcode. If the crash is device-specific (e.g., related to the dynamic island or GPU APIs), I attach a physical test device.
   5. **LLDB Exception Breakpoint**: Run the debug scheme via Xcode on the target device, enabling an **All Exceptions Breakpoint**. When the crash occurs, Xcode halts execution exactly at the offending native line.
-  6. **Bridge Verification**: Check for **Native-JS Type mismatches**. A common source of crashes on specific OS versions is when React Native passes a `null` or type-mismatched JSON payload down the bridge, and the Swift/Objective-C code attempts to force-unwrap it (e.g., `stringValue!`), triggering a crash. Adding default native value fallbacks or strong TypeScript typings resolved this.
+  6. **Native-JS Contract Verification**: Check for type mismatches across native-module boundaries. A common source of crashes on specific OS versions is when JavaScript passes a `null` or type-mismatched payload and the Swift/Objective-C code force-unwraps it (e.g., `stringValue!`). Strong TypeScript specs, Codegen where possible, and defensive native defaults prevent this.
 
 ---
 
@@ -275,9 +276,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
   - **Async Execution**: Promises and `async/await` do not create new threads in JavaScript. Instead, when an asynchronous operation (like `fetch()`) is called, the network I/O is offloaded to native background threads. When the native operation completes, the callback is pushed to the JS Event Loop's **Microtask Queue**.
   - **Performance Impact**:
     1. **Responsive UI**: During network requests, the JS thread remains free to handle user interactions because the networking is handled off-thread. This keeps the UI responsive.
-    2. **The "Blocked Thread" Risk**: If the callback of a resolved Promise contains intensive synchronous JavaScript computations (e.g., parsing a 5MB JSON payload or sorting a large dataset of 10,000 arrays), the JS thread will block. During this time, the JS thread cannot send layout commands or process incoming gesture events across the bridge, causing the app to lag or stutter.
-  - **Mitigation Strategies**:
-    - **Offload Computations**: For heavy math or file manipulation, write a Native Module to perform the work on a background native thread, returning only the final outcome to the JS thread.
+    2. **The "Blocked Thread" Risk**: If the callback of a resolved Promise contains intensive synchronous JavaScript computations (e.g., parsing a 5MB JSON payload or sorting a large dataset of 10,000 arrays), the JS thread will block. During this time, React cannot process JS-driven state updates, business logic, and some event handlers promptly, causing the app to lag or stutter even under the New Architecture.
   - **Mitigation Strategies**:
     - **Offload Computations**: For heavy math or file manipulation, write a Native Module to perform the work on a background native thread, returning only the final outcome to the JS thread.
     - **InteractionManager**: Use `InteractionManager.runAfterInteractions()` to delay non-critical state updates or heavy JS executions until active navigation or touch animations have completely finished, preserving a smooth 60 FPS transition.
@@ -321,9 +320,9 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ### 11. Explain the React Native Bridge and its limitations.
 - **Answer**: 
-  - **The Bridge Model**: The legacy bridge acts as a communication queue between the JavaScript thread (running logic) and the Native OS main thread (rendering views). Communication is **asynchronous, batched, and serialized**.
-  - **Bridge Limitations**: To execute actions (like updating view borders on scroll or receiving touch gestures), data must be serialized into JSON string buffers, queued over the C++ bridge, and deserialized on the other side. Flooding this queue (e.g., during rapid scroll views, map rotations, or continuous input validation) causes delays, dropping frame rates down to 10-15 FPS.
-  - **Modern Solution**: React Native's New Architecture replaces the bridge with the **JavaScript Interface (JSI)**. JSI allows JavaScript to invoke methods directly on native objects synchronously by holding direct memory reference pointers, removing serialization queues completely.
+  - **The Bridge Model**: The legacy bridge acts as a communication queue between the JavaScript thread and native platform code. Communication is **asynchronous, batched, and serialized**, which made high-frequency Native-JS traffic expensive.
+  - **Bridge Limitations**: Data had to be converted into serialized payloads, queued, and deserialized on the other side. Flooding this path during rapid scroll events, map gestures, or continuous validation could delay updates and drop frames.
+  - **Modern Solution**: Modern React Native uses the **New Architecture**: JSI for direct host bindings, **TurboModules** for typed/lazy native modules, **Fabric** for rendering, and **Codegen** for JS-native contracts. A senior answer should explain the legacy bridge because many apps still run on it, then discuss how JSI/Fabric/TurboModules change the performance and native-integration model.
 
 ---
 
@@ -360,7 +359,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 - **Answer**: 
   - **Investigation Workflow**:
     1. **Locate Symptom**: Monitor Sentry crash rates or watch for staircase-like RAM patterns in Android Profiler or Xcode Instruments (Allocations/Leaks).
-    2. **Hermes Memory Profiling**: Connect Flipper to the Hermes debugger. Capture **Heap Snapshot A** (initial view), perform interactions (opening and closing the target screen 10 times), and capture **Heap Snapshot B**. Compare the snapshots to identify objects that are not collected.
+    2. **Hermes / React Native DevTools Memory Profiling**: Capture **Heap Snapshot A** (initial view), perform interactions (opening and closing the target screen 10 times), and capture **Heap Snapshot B** using Hermes-compatible tooling. Compare the snapshots to identify objects that are not collected, then verify native allocations separately in Xcode Instruments or Android Studio Profiler.
   - **Common Culprits**:
     - **Active Subscriptions**: Event emitters (`DeviceEventEmitter`) or AppState listeners not cleared in `useEffect` returns.
     - **Active Timers**: `setInterval` loops referencing component properties that are not cleared via `clearInterval` on unmount.
@@ -468,7 +467,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 - **Answer**: 
   - **Triage Protocol**:
     1. **Xcode Instruments (App Launch)** & **Android Studio Profiler (CPU/Method Traces)**: Capture pre-main execution (e.g., CocoaPods loading, JVM boot times).
-    2. **Systrace / Perfetto**: Capture time spent initializing the React Native Bridge, Hermes VM, and visual layout rendering.
+    2. **Perfetto / Xcode Instruments / RN DevTools Performance**: Capture time spent initializing the app process, Hermes VM, native module registry, Fabric surfaces, and first visual commit.
   - **Optimizations**:
     - **Inline Requires**: Enable inline requires in `metro.config.js` to compile imports into dynamic require functions, avoiding loading unnecessary JS files at launch.
     - **Hermes Bytecode AOT**: Pre-compile JavaScript code to Hermes bytecode during CI builds, skipping parsing and syntax compilation phases on launch.
@@ -477,11 +476,29 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA CodePush updates?
+### 26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA updates?
 - **Answer**: 
-  - **Binary Version Locking**: Native modules must match JS code definitions. We set strict Target Binary Version rules (e.g., `^2.4.0`) inside the CodePush/Expo release scripts, ensuring the bundle runs only on shells built with the identical native library signatures.
+  - **Modern Tooling Context**: Microsoft App Center CodePush should not be treated as the default managed service for new projects because the App Center service has been retired. I use Expo/EAS Updates when the app is Expo/CNG friendly, or a self-hosted/New-Architecture-compatible OTA provider for bare React Native. The risk controls remain the same.
+  - **Binary Version Locking**: Native modules must match JS code definitions. We set strict runtime-version or target-binary rules (e.g., `^2.4.0` or Expo `runtimeVersion`) so the OTA bundle runs only on shells built with compatible native library signatures.
   - **Multi-Staged Deployments**: We release OTA updates in waves (e.g., 5% ➡️ 25% ➡️ 100%) and watch crash alerts on Sentry.
-  - **Native Recovery & Rollback**: We configure the native runtime shell to monitor startup health. If the app crashes repeatedly (e.g. 3 times in 2 minutes) immediately following a CodePush update, the native wrapper rolls back automatically, deleting the cache directory and loading the stable, embedded JS bundle.
+  - **Native Recovery & Rollback**: We configure the native runtime shell to monitor startup health. If the app crashes repeatedly (e.g. 3 times in 2 minutes) immediately following an OTA update, the wrapper rolls back automatically, deleting the update cache and loading the stable embedded JS bundle.
+
+---
+
+### 27. How would you plan a migration from a legacy React Native app to a modern React Native architecture?
+- **Answer**:
+  I would treat it as a controlled engineering program, not just a package upgrade.
+
+  1. **Baseline Audit**: First I capture the current RN version, native template age, Hermes/JSC usage, Gradle/AGP/Kotlin, Xcode/CocoaPods, Node, navigation, state management, storage, push, analytics, payment SDKs, custom native modules, and CI/CD scripts.
+  2. **Compatibility Matrix**: I classify every dependency as compatible, replaceable, risky, or legacy-only. Libraries like Reanimated, Gesture Handler, Screens, Safe Area, MMKV, maps, camera, push, and payment SDKs get special attention because they touch native code.
+  3. **Testing Safety Net**: Before upgrading, I add smoke/E2E coverage for app launch, login, deep links, payments, offline sync, push notification routing, and logout. I also verify Sentry/Crashlytics source maps, dSYMs, and ProGuard mappings.
+  4. **Incremental Upgrade Hops**: I use React Native Upgrade Helper and move through controlled version hops. After each hop, I build both platforms, run tests, fix native template diffs, and avoid mixing feature work with migration work.
+  5. **Hermes and New Architecture Validation**: I verify Hermes release bytecode first, then test New Architecture/Fabric/TurboModules in internal builds. Legacy `RCTBridgeModule` modules can remain temporarily if stable, but performance-sensitive modules should move toward typed TurboModules/JSI.
+  6. **UI Regression Pass**: I manually and automatically test navigation transitions, keyboard behavior, modals, gestures, Reanimated flows, large lists, accessibility, and dark mode because architecture changes often reveal UI edge cases.
+  7. **Gradual Rollout**: I release to QA/internal tracks first, then beta, then staged production. I monitor crash-free sessions, ANRs, startup time, memory, JS errors, API failures, and key funnel metrics.
+  8. **Cleanup After Stability**: Only after production looks stable do I remove deprecated APIs, old bridge shims, Flipper configs, unused Gradle/Pod settings, and temporary compatibility wrappers.
+
+  My interview summary would be: *"I keep the legacy app working, create observability and rollback first, upgrade in small verified hops, validate Hermes/New Architecture separately, and only clean up old architecture code after production stability."*
 
 ---
 
@@ -613,11 +630,9 @@ A strategic approach to compensation ensures you are valued appropriately while 
 *⏱️ 1 min read*
 
 At the end of senior technical and manager interviews, asking strategic questions demonstrates leadership, system ownership, and domain interest:
-1. *"How large is the React Native codebase, and are you planning or currently adopting the New Architecture (JSI/Fabric)?"*
-2. *"What are the biggest performance bottlenecks or native bridge challenges the team is currently facing?"*
+1. *"Which React Native version are you on today, and are all critical libraries compatible with the New Architecture/Fabric baseline?"*
+2. *"What are the biggest performance bottlenecks or native-module challenges the team is currently facing?"*
 3. *"How are releases and CI/CD pipelines managed? Do you automate TestFlight and Play Store internal track delivery?"*
 4. *"What is the testing coverage expectations for PR approvals? Is the team using Detox for E2E layouts checks?"*
 5. *"What does technical success look like for this position in the first 90 days?"*
 6. *"How are sprint priorities determined, and what is the team's typical split between product features and refactoring technical debt?"*
-
-

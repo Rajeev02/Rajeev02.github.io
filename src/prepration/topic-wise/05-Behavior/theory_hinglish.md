@@ -44,7 +44,8 @@
  - [23. आप रिएक्ट नेटिव का उपयोग करके सुपर-ऐप आर्किटेक्चर कैसे डिज़ाइन करते हैं, और टूलींग के निहितार्थ क्या हैं?](#23-how-do-you-design-a-super-app-architecture-using-react-native-and-what-are-the-tooling-implications) 
  - [24. आप कंपाइल-टाइम क्लाइंट रहस्यों को कैसे सुरक्षित रखते हैं और फ्रीडा जैसे गतिशील विश्लेषण टूल से कैसे बचाव करते हैं?](#24-how-do-you-secure-compile-time-client-secrets-and-defend-against-dynamic-analysis-tools-like-frida) 
  - [25. ऐप स्टार्टअप विलंबता (टीटीआई) की पहचान और अनुकूलन के लिए अपने दृष्टिकोण का विवरण दें।](#25-detail-your-approach-to-identifying-and-optimizing-app-startup-latency-tti) 
- - [26. ओटीए कोडपश अपडेट के दौरान जोखिम, संस्करण संगतता और पुनर्प्राप्ति को प्रबंधित करने के लिए आप किन रणनीतियों का उपयोग करते हैं?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-codepush-updates) 
+ - [26. OTA updates के दौरान जोखिम, version compatibility और recovery को कैसे manage करेंगे?](#26-ota-updates-के-दौरान-जोखिम-version-compatibility-और-recovery-को-कैसे-manage-करेंगे) 
+ - [27. Legacy React Native app को modern React Native architecture में migrate करने की planning कैसे करेंगे?](#27-legacy-react-native-app-को-modern-react-native-architecture-में-migrate-करने-की-planning-कैसे-करेंगे) 
 - [👥 धारा 6: एजाइल बनाम स्क्रम पद्धतियाँ](#section-6-agile-vs-scrum-methodologies) 
 - [📈 धारा 7: कार्यक्रम एवं उत्पाद वितरण प्रबंधक (पीडीएम) दौर](#section-7-program-product-delivery-manager-pdm-round) 
 - [🤝 धारा 8: मानव संसाधन (एचआर) और नेतृत्व मूल्यांकन](#section-8-human-resources-hr-leadership-evaluation) 
@@ -218,7 +219,7 @@
 3. ** Xcode ऑर्गनाइज़र**: Xcode में **ऑर्गनाइज़र** विंडो खोलें और पैटर्न को हाइलाइट करते हुए Apple डिवाइस से सीधे भेजे गए आधिकारिक लॉग देखने के लिए "क्रैश" पैनल की समीक्षा करें।
  4. **लक्षित पुनरुत्पादन**: Xcode में सटीक iOS संस्करण के साथ iOS सिम्युलेटर को स्पिन करें। यदि crash डिवाइस-विशिष्ट है (उदाहरण के लिए, डायनेमिक आइलैंड या जीपीयू एपीआई से संबंधित), तो मैं एक भौतिक परीक्षण डिवाइस संलग्न करता हूं।
  5. **LLDB अपवाद ब्रेकप्वाइंट**: **सभी अपवाद ब्रेकप्वाइंट** को सक्षम करते हुए, लक्ष्य डिवाइस पर Xcode के माध्यम से डिबग योजना चलाएँ। जब crash होता है, तो Xcode बिल्कुल आपत्तिजनक नेटिव लाइन पर निष्पादन रोक देता है।
- 6. ** Bridge सत्यापन**: **नेटिव-जेएस प्रकार के बेमेल** की जांच करें। विशिष्ट ओएस संस्करणों पर crashes का एक सामान्य स्रोत तब होता है जब React Native एक `null` या प्रकार-बेमेल JSON पेलोड को bridge से गुजारता है, और स्विफ्ट/ऑब्जेक्टिव-सी कोड इसे बलपूर्वक खोलने का प्रयास करता है (उदाहरण के लिए, `stringValue!` ), जो crash को ट्रिगर करता है। डिफ़ॉल्ट मूल मान फ़ॉलबैक या मजबूत टाइपस्क्रिप्ट टाइपिंग जोड़ने से इसका समाधान हो गया।
+ 6. **Native-JS Contract Verification**: Native module boundary पर type mismatches check करें। Specific OS versions पर crash का common source होता है जब JavaScript `null` या type-mismatched payload भेजता है और Swift/Objective-C code उसे force unwrap करता है (जैसे `stringValue!`)। Strong TypeScript specs, Codegen जहां possible हो, और defensive native defaults इसे prevent करते हैं।
 
 ---
 
@@ -359,7 +360,7 @@
 - **उत्तर**: 
  - **जांच कार्यप्रवाह**:
  1. **लक्षण का पता लगाएं**: Sentry crash दरों की निगरानी करें या Android Profiler या Xcode Instruments (आवंटन/लीक) में सीढ़ी जैसे रैम पैटर्न पर नजर रखें।
- 2. ** Hermes मेमोरी प्रोफाइलिंग**: फ़्लिपर को Hermes डिबगर से कनेक्ट करें। **हीप स्नैपशॉट ए** (प्रारंभिक दृश्य) कैप्चर करें, इंटरैक्शन करें (लक्ष्य स्क्रीन को 10 बार खोलना और बंद करना), और **हीप स्नैपशॉट बी** कैप्चर करें। उन वस्तुओं की पहचान करने के लिए स्नैपशॉट की तुलना करें जिन्हें एकत्र नहीं किया गया है।
+ 2. **Hermes / React Native DevTools Memory Profiling**: Hermes-compatible tooling से **Heap Snapshot A** (initial view) capture करें, interactions करें (target screen को 10 बार खोलना-बंद करना), फिर **Heap Snapshot B** capture करें। Uncollected objects identify करने के लिए snapshots compare करें, और native allocations को Xcode Instruments या Android Studio Profiler में separately verify करें।
  - **सामान्य अपराधी**:
  - **सक्रिय सदस्यता**: इवेंट एमिटर ( `DeviceEventEmitter` ) या ऐपस्टेट श्रोता `useEffect` रिटर्न में क्लियर नहीं हुए।
  - **सक्रिय टाइमर**: `setInterval` लूप घटक गुणों को संदर्भित करते हैं जिन्हें अनमाउंट करने पर `clearInterval` के माध्यम से साफ़ नहीं किया जाता है।
@@ -467,7 +468,7 @@
 - **उत्तर**: 
  - **ट्राएज प्रोटोकॉल**:
  1. ** Xcode Instruments (ऐप लॉन्च)** और ** Android Studio प्रोफाइलर (सीपीयू/मेथड ट्रेसेस)**: प्री-मेन निष्पादन कैप्चर करें (उदाहरण के लिए, कोकोपोड्स लोडिंग, जेवीएम बूट समय)।
- 2. **सिस्ट्रेस / पर्फ़ेटो**: React Native Bridge , Hermes वीएम, और विज़ुअल लेआउट रेंडरिंग को आरंभ करने में बिताया गया समय कैप्चर करें।
+ 2. **Perfetto / Xcode Instruments / RN DevTools Performance**: App process, Hermes VM, native module registry, Fabric surfaces और first visual commit initialize होने में लगा time capture करें।
  - **अनुकूलन**:
  - **इनलाइन आवश्यक**: लॉन्च के समय अनावश्यक जेएस फ़ाइलों को लोड करने से बचने के लिए, आयात को गतिशील आवश्यकता वाले कार्यों में संकलित करने के लिए `metro.config.js` में इनलाइन आवश्यकता को सक्षम करें।
 - ** Hermes बाइटकोड एओटी**: सीआई बिल्ड के दौरान जावास्क्रिप्ट कोड को Hermes bytecode पर प्री-कंपाइल करें, लॉन्च पर पार्सिंग और सिंटैक्स संकलन चरणों को छोड़ दें।
@@ -476,11 +477,29 @@
 
 ---
 
-### 26. OTA CodePush अपडेट के दौरान जोखिम, संस्करण संगतता और पुनर्प्राप्ति को प्रबंधित करने के लिए आप किन रणनीतियों का उपयोग करते हैं?
+### 26. OTA updates के दौरान जोखिम, version compatibility और recovery को कैसे manage करेंगे?
 - **उत्तर**: 
- - **बाइनरी संस्करण लॉकिंग**: मूल मॉड्यूल को जेएस कोड परिभाषाओं से मेल खाना चाहिए। हम set / Expo रिलीज स्क्रिप्ट के अंदर सख्त लक्ष्य बाइनरी संस्करण नियम (उदाहरण के लिए, `^2.4.0` ) लागू करते हैं, यह सुनिश्चित करते हुए कि बंडल केवल समान मूल पुस्तकालय हस्ताक्षरों के साथ निर्मित शेल पर चलता है।
+ - **Modern Tooling Context**: Microsoft App Center CodePush को नए projects के default managed service की तरह treat नहीं करना चाहिए क्योंकि App Center service retire हो चुकी है। Expo/CNG friendly apps में Expo/EAS Updates और bare RN में self-hosted या New-Architecture-compatible OTA provider choose किया जा सकता है।
+ - **बाइनरी संस्करण लॉकिंग**: मूल मॉड्यूल को जेएस code definitions से match करना चाहिए। हम strict runtime-version या target-binary rules (उदाहरण के लिए, `^2.4.0` या Expo `runtimeVersion`) set करते हैं ताकि OTA bundle केवल compatible native shell पर चले।
  - **बहु-चरणीय तैनाती**: हम तरंगों में OTA अपडेट जारी करते हैं (उदाहरण के लिए, 5% ➡️ 25% ➡️ 100%) और Sentry पर crash अलर्ट देखते हैं।
- - **नेटिव रिकवरी और रोलबैक**: हम स्टार्टअप स्वास्थ्य की निगरानी के लिए नेटिव रनटाइम शेल को कॉन्फ़िगर करते हैं। यदि CodePush अपडेट के तुरंत बाद ऐप crashes बार-बार (उदाहरण के लिए 2 मिनट में 3 बार), नेटिव रैपर स्वचालित रूप से वापस आ जाता है, कैश निर्देशिका को हटा देता है और स्थिर, एम्बेडेड जेएस बंडल को लोड करता है।
+ - **नेटिव रिकवरी और रोलबैक**: हम startup health monitor करते हैं। यदि OTA update के तुरंत बाद app बार-बार crash होता है, wrapper update cache delete करके stable embedded JS bundle load कर सकता है।
+
+---
+
+### 27. Legacy React Native app को modern React Native architecture में migrate करने की planning कैसे करेंगे?
+- **उत्तर**:
+  मैं इसे सिर्फ package upgrade नहीं, बल्कि controlled engineering program की तरह treat करूंगा।
+
+  1. **Baseline Audit**: सबसे पहले current RN version, native template age, Hermes/JSC usage, Gradle/AGP/Kotlin, Xcode/CocoaPods, Node, navigation, state management, storage, push, analytics, payment SDKs, custom native modules और CI/CD scripts capture करूंगा।
+  2. **Compatibility Matrix**: हर dependency को compatible, replaceable, risky या legacy-only classify करूंगा। Reanimated, Gesture Handler, Screens, Safe Area, MMKV, maps, camera, push और payment SDKs पर special attention दूंगा क्योंकि ये native code touch करते हैं।
+  3. **Testing Safety Net**: Upgrade से पहले app launch, login, deep links, payments, offline sync, push notification routing और logout के smoke/E2E tests add करूंगा। साथ ही Sentry/Crashlytics source maps, dSYMs और ProGuard mappings verify करूंगा।
+  4. **Incremental Upgrade Hops**: React Native Upgrade Helper use करके controlled version hops में upgrade करूंगा। हर hop के बाद Android/iOS build, tests और native template diffs validate करूंगा।
+  5. **Hermes और New Architecture Validation**: पहले Hermes release bytecode verify करूंगा, फिर internal builds में New Architecture/Fabric/TurboModules test करूंगा। Stable low-frequency `RCTBridgeModule` modules temporarily रह सकते हैं, लेकिन performance-sensitive modules typed TurboModules/JSI की तरफ migrate होने चाहिए।
+  6. **UI Regression Pass**: Navigation transitions, keyboard behavior, modals, gestures, Reanimated flows, large lists, accessibility और dark mode test करूंगा क्योंकि architecture changes subtle UI regressions ला सकते हैं।
+  7. **Gradual Rollout**: पहले QA/internal tracks, फिर beta, फिर staged production rollout करूंगा। Crash-free sessions, ANRs, startup time, memory, JS errors, API failures और key funnel metrics monitor करूंगा।
+  8. **Cleanup After Stability**: Production stable दिखने के बाद ही deprecated APIs, old bridge shims, Flipper configs, unused Gradle/Pod settings और temporary compatibility wrappers remove करूंगा।
+
+  Interview summary: *"मैं legacy app को running रखता हूं, पहले observability और rollback बनाता हूं, small verified hops में upgrade करता हूं, Hermes/New Architecture को separately validate करता हूं, और old architecture cleanup production stability के बाद करता हूं."*
 
 ---
 

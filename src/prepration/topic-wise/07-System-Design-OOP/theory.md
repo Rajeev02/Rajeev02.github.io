@@ -10,6 +10,7 @@
 - [🧪 Section 6: Mobile Testing Frameworks & TDD Strategy](#section-6-mobile-testing-frameworks--tdd-strategy)
 - [📊 Section 7: Performance Profiling & Native Memory Leak Detection](#section-7-performance-profiling--native-memory-leak-detection)
 - [📦 Section 8: Deployment Pipelines & Store Releases](#section-8-deployment-pipelines--store-releases)
+- [🎯 Section 9: Senior / Lead / Architect Scenario-Based Interview Questions](#section-9-senior--lead--architect-scenario-based-interview-questions)
 </details>
 <!-- INDEX_END -->
 

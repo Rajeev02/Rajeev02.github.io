@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   backgroundContainer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: '#e53e3e',
     justifyContent: 'center',
     alignItems: 'flex-end',

@@ -7,7 +7,7 @@
 - [🏗️ Section 1: MNC & Consulting Architectural Expectations](#section-1-mnc-consulting-architectural-expectations)
   - [1. Clean Architecture & SOLID Principles in React Native](#1-clean-architecture-solid-principles-in-react-native)
   - [2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams](#2-monorepos-vs-multirepos-yarn-pnpm-nx-for-large-teams)
-  - [3. Legacy Migration & Upgrades (e.g., v0.60 to v0.75+)](#3-legacy-migration-upgrades-eg-v060-to-v075)
+  - [3. Legacy Migration & Upgrades (e.g., v0.60 to Modern RN)](#3-legacy-migration-upgrades-जैसे-v060-से-modern-rn)
 - [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#section-2-enterprise-security-compliance-owasp-mobile-top-10)
   - [1. SSL Pinning & Certificate Rotation](#1-ssl-pinning-certificate-rotation)
   - [2. Jailbreak/Root Detection and Frida Instrumentation Defenses](#2-jailbreakroot-detection-and-frida-instrumentation-defenses)
@@ -76,20 +76,55 @@ MNC projects में कई sister applications (जैसे, customer, partn
 
 ---
 
-### 3. Legacy Migration & Upgrades (जैसे, v0.60 से v0.75+)
+### 3. Legacy Migration & Upgrades (जैसे, v0.60 से Modern RN)
 
 Tech Leads को अक्सर legacy apps को migrate करके या major version upgrades करके technical debt को हल करने का काम सौंपा जाता है।
 
-#### A. Legacy React Native को Upgrade करना (जैसे, v0.63 से v0.75+):
-1. **Analyze Dependencies**: target React Native version और Hermes के साथ third-party native libraries की compatibility जांचने के लिए audit चलाएं।
+#### A. Legacy React Native को Modern Target पर Upgrade करना:
+1. **Analyze Dependencies**: target React Native version, Hermes, Fabric, TurboModules और Codegen के साथ third-party native libraries की compatibility जांचने के लिए audit चलाएं।
 2. **React Native Upgrade Helper का उपयोग करें**: community upgrade tool का उपयोग करके native files (`AndroidManifest.xml`, `AppDelegate.mm`, `build.gradle`, `Podfile`) के लिए code diffs उत्पन्न (generate) करें।
-3. **Upgrade Steps को क्रमिक रूप से (Incrementally) निष्पादित करें**: सीधे कूदने के बजाय कई major versions (जैसे, 0.63 ➡️ 0.68 ➡️ 0.72 ➡️ 0.75) में अपग्रेड करना अधिक सुरक्षित है।
+3. **Upgrade Steps को Controlled Hops में करें**: बहुत पुराने RN version से latest target पर एक ही PR में jump न करें। Stable checkpoints में upgrade करें, native templates update करें, दोनों platform builds चलाएं, और हर hop के बाद app validate करें।
 4. **Hermes & New Architecture Migration**:
-   - iOS पर Hermes सक्षम (enable) करें (Podfile में `use_hermes => true`) और Android पर (`gradle.properties` में `hermesEnabled=true`)।
-   - नए `RCTAppDelegate` structure में transition करने के लिए Xcode में Objective-C compiler flags को हल करें।
-   - TurboModules/Fabric compatibility लागू करें। यदि legacy libraries नई C++ JSI specs को implement करने में विफल रहती हैं, तो अस्थायी (temporary) bridging compatibility layers बनाएं।
+   - Hermes release bytecode, debugging और profiling verify करें।
+   - target template के हिसाब से Android/iOS native entry points migrate करें।
+   - TurboModules/Fabric compatibility लागू करें। Legacy-only libraries को replace, isolate या temporary compatibility layer में रखें जब तक stable migration न हो।
+5. **Modern RN Target Checks**:
+   - Target React Native template द्वारा required Node.js version use करें।
+   - Jest config को modern preset (`@react-native/jest-preset`) पर update करें।
+   - Removed/deprecated APIs जैसे `StyleSheet.absoluteFillObject` को `StyleSheet.absoluteFill` या explicit absolute style से replace करें।
 
-#### B. Native Android/iOS को React Native में Migrate करना:
+#### B. Migration Planning Checklist: Legacy RN से Modern RN
+Interview में अगर पूछा जाए, *"Legacy React Native app को modern app में migrate करने से पहले आप कौनसे steps follow करेंगे?"*, तो इसे phased plan की तरह answer करें:
+
+1. **Discovery & Risk Mapping**:
+   - Current RN version, native template age, package manager, Node version, Gradle/AGP/Kotlin, Xcode/CocoaPods और CI setup identify करें।
+   - सभी native dependencies और custom modules list करें। हर item को business-critical, replaceable, New-Architecture-ready या legacy-only mark करें।
+   - Baseline metrics capture करें: startup time, bundle size, memory usage, crash-free sessions, ANR rate, slow screens और release build time।
+2. **Business Scope & Release Strategy**:
+   - Decide करें कि migration सिर्फ framework upgrade है या navigation, state, storage, design system और native SDK changes भी शामिल हैं।
+   - Architecture migration के साथ बड़ा feature launch mix न करें। Migration branch को behaviorally equivalent रखें।
+   - Rollback strategy define करें: store release rollback, feature flags, OTA eligibility और beta-track validation।
+3. **Test & Observability Preparation**:
+   - App launch, login, navigation, payments, push notification handling, deep links, offline sync और logout के smoke tests add करें।
+   - Sentry/Crashlytics source maps, dSYMs, ProGuard mappings और breadcrumbs सही upload हो रहे हैं यह verify करें।
+   - Startup, large lists, key animations और memory leaks के performance checks add करें।
+4. **Dependency Upgrade Path**:
+   - React Native को Upgrade Helper के साथ controlled hops में upgrade करें।
+   - React Navigation, Reanimated, Gesture Handler, Screens, Safe Area, MMKV/SQLite, push, analytics और payment SDKs को compatibility के हिसाब से upgrade करें।
+   - Abandoned libraries को New Architecture enable करने से पहले replace करें।
+5. **Native Template Migration**:
+   - Android Gradle files, Kotlin config, MainApplication/MainActivity, permissions, ProGuard/R8 rules और build variants update करें।
+   - iOS AppDelegate, Podfile, privacy/permissions, entitlements, deployment target, Swift/Objective-C bridge files और build settings update करें।
+6. **Hermes & New Architecture Rollout**:
+   - पहले Hermes release bytecode, source maps और crash symbolication verify करें।
+   - Internal build में New Architecture enable करके Fabric rendering issues, TurboModule specs, event emitters और Codegen contracts fix करें।
+   - Low-frequency stable legacy modules temporarily रख सकते हैं, लेकिन performance-sensitive modules को typed TurboModules/JSI की तरफ migrate करें।
+7. **Production Rollout**:
+   - Internal QA, beta tracks और फिर staged production rollout करें।
+   - Crash-free sessions, ANRs, startup time, memory, screen load time, API failures और app-store reviews monitor करें।
+   - Old bridge shims, deprecated APIs और unused native configs को production stability prove होने के बाद ही remove करें।
+
+#### C. Native Android/iOS को React Native में Migrate करना:
 - **Phase 1: Hybrid Integration (Sub-views)**: पूरे ऐप को दोबारा लिखने के बजाय, React Native को native application के अंदर एक fragment/controller के रूप में एकीकृत (integrate) करें। native Android Activity या iOS UIViewController के अंदर `ReactRootView` लोड करें।
 - **Phase 2: Data Bridge Synchronization**: custom bridge events का उपयोग करके native container और React Native JS context के बीच authentication states, database registries, और configurations को synchronize करें।
 - **Phase 3: Incremental Screen Replaces**: feature updates के आधार पर एक-एक करके legacy screens को बदलें। एक बार जब container navigation पूरी तरह से React Navigation द्वारा बदल दिया जाता है, तो native routing files को पूरी तरह से हटा दें।
