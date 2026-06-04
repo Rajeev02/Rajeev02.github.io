@@ -41,6 +41,7 @@
   - [5. CI/CD Pipelines & Mobile Deployment Workflow](#5-cicd-pipelines-mobile-deployment-workflow)
     - [Android Signing & Release](#android-signing-release)
     - [iOS Code Signing & Match](#ios-code-signing-match)
+  - [6. Telemetry & Analytics Orchestration: Firebase, Sentry & Azure App Insights](#6-telemetry-analytics-orchestration-firebase-sentry-azure-app-insights)
 - [⚛️ Section 7: React Architecture & Core Engine](#section-7-react-architecture-core-engine)
   - [1. Virtual DOM, React Fiber, Reconciliation & Diffing](#1-virtual-dom-react-fiber-reconciliation-diffing)
   - [2. Component Lifecycles: Class vs. Functional Components](#2-component-lifecycles-class-vs-functional-components)
@@ -51,6 +52,7 @@
   - [1. State vs. Props & Prop Drilling](#1-state-vs-props-prop-drilling)
   - [2. State Management Solutions: Redux vs. Zustand vs. MobX vs. Context API](#2-state-management-solutions-redux-vs-zustand-vs-mobx-vs-context-api)
     - [MobX Core Concepts & React Integration](#mobx-core-concepts-react-integration)
+    - [Recoil: Atom & Selector Architecture](#recoil-atom-selector-architecture)
   - [3. Routing, RBAC & Deep Linking in React Navigation](#3-routing-rbac-deep-linking-in-react-navigation)
 - [🌐 Section 9: Server Rendering, Styling & Platform Specifics](#section-9-server-rendering-styling-platform-specifics)
   - [1. SSR vs. CSR & React Native SEO](#1-ssr-vs-csr-react-native-seo)
@@ -60,12 +62,14 @@
   - [1. The Mobile Testing Pyramid](#1-the-mobile-testing-pyramid)
   - [2. Unit & Integration Testing (Jest + React Native Testing Library)](#2-unit-integration-testing-jest-react-native-testing-library)
   - [3. End-to-End Testing (Detox + JUnit)](#3-end-to-end-testing-detox-junit)
+  - [4. Test-Driven Development (TDD) Workflow in React Native](#4-test-driven-development-tdd-workflow-in-react-native)
 - [💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures](#section-11-enterprise-offline-storage-synchronizer-architectures)
   - [1. Storage Solution Comparison Matrix](#1-storage-solution-comparison-matrix)
   - [2. React Query Offline Caching & Persister Integration](#2-react-query-offline-caching-persister-integration)
   - [3. Redux Toolkit Offline Hydration & Redux Persist](#3-redux-toolkit-offline-hydration-redux-persist)
   - [4. Enterprise Offline Sync Architecture](#4-enterprise-offline-sync-architecture)
     - [Sync Reconciliation Core Rules:](#sync-reconciliation-core-rules)
+  - [5. GraphQL Integration & Caching with Apollo Client](#5-graphql-integration-caching-with-apollo-client)
 - [🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)](#section-12-micro-frontends-super-app-architecture-repack-module-federation)
   - [1. Metro vs. Re.Pack (Webpack)](#1-metro-vs-repack-webpack)
   - [2. Webpack Module Federation Mechanics](#2-webpack-module-federation-mechanics)
@@ -332,6 +336,23 @@ Automating builds ensures reliable releases and prevents manual code signing err
 - **Fastlane Match**: Automates iOS code signing by storing all certificates and provisioning profiles inside a private Git repository encrypted with a shared passcode. During CI runs, `fastlane match appstore` clones the repository, decrypts the files, and installs them onto the macOS runner, preventing signing mismatches.
 - **Fastfile**: Script containing "lanes" that compile the iOS app (`build_app` or `gym`) and submit the `.ipa` package to TestFlight (`upload_to_testflight` or `pilot`).
 
+### 6. Telemetry & Analytics Orchestration: Firebase, Sentry & Azure App Insights
+Production-grade applications rely on a multi-tiered monitoring stack to track stability, usability, and execution performance.
+- **Sentry (Crash & Error Diagnostics)**: Focuses strictly on debugging and runtime stability. It captures uncaught exceptions, promise rejections, and native crashes (JVM/C++ on Android, Objective-C/Swift on iOS). It reconstructs readable stack traces via dSYM and source map symbolication. Sentry is optimized for developer diagnostics.
+- **Firebase (Engagement & Operational Telemetry)**:
+  - **Firebase Analytics**: Tracks user behavioral flows, screen views, conversions, and demographic metrics.
+  - **Firebase Crashlytics**: Tracks crashes similarly to Sentry, but is tightly integrated with the Google/Android Play ecosystem.
+  - **Firebase Remote Config**: Dynamically updates feature flags and values over-the-air, enabling A/B testing and conditional feature delivery.
+- **Azure App Insights (Enterprise Performance Monitor)**:
+  - Often used in Microsoft-backed enterprise architectures to correlate client-side telemetry with backend API transaction logs.
+  - Tracks web request latency, custom client-side events, component rendering durations, and network failure rates, allowing end-to-end trace correlation using a shared `Correlation ID` across frontend and backend services.
+
+| Tool | Primary Purpose | Key Metrics | Developer vs. Product Focus |
+| :--- | :--- | :--- | :--- |
+| **Sentry** | Real-time JS and Native crash reporting and symbolication. | Crash-free sessions, breadcrumbs, stack traces. | Highly Developer focused. |
+| **Firebase** | Behavioral analytics, dynamic configuration, notification handling. | Screen views, event conversions, active users. | Highly Product/Marketing focused. |
+| **Azure App Insights** | End-to-end performance tracing and enterprise APM. | Latency, dependency tracking, transaction correlation. | Operational/Infrastructure focused. |
+
 ---
 
 ## ⚛️ Section 7: React Architecture & Core Engine
@@ -517,6 +538,15 @@ MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
   };
   ```
 
+#### Recoil: Atom & Selector Architecture
+Recoil is an experimental state management library developed by Meta that resolves React's performance problems with deep component trees and the Context API (which forces all descendants to re-render).
+- **Atoms (Source of Truth)**: Dynamic data containers representing units of state. Components can subscribe to atoms. When an atom updates, *only* components subscribed to that specific atom re-render.
+- **Selectors (Derived State)**: Pure functions that transform atoms or other selectors. Selectors are cached automatically, only recalculating if their upstream dependencies (atoms/selectors) change. They can also represent asynchronous operations (e.g. fetching records from a server).
+- **Comparison to Redux/MobX**:
+  - *Redux*: Relies on a single, global store containing all states. Dispatching actions requires middleware rules, selectors, and reducer setups (higher boilerplate, macro-level state).
+  - *MobX*: Uses observables and transparent functional reactive tracking. Very low boilerplate, but relies on object mutability and wrapper components (`observer`).
+  - *Recoil*: Atomic design built specifically *for* React. Integrates natively with React features like Concurrent Mode, Suspense, and standard hook patterns (e.g., `useRecoilState` which works exactly like `useState`).
+
 ---
 
 ## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
@@ -603,6 +633,19 @@ MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
   });
   ```
 
+### 4. Test-Driven Development (TDD) Workflow in React Native
+Test-Driven Development (TDD) is a development methodology where code is written in a strict iterative feedback loop:
+1. **Red**: Write a failing unit or integration test defining a small, single requirement.
+2. **Green**: Write the minimal application code required to make the test pass.
+3. **Refactor**: Clean up code styling, extract components, or improve performance while ensuring tests remain green.
+
+- **Mental Model for Mobile TDD**:
+  - Focus on testing *behaviors* and *states* rather than implementation details. Avoid asserting component internals; instead, assert what the user sees (e.g. text elements, buttons) or what callback events fire.
+  - When testing custom hooks (like standard query fetch wrappers), write test cases representing: Initial loading state ➡️ Successful payload resolution ➡️ Network error rejection.
+- **Mocking Strategy**:
+  - Mock native libraries that do not run inside Node.js environments (like `@react-native-async-storage/async-storage`, `react-native-reanimated`, or `react-native-device-info`).
+  - Use `jest.mock()` to replace complex native dependencies or heavy network wrappers (like `axios` or Apollo Client's mock provider) with predictable mock functions (`jest.fn()`).
+
 ---
 
 ## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
@@ -656,6 +699,17 @@ Offline synchronization is modeled using a **Transactional Outbox Queue** patter
    - **Server-Wins / Merge**: The server merges non-conflicting fields, rejecting conflicts and forcing the client to re-fetch and resolve.
    - **Interactive User Reconciliation**: The app displays a comparison modal to let the user choose which state to keep (ideal for collaborative document models).
 4. **Persistent Background Workers**: If the user backgrounds the app during sync, the transaction is handed off to OS workers (`WorkManager` in Android / `BackgroundTasks` in iOS) to complete the queue execution in the background.
+
+### 5. GraphQL Integration & Caching with Apollo Client
+GraphQL enables mobile clients to request only the specific fields required, reducing network payload sizes on constrained cellular connections.
+- **Client Configuration**: Initialized via `ApolloClient` utilizing an `InMemoryCache` instance. The client manages query normalization (mapping server objects to cache keys using `__typename` and `id`).
+- **Fetch Policies**:
+  - `cache-first` (Default): Returns cached data if available; otherwise makes a network request.
+  - `network-only`: Always bypasses the local cache to fetch the latest state from the server.
+  - `cache-and-network`: Serves cached data instantly while simultaneously triggering a background network request to update the cache and view.
+  - `cache-only`: Reads exclusively from the cache, throwing an error if data is missing (ideal for offline-locked screens).
+- **Error Handling**: Uses link chains (e.g. `@apollo/client/link/error`). You catch global errors (like `401 Unauthorized` or `500 Server Error`) and handle them via retry logics or routing resets.
+- **Offline Sync & Store Hydration**: Apollo Client can be persisted to local storage using `apollo3-cache-persist`. Upon app startup, the local cache database (e.g., SQLite or MMKV) is read to hydrate the client cache, allowing immediate offline rendering of last-seen graphs.
 
 ---
 

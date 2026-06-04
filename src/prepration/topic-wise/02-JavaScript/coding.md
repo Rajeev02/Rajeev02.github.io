@@ -11,6 +11,8 @@
 - [Program 5: Substring Extraction](#program-5-substring-extraction)
 - [Program 6: Asynchronous Execution Order (Event Loop Timing)](#program-6-asynchronous-execution-order-event-loop-timing)
 - [Program 7: Loop Scoping & Variable Closures inside SetTimeout](#program-7-loop-scoping-variable-closures-inside-settimeout)
+- [Program 8: Deep Memoization Wrapper with Cache Expiration](#program-8-deep-memoization-wrapper-with-cache-expiration)
+- [Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards](#program-9-custom-event-broker-publish-subscribe-pattern-with-wildcards)
 </details>
 <!-- INDEX_END -->
 
@@ -535,6 +537,174 @@ for (var j = 0; j < 5; j++) {
 - **Space Complexity**: $O(N)$ for closures contexts when using `let`, and $O(1)$ when using `var`.
 - **Explanation**: 
   - **`let` (Block Scope)**: JavaScript allocates a new variable binding slot in memory on every single loop iteration. The callback closure binds to that iteration's instance, printing `0, 1, 2, 3, 4`.
-  - **`var` (Function Scope)**: The iterator variable is hoisted and shared across all iterations. By the time the call stack clears and asynchronous timers execute, the loop has completed, leaving the variable at `5`. Thus, all timers print `5`.
   - **IIFE Fix**: Wrapping `var` statements in an Immediately Invoked Function Expression (IIFE) captures the current value of the iterator, creating a new lexical scope for each callback.
+
+---
+
+## Program 8: Deep Memoization Wrapper with Cache Expiration
+
+### Question
+Write a high-performance, generic JavaScript **Memoization Wrapper** function `memoize(fn, options)`. The wrapper must:
+1. Cache execution outcomes based on variable parameters.
+2. Support a custom cache key resolver function.
+3. Implement a **Time-To-Live (TTL)** cache expiration handler to clear stale keys automatically after a specified time.
+4. Support clean cache invalidation hooks.
+
+### Sample Input & Output
+#### Input:
+```javascript
+const heavyCalculation = (a, b) => {
+  console.log("Executing expensive math...");
+  return a + b;
+};
+
+const memoizedMath = memoize(heavyCalculation, { ttl: 2000 });
+
+memoizedMath(2, 3); // Prints "Executing..." and returns 5
+memoizedMath(2, 3); // Serves instantly from cache (no print)
+
+// Wait 2.5 seconds
+setTimeout(() => {
+  memoizedMath(2, 3); // TTL expired. Prints "Executing..." and recalculates!
+}, 2500);
+```
+
+### Code
+```javascript
+function memoize(fn, options = {}) {
+  const { ttl = null, resolver = null } = options;
+  const cache = new Map();
+
+  const memoized = function (...args) {
+    // 1. Generate cache key based on inputs
+    const key = resolver ? resolver(...args) : JSON.stringify(args);
+
+    if (cache.has(key)) {
+      const record = cache.get(key);
+
+      // 2. Check if TTL validation checks apply
+      if (ttl !== null && Date.now() - record.timestamp > ttl) {
+        cache.delete(key); // Evict expired key
+      } else {
+        return record.value; // Return fresh cached result
+      }
+    }
+
+    // 3. Execute original function and store with timestamp
+    const result = fn.apply(this, args);
+    cache.set(key, {
+      value: result,
+      timestamp: Date.now(),
+    });
+
+    return result;
+  };
+
+  // 4. Expose cache management APIs
+  memoized.cache = cache;
+  memoized.clear = () => cache.clear();
+  memoized.invalidate = (key) => cache.delete(key);
+
+  return memoized;
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ lookup for cache resolutions.
+- **Space Complexity**: $O(K)$ where $K$ is the number of cached keys.
+- **Explanation**: This program builds a custom caching wrapper. By wrapping the original function in a closure, it persists a private `Map` store. It maps dynamic input arguments to serialization keys, checks timestamps against configured TTL limits to clean up stale references, and exposes invalidate hooks.
+
+---
+
+## Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
+
+### Question
+Implement a complete JavaScript **Event Emitter / Broker** class supporting a Publish-Subscribe pattern.
+The class must export methods:
+1. `.on(event, callback)`: Register event listeners.
+2. `.off(event, callback)`: Remove registered listeners.
+3. `.emit(event, payload)`: Dispatch events.
+4. `.once(event, callback)`: Run a callback exactly once, then unsubscribe.
+5. Support **wildcard** selectors (e.g. emitting `'user.*'` triggers callbacks listening to both `'user.login'` and `'user.logout'`).
+
+### Code
+```javascript
+class EventEmitter {
+  constructor() {
+    this.events = new Map();
+  }
+
+  // 1. Subscribe to events
+  on(event, callback) {
+    if (!this.events.has(event)) {
+      this.events.set(event, []);
+    }
+    this.events.get(event).push(callback);
+    
+    // Return unsubscribe utility hook
+    return () => this.off(event, callback);
+  }
+
+  // 2. Unsubscribe from events
+  off(event, callback) {
+    if (!this.events.has(event)) return;
+    const list = this.events.get(event).filter((cb) => cb !== callback);
+    if (list.length === 0) {
+      this.events.delete(event);
+    } else {
+      this.events.set(event, list);
+    }
+  }
+
+  // 3. Subscribe once
+  once(event, callback) {
+    const wrapped = (...args) => {
+      this.off(event, wrapped);
+      callback.apply(this, args);
+    };
+    return this.on(event, wrapped);
+  }
+
+  // 4. Emit events with Wildcard resolution (e.g. 'order.*')
+  emit(event, ...args) {
+    this.events.forEach((callbacks, registeredEvent) => {
+      if (this.matchEvent(registeredEvent, event)) {
+        callbacks.forEach((cb) => {
+          try {
+            cb(...args);
+          } catch (err) {
+            console.error(`Error in event listener for ${registeredEvent}:`, err);
+          }
+        });
+      }
+    });
+  }
+
+  private matchEvent(registered, emitted) {
+    if (registered === emitted) return true;
+    
+    // Convert wildcard pattern 'user.*' to regex 'user\.[^.]+'
+    if (registered.includes('*')) {
+      const pattern = '^' + registered.replace(/\*/g, '[^.]+') + '$';
+      const regex = new RegExp(pattern);
+      return regex.test(emitted);
+    }
+    
+    if (emitted.includes('*')) {
+      const pattern = '^' + emitted.replace(/\*/g, '[^.]+') + '$';
+      const regex = new RegExp(pattern);
+      return regex.test(registered);
+    }
+
+    return false;
+  }
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: 
+  - **Subscribe/Unsubscribe**: $O(1)$ operations on Map tables.
+  - **Emit**: $O(E \times C)$ where $E$ is the number of event types and $C$ is matching callbacks.
+- **Space Complexity**: $O(E \times C)$ storage for listener registries.
+- **Explanation**: This implementation models a custom event bus. It holds subscription lists inside private Maps. It implements wildcard matching by converting string structures (e.g., `'user.*'`) to regex expressions at runtime, evaluates listeners, and uses try/catch blocks to isolate listener errors.
 

@@ -48,6 +48,9 @@
   - [25. Detail your approach to identifying and optimizing App Startup latency (TTI).](#25-detail-your-approach-to-identifying-and-optimizing-app-startup-latency-tti)
   - [26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA CodePush updates?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-codepush-updates)
 - [👥 Section 6: Agile vs. Scrum Methodologies](#section-6-agile-vs-scrum-methodologies)
+- [📈 Section 7: Program & Product Delivery Manager (PDM) Round](#section-7-program-product-delivery-manager-pdm-round)
+- [🤝 Section 8: Human Resources (HR) & Leadership Evaluation](#section-8-human-resources-hr-leadership-evaluation)
+- [💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy](#section-9-salary-negotiation-compensation-benefits-strategy)
 - [❓ Questions to Ask the Interviewers](#questions-to-ask-the-interviewers)
 </details>
 <!-- INDEX_END -->
@@ -497,14 +500,113 @@ Understanding the distinction between project frameworks and mindsets is essenti
     - *Sprint Backlog*: Target backlog items selected for execution in the current sprint.
     - *Increment*: The cumulative sum of all backlog items completed during a sprint.
 
+- **Artifacts**:
+    - *Product Backlog*: Master list of app requirements.
+    - *Sprint Backlog*: Target backlog items selected for execution in the current sprint.
+    - *Increment*: The cumulative sum of all backlog items completed during a sprint.
+
+---
+
+## 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+
+Product and Delivery Managers evaluate your leadership traits, execution ownership, delivery metrics, and cross-functional collaboration styles.
+
+### 1. Feature Delivery vs. Technical Debt & Refactoring
+- **Question**: *How do you coordinate with Product Managers (PMs) and Delivery Managers (DMs) to balance feature delivery speed vs. technical debt/refactoring?*
+- **Answer**:
+  I utilize a **Technical Debt Allocation Framework** to prevent discussions from becoming subjective. PMs are driven by business metrics and timelines, while engineers are driven by stability and code hygiene. 
+  - I establish data-driven justifications for technical tasks. For example, rather than saying "we need to refactor the payment link modules," I show the business impact: "This refactoring will resolve a dependency bottleneck, which will reduce checkout failure rates by 3% and decrease development time for new integrations by 20%."
+  - In our sprint planning sessions, I negotiate a stable **80/20 capacity split**: 80% of resources target user-facing features, and 20% is allocated for refactoring, tooling improvements, library upgrades, and unit test coverage. This preserves feature delivery while preventing the codebase from becoming obsolete.
+
+### 2. Sprint Velocity Tracking & Project Risk Management
+- **Question**: *Describe how you track and optimize team sprint velocity. What steps do you take if a critical sprint is at risk of missing its milestones?*
+- **Answer**:
+  I track sprint velocity using Jira burn-down charts, cumulative flow diagrams, and historic average velocity maps. If a sprint is at risk of slipping:
+  - **Triage and Blocker Removal**: I hold an immediate team huddle to identify the blockers (e.g., API changes, native build issues). As a Tech Lead, my first priority is to resolve these blockers.
+  - **Decoupling and Scope Negotiation**: I work with the Product Owner to prioritize backlog stories. We identify non-critical scope elements (nice-to-have UI states or tertiary configs) that can be deferred to the next sprint, safeguarding the core release milestone.
+  - **Avoid Brooks' Law**: I never add external developers to a late project, as onboarding overhead slows the team down further. Instead, I implement **Swarming**—pairing engineers to unblock critical path tasks.
+
+### 3. Cross-Functional Dependencies Resolution
+- **Question**: *How do you manage dependencies when your mobile features depend on backend API teams with different release schedules?*
+- **Answer**:
+  I implement **API Contract-First Development**. Before developers begin coding:
+  - The mobile and backend teams co-design the Swagger/OpenAPI specifications, aligning on input/output payload shapes and HTTP status behaviors.
+  - The mobile team sets up a local mock server schema (using MSW or JSON Server) to replicate these contracts, allowing us to build, test, and verify features in parallel with backend development.
+  - When backend APIs are deployed to staging, we switch the configurations to live staging endpoints, resolving integration mismatches early.
+
+---
+
+## 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+
+HR evaluation assesses cultural fit, communication clarity, stability, career goals, and interpersonal conflict resolution.
+
+### 1. Motivation & Long-Term Vision
+- **Question**: *Why do you want to join our organization, and where do you see yourself in the next 5 years?*
+- **Answer**:
+  - **Motivation**: Your organization delivers digital services at a massive scale, especially in complex banking and retail operations. I want to apply my 9+ years of mobile engineering experience—from native Android backgrounds to building scalable React Native applications—to solve your architectural challenges.
+  - **5-Year Career Path**: In 5 years, I aim to progress into a **Principal Engineer** or **Engineering Manager** role, owning the technology roadmaps for multiple product portfolios, mentoring engineering teams, and establishing design standards for secure cross-platform apps.
+
+### 2. Tight Deadlines & Pressure Environments
+- **Question**: *How do you manage tight deadlines or high-pressure situations?*
+- **Answer**:
+  I focus on structural prioritization and clear communication. Pressure usually rises when expectations are mismatched.
+  - I use the **Eisenhower Matrix** to isolate tasks that are urgent and important, delegating or scheduling less critical items.
+  - I avoid working in silos. I provide transparent updates to Project Managers regarding risks.
+  - During LetsVenture funding campaigns, release windows were short. I managed the pressure by establishing daily triage check-ins, setting clear scopes, and ensuring the team focused on core features while testing critical paths automatically via Jest.
+
+### 3. Conflict Resolution Case Study
+- **Question**: *Tell me about a time you had a conflict with a peer or manager, and how you resolved it.*
+- **Answer**:
+  - **The Conflict**: At LetsVenture, a senior peer insisted on implementing a complex Redux Saga configuration to fetch user configuration parameters, while I proposed using a lightweight React Query custom hook. They felt Sagas provided more granular control over complex async actions.
+  - **Resolution**: Instead of escalating, I proposed a data-driven trial. We paired up to build a prototype using both approaches on a test branch. We analyzed:
+    1. **Code Complexity**: Sagas required 5 separate files (action types, action creators, reducers, sagas, selectors), while React Query was implemented in a single custom hook.
+    2. **Bundle Size**: Sagas added dynamic helper overhead, while React Query handled caching out-of-the-box.
+    3. **Developer Velocity**: React Query reduced boilerplate by 60%.
+  - Seeing the comparative metrics, the peer agreed that the React Query hook was the more maintainable solution. We successfully launched the feature with a cleaner codebase.
+
+---
+
+## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+
+A strategic approach to compensation ensures you are valued appropriately while aligning with the employer's salary structures.
+
+### 1. Salary Negotiation & CTC Breakdown
+- **Fixed Base vs. Variable CTC**: 
+  - Evaluate the overall **Cost to Company (CTC)** package. Understand the ratio of **Fixed Base Salary** (which dictates your monthly cash flow, provident fund contributions, and gratuity calculations) to **Variable Performance Bonus** (paid annually/semi-annually based on performance).
+  - Negotiate for a higher Fixed Base rather than relying on high variable targets.
+- **Equity (RSUs / ESOPs)**:
+  - In product-focused MNCs, equity constitutes a major part of the package. Understand the **Vesting Schedule** (e.g., a standard 4-year vesting schedule with a 1-year cliff) and clarify the current valuations and liquidation windows.
+- **Framing the Value Proposition**:
+  - During negotiations, highlight that as a Senior/Lead React Native Developer with a strong native Android/iOS background, you act as a cross-functional engineer. You bridge the gap between JS and native platforms, reducing the client's overhead of hiring separate iOS and Android engineers.
+
+### 2. Immediate Joiner & Buyout Benefits
+- **Notice Period Buyout**:
+  - If you are an immediate joiner (already serving notice or recently resigned), highlight this as a key benefit, as you can resolve immediate resource constraints.
+  - If you have an active 60-90 day notice period, ask if the new employer offers a **Notice Period Buyout** (paying your current employer to release you early).
+- **Sign-On / Joining Bonus**:
+  - If you lose unvested ESOPs, performance bonuses, or gratuity by resigning before a specific date, request a **Sign-on Bonus** to offset these losses. This is typically structured as a one-time payment with a 12-month retention clawback clause.
+
+### 3. Relocation & Retention Packages
+- **Relocation Allowances**:
+  - Ensure the offer includes relocation coverage if moving to a new office hub (e.g., Bengaluru, Noida, Pune).
+  - Standard relocation packages should cover:
+    - Packing and moving charges for household goods.
+    - Air/train tickets for you and your dependents.
+    - Temporary initial hotel stay (typically 15 to 30 days).
+    - Brokerage allowance support for securing a new apartment.
+- **Retention Bonus**:
+  - For critical projects with tight timelines, negotiate a milestone-based **Retention Bonus** paid out after 12 or 24 months of service.
+
 ---
 
 ## ❓ Questions to Ask the Interviewers
 
-At the end of senior technical interviews, asking strategic questions demonstrates leadership, system ownership, and domain interest:
+At the end of senior technical and manager interviews, asking strategic questions demonstrates leadership, system ownership, and domain interest:
 1. *"How large is the React Native codebase, and are you planning or currently adopting the New Architecture (JSI/Fabric)?"*
 2. *"What are the biggest performance bottlenecks or native bridge challenges the team is currently facing?"*
 3. *"How are releases and CI/CD pipelines managed? Do you automate TestFlight and Play Store internal track delivery?"*
 4. *"What is the testing coverage expectations for PR approvals? Is the team using Detox for E2E layouts checks?"*
 5. *"What does technical success look like for this position in the first 90 days?"*
+6. *"How are sprint priorities determined, and what is the team's typical split between product features and refactoring technical debt?"*
+
 

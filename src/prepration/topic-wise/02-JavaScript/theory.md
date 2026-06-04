@@ -33,6 +33,7 @@
   - [7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)](#7b-redux-async-workflow-synchronous-actions-middlewares-thunkssagas)
   - [8. React Reconciliation & Diffing (React Fiber)](#8-react-reconciliation-diffing-react-fiber)
   - [9. Lazy Loading & Code Splitting](#9-lazy-loading-code-splitting)
+  - [10. Advanced JS Engine & Concurrency Q&A](#10-advanced-js-engine-concurrency-qa)
 </details>
 <!-- INDEX_END -->
 
@@ -272,3 +273,73 @@ Large-scale React applications split state management into two clear domains: **
 ### 9. Lazy Loading & Code Splitting
 - **Code Splitting**: Splitting the JavaScript bundle into smaller chunks that can be downloaded dynamically.
 - **Lazy Loading**: Delaying load times of features until they are accessed. In React, this is achieved using **`React.lazy()`** (for dynamic component imports) wrapped in a **`<Suspense>`** boundary to display a loading fallback UI. This decreases app launch bundle size and improves startup time.
+
+### 10. Advanced JS Engine & Concurrency Q&A
+
+#### Q1: Explain the V8/Hermes memory layout (Stack vs. Heap) and how JavaScript variables are allocated and referenced.
+- **Answer**:
+  The JS runtime environment divides memory into two principal regions: **The Stack** and **The Heap**.
+  - **The Stack (Static Allocation)**:
+    - Stores primitives (number, string, boolean, undefined, null, symbol, bigint) and references (memory address pointers) targeting objects.
+    - Operates on a LIFO (Last-In-First-Out) execution order managed directly by the OS.
+    - Extremely fast, with allocation/deallocation executing automatically as execution frames enter and leave the Call Stack.
+  - **The Heap (Dynamic Allocation)**:
+    - Stores reference types (objects, arrays, functions, closures, component states).
+    - Unstructured, dynamic memory heap. Runtimes allocate variable chunks as objects grow.
+    - Reclaiming memory requires Garbage Collection (GC) operations (e.g., Mark-and-Sweep in Hermes), which are computationally expensive.
+  - **Variable Reference Mechanics**:
+    - When you assign `const a = { x: 10 }`, a reference pointer (the hexadecimal memory address of the heap object) is stored on the Stack, while the actual `{ x: 10 }` object resides on the Heap.
+    - If you pass `a` to a function, the pointer value is copied to the function's stack frame. Both pointers reference the same heap block. Modifying properties inside the function mutates the source heap object.
+
+---
+
+#### Q2: What is Event Loop starvation? Contrast the execution prioritization of `process.nextTick()`, `Promise.then()`, `setImmediate()`, and `setTimeout()`.
+- **Answer**:
+  - **Event Loop Starvation**: Occurs when high-priority queues (like the Microtask Queue) are continuously populated, completely preventing the event loop from executing low-priority macrotasks (like rendering inputs, scroll listeners, or timers).
+  - **Prioritization & Loop Phases**:
+    1. **Synchronous Execution**: Call Stack executes immediate functions.
+    2. **`process.nextTick()` (Node.js specific)**: Fires immediately after the current synchronous operation finishes, *before* microtasks are evaluated. If a script calls `process.nextTick` recursively, it blocks the event loop entirely.
+    3. **Microtask Queue (Promises, queueMicrotask)**: Executed after the call stack clears and before the loop moves to the next phase. The event loop will not proceed until the microtask queue is *completely* empty. If microtasks continuously queue new microtasks, macrotasks starve.
+    4. **Macrotask Queue (setTimeout/setInterval, I/O)**: Triggered in subsequent loop cycles once the microtask queue is empty.
+    5. **`setImmediate()`**: Executes immediately in the check phase of the loop, running after I/O callbacks but before standard timers in many Node.js lifecycle situations.
+
+---
+
+#### Q3: What are JavaScript Proxies and the Reflect API? How can they be used to build a reactive state tracking system?
+- **Answer**:
+  - **Proxy**: An ES6 object wrapping a target object, allowing you to intercept and customize fundamental operations (like property access `get`, assignment `set`, deletion `deleteProperty`).
+  - **Reflect**: A global object providing static helper methods corresponding to Proxy traps (e.g., `Reflect.get(target, prop)`). It returns boolean success markers and makes default object operations predictable.
+  - **Building Reactivity (Concept)**:
+    - State systems (like Vue 3 reactivity or custom state libraries) wrap plain objects in a Proxy.
+    - **`get` Trap**: Tracks active component dependencies (Dependency Tracking). When a component renders and reads `proxy.price`, the system registers the component as a subscriber to that property.
+    - **`set` Trap**: Triggers reactivity triggers. When a mutation occurs (`proxy.price = 100`), the proxy intercepts, calls `Reflect.set()`, and automatically loops through all subscribed components to force UI re-renders.
+
+---
+
+#### Q4: How do WeakMap and WeakSet differ from Map and Set? What are their use cases in memory leak prevention?
+- **Answer**:
+  - **Weak references**: In standard `Map` and `Set`, objects added as keys or values are held with strong references. The garbage collector (GC) cannot sweep them, even if all other variables reference pointers are destroyed.
+  - **WeakMap & WeakSet**: Holds references to objects *weakly*.
+    - Keys inside a `WeakMap` must be objects (not primitives).
+    - If there are no other strong references to a key object in the application memory, the GC can sweep it, and its entry inside the `WeakMap` is cleared automatically.
+  - **Use Cases**:
+    - **Caching/Memoization**: Mapping temporary metadata (like user fetch status maps) to object references. Once the user object is dereferenced during unmounts, the cache is freed from memory automatically.
+    - **Encapsulation**: Storing private object variables.
+
+---
+
+#### Q5: Explain prototypal inheritance mechanics under the hood and how they relate to ES6 Class compilation.
+- **Answer**:
+  - **Prototypal Inheritance**: JavaScript does not have traditional object-oriented classes. Instead, inheritance relies on objects linking to other objects via a hidden `[[Prototype]]` property (accessible as `__proto__`).
+  - **The Lookup Chain**: Accessing `obj.prop` triggers a recursive search: `obj` ➡️ `obj.__proto__` ➡️ `obj.__proto__.__proto__` up to `Object.prototype`, ending at `null`.
+  - **ES6 Class Compilation**:
+    - ES6 `class` syntax is purely syntactic sugar wrapping prototypal construction.
+    - When you write `class Developer extends Person {}`, Babel compiles it to standard constructor functions:
+      ```javascript
+      function Developer() {
+        Person.call(this); // Inherit instance properties
+      }
+      Developer.prototype = Object.create(Person.prototype); // Link prototype chain
+      Developer.prototype.constructor = Developer; // Reset constructor pointer
+      ```
+    - Methods declared on class objects are attached to `Developer.prototype` to save memory, ensuring all instances share a single function reference on the prototype object instead of duplicating instances.

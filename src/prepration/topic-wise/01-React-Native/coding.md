@@ -19,6 +19,10 @@
 - [Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#program-14-webpack-module-federation-configuration-repack-host-remote-bundle-setup)
 - [Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#program-15-hardened-c-jni-bridge-module-android-jnikotlin-ios-obj-cswift)
 - [Program 16: Secure Purchase Validation & Transaction Sync Hook](#program-16-secure-purchase-validation-transaction-sync-hook)
+- [Program 17: GraphQL API Client Integration with Apollo Client](#program-17-graphql-api-client-integration-with-apollo-client)
+- [Program 18: Recoil State Management (Atoms & Selectors)](#program-18-recoil-state-management-atoms-selectors)
+- [Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)](#program-19-unified-production-telemetry-hook-firebase-sentry-azure-insights)
+- [Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL](#program-20-test-driven-development-tdd-workflow-with-jest-rntl)
 </details>
 <!-- INDEX_END -->
 
@@ -2460,3 +2464,711 @@ export function usePurchaseManager() {
   - **Server validation**: $O(N)$ HTTP round-trip latency.
 - **Space Complexity**: $O(D)$ local storage growth proportional to queue size $D$.
 - **Explanation**: This system secures transactions using the Outbox pattern. If network connection fails or the app is closed mid-session, the purchase token remains saved inside local SQLite databases with a `'PENDING'` tag. The hook listens to `NetInfo` alerts, and when internet reaches stability, it flushes the queue sequentially, verifying transactions with the remote backend, ensuring no product purchases are lost.
+
+---
+
+## Program 17: GraphQL API Client Integration with Apollo Client
+
+### Question
+Write a complete React Native component structure that integrates with a GraphQL API endpoint using Apollo Client. 
+1. Bootstrap the Apollo Client instance with custom headers, error-link interception (logging out on `401 Unauthorized`), and in-memory cache normalization.
+2. Build a component `SecurityPortfolioList` that queries user transactions, uses parameters, handles loading/error layouts, and implements a mutation (e.g. `addTransaction`) with optimistic UI response updates to maintain 60 FPS visual state transitions.
+
+### Sample Input & Output
+#### GraphQL Schema (Queries & Mutations):
+```graphql
+query GetPortfolio($userId: ID!) {
+  portfolio(userId: $userId) {
+    id
+    balance
+    holdings {
+      symbol
+      shares
+      value
+    }
+  }
+}
+
+mutation AddHolding($userId: ID!, $symbol: String!, $shares: Int!) {
+  addHolding(userId: $userId, symbol: $symbol, shares: $shares) {
+    id
+    symbol
+    shares
+    value
+  }
+}
+```
+#### Output:
+- Displays loading indicators while fetching.
+- Renders transaction list normalized from cache.
+- Tapping "Add Holding" instantly updates list in memory (Optimistic UI) before network resolver returns.
+
+### Code
+```tsx
+import React from 'react';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  FlatList, 
+  ActivityIndicator, 
+  TouchableOpacity, 
+  Button 
+} from 'react-native';
+import { 
+  ApolloClient, 
+  InMemoryCache, 
+  ApolloProvider, 
+  useQuery, 
+  useMutation, 
+  gql, 
+  createHttpLink 
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { onError } from '@apollo/client/link/error';
+
+// 1. Setup Apollo Client Http Link
+const httpLink = createHttpLink({
+  uri: 'https://api.myportal.com/graphql',
+});
+
+// 2. Inject Authorization Credentials Dynamically
+const authLink = setContext(async (_, { headers }) => {
+  const token = 'mock_jwt_session_token'; // Load from Secure MMKV in production
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    }
+  };
+});
+
+// 3. Error Interception Link (Token Expired Handling)
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    for (let err of graphQLErrors) {
+      if (err.extensions?.code === 'UNAUTHENTICATED') {
+        console.warn('Session expired, triggering logout redirect...');
+        // Perform redirection or dispatch logout action here
+      }
+    }
+  }
+  if (networkError) console.error(`[Network Error]: ${networkError}`);
+});
+
+// 4. Instantiate Normalized Cache Apollo Client
+export const apolloClient = new ApolloClient({
+  link: errorLink.concat(authLink).concat(httpLink),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Portfolio: {
+        fields: {
+          holdings: {
+            merge(existing = [], incoming) {
+              return [...incoming]; // Cache policy replacement rules
+            }
+          }
+        }
+      }
+    }
+  })
+});
+
+// GraphQL Query & Mutation Documents
+const GET_PORTFOLIO = gql`
+  query GetPortfolio($userId: ID!) {
+    portfolio(userId: $userId) {
+      id
+      balance
+      holdings {
+        id
+        symbol
+        shares
+        value
+      }
+    }
+  }
+`;
+
+const ADD_HOLDING = gql`
+  mutation AddHolding($userId: ID!, $symbol: String!, $shares: Int!) {
+    addHolding(userId: $userId, symbol: $symbol, shares: $shares) {
+      id
+      symbol
+      shares
+      value
+    }
+  }
+`;
+
+interface Holding {
+  id: string;
+  symbol: string;
+  shares: number;
+  value: number;
+}
+
+interface PortfolioData {
+  portfolio: {
+    id: string;
+    balance: number;
+    holdings: Holding[];
+  };
+}
+
+export function SecurityPortfolioList({ userId }: { userId: string }) {
+  // Query hook with configuration policies
+  const { data, loading, error, refetch } = useQuery<PortfolioData>(GET_PORTFOLIO, {
+    variables: { userId },
+    fetchPolicy: 'cache-and-network',
+  });
+
+  // Mutation hook with Optimistic UI updates
+  const [addHoldingMutation] = useMutation(ADD_HOLDING);
+
+  const handleAddAsset = async () => {
+    try {
+      await addHoldingMutation({
+        variables: { userId, symbol: 'GOOGL', shares: 10 },
+        // Optimistic Response triggers instant local cache writes
+        optimisticResponse: {
+          __typename: 'Mutation',
+          addHolding: {
+            __typename: 'Holding',
+            id: 'temp_id_' + Date.now(),
+            symbol: 'GOOGL',
+            shares: 10,
+            value: 1500.00
+          }
+        },
+        // Update local apollo cache manually based on result
+        update: (cache, { data: { addHolding } }) => {
+          const existingData = cache.readQuery<PortfolioData>({
+            query: GET_PORTFOLIO,
+            variables: { userId }
+          });
+
+          if (existingData) {
+            cache.writeQuery({
+              query: GET_PORTFOLIO,
+              variables: { userId },
+              data: {
+                portfolio: {
+                  ...existingData.portfolio,
+                  holdings: [...existingData.portfolio.holdings, addHolding]
+                }
+              }
+            });
+          }
+        }
+      });
+    } catch (err) {
+      console.error('Mutation failure:', err);
+    }
+  };
+
+  if (loading && !data) {
+    return (
+      <View style={styles.center}>
+        <ActivityIndicator size="large" color="#4a5568" />
+        <Text>Fetching Portfolio...</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={styles.center}>
+        <Text style={styles.errorText}>GraphQL Error: {error.message}</Text>
+        <Button title="Retry" onPress={() => refetch()} />
+      </View>
+    );
+  }
+
+  const holdings = data?.portfolio?.holdings || [];
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Portfolio (Balance: ${data?.portfolio?.balance?.toFixed(2) || '0.00'})</Text>
+      <FlatList
+        data={holdings}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.row}>
+            <Text style={styles.symbol}>{item.symbol}</Text>
+            <Text style={styles.details}>{item.shares} shares - ${item.value.toFixed(2)}</Text>
+          </View>
+        )}
+      />
+      <TouchableOpacity style={styles.addButton} onPress={handleAddAsset}>
+        <Text style={styles.btnText}>+ ADD GOOGL POSITION</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16, backgroundColor: '#f7fafc' },
+  header: { fontSize: 18, fontWeight: 'bold', marginBottom: 16, color: '#2d3748' },
+  center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  errorText: { color: '#e53e3e', marginBottom: 10 },
+  row: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    padding: 14, 
+    backgroundColor: '#fff', 
+    borderRadius: 8, 
+    marginVertical: 4 
+  },
+  symbol: { fontWeight: 'bold', color: '#4a5568' },
+  details: { color: '#718096' },
+  addButton: { 
+    backgroundColor: '#3182ce', 
+    padding: 16, 
+    borderRadius: 8, 
+    alignItems: 'center', 
+    marginTop: 10 
+  },
+  btnText: { color: '#fff', fontWeight: 'bold' }
+});
+
+export function ApolloAppWrapper({ userId }: { userId: string }) {
+  return (
+    <ApolloProvider client={apolloClient}>
+      <SecurityPortfolioList userId={userId} />
+    </ApolloProvider>
+  );
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ query retrieval from normalized cache. Network round trips are $O(G)$ where $G$ is GraphQL server resolver query response time.
+- **Space Complexity**: $O(M)$ memory storage in Apollo Cache proportional to number of active nodes.
+- **Explanation**: Setting up Apollo Provider with normalized caches avoids prop drilling or manual REST caches. We configured setContext to handle access headers, onError to monitor session expirations globally, and update/optimisticResponse hooks to bypass server round-trips for instant client updates.
+
+---
+
+## Program 18: Recoil State Management (Atoms & Selectors)
+
+### Question
+Implement a complete state management structure in React Native using **Recoil**.
+1. Create a Recoil State module defining an Atom to track an array of active trade listings (`tradeListingsState`).
+2. Create a Selector to compute the total value of filtered trades (`totalPortfolioValueState`) based on a selected trade category type filter.
+3. Build a component screen displaying the trade counts, active filter picker, and items list, using `useRecoilState`, `useRecoilValue`, and `useSetRecoilState` hooks.
+
+### Sample Input & Output
+#### Input:
+- User changes filter input state from `'ALL'` to `'TECH'`.
+#### Output:
+- Selector re-calculates, components observing the selector update their values, while unrelated sub-components are skipped, achieving optimal frame rendering speed.
+
+### Code
+```tsx
+import React from 'react';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  FlatList, 
+  TouchableOpacity 
+} from 'react-native';
+import { 
+  RecoilRoot, 
+  atom, 
+  selector, 
+  useRecoilState, 
+  useRecoilValue, 
+  useSetRecoilState 
+} from 'recoil';
+
+export interface Trade {
+  id: string;
+  symbol: string;
+  shares: number;
+  price: number;
+  category: 'TECH' | 'ENERGY' | 'HEALTH';
+}
+
+// 1. Define Atom - Source of Truth
+export const tradeListingsState = atom<Trade[]>({
+  key: 'tradeListingsState',
+  default: [
+    { id: '1', symbol: 'AAPL', shares: 50, price: 175.00, category: 'TECH' },
+    { id: '2', symbol: 'TSLA', shares: 20, price: 200.00, category: 'TECH' },
+    { id: '3', symbol: 'XOM', shares: 100, price: 110.00, category: 'ENERGY' },
+    { id: '4', symbol: 'JNJ', shares: 40, price: 155.00, category: 'HEALTH' }
+  ],
+});
+
+// Define filter atom
+type CategoryFilter = 'ALL' | 'TECH' | 'ENERGY' | 'HEALTH';
+export const categoryFilterState = atom<CategoryFilter>({
+  key: 'categoryFilterState',
+  default: 'ALL',
+});
+
+// 2. Define Selectors for Derived State (Auto-Cached)
+export const filteredTradesState = selector<Trade[]>({
+  key: 'filteredTradesState',
+  get: ({ get }) => {
+    const filter = get(categoryFilterState);
+    const list = get(tradeListingsState);
+
+    if (filter === 'ALL') return list;
+    return list.filter((item) => item.category === filter);
+  }
+});
+
+export const totalPortfolioValueState = selector<number>({
+  key: 'totalPortfolioValueState',
+  get: ({ get }) => {
+    const list = get(filteredTradesState);
+    return list.reduce((sum, item) => sum + (item.shares * item.price), 0);
+  }
+});
+
+// 3. Implement Recoil Component
+export function PortfolioConsole() {
+  const [filter, setFilter] = useRecoilState(categoryFilterState);
+  const trades = useRecoilValue(filteredTradesState);
+  const totalValue = useRecoilValue(totalPortfolioValueState);
+  const setTrades = useSetRecoilState(tradeListingsState);
+
+  const addNewTrade = () => {
+    const newTrade: Trade = {
+      id: String(Date.now()),
+      symbol: 'MSFT',
+      shares: 15,
+      price: 420.00,
+      category: 'TECH',
+    };
+    setTrades((prev) => [...prev, newTrade]);
+  };
+
+  const categories: CategoryFilter[] = ['ALL', 'TECH', 'ENERGY', 'HEALTH'];
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Asset Dashboard</Text>
+      
+      <View style={styles.valueCard}>
+        <Text style={styles.label}>TOTAL VALUE (FILTERED)</Text>
+        <Text style={styles.value}>${totalValue.toLocaleString()}</Text>
+      </View>
+
+      {/* Filter Tabs */}
+      <View style={styles.tabContainer}>
+        {categories.map((cat) => (
+          <TouchableOpacity
+            key={cat}
+            style={[styles.tab, filter === cat && styles.activeTab]}
+            onPress={() => setFilter(cat)}
+          >
+            <Text style={[styles.tabText, filter === cat && styles.activeTabText]}>{cat}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      <FlatList
+        data={trades}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.row}>
+            <View>
+              <Text style={styles.symbol}>{item.symbol}</Text>
+              <Text style={styles.subtext}>{item.category}</Text>
+            </View>
+            <Text style={styles.amount}>
+              {item.shares} x ${item.price.toFixed(2)}
+            </Text>
+          </View>
+        )}
+      />
+
+      <TouchableOpacity style={styles.actionBtn} onPress={addNewTrade}>
+        <Text style={styles.btnText}>ADD TECH TRADE (MSFT)</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16, backgroundColor: '#f4f5f7' },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#1a202c', marginBottom: 16 },
+  valueCard: { backgroundColor: '#fff', padding: 16, borderRadius: 12, marginBottom: 16, elevation: 2 },
+  label: { fontSize: 11, fontWeight: 'bold', color: '#a0aec0', letterSpacing: 1 },
+  value: { fontSize: 26, fontWeight: 'bold', color: '#2d3748', marginTop: 4 },
+  tabContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 },
+  tab: { flex: 1, paddingVertical: 8, alignItems: 'center', backgroundColor: '#e2e8f0', marginHorizontal: 2, borderRadius: 6 },
+  activeTab: { backgroundColor: '#4c51bf' },
+  tabText: { fontSize: 12, color: '#4a5568', fontWeight: 'bold' },
+  activeTabText: { color: '#fff' },
+  row: { flexDirection: 'row', justifyContent: 'space-between', padding: 16, backgroundColor: '#fff', marginVertical: 4, borderRadius: 8 },
+  symbol: { fontWeight: 'bold', color: '#2d3748' },
+  subtext: { fontSize: 11, color: '#718096', marginTop: 2 },
+  amount: { fontWeight: '600', color: '#2d3748' },
+  actionBtn: { backgroundColor: '#4c51bf', padding: 16, borderRadius: 8, alignItems: 'center', marginTop: 10 },
+  btnText: { color: '#fff', fontWeight: 'bold' }
+});
+
+export function RecoilAppWrapper() {
+  return (
+    <RecoilRoot>
+      <PortfolioConsole />
+    </RecoilRoot>
+  );
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(T)$ where $T$ represents filtered items. Read/write operations inside the atom execute in $O(1)$. Selectors cache results, reducing computation cost to $O(1)$ on duplicate queries.
+- **Space Complexity**: $O(T)$ proportional to total trades in state cache.
+- **Explanation**: This program builds a modular Recoil tree. It leverages `atom` for state sources and `selector` for derived state calculations. Subscribed React nodes re-render selectively only when targeted atoms or computed branches update.
+
+---
+
+## Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
+
+### Question
+Write a custom React Native telemetry hook `useTelemetry` that coordinates diagnostic logging across three major platforms: **Sentry**, **Firebase Analytics**, and **Azure App Insights**.
+The hook must export methods to:
+1. Initialize the services asynchronously without blocking main thread startup.
+2. Log custom events and user traits safely across all services.
+3. Track screen views and handle exception logging with contextual metadata (breadcrumbs).
+
+### Sample Input & Output
+#### Input:
+```typescript
+const telemetry = useTelemetry();
+telemetry.trackEvent('purchase_complete', { amount: 99.99, method: 'ApplePay' });
+```
+#### Output:
+- Firebase logs behavioral event `'purchase_complete'`.
+- Sentry leaves breadcrumb `'purchase_complete'` with arguments.
+- Azure App Insights logs custom metric metrics array.
+
+### Code
+```typescript
+import { useCallback } from 'react';
+import * as Sentry from '@sentry/react-native';
+import analytics from '@react-native-firebase/analytics';
+import { InteractionManager } from 'react-native';
+
+// Standardized telemetry interface
+interface TelemetryClient {
+  trackEvent: (eventName: string, params?: Record<string, any>) => void;
+  trackScreen: (screenName: string) => void;
+  logException: (error: Error, additionalContext?: Record<string, string>) => void;
+  setUserProperties: (userId: string, properties?: Record<string, any>) => void;
+}
+
+// Global initialization helper for release builds
+// Executed after visual painting frames to preserve high TTI speeds
+export const initTelemetry = () => {
+  InteractionManager.runAfterInteractions(() => {
+    // 1. Initialize Sentry
+    Sentry.init({
+      dsn: 'https://mock_sentry_token@sentry.io/project',
+      tracesSampleRate: 0.1, // Sample 10% transactions in production
+      debug: __DEV__,
+    });
+
+    // 2. Initialize Azure Application Insights client mapping config
+    // Azure App Insights endpoint setup in production is done using native modules
+    console.log('Telemetry: Azure App Insights endpoints initialized.');
+  });
+};
+
+export function useTelemetry(): TelemetryClient {
+  // 1. Track custom events with payload maps
+  const trackEvent = useCallback((eventName: string, params: Record<string, any> = {}) => {
+    try {
+      // Firebase Analytics
+      analytics().logEvent(eventName, params);
+
+      // Sentry Breadcrumbs
+      Sentry.addBreadcrumb({
+        category: 'user_action',
+        message: `Event: ${eventName}`,
+        data: params,
+        level: 'info',
+      });
+
+      // Azure App Insights native bridge emulation
+      console.log(`[Azure AI Log]: Event - ${eventName}`, params);
+    } catch (err) {
+      console.error('Telemetry event log failure:', err);
+    }
+  }, []);
+
+  // 2. Track screen navigation routes
+  const trackScreen = useCallback((screenName: string) => {
+    try {
+      analytics().logScreenView({
+        screen_name: screenName,
+        screen_class: screenName,
+      });
+
+      Sentry.addBreadcrumb({
+        category: 'navigation',
+        message: `Screen Navigated to: ${screenName}`,
+        level: 'info',
+      });
+
+      console.log(`[Azure AI Log]: PageView - ${screenName}`);
+    } catch (err) {
+      console.error('Telemetry screen tracking failure:', err);
+    }
+  }, []);
+
+  // 3. Log errors and exceptions with Sentry and Azure diagnostics
+  const logException = useCallback((error: Error, additionalContext: Record<string, string> = {}) => {
+    try {
+      // Capture detailed Sentry Exception with Scope mappings
+      Sentry.withScope((scope) => {
+        Object.entries(additionalContext).forEach(([key, val]) => {
+          scope.setTag(key, val);
+        });
+        Sentry.captureException(error);
+      });
+
+      // Forward to Azure App Insights native instrumentation bridge
+      console.log(`[Azure AI Error]: Exception - ${error.message}`, {
+        stack: error.stack,
+        ...additionalContext
+      });
+    } catch (err) {
+      console.error('Telemetry exception log failure:', err);
+    }
+  }, []);
+
+  // 4. Set user configurations and custom tags
+  const setUserProperties = useCallback((userId: string, properties: Record<string, any> = {}) => {
+    try {
+      analytics().setUserId(userId);
+      if (properties && Object.keys(properties).length > 0) {
+        analytics().setUserProperties(properties);
+      }
+
+      Sentry.setUser({ id: userId, ...properties });
+      console.log(`[Azure AI Log]: SetUser - ${userId}`, properties);
+    } catch (err) {
+      console.error('Telemetry user config failure:', err);
+    }
+  }, []);
+
+  return {
+    trackEvent,
+    trackScreen,
+    logException,
+    setUserProperties
+  };
+}
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(1)$ logger dispatch executions. SDK initializations are executed using `InteractionManager.runAfterInteractions` which delays heavy setups until active animations finish.
+- **Space Complexity**: $O(1)$ allocation structures.
+- **Explanation**: This hook abstracts client telemetry into a single API. Sentry logs JS/Native exceptions and generates diagnostics, Firebase registers marketing conversion variables and analytics events, and Azure App Insights monitors API latencies and trace structures.
+
+---
+
+## Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
+
+### Question
+Demonstrate a Test-Driven Development (TDD) cycle inside a React Native setting. 
+1. **Red**: Write a failing Jest test suite using `@testing-library/react-native` for a component `ValidationLabel`. The test must check that:
+   - It displays a red warning text `"Weak Password"` if input password length is `< 6`.
+   - It displays a green label `"Strong Password"` and calls an `onValidated` trigger callback if password contains at least `8` characters, including a number.
+2. **Green**: Write the minimal component execution logic required to pass the test cases.
+3. **Refactor**: Clean up the component styling or internal conditional checks while ensuring tests remain green.
+
+### Sample Input & Output
+#### TDD Stage 1 (Tests execution output):
+- Running `npm test` fails because `ValidationLabel.tsx` does not exist or has empty stubs (Red stage).
+#### TDD Stage 2 (Execution code integration):
+- Implementing minimal check rules causes all assertions to pass (Green stage).
+
+### Code
+
+#### 1. The Test Suite File (`ValidationLabel.test.tsx` - Written First)
+```tsx
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import { ValidationLabel } from './ValidationLabel';
+
+describe('TDD ValidationLabel Suite', () => {
+  it('displays warning label for weak inputs', () => {
+    const mockOnValidated = jest.fn();
+    const { getByTestId } = render(
+      <ValidationLabel password="abc" onValidated={mockOnValidated} />
+    );
+
+    const labelElement = getByTestId('validation_text');
+    expect(labelElement.props.children).toBe('Weak Password');
+    expect(labelElement.props.style).toContainEqual(expect.objectContaining({ color: '#e53e3e' }));
+    expect(mockOnValidated).not.toHaveBeenCalled();
+  });
+
+  it('displays strong label and calls validation handler on correct password', () => {
+    const mockOnValidated = jest.fn();
+    const { getByTestId } = render(
+      <ValidationLabel password="securePass99" onValidated={mockOnValidated} />
+    );
+
+    const labelElement = getByTestId('validation_text');
+    expect(labelElement.props.children).toBe('Strong Password');
+    expect(labelElement.props.style).toContainEqual(expect.objectContaining({ color: '#38a169' }));
+    expect(mockOnValidated).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+#### 2. The Minimal Component Code (`ValidationLabel.tsx` - Written Second to pass the assertions)
+```tsx
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+interface ValidationProps {
+  password?: string;
+  onValidated: () => void;
+}
+
+export function ValidationLabel({ password = '', onValidated }: ValidationProps) {
+  const hasMinLength = password.length >= 8;
+  const hasNumber = /\d/.test(password);
+  const isStrong = hasMinLength && hasNumber;
+
+  useEffect(() => {
+    if (isStrong) {
+      onValidated();
+    }
+  }, [isStrong, onValidated]);
+
+  if (!password) return null;
+
+  return (
+    <View style={styles.container}>
+      <Text 
+        testID="validation_text"
+        style={isStrong ? styles.strongLabel : styles.weakLabel}
+      >
+        {isStrong ? 'Strong Password' : 'Weak Password'}
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { paddingVertical: 6 },
+  weakLabel: { color: '#e53e3e', fontSize: 13, fontWeight: '600' },
+  strongLabel: { color: '#38a169', fontSize: 13, fontWeight: '600' }
+});
+```
+
+### Complexity & Explanation
+- **Time Complexity**: $O(W)$ regular expression character analysis where $W$ is password string length.
+- **Space Complexity**: $O(1)$ constant stack memory allocations.
+- **Explanation**: This demonstrates a full TDD pipeline loop. In Stage 1 (Red), we write test specifications verifying styles and event dispatches. In Stage 2 (Green), we construct the component containing state validation flags and conditional layouts to resolve the test blocks. In Stage 3 (Refactor), we optimize the RegExp expressions or stylesheets safely without fear of regressions because the Jest test suite immediately catches any broken logic.
+```
+
