@@ -85,11 +85,11 @@ const HeroSection = () => {
           </div>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-fade-up opacity-0 delay-500 px-2">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-fade-up opacity-0 delay-500 px-2 w-full max-w-sm sm:max-w-none mx-auto">
             <Button
               size="default"
               asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base"
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base"
             >
               <a href="mailto:rajeevjoshi91@gmail.com">
                 <Mail className="w-4 h-4" />
@@ -101,7 +101,7 @@ const HeroSection = () => {
               size="default"
               variant="outline"
               asChild
-              className="gap-2 border-border hover:bg-secondary text-sm sm:text-base"
+              className="w-full sm:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base"
             >
               <a
                 href="https://www.linkedin.com/in/rajeev-joshi/"
@@ -110,13 +110,14 @@ const HeroSection = () => {
               >
                 <Linkedin className="w-4 h-4" />
                 <span className="hidden sm:inline">LinkedIn</span>
+                <span className="sm:hidden">LinkedIn</span>
               </a>
             </Button>
             <Button
               size="default"
               variant="outline"
               asChild
-              className="gap-2 border-border hover:bg-secondary text-sm sm:text-base"
+              className="w-full sm:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base"
             >
               <a
                 href="https://github.com/Rajeev02"
@@ -125,13 +126,14 @@ const HeroSection = () => {
               >
                 <Github className="w-4 h-4" />
                 <span className="hidden sm:inline">GitHub</span>
+                <span className="sm:hidden">GitHub</span>
               </a>
             </Button>
             <Button
               size="default"
               variant="outline"
               asChild
-              className="gap-2 border-border hover:bg-secondary text-sm sm:text-base"
+              className="w-full sm:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base"
             >
               <a
                 href="/resume-2026.html"
@@ -140,6 +142,7 @@ const HeroSection = () => {
               >
                 <Download className="w-4 h-4" />
                 <span className="hidden sm:inline">Resume</span>
+                <span className="sm:hidden">Resume</span>
               </a>
             </Button>
           </div>

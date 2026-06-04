@@ -84,6 +84,8 @@
         justify-content: center;
         padding: 20px;
         transition: background 0.3s;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
       .lock-screen {
         width: 100%;
@@ -198,6 +200,40 @@
       .theme-toggle-btn:hover {
         background: rgba(255, 255, 255, 0.25);
         transform: scale(1.05);
+      }
+      @media (max-width: 480px) {
+        .lock-screen {
+          padding: 32px 20px;
+          border-radius: 12px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        .subtitle {
+          font-size: 13px;
+          margin-bottom: 24px;
+        }
+        input {
+          padding: 10px 14px;
+          font-size: 16px; /* Must remain 16px to prevent iOS zoom */
+        }
+        button {
+          padding: 10px;
+          font-size: 15px;
+        }
+        .theme-toggle-container {
+          top: 16px;
+          right: 16px;
+        }
+        .lock-icon {
+          font-size: 40px;
+          margin-bottom: 16px;
+        }
+        .info {
+          padding: 12px;
+          font-size: 12px;
+          margin-top: 20px;
+        }
       }
     </style>
   </head>
