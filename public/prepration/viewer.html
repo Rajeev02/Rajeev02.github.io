@@ -718,7 +718,10 @@
 
     <div class="container">
       <header>
-        <h1>📚 Preparation Resources</h1>
+        <h1 id="headerTitle" style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 24px; cursor: pointer; display: none;" id="homeIcon" onclick="goBack()" title="Back to Dashboard">🏠</span>
+          <span id="headerTitleText" style="cursor: pointer;" onclick="goBack()" title="Back to Dashboard">Preparation Resources</span>
+        </h1>
         <div class="header-actions">
           <button id="langToggle" class="theme-toggle-btn" style="width: auto; padding: 0 12px; font-size: 13px; font-weight: 700; gap: 4px;" aria-label="Toggle language">🇬🇧 Eng</button>
           <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
@@ -1295,6 +1298,7 @@
       function loadFile(file, section) {
         activeFile = file;
         activeSection = section;
+        updateHeaderTitle(file, section);
         
         showLoader();
         setTimeout(() => {
@@ -1389,6 +1393,7 @@
       function goBack() {
         activeFile = null;
         activeSection = null;
+        updateHeaderTitle(null, null);
         
         document.getElementById("content").innerHTML = renderDashboard();
         document
@@ -1404,6 +1409,27 @@
         // Scroll main content to top
         const mainContent = document.querySelector(".main-content");
         if (mainContent) mainContent.scrollTop = 0;
+      }
+
+      function updateHeaderTitle(file, section) {
+        const titleTextEl = document.getElementById("headerTitleText");
+        const homeIconEl = document.getElementById("homeIcon");
+        if (!titleTextEl) return;
+
+        if (!file) {
+          titleTextEl.textContent = "Preparation Resources";
+          if (homeIconEl) homeIconEl.style.display = "none";
+          return;
+        }
+
+        if (homeIconEl) homeIconEl.style.display = "inline";
+
+        const catName = categoryNames[section] || section;
+        const cleanCatName = catName.replace(/^\d+\.\s*/, "");
+        const isCoding = file.name.toLowerCase().includes("coding");
+        const typeLabel = isCoding ? "Coding" : "Theory";
+
+        titleTextEl.textContent = `${cleanCatName} - ${typeLabel}`;
       }
 
       function logout() {
