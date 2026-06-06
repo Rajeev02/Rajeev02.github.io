@@ -9,7 +9,7 @@
 <!-- INDEX_END -->
 
 ## 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
-*⏱️ 15 min read*
+*⏱️ 2 min read*
 
 ### Problem Statement
 In a high-performance React Native application, you need to implement a client-side memory cache for API responses. To prevent memory leaks and stale data, the cache must combine three distinct concepts:
@@ -166,7 +166,7 @@ class LRUCacheWithTTL {
 ---
 
 ## 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
-*⏱️ 15 min read*
+*⏱️ 2 min read*
 
 ### Problem Statement
 In an offline-first mobile app, users can create and edit data transactions (like orders or chat messages) when network connectivity is lost. You must write a robust, asynchronous **Sync Outbox Manager** that:
@@ -272,7 +272,7 @@ class SyncOutboxManager {
 ---
 
 ## 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
-*⏱️ 15 min read*
+*⏱️ 2 min read*
 
 ### Problem Statement
 In a mobile search interface, you need to implement a lightning-fast search suggestions box. Since network latency makes fetching suggestions from the server on every keystroke too slow, you cache candidate query terms locally and resolve searches using a custom client-side pipeline combining:

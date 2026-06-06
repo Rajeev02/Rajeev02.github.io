@@ -139,7 +139,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 ---
 
 ## 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
 Banking and capital market systems require uncompromising standards of security, auditability, data integrity, and transactional safety:
@@ -173,7 +173,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 ---
 
 ## 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
-*⏱️ 23 min read*
+*⏱️ 19 min read*
 
 ### 1. Walk me through your experience and how it relates to this role.
 - **Answer**: 
@@ -593,7 +593,7 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 ---
 
 ## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 A strategic approach to compensation ensures you are valued appropriately while aligning with the employer's salary structures.
 

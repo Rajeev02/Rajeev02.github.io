@@ -12,7 +12,7 @@
 ---
 
 ## 🧮 Part 1: Mathematical Coding
-*⏱️ 14 min read*
+*⏱️ 8 min read*
 
 ### 1. Prime Number Verification & Sieve of Eratosthenes
 #### Question
@@ -505,7 +505,7 @@ function trailingZeroes(n) {
 ---
 
 ## 💻 Part 2: Core DSA Algorithms
-*⏱️ 41 min read*
+*⏱️ 25 min read*
 
 ### 15. Two Sum (HashMap Approach)
 #### Question

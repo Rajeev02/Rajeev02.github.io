@@ -43,7 +43,7 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 ---
 
 ## 🧩 Section 2: Key Algorithmic Patterns
-*⏱️ 5 min read*
+*⏱️ 3 min read*
 
 Most screening interview problems can be decomposed into five foundational patterns.
 

@@ -201,7 +201,7 @@
 <!-- INDEX_END -->
 
 ## 🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)
-*⏱️ 2 min read*
+*⏱️ 3 min read*
 
 React Native's runtime environment has gone through a major architectural transition. For interviews, you should understand **both** the legacy Bridge architecture and the modern New Architecture, because many production apps still run on older versions while new projects and upgrades increasingly expect Hermes, JSI, Fabric, TurboModules, and Codegen knowledge.
 
@@ -254,7 +254,7 @@ When interviewers ask how you would migrate a legacy React Native app to a moder
 ---
 
 ## 🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### 1. Yoga Layout Engine
 React Native does not compile to HTML/CSS. Instead, it embeds **Yoga**, a custom C++ layout engine that translates a subset of Flexbox rules into native Android and iOS view layouts.
@@ -292,7 +292,7 @@ Animations are calculated on two different runtime threads in React Native:
 ---
 
 ## 🔌 Section 3: Custom Native Modules & Expo CNG
-*⏱️ 4 min read*
+*⏱️ 3 min read*
 
 ### 1. Implementing Custom Native Modules
 When a feature requires native OS hardware interfaces, background services, or proprietary native SDKs (e.g., payment gateways, secure enclaves), you write a custom native module to bridge the JavaScript and Native domains.
@@ -357,7 +357,7 @@ To package native modules and JS bindings as a reusable NPM library:
 ---
 
 ## 📦 Section 4: App Compilation, Metro & Babel
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 The lifecycle of React Native code from a local developer laptop to a compiled production app follows a structured compilation pipeline.
 
@@ -393,7 +393,7 @@ For release builds, React Native uses **Hermes**, a lightweight JS engine optimi
 ---
 
 ## ⚡ Section 5: List Optimization & Memory Profiling
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### 1. Virtualized List Optimizations
 Displaying massive datasets (e.g., a ledger of 50,000 transactions in a fintech app) will instantly crash the app if rendered inside a standard ScrollView. ScrollView mounts all items immediately, flooding native memory.
@@ -509,7 +509,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 ---
 
 ## ⚛️ Section 7: React Architecture & Core Engine
-*⏱️ 7 min read*
+*⏱️ 3 min read*
 
 ### 1. Virtual DOM, React Fiber, Reconciliation & Diffing
 - **Virtual DOM**: A lightweight, in-memory representation of the real DOM/Native UI layout tree. It acts as a blue-print stage where updates are calculated first to avoid expensive layouts reflows.
@@ -641,7 +641,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 ---
 
 ## 📦 Section 8: State Management & Routing Orchestration
-*⏱️ 5 min read*
+*⏱️ 3 min read*
 
 ### 1. State vs. Props & Prop Drilling
 - **State**: Mutable data owned and managed internally by the component itself.
@@ -709,7 +709,7 @@ Recoil is useful to understand historically, but it is no longer the default rec
 ---
 
 ## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### 1. SSR vs. CSR & React Native SEO
 - **Client-Side Rendering (CSR)**: The browser downloads a minimal HTML stub and executes JS to render the Virtual DOM. Faster interactions, but slower initial load and weaker SEO indexing.
@@ -740,7 +740,7 @@ Recoil is useful to understand historically, but it is no longer the default rec
 ---
 
 ## 🧪 Section 10: Testing Strategies & QA Automation
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### 1. The Mobile Testing Pyramid
 - **Test-Driven Development (TDD)**: The software development process where you write failing test cases first, then write minimal code to pass the tests, and finally refactor for clean patterns.
@@ -823,7 +823,7 @@ Test-Driven Development (TDD) is a development methodology where code is written
 ---
 
 ## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
-*⏱️ 5 min read*
+*⏱️ 4 min read*
 
 Mobile banking, investment, and remote operations apps require reliable offline support. This section outlines local storage comparison, offline caching hydration, and ledger synchronization strategies.
 
@@ -921,7 +921,7 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
 ---
 
 ## 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 Fintech, banking, and wealth-management applications deal with high-value transactions and sensitive PII. Security must be managed across multiple client-side vectors.
 
@@ -1021,7 +1021,7 @@ OTA systems bypass store approval times for JavaScript-only updates. For intervi
 ---
 
 ## 🌐 Section 16: React Native for Web (Cross-Platform Development)
-*⏱️ 3 min read*
+*⏱️ 1 min read*
 
 React Native for Web (`react-native-web`) makes it possible to run React Native applications on the web using standard web technologies. It acts as a translation layer between React Native components/APIs and native HTML DOM equivalents.
 
@@ -1062,7 +1062,7 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
 ---
 
 ## 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)
-*⏱️ 3 min read*
+*⏱️ 1 min read*
 
 Reducing app binary weight directly reduces user acquisition bounce rates. Senior developers target optimizations across both JavaScript assets and platform-specific native binaries.
 
@@ -1111,7 +1111,7 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
 ---
 
 ## ⚡ Section 18: Senior-Level Performance Engineering Checklist
-*⏱️ 3 min read*
+*⏱️ 1 min read*
 
 Ensure smooth 60/120 FPS interactions and minimize thread blocks by checking off these core performance vectors during code reviews:
 
@@ -1567,7 +1567,7 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
 ---
 
 ## 🖼️ Section 22: Native UI Components (ViewManagers)
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### 1. Native Modules vs. Native UI Components
 - **Native Modules** expose native **logic and APIs** to JavaScript (e.g., reading device battery level, accessing Bluetooth, encrypting data). They do not render any visual UI.
@@ -1858,7 +1858,7 @@ const linking = {
 ---
 
 ## 🧹 Section 24: Code Quality & Developer Tooling
-*⏱️ 4 min read*
+*⏱️ 3 min read*
 
 ### 1. ESLint Configuration for React Native
 **ESLint** performs static analysis on your codebase, identifying problematic patterns, potential bugs, and code style violations before runtime.
@@ -1990,7 +1990,7 @@ const linking = {
 ---
 
 ## 📊 Section 25: Analytics & Monitoring Deep-Dive
-*⏱️ 4 min read*
+*⏱️ 3 min read*
 
 ### 1. GA4 (Google Analytics 4)
 GA4 uses an **event-based data model** (replacing Universal Analytics' session-based model). Every user interaction is an event with parameters.
@@ -2204,7 +2204,7 @@ describe('Login Flow', () => {
 ---
 
 ## 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags
-*⏱️ 4 min read*
+*⏱️ 3 min read*
 
 ### 1. Bitrise
 **Bitrise** is a mobile-first CI/CD platform with pre-built workflow steps optimized for iOS and Android builds.
@@ -2347,7 +2347,7 @@ Kill Switch: If crash-free rate drops below 99.5% or error rate spikes 2x,
 ---
 
 ## 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive
-*⏱️ 4 min read*
+*⏱️ 5 min read*
 
 ### 1. SSL/Certificate Pinning Implementation
 SSL Pinning ensures that your app only trusts specific certificates or public keys when communicating with your backend, preventing Man-in-the-Middle (MitM) attacks even if a Certificate Authority is compromised.
@@ -2521,7 +2521,7 @@ function signRequest(method: string, path: string, body: string, timestamp: stri
 ---
 
 ## 🚀 Section 19: Migration Strategies (Legacy to Modern)
-*⏱️ 6 min read*
+*⏱️ 2 min read*
 
 Migrating large-scale applications (millions of users) requires meticulous planning to avoid breaking production. Senior/Architect interviews heavily index on your ability to de-risk these migrations.
 
@@ -2570,7 +2570,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 ---
 
 ## 🏗️ Section 20: Senior / Lead / Architect Scenarios
-*⏱️ 8 min read*
+*⏱️ 3 min read*
 
 ### 1. Design a Scalable React Native Architecture for 5M+ Users
 **Scenario**: You are the lead architect for a fintech app scaling to millions of users. What is your architectural blueprint?
@@ -2622,7 +2622,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 ---
 
 ## 🤝 Section 21: Behavioral, Leadership & HR Rounds
-*⏱️ 4 min read*
+*⏱️ 2 min read*
 
 Senior and Lead roles are evaluated heavily on soft skills, mentoring, and conflict resolution. Always use the **STAR Method** (Situation, Task, Action, Result) for these questions.
 

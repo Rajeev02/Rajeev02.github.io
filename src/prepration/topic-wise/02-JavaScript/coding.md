@@ -383,7 +383,7 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 ---
 
 ## Program 4: Nested Array Flattening
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a function `flattenArray(arr)` that flattens a deeply nested array of numbers into a single flat array without using the native `Array.prototype.flat()` method.
@@ -443,7 +443,7 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 ---
 
 ## Program 5: Substring Extraction
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Given a string `"Apple, Banana, Kiwi"`, extract the substring `"Banana"` using appropriate JavaScript string slicing methods.
@@ -557,7 +557,7 @@ for (var j = 0; j < 5; j++) {
 ---
 
 ## Program 8: Deep Memoization Wrapper with Cache Expiration
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a high-performance, generic JavaScript **Memoization Wrapper** function `memoize(fn, options)`. The wrapper must:
@@ -723,7 +723,7 @@ class EventEmitter {
 ---
 
 ## Program 10: Custom Debounce Implementation
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a custom debounce wrapper function `debounce(func, delay)` from scratch that postpones the execution of `func` until `delay` milliseconds have passed since the last invocation. Ensure it maintains execution contexts and arguments.
@@ -770,7 +770,7 @@ function debounce(func, delay = 500) {
 ---
 
 ## Program 11: Custom Throttle Implementation
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Implement a custom throttle wrapper function `throttle(func, limit)` that ensures the target function is executed at most once every `limit` milliseconds, regardless of how frequently it is triggered.
@@ -817,7 +817,7 @@ function throttle(func, limit = 200) {
 ---
 
 ## Program 12: Polyfills for Map, Filter, and Reduce
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write prototype polyfills for JavaScript Array methods: `myMap`, `myFilter`, and `myReduce`. Do not use native array methods in your implementations.
@@ -896,7 +896,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
 ---
 
 ## Program 13: Data Transformations (Array-to-Object & Object-to-Array)
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Provide functions to transform flat structures:
@@ -960,7 +960,7 @@ function objectToArrayManual(obj) {
 ---
 
 ## Program 14: Mobile Device Token Deduplicator (CleanTokens)
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a function `cleanTokens(sessions)` in JavaScript that takes an array of mobile session objects containing push notification tokens. The function must filter out invalid tokens (such as `null`, `undefined`, or empty string tokens), ignore inactive sessions, remove duplicate tokens, and return a sorted array of clean tokens.
@@ -1017,7 +1017,7 @@ function cleanTokens(sessions) {
 ---
 
 ## Program 15: Object Property Diff Tracker
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a function `getChangedKeys(previousState, currentState)` that performs a flat key comparison between two states and returns an array of keys that have changed (either updated, added, or deleted).
@@ -1067,7 +1067,7 @@ function getChangedKeys(previousState, currentState) {
 ---
 
 ## Program 16: Paginated Transaction Amount Aggregator
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write an asynchronous function `aggregateTransactions(apiEndpoint, pagesCount)` that fetches transaction list data across multiple pages sequentially or concurrently using `fetch()`. The function must sum the `amount` fields of all transaction nodes and return the total sum.

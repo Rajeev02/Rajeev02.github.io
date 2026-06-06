@@ -30,7 +30,7 @@
 ---
 
 ## 🏗️ Section 1: MNC & Consulting Architectural Expectations
-*⏱️ 4 min read*
+*⏱️ 8 min read*
 
 MNC client architectures को robust Separation of Concerns, scalability, और long-term maintainability की आवश्यकता होती है। Senior और Lead developers को ऐसी architectures design करनी चाहिए जो बड़ी teams और multi-year product cycles में scale हो सकें।
 
@@ -245,7 +245,7 @@ Massive datasets (जैसे banking platforms में statements या tel
 ---
 
 ## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
-*⏱️ 2 min read*
+*⏱️ 3 min read*
 
 बड़ी MNC teams में, manual app compilation अस्वीकार्य है। Automated deployment प्रतिरूपकता (reproducibility) और निरंतरता सुनिश्चित करता है।
 

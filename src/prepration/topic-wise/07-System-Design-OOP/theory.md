@@ -15,7 +15,7 @@
 <!-- INDEX_END -->
 
 ## 🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A
-*⏱️ 6 min read*
+*⏱️ 1 min read*
 
 ### 1. Abstract Class Instantiation
 An abstract class cannot be instantiated directly. It serves as a base class containing partial implementations and signatures. You must inherit it and implement all its abstract methods in a subclass.
@@ -58,7 +58,7 @@ class Dog extends Animal {
 ---
 
 ## 📦 Section 2: Mobile Data Structures & Practical Scenarios
-*⏱️ 8 min read*
+*⏱️ 1 min read*
 
 - **Queue (Circular Queue) for Turn-Based Actions (Round Robin)**: Ideal for turn-based games or round-robin CPU scheduling. Dequeue the active player, execute their turn, and enqueue them back to the tail in $O(1)$ time.
 - **Array for Sequential Storage**: Continual memory locations allow $O(1)$ indexing.
@@ -72,7 +72,7 @@ class Dog extends Animal {
 ---
 
 ## 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
-*⏱️ 12 min read*
+*⏱️ 2 min read*
 
 ### Array Algorithms
 - **First Non-Repeating Element**: Loop through once to populate a frequency map, then loop a second time to find the first element with a count of 1.
@@ -104,7 +104,7 @@ class Dog extends Animal {
 ---
 
 ## 🌐 Section 4: React Native System Design, Databases & Situation Handling
-*⏱️ 15 min read*
+*⏱️ 3 min read*
 
 Designing a mobile application requires balancing offline availability, RAM constraints, network instability, and fast rendering.
 
@@ -231,7 +231,7 @@ Run tasks in the background without draining the battery:
 ---
 
 ## 📡 Section 5: Third-Party Integrations & Backend Proxying
-*⏱️ 10 min read*
+*⏱️ 1 min read*
 
 ### 1. Shopify APIs (REST & GraphQL)
 - **Shopify GraphQL Storefront API**:
@@ -318,7 +318,7 @@ function authenticateJWT(req, res, next) {
 ---
 
 ## 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
-*⏱️ 10 min read*
+*⏱️ 1 min read*
 
 Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and ensures your code is easy to maintain.
 
@@ -386,7 +386,7 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
 ---
 
 ## 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
-*⏱️ 8 min read*
+*⏱️ 1 min read*
 
 ### 1. Diagnostic Profilers
 When users report sluggish rendering or crashes, use these tools to diagnose the cause:
@@ -441,7 +441,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 ---
 
 ## 📦 Section 8: Deployment Pipelines & Store Releases
-*⏱️ 8 min read*
+*⏱️ 1 min read*
 
 ### 1. iOS App Store Release Management
 - **iOS Target Upgrades**: Set the minimum iOS target (e.g. iOS 15.0) inside both the Podfile and Xcode build settings.

@@ -31,7 +31,7 @@
 ---
 
 ## 🏗️ Section 1: MNC & Consulting Architectural Expectations
-*⏱️ 4 min read*
+*⏱️ 6 min read*
 
 MNC client architectures require robust separation of concerns, scalability, and long-term maintainability. Senior and Lead developers must design architectures that can scale across large teams and multi-year product cycles.
 
@@ -288,7 +288,7 @@ Tech Leads must navigate compliance requirements to avoid release delays:
 ---
 
 ## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 These scenarios evaluate consulting capabilities, leadership skills, and architectural decision-making.
 
@@ -351,7 +351,7 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 ---
 
 ## 📱 Section 6: Android Native Deep-Dive for React Native Developers
-*⏱️ 6 min read*
+*⏱️ 10 min read*
 
 Understanding Android internals is essential for senior React Native developers. MNC interviews frequently probe knowledge of Services, background execution, Kotlin coroutines, Jetpack components, and the Gradle build system — especially for candidates who maintain custom native modules or optimize production Android builds.
 
@@ -897,7 +897,7 @@ Run specific variant:
 ---
 
 ## 🍎 Section 7: iOS Native Deep-Dive for React Native Developers
-*⏱️ 3 min read*
+*⏱️ 6 min read*
 
 iOS development knowledge is equally critical for senior React Native engineers. MNC interviews test CocoaPods proficiency, Xcode build configuration understanding, and iOS background execution capabilities.
 
@@ -1166,7 +1166,7 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
 ---
 
 ## 🔄 Section 8: Comprehensive Migration Strategies
-*⏱️ 8 min read*
+*⏱️ 12 min read*
 
 Large-scale migrations are defining moments for senior React Native engineers. MNC interviews heavily test your ability to plan, execute, and de-risk migrations across codebases serving millions of users. This section covers the most common migration paths with step-by-step strategies, risks, and interview-ready responses.
 
@@ -1819,7 +1819,7 @@ const PaymentScreen: React.FC = () => {
 ---
 
 ## 🏗️ Section 9: Gradle & CocoaPods Build System Mastery
-*⏱️ 3 min read*
+*⏱️ 4 min read*
 
 Build system questions are a staple in MNC interviews. This section provides quick-reference answers for Gradle and CocoaPods topics commonly tested at the senior/lead level.
 

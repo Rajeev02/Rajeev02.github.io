@@ -148,7 +148,7 @@ export class AuthInterceptorService {
 ---
 
 ## Program 2: Generic Type-Safe Item Selection List Component
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a generic, type-safe React Native Component in TypeScript that displays a list of objects and supports single item selection callbacks. The component must enforce that the list items extend a base structure containing an `id` and `label`, and it must statically type the selection handler.

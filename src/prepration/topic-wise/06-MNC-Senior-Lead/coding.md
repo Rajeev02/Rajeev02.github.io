@@ -15,7 +15,7 @@
 ---
 
 ## Challenge 1: Resilient Offline Sync Manager (Zustand + MMKV + NetInfo)
-*⏱️ 1 min read*
+*⏱️ 3 min read*
 
 ### Question
 Implement a complete, production-ready offline outbox sync manager hook in React Native.
@@ -282,7 +282,7 @@ class DeviceSecurityModule(reactContext: ReactApplicationContext) : ReactContext
 ---
 
 ## Challenge 3: High-Performance Swipable Card Component (Reanimated & Gestures)
-*⏱️ 1 min read*
+*⏱️ 2 min read*
 
 ### Question
 Write an interactive swipable card component (often used for swipe-to-delete patterns in lists) using **React Native Reanimated** and **React Native Gesture Handler**.
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Challenge 4: Lead-Level Navigation Guards & Role-Based Stack Controller
-*⏱️ 1 min read*
+*⏱️ 2 min read*
 
 ### Question
 Write a routing stack controller component using `@react-navigation/native` and `@react-navigation/stack`.

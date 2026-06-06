@@ -165,7 +165,7 @@
 ---
 
 ## Program 1: Performance-Optimized List Component
-*⏱️ 2 min read*
+*⏱️ 4 min read*
 
 ### Question
 Write a performance-optimized list component that displays a massive dataset of items (such as product listings or transactions). The list must prevent unnecessary cell re-renders, handle scroll operations efficiently, and utilize layout caching rules to maintain 60 FPS scrolling on low-end devices.
@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Create a custom React Native hook `useNetwork` that monitors network connectivity status. The hook should track whether the user is online, their connection type (WiFi, cellular, etc.), and clean up active listeners properly when components unmount to prevent memory leaks.
@@ -523,7 +523,7 @@ export function useNetwork(): NetworkState {
 ---
 
 ## Program 3: Expo Config Plugin configuration
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Write a JavaScript Expo Config Plugin function that programmatically modifies the native `AndroidManifest.xml` during `npx expo prebuild` to inject custom security permissions (e.g. `REQUEST_INSTALL_PACKAGES`) without editing the native Android directory files manually.
@@ -589,7 +589,7 @@ module.exports = withCustomPermissions;
 ---
 
 ## Program 4: Native Android Module Bridge (Kotlin)
-*⏱️ 2 min read*
+*⏱️ 1 min read*
 
 ### Question
 Implement a custom Android Native Module structure written in Kotlin that provides a bridge to compute SHA-256 hashes of string buffers natively. The module must register its namespace, declare the hash calculations asynchronously, and return the outputs through a React Native Promise back to the JS thread.
@@ -661,7 +661,7 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 ---
 
 ## Program 5: Fetch and Render List from API (Todos)
-*⏱️ 2 min read*
+*⏱️ 3 min read*
 
 ### Question
 Write a complete, optimized React Native component structure that fetches a list of todos from `https://dummyjson.com/todos` on component mount, handles loading and error states, and renders the list using a `FlatList` container displaying each todo's status and title.
@@ -1464,7 +1464,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
-*⏱️ 4 min read*
+*⏱️ 2 min read*
 
 ### Question
 Create a custom Native Module package battery status bridge named `BatteryMonitor`.
@@ -1732,7 +1732,7 @@ end
 ---
 
 ## Program 11: State Management with MobX State Tree (MST)
-*⏱️ 1 min read*
+*⏱️ 3 min read*
 
 ### Question
 Write a complete React Native state manager setup using **MobX State Tree (MST)**:
@@ -2043,7 +2043,7 @@ export function useLedgerDatabase() {
 ---
 
 ## Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### Question
 Write a complete, structured test automation suite for a React Native component.
@@ -2317,7 +2317,7 @@ const styles = StyleSheet.create({
 ---
 
 ## Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
-*⏱️ 3 min read*
+*⏱️ 2 min read*
 
 ### Question
 To prevent reverse engineering of sensitive client secrets (e.g., API keys) from plain-text Javascript bundles, implement a native secure storage module.
@@ -2620,7 +2620,7 @@ export function usePurchaseManager() {
 ---
 
 ## Program 17: GraphQL API Client Integration with Apollo Client
-*⏱️ 2 min read*
+*⏱️ 3 min read*
 
 ### Question
 Write a complete React Native component structure that integrates with a GraphQL API endpoint using Apollo Client. 
@@ -2902,7 +2902,7 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 ---
 
 ## Program 18: Recoil State Management (Atoms & Selectors)
-*⏱️ 2 min read*
+*⏱️ 3 min read*
 
 > Interview note: understand Recoil as an atomic-state pattern, but avoid presenting it as the default choice for new React Native projects. For production architecture, prefer Redux Toolkit, Zustand, Jotai, MobX, or TanStack Query depending on whether the state is client state or server state.
 
@@ -3334,7 +3334,7 @@ const styles = StyleSheet.create({
 ---
 
 ## 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
-*⏱️ 8 min read*
+*⏱️ 1 min read*
 
 Senior mobile interviews often require basic-to-medium DSA to test logical thinking. These are framed in real-world mobile contexts.
 
@@ -3398,7 +3398,7 @@ function maxDepth(root: TreeNode | null): number {
 ---
 
 ## 🏗️ Section: System Design Coding
-*⏱️ 8 min read*
+*⏱️ 2 min read*
 
 ### Program 24: Implement an LRU Cache (Memory Management)
 **Question**: Image caching is critical in React Native. Implement an LRU (Least Recently Used) cache with `get` and `put` methods in $O(1)$ time complexity using a Hash Map and a Doubly Linked List.
