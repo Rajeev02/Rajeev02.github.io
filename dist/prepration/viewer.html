@@ -1122,37 +1122,9 @@
       let totalCodingMinutes = 0;
 
       function estimatePrepTime(content, categoryKey, filename) {
-        const multipliers = {
-          "01-React-Native": 2.0,      // Advanced React Native
-          "02-JavaScript": 1.5,        // JS Fundamentals & OOP
-          "03-TypeScript": 1.5,        // TS Types & Generics
-          "04-DSA": 2.5,               // DSA needs heavy logic-tracing
-          "05-Behavior": 1.0,          // Behavioral text reading
-          "06-MNC-Senior-Lead": 1.8,    // System integration, Lead behavior
-          "07-System-Design-OOP": 2.2, // Mobile System Design & architecture
-          "08-React-Native-Projects": 2.2, // Advanced mobile project blueprints
-        };
-        const multiplier = multipliers[categoryKey] || 1.5;
-
-        // Find code blocks to count lines of code
-        const codeBlockRegex = /```[\s\S]*?```/g;
-        const matches = content.match(codeBlockRegex) || [];
-        
-        let codeLines = 0;
-        let textContent = content;
-
-        matches.forEach(block => {
-          const lines = block.split('\n');
-          codeLines += Math.max(0, lines.length - 2);
-          textContent = textContent.replace(block, "");
-        });
-
-        const words = (textContent.match(/\w+/g) || []).length;
-
-        const baseTextMins = words / 130;
-        const baseCodeMins = codeLines / 10;
-
-        return Math.round((baseTextMins + baseCodeMins) * multiplier);
+        // Medium's standard read time calculation (~265 words per minute)
+        const words = (content.match(/\w+/g) || []).length;
+        return Math.max(1, Math.ceil(words / 265));
       }
 
       function calculateAllPrepTimes() {
