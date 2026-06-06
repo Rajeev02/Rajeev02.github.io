@@ -9,6 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked-gfm-heading-id/lib/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-katex-extension/lib/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="theme-light">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="theme-dark" disabled>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const currentTheme = savedTheme || systemTheme;
+        if (currentTheme === 'dark' || currentTheme === 'dim') {
+          document.getElementById('theme-light').disabled = true;
+          document.getElementById('theme-dark').disabled = false;
+        }
+      })();
+    </script>
     <style>
       :root {
         --bg-primary: #fafafa;
@@ -90,6 +107,8 @@
         line-height: 1.6;
         color: var(--text-primary);
         transition: background-color 0.3s, color 0.3s;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
       /* Custom Scrollbar for premium feel */
       ::-webkit-scrollbar {
@@ -406,8 +425,14 @@
         background: none;
         color: inherit;
         padding: 0;
-        font-size: 14px;
+        font-size: 13px;
         font-family: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+        white-space: pre !important;
+        word-break: normal !important;
+      }
+      .hljs {
+        background: transparent !important;
+        padding: 0 !important;
       }
       .markdown-content ul,
       .markdown-content ol {
@@ -545,9 +570,9 @@
         overflow-x: auto;
         line-height: 1.5;
         font-family: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
-        font-size: 14px;
-        white-space: pre-wrap;
-        word-break: break-word;
+        font-size: 13px;
+        white-space: pre !important;
+        word-break: normal !important;
         border: 1px solid var(--border-color);
         max-width: 800px;
         margin: 0 auto;
@@ -617,11 +642,12 @@
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 10px;
-        overflow: hidden;
+        overflow-x: auto;
       }
       .topic-row {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
+        min-width: 480px;
         padding: 14px 20px;
         border-bottom: 1px solid var(--border-color);
         font-size: 14px;
@@ -669,11 +695,12 @@
         .content-wrapper:not(.has-active-file) .main-content {
           display: block;
           max-height: none;
-          order: 1;
+          order: 2;
         }
         .content-wrapper:not(.has-active-file) .sidebar {
           display: block;
-          order: 2;
+          order: 1;
+          margin-bottom: 20px;
         }
         .content-wrapper.has-active-file .sidebar {
           display: none;
@@ -688,13 +715,42 @@
           max-height: none;
         }
         header {
-          flex-direction: row;
+          flex-direction: column;
+          align-items: flex-start;
           padding: 16px 20px;
           margin-bottom: 20px;
-          gap: 10px;
+          gap: 16px;
+        }
+        .header-actions {
+          width: 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
         }
         header h1 {
           font-size: 20px;
+        }
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+        .dashboard-title {
+          font-size: 22px;
+          margin-bottom: 8px;
+        }
+        .dashboard-desc {
+          font-size: 14px;
+          margin-bottom: 24px;
+        }
+        .metric-card {
+          padding: 14px 16px;
+        }
+        .metric-value {
+          font-size: 20px;
+          margin: 4px 0 2px;
+        }
+        .metric-label, .metric-sub {
+          font-size: 11px;
         }
       }
       @media (max-width: 480px) {
@@ -1004,6 +1060,17 @@
 
       function updateThemeToggleUI(theme) {
         const toggleBtn = document.getElementById("themeToggle");
+        const hljsLight = document.getElementById('theme-light');
+        const hljsDark = document.getElementById('theme-dark');
+        
+        if (theme === "dark" || theme === "dim") {
+          if (hljsLight) hljsLight.disabled = true;
+          if (hljsDark) hljsDark.disabled = false;
+        } else {
+          if (hljsLight) hljsLight.disabled = false;
+          if (hljsDark) hljsDark.disabled = true;
+        }
+
         if (!toggleBtn) return;
         if (theme === "dark") {
           toggleBtn.innerHTML = "☀️";
@@ -1043,6 +1110,9 @@
           if (!markedInitialized) {
             if (typeof markedGfmHeadingId !== "undefined" && typeof marked.use === "function") {
               marked.use(markedGfmHeadingId.gfmHeadingId());
+            }
+            if (typeof markedKatex !== "undefined" && typeof marked.use === "function") {
+              marked.use(markedKatex({ throwOnError: false }));
             }
             markedInitialized = true;
           }
@@ -1325,6 +1395,12 @@
             }
             contentDiv.innerHTML =
               contentHeader + `<div class="markdown-content">${htmlContent}</div>`;
+              
+            if (typeof hljs !== 'undefined') {
+              contentDiv.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+              });
+            }
           } catch (err) {
             console.error("Markdown render error:", err);
             contentDiv.innerHTML =
@@ -1333,9 +1409,17 @@
           }
         } else {
           const escapedCode = escapeHtml(content);
+          let langClass = 'language-javascript';
+          if (filename.endsWith('.ts') || filename.endsWith('.tsx')) langClass = 'language-typescript';
           contentDiv.innerHTML =
             contentHeader +
-            `<pre class="code-file"><code>${escapedCode}</code></pre>`;
+            `<pre class="code-file"><code class="${langClass}">${escapedCode}</code></pre>`;
+            
+          if (typeof hljs !== 'undefined') {
+            contentDiv.querySelectorAll('pre code').forEach((block) => {
+              hljs.highlightElement(block);
+            });
+          }
         }
 
         updateLayoutButtonsUI();
