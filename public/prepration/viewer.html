@@ -298,8 +298,29 @@
         background: var(--bg-hover);
         color: var(--bg-active) !important;
         border-left-color: var(--bg-active);
-        font-weight: 700;
-        padding-left: 18px;
+        font-weight: 600;
+      }
+      .toc-sublinks {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        font-size: 13px;
+        border-left: 1px solid var(--border-color);
+        margin-left: 14px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+      }
+      .toc-sublink {
+        text-decoration: none;
+        color: var(--text-muted);
+        padding: 5px 0;
+        transition: color 0.2s;
+        white-space: normal;
+        line-height: 1.4;
+        display: block;
+      }
+      .toc-sublink:hover {
+        color: var(--accent-color);
       }
       .main-content {
         background: var(--bg-card);
@@ -1301,6 +1322,9 @@
             const mins = filePrepTimes[key] || 0;
             const timeLabel = mins > 0 ? ` (${mins}m)` : "";
 
+            const fileContainer = document.createElement("div");
+            fileContainer.className = "file-container";
+
             const link = document.createElement("a");
             link.className = "file-link";
             link.textContent = `${formatFileName(file.name)}${timeLabel}`;
@@ -1310,7 +1334,54 @@
               e.preventDefault();
               loadFile(file, section);
             };
-            sectionDiv.appendChild(link);
+            fileContainer.appendChild(link);
+
+            // Extract TOC links from the file content
+            const tocMatch = file.content.match(/## Table of Contents\s*\n([\s\S]*?)(?=\n---|\n## )/);
+            if (tocMatch) {
+              const sublinksContainer = document.createElement("div");
+              sublinksContainer.className = "toc-sublinks";
+              sublinksContainer.dataset.parentFilename = file.name;
+              
+              const linksText = tocMatch[1];
+              const linkRegex = /- \[(.*?)\]\((.*?)\)/g;
+              let match;
+              while ((match = linkRegex.exec(linksText)) !== null) {
+                const title = match[1];
+                const href = match[2];
+                
+                const subLink = document.createElement("a");
+                subLink.className = "toc-sublink";
+                subLink.textContent = title;
+                subLink.title = title;
+                subLink.href = href;
+                subLink.onclick = (e) => {
+                  e.preventDefault();
+                  if (!activeFile || activeFile.name !== file.name) {
+                    loadFile(file, section);
+                  }
+                  setTimeout(() => {
+                    const targetId = decodeURIComponent(href.slice(1));
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                      history.pushState(null, null, href);
+                    } else {
+                      const slugTarget = targetId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                      const fallbackEl = document.getElementById(slugTarget);
+                      if (fallbackEl) {
+                        fallbackEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                        history.pushState(null, null, "#" + slugTarget);
+                      }
+                    }
+                  }, 400);
+                };
+                sublinksContainer.appendChild(subLink);
+              }
+              fileContainer.appendChild(sublinksContainer);
+            }
+
+            sectionDiv.appendChild(fileContainer);
           }
 
           fileList.appendChild(sectionDiv);
