@@ -18,12 +18,9 @@
 
 ### Behavior Complete Guide
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Behavior Complete Guide |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** Behavior Complete Guide
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -31,12 +28,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Senior Career Walkthrough (STAR Format) |
-| **Difficulty** | Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite<br>🔥 Must Revise |
+> 🎯 **Topic:** Senior Career Walkthrough (STAR Format)
+> 📊 **Difficulty:** Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite • 🔥 Must Revise
 
 ---
 
@@ -103,12 +97,9 @@ The backend lead appreciated the hard data and agreed to the hybrid architecture
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Section 2: Monorepo & Multi-App Code Sharing |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** Section 2: Monorepo & Multi-App Code Sharing
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -133,12 +124,9 @@ The backend lead appreciated the hard data and agreed to the hybrid architecture
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🔒 Section 3: High-Stakes Fintech System Design |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🔒 Section 3: High-Stakes Fintech System Design
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -175,12 +163,9 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java) |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -221,12 +206,9 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context) |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -271,12 +253,9 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🏆 Section 5: Standard Behavioral & Technical Interview Q&A |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -617,12 +596,9 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 👥 Section 6: Agile vs. Scrum Methodologies |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 👥 Section 6: Agile vs. Scrum Methodologies
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -662,12 +638,9 @@ Understanding the distinction between project frameworks and mindsets is essenti
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📈 Section 7: Program & Product Delivery Manager (PDM) Round |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -708,12 +681,9 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🤝 Section 8: Human Resources (HR) & Leadership Evaluation |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -755,12 +725,9 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 

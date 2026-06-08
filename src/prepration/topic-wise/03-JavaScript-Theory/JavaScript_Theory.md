@@ -14,12 +14,9 @@
 
 ### JavaScript Complete Guide
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | JavaScript Complete Guide |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** JavaScript Complete Guide
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -27,12 +24,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ☕ Section 1: Engine Fundamentals & Scoping |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** ☕ Section 1: Engine Fundamentals & Scoping
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -143,12 +137,9 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🗑️ Section 2: Memory Management & Garbage Collection |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** 🗑️ Section 2: Memory Management & Garbage Collection
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -211,12 +202,9 @@ A memory leak occurs when variables or objects that are no longer needed by the 
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -281,12 +269,9 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`) |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -403,12 +388,9 @@ Overusing `useMemo` and `useCallback` is a common mistake that degrades performa
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 
@@ -503,12 +485,9 @@ Large-scale React applications split state management into two clear domains: **
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ⚙️ Section 6: Advanced Core JS & React Engine Concepts |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | ⭐ Frequently Asked |
+> 🎯 **Topic:** ⚙️ Section 6: Advanced Core JS & React Engine Concepts
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** ⭐ Frequently Asked
 
 ---
 

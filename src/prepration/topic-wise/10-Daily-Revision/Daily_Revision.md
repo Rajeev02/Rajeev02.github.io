@@ -8,12 +8,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 💻 1-Hour Daily Coding Routine (HackerRank Prep) |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 💻 1-Hour Daily Coding Routine (HackerRank Prep)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -1192,12 +1189,9 @@ fetchUser();
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🧠 1-Hour Daily Theory Routine (React Native & JS) |
-| **Difficulty** | Hard |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🧠 1-Hour Daily Theory Routine (React Native & JS)
+> 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 

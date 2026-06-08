@@ -18,12 +18,9 @@
 
 ### MNC Senior Lead Complete Guide
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | MNC Senior Lead Complete Guide |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** MNC Senior Lead Complete Guide
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -31,12 +28,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Section 1: MNC & Consulting Architectural Expectations |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** Section 1: MNC & Consulting Architectural Expectations
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -164,12 +158,9 @@ Use this answer when an interviewer asks, *"What steps will you follow before mi
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10 |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -226,12 +217,9 @@ The OWASP Mobile Top 10 highlights **Insecure Data Storage** as a top vulnerabil
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective) |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -294,12 +282,9 @@ When rendering massive datasets (e.g., directory listings in telecom portals or 
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -352,12 +337,9 @@ Tech Leads must navigate compliance requirements to avoid release delays:
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -431,12 +413,9 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📱 Section 6: Android Native Deep-Dive for React Native Developers |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 📱 Section 6: Android Native Deep-Dive for React Native Developers
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -993,12 +972,9 @@ Run specific variant:
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🍎 Section 7: iOS Native Deep-Dive for React Native Developers |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🍎 Section 7: iOS Native Deep-Dive for React Native Developers
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -1278,12 +1254,9 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🔄 Section 8: Comprehensive Migration Strategies |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🔄 Section 8: Comprehensive Migration Strategies
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -1947,12 +1920,9 @@ const PaymentScreen: React.FC = () => {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Section 9: Gradle & CocoaPods Build System Mastery |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** Section 9: Gradle & CocoaPods Build System Mastery
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -2164,12 +2134,9 @@ pod install
 
 ### 💻 Senior & Lead React Native Coding Challenges
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Senior & Lead React Native Coding Challenges |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** Senior & Lead React Native Coding Challenges
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
@@ -2868,12 +2835,9 @@ const styles = StyleSheet.create({
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🔬 Section 10: Advanced Mobile Testing & CI/CD Mastery |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite |
+> 🎯 **Topic:** 🔬 Section 10: Advanced Mobile Testing & CI/CD Mastery
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 

@@ -10,12 +10,9 @@
 
 ### DSA Complete Guide
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | DSA Complete Guide |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** DSA Complete Guide
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -23,12 +20,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📈 Section 1: Complexity & Big O Notation |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📈 Section 1: Complexity & Big O Notation
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -64,12 +58,9 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🧩 Section 2: Key Algorithmic Patterns |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🧩 Section 2: Key Algorithmic Patterns
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -219,12 +210,9 @@ const graph = {
 
 ### 📊 DSA Coding Programs
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📊 DSA Coding Programs |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📊 DSA Coding Programs
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -2257,12 +2245,9 @@ function mergeIntervals(intervals) {
 
 ### 💻 Daily Coding Programs
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Daily Coding Programs |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** Daily Coding Programs
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 

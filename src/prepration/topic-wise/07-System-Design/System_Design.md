@@ -18,12 +18,9 @@
 
 ### System Design OOP Complete Guide
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | System Design OOP Complete Guide |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** System Design OOP Complete Guide
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -31,12 +28,9 @@
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -90,12 +84,9 @@ class Dog extends Animal {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📦 Section 2: Mobile Data Structures & Practical Scenarios |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📦 Section 2: Mobile Data Structures & Practical Scenarios
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -120,12 +111,9 @@ class Dog extends Animal {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Mobile System Design: Large-Scale React Native Architecture |
-| **Difficulty** | Lead |
-| **Interview Frequency** | High |
-| **Tags** | 👨💼 Lead Round Favorite<br>🔥 Must Revise<br>🏢 MNC Favorite |
+> 🎯 **Topic:** Mobile System Design: Large-Scale React Native Architecture
+> 📊 **Difficulty:** Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite • 🔥 Must Revise • 🏢 MNC Favorite
 
 ---
 
@@ -197,12 +185,9 @@ Unlike native Swift/Kotlin, RN shares a single JS thread. If you parse a 10MB JS
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📡 Section 5: Third-Party Integrations & Backend Proxying |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📡 Section 5: Third-Party Integrations & Backend Proxying
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -300,12 +285,9 @@ function authenticateJWT(req, res, next) {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -384,12 +366,9 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🧪 Section 7: Performance Profiling & Native Memory Leak Detection |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -455,12 +434,9 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📦 Section 8: Deployment Pipelines & Store Releases |
-| **Difficulty** | Senior / Lead |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📦 Section 8: Deployment Pipelines & Store Releases
+> 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -512,12 +488,9 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | Coding 01 Introduction |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** Coding 01 Introduction
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -528,12 +501,9 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -697,12 +667,9 @@ class LRUCacheWithTTL {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -815,12 +782,9 @@ class SyncOutboxManager {
 
 ---
 
-| Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing |
-| **Difficulty** | Medium |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
@@ -1001,12 +965,9 @@ function debounceSearch(searchFn, delay = 300) {
 
 ### 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
 
- | Attribute | Details |
-| :--- | :--- |
-| **Topic Name** | 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems) |
-| **Difficulty** | Hard |
-| **Interview Frequency** | High |
-| **Tags** | 🔥 Must Revise |
+> 🎯 **Topic:** 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
+> 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
