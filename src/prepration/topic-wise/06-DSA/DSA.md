@@ -22,11 +22,6 @@
 
 
 
-## Table of Contents
-- [📈 Section 1: Complexity & Big O Notation](#-section-1-complexity--big-o-notation)
-- [🧩 Section 2: Key Algorithmic Patterns](#-section-2-key-algorithmic-patterns)
----
-
 ---
 
 | --- |
@@ -234,12 +229,7 @@ const graph = {
 
 
 <!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
-- [🧮 Part 1: Mathematical Coding](#part-1-mathematical-coding)
-- [💻 Part 2: Core DSA Algorithms](#part-2-core-dsa-algorithms)
-</details>
 <!-- INDEX_END -->
 
 ---
@@ -2294,72 +2284,7 @@ For a 60-minute HackerRank round with 2 coding questions:
 4. If stuck, write brute force first.
 5. Optimize later.
 <!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
-- **DSA SECTION**
-  - 1. [Two Sum ⭐⭐⭐⭐⭐](#1-two-sum-⭐⭐⭐⭐⭐)
-  - 2. [Contains Duplicate ⭐⭐⭐⭐⭐](#2-contains-duplicate-⭐⭐⭐⭐⭐)
-  - 3. [Valid Anagram ⭐⭐⭐⭐⭐](#3-valid-anagram-⭐⭐⭐⭐⭐)
-  - 4. [First Non-Repeating Character ⭐⭐⭐⭐⭐](#4-first-non-repeating-character-⭐⭐⭐⭐⭐)
-  - 5. [Move Zeroes ⭐⭐⭐⭐](#5-move-zeroes-⭐⭐⭐⭐)
-  - 6. [Longest Substring Without Repeating Characters ⭐⭐⭐⭐⭐](#6-longest-substring-without-repeating-characters-⭐⭐⭐⭐⭐)
-  - 7. [Maximum Subarray Sum (Kadane) ⭐⭐⭐⭐](#7-maximum-subarray-sum-kadane-⭐⭐⭐⭐)
-  - 8. [Valid Parentheses ⭐⭐⭐⭐](#8-valid-parentheses-⭐⭐⭐⭐)
-  - 9. [Product Of Array Except Self ⭐⭐⭐⭐](#9-product-of-array-except-self-⭐⭐⭐⭐)
-  - 10. [Merge Two Sorted Arrays ⭐⭐⭐⭐](#10-merge-two-sorted-arrays-⭐⭐⭐⭐)
-  - 11. [Flatten Nested Array ⭐⭐⭐⭐⭐](#11-flatten-nested-array-⭐⭐⭐⭐⭐)
-  - 12. [Group Anagrams ⭐⭐⭐⭐](#12-group-anagrams-⭐⭐⭐⭐)
-- **JavaScript Core Section**
-  - 13. [Closure ⭐⭐⭐⭐⭐](#13-closure-⭐⭐⭐⭐⭐)
-  - 14. [Debounce ⭐⭐⭐⭐⭐](#14-debounce-⭐⭐⭐⭐⭐)
-  - 15. [Throttle ⭐⭐⭐⭐⭐](#15-throttle-⭐⭐⭐⭐⭐)
-  - 16. [Promise APIs ⭐⭐⭐⭐⭐](#16-promise-apis-⭐⭐⭐⭐⭐)
-  - 17. [Event Loop ⭐⭐⭐⭐⭐](#17-event-loop-⭐⭐⭐⭐⭐)
-  - 18. [Object / Array Transformation ⭐⭐⭐⭐⭐](#18-object-/-array-transformation-⭐⭐⭐⭐⭐)
-  - 19. [Group By using reduce()](#19-group-by-using-reduce)
-  - 20. [Retry API Call](#20-retry-api-call)
-  - 21. [Binary Search ⭐⭐⭐](#21-binary-search-⭐⭐⭐)
-  - 22. [Bit Manipulation (Single Number) ⭐⭐](#22-bit-manipulation-single-number-⭐⭐)
-  - 23. [Matrix Traversal ⭐⭐](#23-matrix-traversal-⭐⭐)
-  - 24. [map()](#24-map)
-  - 25. [filter()](#25-filter)
-  - 26. [reduce()](#26-reduce)
-  - 27. [find()](#27-find)
-  - 28. [findIndex()](#28-findindex)
-  - 29. [sort()](#29-sort)
-  - 30. [split()](#30-split)
-  - 31. [join()](#31-join)
-  - 32. [slice()](#32-slice)
-  - 33. [substring()](#33-substring)
-  - 34. [includes()](#34-includes)
-  - 35. [Object.keys()](#35-objectkeys)
-  - 36. [Object.values()](#36-objectvalues)
-  - 37. [Object.entries()](#37-objectentries)
-  - 38. [Object {}](#38-object-{})
-  - 39. [Map](#39-map)
-  - 40. [Set](#40-set)
-  - 41. [Array](#41-array)
-  - 42. [Stack (LIFO)](#42-stack-lifo)
-  - 43. [Queue (FIFO)](#43-queue-fifo)
-- **Logical and Output Problems**
-  - 44. [Output of given code](#44-output-of-given-code)
-  - 45. [3rd largest number in given of an array](#45-3rd-largest-number-in-given-of-an-array)
-  - 46. [How will you improve the performance during the initial of app launch](#46-how-will-you-improve-the-performance-during-the-initial-of-app-launch)
-  - 47. [Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘, and ‘]’, determine if the input string is valid](#47-given-a-string-containing-just-the-characters-‘‘,-‘’,-‘{‘,-‘}’,-‘[‘,-and-‘]’,-determine-if-the-input-string-is-valid)
-  - 48. [PrefixSum patterns](#48-prefixsum-patterns)
-  - 49. [Two Pointer patterns](#49-two-pointer-patterns)
-  - 50. [Sliding window patterns](#50-sliding-window-patterns)
-  - 51. [Two Sum Problem when array not sorted](#51-two-sum-problem-when-array-not-sorted)
-  - 52. [Add the digit until you not get the single digit number](#52-add-the-digit-until-you-not-get-the-single-digit-number)
-- **React Native Daily Life Interview Questions**
-  - 53. [`FlatList` vs `ScrollView`](#53-flatlist-vs-scrollview)
-  - 54. [`useMemo` vs `useCallback`](#54-usememo-vs-usecallback)
-  - 55. [How do you handle Memory Leaks in React Native?](#55-how-do-you-handle-memory-leaks-in-react-native?)
-  - 56. [Custom Hook Example: `useDebounce`](#56-custom-hook-example:-usedebounce)
-  - 57. [React Native New Architecture](#57-react-native-new-architecture)
-  - 58. [Context API vs Redux](#58-context-api-vs-redux)
-</details>
 <!-- INDEX_END -->
 
 ---

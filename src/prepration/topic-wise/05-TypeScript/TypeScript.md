@@ -28,14 +28,6 @@
 
 
 
-## Table of Contents
-- [📘 Section 1: Types vs. Interfaces](#-section-1-types-vs-interfaces)
-- [🛠️ Section 2: Generics & Utility Types](#-section-2-generics--utility-types)
-- [📱 Section 3: Type Safety in React Native (Codegen Specs)](#-section-3-type-safety-in-react-native-codegen-specs)
-- [⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)](#-section-4-strict-compiler-options-tsconfigjson)
-- [🔬 Section 5: Advanced TypeScript Q&A](#-section-5-advanced-typescript-qa)
----
-
 ---
 
 | --- |
@@ -394,14 +386,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 
 <!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
-- [Program 1: Axios Silent Token Refresh Interceptor](#program-1-axios-silent-token-refresh-interceptor)
-- [Program 2: Generic Type-Safe Item Selection List Component](#program-2-generic-type-safe-item-selection-list-component)
-- [Program 3: Advanced Conditional Types & Mapped Type Parser](#program-3-advanced-conditional-types-mapped-type-parser)
-- [Program 4: Nominal Type Branding (Type Branded Currency Operations)](#program-4-nominal-type-branding-type-branded-currency-operations)
-</details>
 <!-- INDEX_END -->
 
 ---

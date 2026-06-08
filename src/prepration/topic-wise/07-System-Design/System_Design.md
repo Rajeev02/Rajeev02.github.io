@@ -30,16 +30,6 @@
 
 
 
-## Table of Contents
-- [🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A](#-section-1-object-oriented-programming-oop--conceptual-qa)
-- [📦 Section 2: Mobile Data Structures & Practical Scenarios](#-section-2-mobile-data-structures--practical-scenarios)
-- [🌐 Section 4: React Native System Design, Databases & Situation Handling](#-section-4-react-native-system-design-databases--situation-handling)
-- [📡 Section 5: Third-Party Integrations & Backend Proxying](#-section-5-third-party-integrations--backend-proxying)
-- [🧪 Section 6: Mobile Testing Frameworks & TDD Strategy](#-section-6-mobile-testing-frameworks--tdd-strategy)
-- [🧪 Section 7: Performance Profiling & Native Memory Leak Detection](#-section-7-performance-profiling--native-memory-leak-detection)
-- [📦 Section 8: Deployment Pipelines & Store Releases](#-section-8-deployment-pipelines--store-releases)
----
-
 ---
 
 | --- |
@@ -526,13 +516,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 
 <!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
-- [🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications](#-program-1-lru-cache-with-ttl--pubsub-event-notifications)
-- [📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff](#-program-2-asynchronous-sync-outbox-queue-with-batching--exponential-backoff)
-- [🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing](#-program-3-prefix-auto-suggestions-trie-with-priority-heap--input-debouncing)
-</details>
 <!-- INDEX_END -->
 
 ---

@@ -28,19 +28,6 @@
 
 
 
-## Table of Contents
-- [🏗️ Section 1: MNC & Consulting Architectural Expectations](#-section-1-mnc--consulting-architectural-expectations)
-- [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#-section-2-enterprise-security-compliance--owasp-mobile-top-10)
-- [⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)](#-section-3-performance-engineering--memory-triage-lead-perspective)
-- [📦 Section 4: CI/CD Pipelines, Fastlane & Release Management](#-section-4-cicd-pipelines-fastlane--release-management)
-- [💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A](#-section-5-mnc-client-scenarios--tech-lead-behavior-qa)
-- [📱 Section 6: Android Native Deep-Dive for React Native Developers](#-section-6-android-native-deep-dive-for-react-native-developers)
-- [🍎 Section 7: iOS Native Deep-Dive for React Native Developers](#-section-7-ios-native-deep-dive-for-react-native-developers)
-- [🔄 Section 8: Comprehensive Migration Strategies](#-section-8-comprehensive-migration-strategies)
-- [🏗️ Section 9: Gradle & CocoaPods Build System Mastery](#-section-9-gradle--cocoapods-build-system-mastery)
-- [🔬 Section 10: Advanced Mobile Testing & CI/CD Mastery](#-section-10-advanced-mobile-testing--cicd-mastery)
----
-
 ---
 
 | --- |
@@ -2178,15 +2165,7 @@ pod install
 
 
 <!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
 
-- [Challenge 1: Resilient Offline Sync Manager (Zustand + MMKV + NetInfo)](#challenge-1-resilient-offline-sync-manager-zustand-mmkv-netinfo)
-- [Challenge 2: Native Android Kotlin Module for Device Security](#challenge-2-native-android-kotlin-module-for-device-security)
-- [Challenge 3: High-Performance Swipable Card Component (Reanimated & Gestures)](#challenge-3-high-performance-swipable-card-component-reanimated-gestures)
-- [Challenge 4: Lead-Level Navigation Guards & Role-Based Stack Controller](#challenge-4-lead-level-navigation-guards-role-based-stack-controller)
-- [Challenge 5: TDD Jest & RNTL Suite for Async Form Wizard](#challenge-5-tdd-jest-rntl-suite-for-async-form-wizard)
-</details>
 <!-- INDEX_END -->
 
 ---
