@@ -2,21 +2,21 @@
 
 ## Table of Contents
 
-- [MNC Senior Lead Complete Guide](#mnc-senior-lead-complete-guide)
-- [Section 1: MNC & Consulting Architectural Expectations](#section-1-mnc-&-consulting-architectural-expectations)
-- [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#🔒-section-2-enterprise-security-compliance-&-owasp-mobile-top-10)
-- [⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)](#⚡-section-3-performance-engineering-&-memory-triage-lead-perspective)
-- [📦 Section 4: CI/CD Pipelines, Fastlane & Release Management](#📦-section-4-cicd-pipelines-fastlane-&-release-management)
-- [💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A](#💼-section-5-mnc-client-scenarios-&-tech-lead-behavior-q&a)
-- [📱 Section 6: Android Native Deep-Dive for React Native Developers](#📱-section-6-android-native-deep-dive-for-react-native-developers)
-- [🍎 Section 7: iOS Native Deep-Dive for React Native Developers](#🍎-section-7-ios-native-deep-dive-for-react-native-developers)
-- [🔄 Section 8: Comprehensive Migration Strategies](#🔄-section-8-comprehensive-migration-strategies)
-- [Section 9: Gradle & CocoaPods Build System Mastery](#section-9-gradle-&-cocoapods-build-system-mastery)
-- [Senior & Lead React Native Coding Challenges](#senior-&-lead-react-native-coding-challenges)
+- [Section 1: 🏗️ MNC & Consulting Architectural Expectations](#section-1-mnc-consulting-architectural-expectations)
+- [Section 2: 🔒 Enterprise Security, Compliance & OWASP Mobile Top 10](#section-2-enterprise-security-compliance-owasp-mobile-top-10)
+- [Section 3: ⚡ Performance Engineering & Memory Triage (Lead Perspective)](#section-3-performance-engineering-memory-triage-lead-perspective)
+- [Section 4: 📦 CI/CD Pipelines, Fastlane & Release Management](#section-4-ci-cd-pipelines-fastlane-release-management)
+- [Section 5: 💼 MNC Client Scenarios & Tech Lead Behavior Q&A](#section-5-mnc-client-scenarios-tech-lead-behavior-q-a)
+- [Section 6: 📱 Android Native Deep-Dive for React Native Developers](#section-6-android-native-deep-dive-for-react-native-developers)
+- [Section 7: 🍎 iOS Native Deep-Dive for React Native Developers](#section-7-ios-native-deep-dive-for-react-native-developers)
+- [Section 8: 🔄 Comprehensive Migration Strategies](#section-8-comprehensive-migration-strategies)
+- [Section 9: 🏗️ Gradle & CocoaPods Build System Mastery](#section-9-gradle-cocoapods-build-system-mastery)
+- [Section 10: 🔬 Advanced Mobile Testing & CI/CD Mastery](#section-10-advanced-mobile-testing-ci-cd-mastery)
+
 
 ---
 
-## MNC Senior Lead Complete Guide
+### MNC Senior Lead Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -41,7 +41,7 @@
 ---
 
 
-## 🏗️ Section 1: MNC & Consulting Architectural Expectations
+## Section 1: 🏗️ MNC & Consulting Architectural Expectations
 
 *⏱️ 6 min read*
 
@@ -174,7 +174,7 @@ Use this answer when an interviewer asks, *"What steps will you follow before mi
 ---
 
 
-## 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
+## Section 2: 🔒 Enterprise Security, Compliance & OWASP Mobile Top 10
 
 *⏱️ 2 min read*
 
@@ -236,7 +236,7 @@ The OWASP Mobile Top 10 highlights **Insecure Data Storage** as a top vulnerabil
 ---
 
 
-## ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
+## Section 3: ⚡ Performance Engineering & Memory Triage (Lead Perspective)
 
 *⏱️ 2 min read*
 
@@ -304,7 +304,7 @@ When rendering massive datasets (e.g., directory listings in telecom portals or 
 ---
 
 
-## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
+## Section 4: 📦 CI/CD Pipelines, Fastlane & Release Management
 
 *⏱️ 2 min read*
 
@@ -362,7 +362,7 @@ Tech Leads must navigate compliance requirements to avoid release delays:
 ---
 
 
-## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
+## Section 5: 💼 MNC Client Scenarios & Tech Lead Behavior Q&A
 
 *⏱️ 2 min read*
 
@@ -441,7 +441,7 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 ---
 
 
-## 📱 Section 6: Android Native Deep-Dive for React Native Developers
+## Section 6: 📱 Android Native Deep-Dive for React Native Developers
 
 *⏱️ 10 min read*
 
@@ -1003,7 +1003,7 @@ Run specific variant:
 ---
 
 
-## 🍎 Section 7: iOS Native Deep-Dive for React Native Developers
+## Section 7: 🍎 iOS Native Deep-Dive for React Native Developers
 
 *⏱️ 6 min read*
 
@@ -1016,7 +1016,7 @@ iOS development knowledge is equally critical for senior React Native engineers.
 ##### Podfile Configuration:
 
 ```ruby
-## ios/Podfile
+### ios/Podfile
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
@@ -1288,7 +1288,7 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
 ---
 
 
-## 🔄 Section 8: Comprehensive Migration Strategies
+## Section 8: 🔄 Comprehensive Migration Strategies
 
 *⏱️ 12 min read*
 
@@ -1957,7 +1957,7 @@ const PaymentScreen: React.FC = () => {
 ---
 
 
-## 🏗️ Section 9: Gradle & CocoaPods Build System Mastery
+## Section 9: 🏗️ Gradle & CocoaPods Build System Mastery
 
 *⏱️ 4 min read*
 
@@ -1974,7 +1974,7 @@ org.gradle.parallel=true
 org.gradle.caching=true
 org.gradle.configureondemand=true
 
-## React Native flags
+### React Native flags
 newArchEnabled=true
 hermesEnabled=true
 reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
@@ -2020,24 +2020,24 @@ configurations.all {
 ##### R8/ProGuard Rules for React Native:
 
 ```text
-## proguard-rules.pro
+### proguard-rules.pro
 
-## React Native
+### React Native
 -keep class com.facebook.react.** { *; }
 -keep class com.facebook.hermes.** { *; }
 -keep class com.facebook.jni.** { *; }
 
-## Keep native module classes
+### Keep native module classes
 -keep class com.myapp.modules.** { *; }
 
-## Keep classes used via reflection (e.g., Gson, Retrofit)
+### Keep classes used via reflection (e.g., Gson, Retrofit)
 -keepattributes Signature
 -keepattributes *Annotation*
 -keep class * implements com.google.gson.TypeAdapterFactory
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
-## Prevent stripping of Reanimated
+### Prevent stripping of Reanimated
 -keep class com.swmansion.reanimated.** { *; }
 ```
 
@@ -2048,10 +2048,10 @@ configurations.all {
 ##### Podfile Structure and Platform Settings:
 
 ```ruby
-## ios/Podfile — Essential structure
+### ios/Podfile — Essential structure
 platform :ios, '15.1'  # Minimum deployment target
 
-## For Swift-based pods or when required by dependencies
+### For Swift-based pods or when required by dependencies
 use_frameworks! :linkage => :static
 
 target 'MyApp' do
@@ -2091,16 +2091,16 @@ end
 ##### Pod Cache Management:
 
 ```bash
-## View cache contents
+### View cache contents
 pod cache list
 
-## Clear all cached pods
+### Clear all cached pods
 pod cache clean --all
 
-## Clear cache for a specific pod
+### Clear cache for a specific pod
 pod cache clean Firebase
 
-## Full nuclear reset (when nothing else works)
+### Full nuclear reset (when nothing else works)
 cd ios
 rm -rf Pods Podfile.lock
 rm -rf ~/Library/Caches/CocoaPods
@@ -2162,7 +2162,7 @@ pod install
 
 ---
 
-## 💻 Senior & Lead React Native Coding Challenges
+### 💻 Senior & Lead React Native Coding Challenges
 
  | Attribute | Details |
 | :--- | :--- |
@@ -2181,7 +2181,7 @@ pod install
 
 ---
 
-## Challenge 1: Resilient Offline Sync Manager (Zustand + MMKV + NetInfo)
+### Challenge 1: Resilient Offline Sync Manager (Zustand + MMKV + NetInfo)
 *⏱️ 3 min read*
 
 ### Question
@@ -2354,7 +2354,7 @@ export class OfflineSyncManager {
 
 ---
 
-## Challenge 2: Native Android Kotlin Module for Device Security
+### Challenge 2: Native Android Kotlin Module for Device Security
 *⏱️ 1 min read*
 
 ### Question
@@ -2448,7 +2448,7 @@ class DeviceSecurityModule(reactContext: ReactApplicationContext) : ReactContext
 
 ---
 
-## Challenge 3: High-Performance Swipable Card Component (Reanimated & Gestures)
+### Challenge 3: High-Performance Swipable Card Component (Reanimated & Gestures)
 *⏱️ 2 min read*
 
 ### Question
@@ -2570,7 +2570,7 @@ const styles = StyleSheet.create({
 
 ---
 
-## Challenge 4: Lead-Level Navigation Guards & Role-Based Stack Controller
+### Challenge 4: Lead-Level Navigation Guards & Role-Based Stack Controller
 *⏱️ 2 min read*
 
 ### Question
@@ -2704,7 +2704,7 @@ export function GuardedNavigator() {
 
 ---
 
-## Challenge 5: TDD Jest & RNTL Suite for Async Form Wizard
+### Challenge 5: TDD Jest & RNTL Suite for Async Form Wizard
 *⏱️ 2 min read*
 
 ### Question
@@ -2877,7 +2877,7 @@ const styles = StyleSheet.create({
 
 ---
 
-## 🔬 Section 10: Advanced Mobile Testing & CI/CD Mastery
+## Section 10: 🔬 Advanced Mobile Testing & CI/CD Mastery
 
 *⏱️ 8 min read*
 

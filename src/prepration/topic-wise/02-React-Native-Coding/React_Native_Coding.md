@@ -2,35 +2,34 @@
 
 ## Table of Contents
 
-- [📱 React Native Coding Programs](#📱-react-native-coding-programs)
-- [Program 1: Performance-Optimized List Component](#program-1-performance-optimized-list-component)
-- [Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)](#program-2-custom-netinfo-connectivity-hook-`usenetwork`)
-- [Program 3: Expo Config Plugin configuration](#program-3-expo-config-plugin-configuration)
-- [Program 4: Native Android Module Bridge (Kotlin)](#program-4-native-android-module-bridge-kotlin)
-- [Program 5: Fetch and Render List from API (Todos)](#program-5-fetch-and-render-list-from-api-todos)
-- [Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)](#program-6-reusable-api-calling-wrappers-fetch-vs-axios)
-- [Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates](#program-7-mmkv-state-persist-&-react-query-offline-caching-with-optimistic-updates)
-- [Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)](#program-8-reanimated-swipe-&-pan-gesture-card-component-ui-cloning-&-animation)
-- [Program 9: Native Module Bridge (Kotlin Android & Swift iOS)](#program-9-native-module-bridge-kotlin-android-&-swift-ios)
-- [Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration](#program-10-complete-github-actions-&-fastlane-cicd-configuration)
-- [Program 11: State Management with MobX State Tree (MST)](#program-11-state-management-with-mobx-state-tree-mst)
-- [Program 12: SQLite Transactional Ledger Database Hook](#program-12-sqlite-transactional-ledger-database-hook)
-- [Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)](#program-13-multi-layered-testing-suite-jest-+-rntl-+-detox)
-- [Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#program-14-webpack-module-federation-configuration-repack-host-&-remote-bundle-setup)
-- [Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#program-15-hardened-c++-jni-bridge-module-android-jnikotlin-&-ios-obj-c++swift)
-- [Program 16: Secure Purchase Validation & Transaction Sync Hook](#program-16-secure-purchase-validation-&-transaction-sync-hook)
-- [Program 17: GraphQL API Client Integration with Apollo Client](#program-17-graphql-api-client-integration-with-apollo-client)
-- [Program 18: Recoil State Management (Atoms & Selectors)](#program-18-recoil-state-management-atoms-&-selectors)
-- [Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)](#program-19-unified-production-telemetry-hook-firebase-+-sentry-+-azure-insights)
-- [Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL](#program-20-test-driven-development-tdd-workflow-with-jest-&-rntl)
-- [Section: DSA & Algorithmic Coding (Mobile Optimized)](#section-dsa-&-algorithmic-coding-mobile-optimized)
-- [Section: System Design Coding](#section-system-design-coding)
-- [Program 27: Basic 50,000 Items FlatList](#program-27-basic-50000-items-flatlist)
-- [React Native Projects Complete Guide](#react-native-projects-complete-guide)
+- [Section 1: Program 1: Performance-Optimized List Component](#section-1-program-1-performance-optimized-list-component)
+- [Section 2: Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)](#section-2-program-2-custom-netinfo-connectivity-hook-usenetwork)
+- [Section 3: Program 3: Expo Config Plugin configuration](#section-3-program-3-expo-config-plugin-configuration)
+- [Section 4: Program 4: Native Android Module Bridge (Kotlin)](#section-4-program-4-native-android-module-bridge-kotlin)
+- [Section 5: Program 5: Fetch and Render List from API (Todos)](#section-5-program-5-fetch-and-render-list-from-api-todos)
+- [Section 6: Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)](#section-6-program-6-reusable-api-calling-wrappers-fetch-vs-axios)
+- [Section 7: Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates](#section-7-program-7-mmkv-state-persist-react-query-offline-caching-with-optimistic-updates)
+- [Section 8: Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)](#section-8-program-8-reanimated-swipe-pan-gesture-card-component-ui-cloning-animation)
+- [Section 9: Program 9: Native Module Bridge (Kotlin Android & Swift iOS)](#section-9-program-9-native-module-bridge-kotlin-android-swift-ios)
+- [Section 10: Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration](#section-10-program-10-complete-github-actions-fastlane-ci-cd-configuration)
+- [Section 11: Program 11: State Management with MobX State Tree (MST)](#section-11-program-11-state-management-with-mobx-state-tree-mst)
+- [Section 12: Program 12: SQLite Transactional Ledger Database Hook](#section-12-program-12-sqlite-transactional-ledger-database-hook)
+- [Section 13: Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)](#section-13-program-13-multi-layered-testing-suite-jest-rntl-detox)
+- [Section 14: Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)](#section-14-program-14-webpack-module-federation-configuration-re-pack-host-remote-bundle-setup)
+- [Section 15: Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)](#section-15-program-15-hardened-c-jni-bridge-module-android-jni-kotlin-ios-obj-c-swift)
+- [Section 16: Program 16: Secure Purchase Validation & Transaction Sync Hook](#section-16-program-16-secure-purchase-validation-transaction-sync-hook)
+- [Section 17: Program 17: GraphQL API Client Integration with Apollo Client](#section-17-program-17-graphql-api-client-integration-with-apollo-client)
+- [Section 18: Program 18: Recoil State Management (Atoms & Selectors)](#section-18-program-18-recoil-state-management-atoms-selectors)
+- [Section 19: Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)](#section-19-program-19-unified-production-telemetry-hook-firebase-sentry-azure-insights)
+- [Section 20: Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL](#section-20-program-20-test-driven-development-tdd-workflow-with-jest-rntl)
+- [Section 21: 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)](#section-21-section-dsa-algorithmic-coding-mobile-optimized)
+- [Section 22: 🏗️ Section: System Design Coding](#section-22-section-system-design-coding)
+- [Section 23: Program 27: Basic 50,000 Items FlatList](#section-23-program-27-basic-50-000-items-flatlist)
+
 
 ---
 
-## 📱 React Native Coding Programs
+### 📱 React Native Coding Programs
 
  | Attribute | Details |
 | :--- | :--- |
@@ -61,7 +60,7 @@
 ---
 
 
-## Program 1: Performance-Optimized List Component
+## Section 1: Program 1: Performance-Optimized List Component
 *⏱️ 4 min read*
 
 ### Question
@@ -368,7 +367,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
+## Section 2: Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
 *⏱️ 1 min read*
 
 ### Question
@@ -443,7 +442,7 @@ export function useNetwork(): NetworkState {
 ---
 
 
-## Program 3: Expo Config Plugin configuration
+## Section 3: Program 3: Expo Config Plugin configuration
 *⏱️ 1 min read*
 
 ### Question
@@ -521,7 +520,7 @@ module.exports = withCustomPermissions;
 ---
 
 
-## Program 4: Native Android Module Bridge (Kotlin)
+## Section 4: Program 4: Native Android Module Bridge (Kotlin)
 *⏱️ 1 min read*
 
 ### Question
@@ -605,7 +604,7 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 ---
 
 
-## Program 5: Fetch and Render List from API (Todos)
+## Section 5: Program 5: Fetch and Render List from API (Todos)
 *⏱️ 3 min read*
 
 ### Question
@@ -861,7 +860,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
+## Section 6: Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
 *⏱️ 2 min read*
 
 ### Question
@@ -1038,7 +1037,7 @@ export const axiosClient = new AxiosClient('https://dummy-json.mock.beeceptor.co
 ---
 
 
-## Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates
+## Section 7: Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates
 *⏱️ 3 min read*
 
 ### Question
@@ -1292,7 +1291,7 @@ export function useDeletePost() {
 ---
 
 
-## Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
+## Section 8: Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
 *⏱️ 2 min read*
 
 ### Question
@@ -1456,7 +1455,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
+## Section 9: Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
 *⏱️ 2 min read*
 
 ### Question
@@ -1598,7 +1597,7 @@ export const BatteryMonitor = NativeModules.BatteryMonitor as BatteryMonitorInte
 ---
 
 
-## Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
+## Section 10: Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
 *⏱️ 2 min read*
 
 ### Question
@@ -1748,7 +1747,7 @@ end
 ---
 
 
-## Program 11: State Management with MobX State Tree (MST)
+## Section 11: Program 11: State Management with MobX State Tree (MST)
 *⏱️ 3 min read*
 
 ### Question
@@ -1954,7 +1953,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 12: SQLite Transactional Ledger Database Hook
+## Section 12: Program 12: SQLite Transactional Ledger Database Hook
 *⏱️ 2 min read*
 
 ### Question
@@ -2083,7 +2082,7 @@ export function useLedgerDatabase() {
 ---
 
 
-## Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
+## Section 13: Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
 *⏱️ 2 min read*
 
 ### Question
@@ -2246,7 +2245,7 @@ describe('E2E Authentication Flow', () => {
 ---
 
 
-## Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
+## Section 14: Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
 *⏱️ 2 min read*
 
 ### Question
@@ -2381,7 +2380,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
+## Section 15: Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
 *⏱️ 2 min read*
 
 ### Question
@@ -2525,7 +2524,7 @@ class SecureKeysModule: NSObject {
 ---
 
 
-## Program 16: Secure Purchase Validation & Transaction Sync Hook
+## Section 16: Program 16: Secure Purchase Validation & Transaction Sync Hook
 *⏱️ 2 min read*
 
 ### Question
@@ -2708,7 +2707,7 @@ export function usePurchaseManager() {
 ---
 
 
-## Program 17: GraphQL API Client Integration with Apollo Client
+## Section 17: Program 17: GraphQL API Client Integration with Apollo Client
 *⏱️ 3 min read*
 
 ### Question
@@ -3002,7 +3001,7 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 ---
 
 
-## Program 18: Recoil State Management (Atoms & Selectors)
+## Section 18: Program 18: Recoil State Management (Atoms & Selectors)
 *⏱️ 3 min read*
 
 > Interview note: understand Recoil as an atomic-state pattern, but avoid presenting it as the default choice for new React Native projects. For production architecture, prefer Redux Toolkit, Zustand, Jotai, MobX, or TanStack Query depending on whether the state is client state or server state.
@@ -3196,7 +3195,7 @@ export function RecoilAppWrapper() {
 ---
 
 
-## Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
+## Section 19: Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
 *⏱️ 2 min read*
 
 ### Question
@@ -3355,7 +3354,7 @@ export function useTelemetry(): TelemetryClient {
 ---
 
 
-## Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
+## Section 20: Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
 *⏱️ 2 min read*
 
 ### Question
@@ -3470,7 +3469,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
+## Section 21: 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
 *⏱️ 1 min read*
 
 Senior mobile interviews often require basic-to-medium DSA to test logical thinking. These are framed in real-world mobile contexts.
@@ -3546,7 +3545,7 @@ function maxDepth(root: TreeNode | null): number {
 ---
 
 
-## 🏗️ Section: System Design Coding
+## Section 22: 🏗️ Section: System Design Coding
 *⏱️ 2 min read*
 
 ### Program 24: Implement an LRU Cache (Memory Management)
@@ -3710,7 +3709,7 @@ export const useCheckoutStateMachine = () => {
 ---
 
 
-## Program 27: Basic 50,000 Items FlatList
+## Section 23: Program 27: Basic 50,000 Items FlatList
 *⏱️ 2 min read*
 
 ### Question
@@ -3799,7 +3798,7 @@ export default App;
 
 ---
 
-## React Native Projects Complete Guide
+### React Native Projects Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -3812,7 +3811,7 @@ export default App;
 
 
 
-## 1. Project A: Enterprise-Grade Expo Application (Expo Router, Zustand, TanStack Query & MMKV)
+### 1. Project A: Enterprise-Grade Expo Application (Expo Router, Zustand, TanStack Query & MMKV)
 
 
 #### Overview
@@ -4153,7 +4152,7 @@ const styles = StyleSheet.create({
 
 ---
 
-## 2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)
+### 2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)
 
 
 #### Overview
@@ -4293,7 +4292,7 @@ void installJsiLocationModule(jsi::Runtime& jsiRuntime) {
 
 ---
 
-## 3. Creating Custom Android & iOS Native Modules (Libraries)
+### 3. Creating Custom Android & iOS Native Modules (Libraries)
 
 
 Senior engineers are regularly tasked with wrapping proprietary native SDKs (e.g., identity verification, custom local trackers) into reusable React Native packages. Below is a complete guide to constructing native modules in **Kotlin (Android)** and **Swift (iOS)**, along with the unified JavaScript interface.
@@ -4519,7 +4518,7 @@ export const CustomSDKBridge = {
 
 ---
 
-## 4. Comparative Summary: Choosing the Right Stack
+### 4. Comparative Summary: Choosing the Right Stack
 
 
 > [!TIP]

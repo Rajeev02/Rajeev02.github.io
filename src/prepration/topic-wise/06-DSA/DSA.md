@@ -2,15 +2,13 @@
 
 ## Table of Contents
 
-- [DSA Complete Guide](#dsa-complete-guide)
-- [📈 Section 1: Complexity & Big O Notation](#📈-section-1-complexity-&-big-o-notation)
-- [🧩 Section 2: Key Algorithmic Patterns](#🧩-section-2-key-algorithmic-patterns)
-- [📊 DSA Coding Programs](#📊-dsa-coding-programs)
-- [Daily Coding Programs](#daily-coding-programs)
+- [Section 1: 📈 Complexity & Big O Notation](#section-1-complexity-big-o-notation)
+- [Section 2: 🧩 Key Algorithmic Patterns](#section-2-key-algorithmic-patterns)
+
 
 ---
 
-## DSA Complete Guide
+### DSA Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -35,7 +33,7 @@
 ---
 
 
-## 📈 Section 1: Complexity & Big O Notation
+## Section 1: 📈 Complexity & Big O Notation
 
 *⏱️ 1 min read*
 
@@ -76,7 +74,7 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 ---
 
 
-## 🧩 Section 2: Key Algorithmic Patterns
+## Section 2: 🧩 Key Algorithmic Patterns
 
 *⏱️ 3 min read*
 
@@ -219,7 +217,7 @@ const graph = {
 
 ---
 
-## 📊 DSA Coding Programs
+### 📊 DSA Coding Programs
 
  | Attribute | Details |
 | :--- | :--- |
@@ -238,7 +236,7 @@ const graph = {
 
 ---
 
-## 🧮 Part 1: Mathematical Coding
+### 🧮 Part 1: Mathematical Coding
 *⏱️ 8 min read*
 
 ### 1. Prime Number Verification & Sieve of Eratosthenes
@@ -731,7 +729,7 @@ function trailingZeroes(n) {
 
 ---
 
-## 💻 Part 2: Core DSA Algorithms
+### 💻 Part 2: Core DSA Algorithms
 *⏱️ 25 min read*
 
 ### 15. Two Sum (HashMap Approach)
@@ -2257,7 +2255,7 @@ function mergeIntervals(intervals) {
 
 ---
 
-## 💻 Daily Coding Programs
+### 💻 Daily Coding Programs
 
  | Attribute | Details |
 | :--- | :--- |
@@ -2272,7 +2270,7 @@ function mergeIntervals(intervals) {
 
 ---
 
-## Interview Strategy
+### Interview Strategy
 
 For a 60-minute HackerRank round with 2 coding questions:
 
@@ -2295,7 +2293,7 @@ For a 60-minute HackerRank round with 2 coding questions:
 ---
 
 
-## Must Know JavaScript Methods
+### Must Know JavaScript Methods
 
 ```javascript
 map();
@@ -2316,7 +2314,7 @@ Object.entries();
 
 ---
 
-## Must Know Data Structures
+### Must Know Data Structures
 
 ```javascript
 Object {}
@@ -2329,11 +2327,11 @@ Queue
 
 ---
 
-## DSA SECTION
+### DSA SECTION
 
 ---
 
-## 1. Two Sum ⭐⭐⭐⭐⭐
+### 1. Two Sum ⭐⭐⭐⭐⭐
 
 Pattern: HashMap
 
@@ -2379,7 +2377,7 @@ Space: O(n)
 
 ---
 
-## 2. Contains Duplicate ⭐⭐⭐⭐⭐
+### 2. Contains Duplicate ⭐⭐⭐⭐⭐
 
 Pattern: Set
 
@@ -2413,7 +2411,7 @@ function containsDuplicate(nums) {
 
 ---
 
-## 3. Valid Anagram ⭐⭐⭐⭐⭐
+### 3. Valid Anagram ⭐⭐⭐⭐⭐
 
 Pattern: HashMap
 
@@ -2451,7 +2449,7 @@ function isAnagram(s, t) {
 
 ---
 
-## 4. First Non-Repeating Character ⭐⭐⭐⭐⭐
+### 4. First Non-Repeating Character ⭐⭐⭐⭐⭐
 
 Pattern: Frequency Count
 
@@ -2487,7 +2485,7 @@ function firstUnique(str) {
 
 ---
 
-## 5. Move Zeroes ⭐⭐⭐⭐
+### 5. Move Zeroes ⭐⭐⭐⭐
 
 Pattern: Two Pointers
 
@@ -2523,7 +2521,7 @@ function moveZeroes(nums) {
 
 ---
 
-## 6. Longest Substring Without Repeating Characters ⭐⭐⭐⭐⭐
+### 6. Longest Substring Without Repeating Characters ⭐⭐⭐⭐⭐
 
 Pattern: Sliding Window
 
@@ -2569,7 +2567,7 @@ windowLength = right - left + 1;
 
 ---
 
-## 7. Maximum Subarray Sum (Kadane) ⭐⭐⭐⭐
+### 7. Maximum Subarray Sum (Kadane) ⭐⭐⭐⭐
 
 Pattern: Dynamic Running Sum
 
@@ -2601,7 +2599,7 @@ function maxSubArray(nums) {
 
 ---
 
-## 8. Valid Parentheses ⭐⭐⭐⭐
+### 8. Valid Parentheses ⭐⭐⭐⭐
 
 Pattern: Stack
 
@@ -2643,7 +2641,7 @@ function isValid(str) {
 
 ---
 
-## 9. Product Of Array Except Self ⭐⭐⭐⭐
+### 9. Product Of Array Except Self ⭐⭐⭐⭐
 
 Pattern: Prefix + Suffix
 
@@ -2689,7 +2687,7 @@ function productExceptSelf(nums) {
 
 ---
 
-## 10. Merge Two Sorted Arrays ⭐⭐⭐⭐
+### 10. Merge Two Sorted Arrays ⭐⭐⭐⭐
 
 Pattern: Two Pointers
 
@@ -2730,7 +2728,7 @@ function mergeSortedArrays(arr1, arr2) {
 
 ---
 
-## 11. Flatten Nested Array ⭐⭐⭐⭐⭐
+### 11. Flatten Nested Array ⭐⭐⭐⭐⭐
 
 Pattern: Recursion
 
@@ -2770,7 +2768,7 @@ arr.flat(Infinity);
 
 ---
 
-## 12. Group Anagrams ⭐⭐⭐⭐
+### 12. Group Anagrams ⭐⭐⭐⭐
 
 Pattern: HashMap
 
@@ -2806,11 +2804,11 @@ function groupAnagrams(words) {
 
 ---
 
-## JavaScript Core Section
+### JavaScript Core Section
 
 ---
 
-## 13. Closure ⭐⭐⭐⭐⭐
+### 13. Closure ⭐⭐⭐⭐⭐
 
 ```javascript
 function outer() {
@@ -2836,7 +2834,7 @@ Inner function remembers variables from outer scope even after outer function fi
 
 ---
 
-## 14. Debounce ⭐⭐⭐⭐⭐
+### 14. Debounce ⭐⭐⭐⭐⭐
 
 ```javascript
 function debounce(fn, delay) {
@@ -2862,7 +2860,7 @@ Input Field
 
 ---
 
-## 15. Throttle ⭐⭐⭐⭐⭐
+### 15. Throttle ⭐⭐⭐⭐⭐
 
 ```javascript
 function throttle(fn, delay) {
@@ -2892,7 +2890,7 @@ Resize Event
 
 ---
 
-## 16. Promise APIs ⭐⭐⭐⭐⭐
+### 16. Promise APIs ⭐⭐⭐⭐⭐
 
 Promise.all()
 
@@ -2923,7 +2921,7 @@ Ignores failures
 
 ---
 
-## 17. Event Loop ⭐⭐⭐⭐⭐
+### 17. Event Loop ⭐⭐⭐⭐⭐
 
 ```javascript
 console.log("1");
@@ -2960,7 +2958,7 @@ Macrotask Queue (setTimeout)
 
 ---
 
-## 18. Object / Array Transformation ⭐⭐⭐⭐⭐
+### 18. Object / Array Transformation ⭐⭐⭐⭐⭐
 
 Array → Object
 
@@ -2991,7 +2989,7 @@ Array → Single Value = reduce()
 
 ---
 
-## 19. Group By using reduce()
+### 19. Group By using reduce()
 
 ```javascript
 const grouped = users.reduce((acc, user) => {
@@ -3005,7 +3003,7 @@ const grouped = users.reduce((acc, user) => {
 }, {});
 ```
 
-## 20. Retry API Call
+### 20. Retry API Call
 
 ```javascript
 async function fetchWithRetry(url, retries = 3) {
@@ -3022,7 +3020,7 @@ async function fetchWithRetry(url, retries = 3) {
 }
 ```
 
-## FINAL 15 QUESTIONS TO MEMORIZE
+### FINAL 15 QUESTIONS TO MEMORIZE
 
 1. Two Sum
 2. Contains Duplicate
@@ -3042,7 +3040,7 @@ async function fetchWithRetry(url, retries = 3) {
 
 ---
 
-## FINAL 5 JAVASCRIPT TOPICS
+### FINAL 5 JAVASCRIPT TOPICS
 
 1. Promise.all()
 2. Promise.allSettled()
@@ -3052,7 +3050,7 @@ async function fetchWithRetry(url, retries = 3) {
 
 ---
 
-## Expected Interview Patterns
+### Expected Interview Patterns
 
 High Probability:
 
@@ -3079,7 +3077,7 @@ Topological Sort
 
 If you can code and explain all topics in this document from memory, you're prepared for the vast majority of React Native / Frontend-oriented HackerRank coding assessments.
 
-## Time Complexity Cheat Sheet ⭐⭐⭐⭐⭐
+### Time Complexity Cheat Sheet ⭐⭐⭐⭐⭐
 
 Interviewers often ask:
 
@@ -3101,7 +3099,7 @@ Can you optimize it?
 
 ---
 
-## 21. Binary Search ⭐⭐⭐
+### 21. Binary Search ⭐⭐⭐
 
 Question:
 
@@ -3160,7 +3158,7 @@ Space: O(1)
 
 ---
 
-## 22. Bit Manipulation (Single Number) ⭐⭐
+### 22. Bit Manipulation (Single Number) ⭐⭐
 
 Question:
 
@@ -3214,7 +3212,7 @@ Space: O(1)
 
 ---
 
-## 23. Matrix Traversal ⭐⭐
+### 23. Matrix Traversal ⭐⭐
 
 Question:
 
@@ -3281,9 +3279,9 @@ Space: O(1)
 
 For a JavaScript/React Native interview, you don't need full programs for these. Just remember **what they do + one small example**.
 
-## Array Methods
+### Array Methods
 
-## 24. map()
+### 24. map()
 
 Used to transform every element.
 
@@ -3298,7 +3296,7 @@ console.log(result);
 
 ---
 
-## 25. filter()
+### 25. filter()
 
 Used to keep elements that match a condition.
 
@@ -3313,7 +3311,7 @@ console.log(result);
 
 ---
 
-## 26. reduce()
+### 26. reduce()
 
 Used to convert an array into a single value.
 
@@ -3328,7 +3326,7 @@ console.log(sum);
 
 ---
 
-## 27. find()
+### 27. find()
 
 Returns first matching element.
 
@@ -3343,7 +3341,7 @@ console.log(user);
 
 ---
 
-## 28. findIndex()
+### 28. findIndex()
 
 Returns index of first matching element.
 
@@ -3358,7 +3356,7 @@ console.log(index);
 
 ---
 
-## 29. sort()
+### 29. sort()
 
 Sorts array.
 
@@ -3373,9 +3371,9 @@ console.log(nums);
 
 ---
 
-## String Methods
+### String Methods
 
-## 30. split()
+### 30. split()
 
 Converts string into array.
 
@@ -3390,7 +3388,7 @@ console.log(result);
 
 ---
 
-## 31. join()
+### 31. join()
 
 Converts array into string.
 
@@ -3405,7 +3403,7 @@ console.log(result);
 
 ---
 
-## 32. slice()
+### 32. slice()
 
 Extracts part of string/array.
 
@@ -3425,7 +3423,7 @@ console.log(arr.slice(1, 4));
 
 ---
 
-## 33. substring()
+### 33. substring()
 
 ```javascript
 const str = "JavaScript";
@@ -3436,7 +3434,7 @@ console.log(str.substring(0, 4));
 
 ---
 
-## 34. includes()
+### 34. includes()
 
 Checks if value exists.
 
@@ -3456,9 +3454,9 @@ console.log(str.includes("World"));
 
 ---
 
-## Object Methods
+### Object Methods
 
-## 35. Object.keys()
+### 35. Object.keys()
 
 ```javascript
 const user = {
@@ -3473,7 +3471,7 @@ console.log(Object.keys(user));
 
 ---
 
-## 36. Object.values()
+### 36. Object.values()
 
 ```javascript
 const user = {
@@ -3488,7 +3486,7 @@ console.log(Object.values(user));
 
 ---
 
-## 37. Object.entries()
+### 37. Object.entries()
 
 ```javascript
 const user = {
@@ -3503,9 +3501,9 @@ console.log(Object.entries(user));
 
 ---
 
-## Must Know Data Structures
+### Must Know Data Structures
 
-## 38. Object {}
+### 38. Object {}
 
 Key-Value storage.
 
@@ -3527,7 +3525,7 @@ Use when:
 
 ---
 
-## 39. Map
+### 39. Map
 
 Any type can be key.
 
@@ -3555,7 +3553,7 @@ console.log(map.get("a"));
 
 ---
 
-## 40. Set
+### 40. Set
 
 Stores unique values.
 
@@ -3581,7 +3579,7 @@ console.log(unique);
 
 ---
 
-## 41. Array
+### 41. Array
 
 Most commonly used.
 
@@ -3597,7 +3595,7 @@ console.log(fruits);
 
 ---
 
-## 42. Stack (LIFO)
+### 42. Stack (LIFO)
 
 Last In First Out.
 
@@ -3619,7 +3617,7 @@ Think:
 
 ---
 
-## 43. Queue (FIFO)
+### 43. Queue (FIFO)
 
 First In First Out.
 
@@ -3641,7 +3639,7 @@ Think:
 
 ---
 
-## Most Asked Interview One-Liners
+### Most Asked Interview One-Liners
 
 ```javascript
 // Remove Duplicates
@@ -3699,7 +3697,7 @@ Here are the most common **JavaScript Promise examples** asked in interviews.
 
 ---
 
-## 1. Basic Promise
+### 1. Basic Promise
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -3725,7 +3723,7 @@ Success;
 
 ---
 
-## 2. Promise with setTimeout
+### 2. Promise with setTimeout
 
 ```js
 const promise = new Promise((resolve) => {
@@ -3747,7 +3745,7 @@ Data Loaded
 
 ---
 
-## 3. Promise Reject Example
+### 3. Promise Reject Example
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -3767,7 +3765,7 @@ Something went wrong
 
 ---
 
-## 4. Promise Chaining
+### 4. Promise Chaining
 
 ```js
 Promise.resolve(2)
@@ -3794,7 +3792,7 @@ Flow:
 
 ---
 
-## 5. Async/Await with Promise
+### 5. Async/Await with Promise
 
 ```js
 function getData() {
@@ -3821,7 +3819,7 @@ User Data
 
 ---
 
-## 6. Promise.all()
+### 6. Promise.all()
 
 Runs all promises in parallel.
 
@@ -3841,7 +3839,7 @@ Output:
 
 ---
 
-## 7. Promise.all() Failure
+### 7. Promise.all() Failure
 
 ```js
 const p1 = Promise.resolve("A");
@@ -3863,7 +3861,7 @@ If one fails, entire `Promise.all()` fails.
 
 ---
 
-## 8. Promise.allSettled()
+### 8. Promise.allSettled()
 
 Returns all results whether success or failure.
 
@@ -3885,7 +3883,7 @@ Output:
 
 ---
 
-## 9. Promise.race()
+### 9. Promise.race()
 
 Returns the first settled promise.
 
@@ -3905,7 +3903,7 @@ First;
 
 ---
 
-## 10. Promise.any()
+### 10. Promise.any()
 
 Returns the first successful promise.
 
@@ -3925,7 +3923,7 @@ Success;
 
 ---
 
-## 11. Real API Example
+### 11. Real API Example
 
 ```js
 function fetchUser() {
@@ -3941,7 +3939,7 @@ fetchUser()
 
 ---
 
-## 12. Same API using async/await
+### 12. Same API using async/await
 
 ```js
 async function fetchUser() {
@@ -3963,7 +3961,7 @@ fetchUser();
 
 ---
 
-## Interview Questions
+### Interview Questions
 
 ### What are the states of a Promise?
 
@@ -4038,9 +4036,9 @@ These are the Promise concepts and examples most commonly asked in React Native,
 
 ---
 
-## Logical and Output Problems
+### Logical and Output Problems
 
-## 44. Output of given code
+### 44. Output of given code
 
 ```javascript
 console.log("A");
@@ -4065,11 +4063,11 @@ console.log("G");
 // Output: A F G B D C E
 ```
 
-## 45. 3rd largest number in given of an array
+### 45. 3rd largest number in given of an array
 
-## 46. How will you improve the performance during the initial of app launch
+### 46. How will you improve the performance during the initial of app launch
 
-## 47. Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘, and ‘]’, determine if the input string is valid
+### 47. Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘, and ‘]’, determine if the input string is valid
 Example: “()[]{}”
 
 ```javascript
@@ -4095,7 +4093,7 @@ function isValid(s) {
 }
 ```
 
-## 48. PrefixSum patterns
+### 48. PrefixSum patterns
 
 ```javascript
 // Prefix sum array
@@ -4204,7 +4202,7 @@ class Solution3 {
 }
 ```
 
-## 49. Two Pointer patterns
+### 49. Two Pointer patterns
 
 ```javascript
 // 167. Two Sum II - Input Array Is Sorted
@@ -4283,7 +4281,7 @@ function maximumWaterContainer(nums) {
 }
 ```
 
-## 50. Sliding window patterns
+### 50. Sliding window patterns
 
 ```javascript
 // 3. Longest substring without repeating characters
@@ -4366,7 +4364,7 @@ const solution7 = new Solution7();
 console.log(solution7.findMaxAverage([1,12,-5,-6,50,3], 4));
 ```
 
-## 51. Two Sum Problem when array not sorted
+### 51. Two Sum Problem when array not sorted
 
 ```javascript
 function twoSum(nums, target) {
@@ -4389,7 +4387,7 @@ function twoSum(nums, target) {
 console.log(twoSum([3, 2, 4], 6));
 ```
 
-## 52. Add the digit until you not get the single digit number
+### 52. Add the digit until you not get the single digit number
 
 ```javascript
 function singleDigitSum(str) {
@@ -4411,9 +4409,9 @@ console.log(singleDigitSum(str)); // 3
 
 ---
 
-## React Native Daily Life Interview Questions
+### React Native Daily Life Interview Questions
 
-## 53. `FlatList` vs `ScrollView`
+### 53. `FlatList` vs `ScrollView`
 
 **Question:** When would you use a `FlatList` instead of a `ScrollView`?
 
@@ -4435,7 +4433,7 @@ console.log(singleDigitSum(str)); // 3
 />
 ```
 
-## 54. `useMemo` vs `useCallback`
+### 54. `useMemo` vs `useCallback`
 
 **Question:** What is the difference between `useMemo` and `useCallback`?
 
@@ -4453,7 +4451,7 @@ const handleClick = useCallback(() => {
 }, [a, b]);
 ```
 
-## 55. How do you handle Memory Leaks in React Native?
+### 55. How do you handle Memory Leaks in React Native?
 
 **Question:** How do you prevent memory leaks, especially when unmounting components?
 
@@ -4479,7 +4477,7 @@ useEffect(() => {
 }, []);
 ```
 
-## 56. Custom Hook Example: `useDebounce`
+### 56. Custom Hook Example: `useDebounce`
 
 **Question:** Write a custom hook for debouncing a search input.
 
@@ -4503,7 +4501,7 @@ function useDebounce(value, delay) {
 }
 ```
 
-## 57. React Native New Architecture
+### 57. React Native New Architecture
 
 **Question:** What are the key elements of the New React Native Architecture?
 
@@ -4513,7 +4511,7 @@ function useDebounce(value, delay) {
 3. **TurboModules:** Native modules are loaded lazily (only when needed) rather than all at app startup.
 4. **Codegen:** Automates the creation of C++ boilerplate to ensure type safety between JS and Native.
 
-## 58. Context API vs Redux
+### 58. Context API vs Redux
 
 **Question:** When should you use Context API instead of Redux/Zustand?
 

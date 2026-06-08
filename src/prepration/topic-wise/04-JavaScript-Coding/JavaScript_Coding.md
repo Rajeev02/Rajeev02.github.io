@@ -2,28 +2,28 @@
 
 ## Table of Contents
 
-- [⚛️ JavaScript & React Coding Programs](#⚛️-javascript-&-react-coding-programs)
-- [Program 1: Legacy React Class Component with Full Lifecycle Methods](#program-1-legacy-react-class-component-with-full-lifecycle-methods)
-- [Program 2: Functional Component Refactor Using Hooks](#program-2-functional-component-refactor-using-hooks)
-- [Program 3: Object Reference Copying & Mutability Evaluation](#program-3-object-reference-copying-&-mutability-evaluation)
-- [Program 4: Nested Array Flattening](#program-4-nested-array-flattening)
-- [Program 5: Substring Extraction](#program-5-substring-extraction)
-- [Program 6: Asynchronous Execution Order (Event Loop Timing)](#program-6-asynchronous-execution-order-event-loop-timing)
-- [Program 7: Loop Scoping & Variable Closures inside SetTimeout](#program-7-loop-scoping-&-variable-closures-inside-settimeout)
-- [Program 8: Deep Memoization Wrapper with Cache Expiration](#program-8-deep-memoization-wrapper-with-cache-expiration)
-- [Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards](#program-9-custom-event-broker-publish-subscribe-pattern-with-wildcards)
-- [Program 10: Custom Debounce Implementation](#program-10-custom-debounce-implementation)
-- [Program 11: Custom Throttle Implementation](#program-11-custom-throttle-implementation)
-- [Program 12: Polyfills for Map, Filter, and Reduce](#program-12-polyfills-for-map-filter-and-reduce)
-- [Program 13: Data Transformations (Array-to-Object & Object-to-Array)](#program-13-data-transformations-array-to-object-&-object-to-array)
-- [Program 14: Mobile Device Token Deduplicator (CleanTokens)](#program-14-mobile-device-token-deduplicator-cleantokens)
-- [Program 15: Object Property Diff Tracker](#program-15-object-property-diff-tracker)
-- [Program 16: Paginated Transaction Amount Aggregator](#program-16-paginated-transaction-amount-aggregator)
-- [Program 17: Batch Concurrent Promise Coordinator (Network Throttler)](#program-17-batch-concurrent-promise-coordinator-network-throttler)
+- [Section 1: Program 1: Legacy React Class Component with Full Lifecycle Methods](#section-1-program-1-legacy-react-class-component-with-full-lifecycle-methods)
+- [Section 2: Program 2: Functional Component Refactor Using Hooks](#section-2-program-2-functional-component-refactor-using-hooks)
+- [Section 3: Program 3: Object Reference Copying & Mutability Evaluation](#section-3-program-3-object-reference-copying-mutability-evaluation)
+- [Section 4: Program 4: Nested Array Flattening](#section-4-program-4-nested-array-flattening)
+- [Section 5: Program 5: Substring Extraction](#section-5-program-5-substring-extraction)
+- [Section 6: Program 6: Asynchronous Execution Order (Event Loop Timing)](#section-6-program-6-asynchronous-execution-order-event-loop-timing)
+- [Section 7: Program 7: Loop Scoping & Variable Closures inside SetTimeout](#section-7-program-7-loop-scoping-variable-closures-inside-settimeout)
+- [Section 8: Program 8: Deep Memoization Wrapper with Cache Expiration](#section-8-program-8-deep-memoization-wrapper-with-cache-expiration)
+- [Section 9: Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards](#section-9-program-9-custom-event-broker-publish-subscribe-pattern-with-wildcards)
+- [Section 10: Program 10: Custom Debounce Implementation](#section-10-program-10-custom-debounce-implementation)
+- [Section 11: Program 11: Custom Throttle Implementation](#section-11-program-11-custom-throttle-implementation)
+- [Section 12: Program 12: Polyfills for Map, Filter, and Reduce](#section-12-program-12-polyfills-for-map-filter-and-reduce)
+- [Section 13: Program 13: Data Transformations (Array-to-Object & Object-to-Array)](#section-13-program-13-data-transformations-array-to-object-object-to-array)
+- [Section 14: Program 14: Mobile Device Token Deduplicator (CleanTokens)](#section-14-program-14-mobile-device-token-deduplicator-cleantokens)
+- [Section 15: Program 15: Object Property Diff Tracker](#section-15-program-15-object-property-diff-tracker)
+- [Section 16: Program 16: Paginated Transaction Amount Aggregator](#section-16-program-16-paginated-transaction-amount-aggregator)
+- [Section 17: Program 17: Batch Concurrent Promise Coordinator (Network Throttler)](#section-17-program-17-batch-concurrent-promise-coordinator-network-throttler)
+
 
 ---
 
-## ⚛️ JavaScript & React Coding Programs
+### ⚛️ JavaScript & React Coding Programs
 
  | Attribute | Details |
 | :--- | :--- |
@@ -54,7 +54,7 @@
 ---
 
 
-## Program 1: Legacy React Class Component with Full Lifecycle Methods
+## Section 1: Program 1: Legacy React Class Component with Full Lifecycle Methods
 *⏱️ 2 min read*
 
 ### Question
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 2: Functional Component Refactor Using Hooks
+## Section 2: Program 2: Functional Component Refactor Using Hooks
 *⏱️ 2 min read*
 
 ### Question
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 3: Object Reference Copying & Mutability Evaluation
+## Section 3: Program 3: Object Reference Copying & Mutability Evaluation
 *⏱️ 2 min read*
 
 ### Question
@@ -446,7 +446,7 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 ---
 
 
-## Program 4: Nested Array Flattening
+## Section 4: Program 4: Nested Array Flattening
 *⏱️ 1 min read*
 
 ### Question
@@ -518,7 +518,7 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 ---
 
 
-## Program 5: Substring Extraction
+## Section 5: Program 5: Substring Extraction
 *⏱️ 1 min read*
 
 ### Question
@@ -572,7 +572,7 @@ console.log("Method 3:", bananaMethod3); // "Banana"
 ---
 
 
-## Program 6: Asynchronous Execution Order (Event Loop Timing)
+## Section 6: Program 6: Asynchronous Execution Order (Event Loop Timing)
 *⏱️ 1 min read*
 
 ### Question
@@ -621,7 +621,7 @@ console.log("4: End");
 ---
 
 
-## Program 7: Loop Scoping & Variable Closures inside SetTimeout
+## Section 7: Program 7: Loop Scoping & Variable Closures inside SetTimeout
 *⏱️ 1 min read*
 
 ### Question
@@ -668,7 +668,7 @@ for (var j = 0; j < 5; j++) {
 ---
 
 
-## Program 8: Deep Memoization Wrapper with Cache Expiration
+## Section 8: Program 8: Deep Memoization Wrapper with Cache Expiration
 *⏱️ 1 min read*
 
 ### Question
@@ -756,7 +756,7 @@ function memoize(fn, options = {}) {
 ---
 
 
-## Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
+## Section 9: Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
 *⏱️ 1 min read*
 
 ### Question
@@ -858,7 +858,7 @@ class EventEmitter {
 ---
 
 
-## Program 10: Custom Debounce Implementation
+## Section 10: Program 10: Custom Debounce Implementation
 *⏱️ 1 min read*
 
 ### Question
@@ -917,7 +917,7 @@ function debounce(func, delay = 500) {
 ---
 
 
-## Program 11: Custom Throttle Implementation
+## Section 11: Program 11: Custom Throttle Implementation
 *⏱️ 1 min read*
 
 ### Question
@@ -976,7 +976,7 @@ function throttle(func, limit = 200) {
 ---
 
 
-## Program 12: Polyfills for Map, Filter, and Reduce
+## Section 12: Program 12: Polyfills for Map, Filter, and Reduce
 *⏱️ 1 min read*
 
 ### Question
@@ -1067,7 +1067,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
 ---
 
 
-## Program 13: Data Transformations (Array-to-Object & Object-to-Array)
+## Section 13: Program 13: Data Transformations (Array-to-Object & Object-to-Array)
 *⏱️ 1 min read*
 
 ### Question
@@ -1143,7 +1143,7 @@ function objectToArrayManual(obj) {
 ---
 
 
-## Program 14: Mobile Device Token Deduplicator (CleanTokens)
+## Section 14: Program 14: Mobile Device Token Deduplicator (CleanTokens)
 *⏱️ 1 min read*
 
 ### Question
@@ -1212,7 +1212,7 @@ function cleanTokens(sessions) {
 ---
 
 
-## Program 15: Object Property Diff Tracker
+## Section 15: Program 15: Object Property Diff Tracker
 *⏱️ 1 min read*
 
 ### Question
@@ -1274,7 +1274,7 @@ function getChangedKeys(previousState, currentState) {
 ---
 
 
-## Program 16: Paginated Transaction Amount Aggregator
+## Section 16: Program 16: Paginated Transaction Amount Aggregator
 *⏱️ 1 min read*
 
 ### Question
@@ -1359,7 +1359,7 @@ async function aggregateTransactions(apiEndpoint, pagesCount) {
 ---
 
 
-## Program 17: Batch Concurrent Promise Coordinator (Network Throttler)
+## Section 17: Program 17: Batch Concurrent Promise Coordinator (Network Throttler)
 *⏱️ 1 min read*
 
 ### Question

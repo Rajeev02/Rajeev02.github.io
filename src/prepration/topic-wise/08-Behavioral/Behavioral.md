@@ -2,21 +2,21 @@
 
 ## Table of Contents
 
-- [Behavior Complete Guide](#behavior-complete-guide)
-- [Behavioral: Senior Career Walkthrough](#behavioral-senior-career-walkthrough)
-- [Section 2: Monorepo & Multi-App Code Sharing](#section-2-monorepo-&-multi-app-code-sharing)
-- [🔒 Section 3: High-Stakes Fintech System Design](#🔒-section-3-high-stakes-fintech-system-design)
-- [⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#⛺-section-4-plurebus-dunst-&-wildtrails-case-studies-native-android-java)
-- [🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#🏛️-section-4b-mobile-solution-architecture-native-integration-&-enterprise-banking-capco-context)
-- [🏆 Section 5: Standard Behavioral & Technical Interview Q&A](#🏆-section-5-standard-behavioral-&-technical-interview-q&a)
-- [👥 Section 6: Agile vs. Scrum Methodologies](#👥-section-6-agile-vs-scrum-methodologies)
-- [📈 Section 7: Program & Product Delivery Manager (PDM) Round](#📈-section-7-program-&-product-delivery-manager-pdm-round)
-- [🤝 Section 8: Human Resources (HR) & Leadership Evaluation](#🤝-section-8-human-resources-hr-&-leadership-evaluation)
-- [💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy](#💰-section-9-salary-negotiation-compensation-&-benefits-strategy)
+- [Section 1: Behavioral: Senior Career Walkthrough](#section-1-behavioral-senior-career-walkthrough)
+- [Section 2: 🏗️ Monorepo & Multi-App Code Sharing](#section-2-monorepo-multi-app-code-sharing)
+- [Section 3: 🔒 High-Stakes Fintech System Design](#section-3-high-stakes-fintech-system-design)
+- [Section 4: ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#section-4-plurebus-dunst-wildtrails-case-studies-native-android-java)
+- [Section 5: 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#section-5-b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context)
+- [Section 6: 🏆 Standard Behavioral & Technical Interview Q&A](#section-6-standard-behavioral-technical-interview-q-a)
+- [Section 7: 👥 Agile vs. Scrum Methodologies](#section-7-agile-vs-scrum-methodologies)
+- [Section 8: 📈 Program & Product Delivery Manager (PDM) Round](#section-8-program-product-delivery-manager-pdm-round)
+- [Section 9: 🤝 Human Resources (HR) & Leadership Evaluation](#section-9-human-resources-hr-leadership-evaluation)
+- [Section 10: 💰 Salary Negotiation, Compensation & Benefits Strategy](#section-10-salary-negotiation-compensation-benefits-strategy)
+
 
 ---
 
-## Behavior Complete Guide
+### Behavior Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -40,19 +40,19 @@
 
 ---
 
-## Behavioral: Senior Career Walkthrough
+## Section 1: Behavioral: Senior Career Walkthrough
 
-## Concept Summary
+### Concept Summary
 As a Senior/Lead engineer with 9+ years of experience, interviewers are not just evaluating your code; they are evaluating your leadership, ownership, handling of technical debt, and cross-team communication. The STAR format (Situation, Task, Action, Result) is the industry standard for concisely and powerfully answering behavioral questions.
 
-## Must Know Points
+### Must Know Points
 - [ ] Always structure answers using **STAR**: Situation, Task, Action, Result.
 - [ ] Focus on "I" instead of "We" when discussing specific technical decisions and actions.
 - [ ] Highlight business impact (e.g., reduced crash rate by X%, increased user retention).
 - [ ] Never speak negatively about previous employers or teams; frame conflicts as "misalignments" that you solved.
 - [ ] Have exactly 3 deep, versatile stories prepared that can answer 90% of behavioral questions.
 
-## Interview Questions & STAR Walkthrough
+### Interview Questions & STAR Walkthrough
 
 ### Q1: "Tell me about a time you led a technically complex migration or refactoring."
 
@@ -88,15 +88,15 @@ I needed to convince the backend lead that REST polling would drain battery life
 **Result:** 
 The backend lead appreciated the hard data and agreed to the hybrid architecture. The feature launched successfully, battery consumption remained stable, and the team dynamic improved because the decision was based on metrics, not egos.
 
-## Follow-up Questions
+### Follow-up Questions
 1. How do you ensure your team adopts your architectural decisions without feeling micromanaged?
 2. Tell me about a time your technical solution completely failed in production. What did you do?
 
-## Common Mistakes & Quick Revision Notes
+### Common Mistakes & Quick Revision Notes
 - **Mistake:** Spending 80% of the time describing the "Situation" and rushing the "Action" and "Result". *Correction:* Keep Situation/Task to 20%, focus 60% on Action (what YOU did), and 20% on measurable Results.
 - **Mistake:** Saying "My manager made a bad decision." *Correction:* "We had competing priorities, so I aligned our goals by..."
 
-## Related Topics
+### Related Topics
 - Technical Leadership & Mentoring
 - System Architecture Design
 - Agile Delivery Management
@@ -113,7 +113,7 @@ The backend lead appreciated the hard data and agreed to the hybrid architecture
 ---
 
 
-## 🏗️ Section 2: Monorepo & Multi-App Code Sharing
+## Section 2: 🏗️ Monorepo & Multi-App Code Sharing
 
 *⏱️ 1 min read*
 
@@ -143,7 +143,7 @@ The backend lead appreciated the hard data and agreed to the hybrid architecture
 ---
 
 
-## 🔒 Section 3: High-Stakes Fintech System Design
+## Section 3: 🔒 High-Stakes Fintech System Design
 
 *⏱️ 2 min read*
 
@@ -185,7 +185,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 ---
 
 
-## ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+## Section 4: ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
 
 *⏱️ 2 min read*
 
@@ -231,7 +231,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 ---
 
 
-## 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+## Section 5: 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
 
 *⏱️ 2 min read*
 
@@ -281,7 +281,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 ---
 
 
-## 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
+## Section 6: 🏆 Standard Behavioral & Technical Interview Q&A
 
 *⏱️ 19 min read*
 
@@ -627,7 +627,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 ---
 
 
-## 👥 Section 6: Agile vs. Scrum Methodologies
+## Section 7: 👥 Agile vs. Scrum Methodologies
 
 *⏱️ 1 min read*
 
@@ -672,7 +672,7 @@ Understanding the distinction between project frameworks and mindsets is essenti
 ---
 
 
-## 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+## Section 8: 📈 Program & Product Delivery Manager (PDM) Round
 
 *⏱️ 2 min read*
 
@@ -718,7 +718,7 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
 ---
 
 
-## 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+## Section 9: 🤝 Human Resources (HR) & Leadership Evaluation
 
 *⏱️ 2 min read*
 
@@ -765,7 +765,7 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 ---
 
 
-## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+## Section 10: 💰 Salary Negotiation, Compensation & Benefits Strategy
 
 *⏱️ 1 min read*
 

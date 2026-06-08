@@ -2,21 +2,20 @@
 
 ## Table of Contents
 
-- [TypeScript Complete Guide](#typescript-complete-guide)
-- [📘 Section 1: Types vs. Interfaces](#📘-section-1-types-vs-interfaces)
-- [🛠️ Section 2: Generics & Utility Types](#🛠️-section-2-generics-&-utility-types)
-- [📱 Section 3: Type Safety in React Native (Codegen Specs)](#📱-section-3-type-safety-in-react-native-codegen-specs)
-- [⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)](#⚙️-section-4-strict-compiler-options-`tsconfigjson`)
-- [🔬 Section 5: Advanced TypeScript Q&A](#🔬-section-5-advanced-typescript-q&a)
-- [🟦 TypeScript Coding Programs](#🟦-typescript-coding-programs)
-- [Program 1: Axios Silent Token Refresh Interceptor](#program-1-axios-silent-token-refresh-interceptor)
-- [Program 2: Generic Type-Safe Item Selection List Component](#program-2-generic-type-safe-item-selection-list-component)
-- [Program 3: Advanced Conditional Types & Mapped Type Parser](#program-3-advanced-conditional-types-&-mapped-type-parser)
-- [Program 4: Nominal Type Branding (Type Branded Currency Operations)](#program-4-nominal-type-branding-type-branded-currency-operations)
+- [Section 1: 📘 Types vs. Interfaces](#section-1-types-vs-interfaces)
+- [Section 2: 🛠️ Generics & Utility Types](#section-2-generics-utility-types)
+- [Section 3: 📱 Type Safety in React Native (Codegen Specs)](#section-3-type-safety-in-react-native-codegen-specs)
+- [Section 4: ⚙️ Strict Compiler Options (`tsconfig.json`)](#section-4-strict-compiler-options-tsconfig-json)
+- [Section 5: 🔬 Advanced TypeScript Q&A](#section-5-advanced-typescript-q-a)
+- [Section 6: Program 1: Axios Silent Token Refresh Interceptor](#section-6-program-1-axios-silent-token-refresh-interceptor)
+- [Section 7: Program 2: Generic Type-Safe Item Selection List Component](#section-7-program-2-generic-type-safe-item-selection-list-component)
+- [Section 8: Program 3: Advanced Conditional Types & Mapped Type Parser](#section-8-program-3-advanced-conditional-types-mapped-type-parser)
+- [Section 9: Program 4: Nominal Type Branding (Type Branded Currency Operations)](#section-9-program-4-nominal-type-branding-type-branded-currency-operations)
+
 
 ---
 
-## TypeScript Complete Guide
+### TypeScript Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -41,7 +40,7 @@
 ---
 
 
-## 📘 Section 1: Types vs. Interfaces
+## Section 1: 📘 Types vs. Interfaces
 
 *⏱️ 1 min read*
 
@@ -119,7 +118,7 @@ type Position = [number, number]; // Tuple
 ---
 
 
-## 🛠️ Section 2: Generics & Utility Types
+## Section 2: 🛠️ Generics & Utility Types
 
 *⏱️ 1 min read*
 
@@ -205,7 +204,7 @@ TypeScript provides built-in utilities to facilitate common type transformations
 ---
 
 
-## 📱 Section 3: Type Safety in React Native (Codegen Specs)
+## Section 3: 📱 Type Safety in React Native (Codegen Specs)
 
 *⏱️ 1 min read*
 
@@ -246,7 +245,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
 ---
 
 
-## ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)
+## Section 4: ⚙️ Strict Compiler Options (`tsconfig.json`)
 
 *⏱️ 1 min read*
 
@@ -285,7 +284,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 ---
 
 
-## 🔬 Section 5: Advanced TypeScript Q&A
+## Section 5: 🔬 Advanced TypeScript Q&A
 
 *⏱️ 3 min read*
 
@@ -379,7 +378,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-## 🟦 TypeScript Coding Programs
+### 🟦 TypeScript Coding Programs
 
  | Attribute | Details |
 | :--- | :--- |
@@ -410,7 +409,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 ---
 
 
-## Program 1: Axios Silent Token Refresh Interceptor
+## Section 6: Program 1: Axios Silent Token Refresh Interceptor
 *⏱️ 2 min read*
 
 ### Question
@@ -556,7 +555,7 @@ export class AuthInterceptorService {
 ---
 
 
-## Program 2: Generic Type-Safe Item Selection List Component
+## Section 7: Program 2: Generic Type-Safe Item Selection List Component
 *⏱️ 1 min read*
 
 ### Question
@@ -665,7 +664,7 @@ const styles = StyleSheet.create({
 ---
 
 
-## Program 3: Advanced Conditional Types & Mapped Type Parser
+## Section 8: Program 3: Advanced Conditional Types & Mapped Type Parser
 *⏱️ 1 min read*
 
 ### Question
@@ -756,7 +755,7 @@ EventPayloads resolves to:
 ---
 
 
-## Program 4: Nominal Type Branding (Type Branded Currency Operations)
+## Section 9: Program 4: Nominal Type Branding (Type Branded Currency Operations)
 *⏱️ 1 min read*
 
 ### Question

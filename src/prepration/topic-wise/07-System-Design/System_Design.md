@@ -2,23 +2,21 @@
 
 ## Table of Contents
 
-- [System Design OOP Complete Guide](#system-design-oop-complete-guide)
-- [Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A](#section-1-object-oriented-programming-oop-&-conceptual-q&a)
-- [📦 Section 2: Mobile Data Structures & Practical Scenarios](#📦-section-2-mobile-data-structures-&-practical-scenarios)
-- [Mobile System Design: Large-Scale React Native Architecture](#mobile-system-design-large-scale-react-native-architecture)
-- [📡 Section 5: Third-Party Integrations & Backend Proxying](#📡-section-5-third-party-integrations-&-backend-proxying)
-- [🧪 Section 6: Mobile Testing Frameworks & TDD Strategy](#🧪-section-6-mobile-testing-frameworks-&-tdd-strategy)
-- [🧪 Section 7: Performance Profiling & Native Memory Leak Detection](#🧪-section-7-performance-profiling-&-native-memory-leak-detection)
-- [📦 Section 8: Deployment Pipelines & Store Releases](#📦-section-8-deployment-pipelines-&-store-releases)
-- [Coding 01 Introduction](#coding-01-introduction)
-- [🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications](#🧠-program-1-lru-cache-with-ttl-&-pubsub-event-notifications)
-- [📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff](#📡-program-2-asynchronous-sync-outbox-queue-with-batching-&-exponential-backoff)
-- [🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing](#🔍-program-3-prefix-auto-suggestions-trie-with-priority-heap-&-input-debouncing)
-- [🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)](#🛠️-section-3-scenario-based-coding-algorithms-40+-problems)
+- [Section 1: 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A](#section-1-object-oriented-programming-oop-conceptual-q-a)
+- [Section 2: 📦 Mobile Data Structures & Practical Scenarios](#section-2-mobile-data-structures-practical-scenarios)
+- [Section 3: Mobile System Design: Large-Scale React Native Architecture](#section-3-mobile-system-design-large-scale-react-native-architecture)
+- [Section 4: 📡 Third-Party Integrations & Backend Proxying](#section-4-third-party-integrations-backend-proxying)
+- [Section 5: 🧪 Mobile Testing Frameworks & TDD Strategy](#section-5-mobile-testing-frameworks-tdd-strategy)
+- [Section 6: 🧪 Performance Profiling & Native Memory Leak Detection](#section-6-performance-profiling-native-memory-leak-detection)
+- [Section 7: 📦 Deployment Pipelines & Store Releases](#section-7-deployment-pipelines-store-releases)
+- [Section 8: 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications](#section-8-program-1-lru-cache-with-ttl-pubsub-event-notifications)
+- [Section 9: 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff](#section-9-program-2-asynchronous-sync-outbox-queue-with-batching-exponential-backoff)
+- [Section 10: 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing](#section-10-program-3-prefix-auto-suggestions-trie-with-priority-heap-input-debouncing)
+
 
 ---
 
-## System Design OOP Complete Guide
+### System Design OOP Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -43,7 +41,7 @@
 ---
 
 
-## 🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A
+## Section 1: 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A
 
 *⏱️ 1 min read*
 
@@ -102,7 +100,7 @@ class Dog extends Animal {
 ---
 
 
-## 📦 Section 2: Mobile Data Structures & Practical Scenarios
+## Section 2: 📦 Mobile Data Structures & Practical Scenarios
 
 *⏱️ 1 min read*
 
@@ -131,17 +129,17 @@ class Dog extends Animal {
 
 ---
 
-## Mobile System Design: Large-Scale React Native Architecture
+## Section 3: Mobile System Design: Large-Scale React Native Architecture
 
-## Concept Summary
+### Concept Summary
 Mobile System Design differs heavily from Backend System Design. Instead of focusing on load balancers and horizontal database scaling, mobile system design focuses on **offline-first capabilities**, **local database limits**, **battery consumption**, **UI responsiveness (60/120FPS)**, and **over-the-air (OTA) updates**. 
 
-## Requirements
+### Requirements
 *Example Prompt: Design a WhatsApp-like Chat Application in React Native.*
 - **Functional:** 1-on-1 chat, group chat, image sharing, offline message composition.
 - **Non-Functional:** Fast startup time (< 2s), 60 FPS scrolling, battery efficient, secure storage for tokens.
 
-## Architecture Diagram
+### Architecture Diagram
 ```mermaid
 graph TD;
     UI[React Native UI (Fabric)] --> State[Zustand / Redux Toolkit]
@@ -154,43 +152,43 @@ graph TD;
     REST --> Server
 ```
 
-## Database Design
+### Database Design
 For complex relational data (like Chat threads and Messages), using `AsyncStorage` or `MMKV` is an anti-pattern because they are Key-Value stores. They require loading massive JSON strings into JS memory to filter/sort.
 
 **Optimal Choice:** **WatermelonDB** or **Realm**
 - **WatermelonDB** uses a SQLite backbone but pushes all querying to a background thread. Only the visible records are loaded into JS memory, making it highly optimized for React Native lists (`FlatList`).
 
-## API Design
+### API Design
 - **REST:** Used for heavy, one-off operations (fetching chat history, uploading media).
 - **WebSockets / gRPC:** Used for real-time bi-directional message syncing.
 - **GraphQL:** Excellent for reducing over-fetching if the app needs complex relational data across multiple entities.
 
-## Scaling Considerations
+### Scaling Considerations
 - **Memory Scaling:** FlatLists will crash if thousands of messages are loaded. Use `windowSize`, `maxToRenderPerBatch`, and `initialNumToRender` to recycle views.
 - **Image Scaling:** Use `react-native-fast-image` (or Expo Image) to utilize SDWebImage/Glide native caching to prevent memory leaks during rapid scrolling.
 
-## Caching Strategy
+### Caching Strategy
 - **React Query:** Manages server-state caching, deduplicates requests, and handles background refetching.
 - **MMKV:** Fast, synchronous Key-Value store used ONLY for scalar values (auth tokens, theme preferences, feature flags).
 
-## Offline Strategy
+### Offline Strategy
 1. **Outbox Pattern:** When offline, messages are stored in a local SQLite `outbox_queue` table with status `PENDING`.
 2. **Background Sync:** Use `react-native-background-fetch` or WorkManager/BackgroundTasks. When network is restored, an interceptor dequeues messages, sends them via API, and marks them `SENT`.
 3. **Optimistic UI:** Immediately render the message in the UI with a "clock" icon before the server confirms receipt.
 
-## Security Considerations
+### Security Considerations
 - **Token Storage:** Never store JWTs in raw AsyncStorage. Use `react-native-keychain` (iOS Keychain / Android Keystore) or MMKV with encryption.
 - **SSL Pinning:** Prevent Man-in-the-Middle (MITM) attacks by pinning the backend SSL certificate using `react-native-ssl-public-key-pinning`.
 - **Code Obfuscation:** Use ProGuard/R8 on Android and DexGuard to obfuscate native code and Hermes bytecode encryption for JS.
 
-## Trade-Offs
+### Trade-Offs
 - **WebSockets vs. Push Notifications:** WebSockets are real-time but drain battery if kept alive in the background. **Trade-off:** Keep WebSockets open *only* when the app is in the foreground. Fall back to APNS/FCM Push Notifications when the app goes into the background.
 
-## React Native Perspective
+### React Native Perspective
 Unlike native Swift/Kotlin, RN shares a single JS thread. If you parse a 10MB JSON response from the chat server synchronously, the UI thread will freeze. 
 **Solution:** Use background threads (React Native Reanimated Worklets) for heavy computations, or parse large JSON payloads natively before passing them over the JSI bridge.
 
-## Senior-Level Follow-Ups
+### Senior-Level Follow-Ups
 ### Q: How do you handle OTA (Over-the-Air) updates breaking the app?
 **A:** Use CodePush or Expo Updates. I would implement a phased rollout strategy (10% -> 50% -> 100%). Crucially, if an OTA update touches a screen that requires a new Native Module not present in the current binary, the app will crash. I always implement a version-check boundary: `if (nativeVersion >= requiredVersion) { renderNewFeature() }`.
 
@@ -209,7 +207,7 @@ Unlike native Swift/Kotlin, RN shares a single JS thread. If you parse a 10MB JS
 ---
 
 
-## 📡 Section 5: Third-Party Integrations & Backend Proxying
+## Section 4: 📡 Third-Party Integrations & Backend Proxying
 
 *⏱️ 1 min read*
 
@@ -312,7 +310,7 @@ function authenticateJWT(req, res, next) {
 ---
 
 
-## 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
+## Section 5: 🧪 Mobile Testing Frameworks & TDD Strategy
 
 *⏱️ 1 min read*
 
@@ -396,7 +394,7 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
 ---
 
 
-## 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
+## Section 6: 🧪 Performance Profiling & Native Memory Leak Detection
 
 *⏱️ 1 min read*
 
@@ -467,7 +465,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 ---
 
 
-## 📦 Section 8: Deployment Pipelines & Store Releases
+## Section 7: 📦 Deployment Pipelines & Store Releases
 
 *⏱️ 1 min read*
 
@@ -540,7 +538,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 ---
 
 
-## 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
+## Section 8: 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -709,7 +707,7 @@ class LRUCacheWithTTL {
 ---
 
 
-## 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
+## Section 9: 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -827,7 +825,7 @@ class SyncOutboxManager {
 ---
 
 
-## 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
+## Section 10: 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -1001,7 +999,7 @@ function debounceSearch(searchFn, delay = 300) {
 
 ---
 
-## 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
+### 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
 
  | Attribute | Details |
 | :--- | :--- |

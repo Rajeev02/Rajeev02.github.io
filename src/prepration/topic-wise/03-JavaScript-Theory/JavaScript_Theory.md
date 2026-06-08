@@ -2,17 +2,17 @@
 
 ## Table of Contents
 
-- [JavaScript Complete Guide](#javascript-complete-guide)
-- [☕ Section 1: Engine Fundamentals & Scoping](#☕-section-1-engine-fundamentals-&-scoping)
-- [🗑️ Section 2: Memory Management & Garbage Collection](#🗑️-section-2-memory-management-&-garbage-collection)
-- [⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks](#⚛️-section-3-react-lifecycle-class-components-vs-functional-hooks)
-- [⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)](#⚡-section-4-react-optimization-hooks-`usememo`-`usecallback`-`useref`)
-- [🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query](#🗃️-section-5-state-orchestration-redux-toolkit-vs-react-query)
-- [⚙️ Section 6: Advanced Core JS & React Engine Concepts](#⚙️-section-6-advanced-core-js-&-react-engine-concepts)
+- [Section 1: ☕ Engine Fundamentals & Scoping](#section-1-engine-fundamentals-scoping)
+- [Section 2: 🗑️ Memory Management & Garbage Collection](#section-2-memory-management-garbage-collection)
+- [Section 3: ⚛️ React Lifecycle: Class Components vs. Functional Hooks](#section-3-react-lifecycle-class-components-vs-functional-hooks)
+- [Section 4: ⚡ React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)](#section-4-react-optimization-hooks-usememo-usecallback-useref)
+- [Section 5: 🗃️ State Orchestration: Redux Toolkit vs. React Query](#section-5-state-orchestration-redux-toolkit-vs-react-query)
+- [Section 6: ⚙️ Advanced Core JS & React Engine Concepts](#section-6-advanced-core-js-react-engine-concepts)
+
 
 ---
 
-## JavaScript Complete Guide
+### JavaScript Complete Guide
 
  | Attribute | Details |
 | :--- | :--- |
@@ -37,7 +37,7 @@
 ---
 
 
-## ☕ Section 1: Engine Fundamentals & Scoping
+## Section 1: ☕ Engine Fundamentals & Scoping
 
 *⏱️ 2 min read*
 
@@ -153,7 +153,7 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
 ---
 
 
-## 🗑️ Section 2: Memory Management & Garbage Collection
+## Section 2: 🗑️ Memory Management & Garbage Collection
 
 *⏱️ 1 min read*
 
@@ -221,7 +221,7 @@ A memory leak occurs when variables or objects that are no longer needed by the 
 ---
 
 
-## ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks
+## Section 3: ⚛️ React Lifecycle: Class Components vs. Functional Hooks
 
 *⏱️ 1 min read*
 
@@ -291,7 +291,7 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 ---
 
 
-## ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
+## Section 4: ⚡ React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
 
 *⏱️ 2 min read*
 
@@ -413,7 +413,7 @@ Overusing `useMemo` and `useCallback` is a common mistake that degrades performa
 ---
 
 
-## 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query
+## Section 5: 🗃️ State Orchestration: Redux Toolkit vs. React Query
 
 *⏱️ 2 min read*
 
@@ -513,7 +513,7 @@ Large-scale React applications split state management into two clear domains: **
 ---
 
 
-## ⚙️ Section 6: Advanced Core JS & React Engine Concepts
+## Section 6: ⚙️ Advanced Core JS & React Engine Concepts
 
 *⏱️ 13 min read*
 
