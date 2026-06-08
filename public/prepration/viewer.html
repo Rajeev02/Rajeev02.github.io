@@ -945,14 +945,15 @@
       }
 
       const categoryNames = {
-        "01-React-Native": "1. React Native",
-        "02-JavaScript": "2. JavaScript",
-        "03-TypeScript": "3. TypeScript",
-        "04-DSA": "4. DSA",
-        "05-Behavior": "5. Behavior",
-        "06-MNC-Senior-Lead": "6. MNC Senior/Lead",
-        "07-System-Design-OOP": "7. System Design & OOP",
-        "08-React-Native-Projects": "8. React Native Projects",
+        "01-React-Native-Theory": "1. React Native (Theory)",
+        "02-React-Native-Coding": "1. React Native (Coding)",
+        "03-JavaScript-Theory": "2. JavaScript (Theory)",
+        "04-JavaScript-Coding": "2. JavaScript (Coding)",
+        "05-TypeScript": "3. TypeScript",
+        "06-DSA": "4. DSA",
+        "07-System-Design": "5. System Design & OOP",
+        "08-Behavioral": "6. Behavioral",
+        "09-Senior-Lead": "7. MNC Senior/Lead",
       };
 
       let themeInitialized = false;
@@ -1297,95 +1298,136 @@
         const fileList = document.getElementById("fileList");
         fileList.innerHTML = "";
 
-        for (const [section, files] of Object.entries(embeddedFileData)) {
-          const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
-          if (filteredFiles.length === 0) continue;
-
-          const sectionDiv = document.createElement("div");
-          sectionDiv.className = "section";
-
-          const sectionTitle = document.createElement("div");
-          sectionTitle.className = "section-title";
-          sectionTitle.textContent = `${categoryNames[section] || section} (${filteredFiles.length})`;
-          sectionDiv.appendChild(sectionTitle);
-
-          const sortedFiles = [...filteredFiles].sort((a, b) => {
-            const nameA = a.name.toLowerCase();
-            const nameB = b.name.toLowerCase();
-            if (nameA.includes("theory") && nameB.includes("coding")) return -1;
-            if (nameA.includes("coding") && nameB.includes("theory")) return 1;
-            return a.name.localeCompare(b.name);
-          });
-
-          for (const file of sortedFiles) {
-            const key = `${section}/${file.name}`;
-            const mins = filePrepTimes[key] || 0;
-            const timeLabel = mins > 0 ? ` (${mins}m)` : "";
-
-            const fileContainer = document.createElement("div");
-            fileContainer.className = "file-container";
-
-            const link = document.createElement("a");
-            link.className = "file-link";
-            link.textContent = `${formatFileName(file.name)}${timeLabel}`;
-            link.dataset.filename = file.name;
-            link.dataset.section = section;
-            link.onclick = (e) => {
-              e.preventDefault();
-              loadFile(file, section);
-            };
-            fileContainer.appendChild(link);
-
-            // Extract TOC links from the file content
-            const tocMatch = file.content.match(/## Table of Contents\s*\n([\s\S]*?)(?=\n---|\n## )/);
-            if (tocMatch) {
-              const sublinksContainer = document.createElement("div");
-              sublinksContainer.className = "toc-sublinks";
-              sublinksContainer.dataset.parentFilename = file.name;
-              
-              const linksText = tocMatch[1];
-              const linkRegex = /- \[(.*?)\]\((.*?)\)/g;
-              let match;
-              while ((match = linkRegex.exec(linksText)) !== null) {
-                const title = match[1];
-                const href = match[2];
-                
-                const subLink = document.createElement("a");
-                subLink.className = "toc-sublink";
-                subLink.textContent = title;
-                subLink.title = title;
-                subLink.href = href;
-                subLink.onclick = (e) => {
-                  e.preventDefault();
-                  if (!activeFile || activeFile.name !== file.name) {
-                    loadFile(file, section);
-                  }
-                  setTimeout(() => {
-                    const targetId = decodeURIComponent(href.slice(1));
-                    const targetEl = document.getElementById(targetId);
-                    if (targetEl) {
-                      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                      history.pushState(null, null, href);
-                    } else {
-                      const slugTarget = targetId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-                      const fallbackEl = document.getElementById(slugTarget);
-                      if (fallbackEl) {
-                        fallbackEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                        history.pushState(null, null, "#" + slugTarget);
-                      }
-                    }
-                  }, 400);
-                };
-                sublinksContainer.appendChild(subLink);
-              }
-              fileContainer.appendChild(sublinksContainer);
+        const groups = [
+            {
+                title: "1. React Native",
+                items: [
+                    { label: "Theory", section: "01-React-Native-Theory", filename: "React_Native_Theory.md" },
+                    { label: "Coding", section: "02-React-Native-Coding", filename: "React_Native_Coding.md" }
+                ]
+            },
+            {
+                title: "2. JavaScript",
+                items: [
+                    { label: "Theory", section: "03-JavaScript-Theory", filename: "JavaScript_Theory.md" },
+                    { label: "Coding", section: "04-JavaScript-Coding", filename: "JavaScript_Coding.md" }
+                ]
+            },
+            {
+                title: "3. TypeScript",
+                items: [
+                    { label: "TypeScript Complete", section: "05-TypeScript", filename: "TypeScript.md" }
+                ]
+            },
+            {
+                title: "4. DSA",
+                items: [
+                    { label: "Algorithms & Programs", section: "06-DSA", filename: "DSA.md" }
+                ]
+            },
+            {
+                title: "5. System Design & OOP",
+                items: [
+                    { label: "Architecture Guide", section: "07-System-Design", filename: "System_Design.md" }
+                ]
+            },
+            {
+                title: "6. Behavioral",
+                items: [
+                    { label: "Interview Preparation", section: "08-Behavioral", filename: "Behavioral.md" }
+                ]
+            },
+            {
+                title: "7. Senior / Lead",
+                items: [
+                    { label: "MNC Lead Scenarios", section: "09-Senior-Lead", filename: "Senior_Lead.md" }
+                ]
             }
+        ];
 
-            sectionDiv.appendChild(fileContainer);
-          }
+        groups.forEach(group => {
+            const sectionDiv = document.createElement("div");
+            sectionDiv.className = "section";
 
-          fileList.appendChild(sectionDiv);
-        }
+            const sectionTitle = document.createElement("div");
+            sectionTitle.className = "section-title";
+            sectionTitle.textContent = group.title;
+            sectionDiv.appendChild(sectionTitle);
+
+            group.items.forEach(item => {
+                const files = embeddedFileData[item.section];
+                if (!files) return;
+                const file = files.find(f => f.name === item.filename);
+                if (!file) return;
+
+                const key = `${item.section}/${file.name}`;
+                const mins = filePrepTimes[key] || 0;
+                const timeLabel = mins > 0 ? ` (${mins}m)` : "";
+
+                const fileContainer = document.createElement("div");
+                fileContainer.className = "file-container";
+
+                const link = document.createElement("a");
+                link.className = "file-link";
+                link.textContent = `${item.label}${timeLabel}`;
+                link.dataset.filename = file.name;
+                link.dataset.section = item.section;
+                link.onclick = (e) => {
+                  e.preventDefault();
+                  loadFile(file, item.section);
+                };
+                fileContainer.appendChild(link);
+
+                // Extract TOC links from the file content
+                const tocMatch = file.content.match(/## Table of Contents\s*\n([\s\S]*?)(?=\n---|\n## )/);
+                if (tocMatch) {
+                  const sublinksContainer = document.createElement("div");
+                  sublinksContainer.className = "toc-sublinks";
+                  sublinksContainer.dataset.parentFilename = file.name;
+                  
+                  const linksText = tocMatch[1];
+                  const linkRegex = /- \[(.*?)\]\((.*?)\)/g;
+                  let match;
+                  while ((match = linkRegex.exec(linksText)) !== null) {
+                    const title = match[1];
+                    const href = match[2];
+                    
+                    const subLink = document.createElement("a");
+                    subLink.className = "toc-sublink";
+                    subLink.textContent = title;
+                    subLink.title = title;
+                    subLink.href = href;
+                    subLink.onclick = (e) => {
+                      e.preventDefault();
+                      if (!activeFile || activeFile.name !== file.name) {
+                        loadFile(file, item.section);
+                      }
+                      setTimeout(() => {
+                        const targetId = decodeURIComponent(href.slice(1));
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                          history.pushState(null, null, href);
+                        } else {
+                          const slugTarget = targetId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                          const fallbackEl = document.getElementById(slugTarget);
+                          if (fallbackEl) {
+                            fallbackEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                            history.pushState(null, null, "#" + slugTarget);
+                          }
+                        }
+                      }, 400);
+                    };
+                    sublinksContainer.appendChild(subLink);
+                  }
+                  fileContainer.appendChild(sublinksContainer);
+                }
+
+                sectionDiv.appendChild(fileContainer);
+            });
+
+            fileList.appendChild(sectionDiv);
+        });
       }
 
       function formatFileName(name) {
