@@ -866,9 +866,20 @@ const styles = StyleSheet.create({
 | O(2ⁿ)      | Exponential | Recursive Fibonacci |
 | O(n!)      | Factorial   | Permutations        |
 
-#### Binary Search ⭐⭐⭐
-**Input:** `nums = [1, 2, 3, 4, 5, 6]`, `target = 4`
-**Output:** `3`
+#### 23. Binary Search ⭐⭐⭐
+**Pattern:** Binary Search
+
+**Input:**
+```javascript
+nums = [1, 2, 3, 4, 5, 6];
+target = 4;
+```
+
+**Output:**
+```javascript
+3
+```
+
 **Solution:**
 ```javascript
 function binarySearch(nums, target) {
@@ -893,9 +904,19 @@ function binarySearch(nums, target) {
 }
 ```
 
-#### Bit Manipulation (Single Number) ⭐⭐
-**Input:** `[2, 2, 1]`
-**Output:** `1`
+#### 24. Bit Manipulation (Single Number) ⭐⭐
+**Pattern:** XOR
+
+**Input:**
+```javascript
+[2, 2, 1]
+```
+
+**Output:**
+```javascript
+1
+```
+
 **Solution:**
 ```javascript
 function singleNumber(nums) {
@@ -907,9 +928,25 @@ function singleNumber(nums) {
 }
 ```
 
-#### Matrix Traversal ⭐⭐
-**Input:** `[[1, 2], [3, 4]]`
-**Output:** `1 2 3 4`
+#### 25. Matrix Traversal ⭐⭐
+**Pattern:** Nested Loops
+
+**Input:**
+```javascript
+[
+  [1, 2],
+  [3, 4]
+]
+```
+
+**Output:**
+```javascript
+1
+2
+3
+4
+```
+
 **Solution:**
 ```javascript
 function traverse(matrix) {
@@ -920,6 +957,123 @@ function traverse(matrix) {
   }
 }
 ```
+
+#### 26. Third Largest Number ⭐⭐
+**Pattern:** Set & Sort
+
+**Input:**
+```javascript
+[10, 5, 20, 8, 15]
+```
+
+**Output:**
+```javascript
+15
+```
+
+**Solution:**
+```javascript
+const arr = [10, 5, 20, 8, 15];
+const result = [...new Set(arr)].sort((a, b) => b - a)[2];
+console.log(result);
+```
+
+#### 27. Prefix Sum ⭐⭐
+**Pattern:** Accumulator Array
+
+**Input:**
+```javascript
+[3, 5, 4, 2, 7, 9]
+```
+
+**Output:**
+```javascript
+[3, 8, 12, 14, 21, 30]
+```
+
+**Solution:**
+```javascript
+function prefixSum(arr) {
+  let sum = 0;
+  const result = [];
+
+  for (const num of arr) {
+    sum += num;
+    result.push(sum);
+  }
+
+  return result;
+}
+```
+
+#### 28. Range Sum Query ⭐⭐⭐
+**Pattern:** Prefix Sum Array
+
+**Input:**
+```javascript
+nums = [-2, 0, 3, -5, 2, -1];
+left = 1;
+right = 5;
+```
+
+**Output:**
+```javascript
+-1
+```
+
+**Solution:**
+```javascript
+class NumArray {
+  constructor(nums) {
+    this.prefix = [...nums];
+
+    for (let i = 1; i < this.prefix.length; i++) {
+      this.prefix[i] += this.prefix[i - 1];
+    }
+  }
+
+  sumRange(left, right) {
+    if (left === 0) return this.prefix[right];
+    return this.prefix[right] - this.prefix[left - 1];
+  }
+}
+```
+
+#### 29. Subarray Sum Equals K ⭐⭐⭐⭐
+**Pattern:** Prefix Sum + HashMap
+
+**Input:**
+```javascript
+nums = [1, -1, 0];
+k = 0;
+```
+
+**Output:**
+```javascript
+3
+```
+
+**Solution:**
+```javascript
+function subarraySum(nums, k) {
+  let count = 0;
+  let prefix = 0;
+
+  const map = new Map();
+  map.set(0, 1);
+
+  for (const num of nums) {
+    prefix += num;
+
+    count += map.get(prefix - k) || 0;
+
+    map.set(prefix, (map.get(prefix) || 0) + 1);
+  }
+
+  return count;
+}
+```
+
 
 ---
 
