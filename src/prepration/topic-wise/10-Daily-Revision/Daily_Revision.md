@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Section 1: 💻 1-Hour Daily Coding Routine (IBM HackerRank Prep)](#section-1-1-hour-daily-coding-routine-ibm-hackerrank-prep)
+- [Section 1: 💻 1-Hour Daily Coding Routine (HackerRank Prep)](#section-1-1-hour-daily-coding-routine-hackerrank-prep)
 - [Section 2: 🧠 1-Hour Daily Theory Routine (React Native & JS)](#section-2-1-hour-daily-theory-routine-react-native-js)
 
 
@@ -10,18 +10,18 @@
 
 | Attribute | Details |
 | :--- | :--- |
-| **Topic Name** | 💻 1-Hour Daily Coding Routine (IBM HackerRank Prep) |
+| **Topic Name** | 💻 1-Hour Daily Coding Routine (HackerRank Prep) |
 | **Difficulty** | Medium |
 | **Interview Frequency** | High |
 | **Tags** | 🔥 Must Revise |
 
 ---
 
-## Section 1: 💻 1-Hour Daily Coding Routine (IBM HackerRank Prep)
+## Section 1: 💻 1-Hour Daily Coding Routine (HackerRank Prep)
 
 *⏱️ 45 min read*
 
-# IBM HackerRank Preparation Guide
+# HackerRank Preparation Guide
 
 ### Senior React Native Developer (9 Years Experience)
 
@@ -803,7 +803,7 @@ async function fetchWithRetry(url, retries = 3) {
 
 ---
 
-# Expected IBM Patterns
+# Expected Patterns
 
 High Probability:
 
