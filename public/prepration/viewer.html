@@ -307,8 +307,6 @@
         border-radius: 12px;
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);
-        max-height: 85vh;
-        overflow-y: auto;
         transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
       }
       .no-file {
@@ -818,7 +816,6 @@
           <span id="headerTitleText" style="cursor: pointer;" onclick="goBack()" title="Back to Dashboard">Preparation Resources</span>
         </h1>
         <div class="header-actions">
-          <button id="langToggle" class="theme-toggle-btn" style="width: auto; padding: 0 12px; font-size: 13px; font-weight: 700; gap: 4px;" aria-label="Toggle language">🇬🇧 Eng</button>
           <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
           <button class="logout-btn" onclick="logout()">Lock & Exit</button>
         </div>
@@ -944,56 +941,8 @@
       let isSidebarCollapsed = localStorage.getItem("sidebar_collapsed") === "true";
       let isWideReading = localStorage.getItem("wide_reading") === "true";
 
-      // Language configuration state
-      let currentLanguage = localStorage.getItem("language") || "english";
       let activeFile = null;
       let activeSection = null;
-
-      let langInitialized = false;
-      function initLangToggle() {
-        if (langInitialized) return;
-        updateLangToggleUI(currentLanguage);
-        
-        const langBtn = document.getElementById("langToggle");
-        if (langBtn) {
-          langBtn.addEventListener("click", () => {
-            currentLanguage = currentLanguage === "english" ? "hinglish" : "english";
-            localStorage.setItem("language", currentLanguage);
-            updateLangToggleUI(currentLanguage);
-            
-            // Reload active file in the selected language
-            if (activeFile) {
-              const contentToDisplay = getLanguageContent(activeFile, activeSection);
-              displayContent(contentToDisplay, activeFile.name, activeFile.type);
-            }
-          });
-          langInitialized = true;
-        }
-      }
-
-      function updateLangToggleUI(lang) {
-        const langBtn = document.getElementById("langToggle");
-        if (!langBtn) return;
-        if (lang === "hinglish") {
-          langBtn.innerHTML = "🇮🇳 Hin";
-          langBtn.title = "Switch to English";
-        } else {
-          langBtn.innerHTML = "🇬🇧 Eng";
-          langBtn.title = "Switch to Hinglish";
-        }
-      }
-
-      function getLanguageContent(file, section) {
-        if (currentLanguage === "hinglish" && file.name.endsWith(".md")) {
-          const hinglishName = file.name.replace(".md", "_hinglish.md");
-          const sectionFiles = embeddedFileData[section] || [];
-          const hinglishFile = sectionFiles.find(f => f.name === hinglishName);
-          if (hinglishFile) {
-            return hinglishFile.content;
-          }
-        }
-        return file.content;
-      }
 
       function renderContentHeader() {
         const sidebarIcon = isSidebarCollapsed ? "📂" : "📁";
@@ -1136,9 +1085,8 @@
 
       function initializeApp() {
         try {
-          // Initialize theme and language toggles
+          // Initialize theme toggle
           initThemeToggle();
-          initLangToggle();
 
           // Wait for marked to be available
           if (typeof marked === "undefined") {
@@ -1384,8 +1332,7 @@
         
         showLoader();
         setTimeout(() => {
-          const contentToDisplay = getLanguageContent(file, section);
-          displayContent(contentToDisplay, file.name, file.type);
+          displayContent(file.content, file.name, file.type);
           updateActiveLink(section, file.name);
           const wrapper = document.querySelector(".content-wrapper");
           if (wrapper) {
@@ -1546,7 +1493,7 @@
           
           const matchedFiles = filteredFiles.filter(file => {
             const nameMatch = formatFileName(file.name).toLowerCase().includes(query);
-            const contentToSearch = getLanguageContent(file, section).toLowerCase();
+            const contentToSearch = file.content.toLowerCase();
             const contentMatch = contentToSearch.includes(query);
             return nameMatch || contentMatch;
           });
@@ -1588,7 +1535,7 @@
             
             fileContainer.appendChild(link);
 
-            const content = getLanguageContent(file, section);
+            const content = file.content;
             const lowerContent = content.toLowerCase();
             const index = lowerContent.indexOf(query);
             
