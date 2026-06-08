@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`15 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🤝 Section 21: Behavioral, Leadership & HR Rounds |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🤝 Section 21: Behavioral, Leadership & HR Rounds
 
 *⏱️ 2 min read*

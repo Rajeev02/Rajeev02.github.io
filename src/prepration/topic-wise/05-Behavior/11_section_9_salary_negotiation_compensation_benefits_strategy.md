@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
 
 *⏱️ 1 min read*

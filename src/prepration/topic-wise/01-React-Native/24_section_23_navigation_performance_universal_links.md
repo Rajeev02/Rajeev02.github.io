@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🧭 Section 23: Navigation Performance & Universal Links |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🧭 Section 23: Navigation Performance & Universal Links
 
 *⏱️ 3 min read*

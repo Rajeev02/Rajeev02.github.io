@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`7 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive
 
 *⏱️ 5 min read*

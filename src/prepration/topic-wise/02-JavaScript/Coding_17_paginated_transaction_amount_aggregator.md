@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 16: Paginated Transaction Amount Aggregator |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 16: Paginated Transaction Amount Aggregator
 *⏱️ 1 min read*
 

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔒 Section 3: High-Stakes Fintech System Design |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🔒 Section 3: High-Stakes Fintech System Design
 
 *⏱️ 2 min read*

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 6: Reusable API Calling Wrappers (Fetch vs. Axios) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
 *⏱️ 2 min read*
 

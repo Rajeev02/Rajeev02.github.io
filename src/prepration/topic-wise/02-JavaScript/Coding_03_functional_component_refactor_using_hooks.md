@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 2: Functional Component Refactor Using Hooks |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 2: Functional Component Refactor Using Hooks
 *⏱️ 2 min read*
 

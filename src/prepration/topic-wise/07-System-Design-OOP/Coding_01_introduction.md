@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Coding 01 Introduction |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 <!-- INDEX_START -->
 <details>
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>

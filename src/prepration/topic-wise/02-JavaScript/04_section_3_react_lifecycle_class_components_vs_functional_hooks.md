@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks
 
 *⏱️ 1 min read*

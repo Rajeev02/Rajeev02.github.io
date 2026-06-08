@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
 *⏱️ 2 min read*
 

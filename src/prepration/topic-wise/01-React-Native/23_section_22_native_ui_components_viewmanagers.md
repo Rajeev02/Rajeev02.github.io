@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🖼️ Section 22: Native UI Components (ViewManagers) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🖼️ Section 22: Native UI Components (ViewManagers)
 
 *⏱️ 2 min read*

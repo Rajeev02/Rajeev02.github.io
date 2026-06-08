@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
 
 *⏱️ 2 min read*

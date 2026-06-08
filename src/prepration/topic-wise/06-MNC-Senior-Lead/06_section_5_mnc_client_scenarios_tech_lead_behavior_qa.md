@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
 
 *⏱️ 2 min read*

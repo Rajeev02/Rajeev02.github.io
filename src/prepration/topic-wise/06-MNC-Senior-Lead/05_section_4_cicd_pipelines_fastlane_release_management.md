@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
 
 *⏱️ 2 min read*

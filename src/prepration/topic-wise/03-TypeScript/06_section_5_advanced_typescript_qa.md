@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔬 Section 5: Advanced TypeScript Q&A |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🔬 Section 5: Advanced TypeScript Q&A
 
 *⏱️ 3 min read*

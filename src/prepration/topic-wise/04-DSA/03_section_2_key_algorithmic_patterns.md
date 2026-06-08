@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🧩 Section 2: Key Algorithmic Patterns |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🧩 Section 2: Key Algorithmic Patterns
 
 *⏱️ 3 min read*

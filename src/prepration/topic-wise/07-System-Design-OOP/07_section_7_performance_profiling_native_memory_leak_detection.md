@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🧪 Section 7: Performance Profiling & Native Memory Leak Detection |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
 
 *⏱️ 1 min read*

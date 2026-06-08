@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
 *⏱️ 2 min read*
 

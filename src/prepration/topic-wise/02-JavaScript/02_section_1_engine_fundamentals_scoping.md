@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ☕ Section 1: Engine Fundamentals & Scoping |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ☕ Section 1: Engine Fundamentals & Scoping
 
 *⏱️ 2 min read*

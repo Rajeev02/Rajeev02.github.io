@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 12: Polyfills for Map, Filter, and Reduce |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 12: Polyfills for Map, Filter, and Reduce
 *⏱️ 1 min read*
 

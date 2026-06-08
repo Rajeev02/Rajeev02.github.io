@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🌐 Section 16: React Native for Web (Cross-Platform Development) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🌐 Section 16: React Native for Web (Cross-Platform Development)
 
 *⏱️ 1 min read*

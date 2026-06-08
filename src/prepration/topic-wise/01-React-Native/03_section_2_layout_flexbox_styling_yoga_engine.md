@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Section 2: Layout, Flexbox & styling (Yoga Engine) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)
 
 *⏱️ 2 min read*

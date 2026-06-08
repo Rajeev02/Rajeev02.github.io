@@ -1,5 +1,21 @@
 # System Design OOP Complete Guide
 
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | System Design OOP Complete Guide |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
+
 ## Table of Contents
 - [🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A](#-section-1-object-oriented-programming-oop--conceptual-qa)
 - [📦 Section 2: Mobile Data Structures & Practical Scenarios](#-section-2-mobile-data-structures--practical-scenarios)

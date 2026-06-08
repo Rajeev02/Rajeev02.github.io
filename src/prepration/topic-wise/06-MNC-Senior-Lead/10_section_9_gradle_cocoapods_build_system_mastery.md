@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`6 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Section 9: Gradle & CocoaPods Build System Mastery |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🏗️ Section 9: Gradle & CocoaPods Build System Mastery
 
 *⏱️ 4 min read*

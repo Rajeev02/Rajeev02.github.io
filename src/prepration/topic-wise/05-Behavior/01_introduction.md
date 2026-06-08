@@ -1,5 +1,21 @@
 # Behavior Complete Guide
 
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Behavior Complete Guide |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
+
 ## Table of Contents
 - [🧭 Section 1: Senior Career Walkthrough (STAR Format)](#-section-1-senior-career-walkthrough-star-format)
 - [🏗️ Section 2: Monorepo & Multi-App Code Sharing](#-section-2-monorepo--multi-app-code-sharing)

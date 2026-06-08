@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)
 
 *⏱️ 1 min read*

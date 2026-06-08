@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📡 Section 5: Third-Party Integrations & Backend Proxying |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 📡 Section 5: Third-Party Integrations & Backend Proxying
 
 *⏱️ 1 min read*

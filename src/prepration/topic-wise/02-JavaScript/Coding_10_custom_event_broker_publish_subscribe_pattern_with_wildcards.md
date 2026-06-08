@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
 *⏱️ 1 min read*
 

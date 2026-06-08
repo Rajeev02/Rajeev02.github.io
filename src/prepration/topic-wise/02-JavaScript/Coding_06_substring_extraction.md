@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 5: Substring Extraction |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 5: Substring Extraction
 *⏱️ 1 min read*
 

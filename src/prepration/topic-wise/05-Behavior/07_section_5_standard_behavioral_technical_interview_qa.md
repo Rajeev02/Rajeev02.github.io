@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`25 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🏆 Section 5: Standard Behavioral & Technical Interview Q&A |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
 
 *⏱️ 19 min read*

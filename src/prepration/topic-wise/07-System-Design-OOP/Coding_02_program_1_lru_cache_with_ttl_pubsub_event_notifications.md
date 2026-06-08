@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
 *⏱️ 2 min read*
 

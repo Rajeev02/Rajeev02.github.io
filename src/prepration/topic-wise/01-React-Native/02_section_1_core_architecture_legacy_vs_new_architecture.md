@@ -1,56 +1,74 @@
-## 🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)
+## Page Summary
+### Reading Time
+`6 Minutes`
 
-*⏱️ 3 min read*
-
-React Native's runtime environment has gone through a major architectural transition. For interviews, you should understand **both** the legacy Bridge architecture and the modern New Architecture, because many production apps still run on older versions while new projects and upgrades increasingly expect Hermes, JSI, Fabric, TurboModules, and Codegen knowledge.
-
-#### 1. [LEGACY] The Legacy Bridge Architecture
-Historically, React Native relied on three main threads:
-- **JavaScript Thread**: Executes the compiled JS/TS application code (React components, business logic).
-- **Native UI Thread (Main Thread)**: Handles native OS rendering (Android Views, iOS UIKit), layouts, and user interactions.
-- **Shadow Thread**: Computes Flexbox layout dimensions using the Yoga engine before passing them to the Native thread.
-
-**The Bottleneck**: Communication between the JS Thread and the Native Thread was governed by **The Bridge**. 
-- Whenever data or UI actions passed between layers, they had to be serialized into JSON strings, sent asynchronously over the bridge, and deserialized on the other side.
-- This asynchronous, batch-based serialization created severe performance bottlenecks for high-frequency interactions such as rapid list scrolling, gestures, native animations, and input validation. If the bridge was flooded, the UI thread lagged behind, causing visual stuttering and frame drops.
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Core Architecture (Legacy vs. New Architecture) |
+| Difficulty | Hard |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise<br>⭐ Frequently Asked<br>💼 Product Company Favorite |
 
 ---
 
-#### 2. [MODERN] The New Architecture (JSI, TurboModules, Fabric)
-The New Architecture eliminates the old asynchronous JSON bridge for core rendering and modern native-module access, replacing it with JSI-backed C++ interfaces.
+# React Native Core Architecture (Legacy vs. Modern)
 
-##### JavaScript Interface (JSI)
-- **JSI** is a lightweight C++ abstraction layer that allows the JavaScript engine (Hermes) to hold direct references to host native C++ objects.
-- JavaScript can invoke host methods without JSON serialization. Some APIs can be synchronous, but senior engineers avoid synchronous native calls for slow I/O because they can still block the JS runtime.
+## Concept Summary
+React Native's runtime environment has undergone a massive architectural transition. The legacy architecture relied on an asynchronous JSON bridge to communicate between JavaScript and Native threads. The modern "New Architecture" replaces this with synchronous, C++ backed interfaces (JSI), allowing lazy-loading of modules (TurboModules) and concurrent, direct UI rendering (Fabric), protected by strict type-safety (Codegen).
 
-##### TurboModules (Native Modules Reborn)
-- In the legacy model, all native modules (e.g., Camera, Bluetooth, Storage) were initialized eagerly at app startup, regardless of whether the user accessed them. This bloated app launch time.
-- **TurboModules** leverage JSI to lazy-load native libraries. They are only initialized and loaded into memory when explicitly invoked by the JavaScript code, significantly reducing app startup latency.
+## Must Know Points
+- [ ] Understand the 3 legacy threads: JS Thread, Native UI Thread, and Shadow Thread.
+- [ ] Understand the bottleneck of the legacy Bridge (Asynchronous, batched, JSON serialization).
+- [ ] Explain **JSI (JavaScript Interface)** and how it allows JS to hold references to C++ host objects.
+- [ ] Explain **TurboModules** and how they lazy-load native dependencies to improve startup time.
+- [ ] Explain **Fabric** and how it computes layout directly in C++ without bridge serialization.
+- [ ] Explain **Codegen** and how it guarantees cross-language type safety.
+- [ ] Be able to outline a 10-step migration plan for enterprise applications.
 
-##### Fabric Rendering Engine
-- Fabric is the concurrent rendering engine that replaces the legacy UIManager.
-- Fabric computes UI layout changes inside C++ and commits them directly to the native OS layout thread. Because JSI allows synchronous access, Fabric can execute UI mutations instantly on the main thread, eliminating layout jumps and flickering (e.g., during rapid scroll views).
-- Fabric supports modern React concurrent rendering, including update prioritization and smoother coordination between React work and native UI commits.
+## Interview Questions
 
-##### Codegen (Type-Safety Guarantee)
-- Codegen is a build-time compiler tool that reads your TypeScript interfaces (which define the contract between JavaScript and native modules) and automatically generates the corresponding C++ binding code.
-- If a developer attempts to pass an invalid type parameter from JavaScript (e.g., passing an array instead of a string to a native function), the build fails immediately in the CI pipeline. This guarantees runtime type-safety across the JavaScript-native boundary.
+### Q1: What was the primary bottleneck of the Legacy React Native Architecture?
+**Answer:**
+Historically, React Native relied on three threads: the JavaScript Thread, the Native UI Thread, and the Shadow (Layout) Thread. The bottleneck was **The Bridge**. Whenever data or UI actions passed between the JS and Native layers, they had to be serialized into JSON strings, sent asynchronously over the bridge, and deserialized. This batch-based serialization created severe performance bottlenecks for high-frequency interactions (e.g., rapid list scrolling, animations). If the bridge was flooded, the UI thread lagged behind, causing frame drops.
 
-#### 3. Legacy to Modern Architecture Migration Plan
-When interviewers ask how you would migrate a legacy React Native app to a modern architecture, answer as a phased risk-management plan rather than a one-shot upgrade.
+### Q2: How does JSI (JavaScript Interface) solve the bridge problem?
+**Answer:**
+JSI is a lightweight C++ abstraction layer. Instead of relying on an asynchronous JSON bridge, JSI allows the JavaScript engine (like Hermes) to hold direct references to host native C++ objects. This means JavaScript can invoke native methods synchronously (or asynchronously) without any JSON serialization overhead, enabling instant communication between JS and Native realms.
 
-1. **Audit Current Baseline**: Capture the current RN version, React version, Hermes/JSC usage, Gradle, AGP, Kotlin, Xcode, CocoaPods, Node, navigation, state libraries, native modules, CI scripts, crash rate, and app startup metrics.
-2. **Dependency Compatibility Matrix**: Classify each dependency as New-Architecture-ready, legacy-only, replaceable, or internally owned. Pay special attention to camera, maps, push, analytics, payment, storage, animation, and custom native SDK wrappers.
-3. **Stabilize Before Upgrade**: Add smoke tests, E2E tests for login/payment/core flows, source-map upload, crash reporting, and a rollback plan. Migration without observability is risky.
-4. **Upgrade in Controlled Hops**: Use React Native Upgrade Helper and update native templates in small steps. Build Android and iOS after every hop instead of batching all native changes into one large PR.
-5. **Enable Hermes and Validate Bytecode Builds**: Verify release builds, startup time, memory, source maps, debugging, and any engine-specific issues.
-6. **New Architecture Readiness**: Enable Fabric/TurboModules in a branch or internal build, then fix library incompatibilities, native event emitters, Codegen specs, and synchronous native calls.
-7. **Native Module Modernization**: Keep simple legacy `RCTBridgeModule` modules working where acceptable, but migrate performance-sensitive modules to TurboModules/JSI with typed specs and background-thread handling.
-8. **UI and Animation Validation**: Test gestures, Reanimated, LayoutAnimation, navigation transitions, lists, keyboard handling, modals, and accessibility because architecture upgrades often expose subtle UI regressions.
-9. **Release Gradually**: Ship behind internal/beta tracks first, monitor crash-free sessions, ANRs, startup time, memory, and key business flows, then roll out gradually.
-10. **Cleanup Phase**: Remove deprecated APIs, old Flipper configs, unused bridge shims, stale Gradle/Pod settings, and dead compatibility wrappers only after production stability is proven.
+### Q3: What is the difference between legacy Native Modules and modern TurboModules?
+**Answer:**
+In the legacy model, all native modules (Camera, Bluetooth, Storage) were initialized eagerly at app startup, bloating the launch time even if the user never opened the camera. **TurboModules** leverage JSI to lazy-load native libraries. They are initialized and loaded into memory *only* when explicitly invoked by the JavaScript code, significantly reducing app startup latency.
 
----
+### Q4: Explain the Fabric Rendering Engine.
+**Answer:**
+Fabric is the modern concurrent rendering engine that replaces the legacy UIManager. Fabric computes UI layout changes inside C++ and commits them directly to the native OS layout thread. Because JSI allows synchronous access, Fabric can execute UI mutations instantly on the main thread, eliminating layout jumps and flickering during rapid scroll views. It also natively supports React 18 concurrent rendering features.
 
+## Follow-up Questions
+1. If JSI allows synchronous calls, why shouldn't we make all Native Module calls synchronous?
+2. How does Codegen prevent production crashes when working with Native Modules?
+3. What is the role of the Hermes engine in the New Architecture?
 
----
+## Real World / Scenario Example
+**Scenario:** You are migrating a 5-year-old React Native e-commerce app to the New Architecture. How do you approach this to minimize risk?
+
+**Solution:**
+Migration is a phased risk-management exercise, not a one-shot upgrade:
+1. **Audit Current Baseline**: Capture the current RN version, React version, Hermes usage, and library compatibility matrices.
+2. **Dependency Compatibility**: Classify dependencies as New-Architecture-ready, legacy-only, or replaceable. Pay attention to custom native SDK wrappers.
+3. **Stabilize Before Upgrade**: Add E2E tests for core flows (login/checkout) and ensure crash reporting is active.
+4. **Upgrade in Controlled Hops**: Use the React Native Upgrade Helper to update templates incrementally.
+5. **Enable Hermes**: Verify release builds, startup time, memory, and source maps on the new engine.
+6. **New Architecture Readiness**: Enable Fabric/TurboModules in a beta branch. Fix Codegen specs and synchronous native calls.
+7. **Native Module Modernization**: Migrate performance-sensitive legacy `RCTBridgeModule` modules to TurboModules/JSI.
+8. **Release Gradually**: Ship behind internal tracks, monitor crash-free sessions and ANRs, and then roll out gradually to the public.
+
+## Common Mistakes & Quick Revision Notes
+- **Mistake:** Assuming JSI means everything is faster. *Correction:* JSI is faster because it removes JSON serialization, but doing heavy I/O synchronously over JSI will completely freeze the JS thread.
+- **Mistake:** Confusing TurboModules with Fabric. *Correction:* TurboModules handle Native APIs (Bluetooth, Storage). Fabric handles the UI Rendering (Views, Text).
+- **Quick Note:** Bridge = Asynchronous + JSON. JSI = Synchronous capable + C++ references.
+
+## Related Topics
+- Native Modules & Kotlin/Swift Integration
+- Performance Optimization & Profiling
+- Hermes Engine Deep Dive

@@ -1,5 +1,21 @@
 # ⚛️ JavaScript & React Coding Programs
 
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚛️ JavaScript & React Coding Programs |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
+
 <!-- INDEX_START -->
 <details>
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>

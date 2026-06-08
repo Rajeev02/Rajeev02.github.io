@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 6: Asynchronous Execution Order (Event Loop Timing) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 6: Asynchronous Execution Order (Event Loop Timing)
 *⏱️ 1 min read*
 

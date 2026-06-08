@@ -1,5 +1,21 @@
 # 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
 
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems) |
+| Difficulty | Hard |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
+
 *⏱️ 2 min read*
 
 ### Array Algorithms

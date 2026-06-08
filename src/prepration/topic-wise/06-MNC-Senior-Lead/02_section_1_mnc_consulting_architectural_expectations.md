@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`8 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Section 1: MNC & Consulting Architectural Expectations |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🏗️ Section 1: MNC & Consulting Architectural Expectations
 
 *⏱️ 6 min read*

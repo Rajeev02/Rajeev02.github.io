@@ -1,130 +1,79 @@
-## 🌐 Section 4: React Native System Design, Databases & Situation Handling
+## Page Summary
+### Reading Time
+`7 Minutes`
 
-*⏱️ 3 min read*
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Mobile System Design: Large-Scale React Native Architecture |
+| Difficulty | Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite<br>🔥 Must Revise<br>🏢 MNC Favorite |
 
-Designing a mobile application requires balancing offline availability, RAM constraints, network instability, and fast rendering.
+---
 
-```text
-                                  [Mobile Client]
-                                         │
-                 ┌───────────────────────┼───────────────────────┐
-                 ▼                       ▼                       ▼
-            [UI Layer]            [Local Database]       [Network Sync]
-        (React Native UI)         (MMKV / Watermelon)      (Axios/WebSockets)
-                 │                       │                       │
-                 └───────► Read/Write ───┘                       ▼
-                                                        [Offline Outbox Queue]
+# Mobile System Design: Large-Scale React Native Architecture
+
+## Concept Summary
+Mobile System Design differs heavily from Backend System Design. Instead of focusing on load balancers and horizontal database scaling, mobile system design focuses on **offline-first capabilities**, **local database limits**, **battery consumption**, **UI responsiveness (60/120FPS)**, and **over-the-air (OTA) updates**. 
+
+## Requirements
+*Example Prompt: Design a WhatsApp-like Chat Application in React Native.*
+- **Functional:** 1-on-1 chat, group chat, image sharing, offline message composition.
+- **Non-Functional:** Fast startup time (< 2s), 60 FPS scrolling, battery efficient, secure storage for tokens.
+
+## Architecture Diagram
+```mermaid
+graph TD;
+    UI[React Native UI (Fabric)] --> State[Zustand / Redux Toolkit]
+    State --> Query[React Query / SWR]
+    Query --> LocalDB[(WatermelonDB / MMKV)]
+    Query --> Network[Axios + Interceptors]
+    Network --> Socket((WebSockets))
+    Network --> REST((REST API))
+    Socket --> Server[Chat Backend]
+    REST --> Server
 ```
 
-#### 1. Local Database Matrix
-Choosing the right local storage layer is critical for mobile performance:
+## Database Design
+For complex relational data (like Chat threads and Messages), using `AsyncStorage` or `MMKV` is an anti-pattern because they are Key-Value stores. They require loading massive JSON strings into JS memory to filter/sort.
 
-| Database | Architecture Type | Read/Write Latency | Max Storage Limit | Sync Protocol & Best For |
-| :--- | :--- | :--- | :--- | :--- |
-| **MMKV** | Key-Value Store | Extremely Low (< 1ms) | Limited by Device RAM | In-memory mapping serialized directly to disk. Best for small metadata, user tokens, auth flags, and lightweight cache keys. |
-| **WatermelonDB** | Relational / SQLite | Low (Lazy-loaded queries) | Multi-gigabyte (Device Storage) | Reactive SQLite layer. Provides local sync schemas (push/pull webhooks). Best for high-frequency relational data (e.g. Chat history, Product feeds, Offline order ledgers). |
-| **SQLite (Raw)** | Relational | Medium | Multi-gigabyte | Direct SQL queries. Lacks built-in reactive triggers. Best for legacy native integrations or structured offline reports. |
-| **Realm** | Object-Oriented | Low (Live object mappings) | Multi-gigabyte | Syncs automatically with MongoDB Atlas Device Sync. Best for highly complex nested object models requiring live synchronization. |
+**Optimal Choice:** **WatermelonDB** or **Realm**
+- **WatermelonDB** uses a SQLite backbone but pushes all querying to a background thread. Only the visible records are loaded into JS memory, making it highly optimized for React Native lists (`FlatList`).
 
----
+## API Design
+- **REST:** Used for heavy, one-off operations (fetching chat history, uploading media).
+- **WebSockets / gRPC:** Used for real-time bi-directional message syncing.
+- **GraphQL:** Excellent for reducing over-fetching if the app needs complex relational data across multiple entities.
 
-#### 2. Architectural Design Patterns
-To maintain a large React Native codebase (100k+ lines of code) with high testability, you should enforce structured architecture patterns:
+## Scaling Considerations
+- **Memory Scaling:** FlatLists will crash if thousands of messages are loaded. Use `windowSize`, `maxToRenderPerBatch`, and `initialNumToRender` to recycle views.
+- **Image Scaling:** Use `react-native-fast-image` (or Expo Image) to utilize SDWebImage/Glide native caching to prevent memory leaks during rapid scrolling.
 
-- **Monorepos (Yarn Workspaces/Turbo)**:
-  - Separate concerns into distinct packages: `@app/shared` (types, utilities), `@app/ui` (reusable atomic design components), and `@app/core` (state management, API clients).
-  - Maximizes code sharing between iOS, Android, and Web platforms.
-- **Clean Architecture & Feature-First Directory Structure**:
-  - Organize files by domain feature (e.g., `features/authentication`, `features/checkout`) rather than by technical file type (`components`, `redux`, `hooks`).
-  - **Clean Layers**:
-    - **Domain Layer (Entities & Rules)**: Pure business logic, independent of UI frameworks.
-    - **Data Layer (Repositories & Sources)**: Handles local storage and API integrations.
-    - **Presentation Layer (Components & Hooks)**: Focuses strictly on rendering UI layout.
-- **MVVM Pattern (Model-View-ViewModel)**:
-  - **Model**: Local/server data models (Zustand, React Query data).
-  - **View**: Pure React components (`features/checkout/components/PaymentForm.tsx`) focusing on UI layout and styles.
-  - **ViewModel**: Custom React hooks (`features/checkout/hooks/usePaymentHandler.ts`) managing UI state, input validation, and business logic.
+## Caching Strategy
+- **React Query:** Manages server-state caching, deduplicates requests, and handles background refetching.
+- **MMKV:** Fast, synchronous Key-Value store used ONLY for scalar values (auth tokens, theme preferences, feature flags).
 
-##### Feature-First Clean MVVM Directory Layout Example (Auth, Profile, Home)
-```text
-src/
-├── features/
-│   ├── auth/                      # Authentication Feature Module
-│   │   ├── components/            # [View] Presentation UI layouts
-│   │   │   ├── LoginForm.tsx
-│   │   │   └── RegisterForm.tsx
-│   │   ├── hooks/                 # [ViewModel] Auth states & validation hooks
-│   │   │   ├── useLoginViewModel.ts
-│   │   │   └── useRegisterViewModel.ts
-│   │   ├── services/              # [Data Layer] API clients & storage adapters
-│   │   │   └── AuthService.ts
-│   │   └── domain/                # [Domain Layer] Pure rules & validation entities
-│   │       └── AuthValidation.ts
-│   │
-│   ├── profile/                   # Profile Management Feature Module
-│   │   ├── components/            # [View] User Profile details & edit inputs
-│   │   │   ├── ProfileDetails.tsx
-│   │   │   └── EditProfileForm.tsx
-│   │   ├── hooks/                 # [ViewModel] Avatar updates & edit form controls
-│   │   │   └── useProfileViewModel.ts
-│   │   ├── services/              # [Data Layer] MMKV secure storage & synchronization
-│   │   │   └── ProfileRepository.ts
-│   │   └── domain/                # [Domain Layer] User entity schemas
-│   │       └── UserEntity.ts
-│   │
-│   └── home/                      # Dashboard / Home Feature Module
-│       ├── components/            # [View] Feed lists, headers, cards & items
-│       │   ├── HomeDashboard.tsx
-│       │   └── FeedCard.tsx
-│       ├── hooks/                 # [ViewModel] Paginated scrolling & refresh state handlers
-│       │   └── useHomeViewModel.ts
-│       ├── services/              # [Data Layer] Feed request fetching & local cache
-│       │   └── FeedService.ts
-│       └── domain/                # [Domain Layer] Feed item structures
-│           └── FeedItemEntity.ts
-```
+## Offline Strategy
+1. **Outbox Pattern:** When offline, messages are stored in a local SQLite `outbox_queue` table with status `PENDING`.
+2. **Background Sync:** Use `react-native-background-fetch` or WorkManager/BackgroundTasks. When network is restored, an interceptor dequeues messages, sends them via API, and marks them `SENT`.
+3. **Optimistic UI:** Immediately render the message in the UI with a "clock" icon before the server confirms receipt.
 
----
+## Security Considerations
+- **Token Storage:** Never store JWTs in raw AsyncStorage. Use `react-native-keychain` (iOS Keychain / Android Keystore) or MMKV with encryption.
+- **SSL Pinning:** Prevent Man-in-the-Middle (MITM) attacks by pinning the backend SSL certificate using `react-native-ssl-public-key-pinning`.
+- **Code Obfuscation:** Use ProGuard/R8 on Android and DexGuard to obfuscate native code and Hermes bytecode encryption for JS.
 
-#### 3. Edge-Case Situation Handling
+## Trade-Offs
+- **WebSockets vs. Push Notifications:** WebSockets are real-time but drain battery if kept alive in the background. **Trade-off:** Keep WebSockets open *only* when the app is in the foreground. Fall back to APNS/FCM Push Notifications when the app goes into the background.
 
-##### A. Low Memory / RAM Limits
-Mobile devices (especially older Android phones) can quickly trigger Out-Of-Memory (OOM) crashes:
-- **Hermes Garbage Collection**: Hermes uses a generational mark-and-sweep GC. To prevent spikes, avoid allocating large arrays or objects inside high-frequency execution loops.
-- **Cell recycling via FlashList**: Replace `FlatList` with `@shopify/flash-list`. FlashList recycles cell views instead of unmounting and recreating them, reducing native allocations.
-- **Image Cache Eviction**: Cap image caches in memory and clear them dynamically when the app enters the background:
-  ```javascript
-  import FastImage from 'react-native-fast-image';
-  // Clear memory cache on low-memory warnings or background transitions
-  FastImage.clearMemoryCache();
-  ```
+## React Native Perspective
+Unlike native Swift/Kotlin, RN shares a single JS thread. If you parse a 10MB JSON response from the chat server synchronously, the UI thread will freeze. 
+**Solution:** Use background threads (React Native Reanimated Worklets) for heavy computations, or parse large JSON payloads natively before passing them over the JSI bridge.
 
-##### B. Low Network / Offline States
-Cellular networks drop out frequently. Apps must handle network changes gracefully:
-- **Query Retries with Backoff**: Configure API call wrappers to retry queries with exponential backoff:
-  ```javascript
-  const { data } = useQuery({
-    queryKey: ['profile'],
-    queryFn: fetchProfile,
-    retry: 3,
-    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 30000)
-  });
-  ```
-- **Persistent Outbox Queue**: Store pending offline mutations in local storage (MMKV or SQLite) and process them sequentially when the device goes back online.
-- **Conflict Resolution (Vector Clocks)**: If a user modifies an order offline, append a vector clock timestamp `{ clientVersion: 5, serverVersion: 4 }` to the payload. The server validates if the base version matches the database; if a conflict occurs, it applies a merge resolution strategy (e.g., "Keep Server version" or "Merge items").
+## Senior-Level Follow-Ups
+### Q: How do you handle OTA (Over-the-Air) updates breaking the app?
+**A:** Use CodePush or Expo Updates. I would implement a phased rollout strategy (10% -> 50% -> 100%). Crucially, if an OTA update touches a screen that requires a new Native Module not present in the current binary, the app will crash. I always implement a version-check boundary: `if (nativeVersion >= requiredVersion) { renderNewFeature() }`.
 
-##### C. Large Assets & Startup Performance
-A large bundle size slows down the app startup:
-- **Asset Slicing**: Use Xcode Asset Catalogs (`.xcassets`) and Android drawable folders. The app store serves only the image densities (`@2x`, `@3x`) matching the target device.
-- **Lazy Loading Components**: Use `React.lazy()` or dynamic imports to defer loading secondary screens (e.g., settings, profile sub-pages) until the user navigates to them.
-- **Convert Images to WebP**: Replace raw PNG/JPG assets with compressed WebP images to decrease bundle footprint.
-
-##### D. Background Tasks
-Run tasks in the background without draining the battery:
-- **HeadlessJS (Android)**: Start a Java background service that runs a JavaScript task, even when the app is closed.
-- **Background Fetch (iOS)**: Use native background fetch tasks scheduled by the iOS system to periodically update local databases.
-
----
-
-
----
+### Q: Explain how you would profile memory leaks in this chat app.
+**A:** I would use Xcode Instruments (Allocations/Leaks) for the iOS native layer and Android Studio Profiler for Android. For the JS layer, I would take a Heap Snapshot using the Hermes Debugger (via Flipper or Chrome DevTools) before and after opening a chat screen. If the detached DOM nodes or React Fibers remain in memory after the screen unmounts, I investigate lingering closures or un-cleared event listeners.

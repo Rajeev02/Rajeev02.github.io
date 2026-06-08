@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
 *⏱️ 2 min read*
 

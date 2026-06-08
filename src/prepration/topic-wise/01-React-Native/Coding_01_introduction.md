@@ -1,5 +1,21 @@
 # 📱 React Native Coding Programs
 
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📱 React Native Coding Programs |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
+
 <!-- INDEX_START -->
 <details>
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>

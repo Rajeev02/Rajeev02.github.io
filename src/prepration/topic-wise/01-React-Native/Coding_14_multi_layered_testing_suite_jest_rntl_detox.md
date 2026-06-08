@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
 *⏱️ 2 min read*
 

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Section: DSA & Algorithmic Coding (Mobile Optimized) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
 *⏱️ 1 min read*
 

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)
 
 *⏱️ 2 min read*

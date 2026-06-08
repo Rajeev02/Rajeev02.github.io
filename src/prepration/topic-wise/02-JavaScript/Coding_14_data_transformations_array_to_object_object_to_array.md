@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 13: Data Transformations (Array-to-Object & Object-to-Array) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 13: Data Transformations (Array-to-Object & Object-to-Array)
 *⏱️ 1 min read*
 

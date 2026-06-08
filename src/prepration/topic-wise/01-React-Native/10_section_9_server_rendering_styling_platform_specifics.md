@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🌐 Section 9: Server Rendering, Styling & Platform Specifics |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
 
 *⏱️ 1 min read*

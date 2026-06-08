@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 3: Advanced Conditional Types & Mapped Type Parser |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## Program 3: Advanced Conditional Types & Mapped Type Parser
 *⏱️ 1 min read*
 

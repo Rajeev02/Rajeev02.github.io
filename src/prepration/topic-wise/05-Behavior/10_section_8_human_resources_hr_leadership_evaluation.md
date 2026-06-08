@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🤝 Section 8: Human Resources (HR) & Leadership Evaluation |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
 
 *⏱️ 2 min read*

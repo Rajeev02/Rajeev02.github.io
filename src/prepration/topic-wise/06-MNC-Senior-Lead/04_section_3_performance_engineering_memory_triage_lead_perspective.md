@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective) |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
 
 *⏱️ 2 min read*

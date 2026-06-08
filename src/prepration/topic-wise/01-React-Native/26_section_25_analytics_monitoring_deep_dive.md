@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📊 Section 25: Analytics & Monitoring Deep-Dive |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 📊 Section 25: Analytics & Monitoring Deep-Dive
 
 *⏱️ 3 min read*

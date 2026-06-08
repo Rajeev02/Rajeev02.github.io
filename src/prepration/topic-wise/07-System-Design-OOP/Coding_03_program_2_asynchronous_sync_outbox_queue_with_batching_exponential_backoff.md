@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
 *⏱️ 2 min read*
 

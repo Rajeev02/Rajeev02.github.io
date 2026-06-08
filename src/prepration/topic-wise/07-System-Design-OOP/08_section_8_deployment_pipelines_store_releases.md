@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📦 Section 8: Deployment Pipelines & Store Releases |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 📦 Section 8: Deployment Pipelines & Store Releases
 
 *⏱️ 1 min read*

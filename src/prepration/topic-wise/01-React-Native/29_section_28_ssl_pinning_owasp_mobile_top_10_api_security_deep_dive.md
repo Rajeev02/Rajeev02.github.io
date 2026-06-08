@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`8 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive
 
 *⏱️ 5 min read*

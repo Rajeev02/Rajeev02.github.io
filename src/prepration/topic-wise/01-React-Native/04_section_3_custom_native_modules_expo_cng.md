@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔌 Section 3: Custom Native Modules & Expo CNG |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🔌 Section 3: Custom Native Modules & Expo CNG
 
 *⏱️ 3 min read*

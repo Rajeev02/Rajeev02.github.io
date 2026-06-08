@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚡ Section 18: Senior-Level Performance Engineering Checklist |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ⚡ Section 18: Senior-Level Performance Engineering Checklist
 
 *⏱️ 1 min read*

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 9: Native Module Bridge (Kotlin Android & Swift iOS) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
 *⏱️ 2 min read*
 

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
 
 *⏱️ 2 min read*

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
 
 *⏱️ 4 min read*

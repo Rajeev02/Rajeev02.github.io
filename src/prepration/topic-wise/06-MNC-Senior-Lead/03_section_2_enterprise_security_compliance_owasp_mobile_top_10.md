@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10 |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
 
 *⏱️ 2 min read*

@@ -1,5 +1,21 @@
 # MNC Senior Lead Complete Guide
 
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | MNC Senior Lead Complete Guide |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
+
 ## Table of Contents
 - [🏗️ Section 1: MNC & Consulting Architectural Expectations](#-section-1-mnc--consulting-architectural-expectations)
 - [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#-section-2-enterprise-security-compliance--owasp-mobile-top-10)

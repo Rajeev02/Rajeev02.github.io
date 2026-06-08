@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)
 
 *⏱️ 2 min read*

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📈 Section 7: Program & Product Delivery Manager (PDM) Round |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 📈 Section 7: Program & Product Delivery Manager (PDM) Round
 
 *⏱️ 2 min read*

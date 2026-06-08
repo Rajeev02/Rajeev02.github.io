@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔗 Section 19: Bridgeless Mode & React Native Runtime |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🔗 Section 19: Bridgeless Mode & React Native Runtime
 
 *⏱️ 3 min read*

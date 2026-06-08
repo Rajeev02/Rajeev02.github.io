@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Section 2: Monorepo & Multi-App Code Sharing |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🏗️ Section 2: Monorepo & Multi-App Code Sharing
 
 *⏱️ 1 min read*

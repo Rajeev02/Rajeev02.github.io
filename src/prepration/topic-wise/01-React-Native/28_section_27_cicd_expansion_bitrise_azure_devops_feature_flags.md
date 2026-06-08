@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`5 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags
 
 *⏱️ 3 min read*

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📱 Section 3: Type Safety in React Native (Codegen Specs) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 📱 Section 3: Type Safety in React Native (Codegen Specs)
 
 *⏱️ 1 min read*

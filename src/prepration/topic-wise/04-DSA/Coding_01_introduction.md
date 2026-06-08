@@ -1,5 +1,21 @@
 # 📊 DSA Coding Programs
 
+## Page Summary
+### Reading Time
+`48 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📊 DSA Coding Programs |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
+
 <!-- INDEX_START -->
 <details>
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>

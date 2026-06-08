@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)
 
 *⏱️ 1 min read*

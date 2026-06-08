@@ -1,5 +1,21 @@
 # JavaScript Complete Guide
 
+## Page Summary
+### Reading Time
+`1 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | JavaScript Complete Guide |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
+
 ## Table of Contents
 - [☕ Section 1: Engine Fundamentals & Scoping](#-section-1-engine-fundamentals--scoping)
 - [🗑️ Section 2: Memory Management & Garbage Collection](#-section-2-memory-management--garbage-collection)

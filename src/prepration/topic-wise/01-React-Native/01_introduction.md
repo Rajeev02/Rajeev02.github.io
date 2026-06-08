@@ -1,5 +1,21 @@
 # React Native Complete Guide
 
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | React Native Complete Guide |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
+
 ## Table of Contents
 - [🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)](#-section-1-core-architecture-legacy-vs-new-architecture)
 - [🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)](#-section-2-layout-flexbox--styling-yoga-engine)

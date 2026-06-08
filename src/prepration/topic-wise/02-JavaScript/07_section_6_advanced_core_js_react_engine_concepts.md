@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`18 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⚙️ Section 6: Advanced Core JS & React Engine Concepts |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## ⚙️ Section 6: Advanced Core JS & React Engine Concepts
 
 *⏱️ 13 min read*

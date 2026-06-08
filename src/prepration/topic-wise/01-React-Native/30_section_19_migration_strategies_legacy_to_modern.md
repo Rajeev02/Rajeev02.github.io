@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`4 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🚀 Section 19: Migration Strategies (Legacy to Modern) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🚀 Section 19: Migration Strategies (Legacy to Modern)
 
 *⏱️ 2 min read*

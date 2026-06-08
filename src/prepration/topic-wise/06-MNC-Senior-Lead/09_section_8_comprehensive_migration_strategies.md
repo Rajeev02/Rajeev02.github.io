@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`19 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔄 Section 8: Comprehensive Migration Strategies |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🔄 Section 8: Comprehensive Migration Strategies
 
 *⏱️ 12 min read*

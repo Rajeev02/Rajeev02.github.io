@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
 *⏱️ 2 min read*
 

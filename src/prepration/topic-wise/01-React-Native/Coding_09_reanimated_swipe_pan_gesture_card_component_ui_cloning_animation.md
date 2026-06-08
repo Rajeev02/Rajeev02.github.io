@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
 *⏱️ 2 min read*
 

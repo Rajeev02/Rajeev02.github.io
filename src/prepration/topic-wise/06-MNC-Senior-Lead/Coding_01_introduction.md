@@ -1,5 +1,21 @@
 # 💻 Senior & Lead React Native Coding Challenges
 
+## Page Summary
+### Reading Time
+`14 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Senior & Lead React Native Coding Challenges |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
+
 <!-- INDEX_START -->
 <details>
   <summary>📖 <b>Table of Contents (Click to expand)</b></summary>

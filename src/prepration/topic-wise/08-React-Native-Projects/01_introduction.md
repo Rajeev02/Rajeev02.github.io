@@ -1,5 +1,21 @@
 # React Native Projects Complete Guide
 
+## Page Summary
+### Reading Time
+`15 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | React Native Projects Complete Guide |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 💼 Product Company Favorite |
+
+---
+
+
+
 ## Table of Contents
 - [1. Project A: Enterprise-Grade Expo Application (Expo Router, Zustand, TanStack Query & MMKV)](#1-project-a-enterprise-grade-expo-application-expo-router-zustand-tanstack-query--mmkv)
 - [2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)](#2-project-b-high-performance-cli-app-react-navigation-redux-toolkit-sqlite--native-modules)

@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
 
 *⏱️ 1 min read*

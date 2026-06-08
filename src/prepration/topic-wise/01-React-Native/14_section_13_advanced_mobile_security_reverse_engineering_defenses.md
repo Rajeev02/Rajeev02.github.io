@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
 
 *⏱️ 2 min read*

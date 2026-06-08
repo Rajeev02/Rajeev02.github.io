@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Program 4: Nominal Type Branding (Type Branded Currency Operations) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
 ## Program 4: Nominal Type Branding (Type Branded Currency Operations)
 *⏱️ 1 min read*
 

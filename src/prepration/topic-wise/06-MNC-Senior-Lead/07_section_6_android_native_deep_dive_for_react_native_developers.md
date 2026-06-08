@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`15 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 📱 Section 6: Android Native Deep-Dive for React Native Developers |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 📱 Section 6: Android Native Deep-Dive for React Native Developers
 
 *⏱️ 10 min read*

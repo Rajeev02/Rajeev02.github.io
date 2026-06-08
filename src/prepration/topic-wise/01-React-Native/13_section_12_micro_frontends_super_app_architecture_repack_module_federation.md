@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`2 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
 
 *⏱️ 2 min read*

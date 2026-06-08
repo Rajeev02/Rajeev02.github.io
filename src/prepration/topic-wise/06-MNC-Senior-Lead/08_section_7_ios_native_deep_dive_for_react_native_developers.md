@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`9 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🍎 Section 7: iOS Native Deep-Dive for React Native Developers |
+| Difficulty | Senior / Lead |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## 🍎 Section 7: iOS Native Deep-Dive for React Native Developers
 
 *⏱️ 6 min read*

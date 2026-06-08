@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | ⭐ Frequently Asked |
+
+---
+
+
 ## 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query
 
 *⏱️ 2 min read*

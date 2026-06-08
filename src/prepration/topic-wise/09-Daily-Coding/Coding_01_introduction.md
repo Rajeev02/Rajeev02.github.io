@@ -1,5 +1,21 @@
 # 💻 Daily Coding Programs
 
+## Page Summary
+### Reading Time
+`26 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | Daily Coding Programs |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 🔥 Must Revise |
+
+---
+
+
+
 ---
 
 # Interview Strategy

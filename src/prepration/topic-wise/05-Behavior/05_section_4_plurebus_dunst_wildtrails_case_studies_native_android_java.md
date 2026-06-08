@@ -1,3 +1,19 @@
+
+## Page Summary
+### Reading Time
+`3 Minutes`
+
+## Topic Metadata
+| Property | Value |
+| --- | --- |
+| Topic Name | ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java) |
+| Difficulty | Medium |
+| Interview Frequency | High |
+| Tags | 👨💼 Lead Round Favorite |
+
+---
+
+
 ## ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
 
 *⏱️ 2 min read*
