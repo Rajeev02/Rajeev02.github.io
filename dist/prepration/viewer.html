@@ -699,6 +699,28 @@
         border-color: var(--bg-active);
         box-shadow: 0 0 0 2px rgba(26, 137, 23, 0.2);
       }
+      .search-result-item {
+        margin-bottom: 4px;
+      }
+      .search-snippet {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-left: 12px;
+        margin-top: -4px;
+        margin-bottom: 8px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-break: break-word;
+      }
+      .search-highlight {
+        background-color: rgba(255, 235, 59, 0.4);
+        color: var(--text-primary);
+        border-radius: 2px;
+        font-weight: bold;
+      }
       @media (max-width: 768px) {
         .content-wrapper {
           grid-template-columns: 1fr;
@@ -1547,6 +1569,9 @@
             const mins = filePrepTimes[key] || 0;
             const timeLabel = mins > 0 ? ` (${mins}m)` : "";
 
+            const fileContainer = document.createElement("div");
+            fileContainer.className = "search-result-item";
+
             const link = document.createElement("a");
             link.className = "file-link";
             link.textContent = `${formatFileName(file.name)}${timeLabel}`;
@@ -1561,7 +1586,36 @@
               link.classList.add("active");
             }
             
-            sectionDiv.appendChild(link);
+            fileContainer.appendChild(link);
+
+            const content = getLanguageContent(file, section);
+            const lowerContent = content.toLowerCase();
+            const index = lowerContent.indexOf(query);
+            
+            if (query && index !== -1) {
+               const start = Math.max(0, index - 40);
+               const end = Math.min(content.length, index + query.length + 80);
+               let snippetText = content.substring(start, end).replace(/\n/g, ' ');
+               if (start > 0) snippetText = "..." + snippetText;
+               if (end < content.length) snippetText = snippetText + "...";
+               
+               const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+               const snippetRegex = new RegExp(`(${safeQuery})`, 'gi');
+               
+               const escapedSnippet = escapeHtml(snippetText);
+               const highlightedSnippet = escapedSnippet.replace(
+                 new RegExp(`(${escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), 
+                 '<span class="search-highlight">$1</span>'
+               );
+
+               const snippetDiv = document.createElement("div");
+               snippetDiv.className = "search-snippet";
+               snippetDiv.innerHTML = highlightedSnippet;
+               
+               fileContainer.appendChild(snippetDiv);
+            }
+
+            sectionDiv.appendChild(fileContainer);
           }
           fileList.appendChild(sectionDiv);
         }
