@@ -733,7 +733,7 @@ async function fetchWithRetry(url, retries = 3) {
 #### 21. FlatList with API Fetch & Refresh
 **Scenario:** Fetch a list of products on mount, handle loading/error states, and implement Pull-to-Refresh.
 **Solution:**
-```tsx
+```javascript
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, ActivityIndicator, RefreshControl, StyleSheet } from 'react-native';
 
@@ -794,7 +794,7 @@ const styles = StyleSheet.create({
 #### 22. 50,000 Item FlatList (Heavy Optimization)
 **Scenario:** Render a massive list without dropping frames using `React.memo`, `useCallback`, and `getItemLayout`.
 **Solution:**
-```tsx
+```javascript
 import React, { useState, useCallback } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
