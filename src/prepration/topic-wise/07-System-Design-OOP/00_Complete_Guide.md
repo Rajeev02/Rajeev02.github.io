@@ -1,23 +1,20 @@
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
+# System Design OOP Complete Guide
 
-- [🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A](#section-1-object-oriented-programming-oop--conceptual-qa)
-- [📦 Section 2: Mobile Data Structures & Practical Scenarios](#section-2-mobile-data-structures--practical-scenarios)
-- [🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)](#section-3-scenario-based-coding-algorithms-40-problems)
-- [🌐 Section 4: React Native System Design, Databases & Situation Handling](#section-4-react-native-system-design-databases--situation-handling)
-- [📡 Section 5: Third-Party Integrations & Backend Proxying](#section-5-third-party-integrations--backend-proxying)
-- [🧪 Section 6: Mobile Testing Frameworks & TDD Strategy](#section-6-mobile-testing-frameworks--tdd-strategy)
-- [📊 Section 7: Performance Profiling & Native Memory Leak Detection](#section-7-performance-profiling--native-memory-leak-detection)
-- [📦 Section 8: Deployment Pipelines & Store Releases](#section-8-deployment-pipelines--store-releases)
-- [🎯 Section 9: Senior / Lead / Architect Scenario-Based Interview Questions](#section-9-senior--lead--architect-scenario-based-interview-questions)
-</details>
-<!-- INDEX_END -->
+## Table of Contents
+- [🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A](#-section-1-object-oriented-programming-oop--conceptual-qa)
+- [📦 Section 2: Mobile Data Structures & Practical Scenarios](#-section-2-mobile-data-structures--practical-scenarios)
+- [🌐 Section 4: React Native System Design, Databases & Situation Handling](#-section-4-react-native-system-design-databases--situation-handling)
+- [📡 Section 5: Third-Party Integrations & Backend Proxying](#-section-5-third-party-integrations--backend-proxying)
+- [🧪 Section 6: Mobile Testing Frameworks & TDD Strategy](#-section-6-mobile-testing-frameworks--tdd-strategy)
+- [🧪 Section 7: Performance Profiling & Native Memory Leak Detection](#-section-7-performance-profiling--native-memory-leak-detection)
+- [📦 Section 8: Deployment Pipelines & Store Releases](#-section-8-deployment-pipelines--store-releases)
+---
 
 ## 🏗️ Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A
+
 *⏱️ 1 min read*
 
-### 1. Abstract Class Instantiation
+#### 1. Abstract Class Instantiation
 An abstract class cannot be instantiated directly. It serves as a base class containing partial implementations and signatures. You must inherit it and implement all its abstract methods in a subclass.
 
 ```java
@@ -34,7 +31,7 @@ class Dog extends Animal {
 Animal dog = new Dog(); // ✅ Works (Polymorphism)
 ```
 
-### 2. Interface vs. Abstract Class
+#### 2. Interface vs. Abstract Class
 
 | Abstract Class | Interface |
 | :--- | :--- |
@@ -43,7 +40,7 @@ Animal dog = new Dog(); // ✅ Works (Polymorphism)
 | Single inheritance (class can extend only one class). | Multiple inheritance (class can implement multiple interfaces). |
 | Used for sharing common behavior or code structure. | Used to define common capabilities across unrelated classes. |
 
-### 3. Polymorphism
+#### 3. Polymorphism
 Polymorphism allows methods to behave differently depending on the class instance calling them.
 
 ```javascript
@@ -57,7 +54,11 @@ class Dog extends Animal {
 
 ---
 
+
+---
+
 ## 📦 Section 2: Mobile Data Structures & Practical Scenarios
+
 *⏱️ 1 min read*
 
 - **Queue (Circular Queue) for Turn-Based Actions (Round Robin)**: Ideal for turn-based games or round-robin CPU scheduling. Dequeue the active player, execute their turn, and enqueue them back to the tail in $O(1)$ time.
@@ -71,39 +72,11 @@ class Dog extends Animal {
 
 ---
 
-## 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
-*⏱️ 2 min read*
-
-### Array Algorithms
-- **First Non-Repeating Element**: Loop through once to populate a frequency map, then loop a second time to find the first element with a count of 1.
-- **Second Largest Number**: Traverse the array tracking two variables (`first` and `second`). If `num > first`, shift `first` to `second` and update `first`.
-- **Move Zeros to End**: Use a write pointer `insertPos`. Iterate through the array; if an element is non-zero, swap it with the element at `insertPos` and increment `insertPos`.
-- **Rotate Array by K**: Reverse the entire array, reverse the first $K$ elements, and then reverse the remaining $N-K$ elements in $O(1)$ auxiliary space.
-- **Find Missing Number**: Calculate the expected arithmetic sum from $1$ to $N$ using $\frac{N(N+1)}{2}$ and subtract the actual array sum.
-
-### String Algorithms
-- **Check Palindrome**: Run two pointers from the outer ends (`left`, `right`) meeting at the center, asserting character equality.
-- **Reverse Words**: Split the string by spaces, swap elements using two pointers meeting in the middle, and join them back.
-- **Duplicate Characters**: Count character occurrences inside a Map and filter keys with counts greater than 1.
-- **Check Anagram**: Build a frequency count map from the first string. Decrement counts for each character in the second string. If any count reaches negative or character is missing, they are not anagrams.
-
-### HashMap Algorithms
-- **Highest Frequency Element**: Build a frequency map and track the key that holds the maximum count.
-- **Group Anagrams**: Sort each string alphabetically. Use the sorted string as a Hash Map key to group matching anagrams in an array.
-
-### Stack & Queue Algorithms
-- **Valid Parentheses**: Iterate through characters. Push opening brackets onto a stack. For closing brackets, pop from the stack and assert they match.
-- **Min Stack Design**: Keep an auxiliary stack (`minStack`) that stores the minimum values. On a `push(val)`, if the value is less than or equal to the top of `minStack`, push it onto `minStack`.
-- **Implement Queue using Stacks**: Use two stacks: `stack1` for enqueue and `stack2` for dequeue. If `stack2` is empty, pop all elements from `stack1` and push them onto `stack2`.
-
-### Linked List & Tree Algorithms
-- **Reverse Linked List**: Use three pointers (`prev`, `curr`, `nextNode`) to swap node links in place.
-- **Detect Loop (Floyd's Cycle)**: Move a slow pointer by 1 node and a fast pointer by 2 nodes. If they meet, a cycle exists.
-- **BST Validation**: Recursively validate that nodes fall between a dynamic `min` and `max` range.
 
 ---
 
 ## 🌐 Section 4: React Native System Design, Databases & Situation Handling
+
 *⏱️ 3 min read*
 
 Designing a mobile application requires balancing offline availability, RAM constraints, network instability, and fast rendering.
@@ -120,7 +93,7 @@ Designing a mobile application requires balancing offline availability, RAM cons
                                                         [Offline Outbox Queue]
 ```
 
-### 1. Local Database Matrix
+#### 1. Local Database Matrix
 Choosing the right local storage layer is critical for mobile performance:
 
 | Database | Architecture Type | Read/Write Latency | Max Storage Limit | Sync Protocol & Best For |
@@ -132,7 +105,7 @@ Choosing the right local storage layer is critical for mobile performance:
 
 ---
 
-### 2. Architectural Design Patterns
+#### 2. Architectural Design Patterns
 To maintain a large React Native codebase (100k+ lines of code) with high testability, you should enforce structured architecture patterns:
 
 - **Monorepos (Yarn Workspaces/Turbo)**:
@@ -149,7 +122,7 @@ To maintain a large React Native codebase (100k+ lines of code) with high testab
   - **View**: Pure React components (`features/checkout/components/PaymentForm.tsx`) focusing on UI layout and styles.
   - **ViewModel**: Custom React hooks (`features/checkout/hooks/usePaymentHandler.ts`) managing UI state, input validation, and business logic.
 
-#### Feature-First Clean MVVM Directory Layout Example (Auth, Profile, Home)
+##### Feature-First Clean MVVM Directory Layout Example (Auth, Profile, Home)
 ```text
 src/
 ├── features/
@@ -190,9 +163,9 @@ src/
 
 ---
 
-### 3. Edge-Case Situation Handling
+#### 3. Edge-Case Situation Handling
 
-#### A. Low Memory / RAM Limits
+##### A. Low Memory / RAM Limits
 Mobile devices (especially older Android phones) can quickly trigger Out-Of-Memory (OOM) crashes:
 - **Hermes Garbage Collection**: Hermes uses a generational mark-and-sweep GC. To prevent spikes, avoid allocating large arrays or objects inside high-frequency execution loops.
 - **Cell recycling via FlashList**: Replace `FlatList` with `@shopify/flash-list`. FlashList recycles cell views instead of unmounting and recreating them, reducing native allocations.
@@ -203,7 +176,7 @@ Mobile devices (especially older Android phones) can quickly trigger Out-Of-Memo
   FastImage.clearMemoryCache();
   ```
 
-#### B. Low Network / Offline States
+##### B. Low Network / Offline States
 Cellular networks drop out frequently. Apps must handle network changes gracefully:
 - **Query Retries with Backoff**: Configure API call wrappers to retry queries with exponential backoff:
   ```javascript
@@ -217,23 +190,27 @@ Cellular networks drop out frequently. Apps must handle network changes graceful
 - **Persistent Outbox Queue**: Store pending offline mutations in local storage (MMKV or SQLite) and process them sequentially when the device goes back online.
 - **Conflict Resolution (Vector Clocks)**: If a user modifies an order offline, append a vector clock timestamp `{ clientVersion: 5, serverVersion: 4 }` to the payload. The server validates if the base version matches the database; if a conflict occurs, it applies a merge resolution strategy (e.g., "Keep Server version" or "Merge items").
 
-#### C. Large Assets & Startup Performance
+##### C. Large Assets & Startup Performance
 A large bundle size slows down the app startup:
 - **Asset Slicing**: Use Xcode Asset Catalogs (`.xcassets`) and Android drawable folders. The app store serves only the image densities (`@2x`, `@3x`) matching the target device.
 - **Lazy Loading Components**: Use `React.lazy()` or dynamic imports to defer loading secondary screens (e.g., settings, profile sub-pages) until the user navigates to them.
 - **Convert Images to WebP**: Replace raw PNG/JPG assets with compressed WebP images to decrease bundle footprint.
 
-#### D. Background Tasks
+##### D. Background Tasks
 Run tasks in the background without draining the battery:
 - **HeadlessJS (Android)**: Start a Java background service that runs a JavaScript task, even when the app is closed.
 - **Background Fetch (iOS)**: Use native background fetch tasks scheduled by the iOS system to periodically update local databases.
 
 ---
 
+
+---
+
 ## 📡 Section 5: Third-Party Integrations & Backend Proxying
+
 *⏱️ 1 min read*
 
-### 1. Shopify APIs (REST & GraphQL)
+#### 1. Shopify APIs (REST & GraphQL)
 - **Shopify GraphQL Storefront API**:
   - Connect to Shopify using Apollo Client.
   - Query product lists and manage carts in a single round-trip:
@@ -265,7 +242,7 @@ Run tasks in the background without draining the battery:
 
 ---
 
-### 2. Push Notifications (OneSignal)
+#### 2. Push Notifications (OneSignal)
 OneSignal handles target device token registrations and handles incoming pushes:
 - **User Token Association**: Map OneSignal's push registration to your internal database user IDs using `OneSignal.login(userId)`.
 - **Deep Linking**: Attach metadata `{ targetRoute: "ProductDetails", productId: "123" }` to the notification payload. Listen for notification click events and navigate the user to the correct screen:
@@ -280,7 +257,7 @@ OneSignal handles target device token registrations and handles incoming pushes:
 
 ---
 
-### 3. Node.js & Express.js Mobile Backend API
+#### 3. Node.js & Express.js Mobile Backend API
 An API gateway proxying mobile requests should implement key security and rate-limiting features:
 ```javascript
 const express = require('express');
@@ -317,7 +294,11 @@ function authenticateJWT(req, res, next) {
 
 ---
 
+
+---
+
 ## 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
+
 *⏱️ 1 min read*
 
 Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and ensures your code is easy to maintain.
@@ -329,7 +310,7 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
   1. Write failing test ──► 2. Write minimal code ──► 3. Refactor code
 ```
 
-### 1. Testing Pyramid Mappings
+#### 1. Testing Pyramid Mappings
 
 - **Unit Testing (Jest)**:
   - Focuses on testing isolated functions, utility helpers, and custom hooks.
@@ -385,10 +366,14 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
 
 ---
 
+
+---
+
 ## 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
+
 *⏱️ 1 min read*
 
-### 1. Diagnostic Profilers
+#### 1. Diagnostic Profilers
 When users report sluggish rendering or crashes, use these tools to diagnose the cause:
 - **Flipper (Performance Logs & Layout)**:
   - Profile the React component tree and inspect state updates.
@@ -402,7 +387,7 @@ When users report sluggish rendering or crashes, use these tools to diagnose the
 
 ---
 
-### 2. Finding & Fixing Memory Leaks
+#### 2. Finding & Fixing Memory Leaks
 Memory leaks in React Native usually occur in the bridge layer between JavaScript and Native memory:
 - **Symptom**: Memory usage increases continuously as you navigate back and forth between screens, never returning to its baseline.
 - **Common Cause: Uncleaned event listeners**:
@@ -423,7 +408,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-### 3. State Management Libraries Comparison
+#### 3. State Management Libraries Comparison
 
 - **Redux Toolkit (RTK)**:
   - **Type**: Global Centralized Store.
@@ -440,10 +425,14 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
+
+---
+
 ## 📦 Section 8: Deployment Pipelines & Store Releases
+
 *⏱️ 1 min read*
 
-### 1. iOS App Store Release Management
+#### 1. iOS App Store Release Management
 - **iOS Target Upgrades**: Set the minimum iOS target (e.g. iOS 15.0) inside both the Podfile and Xcode build settings.
 - **Certificates & Provisioning**:
   - **Development Certificate**: Used to sign apps for local testing.
@@ -460,7 +449,7 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-### 2. Android Play Store Release Management
+#### 2. Android Play Store Release Management
 - **Compile & Target SDK**:
   Set target SDK versions inside `android/app/build.gradle`:
   ```groovy
@@ -481,3 +470,6 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
   - **Internal Sharing**: Share builds instantly with testers without Google review.
   - **Closed / Open Testing**: Release builds to beta testers. Requires a short review time.
   - **Production Track**: Release the app to the general public. Use progressive rollouts (e.g. 5% ➡️ 20% ➡️ 100%) to monitor crash rates on Sentry before reaching all users.
+
+---
+

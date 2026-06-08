@@ -1,41 +1,24 @@
-# 🏛️ Senior & Lead React Native Developer Guide (MNC & GSI Focus)
+# MNC Senior Lead Complete Guide
 
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
-
-- [🏗️ Section 1: MNC & Consulting Architectural Expectations](#section-1-mnc-consulting-architectural-expectations)
-  - [0. Mandatory Skills Coverage Matrix](#0-mandatory-skills-coverage-matrix)
-  - [1. Clean Architecture & SOLID Principles in React Native](#1-clean-architecture-solid-principles-in-react-native)
-  - [2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams](#2-monorepos-vs-multirepos-yarn-pnpm-nx-for-large-teams)
-  - [3. Legacy Migration & Upgrades (e.g., v0.60 to Modern RN)](#3-legacy-migration-upgrades-eg-v060-to-modern-rn)
-- [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#section-2-enterprise-security-compliance-owasp-mobile-top-10)
-  - [1. SSL Pinning & Certificate Rotation](#1-ssl-pinning-certificate-rotation)
-  - [2. Jailbreak/Root Detection and Frida Instrumentation Defenses](#2-jailbreakroot-detection-and-frida-instrumentation-defenses)
-  - [3. Secure Local Storage & Data Isolation (Keychain/Keystore)](#3-secure-local-storage-data-isolation-keychainkeystore)
-- [⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)](#section-3-performance-engineering-memory-triage-lead-perspective)
-  - [1. Native Profiling (Xcode Instruments & Android Profiler)](#1-native-profiling-xcode-instruments-android-profiler)
-  - [2. Triage of Memory Leaks, Frame Drops, and ANRs/Crashes](#2-triage-of-memory-leaks-frame-drops-and-anrscrashes)
-  - [3. Large List Optimizations (Shopify FlashList & Layout Caching)](#3-large-list-optimizations-shopify-flashlist-layout-caching)
-- [📦 Section 4: CI/CD Pipelines, Fastlane & Release Management](#section-4-cicd-pipelines-fastlane-release-management)
-  - [1. Fastlane Match & Provisioning Profile Automation](#1-fastlane-match-provisioning-profile-automation)
-  - [2. Over-the-Air (OTA) Updates Rollback & Versioning Strategy](#2-over-the-air-ota-updates-rollback-versioning-strategy)
-  - [3. Managing App Store Rejections & Play Store Compliance](#3-managing-app-store-rejections-play-store-compliance)
-- [💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A](#section-5-mnc-client-scenarios-tech-lead-behavior-q-a)
-  - [1. Client-Facing Communication & React Native Recommendations](#1-client-facing-communication-react-native-recommendations)
-  - [2. Project Estimation & Resource Planning Methods](#2-project-estimation-resource-planning-methods)
-  - [3. Resolving Technical Debt and Team Performance Bottlenecks](#3-resolving-technical-debt-and-team-performance-bottlenecks)
-</details>
-<!-- INDEX_END -->
-
+## Table of Contents
+- [🏗️ Section 1: MNC & Consulting Architectural Expectations](#-section-1-mnc--consulting-architectural-expectations)
+- [🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10](#-section-2-enterprise-security-compliance--owasp-mobile-top-10)
+- [⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)](#-section-3-performance-engineering--memory-triage-lead-perspective)
+- [📦 Section 4: CI/CD Pipelines, Fastlane & Release Management](#-section-4-cicd-pipelines-fastlane--release-management)
+- [💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A](#-section-5-mnc-client-scenarios--tech-lead-behavior-qa)
+- [📱 Section 6: Android Native Deep-Dive for React Native Developers](#-section-6-android-native-deep-dive-for-react-native-developers)
+- [🍎 Section 7: iOS Native Deep-Dive for React Native Developers](#-section-7-ios-native-deep-dive-for-react-native-developers)
+- [🔄 Section 8: Comprehensive Migration Strategies](#-section-8-comprehensive-migration-strategies)
+- [🏗️ Section 9: Gradle & CocoaPods Build System Mastery](#-section-9-gradle--cocoapods-build-system-mastery)
 ---
 
 ## 🏗️ Section 1: MNC & Consulting Architectural Expectations
+
 *⏱️ 6 min read*
 
 MNC client architectures require robust separation of concerns, scalability, and long-term maintainability. Senior and Lead developers must design architectures that can scale across large teams and multi-year product cycles.
 
-### 0. Mandatory Skills Coverage Matrix
+#### 0. Mandatory Skills Coverage Matrix
 
 Use this matrix to align answers with common Senior React Native JD keywords without sounding like you are reading a checklist.
 
@@ -50,7 +33,7 @@ Use this matrix to align answers with common Senior React Native JD keywords wit
 | **CI/CD & Release** | Fastlane, CodePush/App Center maintenance, GitHub Actions, Bitrise, Azure DevOps, Play Console, App Store Connect | "I can automate signing, build distribution, staged rollout, OTA risk controls, and store release operations." |
 | **Analytics & Observability** | Firebase/GA4, Segment, Amplitude, Sentry/Crashlytics, Datadog | "I separate product analytics, crash diagnostics, RUM/APM, and event routing based on team and compliance needs." |
 
-### 1. Clean Architecture & SOLID Principles in React Native
+#### 1. Clean Architecture & SOLID Principles in React Native
 
 Applying **Clean Architecture** to React Native ensures that business logic is completely decoupled from the UI framework, styling libraries, and state management frameworks:
 
@@ -64,7 +47,7 @@ Applying **Clean Architecture** to React Native ensures that business logic is c
 - **Data Layer (Infrastructure)**: Implements repository interfaces defined by the Domain layer. Handles remote API calls (Axios, Apollo Client), local storage operations (MMKV, SQLite), and caching.
 - **Presentation Layer (UI)**: Contains React components, styling (StyleSheet, Tailwind), and local state hooks. It calls Domain use cases to execute business logic.
 
-#### Applying SOLID Principles:
+##### Applying SOLID Principles:
 - **Single Responsibility Principle (SRP)**: Split screens into presenting views (UI-only components) and state containers (custom hooks containing data fetching and form control logic).
 - **Open/Closed Principle (OCP)**: Design components to accept styles, custom action renderers, or configurations as props instead of hardcoding platform or feature checks directly inside components.
 - **Liskov Substitution Principle (LSP)**: Ensure custom wrapper components (e.g. `CustomTextInput`) extend and maintain the native properties interface of React Native's `<TextInput>` without breaking behavior.
@@ -73,7 +56,7 @@ Applying **Clean Architecture** to React Native ensures that business logic is c
 
 ---
 
-### 2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams
+#### 2. Monorepos vs. Multirepos (Yarn, pnpm, Nx) for Large Teams
 
 When coordinating development across multiple sister applications (e.g., customer, partner, agent apps) in large MNC projects, choosing a repository model is a critical decision.
 
@@ -84,7 +67,7 @@ When coordinating development across multiple sister applications (e.g., custome
 | **CI/CD Build caching** | Basic. Rebuilds everything unless custom scripts exist. | Advanced. Invalidate cache based on code hashes. | Separate builds. No cross-repo cache sharing. |
 | **Dependency Lock** | Single Lockfile. Keeps packages on identical versions. | Single lockfile or workspace scoping options. | Multiple lockfiles. Version drift is common. |
 
-#### Architectural Lead Strategy:
+##### Architectural Lead Strategy:
 For large-scale teams (50+ engineers), configure **Nx Monorepos** with **pnpm**:
 - Enforce boundaries using Nx module tags (e.g., `app:customer` cannot import from `app:agent` directly).
 - Use dynamic path mapping in `tsconfig.json` to prevent relative import paths (e.g., import from `@shared/ui` instead of `../../shared/ui`).
@@ -92,11 +75,11 @@ For large-scale teams (50+ engineers), configure **Nx Monorepos** with **pnpm**:
 
 ---
 
-### 3. Legacy Migration & Upgrades (e.g., v0.60 to Modern RN)
+#### 3. Legacy Migration & Upgrades (e.g., v0.60 to Modern RN)
 
 Tech Leads are frequently tasked with resolving technical debt by migrating legacy apps or executing major version upgrades.
 
-#### A. Upgrading Legacy React Native (e.g., v0.63 to a modern target):
+##### A. Upgrading Legacy React Native (e.g., v0.63 to a modern target):
 1. **Analyze Dependencies**: Run audits to check compatibility of third-party native libraries with the target React Native version, Hermes, Fabric, TurboModules, and Codegen.
 2. **Utilize React Native Upgrade Helper**: Generate code diffs for native files (`AndroidManifest.xml`, `AppDelegate.mm`, `build.gradle`, `Podfile`) using the community upgrade tool.
 3. **Execute Upgrade Steps in Controlled Hops**: Do not jump blindly from a very old RN version to the latest target in one PR. Move through stable checkpoints, update native templates, run both platform builds, and validate the app after each hop.
@@ -109,7 +92,7 @@ Tech Leads are frequently tasked with resolving technical debt by migrating lega
    - Update Jest config from `preset: 'react-native'` to `preset: '@react-native/jest-preset'`.
    - Replace removed `StyleSheet.absoluteFillObject` usage with `StyleSheet.absoluteFill` or an explicit absolute-positioning style object.
 
-#### B. Migration Planning Checklist: Legacy RN to Modern RN
+##### B. Migration Planning Checklist: Legacy RN to Modern RN
 Use this answer when an interviewer asks, *"What steps will you follow before migrating a legacy React Native app to a modern app?"*
 
 1. **Discovery & Risk Mapping**:
@@ -140,19 +123,23 @@ Use this answer when an interviewer asks, *"What steps will you follow before mi
    - Monitor crash-free sessions, ANRs, startup time, memory, screen load time, API failure rates, and app-store reviews.
    - Remove old bridge shims, deprecated APIs, and unused native configs only after the rollout is stable.
 
-#### C. Migrating Native Android/iOS to React Native:
+##### C. Migrating Native Android/iOS to React Native:
 - **Phase 1: Hybrid Integration (Sub-views)**: Rather than rewriting the entire app, integrate React Native as a single fragment/controller inside the native application. Load the `ReactRootView` inside an Android Activity or iOS UIViewController.
 - **Phase 2: Data Bridge Synchronization**: Synchronize authentication states, database registries, and configurations between the native container and React Native JS context using custom bridge events.
 - **Phase 3: Incremental Screen Replaces**: Replace legacy screens one-by-one based on feature updates. Once the container navigation is fully replaced by React Navigation, remove native routing files completely.
 
 ---
 
+
+---
+
 ## 🔒 Section 2: Enterprise Security, Compliance & OWASP Mobile Top 10
+
 *⏱️ 2 min read*
 
 Enterprise banking, healthcare, and telecom clients require strict mobile security standards. Lead developers must design applications to protect user data and binary integrity.
 
-### 1. SSL Pinning & Certificate Rotation
+#### 1. SSL Pinning & Certificate Rotation
 
 To defend against Man-in-the-Middle (MitM) attacks on public networks, enterprise configurations enforce **SSL Pinning**:
 
@@ -172,7 +159,7 @@ To defend against Man-in-the-Middle (MitM) attacks on public networks, enterpris
 
 ---
 
-### 2. Jailbreak/Root Detection and Frida Instrumentation Defenses
+#### 2. Jailbreak/Root Detection and Frida Instrumentation Defenses
 
 Attackers decompile binaries and run them on rooted/jailbroken devices to inspect active memory and intercept security functions.
 
@@ -183,7 +170,7 @@ Attackers decompile binaries and run them on rooted/jailbroken devices to inspec
 
 ---
 
-### 3. Secure Local Storage & Data Isolation (Keychain/Keystore)
+#### 3. Secure Local Storage & Data Isolation (Keychain/Keystore)
 
 The OWASP Mobile Top 10 highlights **Insecure Data Storage** as a top vulnerability.
 
@@ -193,12 +180,16 @@ The OWASP Mobile Top 10 highlights **Insecure Data Storage** as a top vulnerabil
 
 ---
 
+
+---
+
 ## ⚡ Section 3: Performance Engineering & Memory Triage (Lead Perspective)
+
 *⏱️ 2 min read*
 
 Enterprise applications running complex data graphs require advanced performance triage strategies.
 
-### 1. Native Profiling (Xcode Instruments & Android Profiler)
+#### 1. Native Profiling (Xcode Instruments & Android Profiler)
 
 When JavaScript thread diagnostics are insufficient, Tech Leads use native platform profiling tools:
 
@@ -212,9 +203,9 @@ When JavaScript thread diagnostics are insufficient, Tech Leads use native platf
 
 ---
 
-### 2. Triage of Memory Leaks, Frame Drops, and ANRs/Crashes
+#### 2. Triage of Memory Leaks, Frame Drops, and ANRs/Crashes
 
-#### Diagnostics Pipeline:
+##### Diagnostics Pipeline:
 
 ```mermaid
 graph TD
@@ -233,7 +224,7 @@ graph TD
 
 ---
 
-### 3. Large List Optimizations (Shopify FlashList & Layout Caching)
+#### 3. Large List Optimizations (Shopify FlashList & Layout Caching)
 
 When rendering massive datasets (e.g., directory listings in telecom portals or statements in banking platforms), traditional `FlatList` has high memory footprints due to view node recreation.
 
@@ -245,12 +236,16 @@ When rendering massive datasets (e.g., directory listings in telecom portals or 
 
 ---
 
+
+---
+
 ## 📦 Section 4: CI/CD Pipelines, Fastlane & Release Management
+
 *⏱️ 2 min read*
 
 In large MNC teams, manual app compilation is unacceptable. Automated deployment guarantees reproducibility and consistency.
 
-### 1. Fastlane Match & Provisioning Profile Automation
+#### 1. Fastlane Match & Provisioning Profile Automation
 
 Managing iOS certificate files and provisioning profiles across multiple developers and build agents frequently causes build failures.
 
@@ -261,7 +256,7 @@ Managing iOS certificate files and provisioning profiles across multiple develop
 
 ---
 
-### 2. Over-the-Air (OTA) Updates Rollback & Versioning Strategy
+#### 2. Over-the-Air (OTA) Updates Rollback & Versioning Strategy
 
 OTA updates allow immediate JS-only updates without App Store reviews. However, they carry significant runtime crash risks if managed poorly. Do not position Microsoft App Center CodePush as the default managed service for new projects because the App Center service has been retired. Prefer Expo/EAS Updates for Expo/CNG stacks, or a self-hosted/New-Architecture-compatible OTA provider for bare React Native.
 
@@ -273,7 +268,7 @@ OTA updates allow immediate JS-only updates without App Store reviews. However, 
 
 ---
 
-### 3. Managing App Store Rejections & Play Store Compliance
+#### 3. Managing App Store Rejections & Play Store Compliance
 
 Tech Leads must navigate compliance requirements to avoid release delays:
 
@@ -287,14 +282,18 @@ Tech Leads must navigate compliance requirements to avoid release delays:
 
 ---
 
+
+---
+
 ## 💼 Section 5: MNC Client Scenarios & Tech Lead Behavior Q&A
+
 *⏱️ 2 min read*
 
 These scenarios evaluate consulting capabilities, leadership skills, and architectural decision-making.
 
-### 1. Client-Facing Communication & React Native Recommendations
+#### 1. Client-Facing Communication & React Native Recommendations
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"A banking client asks if they should rebuild their existing native iOS and Android retail banking apps using React Native. How do you advise them?"*
 
 - **Strategic Response**:
@@ -310,9 +309,9 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 
 ---
 
-### 2. Project Estimation & Resource Planning Methods
+#### 2. Project Estimation & Resource Planning Methods
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you estimate a complex project migration from legacy architectures to React Native?"*
 
 - **Strategic Response**:
@@ -328,9 +327,9 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 
 ---
 
-### 3. Resolving Technical Debt and Team Performance Bottlenecks
+#### 3. Resolving Technical Debt and Team Performance Bottlenecks
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"You join a team where the React Native app build is extremely slow, developers complain about continuous merge conflicts, and crash rates in production are rising. What is your first 30-day action plan?"*
 
 - **Strategic Response**:
@@ -350,16 +349,20 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 
 ---
 
+
+---
+
 ## 📱 Section 6: Android Native Deep-Dive for React Native Developers
+
 *⏱️ 10 min read*
 
 Understanding Android internals is essential for senior React Native developers. MNC interviews frequently probe knowledge of Services, background execution, Kotlin coroutines, Jetpack components, and the Gradle build system — especially for candidates who maintain custom native modules or optimize production Android builds.
 
-### 1. Android Services
+#### 1. Android Services
 
 Android **Services** are application components that perform long-running operations in the background without providing a user interface. React Native developers encounter Services when the app needs to continue work after the user navigates away.
 
-#### Types of Services:
+##### Types of Services:
 
 | Service Type | Lifecycle | Use Case | Android 8+ Behavior |
 | :--- | :--- | :--- | :--- |
@@ -367,13 +370,13 @@ Android **Services** are application components that perform long-running operat
 | **Background Service** | Runs without user awareness | Silent data sync, log uploads | Killed by system within minutes (background execution limits) |
 | **Bound Service** | Lives only while a client component is bound to it | IPC between Activities/Fragments and service logic | Not affected by background limits while bound |
 
-#### When React Native Needs Services:
+##### When React Native Needs Services:
 - **Background music playback** that continues when the app is minimized
 - **Continuous location tracking** for delivery or ride-sharing apps
 - **Large file downloads** that must survive screen navigation
 - **Periodic data synchronization** with remote servers
 
-#### Foreground Service with Notification (Android 8+ Requirement):
+##### Foreground Service with Notification (Android 8+ Requirement):
 
 Starting with Android 8 (API 26), the system enforces **background execution limits**. Any Service that needs to run while the app is in the background must be a Foreground Service with a visible notification:
 
@@ -411,7 +414,7 @@ class LocationTrackingService : Service() {
 }
 ```
 
-#### Starting a Service from a React Native Native Module:
+##### Starting a Service from a React Native Native Module:
 
 ```kotlin
 // LocationModule.kt — React Native Native Module
@@ -438,7 +441,7 @@ class LocationModule(reactContext: ReactApplicationContext) :
 }
 ```
 
-#### IntentService vs JobIntentService vs WorkManager:
+##### IntentService vs JobIntentService vs WorkManager:
 
 | Component | Status | Threading | Use Case |
 | :--- | :--- | :--- | :--- |
@@ -448,11 +451,11 @@ class LocationModule(reactContext: ReactApplicationContext) :
 
 ---
 
-### 2. BroadcastReceivers
+#### 2. BroadcastReceivers
 
 **BroadcastReceivers** listen for system-wide or app-internal broadcast events. They act as a pub-sub mechanism within the Android OS.
 
-#### Common System Broadcasts:
+##### Common System Broadcasts:
 
 | Broadcast Action | Trigger |
 | :--- | :--- |
@@ -462,7 +465,7 @@ class LocationModule(reactContext: ReactApplicationContext) :
 | `POWER_CONNECTED` / `POWER_DISCONNECTED` | Charger plugged/unplugged |
 | `AIRPLANE_MODE_CHANGED` | Airplane mode toggled |
 
-#### Registering Receivers — Manifest vs Dynamic:
+##### Registering Receivers — Manifest vs Dynamic:
 
 ```kotlin
 // Option 1: AndroidManifest.xml (survives app death, limited since Android 8)
@@ -501,7 +504,7 @@ class NetworkModule(reactContext: ReactApplicationContext) :
 }
 ```
 
-#### Consuming Native Events in React Native JS:
+##### Consuming Native Events in React Native JS:
 
 ```typescript
 import { NativeEventEmitter, NativeModules } from 'react-native';
@@ -524,11 +527,11 @@ useEffect(() => {
 
 ---
 
-### 3. WorkManager
+#### 3. WorkManager
 
 **WorkManager** is the recommended solution for **guaranteed background execution** — tasks that must eventually run even if the app exits or the device restarts.
 
-#### OneTimeWorkRequest vs PeriodicWorkRequest:
+##### OneTimeWorkRequest vs PeriodicWorkRequest:
 
 ```kotlin
 // One-time work: upload crash logs once
@@ -561,7 +564,7 @@ WorkManager.getInstance(context).enqueueUniquePeriodicWork(
 )
 ```
 
-#### Chaining Work:
+##### Chaining Work:
 
 ```kotlin
 WorkManager.getInstance(context)
@@ -571,7 +574,7 @@ WorkManager.getInstance(context)
     .enqueue()
 ```
 
-#### Worker Implementation:
+##### Worker Implementation:
 
 ```kotlin
 class DataSyncWorker(
@@ -593,7 +596,7 @@ class DataSyncWorker(
 }
 ```
 
-#### When to Use WorkManager in React Native:
+##### When to Use WorkManager in React Native:
 - **Offline data sync**: Queue mutations when offline, sync when connectivity returns
 - **Log/analytics uploads**: Batch and upload diagnostic logs periodically
 - **Periodic data refresh**: Refresh cached catalogs or configuration data
@@ -601,11 +604,11 @@ class DataSyncWorker(
 
 ---
 
-### 4. Kotlin Coroutines
+#### 4. Kotlin Coroutines
 
 **Coroutines** are Kotlin's solution for asynchronous programming — lightweight, non-blocking, and structured. They are far more efficient than Java threads for concurrent native module operations.
 
-#### Core Concepts:
+##### Core Concepts:
 
 ```kotlin
 // suspend function — can be paused and resumed without blocking a thread
@@ -632,7 +635,7 @@ CoroutineScope(Dispatchers.IO).launch {
 }
 ```
 
-#### Dispatchers:
+##### Dispatchers:
 
 | Dispatcher | Thread Pool | Use Case |
 | :--- | :--- | :--- |
@@ -641,7 +644,7 @@ CoroutineScope(Dispatchers.IO).launch {
 | `Dispatchers.Default` | Shared pool optimized for CPU work | JSON parsing, list sorting, encryption |
 | `Dispatchers.Unconfined` | Inherits caller's thread | Testing, advanced edge cases |
 
-#### Coroutines in React Native Native Modules:
+##### Coroutines in React Native Native Modules:
 
 ```kotlin
 class DatabaseModule(reactContext: ReactApplicationContext) :
@@ -681,7 +684,7 @@ class DatabaseModule(reactContext: ReactApplicationContext) :
 }
 ```
 
-#### Coroutines vs RxJava vs Callbacks:
+##### Coroutines vs RxJava vs Callbacks:
 
 | Feature | Kotlin Coroutines | RxJava | Callbacks |
 | :--- | :--- | :--- | :--- |
@@ -695,11 +698,11 @@ class DatabaseModule(reactContext: ReactApplicationContext) :
 
 ---
 
-### 5. Jetpack Components
+#### 5. Jetpack Components
 
 **Jetpack** is Android's suite of libraries that help developers build robust, maintainable apps. Senior React Native developers need Jetpack knowledge when building complex native modules or hybrid apps.
 
-#### Key Jetpack Libraries Relevant to React Native:
+##### Key Jetpack Libraries Relevant to React Native:
 
 | Library | Purpose | React Native Relevance |
 | :--- | :--- | :--- |
@@ -712,7 +715,7 @@ class DatabaseModule(reactContext: ReactApplicationContext) :
 | **CameraX** | Camera abstraction API | Custom camera Native Modules with preview/capture |
 | **Jetpack Compose** | Declarative UI toolkit for Android | Embedding Compose views alongside React Native views |
 
-#### When React Native Developers Need Jetpack Knowledge:
+##### When React Native Developers Need Jetpack Knowledge:
 - Building **custom native modules** that interact with device hardware (Camera, Sensors)
 - Creating **hybrid applications** where some screens are native Android (Compose/XML) and others are React Native
 - Implementing **native persistence** layers (Room, DataStore) accessed from JS via bridge/TurboModules
@@ -721,11 +724,11 @@ class DatabaseModule(reactContext: ReactApplicationContext) :
 
 ---
 
-### 6. Gradle Build System Deep-Dive
+#### 6. Gradle Build System Deep-Dive
 
 The **Gradle** build system is the backbone of Android development. React Native developers must understand Gradle configurations to manage build variants, resolve dependency conflicts, and optimize build performance.
 
-#### Project Structure:
+##### Project Structure:
 
 ```text
 android/
@@ -745,7 +748,7 @@ android/
         └── production/       # Flavor-specific source (if configured)
 ```
 
-#### Multi-Flavor Build Configuration:
+##### Multi-Flavor Build Configuration:
 
 ```groovy
 // android/app/build.gradle
@@ -807,7 +810,7 @@ android {
 }
 ```
 
-#### Build Variants = buildType × productFlavor:
+##### Build Variants = buildType × productFlavor:
 
 ```text
 ┌──────────────┬────────────────────┬─────────────────────┐
@@ -823,7 +826,7 @@ Run specific variant:
   ./gradlew bundleProductionRelease   # AAB for Play Store
 ```
 
-#### Dependency Management Keywords:
+##### Dependency Management Keywords:
 
 | Keyword | Behavior | Use Case |
 | :--- | :--- | :--- |
@@ -833,7 +836,7 @@ Run specific variant:
 | `runtimeOnly` | Available at runtime, not at compile time | Database drivers, logging backends |
 | `testImplementation` | Available only in test source sets | JUnit, Mockito, Espresso |
 
-#### Common Gradle Issues in React Native:
+##### Common Gradle Issues in React Native:
 
 | Issue | Cause | Solution |
 | :--- | :--- | :--- |
@@ -845,33 +848,33 @@ Run specific variant:
 
 ---
 
-### Interview Q&A for Android Deep-Dive
+#### Interview Q&A for Android Deep-Dive
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What is the difference between a Service and a BroadcastReceiver?"*
 
 - **Strategic Response**:
   "A **Service** is designed for long-running background operations — it has its own lifecycle and can run independently of any Activity. Examples include music playback, file downloads, and location tracking. A **BroadcastReceiver**, on the other hand, is a lightweight event listener — it responds to system or app broadcasts (like connectivity changes or boot completion) and executes a short piece of code in its `onReceive()` method. A BroadcastReceiver should not perform long-running work directly; instead, it should start a Service or enqueue WorkManager work when extended processing is needed."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"When would you use WorkManager instead of a foreground Service?"*
 
 - **Strategic Response**:
   "I use **WorkManager** when the task is **deferrable** and needs **guaranteed execution** — meaning it doesn't need to happen right now, but it must eventually complete even if the app is killed or the device restarts. Examples include syncing offline data, uploading logs, or periodic cache cleanup. I use a **Foreground Service** when the task must run **immediately and continuously** with the user's awareness — such as music playback, real-time GPS tracking, or an active phone call. WorkManager is also better for tasks with constraints (like 'only on WiFi' or 'only while charging'), while Foreground Services are appropriate for user-initiated ongoing operations."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do Kotlin coroutines improve React Native native module performance?"*
 
 - **Strategic Response**:
   "Coroutines improve native module performance in several ways. First, they enable **non-blocking asynchronous execution** — database queries, file I/O, and network calls run on `Dispatchers.IO` without blocking the Android Main Thread, preventing ANRs. Second, **structured concurrency** ensures that when the React Native context is destroyed, all coroutines launched within a module's scope are automatically cancelled, preventing memory leaks. Third, using `async/await` allows **concurrent parallel execution** — for example, fetching user profile and order history simultaneously rather than sequentially. Finally, coroutines have minimal memory overhead compared to creating new Java threads for each native module call."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What are build variants and product flavors in Android?"*
 
 - **Strategic Response**:
   "**Product Flavors** define different versions of the app — for example, a `staging` flavor that points to a staging API and a `production` flavor that connects to the production API. Each flavor can have its own `applicationId`, app name, icon, and build config fields. **Build Types** define how the app is built — typically `debug` (with debugging enabled, no minification) and `release` (with R8 minification, ProGuard rules, and signing). **Build Variants** are the cross-product of flavors and build types. So with two flavors (staging, production) and two build types (debug, release), you get four variants: `stagingDebug`, `stagingRelease`, `productionDebug`, `productionRelease`. In React Native projects, I configure flavors to manage different API endpoints, feature flags, and app identifiers across environments."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you handle background tasks in React Native for Android?"*
 
 - **Strategic Response**:
@@ -882,7 +885,7 @@ Run specific variant:
   - **Periodic tasks** (refresh cache every 15 min): PeriodicWorkRequest via WorkManager.
   For React Native integration, I create a Native Module that exposes methods like `scheduleSync()` or `startTracking()` to JavaScript. The native side handles lifecycle, threading, and OS-level scheduling. I avoid running heavy background logic in JavaScript because the JS thread may be suspended when the app is backgrounded."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What Jetpack components have you used in React Native projects?"*
 
 - **Strategic Response**:
@@ -896,19 +899,23 @@ Run specific variant:
 
 ---
 
+
+---
+
 ## 🍎 Section 7: iOS Native Deep-Dive for React Native Developers
+
 *⏱️ 6 min read*
 
 iOS development knowledge is equally critical for senior React Native engineers. MNC interviews test CocoaPods proficiency, Xcode build configuration understanding, and iOS background execution capabilities.
 
-### 1. CocoaPods Deep-Dive
+#### 1. CocoaPods Deep-Dive
 
 **CocoaPods** is the primary dependency manager for iOS in React Native projects. It resolves, downloads, and links native iOS libraries specified in the `Podfile`.
 
-#### Podfile Configuration:
+##### Podfile Configuration:
 
 ```ruby
-# ios/Podfile
+## ios/Podfile
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
@@ -948,7 +955,7 @@ target 'MyApp' do
 end
 ```
 
-#### pod install vs pod update:
+##### pod install vs pod update:
 
 | Command | Behavior | When to Use |
 | :--- | :--- | :--- |
@@ -957,7 +964,7 @@ end
 | `pod update FirebasePod` | Updates only the specified pod | Targeted single-pod upgrade |
 | `pod deintegrate && pod install` | Full clean reinstall | Fixing corrupted pod state |
 
-#### Common CocoaPods Issues in React Native:
+##### Common CocoaPods Issues in React Native:
 
 | Issue | Cause | Solution |
 | :--- | :--- | :--- |
@@ -967,16 +974,16 @@ end
 | `The following Swift pods cannot yet be integrated as static libraries` | Static linkage incompatibility | Add `use_frameworks! :linkage => :static` or `:dynamic` as needed |
 | Slow `pod install` | Large repo cache, no CDN | Use `cdn.cocoapods.org` source, clean cache with `pod cache clean --all` |
 
-#### Linking and Auto-Linking in Modern React Native:
+##### Linking and Auto-Linking in Modern React Native:
 Starting with React Native 0.60+, **auto-linking** automatically detects and links native dependencies listed in `package.json`. Manual linking (`react-native link`) is no longer needed for most libraries. The auto-linking mechanism reads each library's `react-native.config.js` and generates the necessary pod entries during `pod install`.
 
 ---
 
-### 2. Xcode Build Settings
+#### 2. Xcode Build Settings
 
 Understanding Xcode build configuration is essential for managing release builds, signing, and platform-specific settings.
 
-#### Build Settings vs Build Phases vs Build Rules:
+##### Build Settings vs Build Phases vs Build Rules:
 
 | Concept | Purpose | Examples |
 | :--- | :--- | :--- |
@@ -984,7 +991,7 @@ Understanding Xcode build configuration is essential for managing release builds
 | **Build Phases** | Steps executed during build in order | Compile Sources, Copy Bundle Resources, Run Script (bundle React Native JS) |
 | **Build Rules** | Custom processing rules for file types | Custom preprocessing for specific file extensions |
 
-#### Schemes and Configurations:
+##### Schemes and Configurations:
 
 ```text
 Scheme: MyApp
@@ -1004,7 +1011,7 @@ Scheme: MyApp
 
 To create a custom scheme: **Product → Scheme → Manage Schemes → Duplicate** an existing scheme, then assign the custom build configuration.
 
-#### Code Signing:
+##### Code Signing:
 
 | Component | Purpose |
 | :--- | :--- |
@@ -1014,7 +1021,7 @@ To create a custom scheme: **Product → Scheme → Manage Schemes → Duplicate
 | **Automatic Signing** | Xcode manages certificates/profiles automatically (good for development) |
 | **Manual Signing** | Explicitly select certificate and profile (required for CI/CD with Fastlane Match) |
 
-#### Privacy Manifest (PrivacyInfo.xcprivacy) — Required Since iOS 17:
+##### Privacy Manifest (PrivacyInfo.xcprivacy) — Required Since iOS 17:
 
 Starting with iOS 17 and enforced in 2024, Apple requires apps to declare **privacy nutrition labels** in a `PrivacyInfo.xcprivacy` file:
 
@@ -1048,11 +1055,11 @@ This file declares which restricted APIs the app uses (e.g., `UserDefaults`, fil
 
 ---
 
-### 3. iOS Background Execution
+#### 3. iOS Background Execution
 
 iOS is significantly more restrictive than Android regarding background execution. Understanding the available mechanisms is critical.
 
-#### Background Modes:
+##### Background Modes:
 
 | Mode | Capability | Use Case |
 | :--- | :--- | :--- |
@@ -1062,7 +1069,7 @@ iOS is significantly more restrictive than Android regarding background executio
 | **Remote Notifications** | Silent push triggers background code | Syncing data on server-side events |
 | **Background Processing** | Long tasks during device idle (iOS 13+) | Database maintenance, ML model updates |
 
-#### BGTaskScheduler (iOS 13+):
+##### BGTaskScheduler (iOS 13+):
 
 ```swift
 // AppDelegate.swift — Register background tasks
@@ -1105,7 +1112,7 @@ func scheduleNextSync() {
 }
 ```
 
-#### Silent Push Notifications for Background Data Sync:
+##### Silent Push Notifications for Background Data Sync:
 
 ```json
 {
@@ -1118,7 +1125,7 @@ func scheduleNextSync() {
 
 When iOS receives a silent push with `"content-available": 1`, it wakes the app in the background and gives it approximately 30 seconds to fetch new data. This is commonly used in React Native chat apps for syncing messages.
 
-#### When React Native Apps Need Background Execution:
+##### When React Native Apps Need Background Execution:
 - **Chat applications**: Silent push to sync new messages
 - **Fitness/health apps**: Continuous location or sensor tracking
 - **Enterprise apps**: Periodic data synchronization with backend
@@ -1126,9 +1133,9 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
 
 ---
 
-### Interview Q&A
+#### Interview Q&A
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you resolve CocoaPods issues in React Native?"*
 
 - **Strategic Response**:
@@ -1140,13 +1147,13 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
   5. **Framework linking issues**: Toggle between `use_frameworks! :linkage => :static` and `:dynamic` based on SDK requirements
   6. **React Native version upgrades**: Always regenerate pods after upgrading RN — the `post_install` hooks change between versions"
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What are Xcode Schemes and when do you create custom schemes?"*
 
 - **Strategic Response**:
   "Xcode Schemes define how a target is built, run, tested, and profiled. Each scheme maps to a **Build Configuration** (like Debug or Release). I create custom schemes when the project needs more than two environments. For example, in an enterprise app, I'll create `MyApp-Staging` and `MyApp-Production` schemes — each pointing to a custom build configuration that sets different API URLs, bundle identifiers, and provisioning profiles. This allows QA to install both staging and production builds on the same device simultaneously. In CI/CD, I reference specific schemes: `xcodebuild -scheme MyApp-Production -configuration Release` to ensure the correct build variant is produced."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you handle background tasks on iOS?"*
 
 - **Strategic Response**:
@@ -1157,7 +1164,7 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
   - **For continuous tracking**: I enable the **Location Updates** background mode and use significant location change monitoring to minimize battery impact.
   All background tasks must be registered in `Info.plist` under `UIBackgroundModes` and in code via `BGTaskScheduler.shared.register()`. I always implement expiration handlers to save state gracefully when iOS terminates the background task."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What is the Privacy Manifest and why is it required?"*
 
 - **Strategic Response**:
@@ -1165,20 +1172,24 @@ When iOS receives a silent push with `"content-available": 1`, it wakes the app 
 
 ---
 
+
+---
+
 ## 🔄 Section 8: Comprehensive Migration Strategies
+
 *⏱️ 12 min read*
 
 Large-scale migrations are defining moments for senior React Native engineers. MNC interviews heavily test your ability to plan, execute, and de-risk migrations across codebases serving millions of users. This section covers the most common migration paths with step-by-step strategies, risks, and interview-ready responses.
 
-### 1. JavaScript → TypeScript Migration
+#### 1. JavaScript → TypeScript Migration
 
-#### Why Migrate:
+##### Why Migrate:
 - **Type safety** catches bugs at compile time rather than runtime
 - **Better IDE support** with autocomplete, refactoring, and inline documentation
 - **Fewer runtime errors** from type mismatches, null/undefined access, and wrong function signatures
 - **Codegen requirement**: React Native's New Architecture Codegen requires TypeScript specs for TurboModules and Fabric components
 
-#### Step-by-Step Strategy:
+##### Step-by-Step Strategy:
 
 ```text
 Phase 1: Setup (Week 1)
@@ -1200,7 +1211,7 @@ Phase 3: Strict Mode (Weeks 9-12)
 └── Enable noImplicitAny, strictNullChecks, strictFunctionTypes
 ```
 
-#### tsconfig.json Setup:
+##### tsconfig.json Setup:
 
 ```json
 {
@@ -1232,22 +1243,22 @@ Phase 3: Strict Mode (Weeks 9-12)
 }
 ```
 
-#### Common Challenges:
+##### Common Challenges:
 - **Third-party library types**: Some libraries lack `@types/*` packages — create local `.d.ts` declaration files
 - **`any` escape hatch overuse**: Set up ESLint rule `@typescript-eslint/no-explicit-any: "warn"` to track and gradually eliminate
 - **Estimated timeline for 50k LOC app**: 8–12 weeks with 2 engineers, or 4–6 sprints of gradual migration alongside feature work
 
 ---
 
-### 2. Redux → Redux Toolkit Migration
+#### 2. Redux → Redux Toolkit Migration
 
-#### Why Migrate:
+##### Why Migrate:
 - **Less boilerplate**: `createSlice` eliminates separate action type constants, action creators, and reducers
 - **Built-in Immer**: Write "mutating" state updates that are safely converted to immutable operations
 - **`createAsyncThunk`**: Standardized async action pattern with pending/fulfilled/rejected states
 - **RTK Query**: Powerful data fetching and caching layer that can replace Saga/Thunk API logic entirely
 
-#### Before/After Comparison:
+##### Before/After Comparison:
 
 ```typescript
 // ========== BEFORE: Traditional Redux ==========
@@ -1333,7 +1344,7 @@ export const { clearUsers } = usersSlice.actions;
 export default usersSlice.reducer;
 ```
 
-#### Coexistence Strategy:
+##### Coexistence Strategy:
 
 ```typescript
 // store.ts — Old reducers and new slices can coexist
@@ -1358,7 +1369,7 @@ export const store = configureStore({
 });
 ```
 
-#### Migration Steps:
+##### Migration Steps:
 1. Install `@reduxjs/toolkit` — it's fully compatible alongside existing Redux
 2. Replace `createStore` with `configureStore` (includes Redux DevTools and thunk middleware by default)
 3. Convert reducers to `createSlice` one at a time (old and new coexist in `combineReducers`)
@@ -1368,9 +1379,9 @@ export const store = configureStore({
 
 ---
 
-### 3. Class Components → Functional Components + Hooks
+#### 3. Class Components → Functional Components + Hooks
 
-#### Lifecycle Mapping:
+##### Lifecycle Mapping:
 
 | Class Component | Functional Component + Hooks |
 | :--- | :--- |
@@ -1384,7 +1395,7 @@ export const store = configureStore({
 | `static getDerivedStateFromProps` | `useState` + `useEffect` or derive during render |
 | HOC pattern (withAuth, withTheme) | Custom hooks (`useAuth`, `useTheme`) |
 
-#### Before/After Comparison:
+##### Before/After Comparison:
 
 ```typescript
 // ========== BEFORE: Class Component ==========
@@ -1447,16 +1458,16 @@ const UserProfile: React.FC<Props> = ({ userId }) => {
 };
 ```
 
-#### Common Pitfalls:
+##### Common Pitfalls:
 - **Stale closures**: Callbacks capture old state values — use `useRef` or functional `setState` updates
 - **Missing dependencies**: ESLint `react-hooks/exhaustive-deps` rule must be enabled and respected
 - **Over-using useEffect**: Not every piece of logic needs `useEffect` — derive state during render when possible
 
 ---
 
-### 4. React Navigation v4/v5 → v6/v7 Migration
+#### 4. React Navigation v4/v5 → v6/v7 Migration
 
-#### Key Breaking Changes:
+##### Key Breaking Changes:
 
 | Change | v5 | v6/v7 |
 | :--- | :--- | :--- |
@@ -1467,7 +1478,7 @@ const UserProfile: React.FC<Props> = ({ userId }) => {
 | **Params** | `navigation.navigate('Screen', { id })` | Same, but stricter TypeScript types recommended |
 | **v7 Static API** | N/A | Optional `createStaticNavigation()` for type-safe config |
 
-#### Migration Steps:
+##### Migration Steps:
 
 ```typescript
 // Step 1: Update packages
@@ -1505,14 +1516,14 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
 
 ---
 
-### 5. Native Modules → TurboModules Migration
+#### 5. Native Modules → TurboModules Migration
 
-#### Why Migrate:
+##### Why Migrate:
 - **Lazy loading**: TurboModules are loaded on first access, not at app startup
 - **Type safety**: Codegen generates C++ interfaces from TypeScript specs
 - **Better performance**: Direct JSI communication replaces async JSON bridge
 
-#### Migration Steps:
+##### Migration Steps:
 
 ```typescript
 // Step 1: Create TypeScript spec file
@@ -1575,18 +1586,18 @@ Step 5: Test with New Architecture enabled
   - Verify module loads lazily and functions return correct types
 ```
 
-#### Backward Compatibility:
+##### Backward Compatibility:
 During migration, use the **interop layer** — TurboModules fall back to bridge behavior when New Architecture is disabled. The same TypeScript spec can work with both architectures, allowing gradual rollout.
 
 ---
 
-### 6. Bridge → JSI Communication Migration
+#### 6. Bridge → JSI Communication Migration
 
-#### When to Migrate:
+##### When to Migrate:
 - **Performance-sensitive native calls** that happen frequently (e.g., sensor data streaming, real-time audio processing)
 - **Synchronous data access** needed (bridge is always async with JSON serialization overhead)
 
-#### How JSI Differs from Bridge:
+##### How JSI Differs from Bridge:
 
 | Aspect | Bridge | JSI |
 | :--- | :--- | :--- |
@@ -1596,11 +1607,11 @@ During migration, use the **interop layer** — TurboModules fall back to bridge
 | **Latency** | Higher (queue + serialize + deserialize) | Near-zero overhead |
 | **Complexity** | Simple (JavaScript ↔ JSON ↔ Native) | Requires C++ host objects |
 
-#### JSI Host Object Example:
+##### JSI Host Object Example:
 
 ```cpp
 // DeviceInfoHostObject.cpp
-#include <jsi/jsi.h>
+##include <jsi/jsi.h>
 
 using namespace facebook::jsi;
 
@@ -1630,18 +1641,18 @@ void install(Runtime &jsiRuntime) {
 }
 ```
 
-#### Considerations:
+##### Considerations:
 - **Thread safety**: JSI calls execute on the JS thread by default. If native work is heavy, dispatch to a background thread and use a callback/Promise to return results.
 - **Error handling**: C++ exceptions must be caught and converted to JS errors — uncaught C++ exceptions crash the app.
 - **Debugging**: JSI objects don't appear in Chrome DevTools (use Flipper or Hermes debugger).
 
 ---
 
-### 7. Large-Scale Production Migration (Millions of Users)
+#### 7. Large-Scale Production Migration (Millions of Users)
 
 For apps with millions of active users, a migration failure can cost significant revenue and user trust. Production migrations require rigorous planning beyond code changes.
 
-#### Phase Planning:
+##### Phase Planning:
 
 ```text
 Phase 1: Internal (Week 1-2)
@@ -1669,7 +1680,7 @@ Phase 4: Staged Production (Week 6-8)
 └── Full rollout only after all metrics are green
 ```
 
-#### Feature Flags for A/B Testing:
+##### Feature Flags for A/B Testing:
 
 ```typescript
 // Feature flag to toggle between old and new code paths
@@ -1685,7 +1696,7 @@ const PaymentScreen: React.FC = () => {
 };
 ```
 
-#### Rollback Plan:
+##### Rollback Plan:
 
 | Rollback Type | Trigger | Recovery Time | Scope |
 | :--- | :--- | :--- | :--- |
@@ -1696,9 +1707,9 @@ const PaymentScreen: React.FC = () => {
 
 ---
 
-### Migration Checklists
+#### Migration Checklists
 
-#### Performance Validation Checklist:
+##### Performance Validation Checklist:
 
 | Metric | Pre-Migration Baseline | Post-Migration Target | Tool |
 | :--- | :--- | :--- | :--- |
@@ -1709,7 +1720,7 @@ const PaymentScreen: React.FC = () => {
 | Frame rate (key screens) | Measured | ≥ 58 FPS | Perf Monitor overlay |
 | API response handling | Measured | ≤ baseline | Network profiler |
 
-#### Testing Checklist:
+##### Testing Checklist:
 
 | Test Category | Items | Status |
 | :--- | :--- | :--- |
@@ -1720,7 +1731,7 @@ const PaymentScreen: React.FC = () => {
 | **Regression** | All existing E2E tests pass | ☐ |
 | **Accessibility** | Screen reader, dynamic font sizes, color contrast | ☐ |
 
-#### Release Checklist:
+##### Release Checklist:
 
 | Step | Description | Status |
 | :--- | :--- | :--- |
@@ -1732,7 +1743,7 @@ const PaymentScreen: React.FC = () => {
 | Staged rollout configured | Play Console / App Store Connect phased release enabled | ☐ |
 | Monitoring dashboards ready | Crash rate, ANR rate, startup time, engagement metrics | ☐ |
 
-#### Rollback Readiness Checklist:
+##### Rollback Readiness Checklist:
 
 | Readiness Item | Verified |
 | :--- | :--- |
@@ -1745,9 +1756,9 @@ const PaymentScreen: React.FC = () => {
 
 ---
 
-### Interview Q&A for Migration Strategies
+#### Interview Q&A for Migration Strategies
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How would you migrate a legacy RN app with 5M users to New Architecture?"*
 
 - **Strategic Response**:
@@ -1759,7 +1770,7 @@ const PaymentScreen: React.FC = () => {
   5. **Staged Rollout**: Internal → Alpha (500 users) → Beta (5%) → watch crash rates and performance for 1 week at each stage → expand to 100%.
   6. **Rollback Safety**: Feature flags control whether specific TurboModules or Fabric components are active. Server-side kill switch can revert to bridge behavior instantly."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you evaluate migration risks for a production app?"*
 
 - **Strategic Response**:
@@ -1771,7 +1782,7 @@ const PaymentScreen: React.FC = () => {
   - **Testing Coverage**: Do we have E2E tests covering the migrated flows? If coverage is low, I invest in adding tests before migrating.
   Each risk is scored Low/Medium/High, and I prioritize migrations with clear value and manageable risk profiles."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you ensure zero downtime during a major migration?"*
 
 - **Strategic Response**:
@@ -1783,7 +1794,7 @@ const PaymentScreen: React.FC = () => {
   5. **Blue-Green Deployment**: For backend changes, run both old and new API versions. Route traffic based on app version headers.
   The key insight is that 'zero downtime' means zero downtime *for users* — some users may be on the old version while others are on the new version, and both must work correctly."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you migrate from Redux Saga to Redux Toolkit?"*
 
 - **Strategic Response**:
@@ -1795,7 +1806,7 @@ const PaymentScreen: React.FC = () => {
   5. **Replace API layer with RTK Query** (optional): For CRUD operations, RTK Query eliminates both sagas and manual thunks entirely — it auto-generates hooks with loading/error states and manages caching.
   6. **Remove redux-saga** only after all sagas are migrated and tested."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you handle backward compatibility during a phased migration?"*
 
 - **Strategic Response**:
@@ -1806,7 +1817,7 @@ const PaymentScreen: React.FC = () => {
   - **Navigation Level**: During navigation library migration, both old and new navigators can coexist using nested navigators — migrate one stack at a time.
   - **Feature Flags**: Toggle new behavior per-user. If a user experiences issues, disable the flag for that user segment while you investigate."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What's your rollback strategy if a migration causes production issues?"*
 
 - **Strategic Response**:
@@ -1818,14 +1829,18 @@ const PaymentScreen: React.FC = () => {
 
 ---
 
+
+---
+
 ## 🏗️ Section 9: Gradle & CocoaPods Build System Mastery
+
 *⏱️ 4 min read*
 
 Build system questions are a staple in MNC interviews. This section provides quick-reference answers for Gradle and CocoaPods topics commonly tested at the senior/lead level.
 
-### 1. Gradle Essentials for React Native
+#### 1. Gradle Essentials for React Native
 
-#### Common React Native Gradle Configurations:
+##### Common React Native Gradle Configurations:
 
 ```groovy
 // android/gradle.properties — Key React Native flags
@@ -1834,13 +1849,13 @@ org.gradle.parallel=true
 org.gradle.caching=true
 org.gradle.configureondemand=true
 
-# React Native flags
+## React Native flags
 newArchEnabled=true
 hermesEnabled=true
 reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
 ```
 
-#### Resolving Dependency Conflicts:
+##### Resolving Dependency Conflicts:
 
 ```groovy
 // android/app/build.gradle
@@ -1866,7 +1881,7 @@ configurations.all {
 }
 ```
 
-#### Build Speed Optimization:
+##### Build Speed Optimization:
 
 | Setting | Location | Effect |
 | :--- | :--- | :--- |
@@ -1877,41 +1892,41 @@ configurations.all {
 | `-Xmx4096m` | JVM args | Increases heap size for large projects |
 | `reactNativeArchitectures=arm64-v8a` | gradle.properties | Build for single ABI during development |
 
-#### R8/ProGuard Rules for React Native:
+##### R8/ProGuard Rules for React Native:
 
 ```text
-# proguard-rules.pro
+## proguard-rules.pro
 
-# React Native
+## React Native
 -keep class com.facebook.react.** { *; }
 -keep class com.facebook.hermes.** { *; }
 -keep class com.facebook.jni.** { *; }
 
-# Keep native module classes
+## Keep native module classes
 -keep class com.myapp.modules.** { *; }
 
-# Keep classes used via reflection (e.g., Gson, Retrofit)
+## Keep classes used via reflection (e.g., Gson, Retrofit)
 -keepattributes Signature
 -keepattributes *Annotation*
 -keep class * implements com.google.gson.TypeAdapterFactory
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
-# Prevent stripping of Reanimated
+## Prevent stripping of Reanimated
 -keep class com.swmansion.reanimated.** { *; }
 ```
 
 ---
 
-### 2. CocoaPods Essentials for React Native
+#### 2. CocoaPods Essentials for React Native
 
-#### Podfile Structure and Platform Settings:
+##### Podfile Structure and Platform Settings:
 
 ```ruby
-# ios/Podfile — Essential structure
+## ios/Podfile — Essential structure
 platform :ios, '15.1'  # Minimum deployment target
 
-# For Swift-based pods or when required by dependencies
+## For Swift-based pods or when required by dependencies
 use_frameworks! :linkage => :static
 
 target 'MyApp' do
@@ -1941,26 +1956,26 @@ target 'MyApp' do
 end
 ```
 
-#### Static vs Dynamic Frameworks:
+##### Static vs Dynamic Frameworks:
 
 | Type | Linking | Build Time | App Size | Use Case |
 | :--- | :--- | :--- | :--- | :--- |
 | **Static** | Compiled into app binary at build time | Slower build | Smaller binary (dead code elimination) | Default for React Native pods |
 | **Dynamic** | Loaded at runtime from `.framework` bundles | Faster incremental builds | Larger (all framework code included) | Required by some Swift pods |
 
-#### Pod Cache Management:
+##### Pod Cache Management:
 
 ```bash
-# View cache contents
+## View cache contents
 pod cache list
 
-# Clear all cached pods
+## Clear all cached pods
 pod cache clean --all
 
-# Clear cache for a specific pod
+## Clear cache for a specific pod
 pod cache clean Firebase
 
-# Full nuclear reset (when nothing else works)
+## Full nuclear reset (when nothing else works)
 cd ios
 rm -rf Pods Podfile.lock
 rm -rf ~/Library/Caches/CocoaPods
@@ -1972,9 +1987,9 @@ pod install
 
 ---
 
-### Interview Q&A
+#### Interview Q&A
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you resolve Gradle dependency conflicts in React Native?"*
 
 - **Strategic Response**:
@@ -1985,7 +2000,7 @@ pod install
   4. **Align Versions**: For common conflicts (like Kotlin stdlib or AndroidX), ensure all libraries use compatible versions by setting version variables in the project-level `build.gradle` (`ext { kotlinVersion = '1.9.22' }`).
   5. **Dependency Locking**: For critical production builds, use Gradle's dependency locking feature to ensure reproducible builds."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you optimize Gradle build times?"*
 
 - **Strategic Response**:
@@ -1998,7 +2013,7 @@ pod install
   6. **Use build cache sharing**: In CI/CD, share the Gradle build cache across builds using remote cache or artifact storage.
   These optimizations together can reduce build times by 40-60% in typical React Native projects."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"What is the difference between pod install and pod update?"*
 
 - **Strategic Response**:
@@ -2006,7 +2021,7 @@ pod install
   `pod update` ignores the lock file entirely and resolves all pods to the latest versions that satisfy the `Podfile` constraints. This is used when you intentionally want to upgrade pod versions. You can also target a single pod: `pod update Firebase` to update only Firebase while keeping everything else locked.
   In team workflows, I always commit `Podfile.lock` to Git and use `pod install` for regular development. I only run `pod update` during scheduled dependency upgrade sprints."
 
-#### Interview Scenario:
+##### Interview Scenario:
 > *"How do you handle CocoaPods issues on Apple Silicon Macs?"*
 
 - **Strategic Response**:
@@ -2017,3 +2032,6 @@ pod install
   4. **Xcode settings**: Ensure 'Build Active Architecture Only' is set to `YES` for Debug and `NO` for Release.
   5. **Clean install**: When switching between Rosetta and native terminals, always do a full clean: `rm -rf Pods Podfile.lock && pod install`.
   Most modern React Native projects (0.72+) work natively on Apple Silicon without any workarounds."
+
+---
+

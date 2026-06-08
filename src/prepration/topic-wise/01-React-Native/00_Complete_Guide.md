@@ -1,211 +1,52 @@
+# React Native Complete Guide
 
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
-
+## Table of Contents
 - [🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)](#-section-1-core-architecture-legacy-vs-new-architecture)
-  - [1. [LEGACY] The Legacy Bridge Architecture](#1-legacy-the-legacy-bridge-architecture)
-  - [2. [MODERN] The New Architecture (JSI, TurboModules, Fabric)](#2-modern-the-new-architecture-jsi-turbomodules-fabric)
-    - [JavaScript Interface (JSI)](#javascript-interface-jsi)
-    - [TurboModules (Native Modules Reborn)](#turbomodules-native-modules-reborn)
-    - [Fabric Rendering Engine](#fabric-rendering-engine)
-    - [Codegen (Type-Safety Guarantee)](#codegen-type-safety-guarantee)
-  - [3. Legacy to Modern Architecture Migration Plan](#3-legacy-to-modern-architecture-migration-plan)
 - [🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)](#-section-2-layout-flexbox--styling-yoga-engine)
-  - [1. Yoga Layout Engine](#1-yoga-layout-engine)
-  - [2. Flexbox Behavior Differences in React Native vs. Web](#2-flexbox-behavior-differences-in-react-native-vs-web)
-  - [3. Axis Alignment Guide](#3-axis-alignment-guide)
-  - [4. Animations & UI Cloning (Animated vs. Reanimated)](#4-animations--ui-cloning-animated-vs-reanimated)
 - [🔌 Section 3: Custom Native Modules & Expo CNG](#-section-3-custom-native-modules--expo-cng)
-  - [1. Implementing Custom Native Modules](#1-implementing-custom-native-modules)
-    - [Native Android Module (Kotlin/Java)](#native-android-module-kotlinjava)
-    - [Native iOS Module (Swift/Objective-C)](#native-ios-module-swiftobjective-c)
-    - [Dispatching Native Events (Asynchronous Calls)](#dispatching-native-events-asynchronous-calls)
-  - [2. Expo Continuous Native Generation (CNG)](#2-expo-continuous-native-generation-cng)
-  - [3. Native Application Lifecycles & Bridging Mechanics](#3-native-application-lifecycles--bridging-mechanics)
-    - [Android Activity & Fragment Lifecycles](#android-activity--fragment-lifecycles)
-    - [iOS Application & ViewController Lifecycles](#ios-application--viewcontroller-lifecycles)
-    - [React Native Library Creation Flow](#react-native-library-creation-flow)
 - [📦 Section 4: App Compilation, Metro & Babel](#-section-4-app-compilation-metro--babel)
-  - [1. Babel (Transpilation Phase)](#1-babel-transpilation-phase)
-  - [2. Metro Bundler (Packaging Phase)](#2-metro-bundler-packaging-phase)
-  - [3. Hermes Compilation (Production Phase)](#3-hermes-compilation-production-phase)
 - [⚡ Section 5: List Optimization & Memory Profiling](#-section-5-list-optimization--memory-profiling)
-  - [1. Virtualized List Optimizations](#1-virtualized-list-optimizations)
-  - [2. Memory Leak Auditing Pipeline](#2-memory-leak-auditing-pipeline)
-    - [Diagnostic Steps:](#diagnostic-steps)
 - [🔒 Section 6: Release Engineering & Diagnostic Workflows](#-section-6-release-engineering--diagnostic-workflows)
-  - [1. Deep Linking & Attribution (Branch SDK)](#1-deep-linking--attribution-branch-sdk)
-  - [2. Push Notifications](#2-push-notifications)
-  - [3. Production Diagnostics (Sentry + PostHog)](#3-production-diagnostics-sentry--posthog)
-  - [4. Navigation Lifecycles (`useFocusEffect`)](#4-navigation-lifecycles-usefocuseffect)
-  - [5. CI/CD Pipelines & Mobile Deployment Workflow](#5-cicd-pipelines--mobile-deployment-workflow)
-    - [CI/CD Tooling Matrix](#cicd-tooling-matrix)
-    - [Android Signing & Release](#android-signing--release)
-    - [iOS Code Signing & Match](#ios-code-signing--match)
-  - [6. Telemetry & Analytics Orchestration: Firebase/GA4, Segment, Amplitude, Sentry, Datadog & Azure App Insights](#6-telemetry--analytics-orchestration-firebasega4-segment-amplitude-sentry-datadog--azure-app-insights)
 - [⚛️ Section 7: React Architecture & Core Engine](#-section-7-react-architecture--core-engine)
-  - [1. Virtual DOM, React Fiber, Reconciliation & Diffing](#1-virtual-dom-react-fiber-reconciliation--diffing)
-  - [2. Component Lifecycles: Class vs. Functional Components](#2-component-lifecycles-class-vs-functional-components)
-  - [3. Higher-Order Components (HOC)](#3-higher-order-components-hoc)
-  - [4. React Hooks: Definitions & Code Examples](#4-react-hooks-definitions--code-examples)
-  - [5. Custom Hooks: Rationale & Implementation](#5-custom-hooks-rationale--implementation)
 - [📦 Section 8: State Management & Routing Orchestration](#-section-8-state-management--routing-orchestration)
-  - [1. State vs. Props & Prop Drilling](#1-state-vs-props--prop-drilling)
-  - [2. State Management Solutions: Redux vs. Zustand vs. MobX vs. Context API](#2-state-management-solutions-redux-vs-zustand-vs-mobx-vs-context-api)
-    - [MobX Core Concepts & React Integration](#mobx-core-concepts--react-integration)
-  - [3. Routing, RBAC & Deep Linking in React Navigation](#3-routing-rbac--deep-linking-in-react-navigation)
-    - [Recoil: Atom & Selector Architecture](#recoil-atom--selector-architecture)
 - [🌐 Section 9: Server Rendering, Styling & Platform Specifics](#-section-9-server-rendering-styling--platform-specifics)
-  - [1. SSR vs. CSR & React Native SEO](#1-ssr-vs-csr--react-native-seo)
-  - [2. Layout & Styling Frameworks](#2-layout--styling-frameworks)
-  - [3. Accessibility, Themes, Security & Multi-language (i18n)](#3-accessibility-themes-security--multi-language-i18n)
 - [🧪 Section 10: Testing Strategies & QA Automation](#-section-10-testing-strategies--qa-automation)
-  - [1. The Mobile Testing Pyramid](#1-the-mobile-testing-pyramid)
-  - [2. Unit & Integration Testing (Jest + React Native Testing Library)](#2-unit--integration-testing-jest--react-native-testing-library)
-  - [3. End-to-End Testing (Detox / Appium + JUnit)](#3-end-to-end-testing-detox--appium--junit)
-    - [Detox vs. Appium Interview Answer](#detox-vs-appium-interview-answer)
-  - [4. Code Quality Gates (ESLint + Prettier + Husky)](#4-code-quality-gates-eslint--prettier--husky)
-  - [5. Test-Driven Development (TDD) Workflow in React Native](#5-test-driven-development-tdd-workflow-in-react-native)
 - [💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures](#-section-11-enterprise-offline-storage--synchronizer-architectures)
-  - [1. Storage Solution Comparison Matrix](#1-storage-solution-comparison-matrix)
-  - [2. React Query Offline Caching & Persister Integration](#2-react-query-offline-caching--persister-integration)
-  - [3. Redux Toolkit Offline Hydration & Redux Persist](#3-redux-toolkit-offline-hydration--redux-persist)
-  - [4. Enterprise Offline Sync Architecture](#4-enterprise-offline-sync-architecture)
-    - [Sync Reconciliation Core Rules:](#sync-reconciliation-core-rules)
-  - [5. GraphQL Integration & Caching with Apollo Client](#5-graphql-integration--caching-with-apollo-client)
 - [🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)](#-section-12-micro-frontends--super-app-architecture-repack--module-federation)
-  - [1. Metro vs. Re.Pack (Webpack)](#1-metro-vs-repack-webpack)
-  - [2. Webpack Module Federation Mechanics](#2-webpack-module-federation-mechanics)
-  - [3. Dynamic Bundle Loading Workflow](#3-dynamic-bundle-loading-workflow)
 - [🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses](#-section-13-advanced-mobile-security--reverse-engineering-defenses)
-  - [1. Root & Jailbreak Detection](#1-root--jailbreak-detection)
-  - [2. Runtime Debugging & Anti-Frida Protection](#2-runtime-debugging--anti-frida-protection)
-  - [3. Native Code Obfuscation (R8 & ProGuard)](#3-native-code-obfuscation-r8--proguard)
-  - [4. Hardened Secret Management (C++ JNI)](#4-hardened-secret-management-c-jni)
 - [⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)](#-section-14-app-startup-performance--modern-debugging-post-flipper)
-  - [1. Breakdown of App Startup Phases](#1-breakdown-of-app-startup-phases)
-  - [2. TTI Optimization Strategies](#2-tti-optimization-strategies)
-  - [3. Debugging in the Post-Flipper Era](#3-debugging-in-the-post-flipper-era)
 - [📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)](#-section-15-over-the-air-ota-updates--in-app-purchases-iap)
-  - [1. Over-the-Air (OTA) Bundle Delivery](#1-over-the-air-ota-bundle-delivery)
-  - [2. In-App Purchases & Subscription Lifecycles](#2-in-app-purchases--subscription-lifecycles)
 - [🌐 Section 16: React Native for Web (Cross-Platform Development)](#-section-16-react-native-for-web-cross-platform-development)
-  - [1. How It Works (Compilation & Mapping)](#1-how-it-works-compilation--mapping)
-  - [2. Monorepo Setup & Code Sharing](#2-monorepo-setup--code-sharing)
-  - [3. Key Differences & Limitations](#3-key-differences--limitations)
 - [📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)](#-section-17-app-size--bundle-optimization-apk--ipa-reduction)
-  - [1. Android Specific Size Reduction (build.gradle)](#1-android-specific-size-reduction-buildgradle)
-  - [2. iOS Specific Size Reduction (Xcode Configurations)](#2-ios-specific-size-reduction-xcode-configurations)
-  - [3. JavaScript & Bundle Optimization](#3-javascript--bundle-optimization)
 - [⚡ Section 18: Senior-Level Performance Engineering Checklist](#-section-18-senior-level-performance-engineering-checklist)
-  - [1. Minimizing Bridge & JSI Crossing Overhead](#1-minimizing-bridge--jsi-crossing-overhead)
-  - [2. Render Loop Optimization](#2-render-loop-optimization)
-  - [3. Dynamic Lists (FlashList / FlatList)](#3-dynamic-lists-flashlist--flatlist)
-  - [4. Memory Leak Triage](#4-memory-leak-triage)
 - [🔗 Section 19: Bridgeless Mode & React Native Runtime](#-section-19-bridgeless-mode--react-native-runtime)
-  - [1. What is Bridgeless Mode?](#1-what-is-bridgeless-mode)
-  - [2. React Native Runtime](#2-react-native-runtime)
-  - [3. Bridgeless vs. New Architecture with Bridge Fallback](#3-bridgeless-vs-new-architecture-with-bridge-fallback)
-  - [4. Enabling Bridgeless Mode](#4-enabling-bridgeless-mode)
-  - [5. What Breaks When You Go Bridgeless?](#5-what-breaks-when-you-go-bridgeless)
 - [🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive](#-section-20-redux-saga--redux-thunk-deep-dive)
-  - [1. Redux Thunk](#1-redux-thunk)
-  - [2. Redux Saga](#2-redux-saga)
-    - [Core Saga Effects](#core-saga-effects)
-    - [Login Saga with Token Refresh & Error Handling](#login-saga-with-token-refresh--error-handling)
-    - [Polling Saga with Cancellation](#polling-saga-with-cancellation)
-    - [Saga vs. Thunk Comparison](#saga-vs-thunk-comparison)
-  - [3. Jotai (Atomic State)](#3-jotai-atomic-state)
 - [✨ Section 21: Shared Element Transitions & Advanced Animation Patterns](#-section-21-shared-element-transitions--advanced-animation-patterns)
-  - [1. Shared Element Transitions](#1-shared-element-transitions)
-  - [2. Micro-Interactions & Advanced Patterns](#2-micro-interactions--advanced-patterns)
-  - [3. Worklets in Reanimated](#3-worklets-in-reanimated)
 - [🖼️ Section 22: Native UI Components (ViewManagers)](#-section-22-native-ui-components-viewmanagers)
-  - [1. Native Modules vs. Native UI Components](#1-native-modules-vs-native-ui-components)
-  - [2. Legacy Architecture: ViewManagers](#2-legacy-architecture-viewmanagers)
-    - [Android ViewManager (Kotlin)](#android-viewmanager-kotlin)
-    - [iOS ViewManager (Swift/Objective-C)](#ios-viewmanager-swiftobjective-c)
-    - [JavaScript Wrapper](#javascript-wrapper)
-  - [3. Fabric Native Components (Modern Replacement)](#3-fabric-native-components-modern-replacement)
 - [🧭 Section 23: Navigation Performance & Universal Links](#-section-23-navigation-performance--universal-links)
-  - [1. Navigation Performance Optimization](#1-navigation-performance-optimization)
-    - [Lazy Loading Screens](#lazy-loading-screens)
-    - [react-native-screens & Native Stack](#react-native-screens--native-stack)
-    - [Navigation State Persistence](#navigation-state-persistence)
-    - [Tab Navigator Optimization](#tab-navigator-optimization)
-  - [2. Universal Links (iOS) & App Links (Android)](#2-universal-links-ios--app-links-android)
-    - [Deep Links vs. Universal Links vs. App Links](#deep-links-vs-universal-links-vs-app-links)
-    - [Universal Links (iOS)](#universal-links-ios)
-    - [App Links (Android)](#app-links-android)
-    - [Handling in React Navigation](#handling-in-react-navigation)
 - [🧹 Section 24: Code Quality & Developer Tooling](#-section-24-code-quality--developer-tooling)
-  - [1. ESLint Configuration for React Native](#1-eslint-configuration-for-react-native)
-  - [2. Prettier](#2-prettier)
-  - [3. Husky & lint-staged](#3-husky--lint-staged)
-  - [4. Commit Conventions](#4-commit-conventions)
-  - [5. Code Review Best Practices for Mobile Teams](#5-code-review-best-practices-for-mobile-teams)
 - [📊 Section 25: Analytics & Monitoring Deep-Dive](#-section-25-analytics--monitoring-deep-dive)
-  - [1. GA4 (Google Analytics 4)](#1-ga4-google-analytics-4)
-  - [2. Segment (Customer Data Platform)](#2-segment-customer-data-platform)
-  - [3. Amplitude](#3-amplitude)
-  - [4. Datadog](#4-datadog)
-  - [5. Monitoring Architecture Decision Matrix](#5-monitoring-architecture-decision-matrix)
 - [🧪 Section 26: Appium & Cross-Platform E2E Testing](#-section-26-appium--cross-platform-e2e-testing)
-  - [1. What is Appium?](#1-what-is-appium)
-  - [2. Appium vs. Detox](#2-appium-vs-detox)
-  - [3. Appium with React Native](#3-appium-with-react-native)
-  - [4. Basic Appium Test Example](#4-basic-appium-test-example)
 - [🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags](#-section-27-cicd-expansion--bitrise-azure-devops--feature-flags)
-  - [1. Bitrise](#1-bitrise)
-    - [Bitrise vs. GitHub Actions for Mobile](#bitrise-vs-github-actions-for-mobile)
-  - [2. Azure DevOps Pipelines](#2-azure-devops-pipelines)
-  - [3. Feature Flags & Phased Rollouts](#3-feature-flags--phased-rollouts)
-    - [Firebase Remote Config Implementation](#firebase-remote-config-implementation)
-    - [LaunchDarkly Integration Pattern](#launchdarkly-integration-pattern)
-    - [Phased Rollout Strategy](#phased-rollout-strategy)
 - [🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive](#-section-28-ssl-pinning-owasp-mobile-top-10--api-security-deep-dive)
-  - [1. SSL/Certificate Pinning Implementation](#1-sslcertificate-pinning-implementation)
-    - [Public Key Pinning vs. Certificate Pinning](#public-key-pinning-vs-certificate-pinning)
-    - [Android Implementation (OkHttp)](#android-implementation-okhttp)
-    - [iOS Implementation (TrustKit)](#ios-implementation-trustkit)
-    - [React Native Implementation](#react-native-implementation)
-    - [Certificate Rotation Strategy](#certificate-rotation-strategy)
-  - [2. OWASP Mobile Top 10 (2024)](#2-owasp-mobile-top-10-2024)
-  - [3. API Security for Mobile Apps](#3-api-security-for-mobile-apps)
-    - [OAuth2 + PKCE Flow (Proof Key for Code Exchange)](#oauth2--pkce-flow-proof-key-for-code-exchange)
-    - [HMAC Request Signing](#hmac-request-signing)
-    - [Request Replay Prevention](#request-replay-prevention)
-    - [Secure Token Storage](#secure-token-storage)
 - [🚀 Section 19: Migration Strategies (Legacy to Modern)](#-section-19-migration-strategies-legacy-to-modern)
-  - [1. Legacy Architecture → New Architecture (JSI/Fabric/TurboModules)](#1-legacy-architecture--new-architecture-jsifabricturbomodules)
-  - [2. JavaScript → TypeScript Migration](#2-javascript--typescript-migration)
-  - [3. Redux → Redux Toolkit (RTK) Migration](#3-redux--redux-toolkit-rtk-migration)
-  - [4. Class Components → Functional Components + Hooks](#4-class-components--functional-components--hooks)
-  - [5. Old Navigation (v4/v5) → React Navigation v7](#5-old-navigation-v4v5--react-navigation-v7)
-  - [6. Large-Scale Production Migration Checklist](#6-large-scale-production-migration-checklist)
 - [🏗️ Section 20: Senior / Lead / Architect Scenarios](#-section-20-senior--lead--architect-scenarios)
-  - [1. Design a Scalable React Native Architecture for 5M+ Users](#1-design-a-scalable-react-native-architecture-for-5m-users)
-  - [2. Reduce App Startup Time from 4s to 1.5s](#2-reduce-app-startup-time-from-4s-to-15s)
-  - [3. Debugging Memory Leaks in Production](#3-debugging-memory-leaks-in-production)
-  - [4. Design an Offline-First Application](#4-design-an-offline-first-application)
-  - [5. Handle a Crash Spike After a Production Release](#5-handle-a-crash-spike-after-a-production-release)
-  - [6. Design an Instagram/WhatsApp-like Architecture](#6-design-an-instagramwhatsapp-like-architecture)
 - [🤝 Section 21: Behavioral, Leadership & HR Rounds](#-section-21-behavioral-leadership--hr-rounds)
-  - [1. Conflict Resolution & Code Review Culture](#1-conflict-resolution--code-review-culture)
-  - [2. Mentoring & Team Leadership](#2-mentoring--team-leadership)
-  - [3. Client & Stakeholder Management (MNC Specific)](#3-client--stakeholder-management-mnc-specific)
-  - [4. Agile & Scrum Methodology](#4-agile--scrum-methodology)
-  - [5. Salary Negotiation Strategy](#5-salary-negotiation-strategy)
-</details>
-<!-- INDEX_END -->
+- [React Native: Advanced Topics & Architecture](#react-native-advanced-topics--architecture)
+- [React Native: CI/CD Pipelines](#react-native-cicd-pipelines)
+- [React Native: Performance, Optimization & Memory Leaks](#react-native-performance-optimization--memory-leaks)
+- [React Native: Security Best Practices](#react-native-security-best-practices)
+- [React Native: State Management & Redux](#react-native-state-management--redux)
+- [React Native: Testing & TDD](#react-native-testing--tdd)
+---
 
 ## 🏗️ Section 1: Core Architecture (Legacy vs. New Architecture)
+
 *⏱️ 3 min read*
 
 React Native's runtime environment has gone through a major architectural transition. For interviews, you should understand **both** the legacy Bridge architecture and the modern New Architecture, because many production apps still run on older versions while new projects and upgrades increasingly expect Hermes, JSI, Fabric, TurboModules, and Codegen knowledge.
 
-### 1. [LEGACY] The Legacy Bridge Architecture
+#### 1. [LEGACY] The Legacy Bridge Architecture
 Historically, React Native relied on three main threads:
 - **JavaScript Thread**: Executes the compiled JS/TS application code (React components, business logic).
 - **Native UI Thread (Main Thread)**: Handles native OS rendering (Android Views, iOS UIKit), layouts, and user interactions.
@@ -217,27 +58,27 @@ Historically, React Native relied on three main threads:
 
 ---
 
-### 2. [MODERN] The New Architecture (JSI, TurboModules, Fabric)
+#### 2. [MODERN] The New Architecture (JSI, TurboModules, Fabric)
 The New Architecture eliminates the old asynchronous JSON bridge for core rendering and modern native-module access, replacing it with JSI-backed C++ interfaces.
 
-#### JavaScript Interface (JSI)
+##### JavaScript Interface (JSI)
 - **JSI** is a lightweight C++ abstraction layer that allows the JavaScript engine (Hermes) to hold direct references to host native C++ objects.
 - JavaScript can invoke host methods without JSON serialization. Some APIs can be synchronous, but senior engineers avoid synchronous native calls for slow I/O because they can still block the JS runtime.
 
-#### TurboModules (Native Modules Reborn)
+##### TurboModules (Native Modules Reborn)
 - In the legacy model, all native modules (e.g., Camera, Bluetooth, Storage) were initialized eagerly at app startup, regardless of whether the user accessed them. This bloated app launch time.
 - **TurboModules** leverage JSI to lazy-load native libraries. They are only initialized and loaded into memory when explicitly invoked by the JavaScript code, significantly reducing app startup latency.
 
-#### Fabric Rendering Engine
+##### Fabric Rendering Engine
 - Fabric is the concurrent rendering engine that replaces the legacy UIManager.
 - Fabric computes UI layout changes inside C++ and commits them directly to the native OS layout thread. Because JSI allows synchronous access, Fabric can execute UI mutations instantly on the main thread, eliminating layout jumps and flickering (e.g., during rapid scroll views).
 - Fabric supports modern React concurrent rendering, including update prioritization and smoother coordination between React work and native UI commits.
 
-#### Codegen (Type-Safety Guarantee)
+##### Codegen (Type-Safety Guarantee)
 - Codegen is a build-time compiler tool that reads your TypeScript interfaces (which define the contract between JavaScript and native modules) and automatically generates the corresponding C++ binding code.
 - If a developer attempts to pass an invalid type parameter from JavaScript (e.g., passing an array instead of a string to a native function), the build fails immediately in the CI pipeline. This guarantees runtime type-safety across the JavaScript-native boundary.
 
-### 3. Legacy to Modern Architecture Migration Plan
+#### 3. Legacy to Modern Architecture Migration Plan
 When interviewers ask how you would migrate a legacy React Native app to a modern architecture, answer as a phased risk-management plan rather than a one-shot upgrade.
 
 1. **Audit Current Baseline**: Capture the current RN version, React version, Hermes/JSC usage, Gradle, AGP, Kotlin, Xcode, CocoaPods, Node, navigation, state libraries, native modules, CI scripts, crash rate, and app startup metrics.
@@ -253,20 +94,24 @@ When interviewers ask how you would migrate a legacy React Native app to a moder
 
 ---
 
+
+---
+
 ## 🎨 Section 2: Layout, Flexbox & styling (Yoga Engine)
+
 *⏱️ 2 min read*
 
-### 1. Yoga Layout Engine
+#### 1. Yoga Layout Engine
 React Native does not compile to HTML/CSS. Instead, it embeds **Yoga**, a custom C++ layout engine that translates a subset of Flexbox rules into native Android and iOS view layouts.
 
-### 2. Flexbox Behavior Differences in React Native vs. Web
+#### 2. Flexbox Behavior Differences in React Native vs. Web
 While Yoga mirrors Web Flexbox, there are critical default configuration differences:
 - **`flexDirection` Defaults to `column`**: On the web, divs default to `row`. In React Native, flex containers default to `column`.
 - **No Unit Values**: Dimensions and margins are specified as raw numbers representing **Density-Independent Pixels (dp)** on Android or **Points (pt)** on iOS. You cannot use `%` (except in specific stylesheet rules), `vh`, `vw`, or `em`.
 - **`boxSizing` is Locked to `border-box`**: All layouts calculate widths and heights inclusive of padding and borders.
 - **`flex` Interpretation**: On the web, `flex` accepts multiple parameters (grow, shrink, basis). In React Native, `flex` is a single number. `flex: 1` means "fill all available space".
 
-### 3. Axis Alignment Guide
+#### 3. Axis Alignment Guide
 Alignment behavior depends entirely on the parent's `flexDirection`:
 
 ```text
@@ -282,7 +127,7 @@ If flexDirection = 'row'
 - **`justifyContent`**: Aligns items along the **Main Axis** (options: `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, `space-evenly`).
 - **`alignItems`**: Aligns items along the **Cross Axis** (options: `flex-start`, `center`, `flex-end`, `stretch` [default]).
 
-### 4. Animations & UI Cloning (Animated vs. Reanimated)
+#### 4. Animations & UI Cloning (Animated vs. Reanimated)
 Animations are calculated on two different runtime threads in React Native:
 - **Animated API**: Compiles animation configurations. If `useNativeDriver: true` is set, supported non-layout properties such as `opacity` and `transform` run on the native/UI side after the configuration is sent. In legacy and most stable app code, layout properties such as `width`, `height`, margins, and flex values are treated as unsupported by the native driver. Modern RN is evolving here with a shared animation backend, so a strong interview answer says: "traditionally unsupported in legacy apps; newer RN versions are expanding this area, but I would verify support before using it in production."
 - **LayoutAnimation**: Instructs the native OS thread to pre-calculate transitions (fade, scale) automatically for the entire UI layout on the next render cycle. Extremely fast, but lacks fine-grained interactive control (e.g. pan gestures tracking).
@@ -291,37 +136,41 @@ Animations are calculated on two different runtime threads in React Native:
 
 ---
 
+
+---
+
 ## 🔌 Section 3: Custom Native Modules & Expo CNG
+
 *⏱️ 3 min read*
 
-### 1. Implementing Custom Native Modules
+#### 1. Implementing Custom Native Modules
 When a feature requires native OS hardware interfaces, background services, or proprietary native SDKs (e.g., payment gateways, secure enclaves), you write a custom native module to bridge the JavaScript and Native domains.
 
-#### Native Android Module (Kotlin/Java)
+##### Native Android Module (Kotlin/Java)
 1. **Define the Module**: Create a class extending `ReactContextBaseJavaModule` (Java) or implementing the interface in Kotlin.
 2. **Register Methods**: Annotate methods with `@ReactMethod` to expose them to JavaScript.
 3. **Register the Package**: Implement `ReactPackage` to map the module.
 4. **Export to JS**: Access via `NativeModules.MyCustomModule` in JS.
 
-#### Native iOS Module (Swift/Objective-C)
+##### Native iOS Module (Swift/Objective-C)
 1. **Objective-C Bridge**: iOS bridging requires an Objective-C wrapper since the React Native runtime is written in C++.
 2. **Define in Swift**: Create a Swift class subclassing `NSObject` and using `@objc`.
 3. **Export macros**: Create an Objective-C file calling `RCT_EXPORT_MODULE()` and `RCT_EXPORT_METHOD()` to register the Swift signatures.
 
-#### Dispatching Native Events (Asynchronous Calls)
+##### Dispatching Native Events (Asynchronous Calls)
 To stream data asynchronously from Native to JS (e.g., continuous GPS coordinates or network connectivity state updates), you do not use standard callbacks. Instead, you send native event updates using:
 - **Android**: `DeviceEventEmitter` using `reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("EventName", payload)`
 - **iOS**: Subclassing `RCTEventEmitter` and calling `sendEventWithName("EventName", body)`
 
-### 2. Expo Continuous Native Generation (CNG)
+#### 2. Expo Continuous Native Generation (CNG)
 In modern Expo projects, developers do not manually edit the `/android` and `/ios` native directories. Instead, they treat them as build artifacts that are generated dynamically.
 - **`npx expo prebuild`** reads the project configuration in `app.json` and generates clean native directories on the fly.
 - **Expo Config Plugins**: To configure native settings (like modifying `AndroidManifest.xml`, registering permissions, or adding custom CocoaPods settings), you write a JavaScript setup file called a Config Plugin. During prebuild, Expo runs this plugin to programmatically inject the native modifications, keeping your primary code repository 100% universal and folderless.
 
-### 3. Native Application Lifecycles & Bridging Mechanics
+#### 3. Native Application Lifecycles & Bridging Mechanics
 Understanding the interaction between React Native and the host OS lifecycles is critical for managing memory, background tasks, and native modules safely.
 
-#### Android Activity & Fragment Lifecycles
+##### Android Activity & Fragment Lifecycles
 - **Android Activity** is the single visual screen context. Its lifecycle is:
   - `onCreate()`: Initial setup (ReactActivity / ReactHost initialization happens here).
   - `onStart()`: Activity becomes visible.
@@ -333,7 +182,7 @@ Understanding the interaction between React Native and the host OS lifecycles is
   - `onAttach()` ➡️ `onCreate()` ➡️ `onCreateView()` (inflates XML layout) ➡️ `onViewCreated()` ➡️ `onStart()` ➡️ `onResume()` ➡️ `onPause()` ➡️ `onStop()` ➡️ `onDestroyView()` ➡️ `onDestroy()` ➡️ `onDetach()`.
 - **React Native Hook**: Custom modules implementing Android's **`LifecycleEventListener`** register callbacks for `onHostResume()`, `onHostPause()`, and `onHostDestroy()`. This lets native code release resources (like stop camera previews or GPS polling) when the containing Activity pauses.
 
-#### iOS Application & ViewController Lifecycles
+##### iOS Application & ViewController Lifecycles
 - **iOS App Lifecycle** is governed by `UIApplicationDelegate` states:
   - `Active`: App is running in the foreground and receiving events.
   - `Inactive`: App is transitioning or interrupted (e.g., incoming phone call, notification panel swipe).
@@ -345,7 +194,7 @@ Understanding the interaction between React Native and the host OS lifecycles is
   - `viewWillDisappear()` / `viewDidDisappear()`: Triggers before/after the view is dismissed.
 - **React Native Hook**: Custom iOS modules subscribe to `UIApplication` events (like `UIApplicationDidBecomeActiveNotification` and `UIApplicationDidEnterBackgroundNotification`) to pause background animations or connection pools.
 
-#### React Native Library Creation Flow
+##### React Native Library Creation Flow
 To package native modules and JS bindings as a reusable NPM library:
 1. **Initialize Directory**: Run `npx create-react-native-library react-native-my-feature` to generate a scaffold.
 2. **Package Structure**:
@@ -356,7 +205,11 @@ To package native modules and JS bindings as a reusable NPM library:
 
 ---
 
+
+---
+
 ## 📦 Section 4: App Compilation, Metro & Babel
+
 *⏱️ 1 min read*
 
 The lifecycle of React Native code from a local developer laptop to a compiled production app follows a structured compilation pipeline.
@@ -373,29 +226,33 @@ The lifecycle of React Native code from a local developer laptop to a compiled p
 [Native APK/IPA Assembly]
 ```
 
-### 1. Babel (Transpilation Phase)
+#### 1. Babel (Transpilation Phase)
 Babel parses JS/TS files and converts the code into an Abstract Syntax Tree (AST). It then applies React Native presets (e.g., `module:@react-native/babel-preset`, which covers JSX and TypeScript syntax used by the template) to:
 - Strip TypeScript annotations.
 - Convert JSX tags into standard `React.createElement` functions.
 - Transpile modern ES6+ JS features into backward-compatible ES5 code.
 
-### 2. Metro Bundler (Packaging Phase)
+#### 2. Metro Bundler (Packaging Phase)
 Metro is the dedicated bundler for React Native. It runs in three distinct steps:
 1. **Resolution**: Metro constructs a dependency graph by scanning all `import` and `require` statements starting from `index.js`.
 2. **Transformation**: Calls Babel to transpile individual source files.
 3. **Serialization**: Combines all transformed source files into a single, massive JavaScript bundle file (e.g., `index.bundle`).
 
-### 3. Hermes Compilation (Production Phase)
+#### 3. Hermes Compilation (Production Phase)
 For release builds, React Native uses **Hermes**, a lightweight JS engine optimized for mobile devices.
 - Instead of downloading and parsing raw JavaScript text at runtime (which consumes CPU and slows app launch), Hermes pre-compiles the JavaScript bundle into optimized **bytecode** during the build phase.
 - The compiled APK (Android) or IPA (iOS) ships with this `.hbc` binary file, which the Hermes engine executes immediately upon launch, resulting in faster startup times, reduced memory usage, and smaller bundle sizes.
 
 ---
 
+
+---
+
 ## ⚡ Section 5: List Optimization & Memory Profiling
+
 *⏱️ 1 min read*
 
-### 1. Virtualized List Optimizations
+#### 1. Virtualized List Optimizations
 Displaying massive datasets (e.g., a ledger of 50,000 transactions in a fintech app) will instantly crash the app if rendered inside a standard ScrollView. ScrollView mounts all items immediately, flooding native memory.
 To optimize list structures, you configure virtualized layouts (`FlatList` or Shopify `FlashList`):
 
@@ -405,10 +262,10 @@ To optimize list structures, you configure virtualized layouts (`FlatList` or Sh
 - **`removeClippedSubviews`**: Dynamically unloads off-screen views from native memory buffers.
 - **`getItemLayout`**: If row heights are fixed, passing this property tells the layout engine the exact offset coordinates of every row. This completely saves the CPU from measuring views dynamically.
 
-### 2. Memory Leak Auditing Pipeline
+#### 2. Memory Leak Auditing Pipeline
 Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects during its **Mark-and-Sweep Garbage Collection** cycle because strong references remain in active queues.
 
-#### Diagnostic Steps:
+##### Diagnostic Steps:
 1. **Heap Snapshot Comparisons**: Use React Native DevTools / Hermes-compatible heap tooling to capture Snapshot A at screen init and Snapshot B after performing actions (like scrolling or opening/closing pages). Filter by allocation differences to locate variables that are not being collected.
 2. **Native Memory Profiling**: Use **Android Studio Profiler (Memory)** or **Xcode Instruments (Allocations/Leaks)** to watch the native memory heap. A rising, staircase-like memory graph indicates that views or native allocations are leaking.
 3. **Common Culprits**:
@@ -419,30 +276,34 @@ Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects duri
 
 ---
 
+
+---
+
 ## 🔒 Section 6: Release Engineering & Diagnostic Workflows
+
 *⏱️ 5 min read*
 
-### 1. Deep Linking & Attribution (Branch SDK)
+#### 1. Deep Linking & Attribution (Branch SDK)
 Deep links route users directly to a specific feature inside the app (e.g., `/deals/123`).
 - **Deferred Deep Linking**: If a user does not have the app installed, clicking a Branch link redirects them to the App Store. Once installed, Branch persists the original referral data across the install. On launch, the Branch SDK retrieves this data and passes it to the app routing state.
 - **Routing Integration**: The Branch payload parameters must be mapped to the `React Navigation` state, checking if authentication is required (e.g., if the user needs to log in via Auth0/Cognito before being routed to their portfolio sheet).
 
-### 2. Push Notifications
+#### 2. Push Notifications
 Push notifications require a secure handshake between client, server, and APNs/FCM:
 1. The app registers with Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM).
 2. The OS provides a unique **Device Token**.
 3. The app uploads this token to your backend database and maps it to the user's session profile.
 4. When sending a notification, your backend triggers a payload containing the token to FCM/APNs, which routes it directly to the target device.
 
-### 3. Production Diagnostics (Sentry + PostHog)
+#### 3. Production Diagnostics (Sentry + PostHog)
 - **Symbolication**: Release builds are minified, converting readable stack traces into hexadecimal memory locations. To diagnose crashes, your build pipeline must upload **dSYM files** (iOS) and **ProGuard/Source Maps** (Android/JS) to Sentry to map those locations back to line-numbered source code.
 - **Telemetry Correlation**: Pair behavioral analytics (PostHog screen taps and network latency logs) with error reports (Sentry) using a shared session identifier. This allows you to view the exact sequence of user actions leading up to a production crash.
 
-### 4. Navigation Lifecycles (`useFocusEffect`)
+#### 4. Navigation Lifecycles (`useFocusEffect`)
 - Using standard `useEffect` hooks will not fire when a screen gets re-focused.
 - To execute data syncs or trigger screen entries cleanly, implement the **`useFocusEffect`** hook. This acts as a navigator-specific lifecycle controller, firing code only when the tab gains visual focus, and executing its cleanup callback when the screen loses focus.
 
-### 5. CI/CD Pipelines & Mobile Deployment Workflow
+#### 5. CI/CD Pipelines & Mobile Deployment Workflow
 Automating builds ensures reliable releases and prevents manual code signing errors.
 
 ```text
@@ -457,7 +318,7 @@ Automating builds ensures reliable releases and prevents manual code signing err
   [Distribution] ➡️ upload to Play Console (Internal Track) & App Store Connect (TestFlight)
 ```
 
-#### CI/CD Tooling Matrix
+##### CI/CD Tooling Matrix
 | Tool | Best Use | Interview Talking Point |
 | :--- | :--- | :--- |
 | **GitHub Actions** | Repository-native CI, lint/test/build workflows, secret-backed signing. | Good default for teams already on GitHub; cache Node, Gradle, and CocoaPods aggressively. |
@@ -467,17 +328,17 @@ Automating builds ensures reliable releases and prevents manual code signing err
 | **CodePush / App Center** | Legacy OTA maintenance where existing apps still depend on it. | Know how to support and migrate it, but do not recommend App Center CodePush as the default for new apps. |
 | **Expo/EAS Update** | OTA updates for Expo/CNG-friendly apps. | Use runtime version locks, staged rollout, and rollback checks. |
 
-#### Android Signing & Release
+##### Android Signing & Release
 - **Keystore**: The release APK/AAB must be cryptographically signed using a `.keystore` certificate file.
 - **GitHub Secrets**: The Keystore file is base64 encoded and stored in GitHub secrets along with the store password and alias. The CI runner decodes this file to sign the app dynamically.
 - **AAB format**: Android App Bundle format is built using `./gradlew bundleRelease`. It aggregates raw assets and binary files, allowing the Google Play Console to dynamically build optimized APKs sized for specific user devices.
 
-#### iOS Code Signing & Match
+##### iOS Code Signing & Match
 - **Certificates & Provisioning**: iOS builds require dynamic code signing certificates (Development or Distribution) and provisioning profiles bound to specific App IDs and devices.
 - **Fastlane Match**: Automates iOS code signing by storing all certificates and provisioning profiles inside a private Git repository encrypted with a shared passcode. During CI runs, `fastlane match appstore` clones the repository, decrypts the files, and installs them onto the macOS runner, preventing signing mismatches.
 - **Fastfile**: Script containing "lanes" that compile the iOS app (`build_app` or `gym`) and submit the `.ipa` package to TestFlight (`upload_to_testflight` or `pilot`).
 
-### 6. Telemetry & Analytics Orchestration: Firebase/GA4, Segment, Amplitude, Sentry, Datadog & Azure App Insights
+#### 6. Telemetry & Analytics Orchestration: Firebase/GA4, Segment, Amplitude, Sentry, Datadog & Azure App Insights
 Production-grade applications rely on a multi-tiered monitoring stack to track stability, usability, and execution performance.
 - **Sentry (Crash & Error Diagnostics)**: Focuses strictly on debugging and runtime stability. It captures uncaught exceptions, promise rejections, and native crashes (JVM/C++ on Android, Objective-C/Swift on iOS). It reconstructs readable stack traces via dSYM and source map symbolication. Sentry is optimized for developer diagnostics.
 - **Firebase (Engagement & Operational Telemetry)**:
@@ -508,10 +369,14 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 
 ---
 
+
+---
+
 ## ⚛️ Section 7: React Architecture & Core Engine
+
 *⏱️ 3 min read*
 
-### 1. Virtual DOM, React Fiber, Reconciliation & Diffing
+#### 1. Virtual DOM, React Fiber, Reconciliation & Diffing
 - **Virtual DOM**: A lightweight, in-memory representation of the real DOM/Native UI layout tree. It acts as a blue-print stage where updates are calculated first to avoid expensive layouts reflows.
 - **Reconciliation**: The reconciliation process compares the new Virtual DOM tree with the previous one. In React 16+, this is powered by **React Fiber**.
 - **React Fiber**: A complete rewrite of React’s core reconciliation algorithm. 
@@ -524,7 +389,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
   - If elements are the same type, React compares and updates changed props or attributes only.
   - **Keys in Lists**: React uses keys to match Virtual DOM elements across render frames. Without unique keys, list updates (reordering, inserting, deleting) force React to recreate all native view cells from scratch, destroying state and causing UI flickering.
 
-### 2. Component Lifecycles: Class vs. Functional Components
+#### 2. Component Lifecycles: Class vs. Functional Components
 - Components transition through three core phases: **Mounting**, **Updating**, and **Unmounting**.
 - **Method Execution Order**:
 
@@ -542,7 +407,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
   Functional: useEffect() cleanup function executes
 ```
 
-### 3. Higher-Order Components (HOC)
+#### 3. Higher-Order Components (HOC)
 - **Definition**: An HOC is a pure function that takes a component as an argument and returns an enhanced component. It represents a structural pattern for sharing cross-cutting concerns (authentication, layouts, analytics tracking).
 - **When to Use**: Decoupling layout styles, injecting global contexts, or shielding screens with authorization wrappers.
 - **Example HOC**:
@@ -567,7 +432,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
   }
   ```
 
-### 4. React Hooks: Definitions & Code Examples
+#### 4. React Hooks: Definitions & Code Examples
 - **`useState`**: Hook to declare local component state.
   ```typescript
   const [count, setCount] = useState<number>(0);
@@ -605,7 +470,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   ```
 
-### 5. Custom Hooks: Rationale & Implementation
+#### 5. Custom Hooks: Rationale & Implementation
 - **Why**: Encourages code reusability, modularity, and readability. It separates UI presentation from business logic.
 - **Example (Encrypted Secure Storage Custom Hook)**:
   ```typescript
@@ -640,15 +505,19 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 
 ---
 
+
+---
+
 ## 📦 Section 8: State Management & Routing Orchestration
+
 *⏱️ 3 min read*
 
-### 1. State vs. Props & Prop Drilling
+#### 1. State vs. Props & Prop Drilling
 - **State**: Mutable data owned and managed internally by the component itself.
 - **Props**: Immutable data passed down from a parent component to configure the child.
 - **Prop Drilling**: The anti-pattern of passing props through multiple nested layers of child components that do not actually need the data, simply to deliver it to a deeply nested descendant. Avoided by using Context API or State Management libraries.
 
-### 2. State Management Solutions: Redux vs. Zustand vs. MobX vs. Context API
+#### 2. State Management Solutions: Redux vs. Zustand vs. MobX vs. Context API
 - Choose the state management solution based on app scope and mutation frequencies:
 
 | Feature | Redux Toolkit (RTK) | Zustand | MobX / MobX State Tree | Context API |
@@ -658,7 +527,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 | **Boilerplate** | Medium. Configured via slices and store. | Minimal. Defined in a single hook store. | Low to Medium. Managed via observables and actions. | Low. Native to React. |
 | **Async Support** | Native async thunks or sagas. | Integrated directly inside custom store actions. | Handled using flow/generators or custom action callbacks. | Handled manually using asynchronous triggers in parent components. |
 
-#### MobX Core Concepts & React Integration
+##### MobX Core Concepts & React Integration
 MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
 - **Observables (`makeObservable`)**: Marks object properties as observable state values. MobX wraps these properties in getters/setters to track property reads and writes.
 - **Computed Values (`@computed` / `computed`)**: Values derived from existing state (like filtering a list). They are cached automatically, only re-evaluating if their underlying observable dependencies change.
@@ -667,7 +536,7 @@ MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
 - **Observer Wrappers (`observer`)**: High-Order Component wrapping React components. It automatically registers the component to listen to any observables accessed during its render method. If an accessed property updates, the component re-renders; if an unaccessed property updates, rendering is skipped.
 - **MobX State Tree (MST)**: A transactional wrapper around MobX that structures stores into a tree of typed nodes (models). MST provides runtime type-checking, snapshots (for time-travel debugging), and out-of-the-box state serialization.
 
-### 3. Routing, RBAC & Deep Linking in React Navigation
+#### 3. Routing, RBAC & Deep Linking in React Navigation
 - **Role-Based Access Control (RBAC)**: Manage access limits using conditional navigation stacks:
   ```tsx
   const AppNavigator = () => {
@@ -697,7 +566,7 @@ MobX operates on a **Transparent Functional Reactive Programming (TFRP)** model:
   };
   ```
 
-#### Recoil: Atom & Selector Architecture
+##### Recoil: Atom & Selector Architecture
 Recoil is useful to understand historically, but it is no longer the default recommendation for new enterprise React Native work. In interviews, mention it as an atomic-state pattern and then steer modern production choices toward **Redux Toolkit**, **Zustand**, **Jotai**, **MobX**, or framework-specific server-state tools depending on team needs.
 - **Atoms (Source of Truth)**: Dynamic data containers representing units of state. Components can subscribe to atoms. When an atom updates, *only* components subscribed to that specific atom re-render.
 - **Selectors (Derived State)**: Pure functions that transform atoms or other selectors. Selectors are cached automatically, only recalculating if their upstream dependencies (atoms/selectors) change. They can also represent asynchronous operations (e.g. fetching records from a server).
@@ -708,10 +577,14 @@ Recoil is useful to understand historically, but it is no longer the default rec
 
 ---
 
+
+---
+
 ## 🌐 Section 9: Server Rendering, Styling & Platform Specifics
+
 *⏱️ 1 min read*
 
-### 1. SSR vs. CSR & React Native SEO
+#### 1. SSR vs. CSR & React Native SEO
 - **Client-Side Rendering (CSR)**: The browser downloads a minimal HTML stub and executes JS to render the Virtual DOM. Faster interactions, but slower initial load and weaker SEO indexing.
 - **Server-Side Rendering (SSR)**: The server pre-renders HTML on each request, delivering complete layouts. Highly optimized for SEO crawlers and fast First Contentful Paint.
 - **React Native SEO / Indexing**:
@@ -720,14 +593,14 @@ Recoil is useful to understand historically, but it is no longer the default rec
     1. **App Indexing**: Register **Android App Links** and **iOS Universal Links** matching domain structures (e.g. `https://myportal.com/deals`).
     2. **Companion Web App**: Deploy an SEO-optimized web companion built with Next.js (using SSR/Static Site Generation). Search engines index the web layouts. When users tap search results on mobile, Universal Links launch the native mobile app directly, routing them to the correct screen.
 
-### 2. Layout & Styling Frameworks
+#### 2. Layout & Styling Frameworks
 - Styling decisions dictate layout compilation performance:
   - **StyleSheet (Standard)**: Pre-compiled at compile time. Translates styles into native IDs on the native thread. High performance, zero runtime overhead.
   - **Tailwind CSS (NativeWind)**: Compiles utility classes into standard `StyleSheet` objects at build time. Maintains high performance while improving developer speed.
   - **StyleX**: Type-safe CSS-in-JS compiler. Very robust, but has minor build-time integrations.
   - **Inline Styles (`style={{ flex: 1 }}`)**: Generates a brand-new style object on every single render. This forces style calculations and comparisons on every update cycle, degrading layout speeds.
 
-### 3. Accessibility, Themes, Security & Multi-language (i18n)
+#### 3. Accessibility, Themes, Security & Multi-language (i18n)
 - **Accessibility (a11y)**: Add `accessible={true}`, `accessibilityLabel`, and `accessibilityHint` elements to guarantee screens are readable by Screen Readers (TalkBack on Android, VoiceOver on iOS).
 - **Multi-language (i18n)**: Integrate `react-i18next` to translate text dictionaries. Translate strings inside hooks using `const { t } = useTranslation()`.
 - **Multi-theme**: Orchestrate themes using `useColorScheme()` or Redux theme stores, changing StyleSheet styles dynamically via style variables.
@@ -739,10 +612,14 @@ Recoil is useful to understand historically, but it is no longer the default rec
 
 ---
 
+
+---
+
 ## 🧪 Section 10: Testing Strategies & QA Automation
+
 *⏱️ 2 min read*
 
-### 1. The Mobile Testing Pyramid
+#### 1. The Mobile Testing Pyramid
 - **Test-Driven Development (TDD)**: The software development process where you write failing test cases first, then write minimal code to pass the tests, and finally refactor for clean patterns.
 
 ```text
@@ -753,7 +630,7 @@ Recoil is useful to understand historically, but it is no longer the default rec
    /_______\  Unit (RNTL + Jest)  ➡️ Validates atomic hooks and logic calculations
 ```
 
-### 2. Unit & Integration Testing (Jest + React Native Testing Library)
+#### 2. Unit & Integration Testing (Jest + React Native Testing Library)
 - **RNTL** allows rendering components inside a virtual environment to assert UI elements and fire events.
 - **Example Test Code**:
   ```typescript
@@ -772,7 +649,7 @@ Recoil is useful to understand historically, but it is no longer the default rec
   });
   ```
 
-### 3. End-to-End Testing (Detox / Appium + JUnit)
+#### 3. End-to-End Testing (Detox / Appium + JUnit)
 - **Detox**: A grey-box end-to-end testing library. It tests the compiled app on real simulators or devices, waiting for asynchronous network calls and animations to finish automatically before asserting elements, minimizing flaky tests.
 - **Appium**: A black-box, WebDriver-based E2E tool that automates iOS and Android apps like an external user. It is slower than Detox but useful when QA teams need cross-platform device farms, language-agnostic tests, or shared automation across native and React Native apps.
 - **JUnit**: Used as the test runner reporting framework.
@@ -795,19 +672,19 @@ Recoil is useful to understand historically, but it is no longer the default rec
   });
   ```
 
-#### Detox vs. Appium Interview Answer
+##### Detox vs. Appium Interview Answer
 | Tool | Best For | Tradeoff |
 | :--- | :--- | :--- |
 | **Detox** | React Native teams needing fast, grey-box E2E on simulators/emulators with RN synchronization. | Requires app instrumentation and RN-aware setup. |
 | **Appium** | Enterprise QA/device-farm automation across RN, native Android, native iOS, and hybrid apps. | Slower and more brittle if selectors/accessibility IDs are not maintained. |
 
-### 4. Code Quality Gates (ESLint + Prettier + Husky)
+#### 4. Code Quality Gates (ESLint + Prettier + Husky)
 - **ESLint**: Enforces TypeScript, React, React Hooks, import-order, accessibility, and React Native-specific rules before code reaches review.
 - **Prettier**: Owns formatting so code review focuses on behavior, architecture, and test quality rather than style debates.
 - **Husky + lint-staged**: Runs lightweight checks only on changed files before commit, commonly `eslint --fix`, `prettier --write`, and focused tests.
 - **CI Enforcement**: Pre-commit hooks are convenience, not security. CI must still run `tsc --noEmit`, lint, unit tests, and build checks.
 
-### 5. Test-Driven Development (TDD) Workflow in React Native
+#### 5. Test-Driven Development (TDD) Workflow in React Native
 Test-Driven Development (TDD) is a development methodology where code is written in a strict iterative feedback loop:
 1. **Red**: Write a failing unit or integration test defining a small, single requirement.
 2. **Green**: Write the minimal application code required to make the test pass.
@@ -822,12 +699,16 @@ Test-Driven Development (TDD) is a development methodology where code is written
 
 ---
 
+
+---
+
 ## 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
+
 *⏱️ 4 min read*
 
 Mobile banking, investment, and remote operations apps require reliable offline support. This section outlines local storage comparison, offline caching hydration, and ledger synchronization strategies.
 
-### 1. Storage Solution Comparison Matrix
+#### 1. Storage Solution Comparison Matrix
 
 | Storage Engine | Paradigm | Threading | Benchmarks (Write 10k rows) | Best For | Limitations |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -839,19 +720,19 @@ Mobile banking, investment, and remote operations apps require reliable offline 
 - **MMKV Optimization Mechanics**: MMKV maps files directly to memory using the kernel’s **`mmap`** call. Reads and writes bypass bridge queues and serialization delays. JSI allows React Native code to query MMKV directly on the main thread in under 1ms.
 - **WatermelonDB Reactive Architecture**: Designed to keep React threads responsive when managing large tables. It uses SQLite but runs queries on a separate native background thread. View components are connected to DB tables using observables (`@withObservables`). When a database record changes, only components displaying that specific record re-render.
 
-### 2. React Query Offline Caching & Persister Integration
+#### 2. React Query Offline Caching & Persister Integration
 React Query (TanStack Query) manages remote state in memory. To support offline restarts, the query cache is serialized and written to disk (MMKV or AsyncStorage) using **persister adapters**:
 1. **Bootstrap**: Upon application launch, the persister reads the stored JSON cache from MMKV and hydrates the React Query client cache.
 2. **Persistence**: Every time a network request resolves and updates the cache in memory, the persister writes the serialized cache state back to MMKV.
 3. **Execution**: If the app is launched offline, the hydrated cache is served immediately with a `stale-while-revalidate` lifecycle. Queries return cached data, and background network refetches are paused until connection is recovered.
 
-### 3. Redux Toolkit Offline Hydration & Redux Persist
+#### 3. Redux Toolkit Offline Hydration & Redux Persist
 To maintain client-side application state (e.g. user details, app theme settings) across launches, we configure `redux-persist` with an MMKV-backed storage adapter:
 1. **Hydration Phase**: The store is initialized in a blocked state. `PersistGate` intercepts component mounting, reading stored keys from MMKV.
 2. **Rehydration Action**: Once loaded, Redux dispatches `persist/REHYDRATE` containing the parsed payload. Slice state is updated, and the UI continues rendering.
 3. **Write-Through Caching**: Action triggers update slice states. The MMKV adapter writes state changes back to disk synchronously, preventing data loss if the app crashes mid-session.
 
-### 4. Enterprise Offline Sync Architecture
+#### 4. Enterprise Offline Sync Architecture
 Offline synchronization is modeled using a **Transactional Outbox Queue** pattern. This ensures data consistency, prevents data loss, and manages transaction ordering:
 
 ```text
@@ -866,7 +747,7 @@ Offline synchronization is modeled using a **Transactional Outbox Queue** patter
   (API Success) ➡️ Deletes item from SQLite outbox queue ➡️ Refreshes cache
 ```
 
-#### Sync Reconciliation Core Rules:
+##### Sync Reconciliation Core Rules:
 1. **NetInfo Connectivity Listener**: Monitors changes. On transition from offline to online, it triggers the synchronization processor.
 2. **Idempotency Keys**: A UUID is generated for each transaction and stored in the SQLite outbox. Retried API calls include this header. The server uses it to prevent executing the transaction twice.
 3. **Conflict Resolution Strategy**:
@@ -875,7 +756,7 @@ Offline synchronization is modeled using a **Transactional Outbox Queue** patter
    - **Interactive User Reconciliation**: The app displays a comparison modal to let the user choose which state to keep (ideal for collaborative document models).
 4. **Persistent Background Workers**: If the user backgrounds the app during sync, the transaction is handed off to OS workers (`WorkManager` in Android / `BackgroundTasks` in iOS) to complete the queue execution in the background.
 
-### 5. GraphQL Integration & Caching with Apollo Client
+#### 5. GraphQL Integration & Caching with Apollo Client
 GraphQL enables mobile clients to request only the specific fields required, reducing network payload sizes on constrained cellular connections.
 - **Client Configuration**: Initialized via `ApolloClient` utilizing an `InMemoryCache` instance. The client manages query normalization (mapping server objects to cache keys using `__typename` and `id`).
 - **Fetch Policies**:
@@ -888,16 +769,20 @@ GraphQL enables mobile clients to request only the specific fields required, red
 
 ---
 
+
+---
+
 ## 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
+
 *⏱️ 2 min read*
 
 For large-scale enterprise applications, building a single monolithic JavaScript bundle results in massive build-time bottlenecks, git merge conflicts, and regression risks. Senior architects design super-apps composed of independent, modular micro-frontends (mini-apps) using **Re.Pack** and **Webpack Module Federation**.
 
-### 1. Metro vs. Re.Pack (Webpack)
+#### 1. Metro vs. Re.Pack (Webpack)
 - **Metro Bundler**: React Native’s default bundler compiles all source code, assets, and libraries statically into a singular `index.bundle` file at compile time. Metro does not natively support dynamic code splitting, remote URLs loading, or sharing runtimes at runtime.
 - **Re.Pack**: A Webpack-based compiler and runtime tool that replaces Metro. Re.Pack allows configuration of Webpack's core plugins, including **Module Federation**, enabling dynamic code loading, chunk splits, and multi-bundle mobile compilation.
 
-### 2. Webpack Module Federation Mechanics
+#### 2. Webpack Module Federation Mechanics
 Module Federation separates code into **Hosts** (Container App) and **Remotes** (Mini-Apps).
 - **Host (Container)**: The main shell application. It sets up the navigation shell, imports core dependencies, and handles dynamic loader orchestration.
 - **Remotes (Mini-Apps)**: Independent features (e.g., Credit Card screen, Loan Application process, Rewards Hub). Each remote defines specific entry components it exposes (exports) to the host.
@@ -912,7 +797,7 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
   (Cards Feature)        (Loans Feature)
 ```
 
-### 3. Dynamic Bundle Loading Workflow
+#### 3. Dynamic Bundle Loading Workflow
 1. **On-Demand Resolution**: When a user navigates to the "Rewards" section, the Host app triggers a dynamic import (`import('rewards/Component')`).
 2. **Dynamic Script Loader**: Re.Pack interceptors load the remote Javascript/Hermes bytecode chunk from a remote CDN/Server URL (e.g., `https://cdn.mybank.com/rewards/1.0.0/bundle.js`).
 3. **Execution**: The script is downloaded, verified, and executed inside the Hermes virtual machine, rendering the component seamlessly inside the Host's navigation stack.
@@ -920,12 +805,16 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
 
 ---
 
+
+---
+
 ## 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
+
 *⏱️ 2 min read*
 
 Fintech, banking, and wealth-management applications deal with high-value transactions and sensitive PII. Security must be managed across multiple client-side vectors.
 
-### 1. Root & Jailbreak Detection
+#### 1. Root & Jailbreak Detection
 Compromised operating systems (rooted Android, jailbroken iOS) bypass kernel sandbox isolation, allowing attackers to inspect active RAM, log keys, and bypass local authentication controls.
 - **Android Root Indicators**: 
   - Presence of system files like `su` or `busybox` in directories like `/system/bin/`, `/system/xbin/`, `/sbin/`, `/system/sd/xbin/`.
@@ -936,7 +825,7 @@ Compromised operating systems (rooted Android, jailbroken iOS) bypass kernel san
   - Testing sandbox escaping by attempting to write a test file outside the app's document directory.
   - Checking if system calls like `fork()` return valid process IDs (sandboxed iOS apps cannot spawn subprocesses).
 
-### 2. Runtime Debugging & Anti-Frida Protection
+#### 2. Runtime Debugging & Anti-Frida Protection
 Attackers use dynamic instrumentation frameworks to hook Javascript or Native methods in memory at runtime to alter application logic (e.g. bypassing biometric screens).
 - **Anti-Debugging Hooks**:
   - **Android**: Custom modules query `android.os.Debug.isDebuggerConnected()` or inspect the `/proc/self/status` file for the `TracerPid` property. A non-zero `TracerPid` value indicates an attached debugger process.
@@ -945,11 +834,11 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
   - Frida typically runs a background server listening on TCP port `27042`. Native modules scan active socket tables on localhost to detect this port.
   - Detecting the injection of Frida’s dynamic library (`frida-agent.so` or `frida-gadget.dylib`) by parsing local memory mappings (`/proc/self/maps` on Android, or calling `_dyld_get_image_name` on iOS).
 
-### 3. Native Code Obfuscation (R8 & ProGuard)
+#### 3. Native Code Obfuscation (R8 & ProGuard)
 - **ProGuard / R8**: Build-time tools that shrink, optimize, and obfuscate Android Java/Kotlin bytecode. They replace human-readable class, method, and variable names (e.g., `PaymentService.processTransaction`) with minified tokens (e.g., `a.b`), complicating static analysis in decompilers (like JADX).
 - Developers must maintain a `proguard-rules.pro` file specifying `-keep` directives for React Native library bindings; otherwise, ProGuard may optimize and strip native method interfaces called from JavaScript, resulting in `NoSuchMethodError` crashes.
 
-### 4. Hardened Secret Management (C++ JNI)
+#### 4. Hardened Secret Management (C++ JNI)
 - **The Vulnerability**: Storing access keys or encryption secrets in `.env` files is insecure. Metro compiles `.env` variables directly into plaintext strings inside the final Javascript bundle file (`index.bundle`), which can be extracted in seconds using standard string analysis tools (`strings index.bundle`).
 - **The Secure Solution (JNI/C++)**: Store cryptographic keys or API secrets inside C++ header files. C++ code compiles directly into native machine code binary files (`.so` library file on Android, `.a` static library on iOS), which cannot be read as plain text.
   - The C++ library exposes JNI wrappers (Android) and Objective-C++ wrappers (iOS) to resolve keys dynamically.
@@ -957,12 +846,16 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
 
 ---
 
+
+---
+
 ## ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)
+
 *⏱️ 2 min read*
 
 Optimizing startup speed directly drives user conversion. Senior developers split app launch calculations into discrete phases and utilize modern debugging tools.
 
-### 1. Breakdown of App Startup Phases
+#### 1. Breakdown of App Startup Phases
 1. **Pre-Main Phase (Native Init)**: 
    - The OS loads the application binary.
    - Dynamic linker (`dyld` on iOS) loads frameworks and CocoaPods.
@@ -980,12 +873,12 @@ Optimizing startup speed directly drives user conversion. Senior developers spli
    - The Yoga engine calculates Flexbox rules.
    - Native UI views are instantiated on the Main Thread and rendered to the device screen (Time-to-Interactive - TTI achieved).
 
-### 2. TTI Optimization Strategies
+#### 2. TTI Optimization Strategies
 - **Inline Requires**: Enabled in `metro.config.js`. It wraps imports in helper functions that lazy-resolve files only when they are first referenced in code. This stops the JS execution engine from evaluating all imported modules at initial app boot.
 - **Lazy SDK Initialization**: Do not initialize heavy libraries (e.g., PostHog, Branch, Sentry) on the main app boot timeline. Initialize them asynchronously inside `InteractionManager.runAfterInteractions` or wrap them in background timers after the primary UI has painted.
 - **Hermes Bytecode AOT**: Ensure Hermes compilation is enabled so JavaScript compiles to bytecode during CI assembly, completely skipping the JS text parsing and optimization phases during runtime startup.
 
-### 3. Debugging in the Post-Flipper Era
+#### 3. Debugging in the Post-Flipper Era
 With **Flipper** deprecated and removed from modern React Native templates, teams use the bundled **React Native DevTools** experience plus native profilers:
 - **React Native DevTools Desktop App**: Modern RN releases ship a bundled DevTools app rather than relying on a browser window. It supports component inspection, console, breakpoints, and modern debugging flows.
 - **Network Panel**: Modern DevTools includes built-in network inspection for `fetch`, `XMLHttpRequest`, and image requests, including request metadata and initiator information where supported.
@@ -998,17 +891,21 @@ With **Flipper** deprecated and removed from modern React Native templates, team
 
 ---
 
+
+---
+
 ## 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)
+
 *⏱️ 2 min read*
 
-### 1. Over-the-Air (OTA) Bundle Delivery
+#### 1. Over-the-Air (OTA) Bundle Delivery
 OTA systems bypass store approval times for JavaScript-only updates. For interviews, explain the general OTA model first, then mention that **Expo/EAS Updates** is common for Expo or CNG-based apps, while bare RN teams may use a self-hosted or New-Architecture-compatible OTA provider. Do not present Microsoft App Center CodePush as the default managed service for new projects, because the App Center service has been retired.
 - **Handshake Flow**: On launch, the native app shell calls the update registry API, passing the current binary version and active bundle hash. If a new bundle version matches the query, the client downloads the file in the background. On the next restart, the path reference shifts to execute the new Hermes bytecode.
 - **Binary Version Locks**: Native module libraries are compiled directly into APKs/IPAs. If an OTA update pushes new JS code that attempts to invoke a native API that does not exist in the client’s running binary code, it triggers an instant fatal crash. 
   - *Mitigation*: OTA configurations enforce strict runtime locks mapping JS bundles to specific app binary version ranges.
 - **Rollback Systems**: The native update shell tracks initialization success. If the app crashes repeatedly within a few minutes of executing an OTA bundle, the native runner cancels the reference pointer and rolls back to the stable local embedded bundle.
 
-### 2. In-App Purchases & Subscription Lifecycles
+#### 2. In-App Purchases & Subscription Lifecycles
 - **Client flow**: Standard libraries like `react-native-iap` fetch products and coordinate checkout transactions with Apple's StoreKit 2 and Google Play Billing.
 - **Hacking Risks**: Jailbroken devices can use local receipt-bypass scripts to intercept the billing transaction success handler, returning a mock "success" payload without charging the user. Thus, client-side receipt parsing is highly insecure.
 - **Secure Server-to-Server Validation Flow**:
@@ -1020,12 +917,16 @@ OTA systems bypass store approval times for JavaScript-only updates. For intervi
 
 ---
 
+
+---
+
 ## 🌐 Section 16: React Native for Web (Cross-Platform Development)
+
 *⏱️ 1 min read*
 
 React Native for Web (`react-native-web`) makes it possible to run React Native applications on the web using standard web technologies. It acts as a translation layer between React Native components/APIs and native HTML DOM equivalents.
 
-### 1. How It Works (Compilation & Mapping)
+#### 1. How It Works (Compilation & Mapping)
 - **Component Mapping**: At runtime, React Native components are mapped to semantic HTML elements:
   - `<View>` ➡️ `<div>` (with `display: flex` and layout rules styling)
   - `<Text>` ➡️ `<span>` (or `<div role="text">`)
@@ -1034,7 +935,7 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
   - `<ScrollView>` ➡️ `<div>` with `overflow: auto`
 - **Style Compilation**: `StyleSheet.create` compiles style declarations into static, unique CSS classes at build time or initial render, attaching them using `className` elements to avoid the slow performance of runtime inline styles.
 
-### 2. Monorepo Setup & Code Sharing
+#### 2. Monorepo Setup & Code Sharing
 - To share code between iOS, Android, and Web, developers structure projects in monorepos (e.g., using Yarn Workspaces, Turborepo, or Nx):
   - `packages/app/`: Core UI components, hooks, stores, and business logic.
   - `apps/mobile/`: Native React Native shell (configured via Metro).
@@ -1051,7 +952,7 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
     }
     ```
 
-### 3. Key Differences & Limitations
+#### 3. Key Differences & Limitations
 - **Platform-Specific Code**: Use the `Platform` API or platform-specific extensions:
   - `MyComponent.android.tsx` / `MyComponent.ios.tsx` / `MyComponent.web.tsx`
 - **API Availability**:
@@ -1061,12 +962,16 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
 
 ---
 
+
+---
+
 ## 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)
+
 *⏱️ 1 min read*
 
 Reducing app binary weight directly reduces user acquisition bounce rates. Senior developers target optimizations across both JavaScript assets and platform-specific native binaries.
 
-### 1. Android Specific Size Reduction (build.gradle)
+#### 1. Android Specific Size Reduction (build.gradle)
 - **CPU Architecture (ABI) Splitting**:
   - By default, a release build packs native `.so` binaries for all supported CPU architectures (arm64-v8a, armeabi-v7a, x86, x86_64) into a single "fat" APK.
   - *Optimization*: Configure Gradle to split APKs per architecture or generate an **Android App Bundle (AAB)** which lets the Google Play Store serve optimized, single-architecture APKs to user devices:
@@ -1088,7 +993,7 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
     }
     ```
 
-### 2. iOS Specific Size Reduction (Xcode Configurations)
+#### 2. iOS Specific Size Reduction (Xcode Configurations)
 - **Apple App Slicing**:
   - Organize raw image assets into **Asset Catalogs (`.xcassets`)** rather than bundling raw PNGs in the bundle root. The App Store uses App Slicing to package only the image densities (`@2x`, `@3x`) matching the target device.
 - **Stripping Debug Symbols**:
@@ -1098,7 +1003,7 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
 - **CocoaPods Optimization**:
   - Avoid compiling unused native dependencies. Inspect `Podfile` configurations and use modular imports to limit framework inclusions.
 
-### 3. JavaScript & Bundle Optimization
+#### 3. JavaScript & Bundle Optimization
 - **Hermes Bytecode Engine**:
   - Ensure Hermes is enabled. Pre-compiling raw JS files into Hermes bytecode (`.hbc`) reduces bundle parse overhead and reduces final binary size.
 - **Bundle Auditing (react-native-bundle-visualizer)**:
@@ -1110,46 +1015,54 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
 
 ---
 
+
+---
+
 ## ⚡ Section 18: Senior-Level Performance Engineering Checklist
+
 *⏱️ 1 min read*
 
 Ensure smooth 60/120 FPS interactions and minimize thread blocks by checking off these core performance vectors during code reviews:
 
-### 1. Minimizing Bridge & JSI Crossing Overhead
+#### 1. Minimizing Bridge & JSI Crossing Overhead
 - **The Rule**: Keep interactions on the native thread without jumping back to JavaScript.
 - **Implementation**:
   - Use **React Native Reanimated** and **Gesture Handler** to run touch responses, scrolling, and dragging animations fully on the UI thread using C++ Worklets.
   - Do not pass high-frequency events (like `onScroll` coordinates) back to the JS thread to update React state; bind them directly to native layout transforms using shared values.
 
-### 2. Render Loop Optimization
+#### 2. Render Loop Optimization
 - **Prevent Unnecessary Updates**:
   - Wrap list items and heavy components in `React.memo` using strict dependency comparisons.
   - Memoize complex calculations with `useMemo`, and callbacks with `useCallback` to preserve reference identities across renders.
   - Avoid inline objects or arrow functions inside component render trees (e.g. `<Component style={{ padding: 10 }} onPress={() => execute()} />`).
 
-### 3. Dynamic Lists (FlashList / FlatList)
+#### 3. Dynamic Lists (FlashList / FlatList)
 - **Virtualization Tuning**:
   - Set `windowSize` to a low value (e.g., `5` screens' worth of elements) to prevent excessive off-screen allocations.
   - Pass `getItemLayout` (for FlatList) or `estimatedItemSize` (for FlashList) to completely bypass dynamic cell measurements.
   - Use `keyExtractor` returning unique IDs to prevent reconciliation tree rebuilds.
 
-### 4. Memory Leak Triage
+#### 4. Memory Leak Triage
 - **Clean up Subscriptions**: Always return cleanup functions in `useEffect` hooks to destroy native event listeners (`DeviceEventEmitter`), interval timers, and database subscription queries.
 - **Request Aborting**: Use `AbortController` in Axios/Fetch configurations to abort active HTTP network promises if components unmount before the API resolves.
 
 ---
 
+
+---
+
 ## 🔗 Section 19: Bridgeless Mode & React Native Runtime
+
 *⏱️ 3 min read*
 
 The New Architecture introduced JSI, TurboModules, and Fabric to replace specific aspects of the legacy Bridge. However, even with these components enabled, the old Bridge infrastructure could still remain active as a **fallback path** for legacy native modules, event emitters, and certain internal subsystems. **Bridgeless Mode** is the final architectural step that removes the Bridge entirely from the runtime, completing the New Architecture migration.
 
-### 1. What is Bridgeless Mode?
+#### 1. What is Bridgeless Mode?
 - In earlier New Architecture adoption, apps could run Fabric for rendering and TurboModules for native module access, but the `RCTBridge` singleton was still instantiated at startup to support legacy compatibility layers (old `NativeModules`, `DeviceEventEmitter` over Bridge, and certain internal RN subsystems).
 - **Bridgeless Mode** eliminates the `RCTBridge` object completely. Every communication path between JavaScript and Native—rendering, module invocation, event dispatch, error handling—flows exclusively through **JSI-backed C++ interfaces**.
 - This is not just a performance optimization; it is an architectural simplification that removes an entire class of serialization overhead, startup cost, and thread-coordination complexity.
 
-### 2. React Native Runtime
+#### 2. React Native Runtime
 The **React Native Runtime** is the unified C++ runtime layer that hosts all core subsystems after the Bridge is removed:
 
 ```text
@@ -1171,7 +1084,7 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
 - **TurboModules** provide lazy-loaded, type-safe access to native platform APIs.
 - **The Event Loop** manages async callbacks, timers, and microtask queues without any Bridge relay.
 
-### 3. Bridgeless vs. New Architecture with Bridge Fallback
+#### 3. Bridgeless vs. New Architecture with Bridge Fallback
 
 | Aspect | New Arch + Bridge Fallback | Fully Bridgeless |
 | :--- | :--- | :--- |
@@ -1182,7 +1095,7 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
 | **Memory Footprint** | Bridge infrastructure retained in memory | Reduced baseline memory |
 | **Runtime Complexity** | Two communication paths (JSI + Bridge) coexist | Single unified JSI path |
 
-### 4. Enabling Bridgeless Mode
+#### 4. Enabling Bridgeless Mode
 - **React Native 0.73+**: Bridgeless Mode became available as an opt-in configuration.
 - **React Native 0.78+**: Bridgeless Mode is enabled by default with the New Architecture.
 - **Android** (`ReactNativeHost` or `ReactActivity`):
@@ -1201,7 +1114,7 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
   // Bridgeless is automatically enabled when using RCTAppDelegate with New Architecture
   ```
 
-### 5. What Breaks When You Go Bridgeless?
+#### 5. What Breaks When You Go Bridgeless?
 - **Legacy `NativeModules` access**: Any module registered via the old `RCTBridgeModule` protocol without a TurboModule spec will not be found. You must either migrate to TurboModules or use the **Interop Layer** (a compatibility shim that wraps legacy modules for Bridgeless).
 - **`RCTBridge` direct references**: Any native code that accesses `self.bridge` or `reactContext.catalystInstance` will crash. These must be refactored to use `RCTModuleRegistry` or TurboModule APIs.
 - **Third-party libraries**: Libraries that have not updated to support Bridgeless Mode will fail at runtime. Always verify library compatibility before enabling.
@@ -1217,10 +1130,14 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
 
 ---
 
+
+---
+
 ## 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive
+
 *⏱️ 5 min read*
 
-### 1. Redux Thunk
+#### 1. Redux Thunk
 A **thunk** is a function that returns another function. In Redux, a thunk is a middleware that allows you to write action creators that return a function (receiving `dispatch` and `getState`) instead of a plain action object. This enables asynchronous logic inside Redux.
 
 - **`createAsyncThunk` (Redux Toolkit)**: The modern standard for async operations in Redux. It automatically generates `pending`, `fulfilled`, and `rejected` action types and dispatches them at the appropriate lifecycle stages.
@@ -1266,10 +1183,10 @@ const userSlice = createSlice({
 });
 ```
 
-### 2. Redux Saga
+#### 2. Redux Saga
 Redux Saga is a middleware library that uses **ES6 generator functions** (`function*`) to manage complex asynchronous side effects. Generator functions can pause execution (`yield`), making async flows read like synchronous code and enabling powerful patterns like cancellation, racing, and forking.
 
-#### Core Saga Effects
+##### Core Saga Effects
 
 | Effect | Purpose | Example |
 | :--- | :--- | :--- |
@@ -1284,7 +1201,7 @@ Redux Saga is a middleware library that uses **ES6 generator functions** (`funct
 | `select(selector)` | Reads current Redux state | `const token = yield select(getToken)` |
 | `delay(ms)` | Pauses saga execution for specified milliseconds | `yield delay(3000)` |
 
-#### Login Saga with Token Refresh & Error Handling
+##### Login Saga with Token Refresh & Error Handling
 
 ```typescript
 import { call, put, takeLatest, select } from 'redux-saga/effects';
@@ -1318,7 +1235,7 @@ export function* authWatcherSaga() {
 }
 ```
 
-#### Polling Saga with Cancellation
+##### Polling Saga with Cancellation
 
 ```typescript
 import { call, put, delay, fork, cancel, take } from 'redux-saga/effects';
@@ -1354,7 +1271,7 @@ function* watchOrderPolling() {
 }
 ```
 
-#### Saga vs. Thunk Comparison
+##### Saga vs. Thunk Comparison
 
 | Feature | Redux Thunk | Redux Saga |
 | :--- | :--- | :--- |
@@ -1367,7 +1284,7 @@ function* watchOrderPolling() {
 | **Polling** | `setInterval` + cleanup | `while(true) + delay` with `fork/cancel` |
 | **Best For** | Simple CRUD, straightforward async | Complex flows, websockets, polling, orchestration |
 
-### 3. Jotai (Atomic State)
+#### 3. Jotai (Atomic State)
 **Jotai** is a primitive atomic state management library for React. Unlike Zustand (which uses a single store with selectors), Jotai uses a bottom-up approach where state is composed from individual **atoms**.
 
 - **Atoms**: The smallest unit of state. Each atom holds a single value and can be read/written from any component.
@@ -1431,10 +1348,14 @@ function Counter() {
 
 ---
 
+
+---
+
 ## ✨ Section 21: Shared Element Transitions & Advanced Animation Patterns
+
 *⏱️ 3 min read*
 
-### 1. Shared Element Transitions
+#### 1. Shared Element Transitions
 Shared Element Transitions create the visual illusion that a UI element (like a photo thumbnail, card, or avatar) seamlessly transforms from one screen to another during navigation. The element appears to "fly" from its position on the source screen to its destination on the target screen, preserving visual continuity.
 
 - **How It Works**: Two views on different screens are tagged with the same identifier. During the navigation transition, the system calculates the start and end position/size of the tagged element and animates the transform between them. The original element is hidden, and a clone is animated across the transition overlay.
@@ -1477,7 +1398,7 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
   ```
   The `sharedTransitionTag` prop must match between source and destination. Reanimated handles the interpolation, clipping, and z-ordering automatically.
 
-### 2. Micro-Interactions & Advanced Patterns
+#### 2. Micro-Interactions & Advanced Patterns
 - **Button Press Animations**: Scale-down feedback on press using `useAnimatedStyle` and `withSpring`:
   ```typescript
   import { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
@@ -1549,7 +1470,7 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
   }
   ```
 
-### 3. Worklets in Reanimated
+#### 3. Worklets in Reanimated
 **Worklets** are small JavaScript functions that are compiled and executed on the **UI thread** instead of the JS thread. This is what makes Reanimated animations run at 60/120 FPS without Bridge or JS thread involvement.
 
 - Any function passed to Reanimated gesture callbacks (`.onUpdate()`, `.onEnd()`) or `useAnimatedStyle` runs as a Worklet.
@@ -1566,16 +1487,20 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
 
 ---
 
+
+---
+
 ## 🖼️ Section 22: Native UI Components (ViewManagers)
+
 *⏱️ 2 min read*
 
-### 1. Native Modules vs. Native UI Components
+#### 1. Native Modules vs. Native UI Components
 - **Native Modules** expose native **logic and APIs** to JavaScript (e.g., reading device battery level, accessing Bluetooth, encrypting data). They do not render any visual UI.
 - **Native UI Components** expose native **views** to JavaScript (e.g., a native map view, a native video player, a custom camera preview). They render platform-specific UI elements that are embedded directly into the React Native view tree.
 
-### 2. Legacy Architecture: ViewManagers
+#### 2. Legacy Architecture: ViewManagers
 
-#### Android ViewManager (Kotlin)
+##### Android ViewManager (Kotlin)
 On Android, a Native UI Component is created by extending `SimpleViewManager<T>` where `T` is the native `View` subclass:
 
 ```kotlin
@@ -1620,7 +1545,7 @@ class VideoViewPackage : ReactPackage {
 }
 ```
 
-#### iOS ViewManager (Swift/Objective-C)
+##### iOS ViewManager (Swift/Objective-C)
 On iOS, extend `RCTViewManager`:
 
 ```swift
@@ -1663,7 +1588,7 @@ class NativeVideoView: UIView {
 Bridge macro (Objective-C):
 ```swift
 // NativeVideoViewManager.m
-#import <React/RCTViewManager.h>
+##import <React/RCTViewManager.h>
 
 @interface RCT_EXTERN_MODULE(NativeVideoViewManager, RCTViewManager)
 RCT_EXPORT_VIEW_PROPERTY(videoUrl, NSString)
@@ -1671,7 +1596,7 @@ RCT_EXPORT_VIEW_PROPERTY(paused, BOOL)
 @end
 ```
 
-#### JavaScript Wrapper
+##### JavaScript Wrapper
 ```typescript
 import { requireNativeComponent, ViewProps } from 'react-native';
 
@@ -1685,7 +1610,7 @@ const NativeVideoView = requireNativeComponent<NativeVideoViewProps>('NativeVide
 export default NativeVideoView;
 ```
 
-### 3. Fabric Native Components (Modern Replacement)
+#### 3. Fabric Native Components (Modern Replacement)
 In the New Architecture, Native UI Components are defined using **Codegen specifications** instead of manual ViewManagers:
 1. **Define a Spec**: Write a TypeScript interface describing the component's props using Codegen types (`codegenNativeComponent`).
 2. **Codegen Generates Bindings**: The build process generates C++ `ShadowNode`, `ComponentDescriptor`, and platform-specific view manager boilerplate automatically.
@@ -1714,12 +1639,16 @@ export default codegenNativeComponent<NativeProps>('NativeVideoView');
 
 ---
 
+
+---
+
 ## 🧭 Section 23: Navigation Performance & Universal Links
+
 *⏱️ 3 min read*
 
-### 1. Navigation Performance Optimization
+#### 1. Navigation Performance Optimization
 
-#### Lazy Loading Screens
+##### Lazy Loading Screens
 Loading all screens upfront increases initial bundle evaluation time and memory usage. Use `React.lazy` with React Navigation to defer screen component loading:
 
 ```typescript
@@ -1742,7 +1671,7 @@ function LazyScreen(Component: React.LazyExoticComponent<any>) {
 <Stack.Screen name="Analytics" component={LazyScreen(AnalyticsScreen)} />
 ```
 
-#### react-native-screens & Native Stack
+##### react-native-screens & Native Stack
 - **`react-native-screens`** converts React Navigation screens into native platform views (`Fragment` on Android, `UIViewController` on iOS) instead of keeping them as JS-managed `<View>` wrappers.
 - **`@react-navigation/native-stack`** uses native navigation controllers, resulting in smoother transitions and lower memory usage compared to the JS-based `@react-navigation/stack`.
 - **`enableFreeze()`**: Calling `enableFreeze()` from `react-native-screens` freezes all JS rendering for screens that are not currently visible. Frozen screens consume zero JS thread resources, which is critical for apps with deep navigation stacks or heavy tab navigators.
@@ -1751,7 +1680,7 @@ function LazyScreen(Component: React.LazyExoticComponent<any>) {
   enableFreeze(true); // Call once at app startup
   ```
 
-#### Navigation State Persistence
+##### Navigation State Persistence
 Save and restore navigation state across app restarts (useful for development and enterprise apps):
 ```typescript
 const [isReady, setIsReady] = React.useState(false);
@@ -1776,13 +1705,13 @@ if (!isReady) return null;
 </NavigationContainer>
 ```
 
-#### Tab Navigator Optimization
+##### Tab Navigator Optimization
 - Set `lazy={true}` (default) on Tab navigators to defer rendering of tab screens until the user first visits them.
 - Combine with `enableFreeze()` to prevent background tabs from re-rendering.
 
-### 2. Universal Links (iOS) & App Links (Android)
+#### 2. Universal Links (iOS) & App Links (Android)
 
-#### Deep Links vs. Universal Links vs. App Links
+##### Deep Links vs. Universal Links vs. App Links
 
 | Type | Platform | Format | App Required? | Fallback |
 | :--- | :--- | :--- | :--- | :--- |
@@ -1790,7 +1719,7 @@ if (!isReady) return null;
 | **Universal Links** | iOS | `https://domain.com/path` | No (opens browser if not installed) | Safari |
 | **App Links** | Android | `https://domain.com/path` | No (opens browser if not installed) | Chrome |
 
-#### Universal Links (iOS)
+##### Universal Links (iOS)
 1. **Server Configuration**: Host an `apple-app-site-association` (AASA) file at `https://yourdomain.com/.well-known/apple-app-site-association`:
    ```json
    {
@@ -1808,7 +1737,7 @@ if (!isReady) return null;
 2. **Xcode**: Enable **Associated Domains** capability and add `applinks:yourdomain.com`.
 3. **React Navigation**: Configure the `linking` prop to handle incoming URLs and map them to screens.
 
-#### App Links (Android)
+##### App Links (Android)
 1. **Server Configuration**: Host `assetlinks.json` at `https://yourdomain.com/.well-known/assetlinks.json`:
    ```json
    [{
@@ -1830,7 +1759,7 @@ if (!isReady) return null;
    </intent-filter>
    ```
 
-#### Handling in React Navigation
+##### Handling in React Navigation
 ```typescript
 const linking = {
   prefixes: ['https://yourdomain.com', 'myapp://'],
@@ -1857,10 +1786,14 @@ const linking = {
 
 ---
 
+
+---
+
 ## 🧹 Section 24: Code Quality & Developer Tooling
+
 *⏱️ 3 min read*
 
-### 1. ESLint Configuration for React Native
+#### 1. ESLint Configuration for React Native
 **ESLint** performs static analysis on your codebase, identifying problematic patterns, potential bugs, and code style violations before runtime.
 
 - **Key Plugins**:
@@ -1893,7 +1826,7 @@ const linking = {
   ];
   ```
 
-### 2. Prettier
+#### 2. Prettier
 **Prettier** is an opinionated code formatter that enforces consistent formatting across the entire codebase, eliminating style debates in code reviews.
 
 - **Integration with ESLint**: Use `eslint-config-prettier` to disable ESLint rules that conflict with Prettier's formatting. Prettier handles formatting; ESLint handles logic/quality rules.
@@ -1911,7 +1844,7 @@ const linking = {
   }
   ```
 
-### 3. Husky & lint-staged
+#### 3. Husky & lint-staged
 **Husky** is a Git hooks manager that runs scripts automatically at specific Git lifecycle events (pre-commit, pre-push, commit-msg).
 
 - **Pre-commit Hook**: Run ESLint, Prettier, and TypeScript type checking on staged files only (not the entire codebase) using `lint-staged`:
@@ -1942,7 +1875,7 @@ const linking = {
   npm install --save-dev lint-staged
   ```
 
-### 4. Commit Conventions
+#### 4. Commit Conventions
 **Conventional Commits** enforce a structured commit message format that enables automated changelog generation, semantic versioning, and clear project history.
 
 - **Format**: `<type>(<optional scope>): <description>`
@@ -1970,7 +1903,7 @@ const linking = {
   { "extends": ["@commitlint/config-conventional"] }
   ```
 
-### 5. Code Review Best Practices for Mobile Teams
+#### 5. Code Review Best Practices for Mobile Teams
 - **PR Size Limits**: Keep PRs under ~400 lines of code changes. Large PRs lead to shallow reviews and missed bugs. Split features into vertical slices (e.g., API layer → state management → UI → tests).
 - **Review Checklist**:
   - Performance: unnecessary re-renders, missing `memo`/`useCallback`, inline styles.
@@ -1989,10 +1922,14 @@ const linking = {
 
 ---
 
+
+---
+
 ## 📊 Section 25: Analytics & Monitoring Deep-Dive
+
 *⏱️ 3 min read*
 
-### 1. GA4 (Google Analytics 4)
+#### 1. GA4 (Google Analytics 4)
 GA4 uses an **event-based data model** (replacing Universal Analytics' session-based model). Every user interaction is an event with parameters.
 
 - **Key Events**: `screen_view`, `purchase`, `sign_up`, `login`, `search`, `share`, and custom events.
@@ -2020,7 +1957,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
   ```
 - **Funnels**: Define conversion funnels (e.g., `screen_view(ProductList) → screen_view(ProductDetail) → add_to_cart → purchase`) to measure drop-off rates at each stage.
 
-### 2. Segment (Customer Data Platform)
+#### 2. Segment (Customer Data Platform)
 **Segment** is a customer data platform that acts as a single integration point. Instead of embedding 10 separate analytics SDKs, you send events to Segment, which routes them to configured destinations.
 
 ```text
@@ -2054,7 +1991,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 - **GDPR Consent Management**: Segment supports category-based consent. You configure which destinations require consent, and the SDK only sends events to destinations the user has opted into.
 
-### 3. Amplitude
+#### 3. Amplitude
 **Amplitude** is a product analytics platform focused on user behavior analysis, cohort segmentation, and experimentation.
 
 - **Event Taxonomy Design**: Structure events hierarchically (e.g., `Feature.Action.Detail` → `Cart.Item.Added`). Maintain a centralized event taxonomy document that all teams reference.
@@ -2071,7 +2008,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
   identify(identifyObj);
   ```
 
-### 4. Datadog
+#### 4. Datadog
 **Datadog** provides Application Performance Monitoring (APM) and Real User Monitoring (RUM) for mobile apps.
 
 - **RUM Features**: Session replay (visual replay of user sessions), error tracking, resource timing (API call durations), long task detection, and frustration signals (rage taps).
@@ -2094,7 +2031,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 - **When to Use Datadog vs Sentry**: Datadog excels at infrastructure monitoring, APM, and full-stack observability (correlating mobile errors with backend latency). Sentry excels at developer-focused error debugging with richer source map support, breadcrumbs, and issue grouping. Many teams use both: Sentry for crash debugging, Datadog for performance monitoring.
 
-### 5. Monitoring Architecture Decision Matrix
+#### 5. Monitoring Architecture Decision Matrix
 
 | Tool | Primary Use Case | Strengths | When to Choose |
 | :--- | :--- | :--- | :--- |
@@ -2116,10 +2053,14 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 ---
 
+
+---
+
 ## 🧪 Section 26: Appium & Cross-Platform E2E Testing
+
 *⏱️ 2 min read*
 
-### 1. What is Appium?
+#### 1. What is Appium?
 **Appium** is an open-source cross-platform mobile testing automation framework. It uses the **WebDriver protocol** to drive native, hybrid, and mobile web applications on iOS and Android real devices and simulators/emulators.
 
 ```text
@@ -2135,7 +2076,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 [iOS Device]   [Android Device]
 ```
 
-### 2. Appium vs. Detox
+#### 2. Appium vs. Detox
 
 | Feature | Detox | Appium |
 | :--- | :--- | :--- |
@@ -2148,11 +2089,11 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 | **Team Fit** | RN developers writing E2E tests | QA engineers with WebDriver experience |
 | **CI Integration** | Jest runner, simple CI setup | Requires Appium server setup in CI |
 
-### 3. Appium with React Native
+#### 3. Appium with React Native
 - Appium locates elements using standard accessibility identifiers. In React Native, use the `testID` prop, which maps to `accessibilityIdentifier` on iOS and `content-desc` (via `resource-id`) on Android.
 - **Element Location Strategies**: `id` (Android resource ID), `accessibility id` (maps to `testID`), `xpath` (fragile, avoid when possible).
 
-### 4. Basic Appium Test Example
+#### 4. Basic Appium Test Example
 
 ```typescript
 import { remote } from 'webdriverio';
@@ -2203,10 +2144,14 @@ describe('Login Flow', () => {
 
 ---
 
+
+---
+
 ## 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags
+
 *⏱️ 3 min read*
 
-### 1. Bitrise
+#### 1. Bitrise
 **Bitrise** is a mobile-first CI/CD platform with pre-built workflow steps optimized for iOS and Android builds.
 
 - **Workflow Structure**:
@@ -2222,7 +2167,7 @@ describe('Login Flow', () => {
   - Triggers: push to branch, pull request, tag-based releases.
   - Caching for `node_modules`, Gradle, and CocoaPods to speed up builds.
 
-#### Bitrise vs. GitHub Actions for Mobile
+##### Bitrise vs. GitHub Actions for Mobile
 
 | Feature | Bitrise | GitHub Actions |
 | :--- | :--- | :--- |
@@ -2233,7 +2178,7 @@ describe('Login Flow', () => {
 | **Pricing** | Per-build-minute, mobile-optimized | Per-minute, general-purpose |
 | **Best For** | Mobile-only teams, less DevOps experience | Teams with existing GitHub ecosystem, multi-platform CI |
 
-### 2. Azure DevOps Pipelines
+#### 2. Azure DevOps Pipelines
 **Azure DevOps** provides enterprise-grade CI/CD with Role-Based Access Control (RBAC), audit logs, and compliance features.
 
 - **Pipeline Configuration** (YAML):
@@ -2279,10 +2224,10 @@ describe('Login Flow', () => {
 
 - **Enterprise Advantages**: Azure Active Directory integration for RBAC, build approval gates (require manager sign-off before production deploys), artifact retention policies, and integration with Azure Boards for work item tracking.
 
-### 3. Feature Flags & Phased Rollouts
+#### 3. Feature Flags & Phased Rollouts
 **Feature flags** are runtime toggles that enable or disable features without deploying new code. They decouple deployment from release, allowing you to ship code to production while controlling who sees it.
 
-#### Firebase Remote Config Implementation
+##### Firebase Remote Config Implementation
 ```typescript
 import remoteConfig from '@react-native-firebase/remote-config';
 
@@ -2306,7 +2251,7 @@ function CheckoutScreen() {
 }
 ```
 
-#### LaunchDarkly Integration Pattern
+##### LaunchDarkly Integration Pattern
 ```typescript
 import { useBoolVariation } from '@launchdarkly/react-native-client-sdk';
 
@@ -2317,7 +2262,7 @@ function PaymentButton() {
 }
 ```
 
-#### Phased Rollout Strategy
+##### Phased Rollout Strategy
 
 ```text
 Stage 1: Internal Dogfooding (1%)
@@ -2346,13 +2291,17 @@ Kill Switch: If crash-free rate drops below 99.5% or error rate spikes 2x,
 
 ---
 
+
+---
+
 ## 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive
+
 *⏱️ 5 min read*
 
-### 1. SSL/Certificate Pinning Implementation
+#### 1. SSL/Certificate Pinning Implementation
 SSL Pinning ensures that your app only trusts specific certificates or public keys when communicating with your backend, preventing Man-in-the-Middle (MitM) attacks even if a Certificate Authority is compromised.
 
-#### Public Key Pinning vs. Certificate Pinning
+##### Public Key Pinning vs. Certificate Pinning
 
 | Approach | What's Pinned | Certificate Rotation | Security Level |
 | :--- | :--- | :--- | :--- |
@@ -2361,7 +2310,7 @@ SSL Pinning ensures that your app only trusts specific certificates or public ke
 
 **Recommendation**: Always use **Public Key Pinning**. Certificates rotate frequently (every 90 days with Let's Encrypt), but the underlying public key can be preserved across renewals.
 
-#### Android Implementation (OkHttp)
+##### Android Implementation (OkHttp)
 ```kotlin
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
@@ -2382,7 +2331,7 @@ val client = OkHttpClient.Builder()
     .build()
 ```
 
-#### iOS Implementation (TrustKit)
+##### iOS Implementation (TrustKit)
 ```swift
 import TrustKit
 
@@ -2402,7 +2351,7 @@ let trustKitConfig: [String: Any] = [
 TrustKit.initSharedInstance(withConfiguration: trustKitConfig)
 ```
 
-#### React Native Implementation
+##### React Native Implementation
 ```typescript
 import { fetch } from 'react-native-ssl-pinning';
 
@@ -2415,13 +2364,13 @@ const response = await fetch('https://api.myapp.com/data', {
 });
 ```
 
-#### Certificate Rotation Strategy
+##### Certificate Rotation Strategy
 - Always pin at least **two public keys**: the current key and a backup key.
 - Generate the backup key pair in advance and store it securely.
 - When rotation is needed, deploy the new certificate using the backup key, then update the app's pin list to include the next backup.
 - For apps with infrequent updates, use a **pinning configuration endpoint** fetched at startup (signed and verified) to update pins dynamically.
 
-### 2. OWASP Mobile Top 10 (2024)
+#### 2. OWASP Mobile Top 10 (2024)
 
 | # | Vulnerability | Description | React Native Mitigation |
 | :--- | :--- | :--- | :--- |
@@ -2436,9 +2385,9 @@ const response = await fetch('https://api.myapp.com/data', {
 | **M9** | Insecure Data Storage | Sensitive data in AsyncStorage, logs, or backups | Use `react-native-keychain` for tokens, MMKV with encryption for sensitive data, disable backup for sensitive files |
 | **M10** | Insufficient Cryptography | Weak algorithms, hardcoded keys, improper key management | Use platform Keystore/Keychain for key storage, AES-256-GCM for encryption, avoid MD5/SHA1 for security |
 
-### 3. API Security for Mobile Apps
+#### 3. API Security for Mobile Apps
 
-#### OAuth2 + PKCE Flow (Proof Key for Code Exchange)
+##### OAuth2 + PKCE Flow (Proof Key for Code Exchange)
 Mobile apps are **public clients** (they cannot securely store a client secret). PKCE prevents authorization code interception attacks:
 
 ```text
@@ -2470,7 +2419,7 @@ await Keychain.setGenericPassword('tokens', JSON.stringify({
 }));
 ```
 
-#### HMAC Request Signing
+##### HMAC Request Signing
 Sign API requests to prove they originated from your app and were not tampered with:
 ```typescript
 import { HmacSHA256 } from 'crypto-js';
@@ -2486,12 +2435,12 @@ function signRequest(method: string, path: string, body: string, timestamp: stri
 }
 ```
 
-#### Request Replay Prevention
+##### Request Replay Prevention
 - Include a **nonce** (unique random string) and **timestamp** in every request.
 - Server validates: (1) timestamp is within a 5-minute window, (2) nonce has not been seen before (stored in Redis with TTL).
 - Rejects duplicate nonces and expired timestamps, preventing replay attacks.
 
-#### Secure Token Storage
+##### Secure Token Storage
 
 | Platform | Secure Storage | Mechanism | Access Control |
 | :--- | :--- | :--- | :--- |
@@ -2520,12 +2469,16 @@ function signRequest(method: string, path: string, body: string, timestamp: stri
 
 ---
 
+
+---
+
 ## 🚀 Section 19: Migration Strategies (Legacy to Modern)
+
 *⏱️ 2 min read*
 
 Migrating large-scale applications (millions of users) requires meticulous planning to avoid breaking production. Senior/Architect interviews heavily index on your ability to de-risk these migrations.
 
-### 1. Legacy Architecture → New Architecture (JSI/Fabric/TurboModules)
+#### 1. Legacy Architecture → New Architecture (JSI/Fabric/TurboModules)
 **Q: How do you plan and execute a migration from the legacy bridge to the New Architecture?**
 - **Audit & Dependency Matrix**: Inventory all 3rd-party native libraries. Verify which ones support TurboModules/Fabric.
 - **Hermes Adoption**: Before anything else, migrate the JS engine to Hermes and validate bytecode execution and crash rates.
@@ -2533,7 +2486,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 - **Backward Compatibility**: For internal native modules, adopt a hybrid approach. Keep the legacy `RCTBridgeModule` while implementing the C++ JSI specs via Codegen so the module works on both architectures during the transition.
 - **Risk Mitigation**: Roll out via A/B testing (Feature Flags). If the New Architecture causes a spike in ANRs or crashes, instantly toggle back to the legacy bundle without requiring an App Store review.
 
-### 2. JavaScript → TypeScript Migration
+#### 2. JavaScript → TypeScript Migration
 **Q: How would you migrate a massive legacy JS codebase to TS?**
 - **Step 1: Configure `tsconfig.json`**: Enable `allowJs: true` and `strict: false`. This allows TS and JS to coexist.
 - **Step 2: Tooling**: Add `@types/react-native`, `@types/react`, and configure ESLint for TS.
@@ -2541,14 +2494,14 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 - **Step 4: Component Typing**: Migrate reusable UI components (Buttons, Inputs). Use `interface` for component props.
 - **Step 5: Enforce strictness**: Gradually enable `strictNullChecks` and `noImplicitAny`, directory by directory. Enforce a rule that all *new* files must be `.tsx`.
 
-### 3. Redux → Redux Toolkit (RTK) Migration
+#### 3. Redux → Redux Toolkit (RTK) Migration
 **Q: Redux is slow and boilerplate-heavy in our app. How do we move to RTK?**
 - RTK is 100% backward compatible with legacy Redux. You do not need to rewrite the entire store at once.
 - **Store Setup**: Replace `createStore` with `configureStore`. This automatically wires up Redux Thunk and the Redux DevTools.
 - **Incremental Slices**: For any new feature, use `createSlice` instead of traditional reducers/actions/constants.
 - **RTK Query**: Gradually replace manual `useEffect` + `fetch` data fetching with RTK Query for automatic caching and deduplication.
 
-### 4. Class Components → Functional Components + Hooks
+#### 4. Class Components → Functional Components + Hooks
 **Q: We have hundreds of Class Components. Should we rewrite them?**
 - **A**: No, a full rewrite provides no immediate business value and introduces regression risks.
 - **Strategy**: 
@@ -2556,11 +2509,11 @@ Migrating large-scale applications (millions of users) requires meticulous plann
   - If a legacy Class Component requires significant new features or a bug fix, refactor it to a Functional Component during that sprint.
   - **Lifecycle Mapping**: `componentDidMount` → `useEffect(..., [])`. `componentWillUnmount` → cleanup return in `useEffect`. `shouldComponentUpdate` → `React.memo`.
 
-### 5. Old Navigation (v4/v5) → React Navigation v7
+#### 5. Old Navigation (v4/v5) → React Navigation v7
 - **v4 to v5+**: Moving from static route definitions to dynamic component-based routing (`<Stack.Navigator>`).
 - **Migration Plan**: It is often impossible to run two major versions of React Navigation simultaneously. Create a parallel branch. Recreate the Root Navigator, then systematically map old `navigation.navigate('Screen', { params })` calls. Use TypeScript for strict route param typing to catch broken links during compilation.
 
-### 6. Large-Scale Production Migration Checklist
+#### 6. Large-Scale Production Migration Checklist
 - **Feature Flags**: Gate the new implementation behind LaunchDarkly or Firebase Remote Config.
 - **Phased Rollout**: 1% → 5% → 10% → 50% → 100%. Monitor analytics at each stage.
 - **Rollback Strategy**: Ensure the legacy code is not deleted until 100% rollout is stable for at least 2 weeks.
@@ -2569,10 +2522,14 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 
 ---
 
+
+---
+
 ## 🏗️ Section 20: Senior / Lead / Architect Scenarios
+
 *⏱️ 3 min read*
 
-### 1. Design a Scalable React Native Architecture for 5M+ Users
+#### 1. Design a Scalable React Native Architecture for 5M+ Users
 **Scenario**: You are the lead architect for a fintech app scaling to millions of users. What is your architectural blueprint?
 - **Monorepo**: Use Nx or Turborepo to share code (types, utils, design system) between the RN app, Web app, and Backend services.
 - **Micro-frontends**: If the app has 50+ engineers across multiple domains (e.g., Payments, Crypto, Trading), use **Re.Pack (Webpack Module Federation)**. This allows the Payments team to deploy their bundle independently from the Crypto team without full App Store releases.
@@ -2580,14 +2537,14 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 - **Design System**: Build a strict UI library using Restyle or NativeWind. No hardcoded hex colors or inline padding.
 - **Observability**: Sentry for crashes, Datadog for APM/RUM, and Segment for routing product analytics.
 
-### 2. Reduce App Startup Time from 4s to 1.5s
+#### 2. Reduce App Startup Time from 4s to 1.5s
 **Scenario**: Our app takes 4 seconds to reach TTI (Time to Interactive). Fix it.
 - **Phase 1: Engine & Bundler**: Enable Hermes (Bytecode AOT compilation). Enable inline requires in Metro to defer evaluating JS modules until they are actually used.
 - **Phase 2: Native Modules**: Convert eagerly loaded legacy Native Modules to TurboModules so they load lazily.
 - **Phase 3: Component Rendering**: Ensure the initial screen is extremely lightweight. Use a splash screen while deferring heavy computations (like loading large Redux stores or hydrating AsyncStorage) using `InteractionManager.runAfterInteractions()`.
 - **Phase 4: Network**: Parallelize the initial API calls natively before the JS bundle even finishes parsing, passing the pre-fetched data across the bridge via initial props.
 
-### 3. Debugging Memory Leaks in Production
+#### 3. Debugging Memory Leaks in Production
 **Scenario**: The app crashes after 20 minutes of usage due to Out Of Memory (OOM) errors.
 - **Identify**: Look at Sentry OOM reports. Check Android Studio Memory Profiler for an ever-increasing memory graph.
 - **Root Causes**:
@@ -2596,7 +2553,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
   - **FlatList/FlashList misconfiguration**: Rendering thousands of complex components without `removeClippedSubviews` or `windowSize` optimizations.
 - **Fix**: Take heap snapshots before and after navigating back and forth between screens. Use the comparison tool in Hermes Debugger to find "Detached Views" or detached DOM nodes.
 
-### 4. Design an Offline-First Application
+#### 4. Design an Offline-First Application
 **Scenario**: Build a field-worker app that operates with zero network connectivity for days.
 - **Local Database**: Use WatermelonDB or SQLite, as they run asynchronously and do not block the JS thread (unlike large AsyncStorage blobs).
 - **Architecture**: 
@@ -2604,7 +2561,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
   - The Sync Engine (using background workers via WorkManager/BGTaskScheduler) monitors network connectivity.
 - **Conflict Resolution**: Implement a CRDT (Conflict-free Replicated Data Type) or a Timestamp-based Last-Write-Wins strategy to merge server state with local state when the device comes back online.
 
-### 5. Handle a Crash Spike After a Production Release
+#### 5. Handle a Crash Spike After a Production Release
 **Scenario**: You rolled out v2.4, and crash rates spiked from 0.1% to 4%. Walk through your incident response.
 1. **Acknowledge & Halt**: Immediately halt the phased rollout on Play Store/App Store.
 2. **Triage via Sentry**: Identify the exact stack trace. Is it a JS crash or a Native crash? Which devices/OS versions are affected?
@@ -2612,7 +2569,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 4. **Hotfix Release**: If it's a native code crash (e.g., a broken Gradle dependency), check out the release branch, fix the native bug, bump the build number, and submit for an expedited review to the App Stores.
 5. **Post-Mortem**: Write a blameless RCA (Root Cause Analysis). Add a regression test (E2E Detox test) to prevent this specific failure in the future.
 
-### 6. Design an Instagram/WhatsApp-like Architecture
+#### 6. Design an Instagram/WhatsApp-like Architecture
 **Scenario**: Design a media-heavy social feed and real-time chat.
 - **Feed**: Use Shopify `FlashList` for memory recycling. Use `react-native-fast-image` (or Expo Image) for aggressive disk/memory caching of images. Pre-fetch images natively just before they scroll into view.
 - **Video**: Use a native video player wrapper. Only auto-play the video strictly in the center of the viewport (calculate via ViewabilityConfig). Pause all others.
@@ -2621,12 +2578,16 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 
 ---
 
+
+---
+
 ## 🤝 Section 21: Behavioral, Leadership & HR Rounds
+
 *⏱️ 2 min read*
 
 Senior and Lead roles are evaluated heavily on soft skills, mentoring, and conflict resolution. Always use the **STAR Method** (Situation, Task, Action, Result) for these questions.
 
-### 1. Conflict Resolution & Code Review Culture
+#### 1. Conflict Resolution & Code Review Culture
 **Q: You disagree with a senior engineer on an architectural decision. How do you handle it?**
 - **Action**: Take the discussion offline or to a synchronous call rather than arguing in PR comments. Present objective data (e.g., performance benchmarks, bundle size impacts, maintenance overhead) rather than opinions.
 - **Result**: "We created a quick PoC for both approaches. The data showed my approach was 20% faster, but their approach was easier to maintain. We compromised by documenting the trade-offs and choosing the maintainable route since it wasn't a critical hot-path."
@@ -2636,22 +2597,367 @@ Senior and Lead roles are evaluated heavily on soft skills, mentoring, and confl
 - Require at least 2 approvals for PRs.
 - Establish a "Mobile Guild" that meets bi-weekly to discuss patterns, share knowledge, and update internal documentation.
 
-### 2. Mentoring & Team Leadership
+#### 2. Mentoring & Team Leadership
 **Q: Tell me about a time you mentored a junior developer.**
 - **Action**: Instead of giving them the answers, I pair-programmed with them. I assigned them to a complex feature but broke it down into 5 small, manageable PRs. I reviewed each PR rigorously but supportively.
 - **Result**: Within 3 months, they were independently delivering features and eventually mentored the next new hire.
 
-### 3. Client & Stakeholder Management (MNC Specific)
+#### 3. Client & Stakeholder Management (MNC Specific)
 **Q: The client wants a feature delivered in 2 weeks, but your team estimates it will take 4 weeks. What do you do?**
 - **Action**: Never say a flat "No". Negotiate the scope. Break the feature down into "Must-have", "Should-have", and "Could-have". Offer to deliver the MVP (Must-have) in 2 weeks, and phase the rest for the next sprint.
 - **Result**: The client gets value delivered on their timeline without burning out the engineering team.
 
-### 4. Agile & Scrum Methodology
+#### 4. Agile & Scrum Methodology
 - **Story Points**: Used for complexity and effort, not hours.
 - **Ceremonies**: Sprint Planning, Daily Standup, Sprint Review (Demo), Sprint Retrospective.
 - **Lead Role**: Removing blockers for the team, protecting the team from scope creep during the sprint, and ensuring technical debt tickets are prioritized alongside product features (typically an 80/20 split).
 
-### 5. Salary Negotiation Strategy
+#### 5. Salary Negotiation Strategy
 - **Never give the first number**: "I'm currently focused on finding a role that is the right fit. Once we establish mutual interest, I'm sure we can agree on a competitive number based on market rates for a Senior Architect."
 - **Counter-offers**: If you have a competing offer, disclose the existence of it, but not necessarily the company name. "I have another offer on the table for X, but I prefer your tech stack and culture. If you can match X, I will sign today."
+
+
+---
+
+## React Native: Advanced Topics & Architecture
+
+### 1. Deep Linking and Universal Links
+**Question:** How does Deep Linking work in React Native? What is the difference between Deep Links and Universal Links?
+
+**Answer:**
+- **Deep Links** use a custom URI scheme (e.g., `myapp://profile/123`). If the app isn't installed, the OS shows an error.
+- **Universal Links (iOS) / App Links (Android)** use standard HTTP URLs (e.g., `https://myapp.com/profile/123`). If the app is installed, the OS intercepts the URL and opens the app. If not, it falls back to the website.
+**React Navigation Implementation:**
+You pass a `linking` configuration object to the `NavigationContainer`. It maps URL paths to screen names and parses route parameters.
+
+### 2. Offline-First Architecture
+**Question:** How do you build an app that works seamlessly offline?
+
+**Answer:**
+Offline-first apps store data locally and sync with the backend when the network is restored.
+1. **Local Database:** Use robust databases like WatermelonDB, Realm, or SQLite instead of AsyncStorage for complex relational data.
+2. **State Persistence:** Use `redux-persist` to save the global state to local storage on exit and rehydrate it on launch.
+3. **Queueing Requests:** Use libraries like `react-native-offline` or Redux Offline to intercept API requests when offline, queue them, and dispatch them automatically once the connection is back.
+
+### 3. Accessibility (a11y)
+**Question:** How do you make a React Native app accessible to users with disabilities?
+
+**Answer:**
+- **Screen Readers:** Use `accessible={true}` on views you want VoiceOver/TalkBack to read.
+- **Roles & Labels:** Provide `accessibilityRole` (e.g., 'button', 'header') and `accessibilityLabel` to describe what the element does.
+- **Dynamic Type:** Do not hardcode font sizes or restrict `numberOfLines` tightly; use relative scaling (`allowFontScaling={true}`).
+
+### 4. Reducing App Size
+**Question:** What strategies do you use to reduce the final App Size?
+
+**Answer:**
+1. **Android App Bundles (.aab):** Instead of building a fat `.apk` containing resources for all device densities and architectures, build an `.aab`. The Google Play Store will generate an optimized APK specific to the user's device.
+2. **Hermes:** Enabled by default in newer versions, it shrinks the JavaScript payload.
+3. **Optimize Assets:** Compress images (TinyPNG) or use `.webp` / SVG icons instead of high-res `.png` files.
+4. **ProGuard / R8:** Strip out unused Java/Kotlin code and third-party SDK bloat.
+
+### 5. Push Notifications
+**Question:** Describe the architecture of Push Notifications.
+
+**Answer:**
+1. **Device Registration:** On app launch, the app asks APNs (Apple) or FCM (Firebase/Android) for a unique device token.
+2. **Backend Storage:** The app sends this token to your Node.js backend to save in the database.
+3. **Trigger:** An event on the backend triggers a notification. The backend sends a request to APNs/FCM using the stored token.
+4. **Delivery:** APNs/FCM delivers the notification to the user's device. React Native libraries like `react-native-firebase/messaging` or `react-native-push-notification` handle the foreground/background UI display.
+
+---
+
+## React Native: CI/CD Pipelines
+
+### 1. What is CI/CD?
+**Question:** Explain CI and CD in the context of a React Native app.
+
+**Answer:**
+- **Continuous Integration (CI):** Automating the process of linting, type-checking (TypeScript), running unit tests (Jest), and building the app every time code is pushed to a repository.
+- **Continuous Deployment/Delivery (CD):** Automating the distribution of the app to QA testers (via App Center / TestFlight / Firebase App Distribution) and eventually to production (App Store / Google Play).
+
+### 2. Fastlane
+**Question:** What is Fastlane and why is it essential for Mobile CI/CD?
+
+**Answer:**
+Fastlane is an open-source tool written in Ruby that automates tedious mobile development tasks.
+With a `Fastfile`, you can script commands to:
+- Automatically increment build numbers.
+- Generate and manage Provisioning Profiles & Certificates (`fastlane match`).
+- Capture automated screenshots for the app store.
+- Build the `.ipa` or `.aab`.
+- Upload directly to TestFlight or Google Play Console.
+
+### 3. GitHub Actions / Bitrise Workflow
+**Question:** Can you describe a standard CI/CD workflow for a React Native App?
+
+**Answer:**
+1. **Push to `main` branch:** Triggers the pipeline.
+2. **Setup:** Install Node, Ruby, and Java SDKs.
+3. **Install Dependencies:** `npm install` & `pod install`.
+4. **Code Quality:** Run `npm run lint` and `npm run test`.
+5. **Build Android:** Run Gradle commands or Fastlane lane to build `.aab`.
+6. **Build iOS:** Run Xcodebuild or Fastlane lane to build `.ipa`.
+7. **Deploy:** Upload binaries to App Center (for QA) or App Store / Play Store tracks.
+
+### 4. CodePush (Over The Air Updates)
+**Question:** What is CodePush and how does it work?
+
+**Answer:**
+App Center CodePush allows you to push updates to users instantly without going through the App Store / Google Play review process.
+It works by downloading a new JavaScript bundle and asset files `index.android.bundle` in the background and replacing the old ones.
+*Limitation:* It cannot be used if you update native code (Java/Swift) or add new native modules. You must do a full store release for native changes.
+
+### 5. Handling iOS Certificates
+**Question:** Code signing on iOS is notoriously difficult in CI. How do you handle it?
+
+**Answer:**
+The industry standard is **Fastlane Match**. It creates all required certificates and provisioning profiles and stores them in a private Git repository or cloud storage. During the CI pipeline, Fastlane downloads these certificates and installs them in the CI runner's keychain automatically, ensuring a deterministic and error-free signing process.
+
+---
+
+## React Native: Performance, Optimization & Memory Leaks
+
+### 1. Finding & Fixing Memory Leaks
+**Question:** What are the most common causes of memory leaks in React Native and how do you fix them?
+
+**Answer:**
+A memory leak occurs when objects are no longer needed but remain in memory because they are still referenced.
+**Causes & Fixes:**
+1. **Unmounted Components:** Running `setState` after a component unmounts.
+   *Fix:* Cancel API calls and flag `isMounted = false` in the `useEffect` cleanup.
+2. **Event Listeners:** Forgetting to remove hardware back button or AppState listeners.
+   *Fix:* Call `.remove()` inside the cleanup function.
+3. **Timers & Intervals:** Forgetting to clear `setInterval`.
+   *Fix:* Call `clearInterval(id)` on unmount.
+4. **Closures:** Keeping references to large objects inside closures.
+
+### 2. FlatList Optimization
+**Question:** Your FlatList with 1000 items is lagging. How do you optimize it?
+
+**Answer:**
+1. **`keyExtractor`:** Ensure a unique key is provided.
+2. **`getItemLayout`:** If items have fixed height, providing this skips dynamic measurement calculations.
+3. **`initialNumToRender`:** Set this low (e.g., 10) so the initial load is fast.
+4. **`maxToRenderPerBatch`:** Limits how many items are rendered per scroll chunk.
+5. **`windowSize`:** Controls how many off-screen items are kept in memory (default is 21, drop it to 5-10).
+6. **`removeClippedSubviews={true}`:** Unmounts components that are far off-screen.
+7. Use **`React.memo`** for the `renderItem` component to prevent unnecessary re-renders.
+
+### 3. Hermes Engine
+**Question:** What is Hermes and why does it improve performance?
+
+**Answer:**
+Hermes is a JavaScript engine optimized specifically for React Native.
+- It **Ahead-Of-Time (AOT)** compiles JavaScript into bytecode during the build process, instead of Just-In-Time (JIT) compiling on the device.
+- This results in significantly faster App Launch times (TTI - Time to Interactive), lower memory usage, and smaller app sizes.
+
+### 4. Rendering Optimization
+**Question:** Explain `React.memo`, `useMemo`, and `useCallback`.
+
+**Answer:**
+- **React.memo:** Wraps a component. It only re-renders the component if its props change (shallow comparison).
+- **useMemo:** Caches the *result* of an expensive calculation between renders.
+- **useCallback:** Caches the *reference* to a function between renders. Crucial when passing functions down to a child component wrapped in `React.memo`.
+
+### 5. Image Optimization
+**Question:** How do you handle heavy image rendering?
+
+**Answer:**
+The default `<Image>` component does not cache aggressively. For production apps with heavy image feeds, use `react-native-fast-image`. It handles aggressive caching, memory management, and prioritizing image loading.
+
+---
+
+## React Native: Security Best Practices
+
+### 1. Secure Storage
+**Question:** Why shouldn't you use `AsyncStorage` for sensitive data like Auth Tokens?
+
+**Answer:**
+`AsyncStorage` stores data in plain text. Any malicious app or physical access to an unencrypted device can read this data.
+**Fix:** Use secure native storage solutions that utilize iOS Keychain and Android Keystore.
+- `react-native-keychain`
+- `react-native-encrypted-storage`
+
+### 2. SSL Pinning
+**Question:** What is SSL Pinning and how do you implement it?
+
+**Answer:**
+SSL Pinning prevents Man-In-The-Middle (MITM) attacks by hardcoding the server's public key or SSL certificate inside the app. If the server's certificate doesn't match the pinned certificate, the app refuses the connection.
+**Implementation:** You can use libraries like `react-native-ssl-pinning` or configure it natively via `network_security_config.xml` (Android) and `Info.plist` (iOS).
+
+### 3. Reverse Engineering & Obfuscation
+**Question:** How do you protect your React Native code from reverse engineering?
+
+**Answer:**
+Since React Native bundles JS code, attackers can easily unpack the `.apk` or `.ipa` and read the `index.android.bundle`.
+- **Hermes:** Enabling Hermes compiles JS into bytecode, which is significantly harder to reverse engineer than plain JS.
+- **ProGuard / R8:** For Android, enable ProGuard in `build.gradle` to shrink and obfuscate Java/Kotlin native code.
+- **DexGuard:** For enterprise Android apps, use DexGuard for advanced string encryption and anti-tampering.
+
+### 4. Jailbreak / Root Detection
+**Question:** Should banking apps run on rooted devices? How do you prevent it?
+
+**Answer:**
+Running on a rooted/jailbroken device bypasses OS sandboxing, allowing malware to read the app's memory.
+Use libraries like `jail-monkey` or `react-native-device-info` to detect root status and gracefully exit or block sensitive operations.
+
+### 5. API Key Security
+**Question:** Where should you store third-party API keys?
+
+**Answer:**
+Never hardcode API keys in the JS bundle. Use libraries like `react-native-config` to load environment variables natively.
+*However, note that ANY secret shipped in the mobile client can be extracted.* The most secure way is to proxy third-party API calls through your own backend.
+
+---
+
+## React Native: State Management & Redux
+
+### 1. Redux Lifecycle
+**Question:** Explain the lifecycle of Redux.
+
+**Answer:**
+1. **Action:** A simple JS object containing a `type` and `payload`. Dispatched by the UI.
+2. **Middleware:** Intercepts the action before it reaches the reducer (e.g., Redux Thunk or Saga for async API calls).
+3. **Reducer:** A pure function that takes the current state and the action, and returns a new updated state.
+4. **Store:** The global object holding the state.
+5. **View:** Components subscribe to the Store using `useSelector`. When the state changes, components re-render.
+
+### 2. Redux Issues and Fixes
+**Question:** What are the common issues with legacy Redux and how do you fix them?
+
+**Answer:**
+- **Issue:** Boilerplate code (creating actions, types, reducers in separate files).
+  **Fix:** Use **Redux Toolkit (RTK)** which bundles everything into `createSlice`.
+- **Issue:** Performance drops due to massive state re-renders.
+  **Fix:** Ensure `useSelector` extracts only the specific nested data needed, not the whole state object. Use `reselect` for memoized selectors.
+- **Issue:** State mutation bugs.
+  **Fix:** RTK uses `Immer.js` under the hood, which allows writing "mutating" code that is safely translated into immutable updates.
+
+### 3. Redux Toolkit (RTK) vs Context API
+**Question:** When would you use Context API instead of Redux Toolkit?
+
+**Answer:**
+- **Context API** is built-in and great for passing down static or infrequently updated global data (Theme, Localization, User Auth). However, every time context updates, *all* consuming components re-render.
+- **Redux Toolkit** is designed for complex, frequently updating state (like E-commerce carts, realtime chat feeds). It prevents unnecessary re-renders via optimized selectors.
+
+### 4. Async Logic in Redux
+**Question:** How do you handle asynchronous logic (API calls) in Redux Toolkit?
+
+**Answer:**
+Using `createAsyncThunk`. It automatically generates three lifecycle actions: `pending`, `fulfilled`, and `rejected`.
+
+```javascript
+export const fetchUser = createAsyncThunk('user/fetchById', async (userId) => {
+  const response = await fetch(`https://api.example.com/user/${userId}`);
+  return response.json();
+});
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState: { data: null, status: 'idle' },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUser.pending, (state) => { state.status = 'loading'; })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data = action.payload;
+      })
+      .addCase(fetchUser.rejected, (state) => { state.status = 'failed'; });
+  },
+});
+```
+
+### 5. Zustand as an Alternative
+**Question:** What is Zustand and why is it gaining popularity over Redux?
+
+**Answer:**
+Zustand is a minimalistic, fast state management library.
+- It requires zero boilerplate (no context providers, no reducers, no dispatch).
+- Uses hooks directly.
+- Resolves the "zombie child" and React Context re-render issues out of the box.
+
+---
+
+## React Native: Testing & TDD
+
+### 1. Test-Driven Development (TDD)
+**Question:** What is TDD and how do you apply it in React Native?
+
+**Answer:**
+TDD is a software development process relying on a very short development cycle:
+1. **Red:** Write a failing test for a new feature.
+2. **Green:** Write the minimum code required to pass the test.
+3. **Refactor:** Clean up the code while ensuring tests still pass.
+
+In React Native, this means writing your Jest/RNTL tests for a component's expected output before you even write the component logic.
+
+### 2. Unit Testing with Jest
+**Question:** How do you test business logic and utility functions?
+
+**Answer:**
+We use **Jest**. It provides the test runner, assertion library, and mocking capabilities.
+```javascript
+// math.js
+export const add = (a, b) => a + b;
+
+// math.test.js
+import { add } from './math';
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(add(1, 2)).toBe(3);
+});
+```
+
+### 3. Component Testing with React Native Testing Library
+**Question:** How do you test UI components and user interactions?
+
+**Answer:**
+React Native Testing Library (RNTL) is the standard. It encourages testing the application as a user would interact with it, rather than testing implementation details.
+
+```javascript
+import { render, fireEvent } from '@testing-library/react-native';
+import Counter from './Counter';
+
+test('increments counter on button press', () => {
+  const { getByText } = render(<Counter />);
+  
+  const button = getByText('Increment');
+  fireEvent.press(button);
+  
+  expect(getByText('Count: 1')).toBeTruthy();
+});
+```
+
+### 4. E2E Testing with Detox
+**Question:** What is Detox and why is it used?
+
+**Answer:**
+Detox is a gray-box End-to-End (E2E) testing framework specifically designed for React Native. Unlike Appium, Detox runs inside the app process, which reduces flakiness because it synchronizes with the app's network requests and animations before asserting.
+
+```javascript
+// Detox example
+describe('Login Flow', () => {
+  it('should login successfully with valid credentials', async () => {
+    await element(by.id('email_input')).typeText('user@test.com');
+    await element(by.id('password_input')).typeText('password123');
+    await element(by.id('login_button')).tap();
+    await expect(element(by.id('welcome_screen'))).toBeVisible();
+  });
+});
+```
+
+### 5. Mocking in React Native
+**Question:** How do you handle Native Modules when testing in a Node environment?
+
+**Answer:**
+Since Jest runs in Node (not on a device), native modules must be mocked. 
+You can use `jest.mock()` to mock third-party libraries:
+```javascript
+jest.mock('@react-native-async-storage/async-storage', () =>
+  require('@react-native-async-storage/async-storage/jest/async-storage-mock')
+);
+```
+
+---
 

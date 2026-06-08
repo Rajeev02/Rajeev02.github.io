@@ -1,15 +1,19 @@
-# Category 8: Modern React Native Projects
+# React Native Projects Complete Guide
 
-To demonstrate senior-level mastery of mobile application design, we analyze two production-ready React Native architectures. Both showcase clean architecture, advanced state management, local database patterns, security implementations, performance tuning, and custom Data Structures & Algorithms (DSA).
-
+## Table of Contents
+- [1. Project A: Enterprise-Grade Expo Application (Expo Router, Zustand, TanStack Query & MMKV)](#1-project-a-enterprise-grade-expo-application-expo-router-zustand-tanstack-query--mmkv)
+- [2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)](#2-project-b-high-performance-cli-app-react-navigation-redux-toolkit-sqlite--native-modules)
+- [3. Creating Custom Android & iOS Native Modules (Libraries)](#3-creating-custom-android--ios-native-modules-libraries)
+- [4. Comparative Summary: Choosing the Right Stack](#4-comparative-summary-choosing-the-right-stack)
 ---
 
 ## 1. Project A: Enterprise-Grade Expo Application (Expo Router, Zustand, TanStack Query & MMKV)
 
-### Overview
+
+#### Overview
 This project is an **Offline-First Smart Task & Analytics Dashboard** built on the Expo SDK using modern Expo workflows (Continuous Native Generation - CNG). It is designed to be lightweight, fast-loading, and completely functional without an active network connection.
 
-### Directory Structure (Feature-First Clean Architecture with Monorepo Shareability)
+#### Directory Structure (Feature-First Clean Architecture with Monorepo Shareability)
 To allow code reuse across Mobile, Web, and backend portals, the application is organized using **Yarn Workspaces / Turbo**. Shared core layers (validation, types, dynamic translations, common helpers) are isolated into a standalone package:
 
 ```text
@@ -37,9 +41,9 @@ my-monorepo/
 
 ---
 
-### Deep-Dive Implementations (Code)
+#### Deep-Dive Implementations (Code)
 
-#### A. Custom Trie for Instant Search Suggestions (`shared/utils/searchTrie.ts`)
+##### A. Custom Trie for Instant Search Suggestions (`shared/utils/searchTrie.ts`)
 Standard string matching is inefficient on lists with thousands of items. We implement a **Trie (Prefix Tree)** in TypeScript to provide $O(L)$ search complexity (where $L$ is the length of the query string).
 
 ```typescript
@@ -91,7 +95,7 @@ export class TaskSearchTrie {
 }
 ```
 
-#### B. Memory-Efficient LRU Cache for Remote Metadata (`shared/utils/lruCache.ts`)
+##### B. Memory-Efficient LRU Cache for Remote Metadata (`shared/utils/lruCache.ts`)
 To prevent excessive network fetches and memory leaks, we build a **Least Recently Used (LRU) Cache** using a Map to back up fetched profile pictures or JSON data metadata.
 
 ```typescript
@@ -133,7 +137,7 @@ export class LRUCache<K, V> {
 }
 ```
 
-#### C. MMKV-Based Offline Sync Outbox Queue (`core/storage/syncQueue.ts`)
+##### C. MMKV-Based Offline Sync Outbox Queue (`core/storage/syncQueue.ts`)
 Instead of losing data when mutating state offline, mutations are placed in a persistent outbox queue inside **MMKV** and synchronized when connection status changes.
 
 ```typescript
@@ -209,9 +213,9 @@ export const SyncQueue = {
 
 ---
 
-### Multi-Language, Accessibility & RTL Setup
+#### Multi-Language, Accessibility & RTL Setup
 
-#### A. Localization & RTL (Right-to-Left) Infrastructure
+##### A. Localization & RTL (Right-to-Left) Infrastructure
 To support dynamic translation and right-to-left layout orientations (e.g., Arabic, Hebrew), we initialize `i18next` combined with native layout switches.
 
 ```typescript
@@ -256,7 +260,7 @@ export const initLocalization = () => {
 };
 ```
 
-#### B. Screen Reader & Accessibility Wrapper (`shared/components/AccessibleButton.tsx`)
+##### B. Screen Reader & Accessibility Wrapper (`shared/components/AccessibleButton.tsx`)
 Senior mobile designs must comply with WCAG AA guidelines. We implement an **AccessibleButton** component ensuring proper screen reader focus order, contrast adjustments, and verbal announcements.
 
 ```typescript
@@ -323,7 +327,7 @@ const styles = StyleSheet.create({
 
 ---
 
-### Key Optimizations & Security in Project A
+#### Key Optimizations & Security in Project A
 
 1. **Virtualized List Rendering (Shopify FlashList)**:
    - Replaces React Native's default `FlatList` with `FlashList`.
@@ -341,12 +345,16 @@ const styles = StyleSheet.create({
 
 ---
 
+
+---
+
 ## 2. Project B: High-Performance CLI App (React Navigation, Redux Toolkit, SQLite & Native Modules)
 
-### Overview
+
+#### Overview
 This project is an **Advanced Fleet Management & Real-Time Driver Tracking App** created using the standard React Native CLI. It handles constant geo-coordinate streams, local data synchronizations containing millions of records, and requires optimized hardware access.
 
-### Directory Structure (Clean MVVM Layered Architecture)
+#### Directory Structure (Clean MVVM Layered Architecture)
 ```text
 android/                             # Native Android project configuration
 ios/                                 # Native iOS Xcode project workspace
@@ -382,9 +390,9 @@ src/
 
 ---
 
-### Deep-Dive Implementations (Code)
+#### Deep-Dive Implementations (Code)
 
-#### A. High-Performance Location Filter (Kalman Filter for Tracking Map)
+##### A. High-Performance Location Filter (Kalman Filter for Tracking Map)
 Raw GPS readings fluctuate, causing markers on maps to jitter. We implement a **Kalman Filter** algorithm in TypeScript to estimate smooth movement paths on the presentation layer.
 
 ```typescript
@@ -436,12 +444,12 @@ export class KalmanLocationFilter {
 }
 ```
 
-#### B. TurboModules / C++ JSI Native Module Pattern (`native-bridge/JsiLocationModule.cpp`)
+##### B. TurboModules / C++ JSI Native Module Pattern (`native-bridge/JsiLocationModule.cpp`)
 The legacy JSON bridge is slow and operates asynchronously. By wrapping native tracking streams in a **C++ JSI/TurboModule-style module**, coordinates can be exposed to JavaScript without JSON serialization latency. Keep high-frequency reads carefully bounded so synchronous access does not block the JS runtime.
 
 ```cpp
-#include "JsiLocationModule.h"
-#include <jsi/jsi.h>
+##include "JsiLocationModule.h"
+##include <jsi/jsi.h>
 
 using namespace facebook;
 
@@ -477,7 +485,11 @@ void installJsiLocationModule(jsi::Runtime& jsiRuntime) {
 
 ---
 
+
+---
+
 ## 3. Creating Custom Android & iOS Native Modules (Libraries)
+
 
 Senior engineers are regularly tasked with wrapping proprietary native SDKs (e.g., identity verification, custom local trackers) into reusable React Native packages. Below is a complete guide to constructing native modules in **Kotlin (Android)** and **Swift (iOS)**, along with the unified JavaScript interface.
 
@@ -490,7 +502,7 @@ graph TD
     D -->|Resolve Promise| A
 ```
 
-### A. Android Module in Kotlin (`android/src/main/java/com/customsdk/CustomSDKModule.kt`)
+#### A. Android Module in Kotlin (`android/src/main/java/com/customsdk/CustomSDKModule.kt`)
 On Android, we create a module extending `ReactContextBaseJavaModule`, register exportable methods with `@ReactMethod`, and emit events using `DeviceEventEmitter`.
 
 ```kotlin
@@ -569,9 +581,9 @@ class CustomSDKPackage : ReactPackage {
 
 ---
 
-### B. iOS Module in Swift & Objective-C Bridge
+#### B. iOS Module in Swift & Objective-C Bridge
 
-#### 1. Swift Implementation File (`ios/CustomSDKModule.swift`)
+##### 1. Swift Implementation File (`ios/CustomSDKModule.swift`)
 Swift classes require `@objc` annotations and inherit from `RCTEventEmitter` to send events over the bridge.
 
 ```swift
@@ -617,12 +629,12 @@ class CustomSDKModule: RCTEventEmitter {
 }
 ```
 
-#### 2. Objective-C Export Registry Header (`ios/CustomSDKModule.m`)
+##### 2. Objective-C Export Registry Header (`ios/CustomSDKModule.m`)
 Objective-C files are needed to export Swift classes and method signatures to React Native's core registry.
 
 ```objc
-#import <React/RCTBridgeModule.h>
-#import <React/RCTEventEmitter.h>
+##import <React/RCTBridgeModule.h>
+##import <React/RCTEventEmitter.h>
 
 @interface RCT_EXTERN_MODULE(CustomSDK, RCTEventEmitter)
 
@@ -635,7 +647,7 @@ RCT_EXTERN_METHOD(initializeSDK:(NSString *)apiKey
 
 ---
 
-### C. Unified JavaScript Module Wrapper (`native-bridge/CustomSDK.ts`)
+#### C. Unified JavaScript Module Wrapper (`native-bridge/CustomSDK.ts`)
 We abstract the native module definitions inside a typed TypeScript module to guarantee type-safety throughout our React Native screens.
 
 ```typescript
@@ -687,7 +699,7 @@ export const CustomSDKBridge = {
 
 ---
 
-### Key Optimizations & Security in Project B
+#### Key Optimizations & Security in Project B
 
 | Optimization / Security Category | Implementation Detail | Benefit |
 | :--- | :--- | :--- |
@@ -699,7 +711,11 @@ export const CustomSDKBridge = {
 
 ---
 
+
+---
+
 ## 4. Comparative Summary: Choosing the Right Stack
+
 
 > [!TIP]
 > Use this reference checklist to decide between **Expo (Managed)** and **React Native CLI (Bare)**:
@@ -712,3 +728,6 @@ export const CustomSDKBridge = {
   - The business logic demands performance-critical custom C++ code running on the Javascript engine via **JSI / Turbo Modules**.
   - You require deep, direct customization of native Gradle, CocoaPods configurations, or OS-level life-cycles.
   - You must work with legacy, un-migrated native plugins that do not provide Expo Config Plugin support.
+
+---
+

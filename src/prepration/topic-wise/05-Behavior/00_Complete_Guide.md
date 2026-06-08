@@ -1,77 +1,39 @@
+# Behavior Complete Guide
 
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
-
-- [🧭 Section 1: Senior Career Walkthrough (STAR Format)](#section-1-senior-career-walkthrough-star-format)
-  - [1. The Walkthrough Pitch](#1-the-walkthrough-pitch)
-- [🏗️ Section 2: Monorepo & Multi-App Code Sharing](#section-2-monorepo-multi-app-code-sharing)
-  - [Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)](#scenario-code-sharing-across-sister-products-lvx-lvxq-scalix)
-- [🔒 Section 3: High-Stakes Fintech System Design](#section-3-high-stakes-fintech-system-design)
-  - [1. Data Security at Rest (Keychain / Keystore)](#1-data-security-at-rest-keychain-keystore)
-  - [2. Data in Transit (SSL Pinning & Attestation)](#2-data-in-transit-ssl-pinning-attestation)
-  - [3. Payment Gateway Resilience (Razorpay & Cashfree)](#3-payment-gateway-resilience-razorpay-cashfree)
-- [⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#section-4-plurebus-dunst-wildtrails-case-studies-native-android-java)
-  - [1. Offline-First Safari Syncing (WildTrails)](#1-offline-first-safari-syncing-wildtrails)
-  - [2. VR and Ticketing (Dunst Technologies)](#2-vr-and-ticketing-dunst-technologies)
-  - [3. Media-Rich Booking and Discovery Platform (Plurebus)](#3-media-rich-booking-and-discovery-platform-plurebus)
-- [🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#section-4b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context)
-  - [1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)](#1-enterprise-banking-fintech-architectural-imperatives-capco-alignment)
-  - [2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)](#2-native-vs-hybrid-performance-limits-architectural-decision-matrix)
-  - [3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)](#3-native-integration-mechanics-bridge-vs-jsiturbomodules)
-  - [4. Advanced Native Android SDK & Enterprise Java Architecture](#4-advanced-native-android-sdk-enterprise-java-architecture)
-- [🏆 Section 5: Standard Behavioral & Technical Interview Q&A](#section-5-standard-behavioral-technical-interview-qa)
-  - [1. Walk me through your experience and how it relates to this role.](#1-walk-me-through-your-experience-and-how-it-relates-to-this-role)
-  - [2. I see you have strong React Native experience. Describe a complex performance bottleneck you encountered in a React Native application. How did you identify it, and what specific tools or techniques did you use to resolve it?](#2-i-see-you-have-strong-react-native-experience-describe-a-complex-performance-bottleneck-you-encountered-in-a-react-native-application-how-did-you-identify-it-and-what-specific-tools-or-techniques-did-you-use-to-resolve-it)
-  - [3. You've worked with Android SDK. In a React Native project, when would you decide to implement a feature using a native Android module rather than sticking purely to JavaScript? Provide a specific example.](#3-youve-worked-with-android-sdk-in-a-react-native-project-when-would-you-decide-to-implement-a-feature-using-a-native-android-module-rather-than-sticking-purely-to-javascript-provide-a-specific-example)
-  - [4. Your resume mentions Xcode. For an iOS React Native application, what are the key steps you follow to diagnose and resolve a crash that only occurs on a specific iOS device model or version?](#4-your-resume-mentions-xcode-for-an-ios-react-native-application-what-are-the-key-steps-you-follow-to-diagnose-and-resolve-a-crash-that-only-occurs-on-a-specific-ios-device-model-or-version)
-  - [5. You have experience with CI/CD pipelines. How do you ensure code quality and prevent regressions in a React Native project's Git workflow before merging to the main branch?](#5-you-have-experience-with-cicd-pipelines-how-do-you-ensure-code-quality-and-prevent-regressions-in-a-react-native-projects-git-workflow-before-merging-to-the-main-branch)
-  - [6. You have extensive mobile app development experience. Describe a challenging system design decision you faced when architecting a new feature for a React Native application. What factors influenced your choices?](#6-you-have-extensive-mobile-app-development-experience-describe-a-challenging-system-design-decision-you-faced-when-architecting-a-new-feature-for-a-react-native-application-what-factors-influenced-your-choices)
-  - [7. You've worked with React Query and Redux Toolkit. How would you decide which state management solution is more appropriate for different types of data in a large-scale React Native application?](#7-youve-worked-with-react-query-and-redux-toolkit-how-would-you-decide-which-state-management-solution-is-more-appropriate-for-different-types-of-data-in-a-large-scale-react-native-application)
-  - [8. Your resume mentions JavaScript. How do JavaScript's asynchronous patterns (Promises, async/await) impact the performance and responsiveness of a React Native application, especially when dealing with network requests or heavy computations?](#8-your-resume-mentions-javascript-how-do-javascripts-asynchronous-patterns-promises-asyncawait-impact-the-performance-and-responsiveness-of-a-react-native-application-especially-when-dealing-with-network-requests-or-heavy-computations)
-  - [9. How do you structure a large-scale React Native application?](#9-how-do-you-structure-a-large-scale-react-native-application)
-  - [10. How do you handle offline support in React Native?](#10-how-do-you-handle-offline-support-in-react-native)
-  - [11. Explain the React Native Bridge and its limitations.](#11-explain-the-react-native-bridge-and-its-limitations)
-  - [12. How would you reduce app startup time?](#12-how-would-you-reduce-app-startup-time)
-  - [13. What is Hermes and why is it useful?](#13-what-is-hermes-and-why-is-it-useful)
-  - [14. How do you secure sensitive information in mobile apps?](#14-how-do-you-secure-sensitive-information-in-mobile-apps)
-  - [15. How would you investigate a memory leak?](#15-how-would-you-investigate-a-memory-leak)
-  - [16. Detail useMemo and useCallback optimizations.](#16-detail-usememo-and-usecallback-optimizations)
-  - [17. How would you implement Push Notifications?](#17-how-would-you-implement-push-notifications)
-  - [18. What would you monitor after a production release?](#18-what-would-you-monitor-after-a-production-release)
-  - [19. How do you handle API failures gracefully?](#19-how-do-you-handle-api-failures-gracefully)
-  - [20. Describe a difficult production issue you solved.](#20-describe-a-difficult-production-issue-you-solved)
-  - [21. Redux Toolkit vs. React Query: Why not use Redux for everything?](#21-redux-toolkit-vs-react-query-why-not-use-redux-for-everything)
-  - [22. If you became Tech Lead tomorrow, what improvements would you introduce?](#22-if-you-became-tech-lead-tomorrow-what-improvements-would-you-introduce)
-  - [23. How do you design a Super-App architecture using React Native, and what are the tooling implications?](#23-how-do-you-design-a-super-app-architecture-using-react-native-and-what-are-the-tooling-implications)
-  - [24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?](#24-how-do-you-secure-compile-time-client-secrets-and-defend-against-dynamic-analysis-tools-like-frida)
-  - [25. Detail your approach to identifying and optimizing App Startup latency (TTI).](#25-detail-your-approach-to-identifying-and-optimizing-app-startup-latency-tti)
-  - [26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA updates?](#26-what-strategies-do-you-use-to-manage-risk-versioning-compatibility-and-recovery-during-ota-updates)
-  - [27. How would you plan a migration from a legacy React Native app to a modern React Native architecture?](#27-how-would-you-plan-a-migration-from-a-legacy-react-native-app-to-a-modern-react-native-architecture)
-- [👥 Section 6: Agile vs. Scrum Methodologies](#section-6-agile-vs-scrum-methodologies)
-- [📈 Section 7: Program & Product Delivery Manager (PDM) Round](#section-7-program-product-delivery-manager-pdm-round)
-- [🤝 Section 8: Human Resources (HR) & Leadership Evaluation](#section-8-human-resources-hr-leadership-evaluation)
-- [💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy](#section-9-salary-negotiation-compensation-benefits-strategy)
-- [❓ Questions to Ask the Interviewers](#questions-to-ask-the-interviewers)
-</details>
-<!-- INDEX_END -->
+## Table of Contents
+- [🧭 Section 1: Senior Career Walkthrough (STAR Format)](#-section-1-senior-career-walkthrough-star-format)
+- [🏗️ Section 2: Monorepo & Multi-App Code Sharing](#-section-2-monorepo--multi-app-code-sharing)
+- [🔒 Section 3: High-Stakes Fintech System Design](#-section-3-high-stakes-fintech-system-design)
+- [⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#-section-4-plurebus-dunst--wildtrails-case-studies-native-android-java)
+- [🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#-section-4b-mobile-solution-architecture-native-integration--enterprise-banking-capco-context)
+- [🏆 Section 5: Standard Behavioral & Technical Interview Q&A](#-section-5-standard-behavioral--technical-interview-qa)
+- [👥 Section 6: Agile vs. Scrum Methodologies](#-section-6-agile-vs-scrum-methodologies)
+- [📈 Section 7: Program & Product Delivery Manager (PDM) Round](#-section-7-program--product-delivery-manager-pdm-round)
+- [🤝 Section 8: Human Resources (HR) & Leadership Evaluation](#-section-8-human-resources-hr--leadership-evaluation)
+- [💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy](#-section-9-salary-negotiation-compensation--benefits-strategy)
+---
 
 ## 🧭 Section 1: Senior Career Walkthrough (STAR Format)
+
 *⏱️ 1 min read*
 
 When interviewing for Senior/Lead roles (9+ years experience), you must present your career progression, architectural ownership, and business value metrics clearly.
 
-### 1. The Walkthrough Pitch
+#### 1. The Walkthrough Pitch
 > *"I am a Senior Mobile Engineer with 9 years of hands-on experience building, shipping, and maintaining mobile applications. I started my career as a native Android developer using Java and the Android SDK, working at Plurebus, Dunst, and WildTrails, which gave me a deep understanding of native lifecycles, background services, threading, and performance optimization.
 >
 > *Later, I joined LetsVenture, where I worked as a native Android (Java) developer for 1.5 years before transitioning into React Native to design, build, and ship our flagship investor-facing fintech products—LVX, LVXQ, and Scalix—from scratch in React Native. I spent over 5 years of my tenure at LetsVenture leading mobile delivery for these React Native apps, owning the entire architecture from Auth0/Cognito authentication and secure payments to offline sync caching and App Store/Play Store releases. Because I understand both the native mobile ecosystem and the cross-platform JavaScript ecosystem, I can confidently take applications from greenfield setup to production while optimizing performance across both platforms."*
 
 ---
 
+
+---
+
 ## 🏗️ Section 2: Monorepo & Multi-App Code Sharing
+
 *⏱️ 1 min read*
 
-### Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)
+#### Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)
 - **Challenge**: Building three separate, siloed products would lead to massive duplication of business logic (authentication, caching, API wrappers) and UI components (fintech tables, input states). However, a simple copy-paste approach would create a maintenance nightmare.
 - **Solution**: Design a **Yarn/pnpm Workspaces Monorepo structure** to separate dependencies and share code cleanly.
 - **Architecture Layers**:
@@ -82,17 +44,21 @@ When interviewing for Senior/Lead roles (9+ years experience), you must present 
 
 ---
 
+
+---
+
 ## 🔒 Section 3: High-Stakes Fintech System Design
+
 *⏱️ 2 min read*
 
 Fintech platforms handle transactions, investments, and PII. Security and resilience are core requirements.
 
-### 1. Data Security at Rest (Keychain / Keystore)
+#### 1. Data Security at Rest (Keychain / Keystore)
 - **Problem**: Storing access tokens, refresh keys, or private financial metrics inside `AsyncStorage` or unencrypted `MMKV` is unsafe. On rooted or jailbroken devices, these plaintext files can be read easily.
 - **Solution**: Reframe storage using **`react-native-keychain`** or **Expo SecureStore**. These wrappers interface directly with the device's hardware secure enclaves: **Keychain** (iOS) and **Keystore** (Android).
 - **Silent Token Refresh Interceptor**: Set up an Axios response interceptor. If an API call fails with a `401 Unauthorized` due to access token expiration, the interceptor pauses subsequent outgoing requests, reads the secure Refresh Token from the Keychain, fetches a new Access Token from AWS Cognito/Auth0 in the background, updates storage, and automatically retries the failed requests without interrupting the user session.
 
-### 2. Data in Transit (SSL Pinning & Attestation)
+#### 2. Data in Transit (SSL Pinning & Attestation)
 - **Problem**: Protect the app from Man-in-the-Middle (MitM) attacks (e.g., attackers using proxy tools like Charles or Fiddler to intercept API requests on public networks).
 - **Solution**: Implement **SSL Pinning** at the native network layer.
   - **Android**: Configure `CertificatePinner` inside the native `OkHttpClient` setup.
@@ -100,7 +66,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
   - The app will reject connections to any backend server that fails to present a cryptographic certificate matching our pre-bundled public key hashes.
 - **Device Attestation**: Pair SSL Pinning with **Google Play Integrity API** (Android) and **Apple App Attest** (iOS) to cryptographically verify that API requests are coming from our unaltered, signed production binary running on a real, untampered device.
 
-### 3. Payment Gateway Resilience (Razorpay & Cashfree)
+#### 3. Payment Gateway Resilience (Razorpay & Cashfree)
 - **Problem**: A user completes a payment in the Razorpay SDK, but before the success callback returns to the JavaScript thread, the app crashes, the network drops, or the user force-closes the app. The client-side success handler never fires, leaving the transaction in a broken state.
 - **Solution**: 
   1. **Idempotency Keys**: Attach a unique checkout session UUID (`idempotency-key`) to the payment metadata. If network retries occur, the gateway detects the duplicate key and prevents double-charging.
@@ -108,10 +74,14 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 
 ---
 
+
+---
+
 ## ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+
 *⏱️ 2 min read*
 
-### 1. Offline-First Safari Syncing (WildTrails)
+#### 1. Offline-First Safari Syncing (WildTrails)
 - **Context**: A wildlife tracking app used in remote areas with poor network coverage. Users need to log sightings offline, and the data must sync when connection is restored.
 - **Challenge**: Background sync must be reliable without draining battery, running even when the app is in the background or device is rebooted.
 - **Solution**: Built the application completely as a native Android application in Java using SQLite for local storage and structured background syncing:
@@ -120,7 +90,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
   - Registered constraints on the background jobs so that syncing only occurs when network connectivity is active (via `ConnectivityManager`) and the battery is not low.
   - Handled device reboots using a `BroadcastReceiver` listening for `BOOT_COMPLETED` to reschedule critical pending sync tasks, ensuring no data loss.
 
-### 2. VR and Ticketing (Dunst Technologies)
+#### 2. VR and Ticketing (Dunst Technologies)
 - **Context**: Consumer-facing travel apps utilizing VR tours and ticketing.
 - **Challenge**: Smooth rendering of complex 360/VR media and interactive ticket widgets on lower-end Android devices without blocking the main UI thread.
 - **Solution**: Built completely as a native Android app in Java:
@@ -128,7 +98,7 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
   - Handled bitmap decoding asynchronously using background thread pools (`ExecutorService`) and custom thread-safe queues.
   - Optimized the native layout hierarchy (using custom ViewGroups and flat XML layouts) to reduce view nesting, preventing overdraw and maintaining 60 FPS rendering on target hardware.
 
-### 3. Media-Rich Booking and Discovery Platform (Plurebus)
+#### 3. Media-Rich Booking and Discovery Platform (Plurebus)
 - **Context**: An entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows.
 - **Challenge**: Handling dynamic listing updates, image-heavy schedules, and seat-layout grids efficiently without memory leaks or UI lag on mid-range Android devices.
 - **Solution**: Built completely as a native Android application in Java using custom RecyclerView layouts and caching layers:
@@ -138,16 +108,20 @@ Fintech platforms handle transactions, investments, and PII. Security and resili
 
 ---
 
+
+---
+
 ## 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+
 *⏱️ 2 min read*
 
-### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
+#### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
 Banking and capital market systems require uncompromising standards of security, auditability, data integrity, and transactional safety:
 - **Uncompromised Data Security (At Rest & In Transit)**: Attaining compliance with financial regulations (e.g. PCI-DSS, SOC2) requires implementing native certificate pinning, encrypting MMKV instances with AES-256 keys, and offloading biometric authentication checks (FaceID/TouchID) to OS enclaves via `react-native-fingerprint-scanner` or local Swift/Kotlin hardware wrappers.
 - **Transaction Idempotency**: Network failures must not lead to double-charges or duplicate asset transfers. We assign a client-generated UUID `idempotency-key` to all transaction payloads. If a socket times out and is retried, the gateway returns the cached state of the first request instead of processing a duplicate order.
 - **Offline Ledger Reconciliation**: In high-stakes operations, offline caching must function as a transactional database. We design database schemas using atomic transactions (SQLite/Realm) or write-ahead logging (WAL) databases to prevent corruption if the app is force-closed during writes.
 
-### 2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)
+#### 2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)
 *Can React Native achieve native performance today?* 
 - **The Architect's Verdict**: **Yes**, React Native performance is now indistinguishable from native for 98% of standard banking, wealth management, and transactional products. Modern engines (Hermes JSI) render layouts, animations, dynamic lists, and forms at 60/120 FPS.
 - **Limitation Triggers (When to go Pure Native)**:
@@ -155,12 +129,12 @@ Banking and capital market systems require uncompromising standards of security,
   - **Direct GPU Processing**: Apps requiring custom 3D game engines, AR/VR tracking, or custom low-level metal/vulkan shaders.
   - **Heavy Background Work**: Background audio recording, persistent socket listening, or sensor streaming that must run indefinitely, even if the OS enters battery-saver modes.
 
-### 3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)
+#### 3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)
 Integrating custom native Android/iOS SDKs or wrapping Java/Kotlin and Swift libraries in React Native follows two architectures:
 - **Legacy Bridge (RCTBridgeModule)**: Exposes native classes through JSON-based asynchronous serialization. Native method arguments are serialized on the JS thread, sent across the C++ bridge queue, deserialized on the native UI/Background thread, executed, and returned asynchronously via callbacks or promises.
 - **Modern JSI (TurboModules/Fabric)**: Removes the legacy JSON bridge from modern native-module and rendering paths. C++ bindings allow the JS engine to call typed host functions without JSON serialization. Some calls can be synchronous, but slow I/O and heavy native work should still run asynchronously to avoid blocking the JS runtime.
 
-### 4. Advanced Native Android SDK & Enterprise Java Architecture
+#### 4. Advanced Native Android SDK & Enterprise Java Architecture
 Leveraging a native Java/Kotlin background enables designing highly resilient custom native modules and services inside enterprise applications:
 - **Clean Architecture & Design Patterns**: We divide native layers into:
   - **Data Layer**: Repositories, SQLite OpenHelpers, network interceptors.
@@ -172,10 +146,14 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
+
+---
+
 ## 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
+
 *⏱️ 19 min read*
 
-### 1. Walk me through your experience and how it relates to this role.
+#### 1. Walk me through your experience and how it relates to this role.
 - **Answer**: 
   I have over **9 years of professional software engineering experience**. I started my career as a native Android Developer (Java) at Plurebus, Dunst, and WildTrails, and continued as an Android Developer at LetsVenture for my first 1.5 years. Later at LetsVenture, I transitioned into React Native and spent the next 5 years leading mobile delivery, architecting and shipping our key investor-facing fintech products—**LVX**, **LVXQ**, and **Scalix**—from scratch in React Native.
   
@@ -185,7 +163,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 2. I see you have strong React Native experience. Describe a complex performance bottleneck you encountered in a React Native application. How did you identify it, and what specific tools or techniques did you use to resolve it?
+#### 2. I see you have strong React Native experience. Describe a complex performance bottleneck you encountered in a React Native application. How did you identify it, and what specific tools or techniques did you use to resolve it?
 - **Answer**: 
   - **The Problem**: In our investor platform, users scrolled through a long transaction ledger consisting of hundreds of complex cards. When scrolling quickly, the UI would freeze, keyframes dropped, and the JS thread frame rate plunged from 60 FPS down to **8-12 FPS**.
   - **Identification & Diagnostics**:
@@ -202,7 +180,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 3. You've worked with Android SDK. In a React Native project, when would you decide to implement a feature using a native Android module rather than sticking purely to JavaScript? Provide a specific example.
+#### 3. You've worked with Android SDK. In a React Native project, when would you decide to implement a feature using a native Android module rather than sticking purely to JavaScript? Provide a specific example.
 - **Answer**: 
   - **Decision Criteria**: I decide to write a native Android module (Java/Kotlin) when:
     1. The feature requires low-level OS APIs that are not exposed to JavaScript (e.g., persistent background processes, device hardware, or system broadcasts).
@@ -214,7 +192,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 4. Your resume mentions Xcode. For an iOS React Native application, what are the key steps you follow to diagnose and resolve a crash that only occurs on a specific iOS device model or version?
+#### 4. Your resume mentions Xcode. For an iOS React Native application, what are the key steps you follow to diagnose and resolve a crash that only occurs on a specific iOS device model or version?
 - **Answer**: 
   When a crash is isolated to a specific device model (e.g., iPhone 15 Pro) or iOS version (e.g., iOS 17.2), I follow this systematic triage process:
   1. **Crashlytics / Sentry Investigation**: Examine the aggregated crash details on Sentry. I retrieve the stack trace, locate the failing thread, and look at the exception type (e.g., `EXC_BAD_ACCESS` indicating memory corruption or `NSInvalidArgumentException`).
@@ -226,7 +204,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 5. You have experience with CI/CD pipelines. How do you ensure code quality and prevent regressions in a React Native project's Git workflow before merging to the main branch?
+#### 5. You have experience with CI/CD pipelines. How do you ensure code quality and prevent regressions in a React Native project's Git workflow before merging to the main branch?
 - **Answer**: 
   To enforce strict code quality and prevent regressions across our team, I establish a multi-layered verification pipeline:
   1. **Local Pre-commit Validation**: I configure **Husky** and `lint-staged` to run ESLint, Prettier, and basic type-checks locally. Developers cannot commit code that violates styling rules or fails static analysis.
@@ -240,7 +218,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 6. You have extensive mobile app development experience. Describe a challenging system design decision you faced when architecting a new feature for a React Native application. What factors influenced your choices?
+#### 6. You have extensive mobile app development experience. Describe a challenging system design decision you faced when architecting a new feature for a React Native application. What factors influenced your choices?
 - **Answer**: 
   - **The Challenge**: Architecting a robust, **offline-first investment transaction outbox** at LetsVenture. Financial transactions must execute exactly once (idempotent), cannot afford data loss if the app is closed, and must resume automatically when the device recovers from poor cellular connection.
   - **Design Choices & Tradeoffs**:
@@ -252,7 +230,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 7. You've worked with React Query and Redux Toolkit. How would you decide which state management solution is more appropriate for different types of data in a large-scale React Native application?
+#### 7. You've worked with React Query and Redux Toolkit. How would you decide which state management solution is more appropriate for different types of data in a large-scale React Native application?
 - **Answer**: 
   In a large-scale application, I divide state into two distinct categories: **Server State** and **Client UI State**.
   
@@ -270,7 +248,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 8. Your resume mentions JavaScript. How do JavaScript's asynchronous patterns (Promises, async/await) impact the performance and responsiveness of a React Native application, especially when dealing with network requests or heavy computations?
+#### 8. Your resume mentions JavaScript. How do JavaScript's asynchronous patterns (Promises, async/await) impact the performance and responsiveness of a React Native application, especially when dealing with network requests or heavy computations?
 - **Answer**: 
   - **The Threading Model**: JavaScript in React Native is single-threaded, running on the **JS Thread**. Gestures, animations, and layouts are processed on the **UI Thread**. 
   - **Async Execution**: Promises and `async/await` do not create new threads in JavaScript. Instead, when an asynchronous operation (like `fetch()`) is called, the network I/O is offloaded to native background threads. When the native operation completes, the callback is pushed to the JS Event Loop's **Microtask Queue**.
@@ -283,7 +261,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 9. How do you structure a large-scale React Native application?
+#### 9. How do you structure a large-scale React Native application?
 - **Answer**: 
   For enterprise-grade apps, I prefer a **feature-based structure** (screaming architecture) instead of organizing folders strictly by technical type (e.g. putting all components together, all hooks together).
   - **Proposed Layout**:
@@ -307,7 +285,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 10. How do you handle offline support in React Native?
+#### 10. How do you handle offline support in React Native?
 - **Answer**: 
   My design for handling offline operations uses a layered sync approach:
   1. **Connectivity Detection**: Track network status changes using `@react-native-community/netinfo`.
@@ -318,7 +296,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 11. Explain the React Native Bridge and its limitations.
+#### 11. Explain the React Native Bridge and its limitations.
 - **Answer**: 
   - **The Bridge Model**: The legacy bridge acts as a communication queue between the JavaScript thread and native platform code. Communication is **asynchronous, batched, and serialized**, which made high-frequency Native-JS traffic expensive.
   - **Bridge Limitations**: Data had to be converted into serialized payloads, queued, and deserialized on the other side. Flooding this path during rapid scroll events, map gestures, or continuous validation could delay updates and drop frames.
@@ -326,7 +304,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 12. How would you reduce app startup time?
+#### 12. How would you reduce app startup time?
 - **Answer**: 
   I optimize app launch time using these production strategies:
   1. **Lazy Loading**: Delay loading non-critical screens until navigation calls occur using `React.lazy()` and `Suspense`.
@@ -337,7 +315,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 13. What is Hermes and why is it useful?
+#### 13. What is Hermes and why is it useful?
 - **Answer**: 
   **Hermes** is an open-source JavaScript engine developed by Meta, optimized specifically for running React Native apps:
   - **Ahead-of-Time (AOT) Compilation**: Traditional engines parse and compile JavaScript code at runtime (JIT). Hermes compiles the JavaScript bundle into bytecode during build time. The binary ships with pre-compiled bytecode, saving CPU cycles on app startup.
@@ -346,7 +324,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 14. How do you secure sensitive information in mobile apps?
+#### 14. How do you secure sensitive information in mobile apps?
 - **Answer**: 
   1. **Secure Tokens**: Never store JWTs, Cognito refresh tokens, or passwords inside plaintext environments like `AsyncStorage` or unencrypted `MMKV` files. Implement `react-native-keychain` which encrypts data at rest using **Keychain** (iOS) and **Keystore** (Android).
   2. **SSL Pinning**: Integrate certificate public key hashes directly into native clients (`OkHttpClient` on Android, `TrustKit` on iOS) to prevent Man-in-the-Middle (MitM) interceptors from reading data in transit.
@@ -355,7 +333,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 15. How would you investigate a memory leak?
+#### 15. How would you investigate a memory leak?
 - **Answer**: 
   - **Investigation Workflow**:
     1. **Locate Symptom**: Monitor Sentry crash rates or watch for staircase-like RAM patterns in Android Profiler or Xcode Instruments (Allocations/Leaks).
@@ -367,7 +345,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 16. Detail useMemo and useCallback optimizations.
+#### 16. Detail useMemo and useCallback optimizations.
 - **Answer**: 
   - **`useMemo`** caches the computed value of a function across renders.
     - *Use Case*: Filtering or sorting a large dataset of transactions.
@@ -377,7 +355,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 17. How would you implement Push Notifications?
+#### 17. How would you implement Push Notifications?
 - **Answer**: 
   - **Flow Architecture**:
     1. **Registration**: The mobile app requests permission from the OS. Once approved, the app fetches the native Device Token from FCM (Firebase Cloud Messaging) and APNs (Apple Push Notification service).
@@ -389,7 +367,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 18. What would you monitor after a production release?
+#### 18. What would you monitor after a production release?
 - **Answer**: 
   I monitor the health of the app during the first 24-48 hours using these tools:
   1. **Crash Telemetry (Sentry)**: Watch the crash-free user percentage. Inspect raw JS exceptions and native crash logs to identify early regressions.
@@ -399,7 +377,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 19. How do you handle API failures gracefully?
+#### 19. How do you handle API failures gracefully?
 - **Answer**: 
   To prevent users from staring at a blank screen or a broken UI, I implement these patterns:
   1. **Automatic Retries**: Configure React Query to retry queries up to 3 times with **exponential backoff** to handle temporary network dropouts.
@@ -409,7 +387,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 20. Describe a difficult production issue you solved.
+#### 20. Describe a difficult production issue you solved.
 - **Answer**: 
   - **The Problem**: In our investor-facing LetsVenture app, users reported random logouts while browsing deals. Sentry captured zero native crashes, but analytics displayed a sharp rise in sudden session terminations.
   - **Investigation**: I checked network logs and Sentry breadcrumbs. The issue was traced to Cognito token refresh failures. When access tokens expired, the app sent a refresh request. However, if the user was on a poor cellular connection, the request timed out. The interceptor treated the timeout as an invalid token, cleared local keys, and forced a logout.
@@ -418,7 +396,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 21. Redux Toolkit vs. React Query: Why not use Redux for everything?
+#### 21. Redux Toolkit vs. React Query: Why not use Redux for everything?
 - **Answer**: 
   - **Redux Toolkit** is designed for global application state (user preferences, themes, active session profiles).
   - **React Query** is designed for remote server state (cached data from database API endpoints).
@@ -427,7 +405,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 22. If you became Tech Lead tomorrow, what improvements would you introduce?
+#### 22. If you became Tech Lead tomorrow, what improvements would you introduce?
 - **Answer**: 
   I would prioritize these engineering improvements:
   1. **CI/CD Quality Gates**: Enforce automated linting, TypeScript type audits (`tsc --noEmit`), unit tests coverage gates, and native build tests before allowing PR merges.
@@ -437,7 +415,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 23. How do you design a Super-App architecture using React Native, and what are the tooling implications?
+#### 23. How do you design a Super-App architecture using React Native, and what are the tooling implications?
 - **Answer**: 
   - **Architecture Design**: We build a Super-App by dividing the product into a Host shell and independent Remote modules (mini-apps) using **Webpack Module Federation via Re.Pack**:
     1. **Container (Host)**: Resolves authentication, dynamic routing navigation, global theme contexts, and runs the core engine.
@@ -450,7 +428,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?
+#### 24. How do you secure compile-time client secrets and defend against dynamic analysis tools like Frida?
 - **Answer**: 
   - **Secure Secrets (C++ JNI)**: Storing keys in `.env` is insecure since Metro compiles them into plain-text strings inside `index.bundle`. We secure keys by moving them into **C++ source files compiled directly to binary** (e.g. `.so` on Android, static library on iOS):
     - The keys are stored as obfuscated byte arrays encrypted with XOR masks.
@@ -463,7 +441,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 25. Detail your approach to identifying and optimizing App Startup latency (TTI).
+#### 25. Detail your approach to identifying and optimizing App Startup latency (TTI).
 - **Answer**: 
   - **Triage Protocol**:
     1. **Xcode Instruments (App Launch)** & **Android Studio Profiler (CPU/Method Traces)**: Capture pre-main execution (e.g., CocoaPods loading, JVM boot times).
@@ -476,7 +454,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA updates?
+#### 26. What strategies do you use to manage risk, versioning compatibility, and recovery during OTA updates?
 - **Answer**: 
   - **Modern Tooling Context**: Microsoft App Center CodePush should not be treated as the default managed service for new projects because the App Center service has been retired. I use Expo/EAS Updates when the app is Expo/CNG friendly, or a self-hosted/New-Architecture-compatible OTA provider for bare React Native. The risk controls remain the same.
   - **Binary Version Locking**: Native modules must match JS code definitions. We set strict runtime-version or target-binary rules (e.g., `^2.4.0` or Expo `runtimeVersion`) so the OTA bundle runs only on shells built with compatible native library signatures.
@@ -485,7 +463,7 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-### 27. How would you plan a migration from a legacy React Native app to a modern React Native architecture?
+#### 27. How would you plan a migration from a legacy React Native app to a modern React Native architecture?
 - **Answer**:
   I would treat it as a controlled engineering program, not just a package upgrade.
 
@@ -502,7 +480,11 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
+
+---
+
 ## 👥 Section 6: Agile vs. Scrum Methodologies
+
 *⏱️ 1 min read*
 
 Understanding the distinction between project frameworks and mindsets is essential for senior delivery roles:
@@ -531,19 +513,23 @@ Understanding the distinction between project frameworks and mindsets is essenti
 
 ---
 
+
+---
+
 ## 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+
 *⏱️ 2 min read*
 
 Product and Delivery Managers evaluate your leadership traits, execution ownership, delivery metrics, and cross-functional collaboration styles.
 
-### 1. Feature Delivery vs. Technical Debt & Refactoring
+#### 1. Feature Delivery vs. Technical Debt & Refactoring
 - **Question**: *How do you coordinate with Product Managers (PMs) and Delivery Managers (DMs) to balance feature delivery speed vs. technical debt/refactoring?*
 - **Answer**:
   I utilize a **Technical Debt Allocation Framework** to prevent discussions from becoming subjective. PMs are driven by business metrics and timelines, while engineers are driven by stability and code hygiene. 
   - I establish data-driven justifications for technical tasks. For example, rather than saying "we need to refactor the payment link modules," I show the business impact: "This refactoring will resolve a dependency bottleneck, which will reduce checkout failure rates by 3% and decrease development time for new integrations by 20%."
   - In our sprint planning sessions, I negotiate a stable **80/20 capacity split**: 80% of resources target user-facing features, and 20% is allocated for refactoring, tooling improvements, library upgrades, and unit test coverage. This preserves feature delivery while preventing the codebase from becoming obsolete.
 
-### 2. Sprint Velocity Tracking & Project Risk Management
+#### 2. Sprint Velocity Tracking & Project Risk Management
 - **Question**: *Describe how you track and optimize team sprint velocity. What steps do you take if a critical sprint is at risk of missing its milestones?*
 - **Answer**:
   I track sprint velocity using Jira burn-down charts, cumulative flow diagrams, and historic average velocity maps. If a sprint is at risk of slipping:
@@ -551,7 +537,7 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
   - **Decoupling and Scope Negotiation**: I work with the Product Owner to prioritize backlog stories. We identify non-critical scope elements (nice-to-have UI states or tertiary configs) that can be deferred to the next sprint, safeguarding the core release milestone.
   - **Avoid Brooks' Law**: I never add external developers to a late project, as onboarding overhead slows the team down further. Instead, I implement **Swarming**—pairing engineers to unblock critical path tasks.
 
-### 3. Cross-Functional Dependencies Resolution
+#### 3. Cross-Functional Dependencies Resolution
 - **Question**: *How do you manage dependencies when your mobile features depend on backend API teams with different release schedules?*
 - **Answer**:
   I implement **API Contract-First Development**. Before developers begin coding:
@@ -561,18 +547,22 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
 
 ---
 
+
+---
+
 ## 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+
 *⏱️ 2 min read*
 
 HR evaluation assesses cultural fit, communication clarity, stability, career goals, and interpersonal conflict resolution.
 
-### 1. Motivation & Long-Term Vision
+#### 1. Motivation & Long-Term Vision
 - **Question**: *Why do you want to join our organization, and where do you see yourself in the next 5 years?*
 - **Answer**:
   - **Motivation**: Your organization delivers digital services at a massive scale, especially in complex banking and retail operations. I want to apply my 9+ years of mobile engineering experience—from native Android backgrounds to building scalable React Native applications—to solve your architectural challenges.
   - **5-Year Career Path**: In 5 years, I aim to progress into a **Principal Engineer** or **Engineering Manager** role, owning the technology roadmaps for multiple product portfolios, mentoring engineering teams, and establishing design standards for secure cross-platform apps.
 
-### 2. Tight Deadlines & Pressure Environments
+#### 2. Tight Deadlines & Pressure Environments
 - **Question**: *How do you manage tight deadlines or high-pressure situations?*
 - **Answer**:
   I focus on structural prioritization and clear communication. Pressure usually rises when expectations are mismatched.
@@ -580,7 +570,7 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
   - I avoid working in silos. I provide transparent updates to Project Managers regarding risks.
   - During LetsVenture funding campaigns, release windows were short. I managed the pressure by establishing daily triage check-ins, setting clear scopes, and ensuring the team focused on core features while testing critical paths automatically via Jest.
 
-### 3. Conflict Resolution Case Study
+#### 3. Conflict Resolution Case Study
 - **Question**: *Tell me about a time you had a conflict with a peer or manager, and how you resolved it.*
 - **Answer**:
   - **The Conflict**: At LetsVenture, a senior peer insisted on implementing a complex Redux Saga configuration to fetch user configuration parameters, while I proposed using a lightweight React Query custom hook. They felt Sagas provided more granular control over complex async actions.
@@ -592,12 +582,16 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 
 ---
 
+
+---
+
 ## 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+
 *⏱️ 1 min read*
 
 A strategic approach to compensation ensures you are valued appropriately while aligning with the employer's salary structures.
 
-### 1. Salary Negotiation & CTC Breakdown
+#### 1. Salary Negotiation & CTC Breakdown
 - **Fixed Base vs. Variable CTC**: 
   - Evaluate the overall **Cost to Company (CTC)** package. Understand the ratio of **Fixed Base Salary** (which dictates your monthly cash flow, provident fund contributions, and gratuity calculations) to **Variable Performance Bonus** (paid annually/semi-annually based on performance).
   - Negotiate for a higher Fixed Base rather than relying on high variable targets.
@@ -606,14 +600,14 @@ A strategic approach to compensation ensures you are valued appropriately while 
 - **Framing the Value Proposition**:
   - During negotiations, highlight that as a Senior/Lead React Native Developer with a strong native Android/iOS background, you act as a cross-functional engineer. You bridge the gap between JS and native platforms, reducing the client's overhead of hiring separate iOS and Android engineers.
 
-### 2. Immediate Joiner & Buyout Benefits
+#### 2. Immediate Joiner & Buyout Benefits
 - **Notice Period Buyout**:
   - If you are an immediate joiner (already serving notice or recently resigned), highlight this as a key benefit, as you can resolve immediate resource constraints.
   - If you have an active 60-90 day notice period, ask if the new employer offers a **Notice Period Buyout** (paying your current employer to release you early).
 - **Sign-On / Joining Bonus**:
   - If you lose unvested ESOPs, performance bonuses, or gratuity by resigning before a specific date, request a **Sign-on Bonus** to offset these losses. This is typically structured as a one-time payment with a 12-month retention clawback clause.
 
-### 3. Relocation & Retention Packages
+#### 3. Relocation & Retention Packages
 - **Relocation Allowances**:
   - Ensure the offer includes relocation coverage if moving to a new office hub (e.g., Bengaluru, Noida, Pune).
   - Standard relocation packages should cover:
@@ -626,7 +620,7 @@ A strategic approach to compensation ensures you are valued appropriately while 
 
 ---
 
-## ❓ Questions to Ask the Interviewers
+### ❓ Questions to Ask the Interviewers
 *⏱️ 1 min read*
 
 At the end of senior technical and manager interviews, asking strategic questions demonstrates leadership, system ownership, and domain interest:
@@ -636,3 +630,6 @@ At the end of senior technical and manager interviews, asking strategic question
 4. *"What is the testing coverage expectations for PR approvals? Is the team using Detox for E2E layouts checks?"*
 5. *"What does technical success look like for this position in the first 90 days?"*
 6. *"How are sprint priorities determined, and what is the team's typical split between product features and refactoring technical debt?"*
+
+---
+

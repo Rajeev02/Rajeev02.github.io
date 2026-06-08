@@ -1,50 +1,19 @@
+# JavaScript Complete Guide
 
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
-
-- [☕ Section 1: Engine Fundamentals & Scoping](#section-1-engine-fundamentals-scoping)
-  - [1. Lexical Scoping & Closures](#1-lexical-scoping-closures)
-  - [2. Variable Scoping: `var` vs. `let` vs. `const`](#2-variable-scoping-var-vs-let-vs-const)
-  - [3. The Event Loop & Concurrency Model](#3-the-event-loop-concurrency-model)
-- [🗑️ Section 2: Memory Management & Garbage Collection](#section-2-memory-management-garbage-collection)
-  - [1. Hermes Mark-and-Sweep Garbage Collection](#1-hermes-mark-and-sweep-garbage-collection)
-  - [2. Identifying & Diagnosing Memory Leaks](#2-identifying-diagnosing-memory-leaks)
-    - [Typical JS Memory Leak Scenarios:](#typical-js-memory-leak-scenarios)
-- [⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks](#section-3-react-lifecycle-class-components-vs-functional-hooks)
-  - [1. Structural Comparison: Classes vs. Hooks](#1-structural-comparison-classes-vs-hooks)
-  - [2. Lifecycle Mapping Reference](#2-lifecycle-mapping-reference)
-- [⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)](#section-4-react-optimization-hooks-usememo-usecallback-useref)
-  - [1. `useMemo` (Value Caching)](#1-usememo-value-caching)
-  - [2. `useCallback` (Reference Caching)](#2-usecallback-reference-caching)
-  - [3. `useRef` (Mutable Container)](#3-useref-mutable-container)
-  - [4. When NOT to Memoize](#4-when-not-to-memoize)
-- [🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query](#section-5-state-orchestration-redux-toolkit-vs-react-query)
-  - [1. Redux Toolkit (RTK) - Client UI State](#1-redux-toolkit-rtk-client-ui-state)
-  - [2. React Query (TanStack Query) - Server State](#2-react-query-tanstack-query-server-state)
-- [⚙️ Section 6: Advanced Core JS & React Engine Concepts](#section-6-advanced-core-js-react-engine-concepts)
-  - [1. Currying & Hoisting](#1-currying-hoisting)
-  - [2. Prototypal Inheritance & The Chain](#2-prototypal-inheritance-the-chain)
-  - [3. Shallow vs. Deep Copying](#3-shallow-vs-deep-copying)
-  - [4. Spread vs. Rest Operators (`...`)](#4-spread-vs-rest-operators)
-  - [5. Generators & Iterators](#5-generators-iterators)
-  - [6. Callbacks & Callback Hell](#6-callbacks-callback-hell)
-  - [7. Promises, Async/Await & Try/Catch](#7-promises-asyncawait-trycatch)
-  - [7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)](#7b-redux-async-workflow-synchronous-actions-middlewares-thunkssagas)
-  - [8. React Reconciliation & Diffing (React Fiber)](#8-react-reconciliation-diffing-react-fiber)
-  - [9. Lazy Loading & Code Splitting](#9-lazy-loading-code-splitting)
-  - [10. Debounce vs. Throttle (Execution Control Wrappers)](#10-debounce-vs-throttle-execution-control-wrappers)
-  - [11. Event Emitters & The Publish-Subscribe Pattern](#11-event-emitters-the-publish-subscribe-pattern)
-  - [12. Function Memoization Caching](#12-function-memoization-caching)
-  - [13. JavaScript Polyfills & Prototype Delegation](#13-javascript-polyfills-prototype-delegation)
-  - [14. Advanced JS Engine & Concurrency Q&A](#14-advanced-js-engine-concurrency-qa)
-</details>
-<!-- INDEX_END -->
+## Table of Contents
+- [☕ Section 1: Engine Fundamentals & Scoping](#-section-1-engine-fundamentals--scoping)
+- [🗑️ Section 2: Memory Management & Garbage Collection](#-section-2-memory-management--garbage-collection)
+- [⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks](#-section-3-react-lifecycle-class-components-vs-functional-hooks)
+- [⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)](#-section-4-react-optimization-hooks-usememo-usecallback-useref)
+- [🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query](#-section-5-state-orchestration-redux-toolkit-vs-react-query)
+- [⚙️ Section 6: Advanced Core JS & React Engine Concepts](#-section-6-advanced-core-js--react-engine-concepts)
+---
 
 ## ☕ Section 1: Engine Fundamentals & Scoping
+
 *⏱️ 2 min read*
 
-### 1. Lexical Scoping & Closures
+#### 1. Lexical Scoping & Closures
 - **Lexical Scoping**: JavaScript resolves variables based on the physical position of the variables' declarations within the nested source code structures. Inner functions have access to variables declared in their outer parent scopes.
   - *Example*:
     ```javascript
@@ -74,7 +43,7 @@
     console.log(counter()); // 2 (count variable persists in memory due to closure)
     ```
 
-### 2. Variable Scoping: `var` vs. `let` vs. `const`
+#### 2. Variable Scoping: `var` vs. `let` vs. `const`
 - **`var` (Function Scope)**: Variables declared with `var` are scoped to the nearest function block. They do not respect block boundaries (like `if` statements or `for` loops). They are hoisted to the top of their scope and initialized with `undefined`.
 - **`let` and `const` (Block Scope)**: Variables declared with `let` or `const` are scoped to the nearest enclosing curly braces `{}`. They are hoisted but are not initialized, remaining inside the **Temporal Dead Zone (TDZ)** until their actual declaration line is executed.
   - `let` allows re-assignment of values.
@@ -97,7 +66,7 @@
     let tdzVar = 20;
     ```
 
-### 3. The Event Loop & Concurrency Model
+#### 3. The Event Loop & Concurrency Model
 JavaScript is a single-threaded language, meaning it has one Call Stack and executes one operation at a time. Concurrency is handled by the browser or Node.js runtime environment using the **Event Loop**.
 
 ```text
@@ -141,18 +110,22 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
 
 ---
 
+
+---
+
 ## 🗑️ Section 2: Memory Management & Garbage Collection
+
 *⏱️ 1 min read*
 
-### 1. Hermes Mark-and-Sweep Garbage Collection
+#### 1. Hermes Mark-and-Sweep Garbage Collection
 React Native's Hermes engine manages memory using a **Mark-and-Sweep Garbage Collector (GC)**:
 1. **Mark Phase**: The GC starts from global root objects (window context, active closures, execution stack references) and traverses all reference pointers recursively. Every object reached is "marked" as active (reachable).
 2. **Sweep Phase**: The GC scans the heap memory space. Any object that does not contain an active mark is considered unreachable (dead) and its allocated memory space is reclaimed (swept).
 
-### 2. Identifying & Diagnosing Memory Leaks
+#### 2. Identifying & Diagnosing Memory Leaks
 A memory leak occurs when variables or objects that are no longer needed by the app logic are still referenced by a root container, preventing the Garbage Collector from sweeping them.
 
-#### Typical JS Memory Leak Scenarios:
+##### Typical JS Memory Leak Scenarios:
 - **LINGERING TIMERS/INTERVALS**: Creating a `setInterval` inside a React component without calling `clearInterval` during unmounting. The interval callback closure continues running, retaining references to all component state variables.
   - *Example*:
     ```javascript
@@ -193,16 +166,20 @@ A memory leak occurs when variables or objects that are no longer needed by the 
 
 ---
 
+
+---
+
 ## ⚛️ Section 3: React Lifecycle: Class Components vs. Functional Hooks
+
 *⏱️ 1 min read*
 
 React manages component lifecycles in three distinct phases: **Mounting** (initial paint), **Updating** (re-renders due to prop/state mutations), and **Unmounting** (removal from DOM/Native layout tree).
 
-### 1. Structural Comparison: Classes vs. Hooks
+#### 1. Structural Comparison: Classes vs. Hooks
 - **Class Components**: Group logic by lifecycle stages using explicit class instance methods (`componentDidMount`, `componentDidUpdate`, etc.). State is maintained in a single instance object (`this.state`).
 - **Functional Components + Hooks**: Group logic by concern (side effects, cache, state) using isolated functions. State is split into atomic hook declarations (`useState`).
 
-### 2. Lifecycle Mapping Reference
+#### 2. Lifecycle Mapping Reference
 
 | Class Component Lifecycle Method | Functional Hook equivalent (`useEffect`) | Description / Rules |
 | :--- | :--- | :--- |
@@ -247,10 +224,14 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
 
 ---
 
+
+---
+
 ## ⚡ Section 4: React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)
+
 *⏱️ 2 min read*
 
-### 1. `useMemo` (Value Caching)
+#### 1. `useMemo` (Value Caching)
 - **Purpose**: Caches the result of an expensive computation across render cycles.
 - **Mechanism**: Evaluates the computation only when variables inside its dependency array change. If dependencies remain identical, it intercepts the execution and serves the cached result, skipping the CPU-heavy logic.
 - **Fintech Example**:
@@ -272,7 +253,7 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
   };
   ```
 
-### 2. `useCallback` (Reference Caching)
+#### 2. `useCallback` (Reference Caching)
 - **Purpose**: Memoizes a function instance reference across render cycles.
 - **Mechanism**: In JavaScript, functions are objects. Creating an inline function (`onPress={() => {}}`) allocates a brand-new object reference in memory on every render. If this callback is passed to a child component optimized with `React.memo`, the child will detect a "changed" prop reference and trigger a complete, unnecessary re-render. Wrapping the callback in `useCallback` maintains the exact same memory address reference pointer unless dependency array values mutate.
 - **Example**:
@@ -300,7 +281,7 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
   });
   ```
 
-### 3. `useRef` (Mutable Container)
+#### 3. `useRef` (Mutable Container)
 - **Purpose**: Persists a mutable container whose `.current` property holds a value throughout the entire lifecycle of the component.
 - **Key Feature**: Mutating `.current` **does not trigger a component re-render**. It is used to store mutable state values that should not affect the visual UI paint cycles, such as WebSocket references, animation objects, or timer IDs.
 - **Example**:
@@ -335,7 +316,7 @@ React manages component lifecycles in three distinct phases: **Mounting** (initi
   };
   ```
 
-### 4. When NOT to Memoize
+#### 4. When NOT to Memoize
 Overusing `useMemo` and `useCallback` is a common mistake that degrades performance:
 - **Trivial Logic**: Wrapping simple computations (e.g., adding two numbers or concatenating string props) in `useMemo` adds unnecessary overhead. The cost of allocating memory slots for dependencies and running shallow comparisons on every render exceeds the cost of re-calculating the primitive value.
   - *Example*:
@@ -353,7 +334,11 @@ Overusing `useMemo` and `useCallback` is a common mistake that degrades performa
 
 ---
 
+
+---
+
 ## 🗃️ Section 5: State Orchestration: Redux Toolkit vs. React Query
+
 *⏱️ 2 min read*
 
 Large-scale React applications split state management into two clear domains: **Client UI State** and **Remote Server State**.
@@ -364,7 +349,7 @@ Large-scale React applications split state management into two clear domains: **
   └── Server Data State ➡️ (React Query)   ➡️ cached backend responses, background synchronization
 ```
 
-### 1. Redux Toolkit (RTK) - Client UI State
+#### 1. Redux Toolkit (RTK) - Client UI State
 - **Best For**: Localized application configuration, UI themes, active session authentication flags, user preferences, and multi-step inputs (e.g., a signup wizard).
 - **Core Principle**: Unidirectional data flow governed by synchronous actions and reducers. Changes are predictable, trackable via devtools, and run entirely within client memory.
 - **Asynchronous Data**: Uses Thunks or Sagas. Orchestrating sequential API calls requires manual loading flags, error tracking, and caching logics.
@@ -391,7 +376,7 @@ Large-scale React applications split state management into two clear domains: **
   });
   ```
 
-### 2. React Query (TanStack Query) - Server State
+#### 2. React Query (TanStack Query) - Server State
 - **Best For**: Data that lives on a remote database (e.g., bank accounts, trade history, transactions).
 - **Core Principle**: Declarative cache container. React Query acts as an asynchronous state machine that handles fetching, caching, automatic background re-validation, request deduplication, loading states, and error retries out-of-the-box.
 - **Key Strategies**:
@@ -437,10 +422,14 @@ Large-scale React applications split state management into two clear domains: **
 
 ---
 
+
+---
+
 ## ⚙️ Section 6: Advanced Core JS & React Engine Concepts
+
 *⏱️ 13 min read*
 
-### 1. Currying & Hoisting
+#### 1. Currying & Hoisting
 - **Hoisting**: During the compilation phase, JavaScript moves declarations (variables and functions) to the top of their enclosing scopes.
   - *Function Declarations* are fully hoisted (both declaration and implementation), allowing them to be invoked before their physical line position.
   - *`var` variables* are hoisted and initialized to `undefined`.
@@ -473,7 +462,7 @@ Large-scale React applications split state management into two clear domains: **
     console.log(tenPercentOff(250)); // 225
     ```
 
-### 2. Prototypal Inheritance & The Chain
+#### 2. Prototypal Inheritance & The Chain
 - Every JavaScript object has a private link referencing another object called its **Prototype** (`__proto__`). 
 - **The Prototype Chain**: When accessing a property on an object, JavaScript first looks at the object's local properties. If not found, it traverses up the prototype chain (`object.__proto__`, `object.__proto__.__proto__`) recursively until the property is located or the chain terminates at `null`.
 - **Property Shadowing**: If an object defines a local property with the same name as a property on its prototype, the local property "shadows" (overrides) the prototype's property.
@@ -496,7 +485,7 @@ Large-scale React applications split state management into two clear domains: **
   rabbit.walk();             // Logs: "Rabbit hops" (Local walk shadows prototype's walk)
   ```
 
-### 3. Shallow vs. Deep Copying
+#### 3. Shallow vs. Deep Copying
 - **Shallow Copy**: Copies only the first level of keys. For nested objects, it copies the memory reference pointers, meaning mutating a nested object inside the copy will modify the original object.
   - *Methods*: Spread operator (`{ ...obj }`), `Object.assign({}, obj)`.
 - **Deep Copy**: Copies all property levels recursively, allocating entirely new memory slots for all nested objects. Changes made to the copy do not affect the original.
@@ -517,7 +506,7 @@ Large-scale React applications split state management into two clear domains: **
   console.log(originalObj.details.age); // Logs: 30 (Completely isolated)
   ```
 
-### 4. Spread vs. Rest Operators (`...`)
+#### 4. Spread vs. Rest Operators (`...`)
 Although they use the same syntax (`...`), they perform opposite operations depending on where they are used:
 - **Spread Operator (Unpacks/Expands)**: Expands elements of an array or properties of an object. Used in expression contexts (like array/object literals or function calls) to unpack values.
   - *Array/Object Cloning & Merging*:
@@ -551,11 +540,11 @@ Although they use the same syntax (`...`), they perform opposite operations depe
     console.log(otherInfo); // { age: 30, country: "India" }
     ```
 
-#### Key Mnemonic
+##### Key Mnemonic
 - **Rest** = *Gathers* separate elements into one container (used on the left side of assignments / parameters).
 - **Spread** = *Spreads* one container out into separate elements (used on the right side of assignments / inside arguments/literals).
 
-### 5. Generators & Iterators
+#### 5. Generators & Iterators
 - **Iterators**: An object implementing the Iterator protocol with a `next()` method returning `{ value, done: boolean }`. Objects can declare custom iteration via `[Symbol.iterator]`.
   - *Example*:
     ```javascript
@@ -596,7 +585,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
     console.log(gen.next()); // { value: undefined, done: true }
     ```
 
-### 6. Callbacks & Callback Hell
+#### 6. Callbacks & Callback Hell
 - **Callback**: A function passed as an argument to another function, which is then executed inside the outer function to handle completion of asynchronous events.
 - **Callback Hell**: Pyramid-shaped nesting of asynchronous callbacks, making code unreadable, hard to trace, and fragile to debug.
   - *Example*:
@@ -611,7 +600,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
     ```
   - *Resolution*: Resolved by replacing callbacks with Promises or Async/Await.
 
-### 7. Promises, Async/Await & Try/Catch
+#### 7. Promises, Async/Await & Try/Catch
 - **Promise**: An object representing the eventual completion or failure of an asynchronous operation.
   - *States*: `Pending` (in-flight), `Fulfilled` (success), `Rejected` (error).
 - **Promise Chaining**: The pattern of chaining multiple asynchronous operations sequentially by returning a new Promise from within `.then()` handlers.
@@ -631,7 +620,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
 - **Async/Await**: Syntactic sugar built on top of Promises to write asynchronous code that reads like synchronous code, making it easier to follow.
 - **Try/Catch Boundaries**: Synchronous and asynchronous error boundaries. When using `async/await`, errors are caught cleanly inside `try-catch` blocks, preventing unhandled promise rejections.
 
-### 7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)
+#### 7b. Redux Async Workflow: Synchronous Actions & Middlewares (Thunks/Sagas)
 - **Redux is Synchronous**: By design, Redux's core flow is purely synchronous: `dispatch(action) -> store calls reducer(state, action) -> state updates`. Reducers must be pure functions with no side effects (no API requests, no timers).
 - **How Redux handles Async Tasks**: To perform async tasks (e.g. calling multiple APIs), Redux uses **Middleware** that intercepts actions before they reach the reducer.
 - **Redux Thunk**:
@@ -669,7 +658,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
     }
     ```
 
-### 8. React Reconciliation & Diffing (React Fiber)
+#### 8. React Reconciliation & Diffing (React Fiber)
 - **Virtual DOM**: React maintains a lightweight in-memory representation of the true UI layout tree.
 - **Reconciliation (React Fiber)**: The algorithm React uses to update the UI. It splits rendering into a non-blocking compilation phase (creating the Fiber work tree) and a commit phase (writing changes to the screen).
 - **The Diffing Algorithm**: React compares virtual DOM nodes using an $O(N)$ heuristic diffing approach:
@@ -677,7 +666,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
   2. If elements are of the same type, React compares attributes and updates only changed properties.
   3. **Keys in Lists**: Keys act as unique identifiers for list items. When a list changes, React uses keys to match nodes between the old and new trees. Failing to provide unique keys (or using array indexes as keys) causes React to destroy and recreate components needlessly or misalign local states during deletions/insertions.
 
-### 9. Lazy Loading & Code Splitting
+#### 9. Lazy Loading & Code Splitting
 - **Code Splitting**: Splitting the JavaScript bundle into smaller chunks that can be downloaded dynamically.
 - **Lazy Loading**: Delaying load times of features until they are accessed. In React, this is achieved using **`React.lazy()`** (for dynamic component imports) wrapped in a **`<Suspense>`** boundary to display a loading fallback UI. This decreases app launch bundle size and improves startup time.
 - *Example*:
@@ -699,7 +688,7 @@ Although they use the same syntax (`...`), they perform opposite operations depe
   }
   ```
 
-### 10. Debounce vs. Throttle (Execution Control Wrappers)
+#### 10. Debounce vs. Throttle (Execution Control Wrappers)
 In client-side applications (especially mobile apps), user interactions can trigger highly frequent events (e.g., typing in a search bar, scrolling a list, or swiping). If these events execute network requests or heavy layout computations directly, they can saturate threads and degrade performance.
 
 - **Debouncing**: Delays function execution until a specified quiet period has elapsed since the last time the event was triggered. Every time a new trigger occurs, the pending timer is cancelled and restarted.
@@ -732,7 +721,7 @@ In client-side applications (especially mobile apps), user interactions can trig
     }
     ```
 
-### 11. Event Emitters & The Publish-Subscribe Pattern
+#### 11. Event Emitters & The Publish-Subscribe Pattern
 - **Publish-Subscribe (PubSub)**: A design pattern where senders (publishers) do not programmatically target messages to specific receivers (subscribers). Instead, events are categorized into channels or namespaces.
 - **Event Emitter**: The central broker maintaining a map of active channels to callback subscriber lists.
   - When a subscriber registers (`on("event", callback)`), the broker adds their listener function reference to the event array.
@@ -758,7 +747,7 @@ In client-side applications (especially mobile apps), user interactions can trig
     }
     ```
 
-### 12. Function Memoization Caching
+#### 12. Function Memoization Caching
 - **Memoization**: An optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
 - **Implementation**: The wrapper wraps the target function inside a closure containing a private `cache` map object. It stringifies the input arguments to construct a key hash. If the key exists inside the cache mapping, it returns the value immediately, bypassing function execution.
   - *Example*:
@@ -777,7 +766,7 @@ In client-side applications (especially mobile apps), user interactions can trig
     }
     ```
 
-### 13. JavaScript Polyfills & Prototype Delegation
+#### 13. JavaScript Polyfills & Prototype Delegation
 - **Polyfill**: A piece of code used to provide modern functionality on older browsers or JavaScript engines that do not natively support it (e.g., using old syntax to recreate `Array.prototype.map`).
 - **Prototype Delegation**: JavaScript resolves methods on arrays or objects by traversing their prototype chain (`Array.prototype`). To build a polyfill, we define custom methods directly on the base prototype array interface if the native compiler checks resolve to `undefined`.
   - *Example*:
@@ -795,9 +784,9 @@ In client-side applications (especially mobile apps), user interactions can trig
     }
     ```
 
-### 14. Advanced JS Engine & Concurrency Q&A
+#### 14. Advanced JS Engine & Concurrency Q&A
 
-#### Q1: Explain the V8/Hermes memory layout (Stack vs. Heap) and how JavaScript variables are allocated and referenced.
+##### Q1: Explain the V8/Hermes memory layout (Stack vs. Heap) and how JavaScript variables are allocated and referenced.
 - **Answer**:
   The JS runtime environment divides memory into two principal regions: **The Stack** and **The Heap**.
   - **The Stack (Static Allocation)**:
@@ -814,7 +803,7 @@ In client-side applications (especially mobile apps), user interactions can trig
 
 ---
 
-#### Q2: What is Event Loop starvation? Contrast the execution prioritization of `process.nextTick()`, `Promise.then()`, `setImmediate()`, and `setTimeout()`.
+##### Q2: What is Event Loop starvation? Contrast the execution prioritization of `process.nextTick()`, `Promise.then()`, `setImmediate()`, and `setTimeout()`.
 - **Answer**:
   - **Event Loop Starvation**: Occurs when high-priority queues (like the Microtask Queue) are continuously populated, completely preventing the event loop from executing low-priority macrotasks (like rendering inputs, scroll listeners, or timers).
   - **Prioritization & Loop Phases**:
@@ -826,7 +815,7 @@ In client-side applications (especially mobile apps), user interactions can trig
 
 ---
 
-#### Q3: What are JavaScript Proxies and the Reflect API? How can they be used to build a reactive state tracking system?
+##### Q3: What are JavaScript Proxies and the Reflect API? How can they be used to build a reactive state tracking system?
 - **Answer**:
   - **Proxy**: An ES6 object wrapping a target object, allowing you to intercept and customize fundamental operations (like property access `get`, assignment `set`, deletion `deleteProperty`).
   - **Reflect**: A global object providing static helper methods corresponding to Proxy traps (e.g., `Reflect.get(target, prop)`). It returns boolean success markers and makes default object operations predictable.
@@ -854,7 +843,7 @@ In client-side applications (especially mobile apps), user interactions can trig
 
 ---
 
-#### Q4: How do WeakMap and WeakSet differ from Map and Set? What are their use cases in memory leak prevention?
+##### Q4: How do WeakMap and WeakSet differ from Map and Set? What are their use cases in memory leak prevention?
 - **Answer**:
   - **Weak references**: In standard `Map` and `Set`, objects added as keys or values are held with strong references. The garbage collector (GC) cannot sweep them, even if all other variables reference pointers are destroyed.
   - **WeakMap & WeakSet**: Holds references to objects *weakly*.
@@ -882,7 +871,7 @@ In client-side applications (especially mobile apps), user interactions can trig
 
 ---
 
-#### Q5: Explain prototypal inheritance mechanics under the hood and how they relate to ES6 Class compilation.
+##### Q5: Explain prototypal inheritance mechanics under the hood and how they relate to ES6 Class compilation.
 - **Answer**:
   - **Prototypal Inheritance**: JavaScript does not have traditional object-oriented classes. Instead, inheritance relies on objects linking to other objects via a hidden `[[Prototype]]` property (accessible as `__proto__`).
   - **The Lookup Chain**: Accessing `obj.prop` triggers a recursive search: `obj` ➡️ `obj.__proto__` ➡️ `obj.__proto__.__proto__` up to `Object.prototype`, ending at `null`.
@@ -897,3 +886,6 @@ In client-side applications (especially mobile apps), user interactions can trig
       Developer.prototype.constructor = Developer; // Reset constructor pointer
       ```
     - Methods declared on class objects are attached to `Developer.prototype` to save memory, ensuring all instances share a single function reference on the prototype object instead of duplicating instances.
+
+---
+

@@ -1,31 +1,20 @@
+# TypeScript Complete Guide
 
-<!-- INDEX_START -->
-<details>
-  <summary>📖 <b>Table of Contents (Click to expand)</b></summary>
-
-- [📘 Section 1: Types vs. Interfaces](#section-1-types-vs-interfaces)
-  - [1. Structural Similarities](#1-structural-similarities)
-  - [2. Key Differences](#2-key-differences)
-    - [Declaration Merging (Unique to Interfaces)](#declaration-merging-unique-to-interfaces)
-    - [Composition & Extensions](#composition-extensions)
-    - [Capability Limits](#capability-limits)
-- [🛠️ Section 2: Generics & Utility Types](#section-2-generics-utility-types)
-  - [1. Generics (Type Parametrization)](#1-generics-type-parametrization)
-  - [2. TypeScript Utility Types](#2-typescript-utility-types)
-- [📱 Section 3: Type Safety in React Native (Codegen Specs)](#section-3-type-safety-in-react-native-codegen-specs)
-  - [1. Codegen Specification Rules](#1-codegen-specification-rules)
-  - [2. TurboModule Spec Example](#2-turbomodule-spec-example)
-- [⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)](#section-4-strict-compiler-options-tsconfigjson)
-- [🔬 Section 5: Advanced TypeScript Q&A](#section-5-advanced-typescript-qa)
-</details>
-<!-- INDEX_END -->
+## Table of Contents
+- [📘 Section 1: Types vs. Interfaces](#-section-1-types-vs-interfaces)
+- [🛠️ Section 2: Generics & Utility Types](#-section-2-generics--utility-types)
+- [📱 Section 3: Type Safety in React Native (Codegen Specs)](#-section-3-type-safety-in-react-native-codegen-specs)
+- [⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)](#-section-4-strict-compiler-options-tsconfigjson)
+- [🔬 Section 5: Advanced TypeScript Q&A](#-section-5-advanced-typescript-qa)
+---
 
 ## 📘 Section 1: Types vs. Interfaces
+
 *⏱️ 1 min read*
 
 TypeScript provides two core ways to declare object structures and contracts: **Interfaces** and **Type Aliases**. Understanding when to use which is essential for senior engineering roles.
 
-### 1. Structural Similarities
+#### 1. Structural Similarities
 Both can be used to describe the shape of an object or a function contract:
 ```typescript
 // Interface
@@ -43,9 +32,9 @@ type UserType = {
 
 ---
 
-### 2. Key Differences
+#### 2. Key Differences
 
-#### Declaration Merging (Unique to Interfaces)
+##### Declaration Merging (Unique to Interfaces)
 - If you define two interfaces with the exact same name in the same scope, TypeScript automatically merges their declarations into a single interface definition.
 - Type aliases cannot be declared multiple times with the same name; doing so throws a duplicate identifier error.
 
@@ -55,7 +44,7 @@ interface Car { model: string; }
 // Result: Car now has both properties: brand and model.
 ```
 
-#### Composition & Extensions
+##### Composition & Extensions
 - **Interfaces** extend other interfaces using the `extends` keyword. This enables compile-time optimizations as TypeScript caches the relationship tree.
 - **Type Aliases** compose structures using intersection operators (`&`).
 
@@ -71,7 +60,7 @@ type SeniorType = UserType & {
 };
 ```
 
-#### Capability Limits
+##### Capability Limits
 - **Type Aliases** can declare primitives, union types, intersection types, tuples, and mapped types.
 - **Interfaces** are strictly limited to describing object shapes, classes, and function structures. They cannot declare union types or alias primitive types directly.
 
@@ -82,10 +71,14 @@ type Position = [number, number]; // Tuple
 
 ---
 
+
+---
+
 ## 🛠️ Section 2: Generics & Utility Types
+
 *⏱️ 1 min read*
 
-### 1. Generics (Type Parametrization)
+#### 1. Generics (Type Parametrization)
 Generics allow you to write reusable, type-safe components, classes, or functions that work over a variety of types rather than a single concrete type. They act as type variables captured during compilation.
 
 - *Generic Interface*:
@@ -114,7 +107,7 @@ Generics allow you to write reusable, type-safe components, classes, or function
   const str = getFirstElement(["a", "b"]); // str is inferred as: string | undefined
   ```
 
-### 2. TypeScript Utility Types
+#### 2. TypeScript Utility Types
 TypeScript provides built-in utilities to facilitate common type transformations.
 
 - **`Partial<T>`**: Constructs a type with all properties of `T` set to optional.
@@ -152,16 +145,20 @@ TypeScript provides built-in utilities to facilitate common type transformations
 
 ---
 
+
+---
+
 ## 📱 Section 3: Type Safety in React Native (Codegen Specs)
+
 *⏱️ 1 min read*
 
 In the New Architecture, **Codegen** bridges the type-safety gap between JavaScript and native C++/Java/Obj-C code. To configure this, you write strict TypeScript Specification files.
 
-### 1. Codegen Specification Rules
+#### 1. Codegen Specification Rules
 - The spec file name must follow a strict naming convention: `Native<ModuleName>.ts` (for TurboModules) or `<ModuleName>NativeComponent.ts` (for Fabric components).
 - You must use specific, compile-safe type definitions provided by React Native (`Double`, `Float`, `Int32`, `UnsafeObject`, `DirectEventHandler`). Standard JavaScript dynamic types like `any` or generic object type definitions are rejected by the Codegen compiler.
 
-### 2. TurboModule Spec Example
+#### 2. TurboModule Spec Example
 ```typescript
 import { TurboModule, TurboModuleRegistry } from 'react-native';
 
@@ -177,7 +174,11 @@ export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
 
 ---
 
+
+---
+
 ## ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)
+
 *⏱️ 1 min read*
 
 To prevent runtime crashes and enforce code quality, enterprise configurations enable strict compiler options in `tsconfig.json`.
@@ -200,10 +201,14 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
+
+---
+
 ## 🔬 Section 5: Advanced TypeScript Q&A
+
 *⏱️ 3 min read*
 
-### Q1: Explain Conditional Types and how they are used to write dynamic, responsive typings. Provide an example showing how to build custom Utility Types using `infer`.
+#### Q1: Explain Conditional Types and how they are used to write dynamic, responsive typings. Provide an example showing how to build custom Utility Types using `infer`.
 - **Answer**:
   - **Conditional Types**: Express typings using a ternary-like conditional syntax: `T extends U ? X : Y`. It evaluates if type `T` is assignable to type `U`. If so, the type resolves to `X`; otherwise, `Y`.
   - **The `infer` Keyword**: Declared inside the `extends` clause of a conditional type to dynamically introduce a type variable that TypeScript must automatically infer at compile time.
@@ -218,7 +223,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-### Q2: Describe structural typing vs. nominal typing in TypeScript. How can we achieve nominal typing (type branding) to prevent logic errors?
+#### Q2: Describe structural typing vs. nominal typing in TypeScript. How can we achieve nominal typing (type branding) to prevent logic errors?
 - **Answer**:
   - **Structural Typing (TypeScript)**: TypeScript's type system is based on shapes. If two objects have identical properties and types, they are treated as the same type, regardless of their names:
     ```typescript
@@ -244,7 +249,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-### Q3: Explain Covariance and Contravariance in TypeScript. How does TypeScript evaluate parameters vs. return types during function assignments?
+#### Q3: Explain Covariance and Contravariance in TypeScript. How does TypeScript evaluate parameters vs. return types during function assignments?
 - **Answer**:
   These properties describe type compatibility rules when dealing with hierarchies (e.g., assigning a subclass to a superclass container).
   - **Covariance (Preserves Direction)**:
@@ -256,7 +261,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-### Q4: Compare `unknown` vs. `any` vs. `never`. When and how should each be used to maintain strict type safety?
+#### Q4: Compare `unknown` vs. `any` vs. `never`. When and how should each be used to maintain strict type safety?
 - **Answer**:
   - **`any` (Escape Hatch)**: Turns off all type checking. The compiler allows any property reads or calls on `any`. It is highly insecure and leads to runtime crashes.
   - **`unknown` (Type-Safe `any`)**: Represents any value, but TypeScript blocks all property reads or method invocations on `unknown` until you perform explicit type narrowing (using `typeof`, `instanceof`, or custom type guards).
@@ -279,7 +284,7 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-### Q5: How do TypeScript compiler flags like `incremental`, `composite`, and project references work to optimize compile-time performance in massive enterprise monorepos?
+#### Q5: How do TypeScript compiler flags like `incremental`, `composite`, and project references work to optimize compile-time performance in massive enterprise monorepos?
 - **Answer**:
   For large projects (100,000+ lines), compiling the entire workspace on every commit creates bottlenecks.
   - **`incremental: true`**: Tells TypeScript to save build info metadata (as `.tsbuildinfo` files) from the last compilation. During subsequent compiles, TS reads this metadata and compiles only the files modified since the last check, reducing build times by 70%.
@@ -288,3 +293,6 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
     - Each sub-project has its own `tsconfig.json` specifying `"composite": true`.
     - Parent apps link these projects using the `"references"` property.
     - When building, TypeScript compiles only modified packages and outputs compiled definitions (`.d.ts`), preventing rebuilding of unaffected modules in the monorepos.
+
+---
+
