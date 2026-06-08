@@ -39,11 +39,12 @@
 
 ## React Native Complete Guide
 
- | --- |
-| Topic Name | React Native Complete Guide |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native Complete Guide |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -51,11 +52,12 @@
 
 ---
 
-| --- |
-| Topic Name | Core Architecture (Legacy vs. New Architecture) |
-| Difficulty | Hard |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise<br>⭐ Frequently Asked<br>💼 Product Company Favorite |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Core Architecture (Legacy vs. New Architecture) |
+| **Difficulty** | Hard |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise<br>⭐ Frequently Asked<br>💼 Product Company Favorite |
 
 ---
 
@@ -122,11 +124,12 @@ Migration is a phased risk-management exercise, not a one-shot upgrade:
 
 ---
 
-| --- |
-| Topic Name | Section 2: Layout, Flexbox & styling (Yoga Engine) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Section 2: Layout, Flexbox & styling (Yoga Engine) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -175,11 +178,12 @@ Animations are calculated on two different runtime threads in React Native:
 
 ---
 
-| --- |
-| Topic Name | 🔌 Section 3: Custom Native Modules & Expo CNG |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔌 Section 3: Custom Native Modules & Expo CNG |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -255,11 +259,12 @@ To package native modules and JS bindings as a reusable NPM library:
 
 ---
 
-| --- |
-| Topic Name | 📦 Section 4: App Compilation, Metro & Babel |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📦 Section 4: App Compilation, Metro & Babel |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -306,11 +311,12 @@ For release builds, React Native uses **Hermes**, a lightweight JS engine optimi
 
 ---
 
-| --- |
-| Topic Name | ⚡ Section 5: List Optimization & Memory Profiling |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚡ Section 5: List Optimization & Memory Profiling |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -348,11 +354,12 @@ Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects duri
 
 ---
 
-| --- |
-| Topic Name | 🔒 Section 6: Release Engineering & Diagnostic Workflows |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔒 Section 6: Release Engineering & Diagnostic Workflows |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -452,11 +459,12 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 
 ---
 
-| --- |
-| Topic Name | ⚛️ Section 7: React Architecture & Core Engine |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚛️ Section 7: React Architecture & Core Engine |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -599,11 +607,12 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 
 ---
 
-| --- |
-| Topic Name | 📦 Section 8: State Management & Routing Orchestration |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📦 Section 8: State Management & Routing Orchestration |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -682,11 +691,12 @@ Recoil is useful to understand historically, but it is no longer the default rec
 
 ---
 
-| --- |
-| Topic Name | 🌐 Section 9: Server Rendering, Styling & Platform Specifics |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🌐 Section 9: Server Rendering, Styling & Platform Specifics |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -728,11 +738,12 @@ Recoil is useful to understand historically, but it is no longer the default rec
 
 ---
 
-| --- |
-| Topic Name | 🧪 Section 10: Testing Strategies & QA Automation |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🧪 Section 10: Testing Strategies & QA Automation |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -826,11 +837,12 @@ Test-Driven Development (TDD) is a development methodology where code is written
 
 ---
 
-| --- |
-| Topic Name | 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -907,11 +919,12 @@ GraphQL enables mobile clients to request only the specific fields required, red
 
 ---
 
-| --- |
-| Topic Name | 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -954,11 +967,12 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
 
 ---
 
-| --- |
-| Topic Name | 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1006,11 +1020,12 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
 
 ---
 
-| --- |
-| Topic Name | ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1062,11 +1077,12 @@ With **Flipper** deprecated and removed from modern React Native templates, team
 
 ---
 
-| --- |
-| Topic Name | 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1099,11 +1115,12 @@ OTA systems bypass store approval times for JavaScript-only updates. For intervi
 
 ---
 
-| --- |
-| Topic Name | 🌐 Section 16: React Native for Web (Cross-Platform Development) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🌐 Section 16: React Native for Web (Cross-Platform Development) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1155,11 +1172,12 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
 
 ---
 
-| --- |
-| Topic Name | 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1219,11 +1237,12 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
 
 ---
 
-| --- |
-| Topic Name | ⚡ Section 18: Senior-Level Performance Engineering Checklist |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚡ Section 18: Senior-Level Performance Engineering Checklist |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1263,11 +1282,12 @@ Ensure smooth 60/120 FPS interactions and minimize thread blocks by checking off
 
 ---
 
-| --- |
-| Topic Name | 🔗 Section 19: Bridgeless Mode & React Native Runtime |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔗 Section 19: Bridgeless Mode & React Native Runtime |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1356,11 +1376,12 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
 
 ---
 
-| --- |
-| Topic Name | 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1585,11 +1606,12 @@ function Counter() {
 
 ---
 
-| --- |
-| Topic Name | ✨ Section 21: Shared Element Transitions & Advanced Animation Patterns |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ✨ Section 21: Shared Element Transitions & Advanced Animation Patterns |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1735,11 +1757,12 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
 
 ---
 
-| --- |
-| Topic Name | 🖼️ Section 22: Native UI Components (ViewManagers) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🖼️ Section 22: Native UI Components (ViewManagers) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1898,11 +1921,12 @@ export default codegenNativeComponent<NativeProps>('NativeVideoView');
 
 ---
 
-| --- |
-| Topic Name | 🧭 Section 23: Navigation Performance & Universal Links |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🧭 Section 23: Navigation Performance & Universal Links |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2056,11 +2080,12 @@ const linking = {
 
 ---
 
-| --- |
-| Topic Name | 🧹 Section 24: Code Quality & Developer Tooling |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🧹 Section 24: Code Quality & Developer Tooling |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2203,11 +2228,12 @@ const linking = {
 
 ---
 
-| --- |
-| Topic Name | 📊 Section 25: Analytics & Monitoring Deep-Dive |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📊 Section 25: Analytics & Monitoring Deep-Dive |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2345,11 +2371,12 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 ---
 
-| --- |
-| Topic Name | 🧪 Section 26: Appium & Cross-Platform E2E Testing |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🧪 Section 26: Appium & Cross-Platform E2E Testing |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2447,11 +2474,12 @@ describe('Login Flow', () => {
 
 ---
 
-| --- |
-| Topic Name | 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2605,11 +2633,12 @@ Kill Switch: If crash-free rate drops below 99.5% or error rate spikes 2x,
 
 ---
 
-| --- |
-| Topic Name | 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2794,11 +2823,12 @@ function signRequest(method: string, path: string, body: string, timestamp: stri
 
 ---
 
-| --- |
-| Topic Name | 🚀 Section 19: Migration Strategies (Legacy to Modern) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🚀 Section 19: Migration Strategies (Legacy to Modern) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2858,11 +2888,12 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 
 ---
 
-| --- |
-| Topic Name | Section 20: Senior / Lead / Architect Scenarios |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Section 20: Senior / Lead / Architect Scenarios |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2925,11 +2956,12 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 
 ---
 
-| --- |
-| Topic Name | 🤝 Section 21: Behavioral, Leadership & HR Rounds |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🤝 Section 21: Behavioral, Leadership & HR Rounds |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 

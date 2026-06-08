@@ -32,11 +32,12 @@
 
 ## 📱 React Native Coding Programs
 
- | --- |
-| Topic Name | 📱 React Native Coding Programs |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📱 React Native Coding Programs |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -50,11 +51,12 @@
 
 ---
 
-| --- |
-| Topic Name | Program 1: Performance-Optimized List Component |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 1: Performance-Optimized List Component |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -356,11 +358,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 2: Custom NetInfo Connectivity Hook (`useNetwork`) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 2: Custom NetInfo Connectivity Hook (`useNetwork`) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -430,11 +433,12 @@ export function useNetwork(): NetworkState {
 
 ---
 
-| --- |
-| Topic Name | Program 3: Expo Config Plugin configuration |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 3: Expo Config Plugin configuration |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -507,11 +511,12 @@ module.exports = withCustomPermissions;
 
 ---
 
-| --- |
-| Topic Name | Program 4: Native Android Module Bridge (Kotlin) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 4: Native Android Module Bridge (Kotlin) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -590,11 +595,12 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 
 ---
 
-| --- |
-| Topic Name | Program 5: Fetch and Render List from API (Todos) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 5: Fetch and Render List from API (Todos) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -845,11 +851,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 6: Reusable API Calling Wrappers (Fetch vs. Axios) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 6: Reusable API Calling Wrappers (Fetch vs. Axios) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1021,11 +1028,12 @@ export const axiosClient = new AxiosClient('https://dummy-json.mock.beeceptor.co
 
 ---
 
-| --- |
-| Topic Name | Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1274,11 +1282,12 @@ export function useDeletePost() {
 
 ---
 
-| --- |
-| Topic Name | Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1437,11 +1446,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 9: Native Module Bridge (Kotlin Android & Swift iOS) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 9: Native Module Bridge (Kotlin Android & Swift iOS) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1578,11 +1588,12 @@ export const BatteryMonitor = NativeModules.BatteryMonitor as BatteryMonitorInte
 
 ---
 
-| --- |
-| Topic Name | Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1727,11 +1738,12 @@ end
 
 ---
 
-| --- |
-| Topic Name | Program 11: State Management with MobX State Tree (MST) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 11: State Management with MobX State Tree (MST) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1932,11 +1944,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 12: SQLite Transactional Ledger Database Hook |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 12: SQLite Transactional Ledger Database Hook |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2060,11 +2073,12 @@ export function useLedgerDatabase() {
 
 ---
 
-| --- |
-| Topic Name | Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2222,11 +2236,12 @@ describe('E2E Authentication Flow', () => {
 
 ---
 
-| --- |
-| Topic Name | Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2356,11 +2371,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2499,11 +2515,12 @@ class SecureKeysModule: NSObject {
 
 ---
 
-| --- |
-| Topic Name | Program 16: Secure Purchase Validation & Transaction Sync Hook |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 16: Secure Purchase Validation & Transaction Sync Hook |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2681,11 +2698,12 @@ export function usePurchaseManager() {
 
 ---
 
-| --- |
-| Topic Name | Program 17: GraphQL API Client Integration with Apollo Client |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 17: GraphQL API Client Integration with Apollo Client |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -2974,11 +2992,12 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 
 ---
 
-| --- |
-| Topic Name | Program 18: Recoil State Management (Atoms & Selectors) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 18: Recoil State Management (Atoms & Selectors) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3167,11 +3186,12 @@ export function RecoilAppWrapper() {
 
 ---
 
-| --- |
-| Topic Name | Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3325,11 +3345,12 @@ export function useTelemetry(): TelemetryClient {
 
 ---
 
-| --- |
-| Topic Name | Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3439,11 +3460,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Section: DSA & Algorithmic Coding (Mobile Optimized) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Section: DSA & Algorithmic Coding (Mobile Optimized) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3514,11 +3536,12 @@ function maxDepth(root: TreeNode | null): number {
 
 ---
 
-| --- |
-| Topic Name | Section: System Design Coding |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Section: System Design Coding |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3677,11 +3700,12 @@ export const useCheckoutStateMachine = () => {
 
 ---
 
-| --- |
-| Topic Name | Program 27: Basic 50,000 Items FlatList |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 27: Basic 50,000 Items FlatList |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -3777,11 +3801,12 @@ export default App;
 
 ## React Native Projects Complete Guide
 
- | --- |
-| Topic Name | React Native Projects Complete Guide |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 💼 Product Company Favorite |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native Projects Complete Guide |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 💼 Product Company Favorite |
 
 ---
 

@@ -18,11 +18,12 @@
 
 ## TypeScript Complete Guide
 
- | --- |
-| Topic Name | TypeScript Complete Guide |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | TypeScript Complete Guide |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -30,11 +31,12 @@
 
 ---
 
-| --- |
-| Topic Name | 📘 Section 1: Types vs. Interfaces |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📘 Section 1: Types vs. Interfaces |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -107,11 +109,12 @@ type Position = [number, number]; // Tuple
 
 ---
 
-| --- |
-| Topic Name | 🛠️ Section 2: Generics & Utility Types |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🛠️ Section 2: Generics & Utility Types |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -192,11 +195,12 @@ TypeScript provides built-in utilities to facilitate common type transformations
 
 ---
 
-| --- |
-| Topic Name | 📱 Section 3: Type Safety in React Native (Codegen Specs) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📱 Section 3: Type Safety in React Native (Codegen Specs) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -232,11 +236,12 @@ export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
 
 ---
 
-| --- |
-| Topic Name | ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -270,11 +275,12 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-| --- |
-| Topic Name | 🔬 Section 5: Advanced TypeScript Q&A |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🔬 Section 5: Advanced TypeScript Q&A |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -375,11 +381,12 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ## 🟦 TypeScript Coding Programs
 
- | --- |
-| Topic Name | 🟦 TypeScript Coding Programs |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🟦 TypeScript Coding Programs |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -393,11 +400,12 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ---
 
-| --- |
-| Topic Name | Program 1: Axios Silent Token Refresh Interceptor |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 1: Axios Silent Token Refresh Interceptor |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -538,11 +546,12 @@ export class AuthInterceptorService {
 
 ---
 
-| --- |
-| Topic Name | Program 2: Generic Type-Safe Item Selection List Component |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 2: Generic Type-Safe Item Selection List Component |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -646,11 +655,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 3: Advanced Conditional Types & Mapped Type Parser |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 3: Advanced Conditional Types & Mapped Type Parser |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -736,11 +746,12 @@ EventPayloads resolves to:
 
 ---
 
-| --- |
-| Topic Name | Program 4: Nominal Type Branding (Type Branded Currency Operations) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 4: Nominal Type Branding (Type Branded Currency Operations) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 

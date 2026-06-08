@@ -25,11 +25,12 @@
 
 ## ⚛️ JavaScript & React Coding Programs
 
- | --- |
-| Topic Name | ⚛️ JavaScript & React Coding Programs |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | ⚛️ JavaScript & React Coding Programs |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -43,11 +44,12 @@
 
 ---
 
-| --- |
-| Topic Name | Program 1: Legacy React Class Component with Full Lifecycle Methods |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 1: Legacy React Class Component with Full Lifecycle Methods |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -201,11 +203,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 2: Functional Component Refactor Using Hooks |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 2: Functional Component Refactor Using Hooks |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -336,11 +339,12 @@ const styles = StyleSheet.create({
 
 ---
 
-| --- |
-| Topic Name | Program 3: Object Reference Copying & Mutability Evaluation |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 3: Object Reference Copying & Mutability Evaluation |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -432,11 +436,12 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 
 ---
 
-| --- |
-| Topic Name | Program 4: Nested Array Flattening |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 4: Nested Array Flattening |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -503,11 +508,12 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 
 ---
 
-| --- |
-| Topic Name | Program 5: Substring Extraction |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 5: Substring Extraction |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -556,11 +562,12 @@ console.log("Method 3:", bananaMethod3); // "Banana"
 
 ---
 
-| --- |
-| Topic Name | Program 6: Asynchronous Execution Order (Event Loop Timing) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 6: Asynchronous Execution Order (Event Loop Timing) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -604,11 +611,12 @@ console.log("4: End");
 
 ---
 
-| --- |
-| Topic Name | Program 7: Loop Scoping & Variable Closures inside SetTimeout |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 7: Loop Scoping & Variable Closures inside SetTimeout |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -650,11 +658,12 @@ for (var j = 0; j < 5; j++) {
 
 ---
 
-| --- |
-| Topic Name | Program 8: Deep Memoization Wrapper with Cache Expiration |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 8: Deep Memoization Wrapper with Cache Expiration |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -737,11 +746,12 @@ function memoize(fn, options = {}) {
 
 ---
 
-| --- |
-| Topic Name | Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -838,11 +848,12 @@ class EventEmitter {
 
 ---
 
-| --- |
-| Topic Name | Program 10: Custom Debounce Implementation |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 10: Custom Debounce Implementation |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -896,11 +907,12 @@ function debounce(func, delay = 500) {
 
 ---
 
-| --- |
-| Topic Name | Program 11: Custom Throttle Implementation |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 11: Custom Throttle Implementation |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -954,11 +966,12 @@ function throttle(func, limit = 200) {
 
 ---
 
-| --- |
-| Topic Name | Program 12: Polyfills for Map, Filter, and Reduce |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 12: Polyfills for Map, Filter, and Reduce |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1044,11 +1057,12 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
 ---
 
-| --- |
-| Topic Name | Program 13: Data Transformations (Array-to-Object & Object-to-Array) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 13: Data Transformations (Array-to-Object & Object-to-Array) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1119,11 +1133,12 @@ function objectToArrayManual(obj) {
 
 ---
 
-| --- |
-| Topic Name | Program 14: Mobile Device Token Deduplicator (CleanTokens) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 14: Mobile Device Token Deduplicator (CleanTokens) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1187,11 +1202,12 @@ function cleanTokens(sessions) {
 
 ---
 
-| --- |
-| Topic Name | Program 15: Object Property Diff Tracker |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 15: Object Property Diff Tracker |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1248,11 +1264,12 @@ function getChangedKeys(previousState, currentState) {
 
 ---
 
-| --- |
-| Topic Name | Program 16: Paginated Transaction Amount Aggregator |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 16: Paginated Transaction Amount Aggregator |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 
@@ -1332,11 +1349,12 @@ async function aggregateTransactions(apiEndpoint, pagesCount) {
 
 ---
 
-| --- |
-| Topic Name | Program 17: Batch Concurrent Promise Coordinator (Network Throttler) |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | ⭐ Frequently Asked |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Program 17: Batch Concurrent Promise Coordinator (Network Throttler) |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
 
 ---
 

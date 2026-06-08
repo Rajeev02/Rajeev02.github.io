@@ -12,11 +12,12 @@
 
 ## DSA Complete Guide
 
- | --- |
-| Topic Name | DSA Complete Guide |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | DSA Complete Guide |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -24,11 +25,12 @@
 
 ---
 
-| --- |
-| Topic Name | 📈 Section 1: Complexity & Big O Notation |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📈 Section 1: Complexity & Big O Notation |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -64,11 +66,12 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 
 ---
 
-| --- |
-| Topic Name | 🧩 Section 2: Key Algorithmic Patterns |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 🧩 Section 2: Key Algorithmic Patterns |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -218,11 +221,12 @@ const graph = {
 
 ## 📊 DSA Coding Programs
 
- | --- |
-| Topic Name | 📊 DSA Coding Programs |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | 📊 DSA Coding Programs |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
@@ -2255,11 +2259,12 @@ function mergeIntervals(intervals) {
 
 ## 💻 Daily Coding Programs
 
- | --- |
-| Topic Name | Daily Coding Programs |
-| Difficulty | Medium |
-| Interview Frequency | High |
-| Tags | 🔥 Must Revise |
+ | Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | Daily Coding Programs |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | 🔥 Must Revise |
 
 ---
 
