@@ -33,6 +33,12 @@
 - [Section 29: 🚀 Migration Strategies (Legacy to Modern)](#section-29-migration-strategies-legacy-to-modern)
 - [Section 30: 🏗️ Senior / Lead / Architect Scenarios](#section-30-senior-lead-architect-scenarios)
 - [Section 31: 🤝 Behavioral, Leadership & HR Rounds](#section-31-behavioral-leadership-hr-rounds)
+- [Section 32: React Native: Advanced Topics & Architecture](#section-32-react-native-advanced-topics-architecture)
+- [Section 33: React Native: CI/CD Pipelines](#section-33-react-native-ci-cd-pipelines)
+- [Section 34: React Native: Performance, Optimization & Memory Leaks](#section-34-react-native-performance-optimization-memory-leaks)
+- [Section 35: React Native: Security Best Practices](#section-35-react-native-security-best-practices)
+- [Section 36: React Native: State Management & Redux](#section-36-react-native-state-management-redux)
+- [Section 37: React Native: Testing & TDD](#section-37-react-native-testing-tdd)
 
 
 ---
@@ -3004,7 +3010,16 @@ Senior and Lead roles are evaluated heavily on soft skills, mentoring, and confl
 
 ---
 
-### React Native: Advanced Topics & Architecture
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: Advanced Topics & Architecture |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 32: React Native: Advanced Topics & Architecture
 
 ### 1. Deep Linking and Universal Links
 **Question:** How does Deep Linking work in React Native? What is the difference between Deep Links and Universal Links?
@@ -3052,7 +3067,16 @@ Offline-first apps store data locally and sync with the backend when the network
 
 ---
 
-### React Native: CI/CD Pipelines
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: CI/CD Pipelines |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 33: React Native: CI/CD Pipelines
 
 ### 1. What is CI/CD?
 **Question:** Explain CI and CD in the context of a React Native app.
@@ -3101,7 +3125,16 @@ The industry standard is **Fastlane Match**. It creates all required certificate
 
 ---
 
-### React Native: Performance, Optimization & Memory Leaks
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: Performance, Optimization & Memory Leaks |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 34: React Native: Performance, Optimization & Memory Leaks
 
 ### 1. Finding & Fixing Memory Leaks
 **Question:** What are the most common causes of memory leaks in React Native and how do you fix them?
@@ -3153,7 +3186,16 @@ The default `<Image>` component does not cache aggressively. For production apps
 
 ---
 
-### React Native: Security Best Practices
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: Security Best Practices |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 35: React Native: Security Best Practices
 
 ### 1. Secure Storage
 **Question:** Why shouldn't you use `AsyncStorage` for sensitive data like Auth Tokens?
@@ -3196,7 +3238,16 @@ Never hardcode API keys in the JS bundle. Use libraries like `react-native-confi
 
 ---
 
-### React Native: State Management & Redux
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: State Management & Redux |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 36: React Native: State Management & Redux
 
 ### 1. Redux Lifecycle
 **Question:** Explain the lifecycle of Redux.
@@ -3264,7 +3315,16 @@ Zustand is a minimalistic, fast state management library.
 
 ---
 
-### React Native: Testing & TDD
+| Attribute | Details |
+| :--- | :--- |
+| **Topic Name** | React Native: Testing & TDD |
+| **Difficulty** | Medium |
+| **Interview Frequency** | High |
+| **Tags** | ⭐ Frequently Asked |
+
+---
+
+## Section 37: React Native: Testing & TDD
 
 ### 1. Test-Driven Development (TDD)
 **Question:** What is TDD and how do you apply it in React Native?
