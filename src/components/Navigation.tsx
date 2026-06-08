@@ -56,6 +56,9 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+            <a href="/prepration/" className="text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
+              Preparation
+            </a>
             <ThemeToggle />
           </div>
           
@@ -76,7 +79,7 @@ const Navigation = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-3 sm:py-4 border-t border-border bg-background/95 backdrop-blur-xl">
-            <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4 px-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -86,6 +89,9 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <a href="/prepration/" className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 no-underline text-left">
+                Preparation
+              </a>
             </div>
           </div>
         )}

@@ -682,6 +682,23 @@
         margin-top: 10px;
         transition: color 0.3s;
       }
+      .search-input {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 14px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .search-input:focus {
+        outline: none;
+        border-color: var(--bg-active);
+        box-shadow: 0 0 0 2px rgba(26, 137, 23, 0.2);
+      }
       @media (max-width: 768px) {
         .content-wrapper {
           grid-template-columns: 1fr;
@@ -788,6 +805,7 @@
       <div class="content-wrapper">
         <div class="sidebar">
           <h3>Contents</h3>
+          <input type="text" id="searchInput" placeholder="Search topics or content..." class="search-input" onkeyup="handleSearch()" />
           <div id="fileList"></div>
           <div class="file-count" id="fileCount"></div>
         </div>
@@ -1486,6 +1504,69 @@
         const typeLabel = isCoding ? "Coding" : "Theory";
 
         titleTextEl.textContent = `${cleanCatName} - ${typeLabel}`;
+      }
+
+      function handleSearch() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const fileList = document.getElementById("fileList");
+        
+        if (!query) {
+          renderFileList();
+          countFiles();
+          return;
+        }
+        
+        fileList.innerHTML = "";
+        let matchCount = 0;
+
+        for (const [section, files] of Object.entries(embeddedFileData)) {
+          const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
+          
+          const matchedFiles = filteredFiles.filter(file => {
+            const nameMatch = formatFileName(file.name).toLowerCase().includes(query);
+            const contentToSearch = getLanguageContent(file, section).toLowerCase();
+            const contentMatch = contentToSearch.includes(query);
+            return nameMatch || contentMatch;
+          });
+          
+          if (matchedFiles.length === 0) continue;
+          matchCount += matchedFiles.length;
+
+          const sectionDiv = document.createElement("div");
+          sectionDiv.className = "section";
+
+          const sectionTitle = document.createElement("div");
+          sectionTitle.className = "section-title";
+          sectionTitle.textContent = `${categoryNames[section] || section} (${matchedFiles.length})`;
+          sectionDiv.appendChild(sectionTitle);
+
+          const sortedFiles = [...matchedFiles].sort((a, b) => a.name.localeCompare(b.name));
+
+          for (const file of sortedFiles) {
+            const key = `${section}/${file.name}`;
+            const mins = filePrepTimes[key] || 0;
+            const timeLabel = mins > 0 ? ` (${mins}m)` : "";
+
+            const link = document.createElement("a");
+            link.className = "file-link";
+            link.textContent = `${formatFileName(file.name)}${timeLabel}`;
+            link.dataset.filename = file.name;
+            link.dataset.section = section;
+            link.onclick = (e) => {
+              e.preventDefault();
+              loadFile(file, section);
+            };
+            
+            if (activeFile && activeFile.name === file.name && activeSection === section) {
+              link.classList.add("active");
+            }
+            
+            sectionDiv.appendChild(link);
+          }
+          fileList.appendChild(sectionDiv);
+        }
+        
+        document.getElementById("fileCount").textContent = `Matches: ${matchCount} files`;
       }
 
       function logout() {
