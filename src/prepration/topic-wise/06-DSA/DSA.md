@@ -4506,3 +4506,25 @@ function useDebounce(value, delay) {
 
 ---
 
+
+
+### 59. Streaming Data: Finding Min/Max
+
+**Question:** How can we find the minimum and maximum values in large streaming data?
+
+**Answer:**
+The approach depends on whether you need the global min/max or the min/max over a sliding window.
+
+1. **Global Min/Max (Entire Stream)**
+   - **Approach**: Keep two variables, `current_min` and `current_max`. As each new piece of data arrives, compare it to these variables and update them in `O(1)` time.
+   - **Complexity**: `O(1)` Time per element, `O(1)` Space.
+
+2. **Sliding Window Min/Max (Last K Elements)**
+   - **Approach**: Use a Double-Ended Queue (Deque) to maintain a monotonically increasing or decreasing list of elements. Store indices in the deque.
+   - **Algorithm (for Max)**: When a new element arrives:
+     1. Remove elements from the back of the deque that are smaller than the new element.
+     2. Add the new element's index to the back.
+     3. Remove elements from the front if they fall outside the sliding window `K`.
+     4. The front of the deque always holds the index of the maximum value.
+   - **Complexity**: `O(1)` amortized Time per element, `O(K)` Space.
+   - *Note*: For distributed systems (like Kafka/Spark), frameworks use windowing functions over partitioned data, or approximate structures like Count-Min Sketch if exact precision isn't required.

@@ -2256,3 +2256,25 @@ These scenarios evaluate consulting capabilities, leadership skills, and archite
 
 ---
 
+
+
+#### 4. Handling Complex Architectural Race Conditions
+
+##### Interview Scenario:
+> *"Can you describe a complex issue you faced with Redux and asynchronous data fetching in a large-scale application, and how you resolved it?"*
+
+- **Strategic Response**:
+  "On a previous enterprise project (like LVX), we had a robust React/Redux architecture using JWT authentication. We encountered a persistent race condition where users would randomly get logged out and kicked to the login screen, usually right when navigating to heavy dashboard pages."
+  
+  - **The Investigation**: 
+    "I dug into the network logs and found the dashboard was firing 4 or 5 API calls on mount. If the access token was expired at that exact moment, all 5 calls would fail with a 401 Unauthorized error. This triggered 5 simultaneous refresh token requests. Because our backend implemented Refresh Token Rotation for security, seeing 5 requests using the same old refresh token triggered a security protocol that revoked all access and logged the user out. Additionally, it caused Redux state thrashing."
+  
+  - **The Resolution (The Lock & Queue Pattern)**:
+    "I realized we couldn't handle this in individual Redux Thunks; we needed a centralized way to pause requests. I implemented a solution using our Axios response interceptor combined with Redux:
+    1. **The Lock**: I introduced a boolean flag `isRefreshing`.
+    2. **The Queue**: I created an array `failedQueue = []`.
+    3. **Interceptor Logic**: When a 401 occurs, I check `isRefreshing`. If `false`, I set it to `true`, dispatch the Redux `refreshToken()` action, and make the API call. If `true` (meaning another request already triggered a refresh), I return a new Promise and push its `resolve`/`reject` into `failedQueue`.
+    4. **Processing the Queue**: Once the single refresh request succeeds, I update the Redux store, loop through the `failedQueue`, resolve pending Promises with the new token so they automatically retry their original API calls, and finally unlock `isRefreshing = false`."
+    
+  - **The Impact**: 
+    "This completely solved the random logout issue, optimized network traffic, and ensured Redux state remained clean without race conditions."
