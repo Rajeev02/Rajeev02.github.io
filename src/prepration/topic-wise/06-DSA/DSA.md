@@ -4519,6 +4519,31 @@ The approach depends on whether you need the global min/max or the min/max over 
    - **Approach**: Keep two variables, `current_min` and `current_max`. As each new piece of data arrives, compare it to these variables and update them in `O(1)` time.
    - **Complexity**: `O(1)` Time per element, `O(1)` Space.
 
+```javascript
+class GlobalMinMax {
+  constructor() {
+    this.minVal = Infinity;
+    this.maxVal = -Infinity;
+  }
+
+  processNewValue(value) {
+    if (value < this.minVal) {
+      this.minVal = value;
+    }
+    if (value > this.maxVal) {
+      this.maxVal = value;
+    }
+    return { min: this.minVal, max: this.maxVal };
+  }
+}
+
+// Usage
+const stream = new GlobalMinMax();
+console.log(stream.processNewValue(5));  // { min: 5, max: 5 }
+console.log(stream.processNewValue(2));  // { min: 2, max: 5 }
+console.log(stream.processNewValue(10)); // { min: 2, max: 10 }
+```
+
 2. **Sliding Window Min/Max (Last K Elements)**
    - **Approach**: Use a Double-Ended Queue (Deque) to maintain a monotonically increasing or decreasing list of elements. Store indices in the deque.
    - **Algorithm (for Max)**: When a new element arrives:
@@ -4527,4 +4552,37 @@ The approach depends on whether you need the global min/max or the min/max over 
      3. Remove elements from the front if they fall outside the sliding window `K`.
      4. The front of the deque always holds the index of the maximum value.
    - **Complexity**: `O(1)` amortized Time per element, `O(K)` Space.
+
+```javascript
+function maxSlidingWindow(nums, k) {
+  const result = [];
+  const deque = []; // Stores indices
+
+  for (let i = 0; i < nums.length; i++) {
+    // 1. Remove elements out of the current window from the front
+    if (deque.length > 0 && deque[0] < i - k + 1) {
+      deque.shift();
+    }
+
+    // 2. Remove smaller elements from the back
+    // (they can never be the maximum anymore)
+    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {
+      deque.pop();
+    }
+
+    // 3. Add current element's index to the back
+    deque.push(i);
+
+    // 4. If window has reached size K, record the max (front of deque)
+    if (i >= k - 1) {
+      result.push(nums[deque[0]]);
+    }
+  }
+
+  return result;
+}
+
+console.log(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)); // [3, 3, 5, 5, 6, 7]
+```
+
    - *Note*: For distributed systems (like Kafka/Spark), frameworks use windowing functions over partitioned data, or approximate structures like Count-Min Sketch if exact precision isn't required.
