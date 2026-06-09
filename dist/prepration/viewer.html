@@ -298,8 +298,29 @@
         background: var(--bg-hover);
         color: var(--bg-active) !important;
         border-left-color: var(--bg-active);
-        font-weight: 700;
-        padding-left: 18px;
+        font-weight: 600;
+      }
+      .toc-sublinks {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        font-size: 13px;
+        border-left: 1px solid var(--border-color);
+        margin-left: 14px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+      }
+      .toc-sublink {
+        text-decoration: none;
+        color: var(--text-muted);
+        padding: 5px 0;
+        transition: color 0.2s;
+        white-space: normal;
+        line-height: 1.4;
+        display: block;
+      }
+      .toc-sublink:hover {
+        color: var(--accent-color);
       }
       .main-content {
         background: var(--bg-card);
@@ -307,8 +328,6 @@
         border-radius: 12px;
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);
-        max-height: 85vh;
-        overflow-y: auto;
         transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
       }
       .no-file {
@@ -818,7 +837,6 @@
           <span id="headerTitleText" style="cursor: pointer;" onclick="goBack()" title="Back to Dashboard">Preparation Resources</span>
         </h1>
         <div class="header-actions">
-          <button id="langToggle" class="theme-toggle-btn" style="width: auto; padding: 0 12px; font-size: 13px; font-weight: 700; gap: 4px;" aria-label="Toggle language">🇬🇧 Eng</button>
           <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙</button>
           <button class="logout-btn" onclick="logout()">Lock & Exit</button>
         </div>
@@ -927,14 +945,16 @@
       }
 
       const categoryNames = {
-        "01-React-Native": "1. React Native",
-        "02-JavaScript": "2. JavaScript",
-        "03-TypeScript": "3. TypeScript",
-        "04-DSA": "4. DSA",
-        "05-Behavior": "5. Behavior",
-        "06-MNC-Senior-Lead": "6. MNC Senior/Lead",
-        "07-System-Design-OOP": "7. System Design & OOP",
-        "08-React-Native-Projects": "8. React Native Projects",
+        "01-React-Native-Theory": "1. React Native (Theory)",
+        "02-React-Native-Coding": "1. React Native (Coding)",
+        "03-JavaScript-Theory": "2. JavaScript (Theory)",
+        "04-JavaScript-Coding": "2. JavaScript (Coding)",
+        "05-TypeScript": "3. TypeScript",
+        "06-DSA": "4. DSA",
+        "07-System-Design": "5. System Design & OOP",
+        "08-Behavioral": "6. Behavioral",
+        "09-Senior-Lead": "7. MNC Senior/Lead",
+        "10-Daily-Revision": "8. Daily Revision",
       };
 
       let themeInitialized = false;
@@ -944,56 +964,8 @@
       let isSidebarCollapsed = localStorage.getItem("sidebar_collapsed") === "true";
       let isWideReading = localStorage.getItem("wide_reading") === "true";
 
-      // Language configuration state
-      let currentLanguage = localStorage.getItem("language") || "english";
       let activeFile = null;
       let activeSection = null;
-
-      let langInitialized = false;
-      function initLangToggle() {
-        if (langInitialized) return;
-        updateLangToggleUI(currentLanguage);
-        
-        const langBtn = document.getElementById("langToggle");
-        if (langBtn) {
-          langBtn.addEventListener("click", () => {
-            currentLanguage = currentLanguage === "english" ? "hinglish" : "english";
-            localStorage.setItem("language", currentLanguage);
-            updateLangToggleUI(currentLanguage);
-            
-            // Reload active file in the selected language
-            if (activeFile) {
-              const contentToDisplay = getLanguageContent(activeFile, activeSection);
-              displayContent(contentToDisplay, activeFile.name, activeFile.type);
-            }
-          });
-          langInitialized = true;
-        }
-      }
-
-      function updateLangToggleUI(lang) {
-        const langBtn = document.getElementById("langToggle");
-        if (!langBtn) return;
-        if (lang === "hinglish") {
-          langBtn.innerHTML = "🇮🇳 Hin";
-          langBtn.title = "Switch to English";
-        } else {
-          langBtn.innerHTML = "🇬🇧 Eng";
-          langBtn.title = "Switch to Hinglish";
-        }
-      }
-
-      function getLanguageContent(file, section) {
-        if (currentLanguage === "hinglish" && file.name.endsWith(".md")) {
-          const hinglishName = file.name.replace(".md", "_hinglish.md");
-          const sectionFiles = embeddedFileData[section] || [];
-          const hinglishFile = sectionFiles.find(f => f.name === hinglishName);
-          if (hinglishFile) {
-            return hinglishFile.content;
-          }
-        }
-        return file.content;
-      }
 
       function renderContentHeader() {
         const sidebarIcon = isSidebarCollapsed ? "📂" : "📁";
@@ -1136,9 +1108,8 @@
 
       function initializeApp() {
         try {
-          // Initialize theme and language toggles
+          // Initialize theme toggle
           initThemeToggle();
-          initLangToggle();
 
           // Wait for marked to be available
           if (typeof marked === "undefined") {
@@ -1328,45 +1299,142 @@
         const fileList = document.getElementById("fileList");
         fileList.innerHTML = "";
 
-        for (const [section, files] of Object.entries(embeddedFileData)) {
-          const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
-          if (filteredFiles.length === 0) continue;
+        const groups = [
+            {
+                title: "1. React Native",
+                items: [
+                    { label: "Theory", section: "01-React-Native-Theory", filename: "React_Native_Theory.md" },
+                    { label: "Coding", section: "02-React-Native-Coding", filename: "React_Native_Coding.md" }
+                ]
+            },
+            {
+                title: "2. JavaScript",
+                items: [
+                    { label: "Theory", section: "03-JavaScript-Theory", filename: "JavaScript_Theory.md" },
+                    { label: "Coding", section: "04-JavaScript-Coding", filename: "JavaScript_Coding.md" }
+                ]
+            },
+            {
+                title: "3. TypeScript",
+                items: [
+                    { label: "TypeScript Complete", section: "05-TypeScript", filename: "TypeScript.md" }
+                ]
+            },
+            {
+                title: "4. DSA",
+                items: [
+                    { label: "Algorithms & Programs", section: "06-DSA", filename: "DSA.md" }
+                ]
+            },
+            {
+                title: "5. System Design & OOP",
+                items: [
+                    { label: "Architecture Guide", section: "07-System-Design", filename: "System_Design.md" }
+                ]
+            },
+            {
+                title: "6. Behavioral",
+                items: [
+                    { label: "Interview Preparation", section: "08-Behavioral", filename: "Behavioral.md" }
+                ]
+            },
+            {
+                title: "7. Senior / Lead",
+                items: [
+                    { label: "MNC Lead Scenarios", section: "09-Senior-Lead", filename: "Senior_Lead.md" }
+                ]
+            },
+            {
+                title: "8. Daily Revision",
+                items: [
+                    { label: "1-Hour Coding & Theory", section: "10-Daily-Revision", filename: "Daily_Revision.md" }
+                ]
+            }
+        ];
 
-          const sectionDiv = document.createElement("div");
-          sectionDiv.className = "section";
+        groups.forEach(group => {
+            const sectionDiv = document.createElement("div");
+            sectionDiv.className = "section";
 
-          const sectionTitle = document.createElement("div");
-          sectionTitle.className = "section-title";
-          sectionTitle.textContent = `${categoryNames[section] || section} (${filteredFiles.length})`;
-          sectionDiv.appendChild(sectionTitle);
+            const sectionTitle = document.createElement("div");
+            sectionTitle.className = "section-title";
+            sectionTitle.textContent = group.title;
+            sectionDiv.appendChild(sectionTitle);
 
-          const sortedFiles = [...filteredFiles].sort((a, b) => {
-            const nameA = a.name.toLowerCase();
-            const nameB = b.name.toLowerCase();
-            if (nameA.includes("theory") && nameB.includes("coding")) return -1;
-            if (nameA.includes("coding") && nameB.includes("theory")) return 1;
-            return a.name.localeCompare(b.name);
-          });
+            group.items.forEach(item => {
+                const files = embeddedFileData[item.section];
+                if (!files) return;
+                const file = files.find(f => f.name === item.filename);
+                if (!file) return;
 
-          for (const file of sortedFiles) {
-            const key = `${section}/${file.name}`;
-            const mins = filePrepTimes[key] || 0;
-            const timeLabel = mins > 0 ? ` (${mins}m)` : "";
+                const key = `${item.section}/${file.name}`;
+                const mins = filePrepTimes[key] || 0;
+                const timeLabel = mins > 0 ? ` (${mins}m)` : "";
 
-            const link = document.createElement("a");
-            link.className = "file-link";
-            link.textContent = `${formatFileName(file.name)}${timeLabel}`;
-            link.dataset.filename = file.name;
-            link.dataset.section = section;
-            link.onclick = (e) => {
-              e.preventDefault();
-              loadFile(file, section);
-            };
-            sectionDiv.appendChild(link);
-          }
+                const fileContainer = document.createElement("div");
+                fileContainer.className = "file-container";
 
-          fileList.appendChild(sectionDiv);
-        }
+                const link = document.createElement("a");
+                link.className = "file-link";
+                link.textContent = `${item.label}${timeLabel}`;
+                link.dataset.filename = file.name;
+                link.dataset.section = item.section;
+                link.onclick = (e) => {
+                  e.preventDefault();
+                  loadFile(file, item.section);
+                };
+                fileContainer.appendChild(link);
+
+                // Extract TOC links from the file content
+                const tocMatch = file.content.match(/## Table of Contents\s*\n([\s\S]*?)(?=\n---|\n## )/);
+                if (tocMatch) {
+                  const sublinksContainer = document.createElement("div");
+                  sublinksContainer.className = "toc-sublinks";
+                  sublinksContainer.dataset.parentFilename = file.name;
+                  
+                  const linksText = tocMatch[1];
+                  const linkRegex = /- \[(.*?)\]\((.*?)\)/g;
+                  let match;
+                  while ((match = linkRegex.exec(linksText)) !== null) {
+                    const title = match[1];
+                    const href = match[2];
+                    
+                    const subLink = document.createElement("a");
+                    subLink.className = "toc-sublink";
+                    subLink.textContent = title;
+                    subLink.title = title;
+                    subLink.href = href;
+                    subLink.onclick = (e) => {
+                      e.preventDefault();
+                      if (!activeFile || activeFile.name !== file.name) {
+                        loadFile(file, item.section);
+                      }
+                      setTimeout(() => {
+                        const targetId = decodeURIComponent(href.slice(1));
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                          history.pushState(null, null, href);
+                        } else {
+                          const slugTarget = targetId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                          const fallbackEl = document.getElementById(slugTarget);
+                          if (fallbackEl) {
+                            fallbackEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                            history.pushState(null, null, "#" + slugTarget);
+                          }
+                        }
+                      }, 400);
+                    };
+                    sublinksContainer.appendChild(subLink);
+                  }
+                  fileContainer.appendChild(sublinksContainer);
+                }
+
+                sectionDiv.appendChild(fileContainer);
+            });
+
+            fileList.appendChild(sectionDiv);
+        });
       }
 
       function formatFileName(name) {
@@ -1384,8 +1452,7 @@
         
         showLoader();
         setTimeout(() => {
-          const contentToDisplay = getLanguageContent(file, section);
-          displayContent(contentToDisplay, file.name, file.type);
+          displayContent(file.content, file.name, file.type);
           updateActiveLink(section, file.name);
           const wrapper = document.querySelector(".content-wrapper");
           if (wrapper) {
@@ -1546,7 +1613,7 @@
           
           const matchedFiles = filteredFiles.filter(file => {
             const nameMatch = formatFileName(file.name).toLowerCase().includes(query);
-            const contentToSearch = getLanguageContent(file, section).toLowerCase();
+            const contentToSearch = file.content.toLowerCase();
             const contentMatch = contentToSearch.includes(query);
             return nameMatch || contentMatch;
           });
@@ -1588,7 +1655,7 @@
             
             fileContainer.appendChild(link);
 
-            const content = getLanguageContent(file, section);
+            const content = file.content;
             const lowerContent = content.toLowerCase();
             const index = lowerContent.indexOf(query);
             
