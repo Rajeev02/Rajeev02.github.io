@@ -2,15 +2,22 @@
 
 ## Table of Contents
 
-- [Section 1: 📘 Types vs. Interfaces](#section-1-types-vs-interfaces)
-- [Section 2: 🛠️ Generics & Utility Types](#section-2-generics-utility-types)
-- [Section 3: 📱 Type Safety in React Native (Codegen Specs)](#section-3-type-safety-in-react-native-codegen-specs)
-- [Section 4: ⚙️ Strict Compiler Options (`tsconfig.json`)](#section-4-strict-compiler-options-tsconfig-json)
-- [Section 5: 🔬 Advanced TypeScript Q&A](#section-5-advanced-typescript-q-a)
-- [Section 6: Program 1: Axios Silent Token Refresh Interceptor](#section-6-program-1-axios-silent-token-refresh-interceptor)
-- [Section 7: Program 2: Generic Type-Safe Item Selection List Component](#section-7-program-2-generic-type-safe-item-selection-list-component)
-- [Section 8: Program 3: Advanced Conditional Types & Mapped Type Parser](#section-8-program-3-advanced-conditional-types-mapped-type-parser)
-- [Section 9: Program 4: Nominal Type Branding (Type Branded Currency Operations)](#section-9-program-4-nominal-type-branding-type-branded-currency-operations)
+### 1. Fundamentals
+- [1.1 📘 Types vs. Interfaces](#11-types-vs-interfaces)
+- [1.2 ⚙️ Strict Compiler Options (`tsconfig.json`)](#12-strict-compiler-options-tsconfigjson)
+
+### 2. Advanced TypeScript
+- [2.1 🛠️ Generics & Utility Types](#21-generics-utility-types)
+- [2.2 🔬 Advanced TypeScript Q&A](#22-advanced-typescript-qa)
+
+### 3. React Native Integration
+- [3.1 📱 Type Safety in React Native (Codegen Specs)](#31-type-safety-in-react-native-codegen-specs)
+
+### 4. Coding Programs
+- [4.1 Program 1: Axios Silent Token Refresh Interceptor](#41-program-1-axios-silent-token-refresh-interceptor)
+- [4.2 Program 2: Generic Type-Safe Item Selection List Component](#42-program-2-generic-type-safe-item-selection-list-component)
+- [4.3 Program 3: Advanced Conditional Types & Mapped Type Parser](#43-program-3-advanced-conditional-types-mapped-type-parser)
+- [4.4 Program 4: Nominal Type Branding (Type Branded Currency Operations)](#44-program-4-nominal-type-branding-type-branded-currency-operations)
 
 
 ---
@@ -27,14 +34,14 @@
 
 ---
 
-> 🎯 **Topic:** 📘 Section 1: Types vs. Interfaces
+> 🎯 **Topic:** 1.1 📘 Types vs. Interfaces
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 1: 📘 Types vs. Interfaces
+## 1.1 📘 Types vs. Interfaces
 
 *⏱️ 1 min read*
 
@@ -102,14 +109,50 @@ type Position = [number, number]; // Tuple
 
 ---
 
-> 🎯 **Topic:** 🛠️ Section 2: Generics & Utility Types
+> 🎯 **Topic:** 1.2 ⚙️ Strict Compiler Options (`tsconfig.json`)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 2: 🛠️ Generics & Utility Types
+## 1.2 ⚙️ Strict Compiler Options (`tsconfig.json`)
+
+*⏱️ 1 min read*
+
+To prevent runtime crashes and enforce code quality, enterprise configurations enable strict compiler options in `tsconfig.json`.
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noEmit": true
+  }
+}
+```
+
+- **`"strict": true`**: Enables a broad suite of type-checking behaviors, including implicit `any` blocks, strict null checks, and strict binding call assessments.
+- **`"noImplicitAny": true`**: Raises an error on expressions and declarations with an implied `any` type. Developers are forced to declare explicit types, reducing type-safety gaps.
+- **`"strictNullChecks": true`**: Treats `null` and `undefined` as distinct types. This prevents the classic "cannot read property of undefined" runtime crashes by forcing developers to handle null checking explicitly.
+- **`"noEmit": true`**: Instructs TypeScript to perform type checking only and not output JavaScript build files. This is used in Vite and React Native layouts where transpilation is handled by Babel or Metro, while TypeScript acts strictly as a static gatekeeper.
+
+---
+
+
+---
+
+---
+
+> 🎯 **Topic:** 2.1 🛠️ Generics & Utility Types
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
+
+---
+
+
+## 2.1 🛠️ Generics & Utility Types
 
 *⏱️ 1 min read*
 
@@ -185,88 +228,14 @@ TypeScript provides built-in utilities to facilitate common type transformations
 
 ---
 
-> 🎯 **Topic:** 📱 Section 3: Type Safety in React Native (Codegen Specs)
+> 🎯 **Topic:** 2.2 🔬 Advanced TypeScript Q&A
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 3: 📱 Type Safety in React Native (Codegen Specs)
-
-*⏱️ 1 min read*
-
-In the New Architecture, **Codegen** bridges the type-safety gap between JavaScript and native C++/Java/Obj-C code. To configure this, you write strict TypeScript Specification files.
-
-#### 1. Codegen Specification Rules
-- The spec file name must follow a strict naming convention: `Native<ModuleName>.ts` (for TurboModules) or `<ModuleName>NativeComponent.ts` (for Fabric components).
-- You must use specific, compile-safe type definitions provided by React Native (`Double`, `Float`, `Int32`, `UnsafeObject`, `DirectEventHandler`). Standard JavaScript dynamic types like `any` or generic object type definitions are rejected by the Codegen compiler.
-
-#### 2. TurboModule Spec Example
-```typescript
-import { TurboModule, TurboModuleRegistry } from 'react-native';
-
-export interface Spec extends TurboModule {
-  // Define strict return and input types
-  encryptPayload(alias: string, rawData: string): Promise<string>;
-  decryptPayload(alias: string, encryptedData: string): Promise<string>;
-  isBiometricsAvailable(): boolean;
-}
-
-export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
-```
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** ⚙️ Section 4: Strict Compiler Options (`tsconfig.json`)
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 🔥 Must Revise
-
----
-
-
-## Section 4: ⚙️ Strict Compiler Options (`tsconfig.json`)
-
-*⏱️ 1 min read*
-
-To prevent runtime crashes and enforce code quality, enterprise configurations enable strict compiler options in `tsconfig.json`.
-
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noEmit": true
-  }
-}
-```
-
-- **`"strict": true`**: Enables a broad suite of type-checking behaviors, including implicit `any` blocks, strict null checks, and strict binding call assessments.
-- **`"noImplicitAny": true`**: Raises an error on expressions and declarations with an implied `any` type. Developers are forced to declare explicit types, reducing type-safety gaps.
-- **`"strictNullChecks": true`**: Treats `null` and `undefined` as distinct types. This prevents the classic "cannot read property of undefined" runtime crashes by forcing developers to handle null checking explicitly.
-- **`"noEmit": true`**: Instructs TypeScript to perform type checking only and not output JavaScript build files. This is used in Vite and React Native layouts where transpilation is handled by Babel or Metro, while TypeScript acts strictly as a static gatekeeper.
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** 🔬 Section 5: Advanced TypeScript Q&A
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 🔥 Must Revise
-
----
-
-
-## Section 5: 🔬 Advanced TypeScript Q&A
+## 2.2 🔬 Advanced TypeScript Q&A
 
 *⏱️ 3 min read*
 
@@ -362,30 +331,52 @@ To prevent runtime crashes and enforce code quality, enterprise configurations e
 
 ### 🟦 TypeScript Coding Programs
 
-> 🎯 **Topic:** 🟦 TypeScript Coding Programs
+> 🎯 **Topic:** 3.1 📱 Type Safety in React Native (Codegen Specs)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
+## 3.1 📱 Type Safety in React Native (Codegen Specs)
 
-<!-- INDEX_START -->
+*⏱️ 1 min read*
 
-<!-- INDEX_END -->
+In the New Architecture, **Codegen** bridges the type-safety gap between JavaScript and native C++/Java/Obj-C code. To configure this, you write strict TypeScript Specification files.
+
+#### 1. Codegen Specification Rules
+- The spec file name must follow a strict naming convention: `Native<ModuleName>.ts` (for TurboModules) or `<ModuleName>NativeComponent.ts` (for Fabric components).
+- You must use specific, compile-safe type definitions provided by React Native (`Double`, `Float`, `Int32`, `UnsafeObject`, `DirectEventHandler`). Standard JavaScript dynamic types like `any` or generic object type definitions are rejected by the Codegen compiler.
+
+#### 2. TurboModule Spec Example
+```typescript
+import { TurboModule, TurboModuleRegistry } from 'react-native';
+
+export interface Spec extends TurboModule {
+  // Define strict return and input types
+  encryptPayload(alias: string, rawData: string): Promise<string>;
+  decryptPayload(alias: string, encryptedData: string): Promise<string>;
+  isBiometricsAvailable(): boolean;
+}
+
+export default TurboModuleRegistry.getEnforcing<Spec>('SecureEncryptionModule');
+```
+
+---
+
 
 ---
 
 ---
 
-> 🎯 **Topic:** Program 1: Axios Silent Token Refresh Interceptor
+> 🎯 **Topic:** 4.1 Program 1: Axios Silent Token Refresh Interceptor
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 6: Program 1: Axios Silent Token Refresh Interceptor
+## 4.1 Program 1: Axios Silent Token Refresh Interceptor
 *⏱️ 2 min read*
 
 ### Question
@@ -521,14 +512,14 @@ export class AuthInterceptorService {
 
 ---
 
-> 🎯 **Topic:** Program 2: Generic Type-Safe Item Selection List Component
+> 🎯 **Topic:** 4.2 Program 2: Generic Type-Safe Item Selection List Component
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 7: Program 2: Generic Type-Safe Item Selection List Component
+## 4.2 Program 2: Generic Type-Safe Item Selection List Component
 *⏱️ 1 min read*
 
 ### Question
@@ -627,14 +618,14 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 3: Advanced Conditional Types & Mapped Type Parser
+> 🎯 **Topic:** 4.3 Program 3: Advanced Conditional Types & Mapped Type Parser
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 8: Program 3: Advanced Conditional Types & Mapped Type Parser
+## 4.3 Program 3: Advanced Conditional Types & Mapped Type Parser
 *⏱️ 1 min read*
 
 ### Question
@@ -715,14 +706,14 @@ EventPayloads resolves to:
 
 ---
 
-> 🎯 **Topic:** Program 4: Nominal Type Branding (Type Branded Currency Operations)
+> 🎯 **Topic:** 4.4 Program 4: Nominal Type Branding (Type Branded Currency Operations)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 9: Program 4: Nominal Type Branding (Type Branded Currency Operations)
+## 4.4 Program 4: Nominal Type Branding (Type Branded Currency Operations)
 *⏱️ 1 min read*
 
 ### Question

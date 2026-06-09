@@ -41,7 +41,7 @@
 
 ---
 
-> 🎯 **Topic:** Program 1: Legacy React Class Component with Full Lifecycle Methods
+> 🎯 **Topic:** Section 1: Program 1: Legacy React Class Component with Full Lifecycle Methods
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 2: Functional Component Refactor Using Hooks
+> 🎯 **Topic:** Section 2: Program 2: Functional Component Refactor Using Hooks
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 3: Object Reference Copying & Mutability Evaluation
+> 🎯 **Topic:** Section 3: Program 3: Object Reference Copying & Mutability Evaluation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -424,7 +424,7 @@ console.log("person city (corrupted by shallow copy):", person.directory["1"].ci
 
 ---
 
-> 🎯 **Topic:** Program 4: Nested Array Flattening
+> 🎯 **Topic:** Section 4: Program 4: Nested Array Flattening
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -493,7 +493,7 @@ console.log(flattenArray(input)); // [1, 2, 3, 4, 5]
 
 ---
 
-> 🎯 **Topic:** Program 5: Substring Extraction
+> 🎯 **Topic:** Section 5: Program 5: Substring Extraction
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -544,7 +544,7 @@ console.log("Method 3:", bananaMethod3); // "Banana"
 
 ---
 
-> 🎯 **Topic:** Program 6: Asynchronous Execution Order (Event Loop Timing)
+> 🎯 **Topic:** Section 6: Program 6: Asynchronous Execution Order (Event Loop Timing)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -590,7 +590,7 @@ console.log("4: End");
 
 ---
 
-> 🎯 **Topic:** Program 7: Loop Scoping & Variable Closures inside SetTimeout
+> 🎯 **Topic:** Section 7: Program 7: Loop Scoping & Variable Closures inside SetTimeout
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -634,7 +634,7 @@ for (var j = 0; j < 5; j++) {
 
 ---
 
-> 🎯 **Topic:** Program 8: Deep Memoization Wrapper with Cache Expiration
+> 🎯 **Topic:** Section 8: Program 8: Deep Memoization Wrapper with Cache Expiration
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -719,7 +719,7 @@ function memoize(fn, options = {}) {
 
 ---
 
-> 🎯 **Topic:** Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
+> 🎯 **Topic:** Section 9: Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -818,7 +818,7 @@ class EventEmitter {
 
 ---
 
-> 🎯 **Topic:** Program 10: Custom Debounce Implementation
+> 🎯 **Topic:** Section 10: Program 10: Custom Debounce Implementation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -874,7 +874,7 @@ function debounce(func, delay = 500) {
 
 ---
 
-> 🎯 **Topic:** Program 11: Custom Throttle Implementation
+> 🎯 **Topic:** Section 11: Program 11: Custom Throttle Implementation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -930,7 +930,7 @@ function throttle(func, limit = 200) {
 
 ---
 
-> 🎯 **Topic:** Program 12: Polyfills for Map, Filter, and Reduce
+> 🎯 **Topic:** Section 12: Program 12: Polyfills for Map, Filter, and Reduce
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1018,7 +1018,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
 ---
 
-> 🎯 **Topic:** Program 13: Data Transformations (Array-to-Object & Object-to-Array)
+> 🎯 **Topic:** Section 13: Program 13: Data Transformations (Array-to-Object & Object-to-Array)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1091,7 +1091,7 @@ function objectToArrayManual(obj) {
 
 ---
 
-> 🎯 **Topic:** Program 14: Mobile Device Token Deduplicator (CleanTokens)
+> 🎯 **Topic:** Section 14: Program 14: Mobile Device Token Deduplicator (CleanTokens)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1157,7 +1157,7 @@ function cleanTokens(sessions) {
 
 ---
 
-> 🎯 **Topic:** Program 15: Object Property Diff Tracker
+> 🎯 **Topic:** Section 15: Program 15: Object Property Diff Tracker
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1216,7 +1216,7 @@ function getChangedKeys(previousState, currentState) {
 
 ---
 
-> 🎯 **Topic:** Program 16: Paginated Transaction Amount Aggregator
+> 🎯 **Topic:** Section 16: Program 16: Paginated Transaction Amount Aggregator
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1298,7 +1298,7 @@ async function aggregateTransactions(apiEndpoint, pagesCount) {
 
 ---
 
-> 🎯 **Topic:** Program 17: Batch Concurrent Promise Coordinator (Network Throttler)
+> 🎯 **Topic:** Section 17: Program 17: Batch Concurrent Promise Coordinator (Network Throttler)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 

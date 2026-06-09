@@ -20,7 +20,7 @@
 
 ---
 
-> 🎯 **Topic:** 📈 Section 1: Complexity & Big O Notation
+> 🎯 **Topic:** Section 1: 📈 Complexity & Big O Notation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
@@ -58,7 +58,7 @@ Interviewers evaluate algorithms based on their efficiency using **Big O Notatio
 
 ---
 
-> 🎯 **Topic:** 🧩 Section 2: Key Algorithmic Patterns
+> 🎯 **Topic:** Section 2: 🧩 Key Algorithmic Patterns
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 

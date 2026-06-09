@@ -8,7 +8,7 @@
 
 ---
 
-> 🎯 **Topic:** 💻 1-Hour Daily Coding Routine (HackerRank Prep)
+> 🎯 **Topic:** Section 1: 💻 1-Hour Daily Coding Routine (HackerRank Prep)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
@@ -1189,7 +1189,7 @@ fetchUser();
 
 ---
 
-> 🎯 **Topic:** 🧠 1-Hour Daily Theory Routine (React Native & JS)
+> 🎯 **Topic:** Section 2: 🧠 1-Hour Daily Theory Routine (React Native, JS/TS, Architecture)
 > 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 

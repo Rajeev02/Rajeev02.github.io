@@ -2,16 +2,23 @@
 
 ## Table of Contents
 
-- [Section 1: 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A](#section-1-object-oriented-programming-oop-conceptual-q-a)
-- [Section 2: 📦 Mobile Data Structures & Practical Scenarios](#section-2-mobile-data-structures-practical-scenarios)
-- [Section 3: Mobile System Design: Large-Scale React Native Architecture](#section-3-mobile-system-design-large-scale-react-native-architecture)
-- [Section 4: 📡 Third-Party Integrations & Backend Proxying](#section-4-third-party-integrations-backend-proxying)
-- [Section 5: 🧪 Mobile Testing Frameworks & TDD Strategy](#section-5-mobile-testing-frameworks-tdd-strategy)
-- [Section 6: 🧪 Performance Profiling & Native Memory Leak Detection](#section-6-performance-profiling-native-memory-leak-detection)
-- [Section 7: 📦 Deployment Pipelines & Store Releases](#section-7-deployment-pipelines-store-releases)
-- [Section 8: 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications](#section-8-program-1-lru-cache-with-ttl-pubsub-event-notifications)
-- [Section 9: 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff](#section-9-program-2-asynchronous-sync-outbox-queue-with-batching-exponential-backoff)
-- [Section 10: 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing](#section-10-program-3-prefix-auto-suggestions-trie-with-priority-heap-input-debouncing)
+### 1. Foundations
+- [1.1 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A](#11-object-oriented-programming-oop-conceptual-qa)
+- [1.2 📦 Mobile Data Structures & Practical Scenarios](#12-mobile-data-structures-practical-scenarios)
+
+### 2. Architecture
+- [2.1 Mobile System Design: Large-Scale React Native Architecture](#21-mobile-system-design-large-scale-react-native-architecture)
+- [2.2 📡 Third-Party Integrations & Backend Proxying](#22-third-party-integrations-backend-proxying)
+
+### 3. Testing & Tooling
+- [3.1 🧪 Mobile Testing Frameworks & TDD Strategy](#31-mobile-testing-frameworks-tdd-strategy)
+- [3.2 🧪 Performance Profiling & Native Memory Leak Detection](#32-performance-profiling-native-memory-leak-detection)
+- [3.3 📦 Deployment Pipelines & Store Releases](#33-deployment-pipelines-store-releases)
+
+### 4. Coding Programs
+- [4.2 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications](#42-program-1-lru-cache-with-ttl-pubsub-event-notifications)
+- [4.3 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff](#43-program-2-asynchronous-sync-outbox-queue-with-batching-exponential-backoff)
+- [4.4 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing](#44-program-3-prefix-auto-suggestions-trie-with-priority-heap-input-debouncing)
 
 
 ---
@@ -28,14 +35,14 @@
 
 ---
 
-> 🎯 **Topic:** Section 1: Object-Oriented Programming (OOP) & Conceptual Q&A
+> 🎯 **Topic:** 1.1 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 1: 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A
+## 1.1 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A
 
 *⏱️ 1 min read*
 
@@ -84,14 +91,14 @@ class Dog extends Animal {
 
 ---
 
-> 🎯 **Topic:** 📦 Section 2: Mobile Data Structures & Practical Scenarios
+> 🎯 **Topic:** 1.2 📦 Mobile Data Structures & Practical Scenarios
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 2: 📦 Mobile Data Structures & Practical Scenarios
+## 1.2 📦 Mobile Data Structures & Practical Scenarios
 
 *⏱️ 1 min read*
 
@@ -111,13 +118,13 @@ class Dog extends Animal {
 
 ---
 
-> 🎯 **Topic:** Mobile System Design: Large-Scale React Native Architecture
+> 🎯 **Topic:** 2.1 Mobile System Design: Large-Scale React Native Architecture
 > 📊 **Difficulty:** Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite • 🔥 Must Revise • 🏢 MNC Favorite
 
 ---
 
-## Section 3: Mobile System Design: Large-Scale React Native Architecture
+## 2.1 Mobile System Design: Large-Scale React Native Architecture
 
 ### Concept Summary
 Mobile System Design differs heavily from Backend System Design. Instead of focusing on load balancers and horizontal database scaling, mobile system design focuses on **offline-first capabilities**, **local database limits**, **battery consumption**, **UI responsiveness (60/120FPS)**, and **over-the-air (OTA) updates**. 
@@ -185,14 +192,14 @@ Unlike native Swift/Kotlin, RN shares a single JS thread. If you parse a 10MB JS
 
 ---
 
-> 🎯 **Topic:** 📡 Section 5: Third-Party Integrations & Backend Proxying
+> 🎯 **Topic:** 2.2 📡 Third-Party Integrations & Backend Proxying
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 4: 📡 Third-Party Integrations & Backend Proxying
+## 2.2 📡 Third-Party Integrations & Backend Proxying
 
 *⏱️ 1 min read*
 
@@ -285,14 +292,14 @@ function authenticateJWT(req, res, next) {
 
 ---
 
-> 🎯 **Topic:** 🧪 Section 6: Mobile Testing Frameworks & TDD Strategy
+> 🎯 **Topic:** 3.1 🧪 Mobile Testing Frameworks & TDD Strategy
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 5: 🧪 Mobile Testing Frameworks & TDD Strategy
+## 3.1 🧪 Mobile Testing Frameworks & TDD Strategy
 
 *⏱️ 1 min read*
 
@@ -366,14 +373,14 @@ Enforcing a Test-Driven Development (TDD) strategy prevents UI regressions and e
 
 ---
 
-> 🎯 **Topic:** 🧪 Section 7: Performance Profiling & Native Memory Leak Detection
+> 🎯 **Topic:** 3.2 🧪 Performance Profiling & Native Memory Leak Detection
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 6: 🧪 Performance Profiling & Native Memory Leak Detection
+## 3.2 🧪 Performance Profiling & Native Memory Leak Detection
 
 *⏱️ 1 min read*
 
@@ -434,14 +441,14 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-> 🎯 **Topic:** 📦 Section 8: Deployment Pipelines & Store Releases
+> 🎯 **Topic:** 3.3 📦 Deployment Pipelines & Store Releases
 > 📊 **Difficulty:** Senior / Lead | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 7: 📦 Deployment Pipelines & Store Releases
+## 3.3 📦 Deployment Pipelines & Store Releases
 
 *⏱️ 1 min read*
 
@@ -488,27 +495,14 @@ Memory leaks in React Native usually occur in the bridge layer between JavaScrip
 
 ---
 
-> 🎯 **Topic:** Coding 01 Introduction
+> 🎯 **Topic:** 4.2 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-<!-- INDEX_START -->
-
-<!-- INDEX_END -->
-
----
-
-> 🎯 **Topic:** 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 🔥 Must Revise
-
----
-
-
-## Section 8: 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
+## 4.2 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -667,14 +661,14 @@ class LRUCacheWithTTL {
 
 ---
 
-> 🎯 **Topic:** 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
+> 🎯 **Topic:** 4.3 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 9: 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
+## 4.3 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -782,14 +776,14 @@ class SyncOutboxManager {
 
 ---
 
-> 🎯 **Topic:** 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
+> 🎯 **Topic:** 4.4 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise
 
 ---
 
 
-## Section 10: 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
+## 4.4 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing
 *⏱️ 2 min read*
 
 ### Problem Statement
@@ -964,45 +958,4 @@ function debounceSearch(searchFn, delay = 300) {
 ---
 
 ### 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
-
-> 🎯 **Topic:** 🛠️ Section 3: Scenario-Based Coding Algorithms (40+ Problems)
-> 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 🔥 Must Revise
-
----
-
-
-
-*⏱️ 2 min read*
-
-### Array Algorithms
-- **First Non-Repeating Element**: Loop through once to populate a frequency map, then loop a second time to find the first element with a count of 1.
-- **Second Largest Number**: Traverse the array tracking two variables (`first` and `second`). If `num > first`, shift `first` to `second` and update `first`.
-- **Move Zeros to End**: Use a write pointer `insertPos`. Iterate through the array; if an element is non-zero, swap it with the element at `insertPos` and increment `insertPos`.
-- **Rotate Array by K**: Reverse the entire array, reverse the first $K$ elements, and then reverse the remaining $N-K$ elements in $O(1)$ auxiliary space.
-- **Find Missing Number**: Calculate the expected arithmetic sum from $1$ to $N$ using $\frac{N(N+1)}{2}$ and subtract the actual array sum.
-
-### String Algorithms
-- **Check Palindrome**: Run two pointers from the outer ends (`left`, `right`) meeting at the center, asserting character equality.
-- **Reverse Words**: Split the string by spaces, swap elements using two pointers meeting in the middle, and join them back.
-- **Duplicate Characters**: Count character occurrences inside a Map and filter keys with counts greater than 1.
-- **Check Anagram**: Build a frequency count map from the first string. Decrement counts for each character in the second string. If any count reaches negative or character is missing, they are not anagrams.
-
-### HashMap Algorithms
-- **Highest Frequency Element**: Build a frequency map and track the key that holds the maximum count.
-- **Group Anagrams**: Sort each string alphabetically. Use the sorted string as a Hash Map key to group matching anagrams in an array.
-
-### Stack & Queue Algorithms
-- **Valid Parentheses**: Iterate through characters. Push opening brackets onto a stack. For closing brackets, pop from the stack and assert they match.
-- **Min Stack Design**: Keep an auxiliary stack (`minStack`) that stores the minimum values. On a `push(val)`, if the value is less than or equal to the top of `minStack`, push it onto `minStack`.
-- **Implement Queue using Stacks**: Use two stacks: `stack1` for enqueue and `stack2` for dequeue. If `stack2` is empty, pop all elements from `stack1` and push them onto `stack2`.
-
-### Linked List & Tree Algorithms
-- **Reverse Linked List**: Use three pointers (`prev`, `curr`, `nextNode`) to swap node links in place.
-- **Detect Loop (Floyd's Cycle)**: Move a slow pointer by 1 node and a fast pointer by 2 nodes. If they meet, a cycle exists.
-- **BST Validation**: Recursively validate that nodes fall between a dynamic `min` and `max` range.
-
----
-
----
 

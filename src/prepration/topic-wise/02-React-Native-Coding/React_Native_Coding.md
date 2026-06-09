@@ -47,7 +47,7 @@
 
 ---
 
-> 🎯 **Topic:** Program 1: Performance-Optimized List Component
+> 🎯 **Topic:** Section 1: Program 1: Performance-Optimized List Component
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
+> 🎯 **Topic:** Section 2: Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -423,7 +423,7 @@ export function useNetwork(): NetworkState {
 
 ---
 
-> 🎯 **Topic:** Program 3: Expo Config Plugin configuration
+> 🎯 **Topic:** Section 3: Program 3: Expo Config Plugin configuration
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -498,7 +498,7 @@ module.exports = withCustomPermissions;
 
 ---
 
-> 🎯 **Topic:** Program 4: Native Android Module Bridge (Kotlin)
+> 🎯 **Topic:** Section 4: Program 4: Native Android Module Bridge (Kotlin)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -579,7 +579,7 @@ class CryptoBridgeModule(reactContext: ReactApplicationContext) : ReactContextBa
 
 ---
 
-> 🎯 **Topic:** Program 5: Fetch and Render List from API (Todos)
+> 🎯 **Topic:** Section 5: Program 5: Fetch and Render List from API (Todos)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -832,7 +832,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
+> 🎯 **Topic:** Section 6: Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1006,7 +1006,7 @@ export const axiosClient = new AxiosClient('https://dummy-json.mock.beeceptor.co
 
 ---
 
-> 🎯 **Topic:** Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates
+> 🎯 **Topic:** Section 7: Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1257,7 +1257,7 @@ export function useDeletePost() {
 
 ---
 
-> 🎯 **Topic:** Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
+> 🎯 **Topic:** Section 8: Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1418,7 +1418,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
+> 🎯 **Topic:** Section 9: Program 9: Native Module Bridge (Kotlin Android & Swift iOS)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1557,7 +1557,7 @@ export const BatteryMonitor = NativeModules.BatteryMonitor as BatteryMonitorInte
 
 ---
 
-> 🎯 **Topic:** Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
+> 🎯 **Topic:** Section 10: Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1704,7 +1704,7 @@ end
 
 ---
 
-> 🎯 **Topic:** Program 11: State Management with MobX State Tree (MST)
+> 🎯 **Topic:** Section 11: Program 11: State Management with MobX State Tree (MST)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1907,7 +1907,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 12: SQLite Transactional Ledger Database Hook
+> 🎯 **Topic:** Section 12: Program 12: SQLite Transactional Ledger Database Hook
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2033,7 +2033,7 @@ export function useLedgerDatabase() {
 
 ---
 
-> 🎯 **Topic:** Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
+> 🎯 **Topic:** Section 13: Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2193,7 +2193,7 @@ describe('E2E Authentication Flow', () => {
 
 ---
 
-> 🎯 **Topic:** Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
+> 🎯 **Topic:** Section 14: Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2325,7 +2325,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
+> 🎯 **Topic:** Section 15: Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2466,7 +2466,7 @@ class SecureKeysModule: NSObject {
 
 ---
 
-> 🎯 **Topic:** Program 16: Secure Purchase Validation & Transaction Sync Hook
+> 🎯 **Topic:** Section 16: Program 16: Secure Purchase Validation & Transaction Sync Hook
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2646,7 +2646,7 @@ export function usePurchaseManager() {
 
 ---
 
-> 🎯 **Topic:** Program 17: GraphQL API Client Integration with Apollo Client
+> 🎯 **Topic:** Section 17: Program 17: GraphQL API Client Integration with Apollo Client
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2937,7 +2937,7 @@ export function ApolloAppWrapper({ userId }: { userId: string }) {
 
 ---
 
-> 🎯 **Topic:** Program 18: Recoil State Management (Atoms & Selectors)
+> 🎯 **Topic:** Section 18: Program 18: Recoil State Management (Atoms & Selectors)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3128,7 +3128,7 @@ export function RecoilAppWrapper() {
 
 ---
 
-> 🎯 **Topic:** Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
+> 🎯 **Topic:** Section 19: Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3284,7 +3284,7 @@ export function useTelemetry(): TelemetryClient {
 
 ---
 
-> 🎯 **Topic:** Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
+> 🎯 **Topic:** Section 20: Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3396,7 +3396,7 @@ const styles = StyleSheet.create({
 
 ---
 
-> 🎯 **Topic:** Section: DSA & Algorithmic Coding (Mobile Optimized)
+> 🎯 **Topic:** Section 21: 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3469,7 +3469,7 @@ function maxDepth(root: TreeNode | null): number {
 
 ---
 
-> 🎯 **Topic:** Section: System Design Coding
+> 🎯 **Topic:** Section 22: 🏗️ Section: System Design Coding
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3630,7 +3630,7 @@ export const useCheckoutStateMachine = () => {
 
 ---
 
-> 🎯 **Topic:** Program 27: Basic 50,000 Items FlatList
+> 🎯 **Topic:** Section 23: Program 27: Basic 50,000 Items FlatList
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 

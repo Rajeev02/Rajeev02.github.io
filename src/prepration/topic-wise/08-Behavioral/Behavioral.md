@@ -2,16 +2,20 @@
 
 ## Table of Contents
 
-- [Section 1: Behavioral: Senior Career Walkthrough](#section-1-behavioral-senior-career-walkthrough)
-- [Section 2: 🏗️ Monorepo & Multi-App Code Sharing](#section-2-monorepo-multi-app-code-sharing)
-- [Section 3: 🔒 High-Stakes Fintech System Design](#section-3-high-stakes-fintech-system-design)
-- [Section 4: ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#section-4-plurebus-dunst-wildtrails-case-studies-native-android-java)
-- [Section 5: 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#section-5-b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context)
-- [Section 6: 🏆 Standard Behavioral & Technical Interview Q&A](#section-6-standard-behavioral-technical-interview-q-a)
-- [Section 7: 👥 Agile vs. Scrum Methodologies](#section-7-agile-vs-scrum-methodologies)
-- [Section 8: 📈 Program & Product Delivery Manager (PDM) Round](#section-8-program-product-delivery-manager-pdm-round)
-- [Section 9: 🤝 Human Resources (HR) & Leadership Evaluation](#section-9-human-resources-hr-leadership-evaluation)
-- [Section 10: 💰 Salary Negotiation, Compensation & Benefits Strategy](#section-10-salary-negotiation-compensation-benefits-strategy)
+### 1. Interview Formats
+- [1.2 🏆 Standard Behavioral & Technical Interview Q&A](#12-standard-behavioral-technical-interview-qa)
+
+### 2. Technical Case Studies
+- [2.1 🏗️ Monorepo & Multi-App Code Sharing](#21-monorepo-multi-app-code-sharing)
+- [2.2 🔒 High-Stakes Fintech System Design](#22-high-stakes-fintech-system-design)
+- [2.3 ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)](#23-plurebus-dunst-wildtrails-case-studies-native-android-java)
+- [2.4 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)](#24-b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context)
+
+### 3. Management & Leadership
+- [3.1 👥 Agile vs. Scrum Methodologies](#31-agile-vs-scrum-methodologies)
+- [3.2 📈 Program & Product Delivery Manager (PDM) Round](#32-program-product-delivery-manager-pdm-round)
+- [3.3 🤝 Human Resources (HR) & Leadership Evaluation](#33-human-resources-hr-leadership-evaluation)
+- [3.4 💰 Salary Negotiation, Compensation & Benefits Strategy](#34-salary-negotiation-compensation-benefits-strategy)
 
 
 ---
@@ -28,239 +32,14 @@
 
 ---
 
-> 🎯 **Topic:** Senior Career Walkthrough (STAR Format)
-> 📊 **Difficulty:** Lead | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 👨💼 Lead Round Favorite • 🔥 Must Revise
-
----
-
-## Section 1: Behavioral: Senior Career Walkthrough
-
-### Concept Summary
-As a Senior/Lead engineer with 9+ years of experience, interviewers are not just evaluating your code; they are evaluating your leadership, ownership, handling of technical debt, and cross-team communication. The STAR format (Situation, Task, Action, Result) is the industry standard for concisely and powerfully answering behavioral questions.
-
-### Must Know Points
-- [ ] Always structure answers using **STAR**: Situation, Task, Action, Result.
-- [ ] Focus on "I" instead of "We" when discussing specific technical decisions and actions.
-- [ ] Highlight business impact (e.g., reduced crash rate by X%, increased user retention).
-- [ ] Never speak negatively about previous employers or teams; frame conflicts as "misalignments" that you solved.
-- [ ] Have exactly 3 deep, versatile stories prepared that can answer 90% of behavioral questions.
-
-### Interview Questions & STAR Walkthrough
-
-### Q1: "Tell me about a time you led a technically complex migration or refactoring."
-
-**Situation:** 
-At my previous company, our flagship React Native application had a monolithic Redux store and relied on legacy synchronous native modules. The app startup time had degraded to over 4.5 seconds, and memory crashes were frequent on low-end Android devices.
-
-**Task:** 
-As the Lead React Native Developer, I was tasked with bringing the startup time under 2 seconds and eliminating memory-related crashes without halting feature development for the product team.
-
-**Action:** 
-1. **Audit & Plan:** I profiled the app using Flipper and Android Studio Profiler, identifying that 60% of startup time was blocked by eager initialization of native modules and massive Redux state rehydration.
-2. **Implementation:** I introduced TurboModules to lazy-load the Bluetooth and Heavy Crypto modules. I also transitioned our global state from Redux to a segmented Zustand model, persisting only essential user tokens via MMKV.
-3. **Leadership:** Since I couldn't halt feature delivery, I created a feature flag system and paired with mid-level developers to incrementally migrate screens week by week.
-
-**Result:** 
-App startup time dropped from 4.5s to 1.8s (a 60% improvement). Memory crashes dropped to near zero, and the incremental migration strategy ensured we hit our Q3 product deliverables on time.
-
----
-
-### Q2: "Tell me about a time you had a technical disagreement with a colleague or manager."
-
-**Situation:** 
-During the architecture planning for a new offline-first chat feature, the backend team insisted on using standard REST polling, while I advocated for WebSockets paired with a local WatermelonDB cache for instant UI updates.
-
-**Task:** 
-I needed to convince the backend lead that REST polling would drain battery life and create a terrible user experience in poor network conditions, without causing a hostile team dynamic.
-
-**Action:** 
-1. **Data-Driven Proof:** Instead of arguing theoretically, I spent a weekend building two small proof-of-concept (PoC) apps. One used REST polling every 5 seconds, and the other used WebSockets with local caching.
-2. **Demonstration:** I profiled both PoCs on a real Android device using a 3G network throttle. I documented the battery consumption, network payload size, and UI latency.
-3. **Compromise:** I presented the data to the backend lead. I acknowledged his concern about server load with WebSockets and proposed a hybrid approach: WebSockets for active chat sessions, falling back to push notifications when the app is backgrounded.
-
-**Result:** 
-The backend lead appreciated the hard data and agreed to the hybrid architecture. The feature launched successfully, battery consumption remained stable, and the team dynamic improved because the decision was based on metrics, not egos.
-
-### Follow-up Questions
-1. How do you ensure your team adopts your architectural decisions without feeling micromanaged?
-2. Tell me about a time your technical solution completely failed in production. What did you do?
-
-### Common Mistakes & Quick Revision Notes
-- **Mistake:** Spending 80% of the time describing the "Situation" and rushing the "Action" and "Result". *Correction:* Keep Situation/Task to 20%, focus 60% on Action (what YOU did), and 20% on measurable Results.
-- **Mistake:** Saying "My manager made a bad decision." *Correction:* "We had competing priorities, so I aligned our goals by..."
-
-### Related Topics
-- Technical Leadership & Mentoring
-- System Architecture Design
-- Agile Delivery Management
-
----
-
-> 🎯 **Topic:** Section 2: Monorepo & Multi-App Code Sharing
+> 🎯 **Topic:** 1.2 🏆 Standard Behavioral & Technical Interview Q&A
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
 
-## Section 2: 🏗️ Monorepo & Multi-App Code Sharing
-
-*⏱️ 1 min read*
-
-#### Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)
-- **Challenge**: Building three separate, siloed products would lead to massive duplication of business logic (authentication, caching, API wrappers) and UI components (fintech tables, input states). However, a simple copy-paste approach would create a maintenance nightmare.
-- **Solution**: Design a **Yarn/pnpm Workspaces Monorepo structure** to separate dependencies and share code cleanly.
-- **Architecture Layers**:
-  - **`packages/core`**: Headless business logic, Axios interceptors, Auth0/Cognito authentication hooks, Redux Toolkit slices, and caching layers. This serves as the single source of truth for the fintech data model.
-  - **`packages/ui-kit`**: A shared design system containing atomized, platform-agnostic UI elements (buttons, input fields, secure cards) built on React Native Web.
-  - **`apps/`**: Separate workspaces for `apps/lvx`, `apps/lvxq`, and `apps/scalix`. Each application imports components and services from `packages/core` and `packages/ui-kit` but maintains its own routing, assets, permissions, and `app.json` configs.
-- **Business Result**: Reduced time-to-market for new features by over 40% and enabled a small mobile team of individual contributors to maintain three enterprise-grade production applications simultaneously.
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** 🔒 Section 3: High-Stakes Fintech System Design
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 👨💼 Lead Round Favorite
-
----
-
-
-## Section 3: 🔒 High-Stakes Fintech System Design
-
-*⏱️ 2 min read*
-
-Fintech platforms handle transactions, investments, and PII. Security and resilience are core requirements.
-
-#### 1. Data Security at Rest (Keychain / Keystore)
-- **Problem**: Storing access tokens, refresh keys, or private financial metrics inside `AsyncStorage` or unencrypted `MMKV` is unsafe. On rooted or jailbroken devices, these plaintext files can be read easily.
-- **Solution**: Reframe storage using **`react-native-keychain`** or **Expo SecureStore**. These wrappers interface directly with the device's hardware secure enclaves: **Keychain** (iOS) and **Keystore** (Android).
-- **Silent Token Refresh Interceptor**: Set up an Axios response interceptor. If an API call fails with a `401 Unauthorized` due to access token expiration, the interceptor pauses subsequent outgoing requests, reads the secure Refresh Token from the Keychain, fetches a new Access Token from AWS Cognito/Auth0 in the background, updates storage, and automatically retries the failed requests without interrupting the user session.
-
-#### 2. Data in Transit (SSL Pinning & Attestation)
-- **Problem**: Protect the app from Man-in-the-Middle (MitM) attacks (e.g., attackers using proxy tools like Charles or Fiddler to intercept API requests on public networks).
-- **Solution**: Implement **SSL Pinning** at the native network layer.
-  - **Android**: Configure `CertificatePinner` inside the native `OkHttpClient` setup.
-  - **iOS**: Integrate `TrustKit` via CocoaPods.
-  - The app will reject connections to any backend server that fails to present a cryptographic certificate matching our pre-bundled public key hashes.
-- **Device Attestation**: Pair SSL Pinning with **Google Play Integrity API** (Android) and **Apple App Attest** (iOS) to cryptographically verify that API requests are coming from our unaltered, signed production binary running on a real, untampered device.
-
-#### 3. Payment Gateway Resilience (Razorpay & Cashfree)
-- **Problem**: A user completes a payment in the Razorpay SDK, but before the success callback returns to the JavaScript thread, the app crashes, the network drops, or the user force-closes the app. The client-side success handler never fires, leaving the transaction in a broken state.
-- **Solution**: 
-  1. **Idempotency Keys**: Attach a unique checkout session UUID (`idempotency-key`) to the payment metadata. If network retries occur, the gateway detects the duplicate key and prevents double-charging.
-  2. **Server-to-Server Webhooks**: The mobile app is **never** treated as the source of truth for transactions. When a payment completes, the payment gateway triggers a secure webhook payload directly to our backend server. The backend verifies the signature, updates the database ledger, and pushes the updated transaction status to the mobile client (via websockets, polling, or push notifications) once verified.
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** ⛺ Section 4: Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 👨💼 Lead Round Favorite
-
----
-
-
-## Section 4: ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
-
-*⏱️ 2 min read*
-
-#### 1. Offline-First Safari Syncing (WildTrails)
-- **Context**: A wildlife tracking app used in remote areas with poor network coverage. Users need to log sightings offline, and the data must sync when connection is restored.
-- **Challenge**: Background sync must be reliable without draining battery, running even when the app is in the background or device is rebooted.
-- **Solution**: Built the application completely as a native Android application in Java using SQLite for local storage and structured background syncing:
-  - Implemented a SQLite database with a custom `SQLiteOpenHelper` to store sightings locally with transaction safety (ACID).
-  - Used the Android SDK's native **`WorkManager` API** (using Java) and background services to schedule opportunistic uploads.
-  - Registered constraints on the background jobs so that syncing only occurs when network connectivity is active (via `ConnectivityManager`) and the battery is not low.
-  - Handled device reboots using a `BroadcastReceiver` listening for `BOOT_COMPLETED` to reschedule critical pending sync tasks, ensuring no data loss.
-
-#### 2. VR and Ticketing (Dunst Technologies)
-- **Context**: Consumer-facing travel apps utilizing VR tours and ticketing.
-- **Challenge**: Smooth rendering of complex 360/VR media and interactive ticket widgets on lower-end Android devices without blocking the main UI thread.
-- **Solution**: Built completely as a native Android app in Java:
-  - Integrated native OpenGL ES-based VR rendering views, offloading heavy media rendering and decoding to the GPU.
-  - Handled bitmap decoding asynchronously using background thread pools (`ExecutorService`) and custom thread-safe queues.
-  - Optimized the native layout hierarchy (using custom ViewGroups and flat XML layouts) to reduce view nesting, preventing overdraw and maintaining 60 FPS rendering on target hardware.
-
-#### 3. Media-Rich Booking and Discovery Platform (Plurebus)
-- **Context**: An entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows.
-- **Challenge**: Handling dynamic listing updates, image-heavy schedules, and seat-layout grids efficiently without memory leaks or UI lag on mid-range Android devices.
-- **Solution**: Built completely as a native Android application in Java using custom RecyclerView layouts and caching layers:
-  - Designed custom adapters for `RecyclerView` with view pooling and payload-based differential updates (`DiffUtil`) to prevent UI flashes during listing updates.
-  - Implemented asynchronous image loading and custom LRU cache handlers to manage movie poster caching, reducing heap consumption and preventing Out-Of-Memory (OOM) errors.
-  - Developed a highly interactive, custom Canvas-based view for seat selection, managing coordinate mappings and seat states natively in Java.
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** 🏛️ Section 4b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 👨💼 Lead Round Favorite
-
----
-
-
-## Section 5: 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
-
-*⏱️ 2 min read*
-
-#### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
-Banking and capital market systems require uncompromising standards of security, auditability, data integrity, and transactional safety:
-- **Uncompromised Data Security (At Rest & In Transit)**: Attaining compliance with financial regulations (e.g. PCI-DSS, SOC2) requires implementing native certificate pinning, encrypting MMKV instances with AES-256 keys, and offloading biometric authentication checks (FaceID/TouchID) to OS enclaves via `react-native-fingerprint-scanner` or local Swift/Kotlin hardware wrappers.
-- **Transaction Idempotency**: Network failures must not lead to double-charges or duplicate asset transfers. We assign a client-generated UUID `idempotency-key` to all transaction payloads. If a socket times out and is retried, the gateway returns the cached state of the first request instead of processing a duplicate order.
-- **Offline Ledger Reconciliation**: In high-stakes operations, offline caching must function as a transactional database. We design database schemas using atomic transactions (SQLite/Realm) or write-ahead logging (WAL) databases to prevent corruption if the app is force-closed during writes.
-
-#### 2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)
-*Can React Native achieve native performance today?* 
-- **The Architect's Verdict**: **Yes**, React Native performance is now indistinguishable from native for 98% of standard banking, wealth management, and transactional products. Modern engines (Hermes JSI) render layouts, animations, dynamic lists, and forms at 60/120 FPS.
-- **Limitation Triggers (When to go Pure Native)**:
-  - **Heavy Multi-Threaded Computations**: JavaScript runs on a single main thread. Operations like real-time video rendering, machine learning models, or heavy background cryptographic hashing saturate the JS thread, causing UI frames to drop.
-  - **Direct GPU Processing**: Apps requiring custom 3D game engines, AR/VR tracking, or custom low-level metal/vulkan shaders.
-  - **Heavy Background Work**: Background audio recording, persistent socket listening, or sensor streaming that must run indefinitely, even if the OS enters battery-saver modes.
-
-#### 3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)
-Integrating custom native Android/iOS SDKs or wrapping Java/Kotlin and Swift libraries in React Native follows two architectures:
-- **Legacy Bridge (RCTBridgeModule)**: Exposes native classes through JSON-based asynchronous serialization. Native method arguments are serialized on the JS thread, sent across the C++ bridge queue, deserialized on the native UI/Background thread, executed, and returned asynchronously via callbacks or promises.
-- **Modern JSI (TurboModules/Fabric)**: Removes the legacy JSON bridge from modern native-module and rendering paths. C++ bindings allow the JS engine to call typed host functions without JSON serialization. Some calls can be synchronous, but slow I/O and heavy native work should still run asynchronously to avoid blocking the JS runtime.
-
-#### 4. Advanced Native Android SDK & Enterprise Java Architecture
-Leveraging a native Java/Kotlin background enables designing highly resilient custom native modules and services inside enterprise applications:
-- **Clean Architecture & Design Patterns**: We divide native layers into:
-  - **Data Layer**: Repositories, SQLite OpenHelpers, network interceptors.
-  - **Domain Layer**: Pure business logic and use cases.
-  - **Presentation Layer**: Native layouts (XML/Jetpack Compose), ViewModels.
-  - Utilizes design patterns like Repository Pattern, Singleton, Dependency Injection (Dagger/Hilt), and Observer Pattern (LiveData/RxJava).
-- **Advanced Java Development & Concurrency**: We handle native asynchronous processing using Java concurrency primitives, including `ExecutorServices`, `AsyncTask` (legacy), `Coroutines` (Kotlin), or `RxJava` threads, ensuring that heavy native network tasks never block Android's main UI thread (preventing ANR - App Not Responding errors).
-- **Cloud-Based Mobile Integrations**: Implement robust synchronization handlers with cloud providers (AWS Cognito, Firebase, Azure) for auth sessions, remote config toggles (Feature Flags), and real-time ledger updates.
-
----
-
-
----
-
----
-
-> 🎯 **Topic:** 🏆 Section 5: Standard Behavioral & Technical Interview Q&A
-> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
-> 🏷️ **Tags:** 👨💼 Lead Round Favorite
-
----
-
-
-## Section 6: 🏆 Standard Behavioral & Technical Interview Q&A
+## 1.2 🏆 Standard Behavioral & Technical Interview Q&A
 
 *⏱️ 19 min read*
 
@@ -596,14 +375,170 @@ Leveraging a native Java/Kotlin background enables designing highly resilient cu
 
 ---
 
-> 🎯 **Topic:** 👥 Section 6: Agile vs. Scrum Methodologies
+> 🎯 **Topic:** 2.1 🏗️ Monorepo & Multi-App Code Sharing
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
 
-## Section 7: 👥 Agile vs. Scrum Methodologies
+## 2.1 🏗️ Monorepo & Multi-App Code Sharing
+
+*⏱️ 1 min read*
+
+#### Scenario: Code Sharing across Sister Products (LVX, LVXQ, Scalix)
+- **Challenge**: Building three separate, siloed products would lead to massive duplication of business logic (authentication, caching, API wrappers) and UI components (fintech tables, input states). However, a simple copy-paste approach would create a maintenance nightmare.
+- **Solution**: Design a **Yarn/pnpm Workspaces Monorepo structure** to separate dependencies and share code cleanly.
+- **Architecture Layers**:
+  - **`packages/core`**: Headless business logic, Axios interceptors, Auth0/Cognito authentication hooks, Redux Toolkit slices, and caching layers. This serves as the single source of truth for the fintech data model.
+  - **`packages/ui-kit`**: A shared design system containing atomized, platform-agnostic UI elements (buttons, input fields, secure cards) built on React Native Web.
+  - **`apps/`**: Separate workspaces for `apps/lvx`, `apps/lvxq`, and `apps/scalix`. Each application imports components and services from `packages/core` and `packages/ui-kit` but maintains its own routing, assets, permissions, and `app.json` configs.
+- **Business Result**: Reduced time-to-market for new features by over 40% and enabled a small mobile team of individual contributors to maintain three enterprise-grade production applications simultaneously.
+
+---
+
+
+---
+
+---
+
+> 🎯 **Topic:** 2.2 🔒 High-Stakes Fintech System Design
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
+
+---
+
+
+## 2.2 🔒 High-Stakes Fintech System Design
+
+*⏱️ 2 min read*
+
+Fintech platforms handle transactions, investments, and PII. Security and resilience are core requirements.
+
+#### 1. Data Security at Rest (Keychain / Keystore)
+- **Problem**: Storing access tokens, refresh keys, or private financial metrics inside `AsyncStorage` or unencrypted `MMKV` is unsafe. On rooted or jailbroken devices, these plaintext files can be read easily.
+- **Solution**: Reframe storage using **`react-native-keychain`** or **Expo SecureStore**. These wrappers interface directly with the device's hardware secure enclaves: **Keychain** (iOS) and **Keystore** (Android).
+- **Silent Token Refresh Interceptor**: Set up an Axios response interceptor. If an API call fails with a `401 Unauthorized` due to access token expiration, the interceptor pauses subsequent outgoing requests, reads the secure Refresh Token from the Keychain, fetches a new Access Token from AWS Cognito/Auth0 in the background, updates storage, and automatically retries the failed requests without interrupting the user session.
+
+#### 2. Data in Transit (SSL Pinning & Attestation)
+- **Problem**: Protect the app from Man-in-the-Middle (MitM) attacks (e.g., attackers using proxy tools like Charles or Fiddler to intercept API requests on public networks).
+- **Solution**: Implement **SSL Pinning** at the native network layer.
+  - **Android**: Configure `CertificatePinner` inside the native `OkHttpClient` setup.
+  - **iOS**: Integrate `TrustKit` via CocoaPods.
+  - The app will reject connections to any backend server that fails to present a cryptographic certificate matching our pre-bundled public key hashes.
+- **Device Attestation**: Pair SSL Pinning with **Google Play Integrity API** (Android) and **Apple App Attest** (iOS) to cryptographically verify that API requests are coming from our unaltered, signed production binary running on a real, untampered device.
+
+#### 3. Payment Gateway Resilience (Razorpay & Cashfree)
+- **Problem**: A user completes a payment in the Razorpay SDK, but before the success callback returns to the JavaScript thread, the app crashes, the network drops, or the user force-closes the app. The client-side success handler never fires, leaving the transaction in a broken state.
+- **Solution**: 
+  1. **Idempotency Keys**: Attach a unique checkout session UUID (`idempotency-key`) to the payment metadata. If network retries occur, the gateway detects the duplicate key and prevents double-charging.
+  2. **Server-to-Server Webhooks**: The mobile app is **never** treated as the source of truth for transactions. When a payment completes, the payment gateway triggers a secure webhook payload directly to our backend server. The backend verifies the signature, updates the database ledger, and pushes the updated transaction status to the mobile client (via websockets, polling, or push notifications) once verified.
+
+---
+
+
+---
+
+---
+
+> 🎯 **Topic:** 2.3 ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
+
+---
+
+
+## 2.3 ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)
+
+*⏱️ 2 min read*
+
+#### 1. Offline-First Safari Syncing (WildTrails)
+- **Context**: A wildlife tracking app used in remote areas with poor network coverage. Users need to log sightings offline, and the data must sync when connection is restored.
+- **Challenge**: Background sync must be reliable without draining battery, running even when the app is in the background or device is rebooted.
+- **Solution**: Built the application completely as a native Android application in Java using SQLite for local storage and structured background syncing:
+  - Implemented a SQLite database with a custom `SQLiteOpenHelper` to store sightings locally with transaction safety (ACID).
+  - Used the Android SDK's native **`WorkManager` API** (using Java) and background services to schedule opportunistic uploads.
+  - Registered constraints on the background jobs so that syncing only occurs when network connectivity is active (via `ConnectivityManager`) and the battery is not low.
+  - Handled device reboots using a `BroadcastReceiver` listening for `BOOT_COMPLETED` to reschedule critical pending sync tasks, ensuring no data loss.
+
+#### 2. VR and Ticketing (Dunst Technologies)
+- **Context**: Consumer-facing travel apps utilizing VR tours and ticketing.
+- **Challenge**: Smooth rendering of complex 360/VR media and interactive ticket widgets on lower-end Android devices without blocking the main UI thread.
+- **Solution**: Built completely as a native Android app in Java:
+  - Integrated native OpenGL ES-based VR rendering views, offloading heavy media rendering and decoding to the GPU.
+  - Handled bitmap decoding asynchronously using background thread pools (`ExecutorService`) and custom thread-safe queues.
+  - Optimized the native layout hierarchy (using custom ViewGroups and flat XML layouts) to reduce view nesting, preventing overdraw and maintaining 60 FPS rendering on target hardware.
+
+#### 3. Media-Rich Booking and Discovery Platform (Plurebus)
+- **Context**: An entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows.
+- **Challenge**: Handling dynamic listing updates, image-heavy schedules, and seat-layout grids efficiently without memory leaks or UI lag on mid-range Android devices.
+- **Solution**: Built completely as a native Android application in Java using custom RecyclerView layouts and caching layers:
+  - Designed custom adapters for `RecyclerView` with view pooling and payload-based differential updates (`DiffUtil`) to prevent UI flashes during listing updates.
+  - Implemented asynchronous image loading and custom LRU cache handlers to manage movie poster caching, reducing heap consumption and preventing Out-Of-Memory (OOM) errors.
+  - Developed a highly interactive, custom Canvas-based view for seat selection, managing coordinate mappings and seat states natively in Java.
+
+---
+
+
+---
+
+---
+
+> 🎯 **Topic:** 2.4 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
+
+---
+
+
+## 2.4 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)
+
+*⏱️ 2 min read*
+
+#### 1. Enterprise Banking & Fintech Architectural Imperatives (CAPCO Alignment)
+Banking and capital market systems require uncompromising standards of security, auditability, data integrity, and transactional safety:
+- **Uncompromised Data Security (At Rest & In Transit)**: Attaining compliance with financial regulations (e.g. PCI-DSS, SOC2) requires implementing native certificate pinning, encrypting MMKV instances with AES-256 keys, and offloading biometric authentication checks (FaceID/TouchID) to OS enclaves via `react-native-fingerprint-scanner` or local Swift/Kotlin hardware wrappers.
+- **Transaction Idempotency**: Network failures must not lead to double-charges or duplicate asset transfers. We assign a client-generated UUID `idempotency-key` to all transaction payloads. If a socket times out and is retried, the gateway returns the cached state of the first request instead of processing a duplicate order.
+- **Offline Ledger Reconciliation**: In high-stakes operations, offline caching must function as a transactional database. We design database schemas using atomic transactions (SQLite/Realm) or write-ahead logging (WAL) databases to prevent corruption if the app is force-closed during writes.
+
+#### 2. Native vs. Hybrid Performance Limits (Architectural Decision Matrix)
+*Can React Native achieve native performance today?* 
+- **The Architect's Verdict**: **Yes**, React Native performance is now indistinguishable from native for 98% of standard banking, wealth management, and transactional products. Modern engines (Hermes JSI) render layouts, animations, dynamic lists, and forms at 60/120 FPS.
+- **Limitation Triggers (When to go Pure Native)**:
+  - **Heavy Multi-Threaded Computations**: JavaScript runs on a single main thread. Operations like real-time video rendering, machine learning models, or heavy background cryptographic hashing saturate the JS thread, causing UI frames to drop.
+  - **Direct GPU Processing**: Apps requiring custom 3D game engines, AR/VR tracking, or custom low-level metal/vulkan shaders.
+  - **Heavy Background Work**: Background audio recording, persistent socket listening, or sensor streaming that must run indefinitely, even if the OS enters battery-saver modes.
+
+#### 3. Native Integration Mechanics (Bridge vs. JSI/TurboModules)
+Integrating custom native Android/iOS SDKs or wrapping Java/Kotlin and Swift libraries in React Native follows two architectures:
+- **Legacy Bridge (RCTBridgeModule)**: Exposes native classes through JSON-based asynchronous serialization. Native method arguments are serialized on the JS thread, sent across the C++ bridge queue, deserialized on the native UI/Background thread, executed, and returned asynchronously via callbacks or promises.
+- **Modern JSI (TurboModules/Fabric)**: Removes the legacy JSON bridge from modern native-module and rendering paths. C++ bindings allow the JS engine to call typed host functions without JSON serialization. Some calls can be synchronous, but slow I/O and heavy native work should still run asynchronously to avoid blocking the JS runtime.
+
+#### 4. Advanced Native Android SDK & Enterprise Java Architecture
+Leveraging a native Java/Kotlin background enables designing highly resilient custom native modules and services inside enterprise applications:
+- **Clean Architecture & Design Patterns**: We divide native layers into:
+  - **Data Layer**: Repositories, SQLite OpenHelpers, network interceptors.
+  - **Domain Layer**: Pure business logic and use cases.
+  - **Presentation Layer**: Native layouts (XML/Jetpack Compose), ViewModels.
+  - Utilizes design patterns like Repository Pattern, Singleton, Dependency Injection (Dagger/Hilt), and Observer Pattern (LiveData/RxJava).
+- **Advanced Java Development & Concurrency**: We handle native asynchronous processing using Java concurrency primitives, including `ExecutorServices`, `AsyncTask` (legacy), `Coroutines` (Kotlin), or `RxJava` threads, ensuring that heavy native network tasks never block Android's main UI thread (preventing ANR - App Not Responding errors).
+- **Cloud-Based Mobile Integrations**: Implement robust synchronization handlers with cloud providers (AWS Cognito, Firebase, Azure) for auth sessions, remote config toggles (Feature Flags), and real-time ledger updates.
+
+---
+
+
+---
+
+---
+
+> 🎯 **Topic:** 3.1 👥 Agile vs. Scrum Methodologies
+> 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite
+
+---
+
+
+## 3.1 👥 Agile vs. Scrum Methodologies
 
 *⏱️ 1 min read*
 
@@ -638,14 +573,14 @@ Understanding the distinction between project frameworks and mindsets is essenti
 
 ---
 
-> 🎯 **Topic:** 📈 Section 7: Program & Product Delivery Manager (PDM) Round
+> 🎯 **Topic:** 3.2 📈 Program & Product Delivery Manager (PDM) Round
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
 
-## Section 8: 📈 Program & Product Delivery Manager (PDM) Round
+## 3.2 📈 Program & Product Delivery Manager (PDM) Round
 
 *⏱️ 2 min read*
 
@@ -681,14 +616,14 @@ Product and Delivery Managers evaluate your leadership traits, execution ownersh
 
 ---
 
-> 🎯 **Topic:** 🤝 Section 8: Human Resources (HR) & Leadership Evaluation
+> 🎯 **Topic:** 3.3 🤝 Human Resources (HR) & Leadership Evaluation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
 
-## Section 9: 🤝 Human Resources (HR) & Leadership Evaluation
+## 3.3 🤝 Human Resources (HR) & Leadership Evaluation
 
 *⏱️ 2 min read*
 
@@ -725,14 +660,14 @@ HR evaluation assesses cultural fit, communication clarity, stability, career go
 
 ---
 
-> 🎯 **Topic:** 💰 Section 9: Salary Negotiation, Compensation & Benefits Strategy
+> 🎯 **Topic:** 3.4 💰 Salary Negotiation, Compensation & Benefits Strategy
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 👨💼 Lead Round Favorite
 
 ---
 
 
-## Section 10: 💰 Salary Negotiation, Compensation & Benefits Strategy
+## 3.4 💰 Salary Negotiation, Compensation & Benefits Strategy
 
 *⏱️ 1 min read*
 
@@ -779,6 +714,75 @@ At the end of senior technical and manager interviews, asking strategic question
 6. *"How are sprint priorities determined, and what is the team's typical split between product features and refactoring technical debt?"*
 
 ---
+
+---
+
+> 🎯 **Topic:** Section 1: Behavioral: Senior Career Walkthrough
+> 📊 **Difficulty:** Lead | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 👨💼 Lead Round Favorite • 🔥 Must Revise
+
+---
+
+## Section 1: Behavioral: Senior Career Walkthrough
+
+### Concept Summary
+As a Senior/Lead engineer with 9+ years of experience, interviewers are not just evaluating your code; they are evaluating your leadership, ownership, handling of technical debt, and cross-team communication. The STAR format (Situation, Task, Action, Result) is the industry standard for concisely and powerfully answering behavioral questions.
+
+### Must Know Points
+- [ ] Always structure answers using **STAR**: Situation, Task, Action, Result.
+- [ ] Focus on "I" instead of "We" when discussing specific technical decisions and actions.
+- [ ] Highlight business impact (e.g., reduced crash rate by X%, increased user retention).
+- [ ] Never speak negatively about previous employers or teams; frame conflicts as "misalignments" that you solved.
+- [ ] Have exactly 3 deep, versatile stories prepared that can answer 90% of behavioral questions.
+
+### Interview Questions & STAR Walkthrough
+
+### Q1: "Tell me about a time you led a technically complex migration or refactoring."
+
+**Situation:** 
+At my previous company, our flagship React Native application had a monolithic Redux store and relied on legacy synchronous native modules. The app startup time had degraded to over 4.5 seconds, and memory crashes were frequent on low-end Android devices.
+
+**Task:** 
+As the Lead React Native Developer, I was tasked with bringing the startup time under 2 seconds and eliminating memory-related crashes without halting feature development for the product team.
+
+**Action:** 
+1. **Audit & Plan:** I profiled the app using Flipper and Android Studio Profiler, identifying that 60% of startup time was blocked by eager initialization of native modules and massive Redux state rehydration.
+2. **Implementation:** I introduced TurboModules to lazy-load the Bluetooth and Heavy Crypto modules. I also transitioned our global state from Redux to a segmented Zustand model, persisting only essential user tokens via MMKV.
+3. **Leadership:** Since I couldn't halt feature delivery, I created a feature flag system and paired with mid-level developers to incrementally migrate screens week by week.
+
+**Result:** 
+App startup time dropped from 4.5s to 1.8s (a 60% improvement). Memory crashes dropped to near zero, and the incremental migration strategy ensured we hit our Q3 product deliverables on time.
+
+---
+
+### Q2: "Tell me about a time you had a technical disagreement with a colleague or manager."
+
+**Situation:** 
+During the architecture planning for a new offline-first chat feature, the backend team insisted on using standard REST polling, while I advocated for WebSockets paired with a local WatermelonDB cache for instant UI updates.
+
+**Task:** 
+I needed to convince the backend lead that REST polling would drain battery life and create a terrible user experience in poor network conditions, without causing a hostile team dynamic.
+
+**Action:** 
+1. **Data-Driven Proof:** Instead of arguing theoretically, I spent a weekend building two small proof-of-concept (PoC) apps. One used REST polling every 5 seconds, and the other used WebSockets with local caching.
+2. **Demonstration:** I profiled both PoCs on a real Android device using a 3G network throttle. I documented the battery consumption, network payload size, and UI latency.
+3. **Compromise:** I presented the data to the backend lead. I acknowledged his concern about server load with WebSockets and proposed a hybrid approach: WebSockets for active chat sessions, falling back to push notifications when the app is backgrounded.
+
+**Result:** 
+The backend lead appreciated the hard data and agreed to the hybrid architecture. The feature launched successfully, battery consumption remained stable, and the team dynamic improved because the decision was based on metrics, not egos.
+
+### Follow-up Questions
+1. How do you ensure your team adopts your architectural decisions without feeling micromanaged?
+2. Tell me about a time your technical solution completely failed in production. What did you do?
+
+### Common Mistakes & Quick Revision Notes
+- **Mistake:** Spending 80% of the time describing the "Situation" and rushing the "Action" and "Result". *Correction:* Keep Situation/Task to 20%, focus 60% on Action (what YOU did), and 20% on measurable Results.
+- **Mistake:** Saying "My manager made a bad decision." *Correction:* "We had competing priorities, so I aligned our goals by..."
+
+### Related Topics
+- Technical Leadership & Mentoring
+- System Architecture Design
+- Agile Delivery Management
 
 ---
 

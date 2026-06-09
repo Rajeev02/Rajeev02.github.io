@@ -81,7 +81,7 @@
 
 ---
 
-> 🎯 **Topic:** React Native Interview Question - Strict Mode
+> 🎯 **Topic:** 1.1 What is Strict Mode in JavaScript, React, and TypeScript?
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -532,7 +532,7 @@ in `tsconfig.json`.
 
 This combination catches most bugs before they reach production.
 
-> 🎯 **Topic:** ⚛️ Section 7: React Architecture & Core Engine
+> 🎯 **Topic:** 1.2 ⚛️ React Architecture & Core Engine
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -677,7 +677,7 @@ This combination catches most bugs before they reach production.
 
 ---
 
-> 🎯 **Topic:** Section 2: Layout, Flexbox & styling (Yoga Engine)
+> 🎯 **Topic:** 2.1 🎨 Layout, Flexbox & styling (Yoga Engine)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -728,7 +728,7 @@ Animations are calculated on two different runtime threads in React Native:
 
 ---
 
-> 🎯 **Topic:** 🌐 Section 9: Server Rendering, Styling & Platform Specifics
+> 🎯 **Topic:** 2.2 🌐 Server Rendering, Styling & Platform Specifics
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -772,7 +772,7 @@ Animations are calculated on two different runtime threads in React Native:
 
 ---
 
-> 🎯 **Topic:** ✨ Section 21: Shared Element Transitions & Advanced Animation Patterns
+> 🎯 **Topic:** 2.3 ✨ Shared Element Transitions & Advanced Animation Patterns
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -920,7 +920,7 @@ Shared Element Transitions create the visual illusion that a UI element (like a 
 
 ---
 
-> 🎯 **Topic:** React Native: State Management & Redux
+> 🎯 **Topic:** 3.1 React Native: State Management & Redux
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -994,7 +994,7 @@ Zustand is a minimalistic, fast state management library.
 
 ---
 
-> 🎯 **Topic:** 📦 Section 8: State Management & Routing Orchestration
+> 🎯 **Topic:** 3.2 📦 State Management & Routing Orchestration
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1075,7 +1075,7 @@ Recoil is useful to understand historically, but it is no longer the default rec
 
 ---
 
-> 🎯 **Topic:** 🔄 Section 20: Redux Saga & Redux Thunk Deep-Dive
+> 🎯 **Topic:** 3.3 🔄 Redux Saga & Redux Thunk Deep-Dive
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -1302,7 +1302,7 @@ function Counter() {
 
 ---
 
-> 🎯 **Topic:** React Native Interview Question
+> 🎯 **Topic:** 4.1 What is the difference between REST API and GraphQL API? Why do we use GraphQL in React Native applications?
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2164,7 +2164,7 @@ GraphQL does not provide a `SELECT *` mechanism. Clients must explicitly request
 
 ---
 
-> 🎯 **Topic:** 💾 Section 11: Enterprise Offline Storage & Synchronizer Architectures
+> 🎯 **Topic:** 4.2 💾 Enterprise Offline Storage & Synchronizer Architectures
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2243,7 +2243,7 @@ GraphQL enables mobile clients to request only the specific fields required, red
 
 ---
 
-> 🎯 **Topic:** 🧭 Section 23: Navigation Performance & Universal Links
+> 🎯 **Topic:** 5.1 🧭 Navigation Performance & Universal Links
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2399,7 +2399,7 @@ const linking = {
 
 ---
 
-> 🎯 **Topic:** Core Architecture (Legacy vs. New Architecture)
+> 🎯 **Topic:** 6.1 React Native Core Architecture (Legacy vs. Modern)
 > 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** 🔥 Must Revise • ⭐ Frequently Asked • 💼 Product Company Favorite
 
@@ -2468,7 +2468,7 @@ Migration is a phased risk-management exercise, not a one-shot upgrade:
 
 ---
 
-> 🎯 **Topic:** 🏗️ Section 38: React Native Architecture Deep Dive (Legacy vs. New)
+> 🎯 **Topic:** 6.2 🏗️ React Native Architecture Deep Dive (Legacy vs. New)
 > 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** Very High
 > 🏷️ **Tags:** 🔥 Must Revise • ⭐ Architecture • 💼 Product Company Favorite
 
@@ -2538,7 +2538,7 @@ Introduced fully in React Native 0.73+, Bridgeless Mode is the final step of the
 
 ---
 
-> 🎯 **Topic:** 🔗 Section 19: Bridgeless Mode & React Native Runtime
+> 🎯 **Topic:** 6.3 🔗 Bridgeless Mode & React Native Runtime
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2629,7 +2629,7 @@ The **React Native Runtime** is the unified C++ runtime layer that hosts all cor
 
 ---
 
-> 🎯 **Topic:** React Native: Advanced Topics & Architecture
+> 🎯 **Topic:** 6.4 React Native: Advanced Topics & Architecture
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2683,7 +2683,7 @@ Offline-first apps store data locally and sync with the backend when the network
 
 ---
 
-> 🎯 **Topic:** 🔌 Section 3: Custom Native Modules & Expo CNG
+> 🎯 **Topic:** 6.5 🔌 Custom Native Modules & Expo CNG
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2761,7 +2761,7 @@ To package native modules and JS bindings as a reusable NPM library:
 
 ---
 
-> 🎯 **Topic:** 🖼️ Section 22: Native UI Components (ViewManagers)
+> 🎯 **Topic:** 6.6 🖼️ Native UI Components (ViewManagers)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2922,7 +2922,7 @@ export default codegenNativeComponent<NativeProps>('NativeVideoView');
 
 ---
 
-> 🎯 **Topic:** React Native: Performance, Optimization & Memory Leaks
+> 🎯 **Topic:** 7.1 React Native: Performance, Optimization & Memory Leaks
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -2980,7 +2980,7 @@ The default `<Image>` component does not cache aggressively. For production apps
 
 ---
 
-> 🎯 **Topic:** ⚡ Section 5: List Optimization & Memory Profiling
+> 🎯 **Topic:** 7.2 ⚡ List Optimization & Memory Profiling
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3020,7 +3020,7 @@ Memory leaks occur when the JS engine (Hermes) cannot clean up dead objects duri
 
 ---
 
-> 🎯 **Topic:** ⚡ Section 14: App Startup Performance & Modern Debugging (Post-Flipper)
+> 🎯 **Topic:** 7.3 ⚡ App Startup Performance & Modern Debugging (Post-Flipper)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3074,7 +3074,7 @@ With **Flipper** deprecated and removed from modern React Native templates, team
 
 ---
 
-> 🎯 **Topic:** 📦 Section 17: App Size & Bundle Optimization (APK & IPA Reduction)
+> 🎯 **Topic:** 7.4 📦 App Size & Bundle Optimization (APK & IPA Reduction)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3136,7 +3136,7 @@ Reducing app binary weight directly reduces user acquisition bounce rates. Senio
 
 ---
 
-> 🎯 **Topic:** ⚡ Section 18: Senior-Level Performance Engineering Checklist
+> 🎯 **Topic:** 7.5 ⚡ Senior-Level Performance Engineering Checklist
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3178,7 +3178,7 @@ Ensure smooth 60/120 FPS interactions and minimize thread blocks by checking off
 
 ---
 
-> 🎯 **Topic:** 🗺️ Section 12: Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
+> 🎯 **Topic:** 8.1 🗺️ Micro-Frontends & Super-App Architecture (Re.Pack & Module Federation)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3223,7 +3223,7 @@ Module Federation separates code into **Hosts** (Container App) and **Remotes** 
 
 ---
 
-> 🎯 **Topic:** 🌐 Section 16: React Native for Web (Cross-Platform Development)
+> 🎯 **Topic:** 8.2 🌐 React Native for Web (Cross-Platform Development)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3277,7 +3277,7 @@ React Native for Web (`react-native-web`) makes it possible to run React Native 
 
 ---
 
-> 🎯 **Topic:** 🚀 Section 19: Migration Strategies (Legacy to Modern)
+> 🎯 **Topic:** 8.3 🚀 Migration Strategies (Legacy to Modern)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3339,7 +3339,7 @@ Migrating large-scale applications (millions of users) requires meticulous plann
 
 ---
 
-> 🎯 **Topic:** 📦 Section 15: Over-the-Air (OTA) Updates & In-App Purchases (IAP)
+> 🎯 **Topic:** 8.4 📦 Over-the-Air (OTA) Updates & In-App Purchases (IAP)
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3374,7 +3374,7 @@ OTA systems bypass store approval times for JavaScript-only updates. For intervi
 
 ---
 
-> 🎯 **Topic:** React Native: Security Best Practices
+> 🎯 **Topic:** 9.1 React Native: Security Best Practices
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3423,7 +3423,7 @@ Never hardcode API keys in the JS bundle. Use libraries like `react-native-confi
 
 ---
 
-> 🎯 **Topic:** 🛡️ Section 28: SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive
+> 🎯 **Topic:** 9.2 🛡️ SSL Pinning, OWASP Mobile Top 10 & API Security Deep-Dive
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3610,7 +3610,7 @@ function signRequest(method: string, path: string, body: string, timestamp: stri
 
 ---
 
-> 🎯 **Topic:** 🔒 Section 13: Advanced Mobile Security & Reverse Engineering Defenses
+> 🎯 **Topic:** 9.3 🔒 Advanced Mobile Security & Reverse Engineering Defenses
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3660,7 +3660,7 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
 
 ---
 
-> 🎯 **Topic:** 🧹 Section 24: Code Quality & Developer Tooling
+> 🎯 **Topic:** 10.1 🧹 Code Quality & Developer Tooling
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3805,7 +3805,7 @@ Attackers use dynamic instrumentation frameworks to hook Javascript or Native me
 
 ---
 
-> 🎯 **Topic:** React Native: Testing & TDD
+> 🎯 **Topic:** 10.2 React Native: Testing & TDD
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3893,7 +3893,7 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 
 ---
 
-> 🎯 **Topic:** 🧪 Section 10: Testing Strategies & QA Automation
+> 🎯 **Topic:** 10.3 🧪 Testing Strategies & QA Automation
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -3989,7 +3989,7 @@ Test-Driven Development (TDD) is a development methodology where code is written
 
 ---
 
-> 🎯 **Topic:** 🧪 Section 26: Appium & Cross-Platform E2E Testing
+> 🎯 **Topic:** 10.4 🧪 Appium & Cross-Platform E2E Testing
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4089,7 +4089,7 @@ describe('Login Flow', () => {
 
 ---
 
-> 🎯 **Topic:** 📦 Section 4: App Compilation, Metro & Babel
+> 🎯 **Topic:** 11.1 📦 App Compilation, Metro & Babel
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4138,7 +4138,7 @@ For release builds, React Native uses **Hermes**, a lightweight JS engine optimi
 
 ---
 
-> 🎯 **Topic:** React Native: CI/CD Pipelines
+> 🎯 **Topic:** 11.2 React Native: CI/CD Pipelines
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4193,7 +4193,7 @@ The industry standard is **Fastlane Match**. It creates all required certificate
 
 ---
 
-> 🎯 **Topic:** 🔧 Section 27: CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags
+> 🎯 **Topic:** 11.3 🔧 CI/CD Expansion — Bitrise, Azure DevOps & Feature Flags
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4349,7 +4349,7 @@ Kill Switch: If crash-free rate drops below 99.5% or error rate spikes 2x,
 
 ---
 
-> 🎯 **Topic:** 🔒 Section 6: Release Engineering & Diagnostic Workflows
+> 🎯 **Topic:** 11.4 🔒 Release Engineering & Diagnostic Workflows
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4451,7 +4451,7 @@ Production-grade applications rely on a multi-tiered monitoring stack to track s
 
 ---
 
-> 🎯 **Topic:** 📊 Section 25: Analytics & Monitoring Deep-Dive
+> 🎯 **Topic:** 11.5 📊 Analytics & Monitoring Deep-Dive
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4591,7 +4591,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 ---
 
-> 🎯 **Topic:** Section 20: Senior / Lead / Architect Scenarios
+> 🎯 **Topic:** 12.1 🏗️ Senior / Lead / Architect Scenarios
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
@@ -4656,7 +4656,7 @@ GA4 uses an **event-based data model** (replacing Universal Analytics' session-b
 
 ---
 
-> 🎯 **Topic:** 🤝 Section 21: Behavioral, Leadership & HR Rounds
+> 🎯 **Topic:** 12.2 🤝 Behavioral, Leadership & HR Rounds
 > 📊 **Difficulty:** Medium | 🔄 **Interview Frequency:** High
 > 🏷️ **Tags:** ⭐ Frequently Asked
 
