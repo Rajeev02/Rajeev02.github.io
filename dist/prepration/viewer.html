@@ -1266,23 +1266,45 @@
           if (currentCollection === "Preparation" && isInterviewGuide) continue;
           if (currentCollection === "InterviewGuide" && !isInterviewGuide) continue;
 
-          categoryPrepTotals[section] = { theory: 0, coding: 0, total: 0 };
-          
           const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
-          for (const file of filteredFiles) {
-            const mins = estimatePrepTime(file.content, section, file.name);
-            const key = `${section}/${file.name}`;
-            filePrepTimes[key] = mins;
-            
-            const isCoding = file.name.toLowerCase().includes("coding");
-            if (isCoding) {
-              categoryPrepTotals[section].coding += mins;
-              totalCodingMinutes += mins;
-            } else {
-              categoryPrepTotals[section].theory += mins;
-              totalTheoryMinutes += mins;
+          
+          if (currentCollection === "InterviewGuide") {
+            for (const file of filteredFiles) {
+              const fileCategory = file.name;
+              categoryPrepTotals[fileCategory] = { theory: 0, coding: 0, total: 0 };
+              
+              const mins = estimatePrepTime(file.content, section, file.name);
+              const key = `${section}/${file.name}`;
+              filePrepTimes[key] = mins;
+              
+              const isCoding = file.name.toLowerCase().includes("coding");
+              if (isCoding) {
+                categoryPrepTotals[fileCategory].coding += mins;
+                totalCodingMinutes += mins;
+              } else {
+                categoryPrepTotals[fileCategory].theory += mins;
+                totalTheoryMinutes += mins;
+              }
+              categoryPrepTotals[fileCategory].total += mins;
             }
-            categoryPrepTotals[section].total += mins;
+          } else {
+            categoryPrepTotals[section] = { theory: 0, coding: 0, total: 0 };
+            
+            for (const file of filteredFiles) {
+              const mins = estimatePrepTime(file.content, section, file.name);
+              const key = `${section}/${file.name}`;
+              filePrepTimes[key] = mins;
+              
+              const isCoding = file.name.toLowerCase().includes("coding");
+              if (isCoding) {
+                categoryPrepTotals[section].coding += mins;
+                totalCodingMinutes += mins;
+              } else {
+                categoryPrepTotals[section].theory += mins;
+                totalTheoryMinutes += mins;
+              }
+              categoryPrepTotals[section].total += mins;
+            }
           }
         }
       }
@@ -1299,7 +1321,7 @@
         
         for (const section of sortedSections) {
           const stats = categoryPrepTotals[section];
-          const name = categoryNames[section] || section;
+          const name = categoryNames[section] || (currentCollection === "InterviewGuide" ? formatFileName(section) : section);
           
           rowsHtml += `
             <div class="topic-row">
