@@ -848,9 +848,7 @@ Performance             5 min
 Total: ~40 Minutes
 ```
 
-
 ---
-
 
 ## Error Boundaries
 
@@ -899,4 +897,3 @@ extends React.PureComponent
 ```
 
 Helps identify issues during development.
-

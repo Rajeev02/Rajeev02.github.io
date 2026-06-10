@@ -850,9 +850,7 @@ Profiling Tools             5 min
 Total: ~34 Minutes
 ```
 
-
 ---
-
 
 ## why-did-you-render
 
@@ -887,4 +885,3 @@ const [
 ## React Profiler
 
 Measures rendering performance.
-

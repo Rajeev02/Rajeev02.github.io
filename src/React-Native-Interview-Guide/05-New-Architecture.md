@@ -1054,7 +1054,6 @@ Native
 
 ---
 
-
 At the end add:
 
 ```text
@@ -1097,8 +1096,6 @@ Bridgeless Mode
 
 ---
 
-
-
 ✅ Bridge
 ✅ JSI
 ✅ Hermes
@@ -1113,9 +1110,7 @@ Bridgeless Mode
 ✅ Bridgeless Mode
 ✅ Complete New Architecture Flow
 
-
 ---
-
 
 ## Fabric Mounting Layer
 
@@ -1165,4 +1160,3 @@ Mounting Layer
  ↓
 Native UI
 ```
-

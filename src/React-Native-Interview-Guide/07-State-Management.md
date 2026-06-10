@@ -759,9 +759,7 @@ Comparisons               8 min
 Total: ~37 Minutes
 ```
 
-
 ---
-
 
 ## Redux Middleware
 
@@ -815,4 +813,3 @@ Good:
 usersById
 postsById
 ```
-

@@ -1,4 +1,4 @@
-For interview preparation, you should know a **2–5 line definition + senior-level answer** for each question.
++ senior-level answer** for each question.
 
 # Top 25 GraphQL Interview Questions & Answers
 

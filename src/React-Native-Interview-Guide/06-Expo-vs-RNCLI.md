@@ -691,9 +691,7 @@ Interview Scenarios       5 min
 Total: ~37 Minutes
 ```
 
-
 ---
-
 
 ## EAS Update
 
@@ -722,4 +720,3 @@ eas submit
 | Expo Controlled    | Native Control     |
 | Easy               | Flexible           |
 | Less Native Access | Full Native Access |
-

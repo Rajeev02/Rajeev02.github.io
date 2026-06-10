@@ -791,9 +791,7 @@ OTA Updates               3 min
 Total: ~40 Minutes
 ```
 
-
 ---
-
 
 ## Headless JS
 
@@ -840,4 +838,3 @@ Libraries:
 react-native-background-fetch
 expo-background-fetch
 ```
-

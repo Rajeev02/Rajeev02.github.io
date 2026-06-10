@@ -699,7 +699,6 @@ Interview Questions     5 min
 
 Total: ~30 Minutes
 ```
-# 02-TypeScript.md (Part 2)
 
 # Advanced TypeScript for Senior React Native Developers
 
@@ -1488,9 +1487,7 @@ For Senior React Native interviews, focus heavily on:
 
 These account for roughly 90% of TypeScript questions asked in React Native interviews.
 
-
 ---
-
 
 ## Never Type
 
@@ -1544,4 +1541,3 @@ interface User {
 type NameType =
  User["name"];
 ```
-

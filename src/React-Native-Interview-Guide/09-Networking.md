@@ -922,9 +922,7 @@ Security                  3 min
 Total: ~37 Minutes
 ```
 
-
 ---
-
 
 ## SSE (Server-Sent Events)
 
@@ -968,4 +966,3 @@ Prevents abuse.
 ```text
 100 Requests / Minute
 ```
-

@@ -890,7 +890,6 @@ Scalability                  5 min
 Total: ~43 Minutes
 ```
 
-
 # Additional Topics To Add In 20-Mobile-System-Design.md
 
 ---
