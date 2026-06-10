@@ -72,137 +72,7 @@ JavaScript code is executed by engines:
 
 "JavaScript is a high-level, dynamically typed, prototype-based language used to build interactive applications. It is single-threaded and uses an event loop to handle asynchronous operations."
 
-Then continue through all sections.
-
-For quality, I recommend proceeding with **Part A (Introduction → Closure)**, then **Part B**, then **Part C**, and finally I'll provide a clean merged index/version. A true complete single-file handbook won't fit safely into one response.
-
-
-01-JavaScript.md
-
-SECTION 1: JavaScript Fundamentals
-1. Introduction to JavaScript
-2. JavaScript Engine (V8, Hermes, JavaScriptCore)
-3. Execution Context
-4. Call Stack
-5. Event Loop
-6. Why JavaScript is Single Threaded
-7. Hoisting
-8. Temporal Dead Zone (TDZ)
-9. Scope
-10. Lexical Scope
-11. Closure
-
-SECTION 2: Variables & Functions
-12. var vs let vs const
-13. this Keyword
-14. call / apply / bind
-15. Arrow Functions
-16. Function Declaration vs Function Expression
-17. Higher Order Functions
-
-SECTION 3: Objects & Inheritance
-18. Prototype
-19. Prototype Chain
-20. Constructor Functions
-21. Classes in JavaScript
-22. Object.freeze()
-23. Object.seal()
-
-SECTION 4: Asynchronous JavaScript
-24. Callback Functions
-25. Callback Hell
-26. Promise
-27. Promise Methods
-    - Promise.all()
-    - Promise.allSettled()
-    - Promise.race()
-    - Promise.any()
-28. Async Await
-29. Promise vs Async Await
-
-SECTION 5: Modern JavaScript
-30. Deep Copy vs Shallow Copy
-31. Map vs Object
-32. Set
-33. WeakMap vs Map
-34. WeakSet vs Set
-35. Spread vs Rest
-36. Destructuring
-37. Optional Chaining
-38. Nullish Coalescing
-39. typeof vs instanceof
-40. for...in vs for...of
-41. Default Parameters
-42. Template Literals
-
-SECTION 6: Array Methods
-43. map()
-44. filter()
-45. reduce()
-46. find()
-47. some()
-48. every()
-49. forEach()
-
-SECTION 7: Performance & Memory
-50. Debounce
-51. Throttle
-52. Garbage Collection
-53. Memory Leaks
-
-SECTION 8: JavaScript Best Practices
-54. Strict Mode
-55. Equality Operators (== vs ===)
-56. Truthy & Falsy Values
-
-SECTION 9: Output-Based Questions
-57. Hoisting Outputs
-58. Closure Outputs
-59. Event Loop Outputs
-60. Promise Outputs
-61. this Outputs
-62. Type Coercion Outputs
-
-SECTION 10: Senior React Native Interview Questions
-63. Top 50 JavaScript Interview Questions
-64. React Native Specific JavaScript Questions
-
-SECTION 11: Revision Sheet
-65. 15-Minute Quick Revision
-66. 30-Minute Revision Plan
-67. One-Day Before Interview Checklist
-
-Why I added these
-
-These topics are asked very frequently in 5–10 year React Native interviews:
-
-JavaScript Engine (especially Hermes)
-Function Declaration vs Expression
-Higher Order Functions
-Constructor Functions
-Classes
-Callback Functions
-Default Parameters
-Template Literals
-== vs ===
-Truthy vs Falsy
-Type Coercion
-React Native specific JS questions
-Topics I would NOT add
-
-Avoid adding unless specifically preparing for JavaScript-heavy frontend roles:
-
-Generators
-Iterators
-Proxy
-Reflect
-Symbols
-EventEmitter internals
-Currying (optional advanced topic)
-Functional programming theory
-
 ---
-
 
 ## Arrow Functions
 
@@ -370,8 +240,6 @@ Benefits:
 * Safer JavaScript
 * Prevents accidental globals
 * Better debugging
-
-
 
 ---
 
@@ -1777,56 +1645,8 @@ ReferenceError
 
 "Strict mode enables a restricted variant of JavaScript that catches common mistakes and unsafe behavior."
 
-````
-
 ---
 
-### Coverage Check
-
-After Part 1 + Part 2 you have covered:
-
-✅ Execution Context  
-✅ Call Stack  
-✅ Event Loop  
-✅ JavaScript Single Threaded  
-✅ Hoisting  
-✅ TDZ  
-✅ Scope  
-✅ Lexical Scope  
-✅ Closure  
-✅ var vs let vs const  
-✅ this  
-✅ call/apply/bind  
-✅ Prototype  
-✅ Prototype Chain  
-✅ Promise  
-✅ Promise Methods  
-✅ Callback Hell  
-✅ Async Await  
-✅ Promise vs Async Await  
-
-Still remaining for **Part 3**:
-
-```text
-Deep Copy vs Shallow Copy
-Map vs Object
-Set
-WeakMap vs Map
-WeakSet vs Set
-Spread vs Rest
-Optional Chaining
-Nullish Coalescing
-typeof vs instanceof
-for...in vs for...of
-Debounce
-Throttle
-Garbage Collection
-Memory Leaks
-Output Based Questions
-Senior Revision Sheet
-````
-
-Once Part 3 is done, your `01-JavaScript.md` will be complete and strong enough for most Senior React Native interviews.
 # 21. Deep Copy vs Shallow Copy
 
 ## Definition
