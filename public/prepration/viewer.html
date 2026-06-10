@@ -259,6 +259,32 @@
         color: var(--text-primary);
         transition: color 0.3s;
       }
+      .collection-toggle {
+        display: flex;
+        gap: 4px;
+        background: var(--bg-primary);
+        padding: 4px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        border: 1px solid var(--border-color);
+      }
+      .col-btn {
+        flex: 1;
+        padding: 8px 4px;
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+      .col-btn.active {
+        background: var(--bg-card);
+        color: var(--bg-active);
+        box-shadow: var(--shadow);
+      }
       .section {
         margin-bottom: 24px;
       }
@@ -845,6 +871,10 @@
       <div class="content-wrapper">
         <div class="sidebar">
           <h3>Contents</h3>
+          <div class="collection-toggle">
+            <button id="prepModeBtn" class="col-btn active" onclick="switchCollection('Preparation')">Preparation</button>
+            <button id="guideModeBtn" class="col-btn" onclick="switchCollection('InterviewGuide')">Interview Guide</button>
+          </div>
           <input type="text" id="searchInput" placeholder="Search topics or content..." class="search-input" onkeyup="handleSearch()" />
           <div id="fileList"></div>
           <div class="file-count" id="fileCount"></div>
@@ -852,7 +882,7 @@
         <div class="main-content">
           <div id="content">
             <div class="no-file">
-              <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
+              <h2 class="dashboard-title">${currentCollection === "Preparation" ? "📖 Preparation Dashboard" : "📖 Interview Guide Dashboard"}</h2>
               <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
               
               <div class="metrics-grid">
@@ -964,8 +994,21 @@
       let isSidebarCollapsed = localStorage.getItem("sidebar_collapsed") === "true";
       let isWideReading = localStorage.getItem("wide_reading") === "true";
 
+      let currentCollection = "Preparation";
       let activeFile = null;
       let activeSection = null;
+
+      function switchCollection(collection) {
+        currentCollection = collection;
+        document.getElementById("prepModeBtn").classList.toggle("active", collection === "Preparation");
+        document.getElementById("guideModeBtn").classList.toggle("active", collection === "InterviewGuide");
+        
+        calculateAllPrepTimes();
+        renderFileList();
+        countFiles();
+        goBack();
+      }
+
 
       function renderContentHeader() {
         const sidebarIcon = isSidebarCollapsed ? "📂" : "📁";
@@ -1190,12 +1233,17 @@
 
       function countFiles() {
         let total = 0;
-        for (const [section, files] of Object.entries(embeddedFileData)) {
-          const filtered = files.filter(f => !f.name.endsWith("_hinglish.md"));
-          total += filtered.length;
+        if (currentCollection === "Preparation") {
+            for (const [section, files] of Object.entries(embeddedFileData)) {
+              if (section === "InterviewGuide") continue;
+              const filtered = files.filter(f => !f.name.endsWith("_hinglish.md"));
+              total += filtered.length;
+            }
+        } else {
+            const files = embeddedFileData["InterviewGuide"] || [];
+            total = files.length;
         }
-        document.getElementById("fileCount").textContent =
-          `Total: ${total} files`;
+        document.getElementById("fileCount").textContent = `Total: ${total} files`;
       }
       const filePrepTimes = {};
       const categoryPrepTotals = {};
@@ -1211,8 +1259,13 @@
       function calculateAllPrepTimes() {
         totalTheoryMinutes = 0;
         totalCodingMinutes = 0;
+        for (const key in categoryPrepTotals) delete categoryPrepTotals[key];
 
         for (const [section, files] of Object.entries(embeddedFileData)) {
+          const isInterviewGuide = section === "InterviewGuide";
+          if (currentCollection === "Preparation" && isInterviewGuide) continue;
+          if (currentCollection === "InterviewGuide" && !isInterviewGuide) continue;
+
           categoryPrepTotals[section] = { theory: 0, coding: 0, total: 0 };
           
           const filteredFiles = files.filter(file => !file.name.endsWith("_hinglish.md"));
@@ -1260,7 +1313,7 @@
 
         return `
           <div class="no-file">
-            <h2 class="dashboard-title">📖 Preparation Dashboard</h2>
+            <h2 class="dashboard-title">${currentCollection === "Preparation" ? "📖 Preparation Dashboard" : "📖 Interview Guide Dashboard"}</h2>
             <p class="dashboard-desc">Select a resource from the sidebar to start reading, or review the overall study guides below.</p>
             
             <div class="metrics-grid">
@@ -1299,7 +1352,9 @@
         const fileList = document.getElementById("fileList");
         fileList.innerHTML = "";
 
-        const groups = [
+        let groups = [];
+        if (currentCollection === "Preparation") {
+            groups = [
             {
                 title: "1. React Native",
                 items: [
@@ -1350,7 +1405,20 @@
                     { label: "1-Hour Coding & Theory", section: "10-Daily-Revision", filename: "Daily_Revision.md" }
                 ]
             }
-        ];
+            ];
+        } else {
+            const files = embeddedFileData["InterviewGuide"] || [];
+            groups = [
+                {
+                    title: "Interview Guide",
+                    items: files.map(f => ({
+                        label: formatFileName(f.name),
+                        section: "InterviewGuide",
+                        filename: f.name
+                    }))
+                }
+            ];
+        }
 
         groups.forEach(group => {
             const sectionDiv = document.createElement("div");

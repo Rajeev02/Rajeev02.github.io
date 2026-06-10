@@ -41,6 +41,32 @@ def build_embedded_data():
                 print(f"Bundled: {category}/{filename} ({len(content)} bytes)")
             except Exception as e:
                 print(f"Error reading {file_path}: {e}")
+
+    # Add React-Native-Interview-Guide
+    interview_guide_dir = "/Users/rajeevjoshi/Documents/GitHub/Rajeev02.github.io/src/React-Native-Interview-Guide"
+    if os.path.exists(interview_guide_dir):
+        embedded_data["InterviewGuide"] = []
+        files = sorted(os.listdir(interview_guide_dir))
+        for filename in files:
+            file_path = os.path.join(interview_guide_dir, filename)
+            if not os.path.isfile(file_path) or filename.startswith('.'):
+                continue
+            file_ext = filename.split('.')[-1].lower()
+            if file_ext not in ['md']:
+                continue
+            
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                embedded_data["InterviewGuide"].append({
+                    "name": filename,
+                    "content": content,
+                    "type": "md"
+                })
+                print(f"Bundled: InterviewGuide/{filename} ({len(content)} bytes)")
+            except Exception as e:
+                print(f"Error reading {file_path}: {e}")
                 
     js_content = f"const embeddedFileData = {json.dumps(embedded_data, indent=2)};\n"
     
