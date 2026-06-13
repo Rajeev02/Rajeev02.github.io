@@ -16,24 +16,21 @@ const AboutSection = () => {
                 </span>{" "}
                 in mobile application development, including{" "}
                 <span className="text-foreground font-semibold">
-                  5+ years building cross-platform applications with React Native
+                  5+ years building cross-platform Android and iOS applications using React Native
                 </span>{" "}
-                and 4 years in Native Android development.
+                and 4 years developing Native Android applications using Java.
               </p>
               <p>
-                Experienced in developing scalable{" "}
-                <span className="text-primary">
-                  Android and iOS applications
-                </span>{" "}
-                across Fintech, SaaS, Travel, and Consumer Technology domains using React Native, TypeScript, GraphQL, Redux Toolkit, React Query, and REST APIs.
+                Experienced in delivering mobile solutions across Fintech, SaaS, Travel, Entertainment, and Consumer Technology domains using{" "}
+                <span className="text-foreground">
+                  React Native, TypeScript, JavaScript, GraphQL, Redux Toolkit, React Query, REST APIs, and Android technologies
+                </span>.
               </p>
               <p>
-                Led React Native upgrades from version{" "}
-                <span className="text-foreground font-semibold">0.63 to 0.83</span>{" "}
-                and successfully migrated applications from Legacy Architecture to New Architecture using <span className="text-primary">Hermes, JSI, Fabric, and TurboModules</span>. Experienced in white-label applications, multi-environment setups, localization, accessibility, payment integrations, authentication systems, CI/CD automation, and release management.
+                Owned and executed React Native version upgrades across multiple release cycles, maintaining applications from React Native <span className="text-foreground font-semibold">0.63 through 0.83</span> while ensuring compatibility, stability, and smooth production deployments. Hands-on experience with <span className="text-primary">React Native New Architecture adoption</span>, including Hermes, JSI, Fabric, and TurboModules.
               </p>
               <p>
-                Experienced in end-to-end mobile application delivery, including architecture, development, testing, CI/CD automation, and Play Store/App Store releases while collaborating with product, design, QA, and backend teams in <span className="text-foreground font-semibold">Agile environments</span>.
+                Experienced in white-label applications, multi-environment configurations, localization, accessibility, authentication systems, payment integrations, CI/CD automation, release management, and end-to-end mobile application delivery across Android and iOS platforms.
               </p>
             </div>
           </div>
