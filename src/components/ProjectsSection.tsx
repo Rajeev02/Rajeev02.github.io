@@ -72,7 +72,7 @@ const projects = [
       "Multimedia Integration",
       "Git",
     ],
-    featured: false,
+    featured: true,
   },
   {
     name: "Plurebus",
@@ -84,7 +84,7 @@ const projects = [
       "Android entertainment platform similar to BookMyShow — discovery and booking experiences for movies, theatre, drama, and live shows, with rich, media-driven user experiences and REST API integrations.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
     icon: "/images/apps/plurebus.png",
-    featured: false,
+    featured: true,
   },
 ];
 
