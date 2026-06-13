@@ -49,7 +49,7 @@ const skillCategories = [
   {
     title: "Testing & Quality",
     icon: BarChart3,
-    skills: ["Jest", "Unit Testing", "Integration Testing", "Detox", "E2E Testing"]
+    skills: ["Jest", "Unit Testing", "Integration Testing", "Detox", "E2E Testing", "Debugging & Bug Fixing"]
   },
   {
     title: "DevOps & Release Eng",

@@ -4882,3 +4882,29 @@ Based on your resume, the following topics have been expanded into detailed inte
 - **Daily Standup:** We align on progress, identify blockers, and ensure feature parity between iOS and Android.
 - **Code Reviews:** Mandatory PR reviews focusing on performance, memory leaks, and adherence to SOLID principles/Clean Architecture.
 - **Retrospectives:** At sprint close, we analyze what went well and what bottlenecks occurred, constantly iterating to improve our delivery velocity.
+
+### 15.7 Senior Engineering & Project Scale
+
+> 🎯 **Topic:** React Native Upgrades & Architecture Migration
+
+**Q: You led a massive React Native upgrade from 0.63 to 0.83. How do you approach such a significant leap across multiple breaking changes?**
+**A:** A jump of 20 minor versions is practically a rewrite of the build system. My approach involves:
+- **Incremental Bumps vs. Fresh Template:** Instead of upgrading incrementally (which causes infinite dependency hell), I use the `npx react-native init` command to generate a fresh 0.83 template. I then use the React Native Upgrade Helper to manually port over our native custom configurations (like `build.gradle`, `Podfile`, and `AppDelegate.mm`).
+- **Dependency Audit:** I audit all third-party libraries. If a library is dead or incompatible with the New Architecture, we fork it, replace it, or rewrite it as a custom TurboModule.
+- **Hermes & New Architecture Prep:** 0.63 to 0.83 involves Hermes becoming the default engine, and preparing for Fabric. I tackle this in phases: first getting the app to compile on the new version with the old bridge, stabilizing it, and then incrementally enabling New Architecture flags.
+
+> 🎯 **Topic:** White-Label Applications
+
+**Q: How do you architect a white-label React Native application to support multiple brands from a single codebase?**
+**A:** I abstract the differences across three layers:
+- **Native Layer (Build Variants):** I use Android Product Flavors and iOS Xcode Schemes. This allows each brand to have its own App Icon, Bundle ID, Splash Screen, and native Firebase configurations generated dynamically at compile time.
+- **Configuration Layer:** I use `.env` files (e.g., `.env.brandA`, `.env.brandB`) managed via `react-native-config` to inject brand-specific API endpoints and feature flags.
+- **UI/Theming Layer:** I use a dynamic theming context (or a library like Restyle/styled-components). When the app boots, it reads the active environment and injects the corresponding color palette, typography, and logo assets, ensuring the core React components remain highly reusable.
+
+> 🎯 **Topic:** Multi-Environment Management
+
+**Q: What is your strategy for managing Dev, QA, UAT, Staging, and Production environments?**
+**A:** It requires strict separation to prevent accidental data contamination.
+- **JS Configuration:** I use `react-native-config` to map specific `.env` variables (API URLs, API keys) to their respective environments.
+- **Native App Coexistence:** By appending suffixes to the Bundle ID (e.g., `com.myapp.dev`, `com.myapp.uat`), we can install the Dev, QA, and Production apps on the same physical testing device simultaneously.
+- **CI/CD Triggers:** Fastlane lanes are triggered by branch merges. Merging to `develop` builds the QA app; merging to `release/uat` builds the UAT app for client testing; merging to `main` cuts a Production tag and submits to the stores.

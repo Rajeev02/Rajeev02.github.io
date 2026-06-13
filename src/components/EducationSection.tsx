@@ -5,14 +5,14 @@ const education = [
     degree: "Master of Computer Applications (MCA)",
     institution: "National Institute of Technology Durgapur",
     period: "2013 - 2016",
-    result: "6.97 CGPA",
+    result: "CGPA: 6.97",
   },
   {
     degree: "Bachelor of Computer Applications (BCA)",
     institution:
-      "Dr. Harisingh Gour Vishwavidyalaya (University of Saugar), Sagar",
+      "Saraswati College of Computer Science, Chhatarpur (Affiliated to Dr. Harisingh Gour Vishwavidyalaya, Sagar)",
     period: "2009 - 2012",
-    result: "75.12%",
+    result: "Percentage: 75.12%",
   }
 ];
 
