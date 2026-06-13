@@ -9,7 +9,7 @@ const projects = [
     tech: "React Native",
     teamSize: 9,
     description:
-      "Investor-focused fintech applications supporting startup investments and portfolio management. Implemented authentication, payment workflows, analytics, and release management.",
+      "Investor-focused fintech applications enabling startup investments, portfolio tracking, fundraising workflows, authentication, payments, analytics, and investor engagement features.",
     skills: [
       "React Native",
       "TypeScript",
@@ -35,7 +35,7 @@ const projects = [
     tech: "React Native",
     teamSize: 6,
     description:
-      "Platform helping startup founders access fundraising opportunities, service providers, and growth resources.",
+      "Platform helping startup founders discover fundraising opportunities, service providers, and growth resources.",
     skills: [
       "React Native",
       "JavaScript",
@@ -50,7 +50,7 @@ const projects = [
     tech: "Android (Java)",
     teamSize: 6,
     description:
-      "Wildlife discovery and safari planning application optimized for rich media experiences and low-network environments.",
+      "Wildlife exploration and safari planning application optimized for rich media content and low-network environments.",
     skills: ["Android", "Java", "REST APIs"],
     webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
