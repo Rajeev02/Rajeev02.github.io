@@ -33,7 +33,7 @@ const AboutSection = () => {
                 and successfully migrated applications from Legacy Architecture to New Architecture using <span className="text-primary">Hermes, JSI, Fabric, and TurboModules</span>. Experienced in white-label applications, multi-environment setups, localization, accessibility, payment integrations, authentication systems, CI/CD automation, and release management.
               </p>
               <p>
-                Delivered 60+ Android and iOS production releases while working closely with product, design, QA, and backend teams in <span className="text-foreground font-semibold">Agile environments</span>.
+                Experienced in end-to-end mobile application delivery, including architecture, development, testing, CI/CD automation, and Play Store/App Store releases while collaborating with product, design, QA, and backend teams in <span className="text-foreground font-semibold">Agile environments</span>.
               </p>
             </div>
           </div>

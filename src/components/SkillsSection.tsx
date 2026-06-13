@@ -4,7 +4,7 @@ const skillCategories = [
   {
     title: "Cross-Platform Mobile Dev",
     icon: Smartphone,
-    skills: ["React Native", "TypeScript", "JavaScript (ES6+)", "Expo", "React Navigation", "Redux Toolkit", "React Query", "Context API", "AsyncStorage", "GraphQL", "REST APIs"]
+    skills: ["React Native", "TypeScript", "JavaScript (ES6+)", "Expo (Working Knowledge)", "React Navigation", "Redux Toolkit", "React Query", "Context API", "AsyncStorage", "GraphQL", "REST APIs"]
   },
   {
     title: "Android Development",
@@ -14,7 +14,7 @@ const skillCategories = [
   {
     title: "iOS Development",
     icon: Smartphone,
-    skills: ["Xcode", "CocoaPods", "iOS Build Configuration", "Provisioning Profiles", "Certificates & Signing", "App Store Connect", "TestFlight Distribution", "App Store Deployment", "Native iOS Integrations"]
+    skills: ["Xcode", "CocoaPods", "App Store Connect", "TestFlight", "App Store Review Process", "Provisioning Profiles", "Apple Certificates", "Push Notification Certificates"]
   },
   {
     title: "React Native Architecture",
@@ -27,9 +27,9 @@ const skillCategories = [
     skills: ["JavaScript Thread", "UI/Main Thread", "Shadow Thread", "Native Thread", "React Native Rendering Pipeline", "Bridge Communication", "Performance Optimization", "Memory Management"]
   },
   {
-    title: "Architecture & Methods",
+    title: "Architecture & Practices",
     icon: Sparkles,
-    skills: ["MVVM", "Clean Architecture", "SOLID Principles", "Design Patterns", "Modular Architecture", "Agile Scrum", "Sprint Planning", "Code Reviews"]
+    skills: ["MVVM", "Clean Architecture", "SOLID Principles", "Design Patterns", "Modular Architecture", "Agile Scrum", "Code Reviews"]
   },
   {
     title: "Native Integrations",

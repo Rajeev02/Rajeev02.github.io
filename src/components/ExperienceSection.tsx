@@ -15,13 +15,14 @@ const experiences = [
       "Led migration from React Native Legacy Architecture to New Architecture using Hermes, JSI, Fabric, and TurboModules.",
       "Owned React Native upgrades from version 0.63 to 0.83, ensuring compatibility, stability, and smooth production releases.",
       "Delivered 60+ Android and iOS production releases across multiple products.",
-      "Built reusable white-label solutions supporting multiple applications from a shared codebase.",
-      "Managed Development, QA, UAT, Staging, and Production environments.",
-      "Implemented multi-theme, multi-language, and accessibility features.",
+      "Built reusable white-label applications supporting multiple brands and products from a shared codebase while maintaining platform consistency.",
+      "Managed Development, QA, UAT, Staging, and Production environments using environment-based configurations and release workflows.",
+      "Implemented multi-theme, multi-language, and accessibility features to improve usability, localization, and user experience across applications.",
       "Integrated AWS Cognito, Auth0, OAuth, JWT authentication, Razorpay, and Cashfree payment solutions.",
-      "Integrated Camera, Location, Permissions, Deep Linking, Push Notifications, Analytics, and Crash Reporting.",
-      "Automated release workflows using Fastlane and GitHub Actions.",
-      "Participated in architecture discussions, code reviews, performance optimization, and Agile delivery processes."
+      "Integrated native capabilities including Camera, Location Services, Device Permissions, Deep Linking, Push Notifications, Analytics, and Crash Reporting.",
+      "Automated build, testing, and release workflows using Fastlane and GitHub Actions for Android and iOS deployments.",
+      "Participated in architecture discussions, code reviews, performance optimization, and Agile delivery processes.",
+      "Mentored junior developers, conducted code reviews, and contributed to engineering best practices and knowledge sharing initiatives."
     ],
   },
   {
