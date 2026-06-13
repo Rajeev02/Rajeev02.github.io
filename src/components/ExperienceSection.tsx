@@ -14,7 +14,7 @@ const experiences = [
       "Contributed to fintech products serving startup founders and investors across the LetsVenture ecosystem.",
       "Designed and developed cross-platform Android and iOS applications using React Native, TypeScript, GraphQL, Redux Toolkit, React Query, and REST APIs.",
       "Owned and executed React Native version upgrades across multiple release cycles, maintaining applications from React Native 0.63 through 0.83 while ensuring compatibility and production stability.",
-      "Participated in React Native New Architecture adoption initiatives involving Hermes, JSI, Fabric, and TurboModules.",
+      "Contributed to React Native New Architecture adoption, including Hermes, JSI, Fabric, and TurboModules, as part of platform modernization efforts.",
       "Delivered 60+ production releases across Android and iOS platforms, including feature launches, framework upgrades, bug fixes, performance improvements, and compliance updates.",
       "Built reusable white-label applications supporting multiple products and business use cases from a shared codebase.",
       "Managed Development, QA, UAT, Staging, and Production environments using environment-based configurations and release workflows.",
