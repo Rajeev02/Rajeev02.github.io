@@ -82,6 +82,26 @@
         line-height: 1.5;
       }
 
+      .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 10px;
+      }
+
+      .summary-table th, .summary-table td {
+        border: 1px solid #ddd;
+        padding: 4px 8px;
+        text-align: left;
+      }
+
+      .summary-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #2c3e50;
+        width: 30%;
+      }
+
       .skills-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -141,12 +161,12 @@
         margin-bottom: 4px;
       }
 
-      .experience-item ul {
+      .experience-item ul, .leadership-desc ul {
         margin-left: 15px;
         margin-top: 3px;
       }
 
-      .experience-item li {
+      .experience-item li, .leadership-desc li {
         font-size: 10px;
         color: #333;
         margin-bottom: 2px;
@@ -188,6 +208,20 @@
       .institution {
         font-size: 10px;
         color: #333;
+      }
+
+      .leadership-item {
+        margin-bottom: 6px;
+      }
+      .leadership-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: #2c3e50;
+      }
+      .leadership-desc {
+        font-size: 10px;
+        color: #333;
+        margin-top: 2px;
       }
 
       .button-container {
@@ -327,7 +361,7 @@
       <div class="header">
         <h1>RAJEEV KUMAR JOSHI</h1>
         <div class="title">
-          Senior React Native Developer | Mobile Engineer | Android &amp; iOS
+          Senior React Native Developer | Mobile Engineer (Android &amp; iOS)
         </div>
         <div class="contact">
           Bengaluru, India | +91 8792169096 | rajeevjoshi91@gmail.com<br />
@@ -340,21 +374,42 @@
       <div class="section">
         <div class="section-title">Professional Summary</div>
         <div class="summary">
-          Senior React Native Developer with <strong>9 years</strong> of
-          hands-on experience building, shipping, and maintaining cross-platform
-          <strong>Android and iOS</strong> applications across
-          <strong>fintech, travel, and consumer</strong>
-          products. Started career as a
-          <strong>native Android developer (Java)</strong> and transitioned into
-          <strong>React Native</strong>, owning end-to-end mobile delivery as an
-          individual contributor — architecture, feature development,
-          authentication, payments, analytics, crash monitoring, deep linking,
-          push notifications, native modules, CI/CD, and Play Store / App Store
-          releases. Comfortable taking a React Native application from
-          greenfield setup to production, debugging real-world issues, and
-          partnering closely with product, design, and backend teams to ship
-          reliable mobile experiences.
+          Senior Mobile Engineer with <strong>9+ years of experience</strong> in mobile application development, including <strong>5+ years in React Native</strong> and <strong>4 years in Native Android development</strong>. Proven experience in designing, developing, deploying, and scaling cross-platform mobile applications across <strong>Fintech, SaaS, Travel, Entertainment, and Consumer Technology</strong> domains.<br/><br/>
+          Strong expertise in <strong>React Native, TypeScript, JavaScript, Redux Toolkit, React Query, Native Integrations, Authentication Systems, Payment Gateways, Analytics, Push Notifications, Deep Linking, CI/CD, and Mobile Release Management</strong>.<br/><br/>
+          Hands-on experience with <strong>React Native New Architecture</strong>, including <strong>Hermes, JSI, Fabric, TurboModules</strong>, Native Module development, and React Native Bridge internals. Skilled in delivering products from concept to production while collaborating with cross-functional teams in Agile environments.
         </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience Summary</div>
+        <table class="summary-table">
+          <tbody>
+            <tr>
+              <th>Total Experience</th>
+              <td>9+ Years</td>
+            </tr>
+            <tr>
+              <th>React Native</th>
+              <td>5+ Years</td>
+            </tr>
+            <tr>
+              <th>Native Android</th>
+              <td>4 Years</td>
+            </tr>
+            <tr>
+              <th>Current Location</th>
+              <td>Bengaluru</td>
+            </tr>
+            <tr>
+              <th>Notice Period</th>
+              <td>Immediate</td>
+            </tr>
+            <tr>
+              <th>Employment Type</th>
+              <td>Full-Time</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="section">
@@ -362,50 +417,47 @@
         <div class="skills-grid">
           <div class="skill-item">
             <div class="skill-label">Mobile Development:</div>
-            <div class="skill-value">
-              React Native, Expo, TypeScript, JavaScript, React Navigation,
-              Redux Toolkit, React Query
-            </div>
+            <div class="skill-value">React Native, Expo, TypeScript, JavaScript (ES6+), React Navigation, Redux Toolkit, React Query, Context API, AsyncStorage</div>
           </div>
           <div class="skill-item">
-            <div class="skill-label">Native Android Experience:</div>
-            <div class="skill-value">
-              Java, Android SDK, Activities &amp; Fragments, REST API
-              integration, Play Store release management
-            </div>
+            <div class="skill-label">Native Android:</div>
+            <div class="skill-value">Java, Android SDK, Android Studio, Activities &amp; Fragments, REST API Integration</div>
           </div>
           <div class="skill-item">
-            <div class="skill-label">Platform &amp; Integrations:</div>
-            <div class="skill-value">
-              Android &amp; iOS builds, Xcode, Android Studio, deep linking,
-              push notifications, permissions, native module integration
-            </div>
+            <div class="skill-label">React Native Architecture:</div>
+            <div class="skill-value">Hermes Engine, JavaScript Interface (JSI), Fabric Renderer, TurboModules, Native Module Development, React Native Bridge Architecture</div>
           </div>
           <div class="skill-item">
-            <div class="skill-label">Backend &amp; Cloud Services:</div>
-            <div class="skill-value">
-              Firebase, Auth0, AWS Cognito, Branch, Sentry, PostHog
-            </div>
+            <div class="skill-label">React Native Internals:</div>
+            <div class="skill-value">JavaScript Thread, UI/Main Thread, Shadow Thread, Native Thread, React Native Rendering Pipeline, Bridge Communication, Performance Optimization</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Architecture &amp; Design:</div>
+            <div class="skill-value">MVVM, Clean Architecture, SOLID Principles, Design Patterns, Modular Architecture, Agile Scrum</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Native Integrations:</div>
+            <div class="skill-value">Authentication, Camera, GPS &amp; Location Services, Push Notifications, Deep Linking, Device Permissions, File Upload/Download, Payment Gateways, Third-Party SDK Integrations</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Backend &amp; Cloud:</div>
+            <div class="skill-value">Firebase, AWS Cognito, Auth0, Branch, Sentry, PostHog</div>
           </div>
           <div class="skill-item">
             <div class="skill-label">Payments &amp; Security:</div>
-            <div class="skill-value">
-              Cashfree, Razorpay, secure authentication workflows
-            </div>
+            <div class="skill-value">Razorpay, Cashfree, OAuth, JWT Authentication, Secure Login Workflows</div>
           </div>
           <div class="skill-item">
-            <div class="skill-label">Release Engineering:</div>
-            <div class="skill-value">
-              Play Store &amp; App Store releases, CI/CD pipelines, crash
-              monitoring, hotfix workflows
-            </div>
+            <div class="skill-label">Testing:</div>
+            <div class="skill-value">Jest, Unit Testing, Integration Testing, Detox (Basic), E2E Testing (Basic)</div>
           </div>
           <div class="skill-item">
-            <div class="skill-label">Engineering Productivity:</div>
-            <div class="skill-value">
-              Modern debugging, refactoring, code review, and development
-              productivity workflows
-            </div>
+            <div class="skill-label">DevOps &amp; Release Management:</div>
+            <div class="skill-value">CI/CD Pipelines, Play Store Releases, App Store Releases, Crash Monitoring, Release Automation, Hotfix Management</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Tools:</div>
+            <div class="skill-value">Git, GitHub, Bitbucket, Postman, VS Code, Android Studio, Xcode</div>
           </div>
         </div>
       </div>
@@ -416,131 +468,77 @@
         <div class="experience-item">
           <div class="experience-header">
             <div>
-              <div class="job-title">
-                Senior Android Developer
-              </div>
-              <div class="company">
-                LetsVenture Technologies Private Limited | Bengaluru
-              </div>
+              <div class="job-title">Senior React Native Developer / Senior Android Developer</div>
+              <div class="company">LetsVenture Technologies Pvt Ltd | Bengaluru</div>
             </div>
             <div class="duration">Sep 2019 - Feb 2026</div>
           </div>
-          <div class="products">
-            Products: LVX, LVXQ, Scalix &nbsp;|&nbsp; Domain: Fintech, Private
-            Markets &amp; Founder Tooling
-          </div>
+          <div class="products">Products: LVX, LVXQ, Scalix &nbsp;|&nbsp; Domain: Fintech | Startup Ecosystem | SaaS</div>
           <ul>
-            <li>
-              Joined as an Android Developer; transitioned into React Native
-              within the first year and worked primarily as a Senior React
-              Native Developer for the remainder of the tenure, owning
-              cross-platform Android &amp; iOS delivery as an individual
-              contributor.
-            </li>
-            <li>
-              Owned end-to-end mobile delivery for investor-facing fintech
-              products (LVX, LVXQ) and Scalix for LetsVenture — feature design,
-              implementation, code reviews, releases, and post-release
-              stability.
-            </li>
-            <li>
-              Built and maintained authentication flows (Auth0, AWS Cognito),
-              payment integrations (Razorpay, Cashfree), analytics (PostHog),
-              crash monitoring (Sentry), deep linking (Branch), and push
-              notifications (Firebase).
-            </li>
-            <li>
-              Managed Play Store and App Store release cycles end-to-end —
-              versioning, signing, store submissions, hotfix workflows, and
-              CI/CD pipelines for predictable production deployments.
-            </li>
-            <li>
-              Worked closely with backend, product, and design teams;
-              contributed to mobile architecture, navigation, and
-              state-management patterns using Redux Toolkit and React Query.
-            </li>
+            <li>Started as a Native Android Developer and transitioned to React Native, becoming a key contributor to both Android and iOS platforms.</li>
+            <li>Led end-to-end mobile application development, including architecture, implementation, testing, deployment, and production support.</li>
+            <li>Built and maintained investor-focused applications serving startup founders, investors, and ecosystem partners.</li>
+            <li>Implemented secure authentication workflows using AWS Cognito and Auth0.</li>
+            <li>Integrated payment gateways including Razorpay and Cashfree.</li>
+            <li>Developed analytics and user-behavior tracking using PostHog.</li>
+            <li>Implemented crash reporting and monitoring using Sentry, improving production issue visibility.</li>
+            <li>Integrated Branch deep linking and Firebase Push Notifications.</li>
+            <li>Managed application state using Redux Toolkit and React Query.</li>
+            <li>Delivered and maintained 60+ production releases across Android and iOS platforms.</li>
+            <li>Integrated multiple native modules including authentication, payments, location services, notifications, and device features.</li>
+            <li>Participated in architecture discussions, code reviews, sprint planning, performance optimization, and production troubleshooting.</li>
+            <li>Collaborated closely with Product Managers, Designers, Backend Engineers, QA teams, and Business Stakeholders.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="experience-header">
             <div>
-              <div class="job-title">
-                Software Engineer
-              </div>
-              <div class="company">
-                WildTrails Technology Private Limited | Bengaluru
-              </div>
+              <div class="job-title">Software Engineer (Android Developer)</div>
+              <div class="company">WildTrails Technology Pvt Ltd | Bengaluru</div>
             </div>
             <div class="duration">Mar 2018 - Sep 2019</div>
           </div>
-          <div class="products">
-            Products: WildTrails App, Wildlife LiveUpdates
-          </div>
           <ul>
-            <li>
-              Built Android application features for wildlife discovery, trip
-              planning, and media-rich user experiences.
-            </li>
-            <li>
-              Integrated REST APIs and optimised application performance for
-              low-network safari and remote-field environments.
-            </li>
-            <li>
-              Contributed to mobile stability improvements and user experience
-              enhancements.
-            </li>
+            <li>Developed Android features for wildlife exploration and safari planning applications.</li>
+            <li>Integrated REST APIs and optimized app performance for low-bandwidth environments.</li>
+            <li>Enhanced application stability, responsiveness, and user experience.</li>
+            <li>Worked closely with backend and product teams to deliver new features and product enhancements.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="experience-header">
             <div>
-              <div class="job-title">
-                Junior Android Developer
-              </div>
+              <div class="job-title">Junior Android Developer</div>
               <div class="company">Dunst Technologies Pvt Ltd | Bengaluru</div>
             </div>
             <div class="duration">Dec 2017 - Mar 2018</div>
           </div>
-          <div class="products">Projects: Wanderlust & SIFF</div>
+          <div class="products">Projects: Wanderlust, SIFF</div>
           <ul>
-            <li>
-              Developed Android application features for VR travel experiences,
-              multimedia content delivery, event schedules, and ticket-related
-              workflows.
-            </li>
-            <li>
-              Worked on performance optimisation and feature implementation for
-              consumer-facing mobile applications.
-            </li>
+            <li>Developed Android features for VR travel and event-management applications.</li>
+            <li>Implemented multimedia content delivery and event scheduling features.</li>
+            <li>Worked on ticketing workflows, notifications, and performance improvements.</li>
+            <li>Supported maintenance and enhancement of consumer-facing applications.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="experience-header">
             <div>
-              <div class="job-title">
-                Junior R&amp;D Engineer
-              </div>
-              <div class="company">
-                PLUREBUS TECHNOLOGIES PRIVATE LIMITED | Bengaluru
-              </div>
+              <div class="job-title">Junior R&amp;D Engineer (Android Developer)</div>
+              <div class="company">Plurebus Technologies Pvt Ltd | Bengaluru</div>
             </div>
             <div class="duration">Sep 2016 - Sep 2017</div>
           </div>
-          <div class="products">Project: Plurebus Android App</div>
+          <div class="products">Project: Entertainment Discovery &amp; Booking Platform</div>
           <ul>
-            <li>
-              Built Android features and API integrations for an entertainment
-              platform similar to BookMyShow, focused on discovery and booking
-              experiences for movies, theatre, drama, and live shows.
-            </li>
-            <li>
-              Worked on rich, media-driven user experiences, listings,
-              schedules, and booking-related workflows, contributing to feature
-              development and overall application enhancements.
-            </li>
+            <li>Developed Android features for a movie and event discovery platform similar to BookMyShow.</li>
+            <li>Implemented event listings, schedules, booking workflows, and multimedia content features.</li>
+            <li>Integrated REST APIs and customer booking experiences.</li>
+            <li>Collaborated with backend and product teams to improve scalability and performance.</li>
+            <li>Contributed to bug fixes, optimization, and application stability improvements.</li>
           </ul>
         </div>
       </div>
@@ -549,35 +547,64 @@
         <div class="section-title">Featured Projects</div>
         <div class="projects-grid">
           <div class="project-item">
-            <div class="project-title">LVX &amp; LVXQ — LetsVenture</div>
+            <div class="project-title">LVX &amp; LVXQ (LetsVenture)</div>
             <div class="project-desc">
-              Investor-facing fintech platforms supporting portfolio tracking,
-              secure authentication, payments, analytics, and release
-              management.
+              Investor-focused fintech applications enabling startup investments, portfolio management, secure authentication, digital payments, analytics &amp; tracking, and mobile release management.
             </div>
           </div>
           <div class="project-item">
-            <div class="project-title">Scalix by LetsVenture</div>
+            <div class="project-title">Scalix</div>
             <div class="project-desc">
-              “Startup in a box” platform for founders — fundraising,
-              service-provider marketplace, beta customers, business
-              opportunities, business-tool discovery, and perks &amp; discounts
-              — with mobile workflows on Android &amp; iOS.
+              Startup ecosystem platform helping founders access fundraising opportunities, service providers, beta customers, startup perks, business tools, and growth resources.
             </div>
           </div>
           <div class="project-item">
             <div class="project-title">WildTrails</div>
             <div class="project-desc">
-              Android mobile application for wildlife discovery, trip planning,
-              and low-network media workflows.
+              Wildlife discovery and safari planning application supporting rich media experiences and low-network optimization.
             </div>
           </div>
           <div class="project-item">
-            <div class="project-title">Wanderlust &amp; SIFF</div>
+            <div class="project-title">Wanderlust</div>
             <div class="project-desc">
-              Android applications for VR travel experiences and film-festival
-              schedules with multimedia and ticketing capabilities.
+              Virtual reality travel platform delivering immersive travel experiences through multimedia-rich mobile applications.
             </div>
+          </div>
+          <div class="project-item">
+            <div class="project-title">SIFF</div>
+            <div class="project-desc">
+              Film festival management application supporting schedules, event information, attendee engagement, and notifications.
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-title">Entertainment Discovery &amp; Booking Platform</div>
+            <div class="project-desc">
+              Movie, theatre, drama, and live-event booking platform supporting event discovery, ticket booking, multimedia content, search experiences, and customer engagement.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Leadership Experience</div>
+        <div class="leadership-item">
+          <div class="leadership-title">Class Representative | National Institute of Technology Durgapur (2013 – 2016)</div>
+          <div class="leadership-desc">
+            <ul>
+              <li>Acted as a liaison between students and faculty members.</li>
+              <li>Coordinated academic communications and student initiatives.</li>
+              <li>Supported departmental and extracurricular activities.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="leadership-title">Cultural &amp; Technical Events Team</div>
+          <div class="leadership-desc">
+            <ul>
+              <li>Organized student events, cultural festivals, and technical activities.</li>
+              <li>Coordinated with organizing teams and volunteers.</li>
+              <li>Developed leadership, communication, and teamwork skills.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -587,14 +614,13 @@
         <div class="education-item">
           <div class="degree">Master of Computer Applications (MCA)</div>
           <div class="institution">
-            National Institute of Technology Durgapur · 2013 - 2016 | 6.97 CGPA
+            National Institute of Technology Durgapur · 2013 - 2016 | CGPA: 6.97
           </div>
         </div>
         <div class="education-item">
           <div class="degree">Bachelor of Computer Applications (BCA)</div>
           <div class="institution">
-            Dr. Harisingh Gour Vishwavidyalaya (University of Saugar), Sagar ·
-            2009 - 2012 | 75.12%
+            Saraswati College of Computer Science, Chhatarpur (Affiliated to Dr. Harisingh Gour Vishwavidyalaya, Sagar) · 2009 - 2012 | Percentage: 75.12%
           </div>
         </div>
       </div>
@@ -604,7 +630,15 @@
         <div class="skills-grid">
           <div class="skill-item">
             <div class="skill-label">Languages:</div>
-            <div class="skill-value">English (Fluent), Hindi (Native)</div>
+            <div class="skill-value">English, Hindi</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Notice Period:</div>
+            <div class="skill-value">Immediate Joiner</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">Preferred Roles:</div>
+            <div class="skill-value">Senior React Native Developer, Lead React Native Developer, Mobile Engineer, Software Engineer (Mobile)</div>
           </div>
         </div>
       </div>
@@ -627,6 +661,9 @@
                     .section { margin-bottom: 12px; }
                     .section-title { font-size: 14px; font-weight: bold; color: #2c3e50; border-bottom: 1px solid #2c3e50; padding-bottom: 3px; margin-bottom: 8px; }
                     .summary { font-size: 11px; color: #444; }
+                    .summary-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 10px; }
+                    .summary-table th, .summary-table td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; }
+                    .summary-table th { background-color: #f8f9fa; font-weight: 600; color: #2c3e50; width: 30%; }
                     .skill-item { font-size: 10px; margin-bottom: 3px; }
                     .skill-label { font-weight: bold; color: #2c3e50; }
                     .experience-item { margin-bottom: 12px; }
@@ -639,6 +676,7 @@
                     .project-desc { font-size: 10px; color: #555; }
                     .degree { font-size: 11px; font-weight: bold; color: #2c3e50; }
                     .institution { font-size: 10px; color: #555; }
+                    .leadership-title { font-size: 11px; font-weight: bold; color: #2c3e50; }
                 </style>
             `;
 
