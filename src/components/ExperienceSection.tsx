@@ -2,62 +2,76 @@ import { MapPin, Calendar, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    company: "LetsVenture Technologies Private Limited",
+    company: "LETSVENTURE TECHNOLOGIES PRIVATE LIMITED",
     companyUrl: "https://www.letsventure.com/",
-    role: "Senior Android Developer",
+    role: "Senior React Native Developer / Senior Android Developer",
     location: "Bengaluru",
     period: "Sep 2019 - Feb 2026",
     description:
-      "Owned end-to-end mobile delivery for investor-facing fintech products and founder-focused mobile workflows.",
+      "Led end-to-end mobile application development for investor-facing fintech products and founder-focused mobile workflows.",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Joined as an Android Developer; transitioned into React Native within the first year and worked primarily as a Senior React Native Developer for the remainder of the tenure, owning cross-platform Android & iOS delivery as an individual contributor",
-      "Owned end-to-end mobile delivery for investor-facing fintech products (LVX, LVXQ) and Scalix for LetsVenture — feature design, implementation, code reviews, releases, and post-release stability",
-      "Built and maintained authentication (Auth0, AWS Cognito), payments (Razorpay, Cashfree), analytics (PostHog), crash monitoring (Sentry), deep linking (Branch), and push notifications (Firebase)",
-      "Managed Play Store and App Store release cycles end-to-end — versioning, signing, store submissions, hotfix workflows, and CI/CD pipelines for predictable production deployments",
-      "Worked closely with backend, product, and design teams; contributed to mobile architecture, navigation, and state-management patterns using Redux Toolkit and React Query",
+      "Started as a Native Android Developer and transitioned into React Native development, becoming a key contributor across Android and iOS platforms",
+      "Led end-to-end mobile application development including architecture, implementation, testing, deployment, release management, and production support",
+      "Built and maintained investor-facing mobile applications supporting startup investments, portfolio management, startup discovery, fundraising, and founder ecosystems",
+      "Implemented secure authentication workflows using AWS Cognito and Auth0",
+      "Integrated Razorpay and Cashfree payment gateways, enabling secure transaction and investment workflows",
+      "Implemented PostHog analytics and user behavior tracking to support product insights and feature adoption analysis",
+      "Integrated Sentry crash monitoring and diagnostics to improve production issue visibility and troubleshooting efficiency",
+      "Implemented Branch deep linking and Firebase Push Notifications to enhance user onboarding and engagement",
+      "Managed application state using Redux Toolkit and React Query for scalable and maintainable architecture",
+      "Successfully delivered and maintained 60+ Android and iOS production releases with stable deployment processes and minimal production issues",
+      "Integrated multiple native modules including authentication, payments, camera, location services, notifications, and device-level functionality",
+      "Participated in architecture reviews, code reviews, sprint planning, debugging, performance optimization, and production support",
+      "Worked independently on critical mobile initiatives while collaborating closely with Product Managers, Designers, Backend Engineers, QA teams, and Business Stakeholders"
     ],
   },
   {
-    company: "WildTrails Technology Private Limited",
+    company: "WILDTRAILS TECHNOLOGY PRIVATE LIMITED",
     companyUrl: "https://packages.wildtrails.in/#parks/",
-    role: "Software Engineer",
+    role: "Software Engineer (Android Developer)",
     location: "Bengaluru",
     period: "Mar 2018 - Sep 2019",
     description:
       "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
-      "Built Android application features for wildlife discovery, trip planning, and media-rich user experiences",
-      "Integrated REST APIs and optimised application performance for low-network safari and remote-field environments",
-      "Contributed to mobile stability improvements and user experience enhancements",
+      "Developed Android application features for wildlife exploration and safari planning platforms",
+      "Integrated REST APIs and optimized application performance for low-bandwidth and remote-network environments",
+      "Improved application stability, responsiveness, and overall user experience",
+      "Collaborated with backend and product teams to deliver new mobile features and product enhancements"
     ],
   },
   {
-    company: "Dunst Technologies Pvt Ltd",
+    company: "DUNST TECHNOLOGIES PRIVATE LIMITED",
     companyUrl: "https://www.linkedin.com/company/dunst-nolan-pvt-ltd/",
     role: "Junior Android Developer",
     location: "Bengaluru",
     period: "Dec 2017 - Mar 2018",
     description: "Developed VR travel and film festival Android applications.",
-    products: ["Wanderlust & SIFF"],
+    products: ["Wanderlust", "SIFF"],
     highlights: [
-      "Developed Android application features for VR travel experiences, multimedia content delivery, event schedules, and ticket-related workflows",
-      "Worked on performance optimisation and feature implementation for consumer-facing mobile applications",
+      "Developed Android application features for VR travel and event-management applications",
+      "Implemented multimedia content delivery, event scheduling, notifications, and ticketing workflows",
+      "Optimized application performance and user experience",
+      "Supported maintenance and feature enhancement activities"
     ],
   },
   {
     company: "PLUREBUS TECHNOLOGIES PRIVATE LIMITED",
     companyUrl: "https://www.linkedin.com/company/plurebus/",
-    role: "Junior R&D Engineer",
+    role: "Junior R&D Engineer (Android Developer)",
     location: "Bengaluru",
     period: "Sep 2016 - Sep 2017",
     description:
       "Built entertainment-platform Android features and integrations (similar to BookMyShow).",
     products: ["Plurebus Android App"],
     highlights: [
-      "Built Android features and API integrations for an entertainment platform similar to BookMyShow, focused on discovery and booking experiences for movies, theatre, drama, and live shows",
-      "Worked on rich, media-driven user experiences, listings, schedules, and booking-related workflows, contributing to feature development and overall application enhancements",
+      "Developed Android application features for a movie, theatre, drama, and live-event discovery platform similar to BookMyShow",
+      "Implemented event listings, booking workflows, multimedia content, and search experiences",
+      "Integrated REST APIs and customer booking functionalities",
+      "Collaborated with backend and product teams to improve scalability, performance, and application stability",
+      "Contributed to bug fixing, optimization, and platform enhancements"
     ],
   },
 ];

@@ -2,39 +2,64 @@ import { Smartphone, Cloud, BarChart3, CreditCard, Cog, Sparkles } from "lucide-
 
 const skillCategories = [
   {
-    title: "Mobile Development",
+    title: "Cross-Platform Mobile Dev",
     icon: Smartphone,
-    skills: ["React Native", "Expo", "TypeScript", "JavaScript", "React Navigation", "Redux Toolkit", "React Query"]
+    skills: ["React Native", "TypeScript", "JavaScript (ES6+)", "Expo", "React Navigation", "Redux Toolkit", "React Query", "Context API", "AsyncStorage", "GraphQL", "REST APIs"]
   },
   {
-    title: "Native Android Experience",
+    title: "Android Development",
     icon: Smartphone,
-    skills: ["Java", "Android SDK", "Activities & Fragments", "REST API integration", "Play Store release management"]
+    skills: ["Java", "Android SDK", "Android Studio", "Activities & Fragments", "Android Application Lifecycle", "Play Store Deployment", "Native Android Integrations"]
   },
   {
-    title: "Platform & Integrations",
+    title: "iOS Development",
+    icon: Smartphone,
+    skills: ["Xcode", "CocoaPods", "iOS Build Configuration", "Provisioning Profiles", "Certificates & Signing", "App Store Connect", "TestFlight Distribution", "App Store Deployment", "Native iOS Integrations"]
+  },
+  {
+    title: "React Native Architecture",
     icon: Cog,
-    skills: ["Android & iOS builds", "Xcode", "Android Studio", "Deep linking", "Push notifications", "Permissions", "Native module integration"]
+    skills: ["Hermes Engine", "JavaScript Interface (JSI)", "Fabric Renderer", "TurboModules", "Native Module Development", "React Native Bridge Architecture", "React Native New Architecture Concepts"]
+  },
+  {
+    title: "React Native Internals",
+    icon: Cog,
+    skills: ["JavaScript Thread", "UI/Main Thread", "Shadow Thread", "Native Thread", "React Native Rendering Pipeline", "Bridge Communication", "Performance Optimization", "Memory Management"]
+  },
+  {
+    title: "Architecture & Methods",
+    icon: Sparkles,
+    skills: ["MVVM", "Clean Architecture", "SOLID Principles", "Design Patterns", "Modular Architecture", "Agile Scrum", "Sprint Planning", "Code Reviews"]
+  },
+  {
+    title: "Native Integrations",
+    icon: Smartphone,
+    skills: ["Authentication", "Camera", "GPS & Location Services", "Push Notifications", "Deep Linking", "Device Permissions", "File Upload & Download", "Payment Gateway Integrations", "Third-Party SDK Integrations"]
   },
   {
     title: "Backend & Cloud Services",
     icon: Cloud,
-    skills: ["Firebase", "Auth0", "AWS Cognito", "Branch", "Sentry", "PostHog"]
+    skills: ["Firebase", "AWS Cognito", "Auth0", "Branch", "PostHog", "Sentry"]
   },
   {
-    title: "Payments & Security",
+    title: "Security & Payments",
     icon: CreditCard,
-    skills: ["Cashfree", "Razorpay", "Secure authentication workflows"]
+    skills: ["OAuth", "JWT Authentication", "Razorpay", "Cashfree", "Secure Authentication Workflows"]
   },
   {
-    title: "Release Engineering",
+    title: "Testing & Quality",
     icon: BarChart3,
-    skills: ["Play Store releases", "App Store releases", "CI/CD pipelines", "Crash monitoring", "Hotfix workflows"]
+    skills: ["Jest", "Unit Testing", "Integration Testing", "Detox", "E2E Testing"]
   },
   {
-    title: "Engineering Productivity",
-    icon: Sparkles,
-    skills: ["AI-assisted debugging", "Refactoring workflows", "Code review automation", "Engineering productivity tooling"]
+    title: "DevOps & Release Eng",
+    icon: BarChart3,
+    skills: ["CI/CD Pipelines", "Play Store Releases", "App Store Releases", "Crash Monitoring", "Release Automation", "Hotfix Management"]
+  },
+  {
+    title: "Tools",
+    icon: Cog,
+    skills: ["Git", "GitHub", "Bitbucket", "Postman", "VS Code", "Android Studio", "Xcode", "Jira", "Confluence"]
   }
 ];
 

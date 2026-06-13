@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    name: "LVX & LVXQ — LetsVenture",
+    name: "LVX & LVXQ – LetsVenture",
     subtitle: "Investor Platform & Portfolio App",
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     teamSize: 9,
     description:
-      "Investor-facing fintech platforms supporting portfolio tracking, secure authentication, payments, analytics, and release management.",
+      "Investor-focused fintech applications supporting startup investments, portfolio management, secure authentication, payment workflows, analytics tracking, and release management.",
     skills: [
       "React Native",
       "TypeScript",
@@ -26,13 +26,30 @@ const projects = [
     featured: true,
   },
   {
+    name: "Scalix",
+    subtitle: "Startup Ecosystem Platform",
+    period: "Sep 2019 - Feb 2026",
+    tech: "React Native",
+    teamSize: 6,
+    description:
+      "Startup ecosystem platform helping founders access fundraising opportunities, startup perks, service providers, beta customers, business tools, and growth resources.",
+    skills: [
+      "React Native",
+      "TypeScript",
+      "Redux Toolkit",
+      "React Query",
+      "AWS Cognito"
+    ],
+    featured: true,
+  },
+  {
     name: "WildTrails",
     subtitle: "Wildlife Discovery & Trip Planning",
     period: "Mar 2018 - Sep 2019",
     tech: "Android (Java)",
     teamSize: 6,
     description:
-      "Android mobile application for wildlife discovery, trip planning, and low-network media workflows.",
+      "Wildlife discovery and safari planning application optimized for rich media experiences and low-network environments.",
     skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
     webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
