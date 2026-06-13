@@ -54,7 +54,7 @@ const skillCategories = [
   {
     title: "DevOps & Release Eng",
     icon: BarChart3,
-    skills: ["CI/CD Pipelines", "Play Store Releases", "App Store Releases", "Crash Monitoring", "Release Automation", "Hotfix Management"]
+    skills: ["Fastlane", "GitHub Actions", "Release Management", "Play Store Releases", "App Store Releases", "Crash Monitoring"]
   },
   {
     title: "Tools",

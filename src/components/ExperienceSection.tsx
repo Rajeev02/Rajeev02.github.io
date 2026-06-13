@@ -11,6 +11,7 @@ const experiences = [
       "Domain: Fintech | SaaS | Startup Ecosystem",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
+      "Contributed to fintech products serving startup founders and investors across the LetsVenture ecosystem.",
       "Designed and developed cross-platform Android and iOS applications using React Native, TypeScript, GraphQL, Redux Toolkit, React Query, and REST APIs.",
       "Owned and executed React Native version upgrades across multiple release cycles, maintaining applications from React Native 0.63 through 0.83 while ensuring compatibility and production stability.",
       "Participated in React Native New Architecture adoption initiatives involving Hermes, JSI, Fabric, and TurboModules.",

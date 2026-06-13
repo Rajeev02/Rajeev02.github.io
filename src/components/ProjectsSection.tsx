@@ -13,6 +13,7 @@ const projects = [
     skills: [
       "React Native",
       "TypeScript",
+      "GraphQL",
       "REST APIs",
       "Redux Toolkit",
       "React Query",
