@@ -51,7 +51,7 @@ const experiences = [
     description: "Developed VR travel and film festival Android applications.",
     products: ["Wanderlust", "SIFF"],
     highlights: [
-      "Developed Android application features for VR travel and event-management applications",
+      "Developed Android application features for VR travel and event-management applications with REST API integrations",
       "Implemented multimedia content delivery, event scheduling, notifications, and ticketing workflows",
       "Optimized application performance and user experience",
       "Supported maintenance and feature enhancement activities"

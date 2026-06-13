@@ -233,46 +233,7 @@ const ProjectsSection = () => {
             ))}
           </div>
 
-          {/* Supporting Projects */}
-          <div className="text-center mb-4 sm:mb-6">
-            <h3 className="text-lg sm:text-xl font-semibold text-muted-foreground">
-              More Projects
-            </h3>
-          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            {otherProjects.map((project) => (
-              <div
-                key={project.name}
-                className="glass-card p-3 sm:p-4 hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
-                  {project.icon ? (
-                    <img
-                      src={project.icon}
-                      alt={`${project.name} icon`}
-                      className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover flex-shrink-0"
-                    />
-                  ) : (
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold">
-                        {project.name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
-                  <h4 className="font-semibold text-sm sm:text-base truncate">
-                    {project.name}
-                  </h4>
-                </div>
-                <p className="text-[10px] sm:text-xs text-primary mb-0.5 sm:mb-1 truncate">
-                  {project.subtitle}
-                </p>
-                <p className="text-[10px] sm:text-xs text-muted-foreground">
-                  {project.period}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
