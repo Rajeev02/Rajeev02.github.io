@@ -11,18 +11,17 @@ const experiences = [
       "Domain: Fintech | SaaS | Startup Ecosystem",
     products: ["LVX", "LVXQ", "Scalix"],
     highlights: [
-      "Led end-to-end development of investor-focused fintech applications across Android and iOS platforms using React Native and TypeScript.",
-      "Architected scalable and maintainable mobile solutions using Redux Toolkit, React Query, GraphQL, and REST APIs.",
-      "Delivered 60+ successful production releases across Android and iOS while ensuring platform stability, performance, and compliance.",
-      "Implemented secure authentication and authorization workflows using AWS Cognito, Auth0, JWT Authentication, and OAuth.",
-      "Integrated payment gateways including Razorpay and Cashfree to support secure financial transactions.",
-      "Developed and maintained native integrations for Camera, Location Services, Push Notifications, Device Permissions, and Payment SDKs.",
-      "Implemented Deep Linking, Universal Links, Firebase Cloud Messaging (FCM), Branch.io, and notification workflows to improve user engagement.",
-      "Optimized application performance through rendering improvements, memory optimization, API caching strategies, and efficient state management.",
-      "Participated in React Native New Architecture adoption initiatives involving Hermes, JSI, Fabric Renderer, and TurboModules.",
-      "Collaborated with Product Managers, Designers, Backend Engineers, QA Teams, and Business Stakeholders throughout the product lifecycle.",
-      "Conducted code reviews, technical discussions, release planning, sprint estimations, and mentoring activities for development teams.",
-      "Managed Play Store and App Store releases, production hotfixes, crash monitoring, and CI/CD automation processes."
+      "Designed and developed cross-platform Android and iOS applications using React Native, TypeScript, GraphQL, Redux Toolkit, React Query, and REST APIs.",
+      "Led migration from React Native Legacy Architecture to New Architecture using Hermes, JSI, Fabric, and TurboModules.",
+      "Owned React Native upgrades from version 0.63 to 0.83, ensuring compatibility, stability, and smooth production releases.",
+      "Delivered 60+ Android and iOS production releases across multiple products.",
+      "Built reusable white-label solutions supporting multiple applications from a shared codebase.",
+      "Managed Development, QA, UAT, Staging, and Production environments.",
+      "Implemented multi-theme, multi-language, and accessibility features.",
+      "Integrated AWS Cognito, Auth0, OAuth, JWT authentication, Razorpay, and Cashfree payment solutions.",
+      "Integrated Camera, Location, Permissions, Deep Linking, Push Notifications, Analytics, and Crash Reporting.",
+      "Automated release workflows using Fastlane and GitHub Actions.",
+      "Participated in architecture discussions, code reviews, performance optimization, and Agile delivery processes."
     ],
   },
   {
@@ -35,10 +34,9 @@ const experiences = [
       "Built wildlife discovery and trip-planning Android applications.",
     products: ["WildTrails App", "Wildlife LiveUpdates"],
     highlights: [
-      "Developed Android application features for wildlife exploration and safari planning platforms",
-      "Integrated REST APIs and optimized application performance for low-bandwidth and remote-network environments",
-      "Improved application stability, responsiveness, and overall user experience",
-      "Collaborated with backend and product teams to deliver new mobile features and product enhancements"
+      "Developed Android features for wildlife exploration and safari planning applications.",
+      "Integrated REST APIs and optimized application performance for low-network environments.",
+      "Improved application stability, responsiveness, and user experience."
     ],
   },
   {
@@ -50,10 +48,9 @@ const experiences = [
     description: "Developed VR travel and film festival Android applications.",
     products: ["Wanderlust", "SIFF"],
     highlights: [
-      "Developed Android application features for VR travel and event-management applications with REST API integrations",
-      "Implemented multimedia content delivery, event scheduling, notifications, and ticketing workflows",
-      "Optimized application performance and user experience",
-      "Supported maintenance and feature enhancement activities"
+      "Developed Android application features for travel and event management platforms.",
+      "Implemented notifications, multimedia content delivery, scheduling, and ticketing workflows.",
+      "Integrated REST APIs and supported production releases."
     ],
   },
   {
@@ -66,11 +63,9 @@ const experiences = [
       "Built entertainment-platform Android features and integrations (similar to BookMyShow).",
     products: ["Plurebus Android App"],
     highlights: [
-      "Developed Android application features for a movie, theatre, drama, and live-event discovery platform similar to BookMyShow",
-      "Implemented event listings, booking workflows, multimedia content, and search experiences",
-      "Integrated REST APIs and customer booking functionalities",
-      "Collaborated with backend and product teams to improve scalability, performance, and application stability",
-      "Contributed to bug fixing, optimization, and platform enhancements"
+      "Developed Android features for entertainment discovery and booking platforms.",
+      "Implemented search, booking workflows, multimedia content, and REST API integrations.",
+      "Collaborated with backend and product teams to improve application performance."
     ],
   },
 ];

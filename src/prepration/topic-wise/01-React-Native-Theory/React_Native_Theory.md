@@ -4792,3 +4792,93 @@ Enterprise apps use specialized tools for monitoring:
 **Retrospectives**
 - **Definition:** A Scrum ceremony held at the end of a sprint where the team discusses what went well, what went wrong, and how to improve processes for the next sprint.
 
+## 15. Detailed Interview Q&A on Resume Topics (Newly Added)
+
+Based on your resume, the following topics have been expanded into detailed interview questions and answers to ensure comprehensive preparation.
+
+### 15.1 Core Architecture & React Native Internals
+
+> 🎯 **Topic:** Fabric Renderer & Rendering Pipeline
+
+**Q: How does the Fabric Renderer improve the rendering pipeline in React Native's New Architecture?**
+**A:** Fabric fundamentally changes how UI is rendered by eliminating the asynchronous JSON bridge. 
+- **Old Architecture:** React communicated with the native UI layer asynchronously by serializing JSON messages across the Bridge. This caused UI jumps and lag during heavy animations or fast scrolling.
+- **Fabric Architecture:** Uses **JSI (JavaScript Interface)** to allow JavaScript to directly invoke C++ methods synchronously. The rendering pipeline now executes in three distinct phases:
+  1. **Render Phase:** React executes your JS code to create React Element Trees.
+  2. **Commit Phase:** React elements are synchronously committed to a C++ Shadow Tree. Yoga (the layout engine) calculates flexbox layouts in C++.
+  3. **Mount Phase:** The C++ Shadow Tree is instantly transformed into a Host View Tree and rendered directly on the native screen (Android/iOS).
+- **Result:** Synchronous UI updates, smooth animations, and better interoperability with native layout mechanisms like `UICollectionView` and `RecyclerView`.
+
+### 15.2 Deep Linking & Growth
+
+> 🎯 **Topic:** Deep Linking & Branch.io
+
+**Q: What is Deferred Deep Linking, and how does Branch.io facilitate it in a React Native app?**
+**A:** 
+- **Standard Deep Linking:** A URL (e.g., `myapp://product/123`) directly opens the app to a specific screen. However, if the app *isn't* installed, the link breaks.
+- **Deferred Deep Linking:** If the user clicks the link and doesn't have the app, they are routed to the App Store/Play Store. Once they install and launch the app for the first time, the original link context (e.g., `product/123`) is preserved and they are routed to that specific screen.
+- **Branch.io:** An attribution and deep linking platform that handles this seamlessly. It matches the user's pre-install device fingerprint (IP, OS version, screen size) with the post-install app launch to attribute the install and pass the deferred parameters to your React Native routing layer (like React Navigation).
+
+### 15.3 Native Android & iOS Fundamentals
+
+> 🎯 **Topic:** Android Lifecycle & Device Permissions
+
+**Q: Can you explain the Android Activity Lifecycle and how it impacts a React Native application?**
+**A:** An Android Activity transitions through several states: `onCreate()`, `onStart()`, `onResume()`, `onPause()`, `onStop()`, and `onDestroy()`.
+- **Impact on React Native:** While RN abstracts much of this into the `AppState` API (returning `active`, `background`, or `inactive`), understanding the native lifecycle is crucial for native module development. For example:
+  - If a user backgrounds the app, `onPause()`/`onStop()` fires. You should stop heavy animations, pause video playback, and release camera resources to prevent ANRs (Application Not Responding) and save battery.
+  - If the OS kills the app for memory, `onDestroy()` is called. 
+
+**Q: How do you handle Native Device Permissions in React Native across both platforms?**
+**A:** I use a unified library like `react-native-permissions` alongside native configuration:
+- **Android:** Permissions must be declared in `AndroidManifest.xml` via `<uses-permission>`. For Android 6.0+, dangerous permissions (Camera, Location) require a runtime prompt using the JS API.
+- **iOS:** Apple requires usage description keys (e.g., `NSCameraUsageDescription`, `NSLocationWhenInUseUsageDescription`) to be added in the `Info.plist`. If you request a permission via JS without this key, the app will crash instantly.
+
+> 🎯 **Topic:** Apple Certificates & Provisioning Profiles
+
+**Q: What is the difference between a Certificate and a Provisioning Profile in iOS, and how do you manage them in a CI/CD pipeline?**
+**A:**
+- **Certificate:** Cryptographically identifies *who* built the app (a developer or team). It's a public/private key pair used for code signing.
+- **Provisioning Profile:** Authorizes the app to run on physical devices. It securely ties together the Certificate, the App ID (Bundle Identifier), and a list of authorized device UDIDs (for Ad-Hoc/Development) or store distribution rules.
+- **CI/CD Management:** I use **Fastlane Match** inside GitHub Actions. It securely stores encrypted certificates and profiles in a private Git repository. The CI runner pulls and decrypts them during the build process, preventing the "works on my machine" code-signing nightmare.
+
+### 15.4 API Layer & Networking
+
+> 🎯 **Topic:** REST APIs vs GraphQL
+
+**Q: Given your experience with both, how do you decide when to use REST APIs versus GraphQL in a mobile app?**
+**A:** 
+- **GraphQL:** I prefer GraphQL for complex, data-heavy dashboards (like Fintech portfolio screens). It eliminates over-fetching and under-fetching by allowing the client to request exactly the shape of data it needs in a single request. Tools like Apollo or Relay handle aggressive caching seamlessly.
+- **REST APIs:** Better suited for simpler architectures, heavy binary operations (like file uploads/downloads), or legacy integrations. REST natively leverages HTTP caching and standard HTTP status codes effectively. If an endpoint serves a fixed, unchanging data structure, REST is often simpler to implement.
+
+### 15.5 Production Diagnostics & Release Management
+
+> 🎯 **Topic:** Crash Monitoring & Symbolication
+
+**Q: What is Symbolication, and why is it critical for tools like Sentry or Firebase Crashlytics?**
+**A:** When we release an app, the JavaScript is minified, and native code is obfuscated (via ProGuard/R8 on Android). If a production crash occurs, the stack trace will look like `TypeError: a.b is not a function at line 1, col 425`.
+- **Symbolication:** The process of mapping that obfuscated code back to the original, readable source code.
+- **How it works:** During the CI/CD build process, we must automatically upload **Source Maps** (for JS) and **dSYM/Mapping files** (for iOS/Android) to Sentry. Sentry uses these files to translate the stack trace into exact file names and line numbers, drastically reducing Mean Time To Resolution (MTTR).
+
+> 🎯 **Topic:** Deployment & Hotfix Management
+
+**Q: Can you outline your Play Store Deployment and App Store Review processes?**
+**A:**
+- **Android:** We build a signed Android App Bundle (AAB), which optimizes APK size based on user device architecture. We deploy to the Internal or Closed Beta track for QA. Once approved, we use a Staged Rollout (e.g., 10%, 50%, 100%) in Production to safely monitor for spikes in crash rates before full release.
+- **iOS:** We build an IPA and upload it to App Store Connect via Fastlane. It's distributed internally via TestFlight. For production, we submit it for Apple's App Review, ensuring compliance with their strict UI/UX, privacy, and payment guidelines.
+
+**Q: How do you handle Hotfixes in a React Native app?**
+**A:** 
+- **JavaScript/Asset Fixes:** If the bug is strictly in the React Native JS bundle, I use Over-The-Air (OTA) updates like **CodePush** or Expo Updates. This pushes the fix directly to users upon next app launch, bypassing store review delays.
+- **Native Fixes:** If the bug involves Native Modules (Java/Swift), OTA cannot be used. We must cut a new release branch, build a new binary, and submit an Expedited Review request to Apple and Google for immediate rollout.
+
+### 15.6 Workflow & Processes
+
+> 🎯 **Topic:** Agile Scrum
+
+**Q: How do you implement Agile Scrum in a cross-functional mobile team?**
+**A:** My workflow operates in 2-week Sprints:
+- **Sprint Planning:** We groom the backlog, estimate user stories, and ensure backend APIs are ready before committing to mobile UI work.
+- **Daily Standup:** We align on progress, identify blockers, and ensure feature parity between iOS and Android.
+- **Code Reviews:** Mandatory PR reviews focusing on performance, memory leaks, and adherence to SOLID principles/Clean Architecture.
+- **Retrospectives:** At sprint close, we analyze what went well and what bottlenecks occurred, constantly iterating to improve our delivery velocity.

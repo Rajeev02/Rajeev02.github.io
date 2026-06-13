@@ -16,31 +16,24 @@ const AboutSection = () => {
                 </span>{" "}
                 in mobile application development, including{" "}
                 <span className="text-foreground font-semibold">
-                  5+ years in React Native
+                  5+ years building cross-platform applications with React Native
                 </span>{" "}
-                and 4 years in Native Android development. Experienced in designing, developing, deploying, and maintaining scalable{" "}
+                and 4 years in Native Android development.
+              </p>
+              <p>
+                Experienced in developing scalable{" "}
                 <span className="text-primary">
                   Android and iOS applications
                 </span>{" "}
-                across Fintech, SaaS, Travel, Entertainment, and Consumer Technology domains.
+                across Fintech, SaaS, Travel, and Consumer Technology domains using React Native, TypeScript, GraphQL, Redux Toolkit, React Query, and REST APIs.
               </p>
               <p>
-                Strong expertise in{" "}
-                <span className="text-foreground">
-                  React Native, TypeScript, JavaScript, GraphQL, Redux Toolkit, React Query
-                </span>
-                , Authentication Systems, Payment Gateway Integrations, Analytics, Push Notifications, Deep Linking, Native Module Integrations, CI/CD Pipelines, and Mobile Release Management.
+                Led React Native upgrades from version{" "}
+                <span className="text-foreground font-semibold">0.63 to 0.83</span>{" "}
+                and successfully migrated applications from Legacy Architecture to New Architecture using <span className="text-primary">Hermes, JSI, Fabric, and TurboModules</span>. Experienced in white-label applications, multi-environment setups, localization, accessibility, payment integrations, authentication systems, CI/CD automation, and release management.
               </p>
               <p>
-                Possess strong understanding of{" "}
-                <span className="text-foreground font-semibold">
-                  React Native architecture and internals
-                </span>
-                , including <span className="text-primary">Hermes, JSI, Fabric Renderer, TurboModules</span>, React Native Bridge Architecture, JavaScript Thread, UI Thread, Shadow Thread, and Native Module communication.
-              </p>
-              <p>
-                Experienced in building and maintaining production-grade mobile applications while collaborating with Product, Design, Backend, QA, and Business teams in{" "}
-                <span className="text-foreground">Agile Scrum environments</span>.
+                Delivered 60+ Android and iOS production releases while working closely with product, design, QA, and backend teams in <span className="text-foreground font-semibold">Agile environments</span>.
               </p>
             </div>
           </div>

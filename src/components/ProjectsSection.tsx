@@ -9,17 +9,20 @@ const projects = [
     tech: "React Native",
     teamSize: 9,
     description:
-      "Investor-focused fintech applications supporting startup investments, portfolio management, secure authentication, payment workflows, analytics tracking, and release management.",
+      "Investor-focused fintech applications supporting startup investments and portfolio management. Implemented authentication, payment workflows, analytics, and release management.",
     skills: [
       "React Native",
       "TypeScript",
-      "Firebase",
+      "GraphQL",
+      "Redux Toolkit",
+      "React Query",
       "AWS Cognito",
       "Auth0",
-      "Sentry",
-      "PostHog",
-      "Cashfree",
       "Razorpay",
+      "Cashfree",
+      "Firebase",
+      "PostHog",
+      "Sentry"
     ],
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
@@ -32,13 +35,11 @@ const projects = [
     tech: "React Native",
     teamSize: 6,
     description:
-      "Startup ecosystem platform helping founders access fundraising opportunities, startup perks, service providers, beta customers, business tools, and growth resources.",
+      "Platform helping startup founders access fundraising opportunities, service providers, and growth resources.",
     skills: [
       "React Native",
-      "TypeScript",
-      "Redux Toolkit",
-      "React Query",
-      "AWS Cognito"
+      "JavaScript",
+      "REST APIs"
     ],
     featured: true,
   },
@@ -50,7 +51,7 @@ const projects = [
     teamSize: 6,
     description:
       "Wildlife discovery and safari planning application optimized for rich media experiences and low-network environments.",
-    skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
+    skills: ["Android", "Java", "REST APIs"],
     webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
     featured: true,
