@@ -24,12 +24,8 @@ const HeroSection = () => {
           </h1>
 
           {/* Title */}
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-3 sm:mb-4 animate-fade-up opacity-0 delay-200">
-            Senior React Native Developer
-          </p>
-
-          <p className="text-sm sm:text-base md:text-lg text-primary font-medium mb-6 sm:mb-8 animate-fade-up opacity-0 delay-300 px-2">
-            Mobile Engineer | React Native Lead | Android &amp; iOS
+          <p className="text-lg sm:text-xl md:text-2xl text-primary font-medium mb-6 sm:mb-8 animate-fade-up opacity-0 delay-200 px-2">
+            Senior Mobile Engineer | React Native Developer (Android &amp; iOS)
           </p>
 
           {/* Contact info */}
