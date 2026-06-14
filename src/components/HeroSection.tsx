@@ -28,11 +28,6 @@ const HeroSection = () => {
             Senior Mobile Engineer | React Native Developer (Android &amp; iOS)
           </p>
 
-          {/* AI SEO Optimized Introduction */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-up opacity-0 delay-300 px-4">
-            Rajeev Kumar Joshi is a Senior React Native Developer and Mobile Engineer with 9+ years of experience building scalable Android and iOS applications. He specializes in React Native, TypeScript, JavaScript, Kotlin, Mobile Architecture, Performance Optimization, Fabric, TurboModules, JSI, Hermes, and React Native New Architecture.
-          </p>
-
           {/* Contact info */}
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-10 animate-fade-up opacity-0 delay-400">
             <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
