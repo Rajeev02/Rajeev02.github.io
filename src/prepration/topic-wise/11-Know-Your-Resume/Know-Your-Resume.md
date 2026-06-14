@@ -120,3 +120,88 @@ This guide breaks down every single keyword and experience point mentioned in yo
 **Interview Q&A:**
 *   **Q:** Your early career involved building native Android apps for travel and entertainment. How did you handle multimedia content delivery and scheduling workflows?
 *   **A:** At Dunst and Plurebus, I built apps that relied heavily on media and real-time updates. For multimedia, I used native libraries like ExoPlayer to ensure smooth video streaming and Glide for efficient image loading and memory caching. For scheduling and ticketing workflows, I heavily utilized Android's `AlarmManager` and `WorkManager` (and its predecessors) to handle background tasks and local notifications reliably, even if the app was killed.
+
+## 12. Company Profiles & Experience Details
+**Explanation:** Understanding the core business of each company you worked for helps you frame your impact during interviews.
+
+### LetsVenture Technologies Private Limited (Sep 2019 - Feb 2026)
+**What they do:** LetsVenture is a pioneering platform in the Indian startup ecosystem that connects founders with angel investors, family offices, and funds. They facilitate fundraising, syndicate creation, and provide tools for equity management (cap tables). Your role here in building SaaS/Fintech solutions directly enabled seamless investment workflows and portfolio tracking.
+
+<details>
+<summary><b>View Official Company Details</b></summary>
+
+- **Designation:** Senior Android Developer
+- **Start Date:** 12-Sep-2019
+- **LWD (Last Working Day):** 12-Feb-2026
+- **Address:** WeWork Galaxy, 43, Residency Road, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka - 560025
+- **Contact:** +91-8147621535
+- **Email/Web:** contact@lvxventures.com | www.lvxventures.com
+- **CIN:** U72900KA2018PTC110746
+- **GST No.:** 29AADCL5389F1Z4
+
+</details>
+
+### WildTrails Technology Private Limited (Mar 2018 - Sep 2019)
+**What they do:** WildTrails provides an AI-powered platform for wildlife tourism. They offer sightings data, package bookings, and planning tools for wildlife safaris across India and Africa. Your work here focused on optimizing travel platforms, specifically handling low-network conditions common in remote wildlife areas.
+
+<details>
+<summary><b>View Official Company Details</b></summary>
+
+- **Designation:** Software Engineer
+- **Start Date:** 19-March-2018
+- **LWD (Last Working Day):** 11-Sep-2019
+- **Address:** No. #69, Usha Devikar 1st Floor, 15th A Cross Road, 6th Main, Malleshwaram, Bangalore - 560055
+- **Contact:** +91 9945025317
+- **Email:** manju@wildtrails.co
+- **CIN:** U93000KA201SPTC084267
+
+</details>
+
+### Dunst Technologies Pvt Ltd (Dec 2017 - Mar 2018)
+**What they do:** Dunst Consulting/Technologies provides IT services and product engineering solutions, often partnering with clients to build mobile applications. Your early role here involved hands-on development of native Android applications, focusing on multimedia and event scheduling.
+
+<details>
+<summary><b>View Official Company Details</b></summary>
+
+- **Designation:** Junior Android developer
+- **Start Date:** 14-DEC-2017
+- **LWD (Last Working Day):** 14-Mar-2018
+- **Address:** Rohan Plaza, 2331/B, 17th Cross Rd, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102
+- **Contact:** +91 8022581155
+- **Email:** info@dunstconsulting.com
+
+</details>
+
+### Plurebus Technologies Private Limited (Sep 2016 - Sep 2017)
+**What they do:** Plurebus Technologies is a software solutions provider focusing on web and mobile platforms. During your tenure, you worked on entertainment discovery and booking workflows, establishing your core foundations in mobile UI and backend integration.
+
+<details>
+<summary><b>View Official Company Details</b></summary>
+
+- **Designation:** JUNIOR R&D ENGINEER
+- **Start Date:** 27-September-2016
+- **LWD (Last Working Day):** 29-September-2017
+- **Address:** No 312, 6th A Cross, OMBR Layout, Bangalore - 43
+- **Contact:** +91 994560707
+- **Work Phone:** 080-41679193
+- **Email:** muralidharan@plurebus.com
+
+</details>
+
+## 13. Education Details
+**Explanation:** Your strong academic foundation in computer applications from reputed institutions underpins your technical problem-solving abilities.
+
+<details>
+<summary><b>View Official Education Details</b></summary>
+
+**Master of Computer Applications (MCA)**
+- **Institution:** National Institute of Technology (NIT) Durgapur
+- **Duration:** 15-July-2013 to 30-June-2016
+- **Score:** 6.97 CGPA
+
+**Bachelor of Computer Applications (BCA)**
+- **Institution:** Dr. Harisingh Gour Vishwavidyalaya, Sagar
+- **Duration:** 15-July-2009 to 30-June-2012
+- **Score:** 75.12%
+
+</details>
