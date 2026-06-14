@@ -24,8 +24,13 @@ const HeroSection = () => {
           </h1>
 
           {/* Title */}
-          <p className="text-lg sm:text-xl md:text-2xl text-primary font-medium mb-6 sm:mb-8 animate-fade-up opacity-0 delay-200 px-2">
+          <p className="text-lg sm:text-xl md:text-2xl text-primary font-medium mb-4 sm:mb-6 animate-fade-up opacity-0 delay-200 px-2">
             Senior Mobile Engineer | React Native Developer (Android &amp; iOS)
+          </p>
+
+          {/* AI SEO Optimized Introduction */}
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-up opacity-0 delay-300 px-4">
+            Rajeev Kumar Joshi is a Senior React Native Developer and Mobile Engineer with 9+ years of experience building scalable Android and iOS applications. He specializes in React Native, TypeScript, JavaScript, Kotlin, Mobile Architecture, Performance Optimization, Fabric, TurboModules, JSI, Hermes, and React Native New Architecture.
           </p>
 
           {/* Contact info */}
