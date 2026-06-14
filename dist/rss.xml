@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Rajeev Kumar Joshi - Mobile Engineering Knowledge Hub</title>
+  <link>https://rajeev02.github.io</link>
+  <description>Insights on React Native New Architecture, Fabric, TurboModules, JSI, and Mobile Performance Optimization.</description>
+  <atom:link href="https://rajeev02.github.io/rss.xml" rel="self" type="application/rss+xml" />
+  
+  <item>
+    <title>React Native 0.63 to 0.83 Upgrade Guide</title>
+    <link>https://rajeev02.github.io</link>
+    <description>A comprehensive guide on migrating legacy React Native applications to the New Architecture.</description>
+    <pubDate>Mon, 14 Jun 2026 12:00:00 +0000</pubDate>
+    <guid>https://rajeev02.github.io/#rn-upgrade</guid>
+  </item>
+  
+  <item>
+    <title>Fabric Deep Dive &amp; Migration Strategy</title>
+    <link>https://rajeev02.github.io</link>
+    <description>Understanding the new React Native rendering system and how to migrate your components.</description>
+    <pubDate>Mon, 14 Jun 2026 12:00:00 +0000</pubDate>
+    <guid>https://rajeev02.github.io/#fabric-deep-dive</guid>
+  </item>
+  
+</channel>
+</rss>
