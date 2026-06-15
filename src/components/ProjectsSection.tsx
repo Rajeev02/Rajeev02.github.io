@@ -52,7 +52,7 @@ const projects = [
     teamSize: 6,
     description:
       "Wildlife exploration and safari planning application optimized for rich media content and low-network environments.",
-    skills: ["Android", "Java", "REST APIs"],
+    skills: ["Android", "Java", "MVP", "REST APIs", "Retrofit", "Glide", "Firebase"],
     webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
     featured: true,
@@ -68,10 +68,10 @@ const projects = [
     skills: [
       "Java",
       "Android Studio",
-      "Android SDK",
+      "MVC",
+      "Google Maps API",
       "REST APIs",
-      "JSON",
-      "Multimedia Integration",
+      "Multimedia Libraries",
       "Git",
     ],
     featured: true,
@@ -84,7 +84,7 @@ const projects = [
     teamSize: 1,
     description:
       "Android entertainment platform similar to BookMyShow — discovery and booking experiences for movies, theatre, drama, and live shows, with rich, media-driven user experiences and REST API integrations.",
-    skills: ["Java", "Android Studio", "REST APIs", "Firebase", "JSON", "Git"],
+    skills: ["Java", "Android Studio", "REST APIs", "Retrofit", "Glide", "Firebase", "SQLite"],
     icon: "/images/apps/plurebus.png",
     featured: true,
   },

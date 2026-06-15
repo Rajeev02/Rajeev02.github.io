@@ -4,7 +4,7 @@ const experiences = [
   {
     company: "LETSVENTURE TECHNOLOGIES PRIVATE LIMITED",
     companyUrl: "https://www.letsventure.com/",
-    role: "Senior React Native Developer / Senior Android Developer",
+    role: "Senior React Native Developer (Promoted from Android Developer & Senior Android Developer)",
     location: "Bengaluru",
     period: "Sep 2019 - Feb 2026",
     description:
