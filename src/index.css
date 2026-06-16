@@ -87,6 +87,10 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 105%;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
