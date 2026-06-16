@@ -148,10 +148,7 @@ const ProjectsSection = () => {
                       {project.period.split(" - ")[0]}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    Team of {project.teamSize}
-                  </div>
+
                 </div>
 
                 <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-none">
