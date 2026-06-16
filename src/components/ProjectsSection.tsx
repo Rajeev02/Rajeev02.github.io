@@ -8,7 +8,7 @@ const projects = [
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     description:
-      "Led app development for a user-friendly investment platform. Focused on real-time updates and tailored newsfeed.",
+      "Led mobile development of the flagship investment app, implementing real-time newsfeeds and high-performance financial dashboards for over 50k+ startup investors.",
     skills: [
       "React Native",
       "TypeScript",
@@ -29,7 +29,7 @@ const projects = [
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     description:
-      "Separate portfolio app for startup investors to track valuations, transactions, and exits in their holdings.",
+      "Co-authored and launched a dedicated portfolio tracking application for startup investors to monitor exits, valuations, and transactional logs, solving complex data visualization challenges.",
     skills: [
       "React Native",
       "TypeScript",
