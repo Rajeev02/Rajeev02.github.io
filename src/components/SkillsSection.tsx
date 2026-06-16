@@ -39,7 +39,7 @@ const skillCategories = [
   {
     title: "Backend & Cloud Services",
     icon: Cloud,
-    skills: ["Firebase", "AWS Cognito", "Auth0", "Branch", "PostHog", "Sentry"]
+    skills: ["Firebase", "Crashlytics", "Sentry", "PostHog (Distribution, Alerts & Monitor)", "AWS Cognito", "Auth0", "Branch"]
   },
   {
     title: "Security & Payments",
@@ -54,7 +54,7 @@ const skillCategories = [
   {
     title: "DevOps & Release Eng",
     icon: BarChart3,
-    skills: ["Fastlane", "GitHub Actions", "Release Management", "Play Store Releases", "App Store Releases", "Crash Monitoring"]
+    skills: ["Play Store & App Store Console (Setup, Config, Releases & Monitor)", "Fastlane", "GitHub Actions", "Release Management", "Crash Monitoring"]
   },
   {
     title: "Tools",

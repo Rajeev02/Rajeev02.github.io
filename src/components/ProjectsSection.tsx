@@ -3,13 +3,12 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    name: "LVX & LVXQ – LetsVenture",
-    subtitle: "Investor Platform & Portfolio App",
+    name: "LVX (previously called LetsVenture)",
+    subtitle: "Investor Platform / Investment App",
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
-    teamSize: 9,
     description:
-      "Investor-focused fintech applications enabling startup investments, portfolio tracking, fundraising workflows, authentication, payments, analytics, and investor engagement features.",
+      "Led Android and iOS app development to create a user-friendly investment platform. Focused on real-time updates and a tailored newsfeed for investors. Coordinated with Product Owners, QA, and Backend teams. Handled requirement gathering, bug fixing, PR reviews, and deployment.",
     skills: [
       "React Native",
       "TypeScript",
@@ -20,10 +19,30 @@ const projects = [
       "AWS Cognito",
       "Auth0",
       "Razorpay",
-      "Cashfree",
-      "Firebase",
+      "Cashfree"
+    ],
+    webUrl: "https://www.letsventure.com/",
+    icon: "/images/apps/lvx.png",
+    featured: true,
+  },
+  {
+    name: "LVXQ (Portfolio app by LVX)",
+    subtitle: "Portfolio Tracking App",
+    period: "Sep 2019 - Feb 2026",
+    tech: "React Native",
+    description:
+      "Developed a dedicated portfolio tracking application for startup investors to monitor their investments, valuations, and startup exits. Integrated performance analytics, custom dashboard visualizations, and transactional ledgers.",
+    skills: [
+      "React Native",
+      "TypeScript",
+      "GraphQL",
+      "REST APIs",
+      "Redux Toolkit",
+      "React Query",
+      "Sentry",
       "PostHog",
-      "Sentry"
+      "Crashlytics",
+      "Firebase"
     ],
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
@@ -31,60 +50,70 @@ const projects = [
   },
   {
     name: "Scalix",
-    subtitle: "Startup Ecosystem Platform",
-    period: "Sep 2019 - Feb 2026",
+    subtitle: "Startup Founder Growth App",
+    period: "Dec 2022 - July 2023",
     tech: "React Native",
-    teamSize: 6,
     description:
-      "Platform helping startup founders discover fundraising opportunities, service providers, and growth resources.",
+      "Developed an integrated platform for startup founders to access community, capital, and customers. Involved in requirement gathering, development, and maintenance of the app.",
     skills: [
       "React Native",
       "JavaScript",
-      "REST APIs"
+      "REST APIs",
+      "Context API",
+      "AsyncStorage"
     ],
     featured: true,
   },
   {
     name: "WildTrails",
-    subtitle: "Wildlife Discovery & Trip Planning",
+    subtitle: "Wildlife Discoveries & Bookings",
     period: "Mar 2018 - Sep 2019",
     tech: "Android (Java)",
-    teamSize: 6,
     description:
-      "Wildlife exploration and safari planning application optimized for rich media content and low-network environments.",
+      "Developed the app from scratch, supporting all Android devices. Implemented responsive UI for enhanced user experience and offline sightings database.",
     skills: ["Android", "Java", "MVP", "REST APIs", "Retrofit", "Glide", "Firebase"],
     webUrl: "https://packages.wildtrails.in/#parks/",
     icon: "/images/apps/forestguide.png",
     featured: true,
   },
   {
-    name: "Wanderlust & SIFF",
-    subtitle: "VR Travel & Film Festival Apps",
-    period: "Dec 2017 - Mar 2018",
-    tech: "Android",
-    teamSize: 3,
+    name: "Wildlife LiveUpdates",
+    subtitle: "Sightings App",
+    period: "Jan 2019 - Sep 2019",
+    tech: "Android (Java)",
     description:
-      "Android applications for VR travel experiences and film-festival schedules with multimedia and ticketing capabilities.",
-    skills: [
-      "Java",
-      "Android Studio",
-      "MVC",
-      "Google Maps API",
-      "REST APIs",
-      "Multimedia Libraries",
-      "Git",
-    ],
+      "Developed features for real-time wildlife sighting updates. Included a trip planning module and media gallery for sanctuary sighters.",
+    skills: ["Android", "Java", "Firebase", "REST APIs", "Retrofit", "Glide", "Google Maps API"],
     featured: true,
   },
   {
-    name: "Plurebus",
-    subtitle: "Entertainment App (BookMyShow-style)",
+    name: "Wanderlust (VR Travel App)",
+    subtitle: "Immersive VR Travel Guide",
+    period: "Dec 2017 - Mar 2018",
+    tech: "Android (Java)",
+    description:
+      "Developed interactive and immersive VR travel experiences. Focused on 360-degree views, motion tracking sensor integrations, and user experience enhancements.",
+    skills: ["Android", "Java", "Google VR SDK", "OpenGL", "Google Maps API", "REST APIs"],
+    featured: true,
+  },
+  {
+    name: "SIFF (Film Festival App)",
+    subtitle: "Ticketing & Timings App",
+    period: "Dec 2017 - Mar 2018",
+    tech: "Android (Java)",
+    description:
+      "Developed an app for booking film festival tickets and viewing show timings. Integrated with various multimedia APIs, barcode scanner, and payment gateway for a seamless user experience.",
+    skills: ["Android", "Java", "ExoPlayer", "REST APIs", "Barcode Scanner", "Glide"],
+    featured: true,
+  },
+  {
+    name: "Plurebus (Entertainment App)",
+    subtitle: "Movie Discovery & Booking",
     period: "Sep 2016 - Sep 2017",
     tech: "Android (Java)",
-    teamSize: 1,
     description:
-      "Android entertainment platform similar to BookMyShow — discovery and booking experiences for movies, theatre, drama, and live shows, with rich, media-driven user experiences and REST API integrations.",
-    skills: ["Java", "Android Studio", "REST APIs", "Retrofit", "Glide", "Firebase", "SQLite"],
+      "Developed an entertainment app connecting users with theaters and movies. Focused on responsive UI design and third-party library integration. Involved in requirement gathering, development, and maintenance of the app.",
+    skills: ["Android", "Java", "SQLite", "REST APIs", "Retrofit", "Glide", "Firebase"],
     icon: "/images/apps/plurebus.png",
     featured: true,
   },

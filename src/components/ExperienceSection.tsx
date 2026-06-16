@@ -33,8 +33,8 @@ const experiences = [
     location: "Bengaluru",
     period: "Mar 2018 - Sep 2019",
     description:
-      "Built wildlife discovery and trip-planning Android applications.",
-    products: ["WildTrails App", "Wildlife LiveUpdates"],
+      "Domain: Wildlife Tourism | Travel",
+    products: ["WildTrails", "Wildlife LiveUpdates"],
     highlights: [
       "Developed Android applications using Java for wildlife exploration and safari planning platforms.",
       "Integrated REST APIs and optimized application performance for low-network environments.",
@@ -48,7 +48,7 @@ const experiences = [
     role: "Junior Android Developer",
     location: "Bengaluru",
     period: "Dec 2017 - Mar 2018",
-    description: "Developed VR travel and film festival Android applications.",
+    description: "Domain: Travel | Events | Consulting",
     products: ["Wanderlust", "SIFF"],
     highlights: [
       "Developed Android application features using Java for travel and event management platforms.",
@@ -63,8 +63,8 @@ const experiences = [
     location: "Bengaluru",
     period: "Sep 2016 - Sep 2017",
     description:
-      "Built entertainment-platform Android features and integrations (similar to BookMyShow).",
-    products: ["Plurebus Android App"],
+      "Domain: Entertainment | Ticket Booking",
+    products: ["Plurebus"],
     highlights: [
       "Developed Android applications using Java for entertainment discovery and booking platforms.",
       "Implemented search, booking workflows, multimedia content delivery, and REST API integrations.",
