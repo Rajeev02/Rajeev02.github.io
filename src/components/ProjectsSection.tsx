@@ -3,19 +3,17 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    name: "LVX (previously called LetsVenture)",
+    name: "LVX (formerly LetsVenture)",
     subtitle: "Investor Platform / Investment App",
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     description:
-      "Led Android and iOS app development to create a user-friendly investment platform. Focused on real-time updates and a tailored newsfeed for investors. Coordinated with Product Owners, QA, and Backend teams. Handled requirement gathering, bug fixing, PR reviews, and deployment.",
+      "Led app development for a user-friendly investment platform. Focused on real-time updates and tailored newsfeed.",
     skills: [
       "React Native",
       "TypeScript",
       "GraphQL",
-      "REST APIs",
-      "Redux Toolkit",
-      "React Query",
+      "Redux",
       "AWS Cognito",
       "Auth0",
       "Razorpay",
@@ -26,23 +24,20 @@ const projects = [
     featured: true,
   },
   {
-    name: "LVXQ (Portfolio app by LVX)",
+    name: "LVXQ (Portfolio App by LetsVenture)",
     subtitle: "Portfolio Tracking App",
     period: "Sep 2019 - Feb 2026",
     tech: "React Native",
     description:
-      "Developed a dedicated portfolio tracking application for startup investors to monitor their investments, valuations, and startup exits. Integrated performance analytics, custom dashboard visualizations, and transactional ledgers.",
+      "Separate portfolio app for startup investors to track valuations, transactions, and exits in their holdings.",
     skills: [
       "React Native",
       "TypeScript",
       "GraphQL",
-      "REST APIs",
-      "Redux Toolkit",
-      "React Query",
+      "Redux",
       "Sentry",
       "PostHog",
-      "Crashlytics",
-      "Firebase"
+      "Crashlytics"
     ],
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
