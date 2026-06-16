@@ -9,12 +9,12 @@ const skillCategories = [
   {
     title: "Android Development",
     icon: Smartphone,
-    skills: ["Java", "Android SDK", "Android Studio", "Activities & Fragments", "Android Application Lifecycle", "Play Store Deployment", "Native Android Integrations"]
+    skills: ["Kotlin (Basic)", "Java", "Android SDK", "Android Studio", "Activities & Fragments", "Android Application Lifecycle", "Play Store Deployment", "Native Android Integrations"]
   },
   {
     title: "iOS Development",
     icon: Smartphone,
-    skills: ["Xcode", "CocoaPods", "App Store Connect", "TestFlight", "App Store Review Process", "Provisioning Profiles", "Apple Certificates", "Push Notification Certificates"]
+    skills: ["Swift (Basic)", "Xcode", "CocoaPods", "App Store Connect", "TestFlight", "App Store Review Process", "Provisioning Profiles", "Apple Certificates", "Push Notification Certificates"]
   },
   {
     title: "React Native Architecture",

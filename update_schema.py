@@ -95,6 +95,14 @@ for file_path in files_to_update:
         person_schema_str = match.group(1)
         person_schema = json.loads(person_schema_str)
 
+        # If it's already a combined schema (contains @graph), extract the Person object
+        if "@graph" in person_schema:
+            person_items = person_schema["@graph"]
+            person_schema = next((item for item in person_items if item.get("@type") == "Person"), None)
+            if not person_schema:
+                print(f"Could not find Person schema in @graph for {file_path}")
+                continue
+
         # Remove @context from person_schema if it's going into @graph
         if "@context" in person_schema:
             del person_schema["@context"]
