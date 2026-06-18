@@ -3,6 +3,41 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    name: "Kavach ID",
+    subtitle: "Adaptive Identity & Security Platform",
+    period: "2024 - Present",
+    tech: "Node.js / Multi-platform SDKs",
+    description:
+      "An enterprise B2B platform offering identity and risk APIs. Features the Kavach Shield Engine for dynamic risk scoring, zero-trust passwordless authentication (WebAuthn/FIDO2), and biometric device fingerprinting.",
+    skills: [
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "WebAuthn/FIDO2",
+      "Docker",
+      "Security"
+    ],
+    webUrl: "https://github.com/Rajeev02/kavachid",
+    featured: true,
+  },
+  {
+    name: "Kavach Playground",
+    subtitle: "Interactive Developer Environment",
+    period: "2024 - Present",
+    tech: "Next.js / Express",
+    description:
+      "A comprehensive security and authentication ecosystem showcasing the Kavach SDKs. Features a dynamic security dashboard, real-time SDK snippet generation, and interactive API documentation.",
+    skills: [
+      "Next.js",
+      "React",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    webUrl: "https://github.com/Rajeev02/kavach-playground",
+    featured: true,
+  },
+  {
     name: "LVX (formerly LetsVenture)",
     subtitle: "Investor Platform / Investment App",
     period: "Sep 2019 - Feb 2026",
