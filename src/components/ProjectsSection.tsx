@@ -18,6 +18,7 @@ const projects = [
       "Security"
     ],
     webUrl: "https://github.com/Rajeev02/kavachid",
+    icon: "/images/apps/kavach.png",
     featured: true,
   },
   {
@@ -35,6 +36,7 @@ const projects = [
       "PostgreSQL"
     ],
     webUrl: "https://github.com/Rajeev02/kavach-playground",
+    icon: "/images/apps/kavach.png",
     featured: true,
   },
   {
