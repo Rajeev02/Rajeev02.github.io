@@ -8,7 +8,7 @@ const projects = [
     period: "2024 - Present",
     tech: "Node.js / Multi-platform SDKs",
     description:
-      "An enterprise B2B platform offering identity and risk APIs. Features the Kavach Shield Engine for dynamic risk scoring, zero-trust passwordless authentication (WebAuthn/FIDO2), and biometric device fingerprinting.",
+      "An enterprise B2B platform offering identity and risk APIs. Features the Kavach Shield Engine for dynamic risk scoring, zero-trust passwordless authentication (WebAuthn/FIDO2), and biometric device fingerprinting. SDKs available via NPM (Web/React Native), Maven (Android), CocoaPods (iOS), Pub (Flutter), and PyPI (Python).",
     skills: [
       "Node.js",
       "Prisma",
