@@ -17,7 +17,8 @@ const projects = [
       "Docker",
       "Security"
     ],
-    webUrl: "https://github.com/Rajeev02/kavachid",
+    webUrl: "https://kavach-playground-api.vercel.app/",
+    githubUrl: "https://github.com/Rajeev02/kavachid",
     npmWebUrl: "https://www.npmjs.com/package/@rajeev02/kavach-web",
     npmRnUrl: "https://www.npmjs.com/package/@rajeev02/kavach-react-native",
     mavenUrl: "https://central.sonatype.com/artifact/io.github.rajeev02.kavach/kavach-android",
@@ -42,7 +43,9 @@ const projects = [
       "Prisma",
       "PostgreSQL"
     ],
-    webUrl: "https://github.com/Rajeev02/kavach-playground",
+    webUrl: "https://kavach-playground-playground.vercel.app/",
+    githubUrl: "https://github.com/Rajeev02/kavach-playground",
+    mavenUrl: "https://central.sonatype.com/artifact/io.github.rajeev02.kavach/kavach-android",
     icon: "/images/apps/kavach.png",
     featured: true,
   },
@@ -245,6 +248,7 @@ const ProjectsSection = () => {
                 {(project.playStoreUrl ||
                   project.appStoreUrl ||
                   project.webUrl ||
+                  project.githubUrl ||
                   project.npmWebUrl ||
                   project.npmRnUrl ||
                   project.mavenUrl ||
@@ -301,6 +305,23 @@ const ProjectsSection = () => {
                         >
                           <ExternalLink className="w-3 h-3" />
                           Website
+                        </a>
+                      </Button>
+                    )}
+                    {project.githubUrl && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        asChild
+                        className="gap-1 text-xs"
+                      >
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          GitHub
                         </a>
                       </Button>
                     )}
