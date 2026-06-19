@@ -18,6 +18,11 @@ const projects = [
       "Security"
     ],
     webUrl: "https://github.com/Rajeev02/kavachid",
+    npmUrl: "https://www.npmjs.com/search?q=kavach",
+    mavenUrl: "https://search.maven.org/search?q=kavach",
+    cocoapodsUrl: "https://cocoapods.org/",
+    pubUrl: "https://pub.dev/packages?q=kavach",
+    pypiUrl: "https://pypi.org/search/?q=kavach",
     icon: "/images/apps/kavach.png",
     featured: true,
   },
@@ -77,7 +82,7 @@ const projects = [
       "Crashlytics"
     ],
     webUrl: "https://www.letsventure.com/",
-    icon: "/images/apps/lvx.png",
+    icon: "/images/apps/lvxq.png",
     featured: true,
   },
   {
@@ -94,6 +99,7 @@ const projects = [
       "Context API",
       "AsyncStorage"
     ],
+    icon: "/images/apps/scalix_ic_launcher.png",
     featured: true,
   },
   {
@@ -105,7 +111,7 @@ const projects = [
       "Developed the app from scratch, supporting all Android devices. Implemented responsive UI for enhanced user experience and offline sightings database.",
     skills: ["Android", "Java", "MVP", "REST APIs", "Retrofit", "Glide", "Firebase"],
     webUrl: "https://packages.wildtrails.in/#parks/",
-    icon: "/images/apps/forestguide.png",
+    icon: "/images/apps/wildtrails.png",
     featured: true,
   },
   {
@@ -116,6 +122,7 @@ const projects = [
     description:
       "Developed features for real-time wildlife sighting updates. Included a trip planning module and media gallery for sanctuary sighters.",
     skills: ["Android", "Java", "Firebase", "REST APIs", "Retrofit", "Glide", "Google Maps API"],
+    icon: "/images/apps/wildlife_live.png",
     featured: true,
   },
   {
@@ -136,6 +143,7 @@ const projects = [
     description:
       "Developed an app for booking film festival tickets and viewing show timings. Integrated with various multimedia APIs, barcode scanner, and payment gateway for a seamless user experience.",
     skills: ["Android", "Java", "ExoPlayer", "REST APIs", "Barcode Scanner", "Glide"],
+    icon: "/images/apps/siff.png",
     featured: true,
   },
   {
@@ -234,7 +242,12 @@ const ProjectsSection = () => {
 
                 {(project.playStoreUrl ||
                   project.appStoreUrl ||
-                  project.webUrl) && (
+                  project.webUrl ||
+                  project.npmUrl ||
+                  project.mavenUrl ||
+                  project.cocoapodsUrl ||
+                  project.pubUrl ||
+                  project.pypiUrl) && (
                   <div className="flex flex-wrap gap-2">
                     {project.playStoreUrl && (
                       <Button
@@ -284,6 +297,41 @@ const ProjectsSection = () => {
                         >
                           <ExternalLink className="w-3 h-3" />
                           Website
+                        </a>
+                      </Button>
+                    )}
+                    {project.npmUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.npmUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> NPM
+                        </a>
+                      </Button>
+                    )}
+                    {project.mavenUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.mavenUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> Maven
+                        </a>
+                      </Button>
+                    )}
+                    {project.cocoapodsUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.cocoapodsUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> CocoaPods
+                        </a>
+                      </Button>
+                    )}
+                    {project.pubUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.pubUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> Pub
+                        </a>
+                      </Button>
+                    )}
+                    {project.pypiUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.pypiUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> PyPI
                         </a>
                       </Button>
                     )}
