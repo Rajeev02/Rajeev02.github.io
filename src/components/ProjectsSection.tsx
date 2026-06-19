@@ -18,11 +18,13 @@ const projects = [
       "Security"
     ],
     webUrl: "https://github.com/Rajeev02/kavachid",
-    npmUrl: "https://www.npmjs.com/search?q=kavach",
-    mavenUrl: "https://search.maven.org/search?q=kavach",
-    cocoapodsUrl: "https://cocoapods.org/",
-    pubUrl: "https://pub.dev/packages?q=kavach",
-    pypiUrl: "https://pypi.org/search/?q=kavach",
+    npmWebUrl: "https://www.npmjs.com/package/@rajeev02/kavach-web",
+    npmRnUrl: "https://www.npmjs.com/package/@rajeev02/kavach-react-native",
+    mavenUrl: "https://central.sonatype.com/artifact/io.github.rajeev02.kavach/kavach-android",
+    cocoapodsUrl: "https://cocoapods.org/pods/KavachSDK",
+    pubUrl: "https://pub.dev/packages/kavach_flutter",
+    pypiUrl: "https://pypi.org/project/rajeev02-kavach-sdk/",
+    goUrl: "https://pkg.go.dev/github.com/Rajeev02/kavachid/sdks/kavach-go",
     icon: "/images/apps/kavach.png",
     featured: true,
   },
@@ -243,11 +245,13 @@ const ProjectsSection = () => {
                 {(project.playStoreUrl ||
                   project.appStoreUrl ||
                   project.webUrl ||
-                  project.npmUrl ||
+                  project.npmWebUrl ||
+                  project.npmRnUrl ||
                   project.mavenUrl ||
                   project.cocoapodsUrl ||
                   project.pubUrl ||
-                  project.pypiUrl) && (
+                  project.pypiUrl ||
+                  project.goUrl) && (
                   <div className="flex flex-wrap gap-2">
                     {project.playStoreUrl && (
                       <Button
@@ -300,10 +304,17 @@ const ProjectsSection = () => {
                         </a>
                       </Button>
                     )}
-                    {project.npmUrl && (
+                    {project.npmWebUrl && (
                       <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
-                        <a href={project.npmUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-3 h-3" /> NPM
+                        <a href={project.npmWebUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> NPM (Web)
+                        </a>
+                      </Button>
+                    )}
+                    {project.npmRnUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.npmRnUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> NPM (RN)
                         </a>
                       </Button>
                     )}
@@ -324,7 +335,7 @@ const ProjectsSection = () => {
                     {project.pubUrl && (
                       <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
                         <a href={project.pubUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-3 h-3" /> Pub
+                          <ExternalLink className="w-3 h-3" /> Pub.dev
                         </a>
                       </Button>
                     )}
@@ -332,6 +343,13 @@ const ProjectsSection = () => {
                       <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
                         <a href={project.pypiUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-3 h-3" /> PyPI
+                        </a>
+                      </Button>
+                    )}
+                    {project.goUrl && (
+                      <Button size="sm" variant="outline" asChild className="gap-1 text-xs">
+                        <a href={project.goUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" /> Go
                         </a>
                       </Button>
                     )}
