@@ -17,7 +17,7 @@ With over 9 years of software development experience (including 5+ years buildin
 *   **React Native Advanced**: React Native 0.63 to 0.83 Migration, Fabric Migration, TurboModules Migration, JSI Integration, Hermes Optimization, Native Module Development
 
 ### Career Timeline
-*   **LetsVenture Technologies** (2019 - 2026): Senior Android Developer / Senior React Native Developer
+*   **LetsVenture Technologies** (2019 - 2026): Senior Android Developer (Senior React Native Developer)
 *   **WildTrails Technologies** (2018 - 2019): Software Engineer (Android)
 *   **Dunst Technologies** (2017 - 2018): Junior Android Developer
 *   **Plurebus Technologies** (2016 - 2017): Junior R&D Engineer
