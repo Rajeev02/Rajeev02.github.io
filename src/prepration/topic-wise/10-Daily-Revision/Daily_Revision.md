@@ -4,7 +4,7 @@
 
 - [Section 1: 💻 1-Hour Daily Coding Routine (HackerRank Prep)](#section-1-1-hour-daily-coding-routine-hackerrank-prep)
 - [Section 2: 🧠 1-Hour Daily Theory Routine (React Native, JS/TS, Architecture)](#section-2-1-hour-daily-theory-routine-react-native-js-ts-architecture)
-
+- [Section 3: 🏢 Company Specific Prep (AlohaPM - Lead Mobile Developer)](#section-3-company-specific-prep-alohapm---lead-mobile-developer)
 
 ---
 
@@ -69,17 +69,6 @@ Queue
 
 **Pattern:** HashMap
 
-**Input:**
-```javascript
-nums = [2, 7, 11, 15];
-target = 9;
-```
-
-**Output:**
-```javascript
-[0, 1];
-```
-
 **Solution:**
 ```javascript
 function twoSum(nums, target) {
@@ -99,27 +88,9 @@ function twoSum(nums, target) {
 }
 ```
 
-**Complexity:**
-```text
-Time: O(n)
-Space: O(n)
-```
-
----
-
 #### 2. Contains Duplicate ⭐⭐⭐⭐⭐
 
 **Pattern:** Set
-
-**Input:**
-```javascript
-nums = [1, 2, 3, 1];
-```
-
-**Output:**
-```javascript
-true;
-```
 
 **Solution:**
 ```javascript
@@ -143,17 +114,6 @@ function containsDuplicate(nums) {
 #### 3. Valid Anagram ⭐⭐⭐⭐⭐
 
 **Pattern:** HashMap
-
-**Input:**
-```javascript
-s = "anagram";
-t = "nagaram";
-```
-
-**Output:**
-```javascript
-true;
-```
 
 **Solution:**
 ```javascript
@@ -181,16 +141,6 @@ function isAnagram(s, t) {
 
 **Pattern:** Frequency Count
 
-**Input:**
-```javascript
-str = "leetcode";
-```
-
-**Output:**
-```javascript
-"l";
-```
-
 **Solution:**
 ```javascript
 function firstUnique(str) {
@@ -216,16 +166,6 @@ function firstUnique(str) {
 
 **Pattern:** Two Pointers
 
-**Input:**
-```javascript
-nums = [0, 1, 0, 3, 12];
-```
-
-**Output:**
-```javascript
-[1, 3, 12, 0, 0];
-```
-
 **Solution:**
 ```javascript
 function moveZeroes(nums) {
@@ -250,16 +190,6 @@ function moveZeroes(nums) {
 #### 6. Longest Substring Without Repeating Characters ⭐⭐⭐⭐⭐
 
 **Pattern:** Sliding Window
-
-**Input:**
-```javascript
-str = "abcabcbb";
-```
-
-**Output:**
-```javascript
-3; // "abc"
-```
 
 **Solution:**
 ```javascript
@@ -295,16 +225,6 @@ windowLength = right - left + 1;
 
 **Pattern:** Dynamic Running Sum
 
-**Input:**
-```javascript
-nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-```
-
-**Output:**
-```javascript
-6; // [4,-1,2,1]
-```
-
 **Solution:**
 ```javascript
 function maxSubArray(nums) {
@@ -325,16 +245,6 @@ function maxSubArray(nums) {
 #### 8. Valid Parentheses ⭐⭐⭐⭐
 
 **Pattern:** Stack
-
-**Input:**
-```javascript
-str = "()[]{}";
-```
-
-**Output:**
-```javascript
-true;
-```
 
 **Solution:**
 ```javascript
@@ -372,16 +282,6 @@ function isValid(str) {
 Store First → Then Multiply
 ```
 
-**Input:**
-```javascript
-nums = [1, 2, 3, 4];
-```
-
-**Output:**
-```javascript
-[24, 12, 8, 6];
-```
-
 **Solution:**
 ```javascript
 function productExceptSelf(nums) {
@@ -410,17 +310,6 @@ function productExceptSelf(nums) {
 #### 10. Merge Two Sorted Arrays ⭐⭐⭐⭐
 
 **Pattern:** Two Pointers
-
-**Input:**
-```javascript
-arr1 = [1, 3, 5];
-arr2 = [2, 4, 6];
-```
-
-**Output:**
-```javascript
-[1, 2, 3, 4, 5, 6];
-```
 
 **Solution:**
 ```javascript
@@ -451,16 +340,6 @@ function mergeSortedArrays(arr1, arr2) {
 
 **Pattern:** Recursion
 
-**Input:**
-```javascript
-arr = [1, [2, [3, 4], 5], 6];
-```
-
-**Output:**
-```javascript
-[1, 2, 3, 4, 5, 6];
-```
-
 **Solution:**
 ```javascript
 function flatten(arr) {
@@ -488,16 +367,6 @@ arr.flat(Infinity);
 #### 12. Group Anagrams ⭐⭐⭐⭐
 
 **Pattern:** HashMap
-
-**Input:**
-```javascript
-words = ["eat", "tea", "tan", "ate", "nat", "bat"];
-```
-
-**Output:**
-```javascript
-[["eat", "tea", "ate"], ["tan", "nat"], ["bat"]];
-```
 
 **Solution:**
 ```javascript
@@ -627,40 +496,6 @@ Returns first successful promise. Ignores failures.
 ---
 
 #### 17. Event Loop ⭐⭐⭐⭐⭐
-
-**Input:**
-```javascript
-console.log("1");
-
-setTimeout(() => {
-  console.log("2");
-}, 0);
-
-Promise.resolve().then(() => {
-  console.log("3");
-});
-
-console.log("4");
-```
-
-**Output:**
-```text
-1
-4
-3
-2
-```
-
-**Remember:**
-```text
-Sync Code
-↓
-Microtask Queue (Promise)
-↓
-Macrotask Queue (setTimeout)
-```
-
----
 
 #### 18. Object / Array Transformation ⭐⭐⭐⭐⭐
 
@@ -866,17 +701,6 @@ const styles = StyleSheet.create({
 #### 23. Binary Search ⭐⭐⭐
 **Pattern:** Binary Search
 
-**Input:**
-```javascript
-nums = [1, 2, 3, 4, 5, 6];
-target = 4;
-```
-
-**Output:**
-```javascript
-3
-```
-
 **Solution:**
 ```javascript
 function binarySearch(nums, target) {
@@ -904,16 +728,6 @@ function binarySearch(nums, target) {
 #### 24. Bit Manipulation (Single Number) ⭐⭐
 **Pattern:** XOR
 
-**Input:**
-```javascript
-[2, 2, 1]
-```
-
-**Output:**
-```javascript
-1
-```
-
 **Solution:**
 ```javascript
 function singleNumber(nums) {
@@ -927,22 +741,6 @@ function singleNumber(nums) {
 
 #### 25. Matrix Traversal ⭐⭐
 **Pattern:** Nested Loops
-
-**Input:**
-```javascript
-[
-  [1, 2],
-  [3, 4]
-]
-```
-
-**Output:**
-```javascript
-1
-2
-3
-4
-```
 
 **Solution:**
 ```javascript
@@ -958,16 +756,6 @@ function traverse(matrix) {
 #### 26. Third Largest Number ⭐⭐
 **Pattern:** Set & Sort
 
-**Input:**
-```javascript
-[10, 5, 20, 8, 15]
-```
-
-**Output:**
-```javascript
-15
-```
-
 **Solution:**
 ```javascript
 const arr = [10, 5, 20, 8, 15];
@@ -977,16 +765,6 @@ console.log(result);
 
 #### 27. Prefix Sum ⭐⭐
 **Pattern:** Accumulator Array
-
-**Input:**
-```javascript
-[3, 5, 4, 2, 7, 9]
-```
-
-**Output:**
-```javascript
-[3, 8, 12, 14, 21, 30]
-```
 
 **Solution:**
 ```javascript
@@ -1005,18 +783,6 @@ function prefixSum(arr) {
 
 #### 28. Range Sum Query ⭐⭐⭐
 **Pattern:** Prefix Sum Array
-
-**Input:**
-```javascript
-nums = [-2, 0, 3, -5, 2, -1];
-left = 1;
-right = 5;
-```
-
-**Output:**
-```javascript
--1
-```
 
 **Solution:**
 ```javascript
@@ -1039,17 +805,6 @@ class NumArray {
 #### 29. Subarray Sum Equals K ⭐⭐⭐⭐
 **Pattern:** Prefix Sum + HashMap
 
-**Input:**
-```javascript
-nums = [1, -1, 0];
-k = 0;
-```
-
-**Output:**
-```javascript
-3
-```
-
 **Solution:**
 ```javascript
 function subarraySum(nums, k) {
@@ -1070,7 +825,6 @@ function subarraySum(nums, k) {
   return count;
 }
 ```
-
 
 ---
 
@@ -1279,3 +1033,61 @@ Revise these high-impact Q&As. These questions dictate whether an interviewer gr
 **Q: How does CodePush (Over The Air Updates) work? What are its limitations?**
 * **Answer:** CodePush allows developers to deploy mobile app updates instantly, bypassing the App Store / Play Store review process. It works by sending the updated JavaScript bundle (`index.android.bundle`) and assets to a remote server. The app silently downloads this payload in the background and swaps it out on the next launch.
   * *Limitation:* CodePush **only** updates JavaScript and image assets. If you install a new NPM library that requires Native linking (changes to Android `build.gradle` or iOS `Podfile`), you **must** submit a new binary to the App Stores.
+
+---
+
+> 🎯 **Topic:** Section 3: 🏢 Company Specific Prep (AlohaPM - Lead Mobile Developer)
+> 📊 **Difficulty:** Hard | 🔄 **Interview Frequency:** High
+> 🏷️ **Tags:** 🔥 Must Revise
+
+---
+
+## Section 3: 🏢 Company Specific Prep (AlohaPM - Lead Mobile Developer)
+
+### 1. 30-Second Self Introduction
+> "Hi, I'm Rajeev Joshi, a Senior React Native Developer with 9+ years of experience, including 5+ years in React Native. I've led end-to-end mobile development from architecture to deployment on the App Store and Play Store. I specialize in performance optimization, offline-first architecture, API integrations, CI/CD, and team mentoring. I'm excited about this opportunity at AlohaPM because it combines technical leadership, React Native expertise, and building impactful healthcare solutions."
+
+### 2. Expo vs React Native CLI
+**Q: When to use Expo vs RN CLI?**
+* **Expo:** Best for rapid prototyping, smaller teams, and standard apps. OTA updates out of the box. Doesn't support custom native code as easily (though Expo Prebuild/Config Plugins improved this).
+* **RN CLI:** Best when you need complete control over native modules (Java/Kotlin/Swift/Objective-C), custom CI/CD pipelines, and highly specialized native integrations.
+
+### 3. Offline First & Real-Time Sync (Crucial)
+**Q: How do you build an offline-first app?**
+* **Answer:** 
+  1. Store data locally using `SQLite`, `MMKV`, or `WatermelonDB`.
+  2. Queue user actions locally when offline.
+  3. Sync when network returns using background jobs or foreground listeners.
+  4. Implement conflict resolution using timestamps/versioning.
+
+**Q: How do you handle real-time updates?**
+* **Answer:** Use WebSockets, Server-Sent Events (SSE), or Firebase Realtime Database/Firestore listeners.
+
+### 4. Mobile Architecture Patterns
+**Q: What architecture do you follow?**
+* **Answer:** Feature-based Clean Architecture. I separate UI (components), Business Logic (custom hooks/thunks), API Services (Axios/React Query), and State Management. I also use the Repository Pattern to abstract data sources (local DB vs remote API).
+
+### 5. Testing in React Native
+**Q: What is your testing strategy?**
+* **Unit Testing:** `Jest` for business logic and reducers.
+* **Component Testing:** `React Native Testing Library` (RNTL) to test UI rendering and user interactions.
+* **E2E Testing:** `Detox` for automated end-to-end user flows.
+
+### 6. Healthcare Domain & HIPAA Compliance
+**Q: What is HIPAA and how do you protect patient data?**
+* **Answer:** HIPAA is a US regulation for healthcare data protection. To comply:
+  * Encrypt data at rest (using Keychain/Keystore) and in transit (SSL Pinning/HTTPS).
+  * Never log sensitive PHI (Protected Health Information).
+  * Enforce strict session management and biometric authentication (FaceID/TouchID).
+  * Secure APIs with scoped access tokens.
+
+### 7. Leadership & Mentoring
+**Q: How do you conduct Code Reviews?**
+* **Answer:** Focus on architecture consistency, naming conventions, performance bottlenecks (unnecessary re-renders), security, and ensuring adequate test coverage. I use it as a mentoring opportunity rather than just finding faults.
+
+**Q: How do you handle strict deadlines?**
+* **Answer:** Break the project into smaller milestones. Prioritize the MVP features first. Conduct daily tracking and raise flags early if risks are identified.
+
+### 8. CI/CD & Deployment
+**Q: How do you automate app releases?**
+* **Answer:** I use `Fastlane` integrated with `GitHub Actions` (or Bitbucket Pipelines). It automates versioning, building the APK/AAB and IPA, running tests, and uploading to TestFlight and Google Play Console.
