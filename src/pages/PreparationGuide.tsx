@@ -4,6 +4,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Lock, FileText, Folder, ChevronRight, Menu, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ACCESS_HASH = "cb7926f58653d799fa54fdf0803d1a66434fd0d3a75f61855405d539eb836abf";
 
@@ -217,35 +219,42 @@ export default function PreparationGuide() {
                       <ArrowLeft className="w-4 h-4 mr-2" /> Back
                     </Button>
                   </div>
-                  <div className="space-y-8">
-                    {(() => {
-                      // First try to split by the Topic marker to keep metadata and headings together
-                      let sections = activeFile.content.split(/\\n(?=> 🎯 \\*\\*Topic:\\*\\*|> \\ud83c\\udfaf \\*\\*Topic:\\*\\*)/);
-                      
-                      // Fallback to heading splits if the file doesn't use the Topic marker
-                      if (sections.length <= 1) {
-                        sections = activeFile.content.split(/\\n(?=##\\s|####\\s)/);
-                      }
-
-                      return sections.map((section: string, index: number) => {
-                        if (!section.trim()) return null;
-                        
-                        // Clean up trailing and leading horizontal rules left by the split
-                        const cleanedSection = section
-                          .replace(/^\\s*---\\s*\\n/, "")
-                          .replace(/\\n\\s*---\\s*$/, "");
-
-                        return (
-                          <div key={index} className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                            <div className="p-6 md:p-8 prose prose-sm md:prose-base dark:prose-invert max-w-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:mt-0 prose-h4:mt-0 prose-hr:hidden">
-                              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                {cleanedSection}
-                              </ReactMarkdown>
-                            </div>
-                          </div>
-                        );
-                      });
-                    })()}
+                  <div className="bg-card border-none sm:border sm:border-border sm:rounded-2xl overflow-hidden sm:shadow-sm">
+                    <div className="p-6 md:p-12 prose prose-sm md:prose-base dark:prose-invert max-w-none text-gray-800 dark:text-gray-200">
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          h2: ({node, ...props}) => <h2 className="text-2xl md:text-3xl font-bold mt-16 mb-6 pb-2 border-b border-gray-200 dark:border-gray-800 text-black dark:text-white" {...props} />,
+                          h3: ({node, ...props}) => <h3 className="text-xl md:text-2xl font-bold mt-10 mb-4 text-black dark:text-white" {...props} />,
+                          h4: ({node, ...props}) => <h4 className="text-lg md:text-xl font-bold mt-8 mb-4 text-black dark:text-white" {...props} />,
+                          hr: ({node, ...props}) => <hr className="my-10 border-gray-200 dark:border-gray-800" {...props} />,
+                          blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-400 dark:border-gray-600 pl-4 py-2 my-6 text-gray-700 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-800/50 rounded-r-lg" {...props} />,
+                          a: ({node, ...props}) => <a className="text-blue-600 dark:text-blue-400 hover:underline" {...props} />,
+                          code({node, inline, className, children, ...props}: any) {
+                            const match = /language-(\w+)/.exec(className || '');
+                            return !inline && match ? (
+                              <div className="my-8 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-[#f5f2f0]">
+                                <SyntaxHighlighter
+                                  style={vs as any}
+                                  language={match[1]}
+                                  PreTag="div"
+                                  customStyle={{ margin: 0, padding: '1.5rem', background: 'transparent', fontSize: '0.9rem' }}
+                                  {...props}
+                                >
+                                  {String(children).replace(/\\n$/, '')}
+                                </SyntaxHighlighter>
+                              </div>
+                            ) : (
+                              <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded-md text-[0.9em] font-mono text-red-600 dark:text-red-400" {...props}>
+                                {children}
+                              </code>
+                            );
+                          }
+                        }}
+                      >
+                        {activeFile.content}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </div>
               )}
