@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Lock, FileText, Folder, ChevronRight, Menu, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/ThemeProvider";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -20,8 +20,7 @@ async function sha256(message: string) {
 }
 
 export default function PreparationGuide() {
-  const { theme, systemTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const { resolvedTheme } = useTheme();
   const [isLocked, setIsLocked] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -239,7 +238,7 @@ export default function PreparationGuide() {
                           p: ({node, ...props}) => <p className="mb-[24px]" {...props} />,
                           code({node, inline, className, children, ...props}: any) {
                             const match = /language-(\w+)/.exec(className || '');
-                            const isDark = currentTheme === "dark" || currentTheme === "dim";
+                            const isDark = resolvedTheme === "dark" || resolvedTheme === "dim";
                             
                             return !inline && match ? (
                               <div className={`my-8 rounded-lg overflow-hidden border ${isDark ? 'border-[#1f2937] bg-[#030712]' : 'border-gray-200 bg-[#f5f5f5]'}`}>
