@@ -4,8 +4,9 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Lock, FileText, Folder, ChevronRight, Menu, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ACCESS_HASH = "cb7926f58653d799fa54fdf0803d1a66434fd0d3a75f61855405d539eb836abf";
 
@@ -19,6 +20,8 @@ async function sha256(message: string) {
 }
 
 export default function PreparationGuide() {
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   const [isLocked, setIsLocked] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -219,33 +222,43 @@ export default function PreparationGuide() {
                       <ArrowLeft className="w-4 h-4 mr-2" /> Back
                     </Button>
                   </div>
-                  <div className="bg-card border-none sm:border sm:border-border sm:rounded-2xl overflow-hidden sm:shadow-sm">
-                    <div className="p-6 md:p-12 prose prose-sm md:prose-base dark:prose-invert max-w-none text-gray-800 dark:text-gray-200">
+                  <div className="bg-transparent sm:bg-card border-none sm:border sm:border-border sm:rounded-2xl overflow-hidden sm:shadow-sm">
+                    <div 
+                      className="p-4 md:p-12 prose prose-sm md:prose-base dark:prose-invert max-w-[760px] mx-auto text-[#292929] dark:text-[#e5e7eb]"
+                      style={{ fontFamily: "'Merriweather', Georgia, serif", fontSize: "17px", lineHeight: "1.8", letterSpacing: "-0.01em" }}
+                    >
                       <ReactMarkdown 
                         remarkPlugins={[remarkGfm]}
                         components={{
-                          h2: ({node, ...props}) => <h2 className="text-2xl md:text-3xl font-bold mt-16 mb-6 pb-2 border-b border-gray-200 dark:border-gray-800 text-black dark:text-white" {...props} />,
-                          h3: ({node, ...props}) => <h3 className="text-xl md:text-2xl font-bold mt-10 mb-4 text-black dark:text-white" {...props} />,
-                          h4: ({node, ...props}) => <h4 className="text-lg md:text-xl font-bold mt-8 mb-4 text-black dark:text-white" {...props} />,
+                          h2: ({node, ...props}) => <h2 className="font-sans text-2xl md:text-[24px] font-[800] mt-[36px] mb-[16px] pb-[8px] border-b border-gray-200 dark:border-gray-800 text-black dark:text-white tracking-[-0.02em] leading-[1.3]" {...props} />,
+                          h3: ({node, ...props}) => <h3 className="font-sans text-xl md:text-[20px] font-[800] mt-[36px] mb-[16px] text-black dark:text-white tracking-[-0.02em] leading-[1.3]" {...props} />,
+                          h4: ({node, ...props}) => <h4 className="font-sans text-lg md:text-[18px] font-[800] mt-[36px] mb-[16px] text-black dark:text-white tracking-[-0.02em] leading-[1.3]" {...props} />,
                           hr: ({node, ...props}) => <hr className="my-16 border-t-[3px] border-gray-200 dark:border-gray-800 rounded-full" {...props} />,
-                          blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-400 dark:border-gray-600 pl-4 py-2 my-6 text-gray-700 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-800/50 rounded-r-lg" {...props} />,
-                          a: ({node, ...props}) => <a className="text-blue-600 dark:text-blue-400 hover:underline" {...props} />,
+                          blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-[#1a8917] dark:border-[#a855f7] pl-4 py-2 my-6 text-gray-700 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-800/50 rounded-r-lg font-sans text-[15px]" {...props} />,
+                          a: ({node, ...props}) => <a className="text-[#1a8917] dark:text-[#c084fc] hover:underline font-semibold" {...props} />,
+                          p: ({node, ...props}) => <p className="mb-[24px]" {...props} />,
                           code({node, inline, className, children, ...props}: any) {
                             const match = /language-(\w+)/.exec(className || '');
+                            const isDark = currentTheme === "dark" || currentTheme === "dim";
+                            
                             return !inline && match ? (
-                              <div className="my-8 rounded-xl overflow-hidden border border-[#2d3748] dark:border-[#1f2937] bg-[#10141d] dark:bg-[#030712] shadow-sm">
+                              <div className={`my-8 rounded-lg overflow-hidden border ${isDark ? 'border-[#1f2937] bg-[#030712]' : 'border-gray-200 bg-[#f5f5f5]'}`}>
                                 <SyntaxHighlighter
-                                  style={vscDarkPlus as any}
+                                  style={(isDark ? vscDarkPlus : vs) as any}
                                   language={match[1]}
                                   PreTag="div"
-                                  customStyle={{ margin: 0, padding: '1.5rem', background: 'transparent', fontSize: '0.9rem', lineHeight: '1.6' }}
+                                  customStyle={{ margin: 0, padding: '20px', background: 'transparent', fontFamily: "'JetBrains Mono', SFMono-Regular, Consolas, monospace", fontSize: '13px', lineHeight: '1.5' }}
                                   {...props}
                                 >
                                   {String(children).replace(/\\n$/, '')}
                                 </SyntaxHighlighter>
                               </div>
                             ) : (
-                              <code className="bg-[#151922] dark:bg-[#030712] px-1.5 py-0.5 rounded-md text-[0.9em] font-mono text-[#38bdf8] dark:text-[#f472b6]" {...props}>
+                              <code 
+                                className={`px-[6px] py-[3px] rounded-[4px] font-mono text-[14px] break-words ${isDark ? 'bg-[#030712] text-[#f472b6]' : 'bg-[#f2f2f2] text-[#c53030]'}`} 
+                                style={{ fontFamily: "'JetBrains Mono', SFMono-Regular, Consolas, monospace" }}
+                                {...props}
+                              >
                                 {children}
                               </code>
                             );
