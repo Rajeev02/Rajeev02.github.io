@@ -220,7 +220,7 @@ export default function PreparationGuide() {
                       <h1 className="text-2xl md:text-3xl font-bold mb-2">{activeFile.name.replace(".md", "")}</h1>
                       <div className="flex items-center text-sm text-muted-foreground font-medium">
                         <Clock className="w-4 h-4 mr-1.5" />
-                        <span>{Math.ceil(activeFile.content.split(/\\s+/).length / 200)} min read</span>
+                        <span>{Math.ceil(activeFile.content.split(/\s+/).length / 200)} min read</span>
                       </div>
                     </div>
                     <Button variant="ghost" size="sm" onClick={() => setActiveFile(null)} className="md:hidden self-start">
