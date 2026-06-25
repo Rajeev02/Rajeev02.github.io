@@ -135,6 +135,75 @@ JavaScript is a single-threaded language, meaning it has one Call Stack and exec
     // 4. Macrotask (setTimeout)
     ```
 
+  - *Complex Example*:
+    ```javascript
+    console.log("1: Start");
+
+    setTimeout(() => {
+      console.log("2: Timeout (Macrotask)");
+    }, 0);
+
+    Promise.resolve().then(() => {
+      console.log("3: Promise (Microtask)");
+      setTimeout(() => {
+      console.log("4: Timeout (Macrotask)");
+    }, 0);
+    });
+
+    console.log("5: End");
+
+    setTimeout(() => {
+      console.log("6: Timeout (Macrotask)");
+    }, 0);
+
+    // Execution Output:
+    // 1: Start
+    // 5: End
+    // 3: Promise (Microtask)
+    // 2: Timeout (Macrotask)
+    // 6: Timeout (Macrotask)
+    // 4: Timeout (Macrotask)
+    ```
+
+  - *Nested Example*:
+    ```javascript
+    console.log("1: Start");
+
+    setTimeout(() => {
+      console.log("2: Timeout (Macrotask)");
+    }, 0);
+
+    Promise.resolve().then(() => {
+      console.log("3: Promise (Microtask)");
+      setTimeout(() => {
+      console.log("4: Timeout (Macrotask)");
+    }, 0);
+    });
+
+    setTimeout(() => {
+      console.log("5: Timeout (Macrotask)");
+
+      Promise.resolve().then(() => {
+      console.log("6: Promise (Microtask)");
+      setTimeout(() => {
+      console.log("7: Timeout (Macrotask)");
+    }, 0);
+    });
+    }, 0);
+
+    console.log("8: End");
+
+    // Execution Output:
+    // 1: Start
+    // 8: End
+    // 3: Promise (Microtask)
+    // 2: Timeout (Macrotask)
+    // 5: Timeout (Macrotask)
+    // 6: Promise (Microtask)
+    // 4: Timeout (Macrotask)
+    // 7: Timeout (Macrotask)
+    ```
+
 ---
 
 

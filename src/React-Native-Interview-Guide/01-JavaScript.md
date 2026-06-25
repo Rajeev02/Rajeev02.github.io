@@ -510,6 +510,87 @@ Promises execute before setTimeout callbacks.
 
 ---
 
+## Example 2
+
+```javascript
+console.log("1: Start");
+
+setTimeout(() => {
+  console.log("2: Timeout (Macrotask)");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("4: Timeout (Macrotask)");
+}, 0);
+});
+
+console.log("5: End");
+
+setTimeout(() => {
+  console.log("6: Timeout (Macrotask)");
+}, 0);
+```
+
+Output:
+
+```javascript
+1: Start
+5: End
+3: Promise (Microtask)
+2: Timeout (Macrotask)
+6: Timeout (Macrotask)
+4: Timeout (Macrotask)
+```
+
+---
+
+## Example 3 (Nested Promises and Timeouts)
+
+```javascript
+console.log("1: Start");
+
+setTimeout(() => {
+  console.log("2: Timeout (Macrotask)");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("4: Timeout (Macrotask)");
+}, 0);
+});
+
+setTimeout(() => {
+  console.log("5: Timeout (Macrotask)");
+
+  Promise.resolve().then(() => {
+  console.log("6: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("7: Timeout (Macrotask)");
+}, 0);
+});
+}, 0);
+
+console.log("8: End");
+```
+
+Output:
+
+```javascript
+1: Start
+8: End
+3: Promise (Microtask)
+2: Timeout (Macrotask)
+5: Timeout (Macrotask)
+6: Promise (Microtask)
+4: Timeout (Macrotask)
+7: Timeout (Macrotask)
+```
+
+---
+
 ## Interview Answer
 
 "Event Loop is a mechanism that allows JavaScript to handle asynchronous operations by moving tasks from queues into the Call Stack whenever it becomes empty."

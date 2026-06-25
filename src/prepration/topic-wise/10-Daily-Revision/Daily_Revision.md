@@ -962,6 +962,52 @@ Revise these high-impact Q&As. These questions dictate whether an interviewer gr
   * **Microtask Queue** has higher priority. It processes `Promises` (`.then`/`.catch`/`.finally`) and `MutationObserver`.
   * **Macrotask Queue** has lower priority. It processes `setTimeout`, `setInterval`, and DOM events.
   * *Rule:* The Event Loop will execute *all* microtasks before moving on to the next macrotask.
+  * *Example:*
+    ```javascript
+    console.log("1: Start");
+    setTimeout(() => console.log("2: Timeout (Macrotask)"), 0);
+    Promise.resolve().then(() => {
+      console.log("3: Promise (Microtask)");
+      setTimeout(() => console.log("4: Timeout (Macrotask)"), 0);
+    });
+    console.log("5: End");
+    setTimeout(() => console.log("6: Timeout (Macrotask)"), 0);
+    
+    // Output:
+    // 1: Start
+    // 5: End
+    // 3: Promise (Microtask)
+    // 2: Timeout (Macrotask)
+    // 6: Timeout (Macrotask)
+    // 4: Timeout (Macrotask)
+    ```
+  * *Nested Example:*
+    ```javascript
+    console.log("1: Start");
+    setTimeout(() => console.log("2: Timeout (Macrotask)"), 0);
+    Promise.resolve().then(() => {
+      console.log("3: Promise (Microtask)");
+      setTimeout(() => console.log("4: Timeout (Macrotask)"), 0);
+    });
+    setTimeout(() => {
+      console.log("5: Timeout (Macrotask)");
+      Promise.resolve().then(() => {
+        console.log("6: Promise (Microtask)");
+        setTimeout(() => console.log("7: Timeout (Macrotask)"), 0);
+      });
+    }, 0);
+    console.log("8: End");
+    
+    // Output:
+    // 1: Start
+    // 8: End
+    // 3: Promise (Microtask)
+    // 2: Timeout (Macrotask)
+    // 5: Timeout (Macrotask)
+    // 6: Promise (Microtask)
+    // 4: Timeout (Macrotask)
+    // 7: Timeout (Macrotask)
+    ```
 
 **Q: What is a Closure? Where do you use it?**
 * **Answer:** A closure is a function that remembers the variables from its lexical scope, even after the outer function has finished executing. We use closures to implement data privacy (encapsulating state) and to build utility functions like `debounce` or `throttle`.

@@ -588,6 +588,86 @@ console.log("4: End");
 
 ---
 
+### Program 6.5: Complex Asynchronous Execution
+
+#### Code Snippet
+```javascript
+console.log("1: Start");
+
+setTimeout(() => {
+  console.log("2: Timeout (Macrotask)");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("4: Timeout (Macrotask)");
+}, 0);
+});
+
+console.log("5: End");
+
+setTimeout(() => {
+  console.log("6: Timeout (Macrotask)");
+}, 0);
+```
+
+#### Console Output Order
+```text
+1: Start
+5: End
+3: Promise (Microtask)
+2: Timeout (Macrotask)
+6: Timeout (Macrotask)
+4: Timeout (Macrotask)
+```
+
+---
+
+### Program 6.6: Nested Asynchronous Execution
+
+#### Code Snippet
+```javascript
+console.log("1: Start");
+
+setTimeout(() => {
+  console.log("2: Timeout (Macrotask)");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("4: Timeout (Macrotask)");
+}, 0);
+});
+
+setTimeout(() => {
+  console.log("5: Timeout (Macrotask)");
+
+  Promise.resolve().then(() => {
+  console.log("6: Promise (Microtask)");
+  setTimeout(() => {
+  console.log("7: Timeout (Macrotask)");
+}, 0);
+});
+}, 0);
+
+console.log("8: End");
+```
+
+#### Console Output Order
+```text
+1: Start
+8: End
+3: Promise (Microtask)
+2: Timeout (Macrotask)
+5: Timeout (Macrotask)
+6: Promise (Microtask)
+4: Timeout (Macrotask)
+7: Timeout (Macrotask)
+```
+---
+
 ---
 
 > 🎯 **Topic:** Section 7: Program 7: Loop Scoping & Variable Closures inside SetTimeout
