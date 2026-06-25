@@ -236,12 +236,34 @@ export default function PreparationGuide() {
                           blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-[#1a8917] dark:border-[#a855f7] pl-4 py-2 my-6 text-gray-700 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-800/50 rounded-r-lg font-sans text-[15px]" {...props} />,
                           a: ({node, ...props}) => <a className="text-[#1a8917] dark:text-[#c084fc] hover:underline font-semibold" {...props} />,
                           p: ({node, ...props}) => <p className="mb-[24px]" {...props} />,
-                          code({node, inline, className, children, ...props}: any) {
+                          code: function CodeBlock({node, inline, className, children, ...props}: any) {
                             const match = /language-(\w+)/.exec(className || '');
                             const isDark = resolvedTheme === "dark" || resolvedTheme === "dim";
+                            const [copied, setCopied] = useState(false);
+                            const codeString = String(children).replace(/\\n$/, '');
+
+                            const handleCopy = () => {
+                              navigator.clipboard.writeText(codeString);
+                              setCopied(true);
+                              setTimeout(() => setCopied(false), 2000);
+                            };
                             
                             return !inline && match ? (
-                              <div className={`my-8 rounded-lg overflow-hidden border ${isDark ? 'border-[#1f2937] bg-[#030712]' : 'border-gray-200 bg-[#f5f5f5]'}`}>
+                              <div className={`relative group my-8 rounded-lg overflow-hidden border ${isDark ? 'border-[#1f2937] bg-[#030712]' : 'border-gray-200 bg-[#f5f5f5]'}`}>
+                                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                                  <Button 
+                                    size="sm" 
+                                    variant="ghost" 
+                                    className={`h-8 px-3 text-xs font-sans rounded-md border ${isDark ? 'bg-[#1f2937] hover:bg-[#374151] border-[#374151] text-gray-300' : 'bg-white hover:bg-gray-100 border-gray-300 text-gray-600'} shadow-sm transition-all`}
+                                    onClick={handleCopy}
+                                  >
+                                    {copied ? (
+                                      <span className="flex items-center text-green-500">
+                                        <span className="mr-1">✓</span> Copied!
+                                      </span>
+                                    ) : 'Copy'}
+                                  </Button>
+                                </div>
                                 <SyntaxHighlighter
                                   style={(isDark ? vscDarkPlus : vs) as any}
                                   language={match[1]}
@@ -249,7 +271,7 @@ export default function PreparationGuide() {
                                   customStyle={{ margin: 0, padding: '20px', background: 'transparent', fontFamily: "'JetBrains Mono', SFMono-Regular, Consolas, monospace", fontSize: '13px', lineHeight: '1.5' }}
                                   {...props}
                                 >
-                                  {String(children).replace(/\\n$/, '')}
+                                  {codeString}
                                 </SyntaxHighlighter>
                               </div>
                             ) : (
