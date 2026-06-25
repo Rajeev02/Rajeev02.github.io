@@ -218,20 +218,34 @@ export default function PreparationGuide() {
                     </Button>
                   </div>
                   <div className="space-y-8">
-                    {activeFile.content.split(/\\n(?=##\\s|####\\s)/).map((section: string, index: number) => {
-                      if (!section.trim()) return null;
-                      // Remove any leading --- that might look weird at the top of a card
-                      const cleanedSection = section.replace(/^\\s*---\\s*\\n/, "");
-                      return (
-                        <div key={index} className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                          <div className="p-6 md:p-8 prose prose-sm md:prose-base dark:prose-invert max-w-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:mt-0 prose-h4:mt-0 prose-hr:hidden">
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                              {cleanedSection}
-                            </ReactMarkdown>
+                    {(() => {
+                      // First try to split by the Topic marker to keep metadata and headings together
+                      let sections = activeFile.content.split(/\\n(?=> 🎯 \\*\\*Topic:\\*\\*|> \\ud83c\\udfaf \\*\\*Topic:\\*\\*)/);
+                      
+                      // Fallback to heading splits if the file doesn't use the Topic marker
+                      if (sections.length <= 1) {
+                        sections = activeFile.content.split(/\\n(?=##\\s|####\\s)/);
+                      }
+
+                      return sections.map((section: string, index: number) => {
+                        if (!section.trim()) return null;
+                        
+                        // Clean up trailing and leading horizontal rules left by the split
+                        const cleanedSection = section
+                          .replace(/^\\s*---\\s*\\n/, "")
+                          .replace(/\\n\\s*---\\s*$/, "");
+
+                        return (
+                          <div key={index} className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div className="p-6 md:p-8 prose prose-sm md:prose-base dark:prose-invert max-w-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:mt-0 prose-h4:mt-0 prose-hr:hidden">
+                              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                {cleanedSection}
+                              </ReactMarkdown>
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      });
+                    })()}
                   </div>
                 </div>
               )}
