@@ -217,10 +217,21 @@ export default function PreparationGuide() {
                       <ArrowLeft className="w-4 h-4 mr-2" /> Back
                     </Button>
                   </div>
-                  <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {activeFile.content}
-                    </ReactMarkdown>
+                  <div className="space-y-8">
+                    {activeFile.content.split(/\\n(?=##\\s|####\\s)/).map((section: string, index: number) => {
+                      if (!section.trim()) return null;
+                      // Remove any leading --- that might look weird at the top of a card
+                      const cleanedSection = section.replace(/^\\s*---\\s*\\n/, "");
+                      return (
+                        <div key={index} className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                          <div className="p-6 md:p-8 prose prose-sm md:prose-base dark:prose-invert max-w-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:mt-0 prose-h4:mt-0 prose-hr:hidden">
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                              {cleanedSection}
+                            </ReactMarkdown>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
