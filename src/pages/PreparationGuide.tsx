@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Lock, FileText, Folder, ChevronRight, Menu, X, ArrowLeft } from "lucide-react";
+import { Lock, FileText, Folder, ChevronRight, Menu, X, ArrowLeft, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -215,9 +215,15 @@ export default function PreparationGuide() {
                 </div>
               ) : (
                 <div className="animate-fade-in pb-20">
-                  <div className="mb-6 pb-4 border-b border-border flex items-center justify-between">
-                    <h1 className="text-2xl md:text-3xl font-bold">{activeFile.name.replace(".md", "")}</h1>
-                    <Button variant="ghost" size="sm" onClick={() => setActiveFile(null)} className="md:hidden">
+                  <div className="mb-6 pb-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                      <h1 className="text-2xl md:text-3xl font-bold mb-2">{activeFile.name.replace(".md", "")}</h1>
+                      <div className="flex items-center text-sm text-muted-foreground font-medium">
+                        <Clock className="w-4 h-4 mr-1.5" />
+                        <span>{Math.ceil(activeFile.content.split(/\\s+/).length / 200)} min read</span>
+                      </div>
+                    </div>
+                    <Button variant="ghost" size="sm" onClick={() => setActiveFile(null)} className="md:hidden self-start">
                       <ArrowLeft className="w-4 h-4 mr-2" /> Back
                     </Button>
                   </div>
