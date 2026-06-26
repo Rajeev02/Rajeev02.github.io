@@ -745,6 +745,22 @@
         "Interview",
         "WebSockets"
       ]
+    },
+    {
+      "id": "54-react-native-push-notifications-end-to-end",
+      "title": "54. End-to-End Push Notifications in React Native",
+      "readingTimeMinutes": 12,
+      "revisionTimeMinutes": 4,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Advanced",
+      "importanceRating": 10,
+      "interviewFrequency": 5,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "Architecture",
+        "Push Notifications"
+      ]
     }
   ]
 }
