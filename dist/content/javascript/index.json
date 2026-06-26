@@ -1,0 +1,18 @@
+{
+  "id": "javascript",
+  "title": "JavaScript Mastery",
+  "description": "Deep dive into JS core concepts.",
+  "topics": [
+    {
+      "id": "closures",
+      "title": "Closures & Lexical Scope",
+      "readingTimeMinutes": 15,
+      "revisionTimeMinutes": 5,
+      "practiceTimeMinutes": 20,
+      "difficulty": "Intermediate",
+      "importanceRating": 10,
+      "interviewFrequency": 5,
+      "tags": ["JavaScript", "Core", "Frontend", "IBM", "EPAM"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "lead-engineering",
+  "title": "Lead & App Lifecycle",
+  "description": "App lifecycle, scaling to millions, profiling, and architecture.",
+  "topics": [
+    {
+      "id": "profiling",
+      "title": "Profiling & FPS Optimization",
+      "readingTimeMinutes": 45,
+      "revisionTimeMinutes": 15,
+      "practiceTimeMinutes": 30,
+      "difficulty": "Expert",
+      "importanceRating": 9,
+      "interviewFrequency": 3,
+      "tags": ["Lead", "Profiling", "Performance", "FPS"]
+    }
+  ]
+}

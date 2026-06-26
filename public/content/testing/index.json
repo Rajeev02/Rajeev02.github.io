@@ -1,0 +1,18 @@
+{
+  "id": "testing",
+  "title": "Testing Mastery",
+  "description": "Jest, Detox, and React Native Testing Library.",
+  "topics": [
+    {
+      "id": "unit-testing-jest",
+      "title": "Advanced Unit Testing with Jest",
+      "readingTimeMinutes": 25,
+      "revisionTimeMinutes": 10,
+      "practiceTimeMinutes": 20,
+      "difficulty": "Intermediate",
+      "importanceRating": 9,
+      "interviewFrequency": 4,
+      "tags": ["Testing", "Jest", "Unit Test"]
+    }
+  ]
+}

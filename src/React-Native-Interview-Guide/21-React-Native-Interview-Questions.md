@@ -690,3 +690,282 @@ Architecture               10 min
 
 Total: ~60 Minutes
 ```
+
+---
+
+# Question 56: Authorization Interceptor (Axios vs Fetch)
+
+In React Native, **Axios** is much more common than OkHttp.
+
+### Axios Interceptor
+
+```javascript
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const api = axios.create({
+  baseURL: 'https://api.example.com',
+});
+
+api.interceptors.request.use(
+  async (config) => {
+    const token = await AsyncStorage.getItem('token');
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export default api;
+```
+
+### If using Secure Storage
+
+```javascript
+import * as Keychain from 'react-native-keychain';
+
+api.interceptors.request.use(async config => {
+    const credentials = await Keychain.getGenericPassword();
+
+    if (credentials) {
+        config.headers.Authorization = `Bearer ${credentials.password}`;
+    }
+
+    return config;
+});
+```
+
+### Does `fetch` support interceptors?
+
+**`fetch` does not support interceptors** like Axios or OkHttp.
+
+In React Native, you have three common approaches:
+
+#### 1. Create a wrapper around `fetch` (Recommended)
+
+This is the closest equivalent to an interceptor.
+
+```javascript
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const BASE_URL = 'https://api.example.com';
+
+export async function apiRequest(endpoint, options = {}) {
+    const token = await AsyncStorage.getItem('token');
+
+    const headers = {
+        'Content-Type': 'application/json',
+        ...options.headers,
+    };
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+        ...options,
+        headers,
+    });
+
+    if (!response.ok) {
+        throw new Error('API Error');
+    }
+
+    return response.json();
+}
+```
+
+Usage:
+
+```javascript
+const users = await apiRequest('/users');
+
+const profile = await apiRequest('/profile', {
+    method: 'POST',
+    body: JSON.stringify(data),
+});
+```
+
+#### 2. Pass the token in every API call
+
+```javascript
+const token = await AsyncStorage.getItem('token');
+
+fetch(url, {
+    headers: {
+        Authorization: `Bearer ${token}`,
+    },
+});
+```
+
+This works but leads to repeated code and is harder to maintain.
+
+#### 3. Create a custom `fetch` function
+
+You can even name it `fetchWithAuth`:
+
+```javascript
+export async function fetchWithAuth(url, options = {}) {
+    const token = await AsyncStorage.getItem('token');
+
+    return fetch(url, {
+        ...options,
+        headers: {
+            ...options.headers,
+            Authorization: token ? `Bearer ${token}` : '',
+        },
+    });
+}
+```
+
+Then use it everywhere:
+
+```javascript
+const response = await fetchWithAuth('/users');
+```
+
+#### Which approach is used in production?
+
+* **Axios** → Use request/response interceptors.
+* **Fetch** → Create a wrapper (`apiRequest` or `fetchWithAuth`).
+* **React Query/RTK Query** → Configure a common `baseQuery` or fetch function that automatically attaches the token.
+
+#### Interview answer
+
+If asked, "Can we implement an interceptor with `fetch`?"
+
+A good response is:
+
+> "No. The native Fetch API doesn't provide interceptor support like Axios or OkHttp. In React Native, we typically create a wrapper function around `fetch` or a reusable API service that retrieves the token from secure storage and attaches it to the `Authorization` header before making the request. This gives us interceptor-like behavior."
+
+This demonstrates both the limitation of `fetch` and the standard production pattern.
+
+---
+
+# Question 57: University Course Problem (JavaScript Array Methods)
+
+### Models
+
+```javascript
+const students = [
+    {
+        id: 1,
+        name: "Raj",
+        subscribedCourses: [
+            { id: 1, name: "Maths", isPaid: false },
+            { id: 2, name: "Arts", isPaid: true }
+        ]
+    },
+    {
+        id: 2,
+        name: "John",
+        subscribedCourses: [
+            { id: 3, name: "History", isPaid: true },
+            { id: 4, name: "Biology", isPaid: true }
+        ]
+    },
+    {
+        id: 3,
+        name: "Mike",
+        subscribedCourses: [
+            { id: 5, name: "Physics", isPaid: true },
+            { id: 3, name: "History", isPaid: true }
+        ]
+    }
+];
+```
+
+### Solution
+
+```javascript
+function getPaidCoursesWithTheNumbersOfSubscribedStudents(
+    students,
+    coursesCount
+) {
+    const courseMap = new Map();
+
+    students.forEach(student => {
+        student.subscribedCourses
+            .filter(course => course.isPaid)
+            .forEach(course => {
+
+                if (!courseMap.has(course.id)) {
+                    courseMap.set(course.id, {
+                        course,
+                        count: 0
+                    });
+                }
+
+                courseMap.get(course.id).count++;
+            });
+    });
+
+    return [...courseMap.values()]
+        .sort((a, b) => b.count - a.count)
+        .slice(0, coursesCount)
+        .reduce((result, item) => {
+            result[item.course.name] = item.count;
+            return result;
+        }, {});
+}
+```
+
+### Example
+
+```javascript
+const result =
+    getPaidCoursesWithTheNumbersOfSubscribedStudents(students, 3);
+
+console.log(result);
+```
+
+Output
+
+```javascript
+{
+    History: 2,
+    Arts: 1,
+    Biology: 1
+}
+```
+
+### More Interview-Friendly JavaScript (using Array methods)
+
+```javascript
+const getPaidCoursesWithTheNumbersOfSubscribedStudents = (
+    students,
+    coursesCount
+) => {
+
+    const counts = {};
+
+    students
+        .flatMap(student => student.subscribedCourses)
+        .filter(course => course.isPaid)
+        .forEach(course => {
+            counts[course.name] = (counts[course.name] || 0) + 1;
+        });
+
+    return Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, coursesCount);
+};
+```
+
+### React Native Interview Mapping
+
+| Kotlin                     | JavaScript / React Native           |
+| -------------------------- | ----------------------------------- |
+| `flatMap`                  | `flatMap()`                         |
+| `filter`                   | `filter()`                          |
+| `groupingBy().eachCount()` | `Map` or `reduce()`                 |
+| `sortedByDescending`       | `sort((a,b)=>b-a)`                  |
+| `take(n)`                  | `slice(0,n)`                        |
+| `associate()`              | `reduce()` / `Object.fromEntries()` |
+| OkHttp Interceptor         | Axios Request Interceptor           |
+
+These are the JavaScript patterns interviewers commonly expect for React Native roles.

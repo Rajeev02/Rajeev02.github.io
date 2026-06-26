@@ -1,0 +1,18 @@
+{
+  "id": "react-native",
+  "title": "Senior React Native",
+  "description": "Advanced architecture, threading, and performance.",
+  "topics": [
+    {
+      "id": "new-architecture",
+      "title": "New Architecture (Fabric & TurboModules)",
+      "readingTimeMinutes": 30,
+      "revisionTimeMinutes": 10,
+      "practiceTimeMinutes": 0,
+      "difficulty": "Advanced",
+      "importanceRating": 10,
+      "interviewFrequency": 4,
+      "tags": ["React Native", "Architecture", "Fabric", "JSI"]
+    }
+  ]
+}

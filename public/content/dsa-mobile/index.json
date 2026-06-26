@@ -1,0 +1,18 @@
+{
+  "id": "dsa-mobile",
+  "title": "Mobile DSA (Kotlin/Java)",
+  "description": "Data Structures & Algorithms tailored for mobile engineers.",
+  "topics": [
+    {
+      "id": "lru-cache",
+      "title": "LRU Cache Implementation",
+      "readingTimeMinutes": 20,
+      "revisionTimeMinutes": 10,
+      "practiceTimeMinutes": 45,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": ["DSA", "Kotlin", "Java", "Caching"]
+    }
+  ]
+}

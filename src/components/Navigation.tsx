@@ -56,12 +56,7 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <a href="#/preparation-guide" className="text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
-              Interview Prep
-            </a>
-            <a href="/prepration/" className="text-sm text-muted-foreground hover:text-foreground transition-colors no-underline">
-              Preparation
-            </a>
+
             <ThemeToggle />
           </div>
           
@@ -92,12 +87,7 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
-              <a href="#/preparation-guide" className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 no-underline text-left">
-                Interview Prep
-              </a>
-              <a href="/prepration/" className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 no-underline text-left">
-                Preparation
-              </a>
+
             </div>
           </div>
         )}
