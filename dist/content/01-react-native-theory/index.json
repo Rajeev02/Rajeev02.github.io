@@ -730,6 +730,21 @@
         "React Native Theory",
         "Interview"
       ]
+    },
+    {
+      "id": "53-react-native-websockets-interview-qa",
+      "title": "53. WebSockets & Real-Time Communication in React Native",
+      "readingTimeMinutes": 8,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Advanced",
+      "importanceRating": 9,
+      "interviewFrequency": 5,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "WebSockets"
+      ]
     }
   ]
 }
