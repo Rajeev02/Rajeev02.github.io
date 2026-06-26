@@ -63,5 +63,30 @@
     "id": "interviewguide",
     "title": "InterviewGuide",
     "description": "Comprehensive interview preparation for InterviewGuide"
+  },
+  {
+    "id": "javascript",
+    "title": "JavaScript Mastery",
+    "description": "Deep dive into JS core concepts."
+  },
+  {
+    "id": "react-native",
+    "title": "Senior React Native",
+    "description": "Advanced architecture, threading, and performance."
+  },
+  {
+    "id": "dsa-mobile",
+    "title": "Mobile DSA (Kotlin/Java)",
+    "description": "Data Structures & Algorithms tailored for mobile engineers."
+  },
+  {
+    "id": "lead-engineering",
+    "title": "Lead & App Lifecycle",
+    "description": "App lifecycle, scaling to millions, profiling, and architecture."
+  },
+  {
+    "id": "testing",
+    "title": "Testing Mastery",
+    "description": "Jest, Detox, and React Native Testing Library."
   }
 ]
