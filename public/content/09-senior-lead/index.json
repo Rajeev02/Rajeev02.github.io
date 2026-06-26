@@ -1,0 +1,21 @@
+{
+  "id": "09-senior-lead",
+  "title": "09-Senior-Lead",
+  "description": "Comprehensive interview preparation for 09-Senior-Lead",
+  "topics": [
+    {
+      "id": "senior-lead",
+      "title": "Senior_Lead",
+      "readingTimeMinutes": 72,
+      "revisionTimeMinutes": 24,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "09-Senior-Lead",
+        "Interview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "05-typescript",
+  "title": "05-TypeScript",
+  "description": "Comprehensive interview preparation for 05-TypeScript",
+  "topics": [
+    {
+      "id": "typescript",
+      "title": "TypeScript",
+      "readingTimeMinutes": 21,
+      "revisionTimeMinutes": 7,
+      "practiceTimeMinutes": 42,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "05-TypeScript",
+        "Interview"
+      ]
+    }
+  ]
+}

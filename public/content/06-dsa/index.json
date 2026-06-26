@@ -1,0 +1,21 @@
+{
+  "id": "06-dsa",
+  "title": "06-DSA",
+  "description": "Comprehensive interview preparation for 06-DSA",
+  "topics": [
+    {
+      "id": "dsa",
+      "title": "DSA",
+      "readingTimeMinutes": 79,
+      "revisionTimeMinutes": 27,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "06-DSA",
+        "Interview"
+      ]
+    }
+  ]
+}

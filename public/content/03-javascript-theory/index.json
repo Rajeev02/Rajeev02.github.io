@@ -1,0 +1,21 @@
+{
+  "id": "03-javascript-theory",
+  "title": "03-JavaScript-Theory",
+  "description": "Comprehensive interview preparation for 03-JavaScript-Theory",
+  "topics": [
+    {
+      "id": "javascript-theory",
+      "title": "JavaScript_Theory",
+      "readingTimeMinutes": 31,
+      "revisionTimeMinutes": 11,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "03-JavaScript-Theory",
+        "Interview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "10-daily-revision",
+  "title": "10-Daily-Revision",
+  "description": "Comprehensive interview preparation for 10-Daily-Revision",
+  "topics": [
+    {
+      "id": "daily-revision",
+      "title": "Daily_Revision",
+      "readingTimeMinutes": 19,
+      "revisionTimeMinutes": 7,
+      "practiceTimeMinutes": 38,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "10-Daily-Revision",
+        "Interview"
+      ]
+    }
+  ]
+}

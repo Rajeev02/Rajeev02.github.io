@@ -1,0 +1,21 @@
+{
+  "id": "04-javascript-coding",
+  "title": "04-JavaScript-Coding",
+  "description": "Comprehensive interview preparation for 04-JavaScript-Coding",
+  "topics": [
+    {
+      "id": "javascript-coding",
+      "title": "JavaScript_Coding",
+      "readingTimeMinutes": 30,
+      "revisionTimeMinutes": 10,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "04-JavaScript-Coding",
+        "Interview"
+      ]
+    }
+  ]
+}

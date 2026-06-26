@@ -1,27 +1,67 @@
 [
   {
-    "id": "javascript",
-    "title": "JavaScript Mastery",
-    "description": "Deep dive into JS core concepts."
+    "id": "01-react-native-theory",
+    "title": "01-React-Native-Theory",
+    "description": "Comprehensive interview preparation for 01-React-Native-Theory"
   },
   {
-    "id": "react-native",
-    "title": "Senior React Native",
-    "description": "Advanced architecture, threading, and performance."
+    "id": "02-react-native-coding",
+    "title": "02-React-Native-Coding",
+    "description": "Comprehensive interview preparation for 02-React-Native-Coding"
   },
   {
-    "id": "dsa-mobile",
-    "title": "Mobile DSA (Kotlin/Java)",
-    "description": "Data Structures & Algorithms tailored for mobile engineers."
+    "id": "03-javascript-theory",
+    "title": "03-JavaScript-Theory",
+    "description": "Comprehensive interview preparation for 03-JavaScript-Theory"
   },
   {
-    "id": "lead-engineering",
-    "title": "Lead & App Lifecycle",
-    "description": "App lifecycle, scaling to millions, profiling, and architecture."
+    "id": "04-javascript-coding",
+    "title": "04-JavaScript-Coding",
+    "description": "Comprehensive interview preparation for 04-JavaScript-Coding"
   },
   {
-    "id": "testing",
-    "title": "Testing Mastery",
-    "description": "Jest, Detox, and React Native Testing Library."
+    "id": "05-typescript",
+    "title": "05-TypeScript",
+    "description": "Comprehensive interview preparation for 05-TypeScript"
+  },
+  {
+    "id": "06-dsa",
+    "title": "06-DSA",
+    "description": "Comprehensive interview preparation for 06-DSA"
+  },
+  {
+    "id": "07-system-design",
+    "title": "07-System-Design",
+    "description": "Comprehensive interview preparation for 07-System-Design"
+  },
+  {
+    "id": "08-behavioral",
+    "title": "08-Behavioral",
+    "description": "Comprehensive interview preparation for 08-Behavioral"
+  },
+  {
+    "id": "09-senior-lead",
+    "title": "09-Senior-Lead",
+    "description": "Comprehensive interview preparation for 09-Senior-Lead"
+  },
+  {
+    "id": "10-daily-revision",
+    "title": "10-Daily-Revision",
+    "description": "Comprehensive interview preparation for 10-Daily-Revision"
+  },
+  {
+    "id": "11-know-your-resume",
+    "title": "11-Know-Your-Resume",
+    "description": "Comprehensive interview preparation for 11-Know-Your-Resume"
+  },
+  {
+    "id": "12-job-apply-data",
+    "title": "12-Job-Apply-Data",
+    "description": "Comprehensive interview preparation for 12-Job-Apply-Data"
+  },
+  {
+    "id": "interviewguide",
+    "title": "InterviewGuide",
+    "description": "Comprehensive interview preparation for InterviewGuide"
   }
 ]
