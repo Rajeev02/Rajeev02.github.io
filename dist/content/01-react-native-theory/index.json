@@ -1,0 +1,21 @@
+{
+  "id": "01-react-native-theory",
+  "title": "01-React-Native-Theory",
+  "description": "Comprehensive interview preparation for 01-React-Native-Theory",
+  "topics": [
+    {
+      "id": "react-native-theory",
+      "title": "React_Native_Theory",
+      "readingTimeMinutes": 152,
+      "revisionTimeMinutes": 51,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "01-React-Native-Theory",
+        "Interview"
+      ]
+    }
+  ]
+}

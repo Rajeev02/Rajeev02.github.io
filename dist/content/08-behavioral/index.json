@@ -1,0 +1,21 @@
+{
+  "id": "08-behavioral",
+  "title": "08-Behavioral",
+  "description": "Comprehensive interview preparation for 08-Behavioral",
+  "topics": [
+    {
+      "id": "behavioral",
+      "title": "Behavioral",
+      "readingTimeMinutes": 46,
+      "revisionTimeMinutes": 16,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "08-Behavioral",
+        "Interview"
+      ]
+    }
+  ]
+}

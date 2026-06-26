@@ -1,0 +1,21 @@
+{
+  "id": "07-system-design",
+  "title": "07-System-Design",
+  "description": "Comprehensive interview preparation for 07-System-Design",
+  "topics": [
+    {
+      "id": "system-design",
+      "title": "System_Design",
+      "readingTimeMinutes": 22,
+      "revisionTimeMinutes": 8,
+      "practiceTimeMinutes": 44,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "07-System-Design",
+        "Interview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "02-react-native-coding",
+  "title": "02-React-Native-Coding",
+  "description": "Comprehensive interview preparation for 02-React-Native-Coding",
+  "topics": [
+    {
+      "id": "react-native-coding",
+      "title": "React_Native_Coding",
+      "readingTimeMinutes": 85,
+      "revisionTimeMinutes": 29,
+      "practiceTimeMinutes": 60,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "02-React-Native-Coding",
+        "Interview"
+      ]
+    }
+  ]
+}
