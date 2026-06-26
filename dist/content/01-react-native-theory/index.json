@@ -761,6 +761,66 @@
         "Architecture",
         "Push Notifications"
       ]
+    },
+    {
+      "id": "55-react-native-new-architecture-interview-qa",
+      "title": "55. React Native New Architecture: Why and How?",
+      "readingTimeMinutes": 8,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Advanced",
+      "importanceRating": 10,
+      "interviewFrequency": 5,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "56-react-native-threading-model-interview-qa",
+      "title": "56. Threading in React Native: Non-Blocking Execution",
+      "readingTimeMinutes": 8,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Advanced",
+      "importanceRating": 9,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "57-react-native-performance-interview-qa",
+      "title": "57. Performance in React Native",
+      "readingTimeMinutes": 10,
+      "revisionTimeMinutes": 4,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Advanced",
+      "importanceRating": 10,
+      "interviewFrequency": 5,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "Performance"
+      ]
+    },
+    {
+      "id": "58-react-native-memory-leaks-optimization-interview-qa",
+      "title": "58. Memory Leaks and Optimization in React Native",
+      "readingTimeMinutes": 8,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Advanced",
+      "importanceRating": 9,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Theory",
+        "Interview",
+        "Performance"
+      ]
     }
   ]
 }
