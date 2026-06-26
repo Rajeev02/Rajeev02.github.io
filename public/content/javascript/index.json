@@ -5,14 +5,17 @@
   "topics": [
     {
       "id": "closures",
-      "title": "Closures & Lexical Scope",
-      "readingTimeMinutes": 15,
-      "revisionTimeMinutes": 5,
-      "practiceTimeMinutes": 20,
+      "title": "closures",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 2,
       "difficulty": "Intermediate",
-      "importanceRating": 10,
-      "interviewFrequency": 5,
-      "tags": ["JavaScript", "Core", "Frontend", "IBM", "EPAM"]
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Mastery",
+        "Interview"
+      ]
     }
   ]
 }

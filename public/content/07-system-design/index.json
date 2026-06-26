@@ -1,19 +1,159 @@
 {
   "id": "07-system-design",
-  "title": "07-System-Design",
+  "title": "System Design",
   "description": "Comprehensive interview preparation for 07-System-Design",
   "topics": [
     {
-      "id": "system-design",
-      "title": "System_Design",
-      "readingTimeMinutes": 22,
-      "revisionTimeMinutes": 8,
-      "practiceTimeMinutes": 44,
-      "difficulty": "Advanced",
+      "id": "01-system-design-oop-complete-guide",
+      "title": "System Design OOP Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "07-System-Design",
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-11-object-oriented-programming-oop-conceptual-qa",
+      "title": "1.1 🏗️ Object-Oriented Programming (OOP) & Conceptual Q&A",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-12-mobile-data-structures-practical-scenarios",
+      "title": "1.2 📦 Mobile Data Structures & Practical Scenarios",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-21-mobile-system-design-large-scale-react-native-architecture",
+      "title": "2.1 Mobile System Design: Large-Scale React Native Architecture",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-22-third-party-integrations-backend-proxying",
+      "title": "2.2 📡 Third-Party Integrations & Backend Proxying",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-31-mobile-testing-frameworks-tdd-strategy",
+      "title": "3.1 🧪 Mobile Testing Frameworks & TDD Strategy",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-32-performance-profiling-native-memory-leak-detection",
+      "title": "3.2 🧪 Performance Profiling & Native Memory Leak Detection",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-33-deployment-pipelines-store-releases",
+      "title": "3.3 📦 Deployment Pipelines & Store Releases",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-42-program-1-lru-cache-with-ttl-pubsub-event-notifications",
+      "title": "4.2 🧠 Program 1: LRU Cache with TTL & PubSub Event Notifications",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-43-program-2-asynchronous-sync-outbox-queue-with-batching-exponential-backoff",
+      "title": "4.3 📡 Program 2: Asynchronous Sync Outbox Queue with Batching & Exponential Backoff",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
+        "Interview"
+      ]
+    },
+    {
+      "id": "11-44-program-3-prefix-auto-suggestions-trie-with-priority-heap-input-debouncing",
+      "title": "4.4 🔍 Program 3: Prefix Auto-Suggestions Trie with Priority Heap & Input Debouncing",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "System Design",
         "Interview"
       ]
     }

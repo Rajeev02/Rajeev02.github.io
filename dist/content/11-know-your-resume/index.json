@@ -1,19 +1,19 @@
 {
   "id": "11-know-your-resume",
-  "title": "11-Know-Your-Resume",
+  "title": "Know Your Resume",
   "description": "Comprehensive interview preparation for 11-Know-Your-Resume",
   "topics": [
     {
       "id": "know-your-resume",
-      "title": "Know-Your-Resume",
+      "title": "know-your-resume",
       "readingTimeMinutes": 15,
       "revisionTimeMinutes": 5,
       "practiceTimeMinutes": 5,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "11-Know-Your-Resume",
+        "Know Your Resume",
         "Interview"
       ]
     }

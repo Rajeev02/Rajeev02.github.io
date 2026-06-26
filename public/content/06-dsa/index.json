@@ -1,19 +1,75 @@
 {
   "id": "06-dsa",
-  "title": "06-DSA",
+  "title": "DSA",
   "description": "Comprehensive interview preparation for 06-DSA",
   "topics": [
     {
-      "id": "dsa",
-      "title": "DSA",
-      "readingTimeMinutes": 79,
-      "revisionTimeMinutes": 27,
+      "id": "01-dsa-complete-guide",
+      "title": "DSA Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "DSA",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-section-1-complexity-big-o-notation",
+      "title": "Section 1: 📈 Complexity & Big O Notation",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "DSA",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-section-2-key-algorithmic-patterns",
+      "title": "Section 2: 🧩 Key Algorithmic Patterns",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "DSA",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-dsa-coding-programs",
+      "title": "📊 DSA Coding Programs",
+      "readingTimeMinutes": 48,
+      "revisionTimeMinutes": 16,
       "practiceTimeMinutes": 60,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "DSA",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-daily-coding-programs",
+      "title": "Daily Coding Programs",
+      "readingTimeMinutes": 26,
+      "revisionTimeMinutes": 9,
+      "practiceTimeMinutes": 52,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "06-DSA",
+        "DSA",
         "Interview"
       ]
     }

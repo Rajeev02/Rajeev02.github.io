@@ -1,19 +1,257 @@
 {
   "id": "04-javascript-coding",
-  "title": "04-JavaScript-Coding",
+  "title": "JavaScript Coding",
   "description": "Comprehensive interview preparation for 04-JavaScript-Coding",
   "topics": [
     {
-      "id": "javascript-coding",
-      "title": "JavaScript_Coding",
-      "readingTimeMinutes": 30,
-      "revisionTimeMinutes": 10,
-      "practiceTimeMinutes": 60,
+      "id": "01-javascript-react-coding-programs",
+      "title": "⚛️ JavaScript & React Coding Programs",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
       "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "04-JavaScript-Coding",
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-section-1-program-1-legacy-react-class-component-with-full-lifecycle-methods",
+      "title": "Section 1: Program 1: Legacy React Class Component with Full Lifecycle Methods",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-section-2-program-2-functional-component-refactor-using-hooks",
+      "title": "Section 2: Program 2: Functional Component Refactor Using Hooks",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-section-3-program-3-object-reference-copying-mutability-evaluation",
+      "title": "Section 3: Program 3: Object Reference Copying & Mutability Evaluation",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-section-4-program-4-nested-array-flattening",
+      "title": "Section 4: Program 4: Nested Array Flattening",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-section-5-program-5-substring-extraction",
+      "title": "Section 5: Program 5: Substring Extraction",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-section-6-program-6-asynchronous-execution-order-event-loop-timing",
+      "title": "Section 6: Program 6: Asynchronous Execution Order (Event Loop Timing)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-section-7-program-7-loop-scoping-variable-closures-inside-settimeout",
+      "title": "Section 7: Program 7: Loop Scoping & Variable Closures inside SetTimeout",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-section-8-program-8-deep-memoization-wrapper-with-cache-expiration",
+      "title": "Section 8: Program 8: Deep Memoization Wrapper with Cache Expiration",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-section-9-program-9-custom-event-broker-publish-subscribe-pattern-with-wildcards",
+      "title": "Section 9: Program 9: Custom Event Broker (Publish-Subscribe Pattern) with Wildcards",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "11-section-10-program-10-custom-debounce-implementation",
+      "title": "Section 10: Program 10: Custom Debounce Implementation",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "12-section-11-program-11-custom-throttle-implementation",
+      "title": "Section 11: Program 11: Custom Throttle Implementation",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "13-section-12-program-12-polyfills-for-map-filter-and-reduce",
+      "title": "Section 12: Program 12: Polyfills for Map, Filter, and Reduce",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "14-section-13-program-13-data-transformations-array-to-object-object-to-array",
+      "title": "Section 13: Program 13: Data Transformations (Array-to-Object & Object-to-Array)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "15-section-14-program-14-mobile-device-token-deduplicator-cleantokens",
+      "title": "Section 14: Program 14: Mobile Device Token Deduplicator (CleanTokens)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "16-section-15-program-15-object-property-diff-tracker",
+      "title": "Section 15: Program 15: Object Property Diff Tracker",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "17-section-16-program-16-paginated-transaction-amount-aggregator",
+      "title": "Section 16: Program 16: Paginated Transaction Amount Aggregator",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "18-section-17-program-17-batch-concurrent-promise-coordinator-network-throttler",
+      "title": "Section 17: Program 17: Batch Concurrent Promise Coordinator (Network Throttler)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Coding",
         "Interview"
       ]
     }

@@ -1,11 +1,11 @@
 {
   "id": "12-job-apply-data",
-  "title": "12-Job-Apply-Data",
+  "title": "Job Apply Data",
   "description": "Comprehensive interview preparation for 12-Job-Apply-Data",
   "topics": [
     {
       "id": "job-apply-data",
-      "title": "Job_Apply_Data",
+      "title": "job-apply-data",
       "readingTimeMinutes": 4,
       "revisionTimeMinutes": 2,
       "practiceTimeMinutes": 8,
@@ -13,7 +13,7 @@
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "12-Job-Apply-Data",
+        "Job Apply Data",
         "Interview"
       ]
     }

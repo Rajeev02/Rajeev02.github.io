@@ -1,19 +1,159 @@
 {
   "id": "08-behavioral",
-  "title": "08-Behavioral",
+  "title": "Behavioral",
   "description": "Comprehensive interview preparation for 08-Behavioral",
   "topics": [
     {
-      "id": "behavioral",
-      "title": "Behavioral",
-      "readingTimeMinutes": 46,
-      "revisionTimeMinutes": 16,
-      "practiceTimeMinutes": 60,
+      "id": "01-behavior-complete-guide",
+      "title": "Behavior Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-12-standard-behavioral-technical-interview-qa",
+      "title": "1.2 🏆 Standard Behavioral & Technical Interview Q&A",
+      "readingTimeMinutes": 25,
+      "revisionTimeMinutes": 9,
+      "practiceTimeMinutes": 50,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-21-monorepo-multi-app-code-sharing",
+      "title": "2.1 🏗️ Monorepo & Multi-App Code Sharing",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-22-high-stakes-fintech-system-design",
+      "title": "2.2 🔒 High-Stakes Fintech System Design",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-23-plurebus-dunst-wildtrails-case-studies-native-android-java",
+      "title": "2.3 ⛺ Plurebus, Dunst & WildTrails Case Studies (Native Android Java)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-24-b-mobile-solution-architecture-native-integration-enterprise-banking-capco-context",
+      "title": "2.4 🏛️ b: Mobile Solution Architecture, Native Integration & Enterprise Banking (CAPCO Context)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 5,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "08-Behavioral",
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-31-agile-vs-scrum-methodologies",
+      "title": "3.1 👥 Agile vs. Scrum Methodologies",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-32-program-product-delivery-manager-pdm-round",
+      "title": "3.2 📈 Program & Product Delivery Manager (PDM) Round",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-33-human-resources-hr-leadership-evaluation",
+      "title": "3.3 🤝 Human Resources (HR) & Leadership Evaluation",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-34-salary-negotiation-compensation-benefits-strategy",
+      "title": "3.4 💰 Salary Negotiation, Compensation & Benefits Strategy",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
+        "Interview"
+      ]
+    },
+    {
+      "id": "11-section-1-behavioral-senior-career-walkthrough",
+      "title": "Section 1: Behavioral: Senior Career Walkthrough",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Behavioral",
         "Interview"
       ]
     }

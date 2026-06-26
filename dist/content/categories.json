@@ -1,63 +1,68 @@
 [
   {
     "id": "01-react-native-theory",
-    "title": "01-React-Native-Theory",
+    "title": "React Native Theory",
     "description": "Comprehensive interview preparation for 01-React-Native-Theory"
   },
   {
     "id": "02-react-native-coding",
-    "title": "02-React-Native-Coding",
+    "title": "React Native Coding",
     "description": "Comprehensive interview preparation for 02-React-Native-Coding"
   },
   {
     "id": "03-javascript-theory",
-    "title": "03-JavaScript-Theory",
+    "title": "JavaScript Theory",
     "description": "Comprehensive interview preparation for 03-JavaScript-Theory"
   },
   {
     "id": "04-javascript-coding",
-    "title": "04-JavaScript-Coding",
+    "title": "JavaScript Coding",
     "description": "Comprehensive interview preparation for 04-JavaScript-Coding"
   },
   {
     "id": "05-typescript",
-    "title": "05-TypeScript",
+    "title": "TypeScript",
     "description": "Comprehensive interview preparation for 05-TypeScript"
   },
   {
     "id": "06-dsa",
-    "title": "06-DSA",
+    "title": "DSA",
     "description": "Comprehensive interview preparation for 06-DSA"
   },
   {
     "id": "07-system-design",
-    "title": "07-System-Design",
+    "title": "System Design",
     "description": "Comprehensive interview preparation for 07-System-Design"
   },
   {
     "id": "08-behavioral",
-    "title": "08-Behavioral",
+    "title": "Behavioral",
     "description": "Comprehensive interview preparation for 08-Behavioral"
   },
   {
     "id": "09-senior-lead",
-    "title": "09-Senior-Lead",
+    "title": "Senior Lead",
     "description": "Comprehensive interview preparation for 09-Senior-Lead"
   },
   {
     "id": "10-daily-revision",
-    "title": "10-Daily-Revision",
+    "title": "Daily Revision",
     "description": "Comprehensive interview preparation for 10-Daily-Revision"
   },
   {
     "id": "11-know-your-resume",
-    "title": "11-Know-Your-Resume",
+    "title": "Know Your Resume",
     "description": "Comprehensive interview preparation for 11-Know-Your-Resume"
   },
   {
     "id": "12-job-apply-data",
-    "title": "12-Job-Apply-Data",
+    "title": "Job Apply Data",
     "description": "Comprehensive interview preparation for 12-Job-Apply-Data"
+  },
+  {
+    "id": "dsa-mobile",
+    "title": "Mobile DSA (Kotlin/Java)",
+    "description": "Data Structures & Algorithms tailored for mobile engineers."
   },
   {
     "id": "interviewguide",
@@ -70,19 +75,14 @@
     "description": "Deep dive into JS core concepts."
   },
   {
-    "id": "react-native",
-    "title": "Senior React Native",
-    "description": "Advanced architecture, threading, and performance."
-  },
-  {
-    "id": "dsa-mobile",
-    "title": "Mobile DSA (Kotlin/Java)",
-    "description": "Data Structures & Algorithms tailored for mobile engineers."
-  },
-  {
     "id": "lead-engineering",
     "title": "Lead & App Lifecycle",
     "description": "App lifecycle, scaling to millions, profiling, and architecture."
+  },
+  {
+    "id": "react-native",
+    "title": "Senior React Native",
+    "description": "Advanced architecture, threading, and performance."
   },
   {
     "id": "testing",

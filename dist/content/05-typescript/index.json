@@ -1,19 +1,145 @@
 {
   "id": "05-typescript",
-  "title": "05-TypeScript",
+  "title": "TypeScript",
   "description": "Comprehensive interview preparation for 05-TypeScript",
   "topics": [
     {
-      "id": "typescript",
-      "title": "TypeScript",
-      "readingTimeMinutes": 21,
-      "revisionTimeMinutes": 7,
-      "practiceTimeMinutes": 42,
+      "id": "01-typescript-complete-guide",
+      "title": "TypeScript Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-11-types-vs-interfaces",
+      "title": "1.1 📘 Types vs. Interfaces",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-12-strict-compiler-options-tsconfigjson",
+      "title": "1.2 ⚙️ Strict Compiler Options (`tsconfig.json`)",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 2,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-21-generics-utility-types",
+      "title": "2.1 🛠️ Generics & Utility Types",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-22-advanced-typescript-qa",
+      "title": "2.2 🔬 Advanced TypeScript Q&A",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "05-TypeScript",
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-31-type-safety-in-react-native-codegen-specs",
+      "title": "3.1 📱 Type Safety in React Native (Codegen Specs)",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 2,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-41-program-1-axios-silent-token-refresh-interceptor",
+      "title": "4.1 Program 1: Axios Silent Token Refresh Interceptor",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-42-program-2-generic-type-safe-item-selection-list-component",
+      "title": "4.2 Program 2: Generic Type-Safe Item Selection List Component",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-43-program-3-advanced-conditional-types-mapped-type-parser",
+      "title": "4.3 Program 3: Advanced Conditional Types & Mapped Type Parser",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-44-program-4-nominal-type-branding-type-branded-currency-operations",
+      "title": "4.4 Program 4: Nominal Type Branding (Type Branded Currency Operations)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "TypeScript",
         "Interview"
       ]
     }

@@ -1,19 +1,159 @@
 {
   "id": "09-senior-lead",
-  "title": "09-Senior-Lead",
+  "title": "Senior Lead",
   "description": "Comprehensive interview preparation for 09-Senior-Lead",
   "topics": [
     {
-      "id": "senior-lead",
-      "title": "Senior_Lead",
-      "readingTimeMinutes": 72,
-      "revisionTimeMinutes": 24,
-      "practiceTimeMinutes": 60,
+      "id": "01-mnc-senior-lead-complete-guide",
+      "title": "MNC Senior Lead Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-11-mnc-consulting-architectural-expectations",
+      "title": "1.1 🏗️ MNC & Consulting Architectural Expectations",
+      "readingTimeMinutes": 8,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 16,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "09-Senior-Lead",
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-12-comprehensive-migration-strategies",
+      "title": "1.2 🔄 Comprehensive Migration Strategies",
+      "readingTimeMinutes": 19,
+      "revisionTimeMinutes": 7,
+      "practiceTimeMinutes": 38,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-21-android-native-deep-dive-for-react-native-developers",
+      "title": "2.1 📱 Android Native Deep-Dive for React Native Developers",
+      "readingTimeMinutes": 15,
+      "revisionTimeMinutes": 5,
+      "practiceTimeMinutes": 30,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-22-ios-native-deep-dive-for-react-native-developers",
+      "title": "2.2 🍎 iOS Native Deep-Dive for React Native Developers",
+      "readingTimeMinutes": 9,
+      "revisionTimeMinutes": 3,
+      "practiceTimeMinutes": 18,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-23-gradle-cocoapods-build-system-mastery",
+      "title": "2.3 🏗️ Gradle & CocoaPods Build System Mastery",
+      "readingTimeMinutes": 6,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 12,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-31-cicd-pipelines-fastlane-release-management",
+      "title": "3.1 📦 CI/CD Pipelines, Fastlane & Release Management",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-32-advanced-mobile-testing-cicd-mastery",
+      "title": "3.2 🔬 Advanced Mobile Testing & CI/CD Mastery",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-33-performance-engineering-memory-triage-lead-perspective",
+      "title": "3.3 ⚡ Performance Engineering & Memory Triage (Lead Perspective)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-41-enterprise-security-compliance-owasp-mobile-top-10",
+      "title": "4.1 🔒 Enterprise Security, Compliance & OWASP Mobile Top 10",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
+        "Interview"
+      ]
+    },
+    {
+      "id": "11-51-mnc-client-scenarios-tech-lead-behavior-qa",
+      "title": "5.1 💼 MNC Client Scenarios & Tech Lead Behavior Q&A",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Senior Lead",
         "Interview"
       ]
     }

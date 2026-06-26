@@ -5,7 +5,7 @@
   "topics": [
     {
       "id": "01-javascript",
-      "title": "01-JavaScript",
+      "title": "01-javascript",
       "readingTimeMinutes": 22,
       "revisionTimeMinutes": 8,
       "practiceTimeMinutes": 44,
@@ -19,7 +19,7 @@
     },
     {
       "id": "02-typescript",
-      "title": "02-TypeScript",
+      "title": "02-typescript",
       "readingTimeMinutes": 13,
       "revisionTimeMinutes": 5,
       "practiceTimeMinutes": 26,
@@ -33,11 +33,11 @@
     },
     {
       "id": "03-react-core",
-      "title": "03-React-Core",
+      "title": "03-react-core",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -47,11 +47,11 @@
     },
     {
       "id": "04-react-native-core",
-      "title": "04-React-Native-Core",
+      "title": "04-react-native-core",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -61,11 +61,11 @@
     },
     {
       "id": "05-new-architecture",
-      "title": "05-New-Architecture",
+      "title": "05-new-architecture",
       "readingTimeMinutes": 11,
       "revisionTimeMinutes": 4,
       "practiceTimeMinutes": 22,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -75,11 +75,11 @@
     },
     {
       "id": "06-expo-vs-rncli",
-      "title": "06-Expo-vs-RNCLI",
+      "title": "06-expo-vs-rncli",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -89,11 +89,11 @@
     },
     {
       "id": "07-state-management",
-      "title": "07-State-Management",
+      "title": "07-state-management",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -103,7 +103,7 @@
     },
     {
       "id": "08-performance-optimization",
-      "title": "08-Performance-Optimization",
+      "title": "08-performance-optimization",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
@@ -117,11 +117,11 @@
     },
     {
       "id": "09-networking",
-      "title": "09-Networking",
+      "title": "09-networking",
       "readingTimeMinutes": 9,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 18,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -131,11 +131,11 @@
     },
     {
       "id": "10-navigation-deeplinking-notification",
-      "title": "10-Navigation-DeepLinking-Notification",
+      "title": "10-navigation-deeplinking-notification",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -145,11 +145,11 @@
     },
     {
       "id": "11-testing",
-      "title": "11-Testing",
+      "title": "11-testing",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Beginner",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -159,11 +159,11 @@
     },
     {
       "id": "12-security",
-      "title": "12-Security",
+      "title": "12-security",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -173,11 +173,11 @@
     },
     {
       "id": "13-system-design",
-      "title": "13-System-Design",
+      "title": "13-system-design",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -187,11 +187,11 @@
     },
     {
       "id": "14-architecture-patterns",
-      "title": "14-Architecture-Patterns",
+      "title": "14-architecture-patterns",
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -201,7 +201,7 @@
     },
     {
       "id": "15-mobile-system-design",
-      "title": "15-Mobile-System-Design",
+      "title": "15-mobile-system-design",
       "readingTimeMinutes": 11,
       "revisionTimeMinutes": 4,
       "practiceTimeMinutes": 22,
@@ -215,7 +215,7 @@
     },
     {
       "id": "16-dsa",
-      "title": "16-DSA",
+      "title": "16-dsa",
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
@@ -229,11 +229,11 @@
     },
     {
       "id": "17-design-patterns",
-      "title": "17-Design-Patterns",
+      "title": "17-design-patterns",
       "readingTimeMinutes": 6,
       "revisionTimeMinutes": 2,
       "practiceTimeMinutes": 12,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -243,11 +243,11 @@
     },
     {
       "id": "18-behavioral-questions",
-      "title": "18-Behavioral-Questions",
+      "title": "18-behavioral-questions",
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -257,11 +257,11 @@
     },
     {
       "id": "19-hr-questions",
-      "title": "19-HR-Questions",
+      "title": "19-hr-questions",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -271,11 +271,11 @@
     },
     {
       "id": "21-react-native-interview-questions",
-      "title": "21-React-Native-Interview-Questions",
+      "title": "21-react-native-interview-questions",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -285,7 +285,7 @@
     },
     {
       "id": "22-dsa-revision",
-      "title": "22-DSA-Revision",
+      "title": "22-dsa-revision",
       "readingTimeMinutes": 5,
       "revisionTimeMinutes": 2,
       "practiceTimeMinutes": 10,
@@ -299,11 +299,11 @@
     },
     {
       "id": "23-graphql",
-      "title": "23-GraphQL",
+      "title": "23-graphql",
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -313,11 +313,11 @@
     },
     {
       "id": "24-agile-scrum",
-      "title": "24-Agile-Scrum",
+      "title": "24-agile-scrum",
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -331,7 +331,7 @@
       "readingTimeMinutes": 7,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 14,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
@@ -341,7 +341,7 @@
     },
     {
       "id": "26-night-before-interview",
-      "title": "26-Night-Before-Interview",
+      "title": "26-night-before-interview",
       "readingTimeMinutes": 8,
       "revisionTimeMinutes": 3,
       "practiceTimeMinutes": 16,
@@ -355,11 +355,11 @@
     },
     {
       "id": "27-apis-types",
-      "title": "27-APIs-Types",
+      "title": "27-apis-types",
       "readingTimeMinutes": 4,
       "revisionTimeMinutes": 2,
       "practiceTimeMinutes": 8,
-      "difficulty": "Advanced",
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [

@@ -1,19 +1,341 @@
 {
   "id": "02-react-native-coding",
-  "title": "02-React-Native-Coding",
+  "title": "React Native Coding",
   "description": "Comprehensive interview preparation for 02-React-Native-Coding",
   "topics": [
     {
-      "id": "react-native-coding",
-      "title": "React_Native_Coding",
-      "readingTimeMinutes": 85,
-      "revisionTimeMinutes": 29,
-      "practiceTimeMinutes": 60,
+      "id": "01-section-1-program-1-performance-optimized-list-component",
+      "title": "Section 1: Program 1: Performance-Optimized List Component",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-section-2-program-2-custom-netinfo-connectivity-hook-usenetwork",
+      "title": "Section 2: Program 2: Custom NetInfo Connectivity Hook (`useNetwork`)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-section-3-program-3-expo-config-plugin-configuration",
+      "title": "Section 3: Program 3: Expo Config Plugin configuration",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-section-4-program-4-native-android-module-bridge-kotlin",
+      "title": "Section 4: Program 4: Native Android Module Bridge (Kotlin)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-section-5-program-5-fetch-and-render-list-from-api-todos",
+      "title": "Section 5: Program 5: Fetch and Render List from API (Todos)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-section-6-program-6-reusable-api-calling-wrappers-fetch-vs-axios",
+      "title": "Section 6: Program 6: Reusable API Calling Wrappers (Fetch vs. Axios)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "02-React-Native-Coding",
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-section-7-program-7-mmkv-state-persist-react-query-offline-caching-with-optimistic-updates",
+      "title": "Section 7: Program 7: MMKV State Persist & React Query Offline Caching with Optimistic Updates",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "08-section-8-program-8-reanimated-swipe-pan-gesture-card-component-ui-cloning-animation",
+      "title": "Section 8: Program 8: Reanimated Swipe & Pan Gesture Card Component (UI Cloning & Animation)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "09-section-9-program-9-native-module-bridge-kotlin-android-swift-ios",
+      "title": "Section 9: Program 9: Native Module Bridge (Kotlin Android & Swift iOS)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "10-section-10-program-10-complete-github-actions-fastlane-cicd-configuration",
+      "title": "Section 10: Program 10: Complete GitHub Actions & Fastlane CI/CD Configuration",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "11-section-11-program-11-state-management-with-mobx-state-tree-mst",
+      "title": "Section 11: Program 11: State Management with MobX State Tree (MST)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "12-section-12-program-12-sqlite-transactional-ledger-database-hook",
+      "title": "Section 12: Program 12: SQLite Transactional Ledger Database Hook",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "13-section-13-program-13-multi-layered-testing-suite-jest-rntl-detox",
+      "title": "Section 13: Program 13: Multi-Layered Testing Suite (Jest + RNTL + Detox)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "14-section-14-program-14-webpack-module-federation-configuration-repack-host-remote-bundle-setup",
+      "title": "Section 14: Program 14: Webpack Module Federation Configuration (Re.Pack Host & Remote Bundle Setup)",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "15-section-15-program-15-hardened-c-jni-bridge-module-android-jnikotlin-ios-obj-cswift",
+      "title": "Section 15: Program 15: Hardened C++ JNI Bridge Module (Android JNI/Kotlin & iOS Obj-C++/Swift)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "16-section-16-program-16-secure-purchase-validation-transaction-sync-hook",
+      "title": "Section 16: Program 16: Secure Purchase Validation & Transaction Sync Hook",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "17-section-17-program-17-graphql-api-client-integration-with-apollo-client",
+      "title": "Section 17: Program 17: GraphQL API Client Integration with Apollo Client",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "18-section-18-program-18-recoil-state-management-atoms-selectors",
+      "title": "Section 18: Program 18: Recoil State Management (Atoms & Selectors)",
+      "readingTimeMinutes": 5,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 10,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "19-section-19-program-19-unified-production-telemetry-hook-firebase-sentry-azure-insights",
+      "title": "Section 19: Program 19: Unified Production Telemetry Hook (Firebase + Sentry + Azure Insights)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "20-section-20-program-20-test-driven-development-tdd-workflow-with-jest-rntl",
+      "title": "Section 20: Program 20: Test-Driven Development (TDD) Workflow with Jest & RNTL",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "21-section-21-section-dsa-algorithmic-coding-mobile-optimized",
+      "title": "Section 21: 💻 Section: DSA & Algorithmic Coding (Mobile Optimized)",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "22-section-22-section-system-design-coding",
+      "title": "Section 22: 🏗️ Section: System Design Coding",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "23-section-23-program-27-basic-50000-items-flatlist",
+      "title": "Section 23: Program 27: Basic 50,000 Items FlatList",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
+        "Interview"
+      ]
+    },
+    {
+      "id": "24-react-native-projects-complete-guide",
+      "title": "React Native Projects Complete Guide",
+      "readingTimeMinutes": 15,
+      "revisionTimeMinutes": 5,
+      "practiceTimeMinutes": 30,
+      "difficulty": "Advanced",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "React Native Coding",
         "Interview"
       ]
     }

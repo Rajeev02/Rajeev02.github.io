@@ -1,19 +1,103 @@
 {
   "id": "03-javascript-theory",
-  "title": "03-JavaScript-Theory",
+  "title": "JavaScript Theory",
   "description": "Comprehensive interview preparation for 03-JavaScript-Theory",
   "topics": [
     {
-      "id": "javascript-theory",
-      "title": "JavaScript_Theory",
-      "readingTimeMinutes": 31,
-      "revisionTimeMinutes": 11,
-      "practiceTimeMinutes": 60,
+      "id": "01-javascript-complete-guide",
+      "title": "JavaScript Complete Guide",
+      "readingTimeMinutes": 1,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-11-engine-fundamentals-scoping",
+      "title": "1.1 ☕ Engine Fundamentals & Scoping",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "03-12-memory-management-garbage-collection",
+      "title": "1.2 🗑️ Memory Management & Garbage Collection",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "04-21-react-lifecycle-class-components-vs-functional-hooks",
+      "title": "2.1 ⚛️ React Lifecycle: Class Components vs. Functional Hooks",
+      "readingTimeMinutes": 2,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 4,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "05-22-react-optimization-hooks-usememo-usecallback-useref",
+      "title": "2.2 ⚡ React Optimization Hooks (`useMemo`, `useCallback`, `useRef`)",
+      "readingTimeMinutes": 4,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 8,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "06-31-state-orchestration-redux-toolkit-vs-react-query",
+      "title": "3.1 🗃️ State Orchestration: Redux Toolkit vs. React Query",
+      "readingTimeMinutes": 3,
+      "revisionTimeMinutes": 1,
+      "practiceTimeMinutes": 6,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "JavaScript Theory",
+        "Interview"
+      ]
+    },
+    {
+      "id": "07-32-advanced-core-js-react-engine-concepts",
+      "title": "3.2 ⚙️ Advanced Core JS & React Engine Concepts",
+      "readingTimeMinutes": 18,
+      "revisionTimeMinutes": 6,
+      "practiceTimeMinutes": 36,
       "difficulty": "Advanced",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "03-JavaScript-Theory",
+        "JavaScript Theory",
         "Interview"
       ]
     }

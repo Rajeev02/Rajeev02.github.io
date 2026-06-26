@@ -1,19 +1,33 @@
 {
   "id": "10-daily-revision",
-  "title": "10-Daily-Revision",
+  "title": "Daily Revision",
   "description": "Comprehensive interview preparation for 10-Daily-Revision",
   "topics": [
     {
-      "id": "daily-revision",
-      "title": "Daily_Revision",
-      "readingTimeMinutes": 19,
-      "revisionTimeMinutes": 7,
-      "practiceTimeMinutes": 38,
-      "difficulty": "Advanced",
+      "id": "01-section-1-1-hour-daily-coding-routine-hackerrank-prep",
+      "title": "Section 1: 💻 1-Hour Daily Coding Routine (HackerRank Prep)",
+      "readingTimeMinutes": 14,
+      "revisionTimeMinutes": 5,
+      "practiceTimeMinutes": 28,
+      "difficulty": "Intermediate",
       "importanceRating": 8,
       "interviewFrequency": 4,
       "tags": [
-        "10-Daily-Revision",
+        "Daily Revision",
+        "Interview"
+      ]
+    },
+    {
+      "id": "02-section-2-1-hour-daily-theory-routine-react-native-jsts-architecture",
+      "title": "Section 2: 🧠 1-Hour Daily Theory Routine (React Native, JS/TS, Architecture)",
+      "readingTimeMinutes": 6,
+      "revisionTimeMinutes": 2,
+      "practiceTimeMinutes": 5,
+      "difficulty": "Intermediate",
+      "importanceRating": 8,
+      "interviewFrequency": 4,
+      "tags": [
+        "Daily Revision",
         "Interview"
       ]
     }

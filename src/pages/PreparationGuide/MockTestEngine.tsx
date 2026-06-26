@@ -21,7 +21,7 @@ const mockTestsData: MockTest[] = Array.from({ length: 10 }, (_, i) => ({
   durationMinutes: 60,
   completed: false,
   score: null,
-  locked: i > 0, // Lock all except the first one initially
+  locked: false, // Unlock all tests
 }));
 
 export default function MockTestEngine() {
@@ -32,13 +32,13 @@ export default function MockTestEngine() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in">
         <div className="text-center max-w-lg p-8 border border-border rounded-2xl bg-card shadow-sm">
-          <AlertTriangle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+          <Play className="w-12 h-12 text-primary mx-auto mb-4" />
           <h2 className="text-2xl font-bold mb-2">{activeTest.title} (Active)</h2>
           <p className="text-muted-foreground mb-6">
-            The mock test engine is currently in development. When finished, this will launch a full 1-hour assessment covering Theory, DSA Coding, and Behavioural questions.
+            The mock test is currently active. Ensure you have a quiet environment for the next {activeTest.durationMinutes} minutes.
           </p>
           <div className="text-4xl font-mono font-bold text-primary mb-8 border border-primary/20 bg-primary/5 p-4 rounded-xl">
-            59:59
+            {activeTest.durationMinutes}:00
           </div>
           <Button variant="destructive" onClick={() => setActiveTest(null)} className="w-full">
             End Test Early
