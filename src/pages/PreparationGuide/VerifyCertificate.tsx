@@ -40,7 +40,7 @@ const VerifyCertificate: React.FC = () => {
         } else {
           setError("Certificate not found. It may be invalid or the ID is incorrect.");
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Error fetching certificate:", err);
         setError("Unable to connect to the verification server. Please try again later.");
       } finally {

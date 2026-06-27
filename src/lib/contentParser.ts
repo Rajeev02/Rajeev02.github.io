@@ -7,7 +7,7 @@ export async function fetchCategories(): Promise<CategoryIndex[]> {
 
     // Fetch the index for each category
     const fullCategories = await Promise.all(
-      basicCategories.map(async (cat: any) => {
+      basicCategories.map(async (cat: CategoryIndex) => {
         try {
           const catRes = await fetch(`/content/${cat.id}/index.json`);
           const catData = await catRes.json();

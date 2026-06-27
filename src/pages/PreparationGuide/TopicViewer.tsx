@@ -95,6 +95,7 @@ export default function TopicViewer() {
               blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-[#1a8917] dark:border-[#a855f7] pl-4 py-2 my-6 text-gray-700 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-800/50 rounded-r-lg font-sans text-[15px]" {...props} />,
               a: ({node, ...props}) => <a className="text-[#1a8917] dark:text-[#c084fc] hover:underline font-semibold" {...props} />,
               p: ({node, ...props}) => <p className="mb-[24px]" {...props} />,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               code: function CodeBlock({node, inline, className, children, ...props}: any) {
                 const match = /language-(\w+)/.exec(className || '');
                 const isDark = resolvedTheme === "dark" || resolvedTheme === "dim";
@@ -124,6 +125,7 @@ export default function TopicViewer() {
                       </Button>
                     </div>
                     <SyntaxHighlighter
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       style={(isDark ? vscDarkPlus : vs) as any}
                       language={match[1]}
                       PreTag="div"
