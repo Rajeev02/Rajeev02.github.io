@@ -60,11 +60,11 @@ export const Certificate: React.FC<CertificateProps> = ({
               totalQuestions={totalQuestions}
             />
             
-            <div className="mt-8">
+            <div className="mt-4">
               <SkillsSection skills={skills} />
             </div>
 
-            <div className="mt-8">
+            <div className="mt-4">
               <CertificateStats 
                 score={score}
                 totalQuestions={totalQuestions}
@@ -75,7 +75,7 @@ export const Certificate: React.FC<CertificateProps> = ({
             </div>
 
             {/* Footer Section */}
-            <div className="flex items-end justify-between mt-auto pt-8">
+            <div className="flex items-end justify-between mt-auto pt-4">
               <QRVerification 
                 certificateId={certificateId} 
                 verificationUrl={verificationUrl} 
