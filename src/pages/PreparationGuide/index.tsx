@@ -8,9 +8,7 @@ import Layout from "./Layout";
 import Dashboard from "./Dashboard";
 import TopicViewer from "./TopicViewer";
 import MockTestEngine from "./MockTestEngine";
-
-const ACCESS_HASH = "cb7926f58653d799fa54fdf0803d1a66434fd0d3a75f61855405d539eb836abf";
-
+const ACCESS_HASH = "04705a87076dcd86fd1e88c066cff40bfc34bd87678f8318c7ec8fd6d7200cfe";
 async function sha256(message: string) {
   const msgBuffer = new TextEncoder().encode(message);
   const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
