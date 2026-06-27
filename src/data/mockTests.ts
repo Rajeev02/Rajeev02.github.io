@@ -3,6 +3,7 @@ export interface Question {
   type: "Theory" | "Coding";
   timeMinutes: number;
   text: string;
+  codeSnippet?: string;
   options: string[];
   correctAnswer: number;
 }
@@ -342,6 +343,41 @@ export const mockTestsData: MockTest[] = [
           "Connecting to a SQL database."
         ],
         correctAnswer: 2
+      },
+      {
+        id: 126,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "What is the output of the following event loop code snippet?",
+        codeSnippet: `console.log("A");
+setTimeout(() => console.log("B"), 0);
+Promise.resolve().then(() => console.log("C"));
+console.log("D");`,
+        options: [
+          "A, B, C, D",
+          "A, D, C, B",
+          "A, D, B, C",
+          "A, C, D, B"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 127,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "Find the output of this closure snippet.",
+        codeSnippet: `for (var i = 0; i < 3; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 100);
+}`,
+        options: [
+          "0, 1, 2",
+          "3, 3, 3",
+          "0, 0, 0",
+          "undefined, undefined, undefined"
+        ],
+        correctAnswer: 1
       }
     ]
   },

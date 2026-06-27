@@ -204,6 +204,14 @@ export default function MockTestEngine() {
             {currentQuestion.text}
           </h3>
 
+          {currentQuestion.codeSnippet && (
+            <div className="bg-zinc-950 text-zinc-50 p-4 rounded-xl mb-8 overflow-x-auto border border-zinc-800">
+              <pre className="font-mono text-sm leading-relaxed whitespace-pre-wrap">
+                <code>{currentQuestion.codeSnippet}</code>
+              </pre>
+            </div>
+          )}
+
           <div className="space-y-4">
             {currentQuestion.options.map((option, idx) => {
               const isEvaluated = evaluatedAnswers[currentQuestionIndex] || false;
