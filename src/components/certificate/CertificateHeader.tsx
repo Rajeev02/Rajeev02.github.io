@@ -1,57 +1,83 @@
 import React from 'react';
-import { Award, GraduationCap } from 'lucide-react';
 
 interface CertificateHeaderProps {
   name: string;
   assessmentTitle: string;
+  score: number;
+  totalQuestions: number;
 }
 
-export const CertificateHeader: React.FC<CertificateHeaderProps> = ({ name, assessmentTitle }) => {
+export const CertificateHeader: React.FC<CertificateHeaderProps> = ({ name, assessmentTitle, score, totalQuestions }) => {
+  const percentage = Math.round((score / totalQuestions) * 100);
   return (
     <div className="flex flex-col items-center text-center mb-8">
-      {/* Top Ribbon & Logo */}
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <div className="p-2 bg-slate-900 rounded-lg">
-          <GraduationCap className="w-8 h-8 text-amber-500" />
-        </div>
-        <div className="text-left">
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight leading-none mb-1">
-            PREPARATION GUIDE
-          </h2>
-          <p className="text-xs text-slate-500 font-medium tracking-widest uppercase">
-            Software Engineering Learning Platform
-          </p>
+      {/* Top Logo & Title */}
+      <div className="flex flex-col items-center justify-center gap-1 mb-8">
+        <div className="flex items-center gap-3">
+          {/* Logo SVG matching the design */}
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 14L12 18L20 14V8L12 12L4 8V14Z" fill="#d4af37"/>
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#0a192f"/>
+            <path d="M22 7V16" stroke="#0a192f" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M22 16L20 18H24L22 16Z" fill="#0a192f"/>
+            <path d="M4 15V19C4 19 8 22 12 22C16 22 20 19 20 19V15C20 15 16 18 12 18C8 18 4 15 4 15Z" fill="#d4af37"/>
+          </svg>
+          <div className="flex flex-col items-center pt-1">
+            <h2 className="text-[26px] font-bold text-[#0a192f] tracking-wide leading-none">
+              PREPARATION GUIDE
+            </h2>
+            <div className="flex items-center gap-2 mt-1 w-full justify-center">
+              <div className="h-[1px] w-8 bg-[#d4af37]"></div>
+              <p className="text-[10px] text-[#0a192f] font-bold tracking-[0.2em] uppercase">
+                LEARN &bull; PRACTICE &bull; SUCCEED
+              </p>
+              <div className="h-[1px] w-8 bg-[#d4af37]"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-3 tracking-wide uppercase" style={{ fontFamily: "'Playfair Display', serif" }}>
-        Certificate of Achievement
+      <h1 className="text-6xl font-bold text-[#0a192f] tracking-widest uppercase mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+        CERTIFICATE
       </h1>
       
-      <p className="text-slate-500 mb-8 font-medium tracking-wide">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="h-[2px] w-12 bg-[#d4af37]"></div>
+        <p className="text-[#d4af37] font-bold tracking-[0.3em] uppercase text-lg">
+          OF ACHIEVEMENT
+        </p>
+        <div className="h-[2px] w-12 bg-[#d4af37]"></div>
+      </div>
+      
+      <p className="text-slate-500 mb-6 font-semibold tracking-widest text-sm">
         THIS CERTIFIES THAT
       </p>
       
       <div className="relative mb-8">
         <h2 
-          className="text-6xl md:text-7xl font-bold text-slate-900 px-12" 
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          className="text-7xl font-medium text-[#0a192f] px-12" 
+          style={{ fontFamily: "'Great Vibes', cursive", letterSpacing: '0.02em' }}
         >
           {name}
         </h2>
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">
-           <div className="w-2 h-2 rotate-45 bg-amber-500"></div>
+        <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="w-48 h-[1px] bg-slate-300"></div>
+          <div className="w-3 h-3 rotate-45 border-2 border-[#d4af37] bg-white"></div>
+          <div className="w-48 h-[1px] bg-slate-300"></div>
         </div>
       </div>
       
-      <p className="text-slate-500 font-medium tracking-wide uppercase text-sm mb-2 mt-6">
+      <p className="text-slate-500 font-semibold tracking-widest uppercase text-xs mb-2">
         HAS SUCCESSFULLY COMPLETED
       </p>
       
-      <h3 className="text-2xl font-bold text-slate-900 mb-2">
+      <h3 className="text-[22px] font-bold text-[#0a192f] mb-1 tracking-wide">
         {assessmentTitle}
       </h3>
+
+      <p className="text-[#0a192f] text-lg font-medium">
+        Achieving a score of <span className="font-bold text-green-600">{score} / {totalQuestions} ({percentage}%)</span>
+      </p>
     </div>
   );
 };

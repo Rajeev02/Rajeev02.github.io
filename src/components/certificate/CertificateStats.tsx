@@ -15,30 +15,35 @@ export const CertificateStats: React.FC<CertificateStatsProps> = ({
   const stats = [
     {
       icon: <Target className="w-6 h-6 text-emerald-600" />,
+      bg: 'bg-emerald-50',
       label: 'Score',
       value: `${percentage}%`,
-      subtext: 'Performance'
+      subtext: percentage === 100 ? 'Perfect Score' : 'Performance'
     },
     {
       icon: <ClipboardList className="w-6 h-6 text-blue-600" />,
+      bg: 'bg-blue-50',
       label: 'Questions',
       value: `${score} / ${totalQuestions}`,
       subtext: 'Correct Answers'
     },
     {
       icon: <TrendingUp className="w-6 h-6 text-purple-600" />,
+      bg: 'bg-purple-50',
       label: 'Level',
       value: level,
-      subtext: 'Difficulty'
+      subtext: 'Performance'
     },
     {
       icon: <Clock className="w-6 h-6 text-amber-600" />,
+      bg: 'bg-amber-50',
       label: 'Duration',
       value: `${duration} min`,
       subtext: 'Time Taken'
     },
     {
-      icon: <Calendar className="w-6 h-6 text-slate-600" />,
+      icon: <Calendar className="w-6 h-6 text-slate-700" />,
+      bg: 'bg-slate-100',
       label: 'Date Issued',
       value: formatDate(issuedDate),
       subtext: 'Keep Learning!'
@@ -50,15 +55,15 @@ export const CertificateStats: React.FC<CertificateStatsProps> = ({
       {stats.map((stat, index) => (
         <div 
           key={index}
-          className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[160px]"
+          className="flex items-center gap-4 bg-white px-4 py-3 rounded-xl border border-slate-100 shadow-[0_2px_10px_rgb(0,0,0,0.04)] min-w-[170px]"
         >
-          <div className="p-2 bg-slate-50 rounded-lg">
+          <div className={`p-2.5 rounded-full ${stat.bg}`}>
             {stat.icon}
           </div>
           <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{stat.label}</span>
-            <span className="font-bold text-slate-800 leading-tight">{stat.value}</span>
-            <span className="text-[10px] text-slate-500 mt-0.5">{stat.subtext}</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">{stat.label}</span>
+            <span className="font-bold text-slate-800 text-lg leading-none">{stat.value}</span>
+            <span className="text-[10px] text-slate-500 mt-1 leading-none font-medium">{stat.subtext}</span>
           </div>
         </div>
       ))}
