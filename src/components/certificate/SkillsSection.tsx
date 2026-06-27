@@ -10,11 +10,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
         Skills Validated
       </h4>
       
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap -mb-2">
         {skills.map((skill, index) => (
           <div 
             key={index}
-            className="inline-flex items-center justify-center h-6 px-3 bg-slate-50 border border-slate-200 rounded-full text-[11px] font-medium text-slate-700"
+            className="inline-flex items-center justify-center h-6 px-3 mr-2 mb-2 bg-slate-50 border border-slate-200 rounded-full text-[11px] font-medium text-slate-700 whitespace-nowrap"
           >
             {skill}
           </div>
