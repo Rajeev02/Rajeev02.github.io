@@ -114,6 +114,7 @@ export default function MockTestEngine() {
   };
 
   const handleSelectAnswer = (optionIndex: number) => {
+    if (selectedAnswers[currentQuestionIndex] !== undefined) return; // Prevent changing answer
     setSelectedAnswers(prev => ({
       ...prev,
       [currentQuestionIndex]: optionIndex
@@ -199,24 +200,42 @@ export default function MockTestEngine() {
 
           <div className="space-y-4">
             {currentQuestion.options.map((option, idx) => {
+              const isAnswered = selectedAnswers[currentQuestionIndex] !== undefined;
               const isSelected = selectedAnswers[currentQuestionIndex] === idx;
+              const isCorrectOption = idx === currentQuestion.correctAnswer;
+              
+              let buttonStyle = "border-border hover:border-primary/50 bg-card hover:bg-secondary/20";
+              let dotStyle = "border-muted-foreground";
+              
+              if (isAnswered) {
+                if (isCorrectOption) {
+                  buttonStyle = "border-green-500 bg-green-500/10 shadow-sm";
+                  dotStyle = "border-green-500";
+                } else if (isSelected) {
+                  buttonStyle = "border-destructive bg-destructive/10 shadow-sm";
+                  dotStyle = "border-destructive";
+                } else {
+                  buttonStyle = "border-border bg-card opacity-50 cursor-not-allowed";
+                }
+              } else if (isSelected) {
+                buttonStyle = "border-primary bg-primary/5 shadow-sm";
+                dotStyle = "border-primary";
+              }
+
               return (
                 <button
                   key={idx}
+                  disabled={isAnswered}
                   onClick={() => handleSelectAnswer(idx)}
-                  className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
-                    isSelected 
-                      ? "border-primary bg-primary/5 shadow-sm" 
-                      : "border-border hover:border-primary/50 bg-card hover:bg-secondary/20"
-                  }`}
+                  className={`w-full text-left p-5 rounded-xl border-2 transition-all ${buttonStyle}`}
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 mt-0.5 flex items-center justify-center ${
-                      isSelected ? "border-primary" : "border-muted-foreground"
-                    }`}>
-                      {isSelected && <div className="w-3 h-3 rounded-full bg-primary" />}
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 mt-0.5 flex items-center justify-center ${dotStyle}`}>
+                      {isSelected && !isAnswered && <div className="w-3 h-3 rounded-full bg-primary" />}
+                      {isAnswered && isCorrectOption && <CheckCircle2 className="w-4 h-4 text-green-500" />}
+                      {isAnswered && isSelected && !isCorrectOption && <div className="w-3 h-3 rounded-full bg-destructive" />}
                     </div>
-                    <span className={`text-base leading-relaxed ${isSelected ? "font-medium" : ""}`}>
+                    <span className={`text-base leading-relaxed ${isSelected || (isAnswered && isCorrectOption) ? "font-medium" : ""}`}>
                       {option}
                     </span>
                   </div>
