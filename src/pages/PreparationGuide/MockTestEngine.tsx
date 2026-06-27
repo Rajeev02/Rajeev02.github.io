@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, RotateCcw } from "lucide-react";
+import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, RotateCcw, Award, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { mockTestsData, MockTest, Question } from "../../data/mockTests";
+import { Certificate } from "../../components/Certificate";
 
 // Helper to shuffle array and options
 function prepareSessionQuestions(questions: Question[], length: number): Question[] {
@@ -41,6 +42,12 @@ export default function MockTestEngine() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
 
+  // Certificate State
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [showCertificateForm, setShowCertificateForm] = useState(false);
+  const [certificateEarned, setCertificateEarned] = useState(false);
+
   // Timer logic
   useEffect(() => {
     if (activeTest && !isSubmitted && timeLeft > 0) {
@@ -64,6 +71,10 @@ export default function MockTestEngine() {
     setEvaluatedAnswers({});
     setIsAutoAdvancing(false);
     setIsSubmitted(false);
+    setShowCertificateForm(false);
+    setCertificateEarned(false);
+    setUserName("");
+    setUserEmail("");
     
     // Time is dynamically based strictly on the selected random questions!
     const totalMinutes = prepared.reduce((sum, q) => sum + (q.timeMinutes || 2), 0);
@@ -149,29 +160,106 @@ export default function MockTestEngine() {
       const percentage = (score / sessionQuestions.length) * 100;
       
       return (
-        <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in">
-          <div className="text-center max-w-lg w-full p-8 border border-border rounded-2xl bg-card shadow-sm">
-            <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-2">Test Completed!</h2>
-            <p className="text-muted-foreground mb-6">You have successfully submitted {activeTest.title}.</p>
-            
-            <div className="bg-secondary/50 p-6 rounded-xl mb-8 border border-border">
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Your Score</p>
-              <div className="text-5xl font-bold text-primary mb-2">
-                {score} <span className="text-2xl text-muted-foreground">/ {sessionQuestions.length}</span>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in w-full pb-12">
+          {!showCertificateForm && !certificateEarned && (
+            <div className="text-center max-w-lg w-full p-8 border border-border rounded-2xl bg-card shadow-sm">
+              <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <h2 className="text-3xl font-bold mb-2">Test Completed!</h2>
+              <p className="text-muted-foreground mb-6">You have successfully submitted {activeTest.title}.</p>
+              
+              <div className="bg-secondary/50 p-6 rounded-xl mb-8 border border-border">
+                <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Your Score</p>
+                <div className="text-5xl font-bold text-primary mb-2">
+                  {score} <span className="text-2xl text-muted-foreground">/ {sessionQuestions.length}</span>
+                </div>
+                <p className="text-lg font-medium">({percentage.toFixed(0)}%)</p>
               </div>
-              <p className="text-lg font-medium">({percentage.toFixed(0)}%)</p>
+
+              {percentage >= 50 && (
+                <div className="mb-8 p-6 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 border border-amber-500/20 rounded-xl">
+                  <Trophy className="w-10 h-10 text-amber-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-bold text-amber-600 dark:text-amber-500 mb-2">Congratulations!</h3>
+                  <p className="text-sm text-muted-foreground mb-4">You scored 50% or higher and earned a Certificate of Completion.</p>
+                  <Button 
+                    onClick={() => setShowCertificateForm(true)}
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold"
+                  >
+                    <Award className="w-4 h-4 mr-2" /> Claim Your Certificate
+                  </Button>
+                </div>
+              )}
+              
+              <div className="flex gap-4 w-full">
+                <Button onClick={() => setActiveTest(null)} className="flex-1" variant="outline" size="lg">
+                  Return
+                </Button>
+                <Button onClick={() => handleStartTest(activeTest)} className="flex-1" size="lg">
+                  Retry Assessment <RotateCcw className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
             </div>
-            
-            <div className="flex gap-4 w-full">
-              <Button onClick={() => setActiveTest(null)} className="flex-1" variant="outline" size="lg">
-                Return
-              </Button>
-              <Button onClick={() => handleStartTest(activeTest)} className="flex-1" size="lg">
-                Retry Assessment <RotateCcw className="w-4 h-4 ml-2" />
-              </Button>
+          )}
+
+          {showCertificateForm && !certificateEarned && (
+            <div className="text-center max-w-md w-full p-8 border border-border rounded-2xl bg-card shadow-sm animate-in zoom-in-95">
+              <Award className="w-16 h-16 text-amber-500 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold mb-2">Claim Certificate</h2>
+              <p className="text-muted-foreground mb-6 text-sm">Enter your details exactly as you want them to appear on your certificate.</p>
+              
+              <form onSubmit={(e) => { e.preventDefault(); if(userName && userEmail) setCertificateEarned(true); }} className="space-y-4 text-left">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Full Name</label>
+                  <input 
+                    type="text" 
+                    required 
+                    value={userName} 
+                    onChange={e => setUserName(e.target.value)}
+                    className="w-full p-3 bg-secondary/50 border border-border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                    placeholder="e.g. Rajeev Joshi"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Email Address</label>
+                  <input 
+                    type="email" 
+                    required 
+                    value={userEmail} 
+                    onChange={e => setUserEmail(e.target.value)}
+                    className="w-full p-3 bg-secondary/50 border border-border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                    placeholder="name@example.com"
+                  />
+                </div>
+                <div className="flex gap-3 pt-4">
+                  <Button type="button" variant="outline" onClick={() => setShowCertificateForm(false)} className="flex-1">
+                    Cancel
+                  </Button>
+                  <Button type="submit" className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold">
+                    Generate
+                  </Button>
+                </div>
+              </form>
             </div>
-          </div>
+          )}
+
+          {certificateEarned && (
+            <div className="w-full max-w-4xl mx-auto flex flex-col items-center animate-in fade-in duration-500">
+              <div className="flex w-full justify-between items-center mb-6 px-4">
+                <Button variant="ghost" onClick={() => setActiveTest(null)}>
+                  <ArrowLeft className="w-4 h-4 mr-2" /> Back to Assessments
+                </Button>
+                <div className="flex items-center text-green-500 font-medium">
+                  <CheckCircle2 className="w-5 h-5 mr-2" /> Certificate Generated
+                </div>
+              </div>
+              
+              <Certificate 
+                name={userName} 
+                assessmentTitle={activeTest.title} 
+                score={score} 
+                totalQuestions={sessionQuestions.length} 
+              />
+            </div>
+          )}
         </div>
       );
     }
