@@ -20,13 +20,30 @@ export default function TopicViewer() {
 
   useEffect(() => {
     if (categoryId && topicId) {
+      if (categoryId === "12-job-apply-data") {
+        const pass = window.prompt("Please enter the password to view this section:");
+        let hash = 0;
+        if (pass) {
+          for (let i = 0, len = pass.length; i < len; i++) {
+            let chr = pass.charCodeAt(i);
+            hash = (hash << 5) - hash + chr;
+            hash |= 0;
+          }
+        }
+        if (hash !== 1411919136) {
+          window.alert("Incorrect password.");
+          navigate("/preparation-guide");
+          return;
+        }
+      }
+
       setLoading(true);
       fetchTopicContent(categoryId, topicId).then((content) => {
         setData(content);
         setLoading(false);
       });
     }
-  }, [categoryId, topicId]);
+  }, [categoryId, topicId, navigate]);
 
   if (loading) {
     return <div className="flex justify-center items-center h-64 text-muted-foreground animate-pulse">Loading content...</div>;
