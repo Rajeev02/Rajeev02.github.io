@@ -123,9 +123,12 @@ export default function Dashboard() {
               </div>
               <div className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0">2</div>
-                <div>
+                <div className="w-full">
                   <h4 className="font-medium text-sm">Take a Mock Test</h4>
-                  <p className="text-xs text-muted-foreground">Evaluate your 1-hour performance</p>
+                  <p className="text-xs text-muted-foreground mb-3">Evaluate your 1-hour performance</p>
+                  <Link to="/preparation-guide/mock-test" className="inline-flex items-center justify-center w-full bg-primary/10 text-primary hover:bg-primary/20 font-medium py-1.5 rounded-lg text-sm transition-colors">
+                    Start Mock Test
+                  </Link>
                 </div>
               </div>
             </div>
