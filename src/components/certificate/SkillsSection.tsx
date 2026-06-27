@@ -14,7 +14,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
         {skills.map((skill, index) => (
           <div 
             key={index}
-            className="px-3 py-1 bg-slate-50 border border-slate-200 rounded text-[11px] text-slate-700 font-medium"
+            className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-md text-[11px] leading-none text-slate-700 font-medium flex items-center justify-center"
           >
             {skill}
           </div>
