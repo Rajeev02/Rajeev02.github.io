@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, RotateCcw, Award, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { mockTestsData, MockTest, Question } from "../../data/mockTests";
-import { Certificate } from "../../components/Certificate";
+import { Certificate } from "../../components/certificate";
 
 // Helper to shuffle array and options
 function prepareSessionQuestions(questions: Question[], length: number): Question[] {
@@ -257,6 +257,10 @@ export default function MockTestEngine() {
                 assessmentTitle={activeTest.title} 
                 score={score} 
                 totalQuestions={sessionQuestions.length} 
+                level={activeTest.difficulty || 'Advanced'}
+                duration={activeTest.durationMinutes || 45}
+                issuedDate={new Date().toISOString()}
+                skills={activeTest.topics || ['Software Engineering', 'System Design', 'Algorithms', 'Architecture']}
               />
             </div>
           )}
