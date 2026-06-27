@@ -785,6 +785,141 @@ console.log("D");`,
           "Flipper"
         ],
         correctAnswer: 2
+      },
+      {
+        id: 306,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What does the React Profiler record?",
+        options: [
+          "Network requests only.",
+          "Memory usage on the native side.",
+          "Rendering times and re-render frequency for components.",
+          "JavaScript thread priority."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 307,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "How do you optimize an image-heavy React Native app?",
+        options: [
+          "Load all images at startup into memory.",
+          "Use the standard <Image> component with 4K resolution images.",
+          "Use libraries like `react-native-fast-image` for caching and request lower resolution images.",
+          "Convert all images to base64 strings."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 308,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What causes 'jank' or frame drops during navigation transitions?",
+        options: [
+          "The JS thread is blocked rendering the new screen, preventing the UI thread from completing the animation.",
+          "The internet connection is slow.",
+          "The device screen is too small.",
+          "Redux state is too large."
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 309,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "Look at the snippet. What is the main performance issue?",
+        codeSnippet: `const MyList = ({ data }) => {
+  return (
+    <ScrollView>
+      {data.map(item => <ListItem key={item.id} {...item} />)}
+    </ScrollView>
+  );
+};`,
+        options: [
+          "ScrollView cannot have children.",
+          "The map function mutates the data.",
+          "ScrollView renders all children at once, causing memory and performance issues for large lists. FlatList should be used instead.",
+          "ListItem is missing a ref."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 310,
+        type: "Theory",
+        timeMinutes: 1,
+        text: "True or False: React.memo will ALWAYS improve performance.",
+        options: [
+          "True",
+          "False, it adds comparison overhead and should only be used for heavy components that render often with the same props."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 311,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "What happens when you pass an inline arrow function as a prop (e.g., `onPress={() => doSomething()}`)?",
+        options: [
+          "It automatically memoizes the function.",
+          "It creates a new function reference on every render, which can cause child components to unnecessarily re-render.",
+          "It throws a syntax error.",
+          "It runs asynchronously."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 312,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What does 'TTI' stand for in performance metrics?",
+        options: [
+          "Time To Interactive",
+          "Total Thread Interruptions",
+          "Time To Install",
+          "Thread Timing Interval"
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 313,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "Which hook should you use to cache a complex calculation so it only re-runs when its dependencies change?",
+        options: [
+          "useEffect",
+          "useCallback",
+          "useMemo",
+          "useRef"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 314,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "Why should you avoid `console.log` in production builds of React Native?",
+        options: [
+          "It causes compilation errors.",
+          "It synchronously crosses the JS bridge and severely impacts frame rates.",
+          "It drains the battery.",
+          "It forces the app to restart."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 315,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is Hermes primarily designed to optimize?",
+        options: [
+          "App startup time (TTI), bundle size, and memory consumption.",
+          "Server-side rendering speeds.",
+          "Network latency.",
+          "Database query execution."
+        ],
+        correctAnswer: 0
       }
     ]
   },
@@ -845,6 +980,138 @@ console.log("D");`,
         timeMinutes: 5,
         text: "What is the time complexity of Binary Search on a sorted array?",
         options: ["O(1)", "O(N)", "O(log N)", "O(N log N)"],
+        correctAnswer: 2
+      },
+      {
+        id: 406,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "Which data structure is typically used to implement an undo/redo feature?",
+        options: [
+          "Queue",
+          "Stack",
+          "Graph",
+          "Set"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 407,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the Big-O time complexity of inserting an element at the beginning of an Array?",
+        options: [
+          "O(1)",
+          "O(N)",
+          "O(log N)",
+          "O(N^2)"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 408,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is a 'Collision' in a Hash Map?",
+        options: [
+          "When two keys are hashed to the same index.",
+          "When the map runs out of memory.",
+          "When two maps are merged together.",
+          "When a key is deleted while being read."
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 409,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the time complexity of the fastest comparison-based sorting algorithms (like Merge Sort or Quick Sort)?",
+        options: [
+          "O(N)",
+          "O(N log N)",
+          "O(N^2)",
+          "O(log N)"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 410,
+        type: "Theory",
+        timeMinutes: 3,
+        text: "In a Graph data structure, what does BFS stand for?",
+        options: [
+          "Binary Forward Search",
+          "Breadth-First Search",
+          "Binary Fast Search",
+          "Breadth-Forward Search"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 411,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the primary difference between a Set and an Array in JavaScript?",
+        options: [
+          "Sets only hold strings.",
+          "Sets automatically sort their elements.",
+          "Sets only store unique values, automatically preventing duplicates.",
+          "Arrays are faster for lookups."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 412,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What data structure does the JavaScript event loop rely on to manage asynchronous callbacks (like setTimeout)?",
+        options: [
+          "A Stack",
+          "A Queue",
+          "A Binary Tree",
+          "A Hash Map"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 413,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "Look at the code. What is the output?",
+        codeSnippet: `const set = new Set([1, 2, 2, 3, 4, 4]);
+console.log(set.size);`,
+        options: [
+          "6",
+          "4",
+          "5",
+          "undefined"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 414,
+        type: "Theory",
+        timeMinutes: 3,
+        text: "Which of these data structures uses LIFO (Last-In-First-Out) ordering?",
+        options: [
+          "Queue",
+          "Stack",
+          "Linked List",
+          "Heap"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 415,
+        type: "Coding",
+        timeMinutes: 6,
+        text: "What is the time complexity of accessing an element in a Linked List by its index?",
+        options: [
+          "O(1)",
+          "O(log N)",
+          "O(N)",
+          "O(N^2)"
+        ],
         correctAnswer: 2
       }
     ]
