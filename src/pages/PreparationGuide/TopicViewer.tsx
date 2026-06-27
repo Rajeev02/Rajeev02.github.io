@@ -30,7 +30,7 @@ export default function TopicViewer() {
             hash |= 0;
           }
         }
-        if (hash !== 1411919136) {
+        if (hash !== 41691151) {
           window.alert("Incorrect password.");
           navigate("/preparation-guide");
           return;
