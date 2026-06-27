@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface MockTest {
@@ -16,6 +16,8 @@ interface MockTest {
 const sampleQuestions = [
   {
     id: 1,
+    type: "Theory",
+    timeMinutes: 2,
     text: "What is the primary advantage of the New Architecture (JSI) in React Native?",
     options: [
       "It allows for synchronous communication between JS and Native without JSON serialization.",
@@ -27,6 +29,8 @@ const sampleQuestions = [
   },
   {
     id: 2,
+    type: "Theory",
+    timeMinutes: 1,
     text: "Which of the following is true about Hermes in React Native?",
     options: [
       "It is a UI rendering engine that replaces Yoga.",
@@ -38,6 +42,8 @@ const sampleQuestions = [
   },
   {
     id: 3,
+    type: "Coding",
+    timeMinutes: 5,
     text: "In React Native, how do you prevent a heavy JavaScript computation from dropping UI frames?",
     options: [
       "Use `InteractionManager.runAfterInteractions` or offload to a native thread/Web Worker.",
@@ -49,6 +55,8 @@ const sampleQuestions = [
   },
   {
     id: 4,
+    type: "Theory",
+    timeMinutes: 2,
     text: "What is the purpose of `useNativeDriver: true` in the Animated API?",
     options: [
       "It automatically generates native Swift/Kotlin animation code.",
@@ -60,6 +68,8 @@ const sampleQuestions = [
   },
   {
     id: 5,
+    type: "Theory",
+    timeMinutes: 2,
     text: "How does Fabric improve the rendering pipeline in the New Architecture?",
     options: [
       "It replaces JavaScript with WebAssembly for faster execution.",
@@ -71,6 +81,8 @@ const sampleQuestions = [
   },
   {
     id: 6,
+    type: "Theory",
+    timeMinutes: 1,
     text: "Which lifecycle method or hook is best suited for cleaning up an event listener in a React component?",
     options: [
       "componentDidMount",
@@ -82,6 +94,8 @@ const sampleQuestions = [
   },
   {
     id: 7,
+    type: "Theory",
+    timeMinutes: 1,
     text: "What does the 'useMemo' hook actually do?",
     options: [
       "It memoizes a component to prevent it from re-rendering when props change.",
@@ -93,6 +107,8 @@ const sampleQuestions = [
   },
   {
     id: 8,
+    type: "Coding",
+    timeMinutes: 4,
     text: "What happens if you accidentally create a Retain Cycle in an iOS Native Module for React Native?",
     options: [
       "The app will crash immediately on startup.",
@@ -104,6 +120,8 @@ const sampleQuestions = [
   },
   {
     id: 9,
+    type: "Coding",
+    timeMinutes: 4,
     text: "What is the time complexity of looking up a key in a Hash Map (Object/Map) on average?",
     options: [
       "O(1)",
@@ -115,6 +133,8 @@ const sampleQuestions = [
   },
   {
     id: 10,
+    type: "Theory",
+    timeMinutes: 2,
     text: "In the context of End-to-End Testing (like Detox), what does 'Synchronization' or 'Gray Box Testing' mean?",
     options: [
       "The test runner operates completely blind to the app's internal state (like a black box).",
@@ -126,13 +146,17 @@ const sampleQuestions = [
   }
 ];
 
+const calculateTotalTime = () => {
+  return sampleQuestions.reduce((sum, q) => sum + (q.timeMinutes || 2), 0);
+};
+
 const mockTestsData: MockTest[] = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   title: `Assessment Set ${i + 1}`,
   description: i === 0 
     ? "Core JS, React Native basics, Array DSA, and basic Testing." 
     : "Advanced Architecture, Threading, Graph DSA, and E2E Testing.",
-  durationMinutes: Math.max(10, sampleQuestions.length * 2), // 2 minutes per question
+  durationMinutes: calculateTotalTime(), // Dynamic based on questions
   completed: false,
   score: null,
   locked: false,
@@ -221,9 +245,14 @@ export default function MockTestEngine() {
               <p className="text-lg font-medium">({percentage.toFixed(0)}%)</p>
             </div>
             
-            <Button onClick={() => setActiveTest(null)} className="w-full" size="lg">
-              Return to Assessments
-            </Button>
+            <div className="flex gap-4 w-full">
+              <Button onClick={() => setActiveTest(null)} className="flex-1" variant="outline" size="lg">
+                Return
+              </Button>
+              <Button onClick={() => handleStartTest(activeTest)} className="flex-1" size="lg">
+                Retry <RotateCcw className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         </div>
       );
@@ -236,13 +265,27 @@ export default function MockTestEngine() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-6 border-b border-border">
           <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-md ${
+                currentQuestion.type === 'Coding' 
+                  ? 'bg-blue-500/10 text-blue-500' 
+                  : 'bg-primary/10 text-primary'
+              }`}>
+                {currentQuestion.type || "Theory"}
+              </span>
+              <p className="text-muted-foreground text-sm font-medium">Question {currentQuestionIndex + 1} of {sampleQuestions.length}</p>
+            </div>
             <h2 className="text-2xl font-bold">{activeTest.title}</h2>
-            <p className="text-muted-foreground text-sm">Question {currentQuestionIndex + 1} of {sampleQuestions.length}</p>
           </div>
-          <div className="mt-4 sm:mt-0 flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-lg border border-border">
-            <Clock className="w-5 h-5 text-primary" />
-            <span className={`font-mono text-xl font-bold ${timeLeft < 300 ? 'text-destructive' : ''}`}>
-              {formatTime(timeLeft)}
+          <div className="mt-4 sm:mt-0 flex flex-col items-end">
+            <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-lg border border-border">
+              <Clock className="w-5 h-5 text-primary" />
+              <span className={`font-mono text-xl font-bold ${timeLeft < 300 ? 'text-destructive' : ''}`}>
+                {formatTime(timeLeft)}
+              </span>
+            </div>
+            <span className="text-xs text-muted-foreground mt-2">
+              {currentQuestion.timeMinutes} mins allotted for this question
             </span>
           </div>
         </div>
@@ -377,9 +420,18 @@ export default function MockTestEngine() {
             </p>
 
             {test.completed && test.score !== null ? (
-              <div className="w-full flex items-center justify-between p-3 bg-card border border-border rounded-lg mt-auto">
-                <span className="text-sm font-medium">Score</span>
-                <span className="font-bold text-primary">{test.score} / {sampleQuestions.length}</span>
+              <div className="mt-auto space-y-3">
+                <div className="w-full flex items-center justify-between p-3 bg-card border border-border rounded-lg">
+                  <span className="text-sm font-medium">Score</span>
+                  <span className="font-bold text-primary">{test.score} / {sampleQuestions.length}</span>
+                </div>
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => handleStartTest(test)}
+                >
+                  Retry Assessment <RotateCcw className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             ) : (
               <Button 
