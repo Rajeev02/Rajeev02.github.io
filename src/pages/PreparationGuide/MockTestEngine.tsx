@@ -3,6 +3,9 @@ import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, Ro
 import { Button } from "@/components/ui/button";
 import { mockTestsData, MockTest, Question } from "../../data/mockTests";
 import { Certificate } from "../../components/certificate";
+import { generateCertificateId } from "../../components/certificate/utils";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 
 // Helper to shuffle array and options
 function prepareSessionQuestions(questions: Question[], length: number): Question[] {
@@ -47,6 +50,8 @@ export default function MockTestEngine() {
   const [userEmail, setUserEmail] = useState("");
   const [showCertificateForm, setShowCertificateForm] = useState(false);
   const [certificateEarned, setCertificateEarned] = useState(false);
+  const [generatedCertificateId, setGeneratedCertificateId] = useState("");
+  const [isGeneratingCertificate, setIsGeneratingCertificate] = useState(false);
 
   // Timer logic
   useEffect(() => {
@@ -147,6 +152,39 @@ export default function MockTestEngine() {
     }
   };
 
+  const handleGenerateCertificate = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userName || !userEmail || !activeTest) return;
+
+    setIsGeneratingCertificate(true);
+    try {
+      const newCertId = generateCertificateId();
+      const score = calculateScore();
+      
+      const docRef = doc(db, "certificates", newCertId);
+      await setDoc(docRef, {
+        certificateId: newCertId,
+        name: userName,
+        email: userEmail,
+        assessmentTitle: activeTest.title,
+        score,
+        totalQuestions: sessionQuestions.length,
+        level: activeTest.difficulty || 'Advanced',
+        duration: activeTest.durationMinutes || 45,
+        issuedDate: new Date().toISOString(),
+        skills: activeTest.topics || ['Software Engineering', 'System Design', 'Algorithms', 'Architecture']
+      });
+
+      setGeneratedCertificateId(newCertId);
+      setCertificateEarned(true);
+    } catch (error) {
+      console.error("Error generating certificate: ", error);
+      alert("Failed to generate certificate. Please check your network connection.");
+    } finally {
+      setIsGeneratingCertificate(false);
+    }
+  };
+
   // Helper for dynamic card display duration
   const getEstimatedDuration = (test: MockTest) => {
     const length = Math.min(testLength, test.questions.length);
@@ -206,7 +244,7 @@ export default function MockTestEngine() {
               <h2 className="text-2xl font-bold mb-2">Claim Certificate</h2>
               <p className="text-muted-foreground mb-6 text-sm">Enter your details exactly as you want them to appear on your certificate.</p>
               
-              <form onSubmit={(e) => { e.preventDefault(); if(userName && userEmail) setCertificateEarned(true); }} className="space-y-4 text-left">
+              <form onSubmit={handleGenerateCertificate} className="space-y-4 text-left">
                 <div>
                   <label className="block text-sm font-medium mb-1">Full Name</label>
                   <input 
@@ -230,11 +268,11 @@ export default function MockTestEngine() {
                   />
                 </div>
                 <div className="flex gap-3 pt-4">
-                  <Button type="button" variant="outline" onClick={() => setShowCertificateForm(false)} className="flex-1">
+                  <Button type="button" variant="outline" onClick={() => setShowCertificateForm(false)} className="flex-1" disabled={isGeneratingCertificate}>
                     Cancel
                   </Button>
-                  <Button type="submit" className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold">
-                    Generate
+                  <Button type="submit" className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold" disabled={isGeneratingCertificate}>
+                    {isGeneratingCertificate ? 'Generating...' : 'Generate'}
                   </Button>
                 </div>
               </form>
@@ -261,6 +299,8 @@ export default function MockTestEngine() {
                 duration={activeTest.durationMinutes || 45}
                 issuedDate={new Date().toISOString()}
                 skills={activeTest.topics || ['Software Engineering', 'System Design', 'Algorithms', 'Architecture']}
+                certificateId={generatedCertificateId}
+                verificationUrl={`https://rajeev02.github.io/#/verify/${generatedCertificateId}`}
               />
             </div>
           )}

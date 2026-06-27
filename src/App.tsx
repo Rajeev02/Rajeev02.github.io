@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import EmploymentRecord from "./pages/EmploymentRecord";
 import PreparationGuide from "./pages/PreparationGuide";
+import VerifyCertificate from "./pages/PreparationGuide/VerifyCertificate";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="/employment-record" element={<EmploymentRecord />} />
             <Route path="/preparation-guide/*" element={<PreparationGuide />} />
+            <Route path="/verify/:id" element={<VerifyCertificate />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>
