@@ -9,7 +9,7 @@ const navItems = [
   { label: "Experience", href: "experience" },
   { label: "Projects", href: "projects" },
   { label: "Education", href: "education" },
-  { label: "Prepration", href: "/#/preparation-guide", isExternal: true },
+  { label: "Prepration", href: "https://rajeev02.github.io/prepration/", isExternal: true },
   { label: "Contact", href: "contact" }
 ];
 
