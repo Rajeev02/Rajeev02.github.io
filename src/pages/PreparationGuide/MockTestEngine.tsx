@@ -1,13 +1,35 @@
 import { useState, useEffect } from "react";
 import { Clock, Play, CheckCircle, Lock, ArrowRight, ArrowLeft, CheckCircle2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { mockTestsData, MockTest } from "../../data/mockTests";
+import { mockTestsData, MockTest, Question } from "../../data/mockTests";
+
+// Helper to shuffle array and options
+function prepareSessionQuestions(questions: Question[], length: number): Question[] {
+  // 1. Shuffle questions
+  const shuffledQ = [...questions].sort(() => Math.random() - 0.5).slice(0, length);
+  
+  // 2. Shuffle options inside each question
+  return shuffledQ.map(q => {
+    const optionsWithIndex = q.options.map((opt, i) => ({ text: opt, isCorrect: i === q.correctAnswer }));
+    optionsWithIndex.sort(() => Math.random() - 0.5);
+    
+    return {
+      ...q,
+      options: optionsWithIndex.map(o => o.text),
+      correctAnswer: optionsWithIndex.findIndex(o => o.isCorrect)
+    };
+  });
+}
 
 export default function MockTestEngine() {
   const [tests, setTests] = useState<MockTest[]>(mockTestsData);
   const [activeTest, setActiveTest] = useState<MockTest | null>(null);
   
+  // Configuration
+  const [testLength, setTestLength] = useState<number>(10);
+  
   // Test State
+  const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [evaluatedAnswers, setEvaluatedAnswers] = useState<Record<number, boolean>>({});
@@ -28,13 +50,20 @@ export default function MockTestEngine() {
   }, [timeLeft, activeTest, isSubmitted]);
 
   const handleStartTest = (test: MockTest) => {
+    const length = Math.min(testLength, test.questions.length);
+    const prepared = prepareSessionQuestions(test.questions, length);
+    
+    setSessionQuestions(prepared);
     setActiveTest(test);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
     setEvaluatedAnswers({});
     setIsAutoAdvancing(false);
     setIsSubmitted(false);
-    setTimeLeft(test.durationMinutes * 60);
+    
+    // Time is dynamically based strictly on the selected random questions!
+    const totalMinutes = prepared.reduce((sum, q) => sum + (q.timeMinutes || 2), 0);
+    setTimeLeft(totalMinutes * 60);
   };
 
   const handleSelectAnswer = (optionIndex: number) => {
@@ -74,7 +103,7 @@ export default function MockTestEngine() {
   const calculateScore = () => {
     if (!activeTest) return 0;
     let score = 0;
-    activeTest.questions.forEach((q, index) => {
+    sessionQuestions.forEach((q, index) => {
       if (selectedAnswers[index] === q.correctAnswer) {
         score += 1;
       }
@@ -90,19 +119,24 @@ export default function MockTestEngine() {
 
   const finishTest = () => {
     setIsSubmitted(true);
-    // Mark test as completed in the list
+    // Mark test as completed in the list (we don't persist score per random run, just marking it touched)
     if (activeTest) {
       const score = calculateScore();
       setTests(tests.map(t => t.id === activeTest.id ? { ...t, completed: true, score } : t));
     }
   };
 
-  if (activeTest) {
-    const questions = activeTest.questions;
-    
+  // Helper for dynamic card display duration
+  const getEstimatedDuration = (test: MockTest) => {
+    const length = Math.min(testLength, test.questions.length);
+    const avg = test.questions.reduce((sum, q) => sum + q.timeMinutes, 0) / Math.max(1, test.questions.length);
+    return Math.round(length * avg);
+  };
+
+  if (activeTest && sessionQuestions.length > 0) {
     if (isSubmitted) {
       const score = calculateScore();
-      const percentage = (score / questions.length) * 100;
+      const percentage = (score / sessionQuestions.length) * 100;
       
       return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in">
@@ -114,7 +148,7 @@ export default function MockTestEngine() {
             <div className="bg-secondary/50 p-6 rounded-xl mb-8 border border-border">
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Your Score</p>
               <div className="text-5xl font-bold text-primary mb-2">
-                {score} <span className="text-2xl text-muted-foreground">/ {questions.length}</span>
+                {score} <span className="text-2xl text-muted-foreground">/ {sessionQuestions.length}</span>
               </div>
               <p className="text-lg font-medium">({percentage.toFixed(0)}%)</p>
             </div>
@@ -124,7 +158,7 @@ export default function MockTestEngine() {
                 Return
               </Button>
               <Button onClick={() => handleStartTest(activeTest)} className="flex-1" size="lg">
-                Retry <RotateCcw className="w-4 h-4 ml-2" />
+                Retry Assessment <RotateCcw className="w-4 h-4 ml-2" />
               </Button>
             </div>
           </div>
@@ -132,7 +166,7 @@ export default function MockTestEngine() {
       );
     }
 
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = sessionQuestions[currentQuestionIndex];
 
     return (
       <div className="max-w-4xl mx-auto min-h-[70vh] flex flex-col animate-fade-in pb-12">
@@ -147,7 +181,7 @@ export default function MockTestEngine() {
               }`}>
                 {currentQuestion.type || "Theory"}
               </span>
-              <p className="text-muted-foreground text-sm font-medium">Question {currentQuestionIndex + 1} of {questions.length}</p>
+              <p className="text-muted-foreground text-sm font-medium">Question {currentQuestionIndex + 1} of {sessionQuestions.length}</p>
             </div>
             <h2 className="text-2xl font-bold">{activeTest.title}</h2>
           </div>
@@ -233,7 +267,7 @@ export default function MockTestEngine() {
               Cancel Test
             </Button>
 
-            {currentQuestionIndex === questions.length - 1 ? (
+            {currentQuestionIndex === sessionQuestions.length - 1 ? (
               <Button 
                 onClick={handleFinishNext} 
                 disabled={selectedAnswers[currentQuestionIndex] === undefined || isAutoAdvancing}
@@ -258,73 +292,102 @@ export default function MockTestEngine() {
 
   return (
     <div className="animate-fade-in pb-12">
-      <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Timed Mock Assessments</h1>
-        <p className="text-muted-foreground text-lg">
-          {tests.length} comprehensive tests simulating real-world interview loops (Theory, Coding, Behavioural).
-        </p>
+      <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-6">
+        <div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Timed Mock Assessments</h1>
+          <p className="text-muted-foreground text-lg">
+            Simulate real-world interview loops with randomized Question Banks.
+          </p>
+        </div>
+        
+        {/* Settings Dropdown */}
+        <div className="flex items-center gap-3 bg-secondary/40 p-2 rounded-xl border border-border shadow-sm">
+          <span className="text-sm font-medium text-muted-foreground pl-2 whitespace-nowrap">Test Length:</span>
+          <select 
+            value={testLength} 
+            onChange={(e) => setTestLength(Number(e.target.value))}
+            className="bg-card text-sm font-bold border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+          >
+            <option value={10}>10 Questions</option>
+            <option value={20}>20 Questions</option>
+            <option value={25}>25 Questions</option>
+            <option value={50}>50 Questions</option>
+            <option value={100}>100 Questions</option>
+          </select>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tests.map((test) => (
-          <div 
-            key={test.id} 
-            className={`border rounded-2xl p-6 transition-all flex flex-col ${
-              test.locked 
-                ? "bg-secondary/20 border-border opacity-70" 
-                : test.completed
-                  ? "bg-primary/5 border-primary/20"
-                  : "bg-card border-border shadow-sm hover:border-primary/50 hover:shadow-md"
-            }`}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div className={`p-2 rounded-lg ${
+        {tests.map((test) => {
+          const availableCount = test.questions.length;
+          const actualLength = Math.min(testLength, availableCount);
+          const estimatedDuration = getEstimatedDuration(test);
+          
+          return (
+            <div 
+              key={test.id} 
+              className={`border rounded-2xl p-6 transition-all flex flex-col ${
                 test.locked 
-                  ? "bg-muted text-muted-foreground" 
+                  ? "bg-secondary/20 border-border opacity-70" 
                   : test.completed
-                    ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
-                    : "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400"
-              }`}>
-                {test.locked ? <Lock className="w-5 h-5" /> : <CheckCircle className="w-5 h-5" />}
-              </div>
-              <div className="flex items-center gap-1 text-xs font-semibold text-muted-foreground bg-secondary px-2 py-1 rounded-md">
-                <Clock className="w-3 h-3" />
-                {test.durationMinutes}m
-              </div>
-            </div>
-            
-            <h3 className="text-xl font-bold mb-2">{test.title}</h3>
-            <p className="text-sm text-muted-foreground mb-6 line-clamp-2 flex-1">
-              {test.description}
-            </p>
-
-            {test.completed && test.score !== null ? (
-              <div className="mt-auto space-y-3">
-                <div className="w-full flex items-center justify-between p-3 bg-card border border-border rounded-lg">
-                  <span className="text-sm font-medium">Score</span>
-                  <span className="font-bold text-primary">{test.score} / {test.questions.length}</span>
+                    ? "bg-primary/5 border-primary/20"
+                    : "bg-card border-border shadow-sm hover:border-primary/50 hover:shadow-md"
+              }`}
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className={`p-2 rounded-lg ${
+                  test.locked 
+                    ? "bg-muted text-muted-foreground" 
+                    : test.completed
+                      ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
+                      : "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400"
+                }`}>
+                  {test.locked ? <Lock className="w-5 h-5" /> : <CheckCircle className="w-5 h-5" />}
                 </div>
+                <div className="flex flex-col items-end gap-1">
+                  <div className="flex items-center gap-1 text-xs font-semibold text-muted-foreground bg-secondary px-2 py-1 rounded-md">
+                    <Clock className="w-3 h-3" />
+                    ~{estimatedDuration}m
+                  </div>
+                  <span className="text-[10px] text-muted-foreground font-medium px-1">
+                    {availableCount} in bank
+                  </span>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2">{test.title}</h3>
+              <p className="text-sm text-muted-foreground mb-6 line-clamp-2 flex-1">
+                {test.description}
+              </p>
+
+              {test.completed && test.score !== null ? (
+                <div className="mt-auto space-y-3">
+                  <div className="w-full flex items-center justify-between p-3 bg-card border border-border rounded-lg">
+                    <span className="text-sm font-medium">Last Score</span>
+                    <span className="font-bold text-primary">{test.score} / {actualLength}</span>
+                  </div>
+                  <Button 
+                    className="w-full" 
+                    variant="outline"
+                    onClick={() => handleStartTest(test)}
+                  >
+                    Start New Test <RotateCcw className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              ) : (
                 <Button 
-                  className="w-full" 
-                  variant="outline"
+                  className="w-full mt-auto" 
+                  variant={test.locked ? "secondary" : "default"}
+                  disabled={test.locked}
                   onClick={() => handleStartTest(test)}
                 >
-                  Retry Assessment <RotateCcw className="w-4 h-4 ml-2" />
+                  {test.locked ? "Locked" : `Start Test (${actualLength} Qs)`}
+                  {!test.locked && <Play className="w-4 h-4 ml-2" />}
                 </Button>
-              </div>
-            ) : (
-              <Button 
-                className="w-full mt-auto" 
-                variant={test.locked ? "secondary" : "default"}
-                disabled={test.locked}
-                onClick={() => handleStartTest(test)}
-              >
-                {test.locked ? "Locked" : "Start Assessment"}
-                {!test.locked && <Play className="w-4 h-4 ml-2" />}
-              </Button>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          )
+        })}
       </div>
     </div>
   );
