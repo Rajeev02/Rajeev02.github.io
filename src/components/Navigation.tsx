@@ -9,6 +9,7 @@ const navItems = [
   { label: "Experience", href: "experience" },
   { label: "Projects", href: "projects" },
   { label: "Education", href: "education" },
+  { label: "Prepration", href: "https://rajeev02.github.io/prepration/", isExternal: true },
   { label: "Contact", href: "contact" }
 ];
 
@@ -48,13 +49,23 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
-              >
-                {item.label}
-              </button>
+              item.isExternal ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
 
             <ThemeToggle />
@@ -79,13 +90,23 @@ const Navigation = () => {
           <div className="md:hidden py-3 sm:py-4 border-t border-border bg-background/95 backdrop-blur-xl">
             <div className="flex flex-col gap-3 sm:gap-4 px-4">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 bg-transparent border-none cursor-pointer text-left"
-                >
-                  {item.label}
-                </button>
+                item.isExternal ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 bg-transparent border-none cursor-pointer text-left"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors py-1 bg-transparent border-none cursor-pointer text-left"
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
 
             </div>
