@@ -12,18 +12,6 @@ interface MockTest {
   locked: boolean;
 }
 
-const mockTestsData: MockTest[] = Array.from({ length: 10 }, (_, i) => ({
-  id: i + 1,
-  title: `Assessment Set ${i + 1}`,
-  description: i === 0 
-    ? "Core JS, React Native basics, Array DSA, and basic Testing." 
-    : "Advanced Architecture, Threading, Graph DSA, and E2E Testing.",
-  durationMinutes: 60,
-  completed: false,
-  score: null,
-  locked: false,
-}));
-
 // Sample questions to simulate a real test
 const sampleQuestions = [
   {
@@ -80,8 +68,75 @@ const sampleQuestions = [
       "It pre-compiles all React components into static HTML."
     ],
     correctAnswer: 2,
+  },
+  {
+    id: 6,
+    text: "Which lifecycle method or hook is best suited for cleaning up an event listener in a React component?",
+    options: [
+      "componentDidMount",
+      "The return function inside a useEffect hook",
+      "useLayoutEffect",
+      "componentDidUpdate"
+    ],
+    correctAnswer: 1,
+  },
+  {
+    id: 7,
+    text: "What does the 'useMemo' hook actually do?",
+    options: [
+      "It memoizes a component to prevent it from re-rendering when props change.",
+      "It caches the result of a calculation between renders.",
+      "It delays the execution of a function until after the browser paints.",
+      "It creates a mutable reference that persists across renders."
+    ],
+    correctAnswer: 1,
+  },
+  {
+    id: 8,
+    text: "What happens if you accidentally create a Retain Cycle in an iOS Native Module for React Native?",
+    options: [
+      "The app will crash immediately on startup.",
+      "The React Native bridge will automatically break the cycle.",
+      "The memory allocated to those objects will never be freed, leading to a Memory Leak and potential OOM crash.",
+      "The JS garbage collector will handle the native memory cleanup."
+    ],
+    correctAnswer: 2,
+  },
+  {
+    id: 9,
+    text: "What is the time complexity of looking up a key in a Hash Map (Object/Map) on average?",
+    options: [
+      "O(1)",
+      "O(log N)",
+      "O(N)",
+      "O(N log N)"
+    ],
+    correctAnswer: 0,
+  },
+  {
+    id: 10,
+    text: "In the context of End-to-End Testing (like Detox), what does 'Synchronization' or 'Gray Box Testing' mean?",
+    options: [
+      "The test runner operates completely blind to the app's internal state (like a black box).",
+      "The test runner knows the app's internal state and waits for network requests or animations to finish before proceeding.",
+      "The test runner synchronizes data between the iOS and Android emulators.",
+      "It refers to testing the app's offline synchronization capabilities."
+    ],
+    correctAnswer: 1,
   }
 ];
+
+const mockTestsData: MockTest[] = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  title: `Assessment Set ${i + 1}`,
+  description: i === 0 
+    ? "Core JS, React Native basics, Array DSA, and basic Testing." 
+    : "Advanced Architecture, Threading, Graph DSA, and E2E Testing.",
+  durationMinutes: Math.max(10, sampleQuestions.length * 2), // 2 minutes per question
+  completed: false,
+  score: null,
+  locked: false,
+}));
 
 export default function MockTestEngine() {
   const [tests, setTests] = useState<MockTest[]>(mockTestsData);
@@ -282,7 +337,7 @@ export default function MockTestEngine() {
   return (
     <div className="animate-fade-in pb-12">
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">1-Hour Mock Assessments</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Timed Mock Assessments</h1>
         <p className="text-muted-foreground text-lg">
           10 comprehensive tests simulating real-world interview loops (Theory, Coding, Behavioural).
         </p>
