@@ -25,7 +25,7 @@ export default function TopicViewer() {
         let hash = 0;
         if (pass) {
           for (let i = 0, len = pass.length; i < len; i++) {
-            let chr = pass.charCodeAt(i);
+            const chr = pass.charCodeAt(i);
             hash = (hash << 5) - hash + chr;
             hash |= 0;
           }
