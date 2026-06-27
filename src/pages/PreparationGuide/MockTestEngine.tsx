@@ -77,7 +77,11 @@ export default function MockTestEngine() {
   const handleNext = () => {
     if (selectedAnswers[currentQuestionIndex] === undefined) return;
     
-    if (!evaluatedAnswers[currentQuestionIndex]) {
+    if (evaluatedAnswers[currentQuestionIndex]) {
+      // Already evaluated, just go to next immediately
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      // First time evaluating
       setEvaluatedAnswers(prev => ({ ...prev, [currentQuestionIndex]: true }));
       setIsAutoAdvancing(true);
       setTimeout(() => {
@@ -90,7 +94,9 @@ export default function MockTestEngine() {
   const handleFinishNext = () => {
     if (selectedAnswers[currentQuestionIndex] === undefined) return;
     
-    if (!evaluatedAnswers[currentQuestionIndex]) {
+    if (evaluatedAnswers[currentQuestionIndex]) {
+      finishTest();
+    } else {
       setEvaluatedAnswers(prev => ({ ...prev, [currentQuestionIndex]: true }));
       setIsAutoAdvancing(true);
       setTimeout(() => {
@@ -281,7 +287,9 @@ export default function MockTestEngine() {
                 disabled={selectedAnswers[currentQuestionIndex] === undefined || isAutoAdvancing}
                 className="flex items-center gap-2"
               >
-                {isAutoAdvancing ? 'Finishing...' : 'Submit Test'} <CheckCircle className="w-4 h-4" />
+                {isAutoAdvancing 
+                  ? 'Finishing...' 
+                  : evaluatedAnswers[currentQuestionIndex] ? 'Finish Test' : 'Submit Test'} <CheckCircle className="w-4 h-4" />
               </Button>
             ) : (
               <Button 
@@ -289,7 +297,9 @@ export default function MockTestEngine() {
                 disabled={selectedAnswers[currentQuestionIndex] === undefined || isAutoAdvancing}
                 className="flex items-center gap-2"
               >
-                {isAutoAdvancing ? 'Evaluating...' : 'Check & Next'} <ArrowRight className="w-4 h-4" />
+                {isAutoAdvancing 
+                  ? 'Evaluating...' 
+                  : evaluatedAnswers[currentQuestionIndex] ? 'Next' : 'Check & Next'} <ArrowRight className="w-4 h-4" />
               </Button>
             )}
           </div>
