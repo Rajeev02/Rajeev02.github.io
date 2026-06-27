@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /certificates/{certificateId} {
+      // Anyone can verify (read) a certificate
+      allow read: if true; 
+      // Anyone can create a new certificate
+      allow create: if true;
+      // Nobody can modify or delete an existing certificate!
+      allow update, delete: if false; 
+    }
+  }
+}
