@@ -10,6 +10,8 @@ export default function MockTestEngine() {
   // Test State
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+  const [evaluatedAnswers, setEvaluatedAnswers] = useState<Record<number, boolean>>({});
+  const [isAutoAdvancing, setIsAutoAdvancing] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
 
@@ -29,16 +31,44 @@ export default function MockTestEngine() {
     setActiveTest(test);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
+    setEvaluatedAnswers({});
+    setIsAutoAdvancing(false);
     setIsSubmitted(false);
     setTimeLeft(test.durationMinutes * 60);
   };
 
   const handleSelectAnswer = (optionIndex: number) => {
-    if (selectedAnswers[currentQuestionIndex] !== undefined) return; // Prevent changing answer
+    if (evaluatedAnswers[currentQuestionIndex]) return; // Prevent changing answer if evaluated
     setSelectedAnswers(prev => ({
       ...prev,
       [currentQuestionIndex]: optionIndex
     }));
+  };
+
+  const handleNext = () => {
+    if (selectedAnswers[currentQuestionIndex] === undefined) return;
+    
+    if (!evaluatedAnswers[currentQuestionIndex]) {
+      setEvaluatedAnswers(prev => ({ ...prev, [currentQuestionIndex]: true }));
+      setIsAutoAdvancing(true);
+      setTimeout(() => {
+        setIsAutoAdvancing(false);
+        setCurrentQuestionIndex(prev => prev + 1);
+      }, 3000);
+    }
+  };
+
+  const handleFinishNext = () => {
+    if (selectedAnswers[currentQuestionIndex] === undefined) return;
+    
+    if (!evaluatedAnswers[currentQuestionIndex]) {
+      setEvaluatedAnswers(prev => ({ ...prev, [currentQuestionIndex]: true }));
+      setIsAutoAdvancing(true);
+      setTimeout(() => {
+        setIsAutoAdvancing(false);
+        finishTest();
+      }, 3000);
+    }
   };
 
   const calculateScore = () => {
@@ -142,14 +172,14 @@ export default function MockTestEngine() {
 
           <div className="space-y-4">
             {currentQuestion.options.map((option, idx) => {
-              const isAnswered = selectedAnswers[currentQuestionIndex] !== undefined;
+              const isEvaluated = evaluatedAnswers[currentQuestionIndex] || false;
               const isSelected = selectedAnswers[currentQuestionIndex] === idx;
               const isCorrectOption = idx === currentQuestion.correctAnswer;
               
               let buttonStyle = "border-border hover:border-primary/50 bg-card hover:bg-secondary/20";
               let dotStyle = "border-muted-foreground";
               
-              if (isAnswered) {
+              if (isEvaluated) {
                 if (isCorrectOption) {
                   buttonStyle = "border-green-500 bg-green-500/10 shadow-sm";
                   dotStyle = "border-green-500";
@@ -167,17 +197,17 @@ export default function MockTestEngine() {
               return (
                 <button
                   key={idx}
-                  disabled={isAnswered}
+                  disabled={isEvaluated}
                   onClick={() => handleSelectAnswer(idx)}
                   className={`w-full text-left p-5 rounded-xl border-2 transition-all ${buttonStyle}`}
                 >
                   <div className="flex items-start gap-4">
                     <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 mt-0.5 flex items-center justify-center ${dotStyle}`}>
-                      {isSelected && !isAnswered && <div className="w-3 h-3 rounded-full bg-primary" />}
-                      {isAnswered && isCorrectOption && <CheckCircle2 className="w-4 h-4 text-green-500" />}
-                      {isAnswered && isSelected && !isCorrectOption && <div className="w-3 h-3 rounded-full bg-destructive" />}
+                      {isSelected && !isEvaluated && <div className="w-3 h-3 rounded-full bg-primary" />}
+                      {isEvaluated && isCorrectOption && <CheckCircle2 className="w-4 h-4 text-green-500" />}
+                      {isEvaluated && isSelected && !isCorrectOption && <div className="w-3 h-3 rounded-full bg-destructive" />}
                     </div>
-                    <span className={`text-base leading-relaxed ${isSelected || (isAnswered && isCorrectOption) ? "font-medium" : ""}`}>
+                    <span className={`text-base leading-relaxed ${isSelected || (isEvaluated && isCorrectOption) ? "font-medium" : ""}`}>
                       {option}
                     </span>
                   </div>
@@ -192,7 +222,7 @@ export default function MockTestEngine() {
           <Button 
             variant="outline" 
             onClick={() => setCurrentQuestionIndex(prev => prev - 1)}
-            disabled={currentQuestionIndex === 0}
+            disabled={currentQuestionIndex === 0 || isAutoAdvancing || evaluatedAnswers[currentQuestionIndex]}
             className="flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" /> Previous
@@ -204,15 +234,20 @@ export default function MockTestEngine() {
             </Button>
 
             {currentQuestionIndex === questions.length - 1 ? (
-              <Button onClick={finishTest} className="flex items-center gap-2">
-                Submit Test <CheckCircle className="w-4 h-4" />
+              <Button 
+                onClick={handleFinishNext} 
+                disabled={selectedAnswers[currentQuestionIndex] === undefined || isAutoAdvancing}
+                className="flex items-center gap-2"
+              >
+                {isAutoAdvancing ? 'Finishing...' : 'Submit Test'} <CheckCircle className="w-4 h-4" />
               </Button>
             ) : (
               <Button 
-                onClick={() => setCurrentQuestionIndex(prev => prev + 1)}
+                onClick={handleNext}
+                disabled={selectedAnswers[currentQuestionIndex] === undefined || isAutoAdvancing}
                 className="flex items-center gap-2"
               >
-                Next <ArrowRight className="w-4 h-4" />
+                {isAutoAdvancing ? 'Evaluating...' : 'Check & Next'} <ArrowRight className="w-4 h-4" />
               </Button>
             )}
           </div>
