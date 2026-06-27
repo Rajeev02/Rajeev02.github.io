@@ -82,6 +82,266 @@ export const mockTestsData: MockTest[] = [
         text: "In React Native, which component is the fundamental building block equivalent to a 'div' in web?",
         options: ["<Text>", "<View>", "<Container>", "<Div>"],
         correctAnswer: 1
+      },
+      {
+        id: 106,
+        type: "Coding",
+        timeMinutes: 3,
+        text: "What does the array map() method return?",
+        options: [
+          "The original array, modified.",
+          "A new array with the results of calling a provided function on every element.",
+          "undefined.",
+          "The total count of elements."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 107,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is event bubbling in JavaScript?",
+        options: [
+          "Events triggering from the topmost element down to the target.",
+          "Events triggering from the target element up through its ancestors.",
+          "Events being duplicated multiple times.",
+          "A memory leak caused by unremoved event listeners."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 108,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "How do you check if a variable 'arr' is an array in JavaScript?",
+        options: [
+          "typeof arr === 'array'",
+          "arr instanceof Array",
+          "Array.isArray(arr)",
+          "Both B and C are correct, but C is preferred."
+        ],
+        correctAnswer: 3
+      },
+      {
+        id: 109,
+        type: "Theory",
+        timeMinutes: 1,
+        text: "What is a closure in JavaScript?",
+        options: [
+          "A function that returns another function.",
+          "A block of code wrapped in curly braces.",
+          "A combination of a function bundled together with references to its surrounding state (lexical environment).",
+          "A way to hide variables from the global scope using immediately invoked functions."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 110,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What will be the output of `console.log(typeof null)`?",
+        options: [
+          "'null'",
+          "'undefined'",
+          "'object'",
+          "'string'"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 111,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "In React Native, how do you handle platform-specific code?",
+        options: [
+          "Using the Platform module or platform-specific file extensions (.ios.js, .android.js).",
+          "Writing separate apps entirely.",
+          "Using CSS media queries.",
+          "React Native handles it 100% automatically; you cannot write platform-specific code."
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 112,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "Which method is best for creating a deep copy of a nested JSON object in modern JS without external libraries?",
+        options: [
+          "Object.assign()",
+          "Spread operator (...)",
+          "JSON.parse(JSON.stringify(obj))",
+          "structuredClone(obj)"
+        ],
+        correctAnswer: 3
+      },
+      {
+        id: 113,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What does the 'flex: 1' style property do in React Native?",
+        options: [
+          "Makes the component take up 1 pixel of space.",
+          "Makes the component take up all available space in its container.",
+          "Enables flexbox on the component.",
+          "Aligns items to the center."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 114,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the difference between == and === in JavaScript?",
+        options: [
+          "== compares value, === compares reference.",
+          "== compares value with type coercion, === compares value and type without coercion.",
+          "There is no difference.",
+          "=== is used only for objects."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 115,
+        type: "Theory",
+        timeMinutes: 1,
+        text: "What does the SafeAreaView component do?",
+        options: [
+          "Encrypts data displayed within it.",
+          "Renders content within the safe area boundaries of a device, avoiding notches and system UI.",
+          "Prevents crashes by catching errors.",
+          "Restricts user interactions within the view."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 116,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is the Virtual DOM?",
+        options: [
+          "A direct representation of the actual DOM in the browser.",
+          "A lightweight JavaScript representation of the DOM used to optimize rendering.",
+          "A database used by React to store state.",
+          "A virtual machine that runs React code."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 117,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "How do you pass a parameter to an event handler in React?",
+        options: [
+          "onClick={handleClick(id)}",
+          "onClick={() => handleClick(id)}",
+          "onClick={handleClick.bind(id)}",
+          "Both B and C are valid approaches."
+        ],
+        correctAnswer: 3
+      },
+      {
+        id: 118,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is a Promise in JavaScript?",
+        options: [
+          "A guarantee that a function will execute synchronously.",
+          "An object representing the eventual completion or failure of an asynchronous operation.",
+          "A strict typing system for JavaScript.",
+          "A built-in method for parsing JSON."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 119,
+        type: "Coding",
+        timeMinutes: 3,
+        text: "Which array method is best for finding the first element that satisfies a condition?",
+        options: [
+          "filter()",
+          "some()",
+          "find()",
+          "map()"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 120,
+        type: "Theory",
+        timeMinutes: 1,
+        text: "What is the purpose of ScrollView in React Native?",
+        options: [
+          "To render large lists of data efficiently.",
+          "To provide a scrollable container for a small amount of content.",
+          "To create a swipeable image gallery.",
+          "To handle gesture navigation."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 121,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "Why is FlatList preferred over ScrollView for long lists?",
+        options: [
+          "FlatList looks better by default.",
+          "FlatList is easier to type.",
+          "FlatList renders items lazily (only when they appear on screen), saving memory.",
+          "There is no difference; they are interchangeable."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 122,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the output of `0.1 + 0.2 === 0.3` in JavaScript?",
+        options: [
+          "true",
+          "false",
+          "undefined",
+          "TypeError"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 123,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is the purpose of the 'ref' attribute in React?",
+        options: [
+          "To reference an external CSS file.",
+          "To directly access a DOM element or React component instance.",
+          "To refresh the component.",
+          "To pass data backwards to a parent component."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 124,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "In React Native, how do you specify an image source from a local file?",
+        options: [
+          "<Image src='myImage.png' />",
+          "<Image source={{ uri: 'myImage.png' }} />",
+          "<Image source={require('./myImage.png')} />",
+          "<Image href='./myImage.png' />"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 125,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is the Context API used for?",
+        options: [
+          "Parsing JSON data.",
+          "Routing between screens.",
+          "Sharing state across the entire app without passing props down manually at every level.",
+          "Connecting to a SQL database."
+        ],
+        correctAnswer: 2
       }
     ]
   },
@@ -153,6 +413,266 @@ export const mockTestsData: MockTest[] = [
           "Converts Objective-C to Swift automatically."
         ],
         correctAnswer: 0
+      },
+      {
+        id: 206,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is the C++ interface that enables React Native's JS thread to talk directly to native modules?",
+        options: [
+          "JSON Bridge",
+          "JavaScript Interface (JSI)",
+          "JNI (Java Native Interface)",
+          "Objective-C Runtime"
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 207,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "How does JSI differ from the old Bridge?",
+        options: [
+          "JSI uses XML instead of JSON.",
+          "JSI is slower because it is written in C++.",
+          "JSI allows JS to hold references to C++ Host Objects and call methods synchronously.",
+          "JSI is only available on iOS."
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 208,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What does 'Yoga' do in React Native?",
+        options: [
+          "It manages Redux state.",
+          "It is a cross-platform layout engine that translates Flexbox to native views.",
+          "It is an animation library.",
+          "It handles offline storage."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 209,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "Why are TurboModules more memory efficient than classic Native Modules?",
+        options: [
+          "They are written in pure JavaScript.",
+          "They are initialized on-demand rather than all at startup.",
+          "They do not use memory.",
+          "They automatically compress all assets."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 210,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "In Fabric, what replaces the UIManager module?",
+        options: [
+          "JSI",
+          "ReactShadowNode",
+          "The Fabric Renderer (C++ core)",
+          "Hermes"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 211,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "Which command correctly enables the New Architecture on an existing iOS app?",
+        options: [
+          "npm run enable-fabric",
+          "cd ios && pod install --enable-new-architecture",
+          "react-native link new-architecture",
+          "RCT_NEW_ARCH_ENABLED=1 pod install"
+        ],
+        correctAnswer: 3
+      },
+      {
+        id: 212,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What does AOT stand for in the context of Hermes engine?",
+        options: [
+          "Ahead of Time compilation",
+          "Array of Types",
+          "Application Over The-air",
+          "Asynchronous Object Thread"
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 213,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What happens if a Native Module method returns a Promise over the old Bridge?",
+        options: [
+          "The Promise is resolved synchronously.",
+          "The Promise ID is passed to native, and Native invokes the JS callback asynchronously via the bridge.",
+          "The bridge crashes.",
+          "The JS thread blocks until it resolves."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 214,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is 'Bridgeless Mode' in React Native 0.74+?",
+        options: [
+          "A mode where React Native runs without a UI.",
+          "A new initialization phase where the legacy Bridge is completely disabled in favor of JSI.",
+          "A mode that only allows React Web.",
+          "A security feature that blocks network requests."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 215,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What problem does Fabric solve regarding User Interactions (like scrolling)?",
+        options: [
+          "It stops the user from scrolling too fast.",
+          "It allows UI updates (like rendering a new list item) to happen synchronously with native events, removing the visual lag caused by async bridge communication.",
+          "It automatically caches images.",
+          "It translates touch events into mouse events."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 216,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "How do you define a spec for CodeGen?",
+        options: [
+          "Writing a Python script.",
+          "Writing a TypeScript interface or Flow type inside a file named *Native<Module>.ts.",
+          "Writing a raw C++ header file.",
+          "Using a JSON configuration file."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 217,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is a 'Host Object' in JSI?",
+        options: [
+          "A cloud server hosting the app.",
+          "A C++ object that is exposed to JavaScript, allowing JS to call its methods directly.",
+          "A React Native View component.",
+          "The root component of the app."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 218,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "How do you handle background tasks (like audio playback) in React Native?",
+        options: [
+          "Use a `useEffect` hook.",
+          "Use standard native background services (like Headless JS or iOS Background Tasks) because the JS thread pauses when the app is backgrounded.",
+          "Run a while(true) loop.",
+          "It is not possible in React Native."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 219,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is the primary language used to write the core of the New Architecture?",
+        options: [
+          "JavaScript",
+          "Objective-C",
+          "C++",
+          "Swift"
+        ],
+        correctAnswer: 2
+      },
+      {
+        id: 220,
+        type: "Theory",
+        timeMinutes: 1,
+        text: "Does the New Architecture require rewriting all existing React components?",
+        options: [
+          "Yes, completely.",
+          "No, most React/JS code remains the same; the changes are largely internal to the framework and Native Modules.",
+          "Yes, but only for iOS.",
+          "No, but CSS needs to be rewritten."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 221,
+        type: "Coding",
+        timeMinutes: 4,
+        text: "What is the benefit of Hermes precompiling JS into bytecode?",
+        options: [
+          "It makes the app download faster from the App Store.",
+          "It drastically reduces the Time To Interactive (TTI) since the engine doesn't have to parse JS at runtime.",
+          "It converts JS directly into Swift.",
+          "It encrypts the source code completely."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 222,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "What is 'Concurrent React'?",
+        options: [
+          "A feature that allows React to interrupt a long-running render to handle a high-priority event (like user input).",
+          "Running multiple React Native apps at the same time.",
+          "A way to run React on a GPU.",
+          "A networking library for React."
+        ],
+        correctAnswer: 0
+      },
+      {
+        id: 223,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "How does the New Architecture handle View flattening?",
+        options: [
+          "It disables View flattening entirely.",
+          "Fabric handles View flattening in C++ before passing the tree to the native platform, saving memory.",
+          "It relies on the OS to flatten views.",
+          "View flattening is done in JavaScript."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 224,
+        type: "Coding",
+        timeMinutes: 5,
+        text: "What is the main drawback of using the legacy Bridge for high-frequency events (like scrolling)?",
+        options: [
+          "It uses too much disk space.",
+          "Every event must be serialized to JSON, sent across the bridge, and deserialized, causing severe bottlenecking and frame drops.",
+          "It only supports strings.",
+          "It requires an internet connection."
+        ],
+        correctAnswer: 1
+      },
+      {
+        id: 225,
+        type: "Theory",
+        timeMinutes: 2,
+        text: "Which of the following describes the 'Shadow Tree'?",
+        options: [
+          "A CSS feature for rendering drop shadows.",
+          "A tree of C++ nodes used by Yoga to calculate the layout before creating actual native views.",
+          "A hidden DOM tree used for SEO.",
+          "An encrypted data structure."
+        ],
+        correctAnswer: 1
       }
     ]
   },
