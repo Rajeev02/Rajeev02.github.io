@@ -5,6 +5,7 @@ export interface Question {
   text: string;
   codeSnippet?: string;
   options: string[];
+  shuffleOptions?: boolean;
   correctAnswer: number;
 }
 
@@ -121,6 +122,7 @@ export const mockTestsData: MockTest[] = [
           "Array.isArray(arr)",
           "Both B and C are correct, but C is preferred."
         ],
+        shuffleOptions: false,
         correctAnswer: 3
       },
       {
@@ -238,6 +240,7 @@ export const mockTestsData: MockTest[] = [
           "onClick={handleClick.bind(id)}",
           "Both B and C are valid approaches."
         ],
+        shuffleOptions: false,
         correctAnswer: 3
       },
       {

@@ -8,8 +8,12 @@ function prepareSessionQuestions(questions: Question[], length: number): Questio
   // 1. Shuffle questions
   const shuffledQ = [...questions].sort(() => Math.random() - 0.5).slice(0, length);
   
-  // 2. Shuffle options inside each question
+  // 2. Shuffle options inside each question (unless disabled)
   return shuffledQ.map(q => {
+    if (q.shuffleOptions === false) {
+      return q;
+    }
+    
     const optionsWithIndex = q.options.map((opt, i) => ({ text: opt, isCorrect: i === q.correctAnswer }));
     optionsWithIndex.sort(() => Math.random() - 0.5);
     
