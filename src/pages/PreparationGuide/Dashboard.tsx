@@ -141,6 +141,22 @@ export default function Dashboard() {
               Continue Learning
             </Link>
           </div>
+
+          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm mt-6">
+            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-blue-500" />
+              External Resources
+            </h2>
+            <div className="space-y-3">
+              <a href="https://rajeev02.github.io/#/preparation-guide/" target="_blank" rel="noreferrer" className="block p-3 border border-border rounded-xl hover:border-primary hover:bg-secondary/50 transition-colors text-sm font-medium">
+                Preparation Guide App
+              </a>
+              <a href="https://rajeev02.github.io/prepration/" target="_blank" rel="noreferrer" className="block p-3 border border-border rounded-xl hover:border-primary hover:bg-secondary/50 transition-colors text-sm font-medium">
+                Preparation Guide (Legacy Static)
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
