@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// TODO: Replace these placeholder values with your actual Firebase project config
-// You can find these in your Firebase Console -> Project Settings -> General -> Web App
 const firebaseConfig = {
-  apiKey: "AIzaSy_YOUR_API_KEY_HERE_PLEASE_REPLACE",
+  apiKey: "AIzaSyBP1IwNR-RyNPMd53dPOEu4P76Tzoc7BR4",
   authDomain: "rajeev02-github-io.firebaseapp.com",
   projectId: "rajeev02-github-io",
   storageBucket: "rajeev02-github-io.firebasestorage.app",
   messagingSenderId: "640496958997",
-  appId: "1:640496958997:web:PLEASE_REPLACE_WITH_ACTUAL_APP_ID"
+  appId: "1:640496958997:web:730f609b80f2ac7e76d81c",
+  measurementId: "G-DXTG46W2DK"
 };
 
 // Initialize Firebase
