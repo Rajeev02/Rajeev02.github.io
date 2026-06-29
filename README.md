@@ -1,135 +1,129 @@
-# Rajeev Kumar Joshi - Portfolio & React Native Preparation Portal
+# Rajeev Kumar Joshi Portfolio
 
-This repository contains the source code for the personal developer portfolio website of **Rajeev Kumar Joshi**, a Senior Mobile Engineer & React Native Developer with over 9 years of experience. It also hosts a password-protected **React Native & Coding Interview Preparation Portal** under `/prepration`.
+A personal developer portfolio and React Native preparation portal.
 
-## 🚀 Live Links
-- **Developer Portfolio**: [https://rajeev02.github.io](https://rajeev02.github.io)
-- **Preparation Portal**: [https://rajeev02.github.io/prepration](https://rajeev02.github.io/prepration)
+## Overview
 
----
+This repository contains a Single Page Application (SPA) that serves two primary purposes:
+1. A developer portfolio detailing professional experience, projects, and skills.
+2. A password-protected preparation portal containing study resources and coding examples for React Native interviews.
 
-## 🛠️ Tech Stack & Technologies
+The application is built to be fast, responsive, and easily maintainable, utilizing static hosting combined with Firebase for dynamic data storage.
 
-The project is built using modern front-end technologies:
+## Features
 
-- **Core Framework**: Vite + React 18 (TypeScript)
-- **Styling**: Tailwind CSS + shadcn-ui + Lucide Icons + Tailwind CSS Animate
-- **State & Data**: TanStack React Query + React Hook Form + Zod
-- **Backend & Config**: Firebase Integration (Firestore Rules & Schema)
-- **Tooling & Build**: PostCSS, ESLint, TypeScript, Vitest (testing)
-- **Security (Portal)**: Web Crypto API (SHA-256 client-side session hashing)
+- **Portfolio Interface** — Displays employment history, technical skills, and educational background.
+- **Preparation Portal** — Renders markdown-based study materials, coding examples, and theory notes.
+- **Client-Side Authentication** — Restricts access to the preparation portal using a SHA-256 hash validation mechanism.
+- **Dark Mode Support** — Toggles between light and dark themes using CSS variables and local storage.
 
----
+## Architecture
 
-## ✨ Features
+The application follows a standard SPA architecture:
+- **Routing**: `react-router-dom` handles client-side transitions.
+- **State Management**: `react-query` manages asynchronous data fetching and caching from Firebase.
+- **UI Components**: `shadcn/ui` provides accessible, unstyled components that are customized via Tailwind CSS.
+- **Data Persistence**: Firebase Firestore stores dynamic content, with security rules defining read/write access.
 
-### 1. Interactive Developer Portfolio
-- **Hero Profile**: Highlights contact details, 9+ years of experience, and summary statistics.
-- **About & Skills**: Detailed breakdown of technical competencies grouped by domain.
-- **Employment Record**: Professional history timeline across LetsVenture, WildTrails, Dunst, and Plurebus.
-- **Projects Showcase**: Interactive list of developed applications with filtering and store links.
-- **Education Timeline**: Academic degrees including MCA from NIT Durgapur and BCA from DHSGSU.
-- **Theme Toggle**: Modern theme switching between dark and light modes.
+## Technology Stack
 
-### 2. Password-Protected Preparation Portal (`/prepration`)
-- Secure client-side password protection using SHA-256 encryption.
-- **Interactive File Viewer**: Fast markdown rendering and code views of 50+ interview resources:
-  - **Coding (11 files)**: Data Structures, Algorithms, practice questions, and code examples.
-  - **Theory (37 files)**: In-depth React Native concepts, architecture, performance, Hermes, TurboModules.
-  - **Others (2 files)**: Cases, notes, and general strategy guides.
-- **Responsive Layout**: Designed for mobile and desktop reading with a sticky sidebar.
+| Category       | Technology |
+| -------------- | ---------- |
+| Language       | TypeScript |
+| Framework      | React 18, Vite |
+| State/Data     | TanStack React Query, Firebase |
+| Styling        | Tailwind CSS, shadcn/ui, Radix UI |
+| Testing        | Vitest, Testing Library |
+| Infrastructure | GitHub Pages |
 
----
+## Project Structure
 
-## 📁 Repository Structure
-
-```text
-├── .github/workflows/      # CI/CD Deployment configurations (GitHub Actions)
-├── assets/                 # Static media and assets
-├── public/                 # Favicons, manifests, and site assets
-│   └── prepration/         # Security-protected portal HTML pages
+```
+├── .github/workflows/    # CI/CD pipelines for deployment
+├── public/               # Static assets and preparation portal HTML
 ├── src/
-│   ├── components/         # Reusable React UI & layout components
-│   ├── data/               # Static project data & mock responses
-│   ├── hooks/              # Custom React hooks
-│   ├── pages/              # Main routing pages (Index, EmploymentRecord, NotFound)
-│   ├── prepration/         # Preparation study resources (markdown files)
-│   └── main.tsx            # Application entry point
-├── scripts/                # Verification and build helper scripts
-├── package.json            # Scripts & project dependencies
-├── tailwind.config.ts      # Design system/theme configurations
-├── vite.config.ts          # Vite bundler configuration
-└── vitest.config.ts        # Unit test configuration
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Top-level route components
+│   ├── App.tsx           # Application routing entry point
+│   └── main.tsx          # React DOM mounting
+├── firebase.json         # Firebase hosting and rules configuration
+├── package.json          # Dependency definitions and scripts
+└── vite.config.ts        # Bundler configuration
 ```
 
----
+## Prerequisites
 
-## 💻 Getting Started (Local Development)
+- Node.js (v18 or higher)
+- npm or Bun
 
-To run this project locally, ensure you have **Node.js** (v18+) and **npm** or **Bun** installed.
+## Installation
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Rajeev02/Rajeev02.github.io.git
-cd Rajeev02.github.io
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Rajeev02/Rajeev02.github.io.git
+   cd Rajeev02.github.io
+   ```
 
-### 2. Install Dependencies
-Using **npm**:
-```bash
-npm install
-```
-Or using **Bun**:
-```bash
-bun install
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### 3. Start the Development Server
+3. **Configure environment variables**
+   Create a `.env` file in the project root containing your Firebase configuration:
+   ```env
+   VITE_FIREBASE_API_KEY="your-api-key"
+   VITE_FIREBASE_AUTH_DOMAIN="your-auth-domain"
+   VITE_FIREBASE_PROJECT_ID="your-project-id"
+   VITE_FIREBASE_STORAGE_BUCKET="your-storage-bucket"
+   VITE_FIREBASE_MESSAGING_SENDER_ID="your-sender-id"
+   VITE_FIREBASE_APP_ID="your-app-id"
+   ```
+
+## Quick Start
+
+Start the local Vite development server:
+
 ```bash
 npm run dev
 ```
-The application will start on `http://localhost:5173` (or the port specified in terminal).
 
-### 4. Run Tests
+The application will be accessible at `http://localhost:5173`.
+
+## Testing
+
+The project uses Vitest for unit testing.
+
+Run the test suite:
 ```bash
 npm run test
 ```
 
-### 5. Build for Production
-To build a highly optimized production bundle:
+Run tests in watch mode during development:
 ```bash
-npm run build
-```
-The output will be created in the `dist/` directory.
-
-### 6. Verify the Build
-To ensure compile safety and script health before deploying:
-```bash
-npm run verify-build
+npm run test:watch
 ```
 
----
+## Deployment
 
-## 🚀 Deployment
+The application is continuously deployed to GitHub Pages. The CI/CD pipeline (`.github/workflows`) executes the following steps on pushes to the `master` branch:
+1. Installs dependencies.
+2. Runs ESLint checks.
+3. Executes the Vitest test suite.
+4. Builds the production bundle (`npm run build`).
+5. Validates the build output (`npm run verify-build`).
+6. Publishes the `dist` directory to GitHub Pages.
 
-The site is automatically deployed to **GitHub Pages** on every push to the `master` branch via GitHub Actions (`.github/workflows/deploy.yml`).
+## Security
 
-The deployment pipeline performs the following steps:
-1. Installs clean dependencies via `npm ci`
-2. Lints source files (`npm run lint`)
-3. Runs unit tests (`npm run test`)
-4. Builds the distribution files (`npm run build`) with Firebase build variables injected
-5. Runs verification scripts (`npm run verify-build`)
-6. Publishes to GitHub Pages.
+- **Preparation Portal Access**: The `/prepration` endpoint requires a password. Validation occurs client-side by comparing the input against a pre-computed SHA-256 hash. To change the password, generate a new hash (`echo -n "password" | shasum -a 256`) and update the `ACCESS_HASH` constant in `public/prepration/index.html`.
+- **Database Rules**: Firestore access is governed by `firestore.rules`, ensuring only authorized reads/writes occur in the production environment.
 
----
+## Contributing
 
-## 🔒 Security Notice
-The `/prepration` portal is protected with a client-side SHA-256 hash. If you need to change the password:
-1. Generate the hash of your new password:
-   ```bash
-   echo -n "new-password" | shasum -a 256
-   ```
-2. Update the hash in:
-   - `public/prepration/index.html` (under `ACCESS_HASH`)
-   - `public/prepration/viewer.html` (under `ACCESS_HASH`)
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Ensure tests and linting pass (`npm run test && npm run lint`).
+5. Push to the branch (`git push origin feature/your-feature`).
+6. Create a Pull Request.
