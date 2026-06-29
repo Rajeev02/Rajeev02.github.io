@@ -32,6 +32,7 @@ With over 9 years of software development experience (including 5+ years buildin
 
 ### LVX & LVXQ (LetsVenture)
 *   **Overview**: Flagship fintech applications for startup investing.
+*   **Live App Links**: [Google Play Store](https://play.google.com/store/apps/details?id=com.lvxventures.app&hl=en_IN) | [Apple App Store](https://apps.apple.com/us/app/lvx-letsventure/id6752903270)
 *   **Architecture & Tech Stack**: React Native, TypeScript, Redux Toolkit, TurboModules.
 *   **Implementation**: Built highly secure payment integrations, real-time investor dashboards, and migrated the entire legacy architecture to the React Native New Architecture (Fabric).
 *   **Results**: Significantly improved TTI (Time to Interact) and reduced crash rates using Hermes and JSI bridging.

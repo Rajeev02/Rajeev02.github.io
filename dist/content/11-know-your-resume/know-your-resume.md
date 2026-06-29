@@ -136,6 +136,7 @@ This guide breaks down every single keyword and experience point mentioned in yo
 - **Address:** WeWork Galaxy, 43, Residency Road, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka - 560025
 - **Contact:** +91-8147621535
 - **Email/Web:** contact@lvxventures.com | www.lvxventures.com
+- **Live LVX App Links:** [Google Play Store](https://play.google.com/store/apps/details?id=com.lvxventures.app&hl=en_IN) | [Apple App Store](https://apps.apple.com/us/app/lvx-letsventure/id6752903270)
 - **CIN:** U72900KA2018PTC110746
 - **GST No.:** 29AADCL5389F1Z4
 

@@ -66,6 +66,8 @@ const projects = [
       "Razorpay",
       "Cashfree"
     ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.lvxventures.app&hl=en_IN",
+    appStoreUrl: "https://apps.apple.com/us/app/lvx-letsventure/id6752903270",
     webUrl: "https://www.letsventure.com/",
     icon: "/images/apps/lvx.png",
     featured: true,
