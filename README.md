@@ -1,73 +1,135 @@
-# Welcome to your Lovable project
+# Rajeev Kumar Joshi - Portfolio & React Native Preparation Portal
 
-## Project info
+This repository contains the source code for the personal developer portfolio website of **Rajeev Kumar Joshi**, a Senior Mobile Engineer & React Native Developer with over 9 years of experience. It also hosts a password-protected **React Native & Coding Interview Preparation Portal** under `/prepration`.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Live Links
+- **Developer Portfolio**: [https://rajeev02.github.io](https://rajeev02.github.io)
+- **Preparation Portal**: [https://rajeev02.github.io/prepration](https://rajeev02.github.io/prepration)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack & Technologies
 
-**Use Lovable**
+The project is built using modern front-end technologies:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Core Framework**: Vite + React 18 (TypeScript)
+- **Styling**: Tailwind CSS + shadcn-ui + Lucide Icons + Tailwind CSS Animate
+- **State & Data**: TanStack React Query + React Hook Form + Zod
+- **Backend & Config**: Firebase Integration (Firestore Rules & Schema)
+- **Tooling & Build**: PostCSS, ESLint, TypeScript, Vitest (testing)
+- **Security (Portal)**: Web Crypto API (SHA-256 client-side session hashing)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## ✨ Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 1. Interactive Developer Portfolio
+- **Hero Profile**: Highlights contact details, 9+ years of experience, and summary statistics.
+- **About & Skills**: Detailed breakdown of technical competencies grouped by domain.
+- **Employment Record**: Professional history timeline across LetsVenture, WildTrails, Dunst, and Plurebus.
+- **Projects Showcase**: Interactive list of developed applications with filtering and store links.
+- **Education Timeline**: Academic degrees including MCA from NIT Durgapur and BCA from DHSGSU.
+- **Theme Toggle**: Modern theme switching between dark and light modes.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 2. Password-Protected Preparation Portal (`/prepration`)
+- Secure client-side password protection using SHA-256 encryption.
+- **Interactive File Viewer**: Fast markdown rendering and code views of 50+ interview resources:
+  - **Coding (11 files)**: Data Structures, Algorithms, practice questions, and code examples.
+  - **Theory (37 files)**: In-depth React Native concepts, architecture, performance, Hermes, TurboModules.
+  - **Others (2 files)**: Cases, notes, and general strategy guides.
+- **Responsive Layout**: Designed for mobile and desktop reading with a sticky sidebar.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📁 Repository Structure
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```text
+├── .github/workflows/      # CI/CD Deployment configurations (GitHub Actions)
+├── assets/                 # Static media and assets
+├── public/                 # Favicons, manifests, and site assets
+│   └── prepration/         # Security-protected portal HTML pages
+├── src/
+│   ├── components/         # Reusable React UI & layout components
+│   ├── data/               # Static project data & mock responses
+│   ├── hooks/              # Custom React hooks
+│   ├── pages/              # Main routing pages (Index, EmploymentRecord, NotFound)
+│   ├── prepration/         # Preparation study resources (markdown files)
+│   └── main.tsx            # Application entry point
+├── scripts/                # Verification and build helper scripts
+├── package.json            # Scripts & project dependencies
+├── tailwind.config.ts      # Design system/theme configurations
+├── vite.config.ts          # Vite bundler configuration
+└── vitest.config.ts        # Unit test configuration
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 💻 Getting Started (Local Development)
 
-**Use GitHub Codespaces**
+To run this project locally, ensure you have **Node.js** (v18+) and **npm** or **Bun** installed.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Rajeev02/Rajeev02.github.io.git
+cd Rajeev02.github.io
+```
 
-## What technologies are used for this project?
+### 2. Install Dependencies
+Using **npm**:
+```bash
+npm install
+```
+Or using **Bun**:
+```bash
+bun install
+```
 
-This project is built with:
+### 3. Start the Development Server
+```bash
+npm run dev
+```
+The application will start on `http://localhost:5173` (or the port specified in terminal).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 4. Run Tests
+```bash
+npm run test
+```
 
-## How can I deploy this project?
+### 5. Build for Production
+To build a highly optimized production bundle:
+```bash
+npm run build
+```
+The output will be created in the `dist/` directory.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### 6. Verify the Build
+To ensure compile safety and script health before deploying:
+```bash
+npm run verify-build
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🚀 Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The site is automatically deployed to **GitHub Pages** on every push to the `master` branch via GitHub Actions (`.github/workflows/deploy.yml`).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The deployment pipeline performs the following steps:
+1. Installs clean dependencies via `npm ci`
+2. Lints source files (`npm run lint`)
+3. Runs unit tests (`npm run test`)
+4. Builds the distribution files (`npm run build`) with Firebase build variables injected
+5. Runs verification scripts (`npm run verify-build`)
+6. Publishes to GitHub Pages.
+
+---
+
+## 🔒 Security Notice
+The `/prepration` portal is protected with a client-side SHA-256 hash. If you need to change the password:
+1. Generate the hash of your new password:
+   ```bash
+   echo -n "new-password" | shasum -a 256
+   ```
+2. Update the hash in:
+   - `public/prepration/index.html` (under `ACCESS_HASH`)
+   - `public/prepration/viewer.html` (under `ACCESS_HASH`)
