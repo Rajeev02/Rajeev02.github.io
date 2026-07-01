@@ -19,7 +19,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-dark);
+    background: radial-gradient(circle at 50% -20%, #1f2937 0%, var(--bg-dark) 80%);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -114,13 +114,22 @@ body {
 .status-expired, .status-revoked, .status-cancelled { background: rgba(239, 68, 68, 0.1); color: var(--error); border: 1px solid rgba(239, 68, 68, 0.2); }
 
 .pass-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: rgba(24, 24, 27, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     width: 100%;
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.05);
     position: relative;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.pass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 65px -15px rgba(0, 0, 0, 0.9), 0 0 50px rgba(16, 185, 129, 0.1);
 }
 
 .pass-header {
@@ -156,8 +165,15 @@ body {
 .qrcode {
     background: white;
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 20px;
     margin-bottom: 16px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.05), inset 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qrcode:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255,255,255,0.15), inset 0 0 10px rgba(0,0,0,0.1);
 }
 
 .qr-instruction {
@@ -166,18 +182,51 @@ body {
 }
 
 .qr-unavailable {
-    background: rgba(255,255,255,0.02);
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.05) 100%);
     margin: 24px;
-    border-radius: 16px;
-    border: 1px dashed var(--border);
-    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 50px 20px;
+    box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.05);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.qr-unavailable::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    background: radial-gradient(circle at center, rgba(239,68,68,0.2) 0%, transparent 60%);
+    animation: pulseGlow 3s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
 }
 
 .unavailable-icon {
-    font-size: 32px;
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-    opacity: 0.5;
+    color: var(--error);
+    margin-bottom: 16px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px rgba(239,68,68,0.6));
+    animation: iconShake 0.5s ease-in-out;
+}
+
+@keyframes iconShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+#qr-unavailable-message {
+    color: #fca5a5;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
 }
 
 .divider {
