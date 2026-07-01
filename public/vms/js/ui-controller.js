@@ -41,15 +41,16 @@ function showError(title, message) {
 function renderPass(pass) {
     // Basic Details
     document.getElementById('visitor-name').textContent = pass.visitorName || 'Unknown';
-    document.getElementById('visitor-company').textContent = pass.company || '';
-    document.getElementById('host-name').textContent = pass.host || '--';
+    document.getElementById('visitor-company').textContent = pass.company || '--';
+    document.getElementById('host-name').textContent = pass.hostName || pass.host || '--';
     document.getElementById('department').textContent = pass.department || '--';
     document.getElementById('purpose').textContent = pass.purpose || '--';
     
     // Dates
-    const visitDate = pass.visitDate ? new Date(pass.visitDate).toLocaleDateString() : '--';
-    const visitTime = pass.visitTime || '--';
-    const expiry = pass.expiry ? new Date(pass.expiry).toLocaleString() : '--';
+    const passDate = pass.validFrom ? new Date(pass.validFrom) : null;
+    const visitDate = passDate ? passDate.toLocaleDateString() : (pass.visitDate ? new Date(pass.visitDate).toLocaleDateString() : '--');
+    const visitTime = passDate ? passDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : (pass.visitTime || '--');
+    const expiry = pass.validUntil ? new Date(pass.validUntil).toLocaleString([], {dateStyle: 'short', timeStyle: 'short'}) : (pass.expiry ? new Date(pass.expiry).toLocaleString([], {dateStyle: 'short', timeStyle: 'short'}) : '--');
     
     document.getElementById('visit-date').textContent = visitDate;
     document.getElementById('visit-time').textContent = visitTime;
