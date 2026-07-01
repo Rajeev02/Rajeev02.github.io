@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Visitor Pass</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="error-container" class="hidden error-container">
+        <h2 id="error-title">Pass Not Found</h2>
+        <p id="error-message">The visitor pass you are looking for is invalid or does not exist.</p>
+    </div>
+
+    <div id="pass-container" class="hidden pass-container">
+        <!-- Status Banner -->
+        <div id="status-banner" class="status-banner">
+            <span id="status-text">APPROVED</span>
+        </div>
+
+        <div class="pass-card">
+            <!-- Header -->
+            <div class="pass-header">
+                <div class="company-logo">Acme Corp</div>
+                <h1>Visitor Pass</h1>
+            </div>
+
+            <!-- QR Section -->
+            <div id="qr-section" class="qr-section">
+                <div id="qrcode" class="qrcode"></div>
+                <p class="qr-instruction">Present this QR code at the reception desk.</p>
+            </div>
+            
+            <div id="qr-unavailable-section" class="hidden qr-section qr-unavailable">
+                <div class="unavailable-icon">✕</div>
+                <p id="qr-unavailable-message">QR Code Unavailable</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Visitor Details -->
+            <div class="details-section">
+                <div class="visitor-profile">
+                    <img id="visitor-photo" src="https://via.placeholder.com/60" alt="Visitor Photo" class="visitor-photo hidden">
+                    <div id="visitor-initials" class="visitor-initials">?</div>
+                    <div class="visitor-names">
+                        <h2 id="visitor-name">Loading...</h2>
+                        <p id="visitor-company">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Date</label>
+                        <span id="visit-date">--</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Time</label>
+                        <span id="visit-time">--</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Host</label>
+                        <span id="host-name">--</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Department</label>
+                        <span id="department">--</span>
+                    </div>
+                    <div class="info-item full-width">
+                        <label>Purpose</label>
+                        <span id="purpose">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expiry-notice">
+            Valid until: <span id="expiry-date">--</span>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Application Logic -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/pass-service.js"></script>
+    <script src="js/ui-controller.js"></script>
+</body>
+</html>
