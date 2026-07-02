@@ -90,7 +90,7 @@ function renderPass(pass) {
     const validFromTime = pass.validFrom ? new Date(pass.validFrom).getTime() : 0;
     const validUntilTime = pass.validUntil ? new Date(pass.validUntil).getTime() : 0;
     const isOutsideWindow = (validFromTime && now < validFromTime) || (validUntilTime && now > validUntilTime);
-    const hiddenStatuses = ['EXPIRED', 'REVOKED', 'CANCELLED', 'CHECKED_IN', 'CHECKED_OUT', 'SCANNED'];
+    const hiddenStatuses = ['EXPIRED', 'REVOKED', 'CANCELLED', 'CHECKED_OUT', 'SCANNED'];
     
     if (hiddenStatuses.includes(currentStatus) || isOutsideWindow) {
         qrSection.classList.add('hidden');
