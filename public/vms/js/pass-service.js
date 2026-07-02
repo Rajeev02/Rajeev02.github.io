@@ -5,7 +5,11 @@ class PassService {
 
     async getPassByToken(token) {
         try {
-            const querySnapshot = await this.collection.where('token', '==', token).limit(1).get();
+            let querySnapshot = await this.collection.where('token', '==', token).limit(1).get();
+
+            if (querySnapshot.empty) {
+                querySnapshot = await this.collection.where('qrToken', '==', token).limit(1).get();
+            }
             
             if (querySnapshot.empty) {
                 return null;
@@ -24,7 +28,7 @@ class PassService {
 
     // Optional: Real-time listener if needed
     subscribeToPassUpdates(token, callback) {
-        return this.collection.where('token', '==', token).limit(1)
+        return this.collection.where('qrToken', '==', token).limit(1)
             .onSnapshot(snapshot => {
                 if (!snapshot.empty) {
                     const doc = snapshot.docs[0];

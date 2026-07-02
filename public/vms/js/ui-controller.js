@@ -59,15 +59,16 @@ function renderPass(pass) {
     // Photo / Initials
     const photoEl = document.getElementById('visitor-photo');
     const initialsEl = document.getElementById('visitor-initials');
+    const photoUrl = typeof pass.photoUrl === 'string' && /^https?:\/\//i.test(pass.photoUrl) ? pass.photoUrl : '';
     
-    if (pass.photoUrl) {
-        photoEl.src = pass.photoUrl;
+    if (photoUrl) {
+        photoEl.src = photoUrl;
         photoEl.classList.remove('hidden');
         initialsEl.classList.add('hidden');
     } else {
-        photoEl.classList.add('hidden');
-        initialsEl.classList.remove('hidden');
-        initialsEl.textContent = (pass.visitorName || '?').charAt(0).toUpperCase();
+        photoEl.src = '/placeholder.svg';
+        photoEl.classList.remove('hidden');
+        initialsEl.classList.add('hidden');
     }
 
     // Status
@@ -85,12 +86,16 @@ function renderPass(pass) {
     const qrUnavailable = document.getElementById('qr-unavailable-section');
     const qrMessage = document.getElementById('qr-unavailable-message');
     
-    const hiddenStatuses = ['EXPIRED', 'REVOKED', 'CANCELLED', 'CHECKED_IN', 'CHECKED_OUT'];
+    const now = Date.now();
+    const validFromTime = pass.validFrom ? new Date(pass.validFrom).getTime() : 0;
+    const validUntilTime = pass.validUntil ? new Date(pass.validUntil).getTime() : 0;
+    const isOutsideWindow = (validFromTime && now < validFromTime) || (validUntilTime && now > validUntilTime);
+    const hiddenStatuses = ['EXPIRED', 'REVOKED', 'CANCELLED', 'CHECKED_IN', 'CHECKED_OUT', 'SCANNED'];
     
-    if (hiddenStatuses.includes(currentStatus)) {
+    if (hiddenStatuses.includes(currentStatus) || isOutsideWindow) {
         qrSection.classList.add('hidden');
         qrUnavailable.classList.remove('hidden');
-        qrMessage.textContent = `Pass is ${currentStatus.toLowerCase().replace('_', ' ')}`;
+        qrMessage.textContent = isOutsideWindow ? 'Pass is outside its valid time window' : `Pass is ${currentStatus.toLowerCase().replace('_', ' ')}`;
     } else {
         qrSection.classList.remove('hidden');
         qrUnavailable.classList.add('hidden');
@@ -99,7 +104,7 @@ function renderPass(pass) {
         const qrContainer = document.getElementById('qrcode');
         qrContainer.innerHTML = ''; // clear previous
         new QRCode(qrContainer, {
-            text: pass.qrValue || pass.token, // Secure token
+            text: pass.qrValue || pass.token || pass.qrToken, // Secure token
             width: 160,
             height: 160,
             colorDark : "#000000",
