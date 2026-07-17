@@ -4,29 +4,18 @@ import Navigation from "@/components/Navigation";
 import { fetchCategories } from "@/lib/contentParser";
 import { CategoryIndex } from "@/types/content";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Folder, FileText, Menu, X, Lock } from "lucide-react";
+import { ChevronRight, Folder, FileText, Menu, X } from "lucide-react";
 
-interface LayoutProps {
-  setIsLocked: (locked: boolean) => void;
-}
-
-export default function Layout({ setIsLocked }: LayoutProps) {
+export default function Layout() {
   const [categories, setCategories] = useState<CategoryIndex[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     fetchCategories().then(setCategories);
   }, []);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("prepAuth");
-    setIsLocked(true);
-    navigate("/preparation-guide");
-  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -106,12 +95,6 @@ export default function Layout({ setIsLocked }: LayoutProps) {
                 )}
               </div>
             ))}
-          </div>
-          <div className="p-4 border-t border-border">
-            <Button variant="outline" className="w-full justify-center text-sm" onClick={handleLogout}>
-              <Lock className="w-4 h-4 mr-2" />
-              Lock & Exit
-            </Button>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, Download } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Social links with Lucide icons and brand colors
@@ -14,13 +14,6 @@ const socialLinks = [
     url: "https://github.com/Rajeev02",
     icon: Github,
     color: "text-foreground"
-  },
-  {
-    name: "Download Resume (PDF)",
-    // ?print=1 auto-opens the browser's Save as PDF dialog on the resume page
-    url: "/resume-2026.html?print=1",
-    icon: Download,
-    color: "text-primary"
   }
 ];
 
@@ -98,12 +91,6 @@ const ContactSection = () => {
                 <a href="mailto:rajeevjoshi91@gmail.com">
                   <Mail className="w-4 h-4" />
                   Send Email
-                </a>
-              </Button>
-              <Button size="default" variant="outline" asChild className="w-full xs:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base">
-                <a href="/resume-2026.html" target="_blank" rel="noopener noreferrer">
-                  <Download className="w-4 h-4" />
-                  View Resume
                 </a>
               </Button>
             </div>

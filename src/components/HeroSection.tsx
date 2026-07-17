@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Linkedin, Github, Download } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -123,22 +123,6 @@ const HeroSection = () => {
                 <Github className="w-4 h-4" />
                 <span className="hidden sm:inline">GitHub</span>
                 <span className="sm:hidden">GitHub</span>
-              </a>
-            </Button>
-            <Button
-              size="default"
-              variant="outline"
-              asChild
-              className="w-full sm:w-auto gap-2 border-border hover:bg-secondary text-sm sm:text-base"
-            >
-              <a
-                href="/resume-2026.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="w-4 h-4" />
-                <span className="hidden sm:inline">Resume</span>
-                <span className="sm:hidden">Resume</span>
               </a>
             </Button>
           </div>
