@@ -10,14 +10,6 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary/50 border border-border mb-6 sm:mb-8 animate-fade-up opacity-0">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs sm:text-sm text-muted-foreground">
-              Available for opportunities
-            </span>
-          </div>
-
           {/* Name */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-up opacity-0 delay-100">
             Rajeev Kumar <span className="text-gradient">Joshi</span>

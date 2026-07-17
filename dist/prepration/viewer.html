@@ -1223,8 +1223,6 @@
         "08-Behavioral": "6. Behavioral",
         "09-Senior-Lead": "7. MNC Senior/Lead",
         "10-Daily-Revision": "8. Daily Revision",
-        "11-Know-Your-Resume": "9. Know Your Resume",
-        "12-Job-Apply-Data": "10. Job Apply Data",
       };
 
       let themeInitialized = false;
@@ -1667,18 +1665,6 @@
                     { label: "1-Hour Coding & Theory", section: "10-Daily-Revision", filename: "Daily_Revision.md" }
                 ]
             },
-            {
-                title: "9. Know Your Resume",
-                items: [
-                    { label: "Resume Breakdown", section: "11-Know-Your-Resume", filename: "Know-Your-Resume.md" }
-                ]
-            },
-            {
-                title: "10. Job Apply Data",
-                items: [
-                    { label: "Fast Job Apply Data", section: "12-Job-Apply-Data", filename: "Job_Apply_Data.md" }
-                ]
-            }
             ];
         } else {
             const files = embeddedFileData["InterviewGuide"] || [];
@@ -1787,25 +1773,7 @@
           .replace(/\b\w/g, (l) => l.toUpperCase());
       }
 
-      function hashCode(str) {
-        let hash = 0;
-        for (let i = 0, len = str.length; i < len; i++) {
-          let chr = str.charCodeAt(i);
-          hash = (hash << 5) - hash + chr;
-          hash |= 0;
-        }
-        return hash;
-      }
-
       function loadFile(file, section) {
-        if (section === "12-Job-Apply-Data") {
-          const pass = prompt("Please enter the password to view this section:");
-          if (!pass || hashCode(pass) !== 41691151) {
-            alert("Incorrect password.");
-            return;
-          }
-        }
-
         activeFile = file;
         activeSection = section;
         updateHeaderTitle(file, section);
@@ -2019,7 +1987,7 @@
             const lowerContent = content.toLowerCase();
             const index = lowerContent.indexOf(query);
             
-            if (query && index !== -1 && section !== "12-Job-Apply-Data") {
+            if (query && index !== -1) {
                const start = Math.max(0, index - 40);
                const end = Math.min(content.length, index + query.length + 80);
                let snippetText = content.substring(start, end).replace(/\n/g, ' ');
