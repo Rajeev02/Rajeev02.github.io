@@ -184,6 +184,34 @@
       "description": "Interview questions and answers for Volume 12 \u2013 Set 26 \u2013 Hermes Engine & Memory Profiling",
       "readingTimeMinutes": 15,
       "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-27-ota-updates",
+      "title": "Volume 13 \u2013 Set 27 \u2013 OTA Updates",
+      "description": "Interview questions and answers for Volume 13 \u2013 Set 27 \u2013 Over-The-Air (OTA) Updates",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-28-cicd-fastlane",
+      "title": "Volume 13 \u2013 Set 28 \u2013 CI/CD & Fastlane",
+      "description": "Interview questions and answers for Volume 13 \u2013 Set 28 \u2013 CI/CD & Fastlane",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-29-app-store-deployment",
+      "title": "Volume 13 \u2013 Set 29 \u2013 App Store Deployment",
+      "description": "Interview questions and answers for Volume 13 \u2013 Set 29 \u2013 App Store Deployment",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-30-system-design",
+      "title": "Volume 14 \u2013 Set 30 \u2013 System Design",
+      "description": "Interview questions and answers for Volume 14 \u2013 Set 30 \u2013 System Design & Architecture Patterns",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
     }
   ]
 }
