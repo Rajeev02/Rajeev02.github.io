@@ -78,5 +78,10 @@
     "id": "testing",
     "title": "Testing Mastery",
     "description": "Jest, Detox, and React Native Testing Library."
+  },
+  {
+    "id": "interview-sets",
+    "title": "Complete Interview Handbook",
+    "description": "Progressive interview sets for React Native engineers."
   }
 ]

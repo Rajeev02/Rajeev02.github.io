@@ -1,0 +1,84 @@
+{
+  "id": "interview-sets",
+  "title": "Complete Interview Handbook",
+  "description": "Progressive interview sets for React Native engineers.",
+  "topics": [
+    {
+      "id": "set-01-javascript-fundamentals",
+      "title": "Volume 1 \u2013 Set 1 \u2013 JavaScript Fundamentals",
+      "description": "Interview questions and answers for Volume 1 \u2013 Set 1 \u2013 JavaScript Fundamentals",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-02-typescript-fundamentals",
+      "title": "Volume 2 \u2013 Set 2 \u2013 TypeScript Fundamentals",
+      "description": "Interview questions and answers for Volume 2 \u2013 Set 2 \u2013 TypeScript Fundamentals",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-03-react-core",
+      "title": "Volume 3 \u2013 Set 3 \u2013 React Core",
+      "description": "Interview questions and answers for Volume 3 \u2013 Set 3 \u2013 React Core",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-04-react-native-core",
+      "title": "Volume 4 \u2013 Set 4 \u2013 React Native Core",
+      "description": "Interview questions and answers for Volume 4 \u2013 Set 4 \u2013 React Native Core",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-05-android-fundamentals",
+      "title": "Volume 5 \u2013 Set 5 \u2013 Android Fundamentals for React Native",
+      "description": "Interview questions and answers for Volume 5 \u2013 Set 5 \u2013 Android Fundamentals for React Native",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-06-advanced-javascript",
+      "title": "Volume 2 \u2013 Set 6 \u2013 Advanced JavaScript",
+      "description": "Interview questions and answers for Volume 2 \u2013 Set 6 \u2013 Advanced JavaScript",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-07-advanced-react",
+      "title": "Volume 3 \u2013 Set 7 \u2013 Advanced React Concepts",
+      "description": "Interview questions and answers for Volume 3 \u2013 Set 7 \u2013 Advanced React Concepts",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-08-ios-fundamentals",
+      "title": "Volume 5 \u2013 Set 8 \u2013 iOS Fundamentals for React Native",
+      "description": "Interview questions and answers for Volume 5 \u2013 Set 8 \u2013 iOS Fundamentals for React Native",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-09-new-architecture",
+      "title": "Volume 4 \u2013 Set 9 \u2013 React Native New Architecture",
+      "description": "Interview questions and answers for Volume 4 \u2013 Set 9 \u2013 React Native New Architecture",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-10-tooling-and-expo",
+      "title": "Volume 6 \u2013 Set 10 \u2013 React Native Tooling & Expo",
+      "description": "Interview questions and answers for Volume 6 \u2013 Set 10 \u2013 React Native Tooling & Expo",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-11-state-management",
+      "title": "Volume 6 \u2013 Set 11 \u2013 State Management at Scale",
+      "description": "Interview questions and answers for Volume 6 \u2013 Set 11 \u2013 State Management at Scale",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    }
+  ]
+}
