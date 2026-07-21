@@ -114,6 +114,41 @@
       "description": "Interview questions and answers for Volume 8 \u2013 Set 16 \u2013 Native Modules & JSI",
       "readingTimeMinutes": 15,
       "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-17-animations-gestures",
+      "title": "Volume 9 \u2013 Set 17 \u2013 Animations & Gestures",
+      "description": "Interview questions and answers for Volume 9 \u2013 Set 17 \u2013 Animations & Gestures",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-18-advanced-state-management",
+      "title": "Volume 9 \u2013 Set 18 \u2013 Advanced State Management",
+      "description": "Interview questions and answers for Volume 9 \u2013 Set 18 \u2013 Advanced State Management",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-19-offline-first",
+      "title": "Volume 9 \u2013 Set 19 \u2013 Offline-First Architectures",
+      "description": "Interview questions and answers for Volume 9 \u2013 Set 19 \u2013 Offline-First Architectures",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-20-monorepos-super-apps",
+      "title": "Volume 10 \u2013 Set 20 \u2013 Monorepos & Super Apps",
+      "description": "Interview questions and answers for Volume 10 \u2013 Set 20 \u2013 Monorepos & Super Apps",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-21-deep-linking",
+      "title": "Volume 10 \u2013 Set 21 \u2013 Deep Linking",
+      "description": "Interview questions and answers for Volume 10 \u2013 Set 21 \u2013 Deep Linking",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
     }
   ]
 }
