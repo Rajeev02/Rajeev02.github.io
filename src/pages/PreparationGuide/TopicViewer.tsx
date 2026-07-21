@@ -71,7 +71,7 @@ export default function TopicViewer() {
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{metadata.title}</h1>
         
         <div className="flex gap-2 flex-wrap">
-          {(metadata.tags || []).map(tag => (
+          {Array.isArray(metadata.tags) && metadata.tags.map(tag => (
             <span key={tag} className="text-xs text-muted-foreground border border-border px-2 py-0.5 rounded-full">
               #{tag}
             </span>

@@ -7,10 +7,10 @@ export interface TopicMetadata {
   readingTimeMinutes: number;
   revisionTimeMinutes: number;
   practiceTimeMinutes: number;
-  difficulty: Difficulty;
-  importanceRating: number; // 1 to 10
-  interviewFrequency: Frequency;
-  tags: string[];
+  difficulty?: Difficulty;
+  importanceRating?: number; // 1 to 10
+  interviewFrequency?: Frequency;
+  tags?: string[];
 }
 
 export interface CategoryIndex {
