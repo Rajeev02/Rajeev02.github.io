@@ -55,23 +55,23 @@ export default function TopicViewer() {
             metadata.difficulty === 'Advanced' ? 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400' :
             'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
           }`}>
-            {metadata.difficulty}
+            {metadata.difficulty || 'Intermediate'}
           </span>
           <span className="px-2 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground flex items-center gap-1">
-            <Clock className="w-3 h-3" /> {metadata.readingTimeMinutes}m Read
+            <Clock className="w-3 h-3" /> {metadata.readingTimeMinutes || 10}m Read
           </span>
           <span className="px-2 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground flex items-center gap-1">
-            <BarChart className="w-3 h-3" /> {metadata.practiceTimeMinutes}m Practice
+            <BarChart className="w-3 h-3" /> {metadata.practiceTimeMinutes || 10}m Practice
           </span>
           <span className="px-2 py-1 text-xs font-medium rounded-md bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
-            Freq: {"★".repeat(metadata.interviewFrequency)}{"☆".repeat(5 - metadata.interviewFrequency)}
+            Freq: {"★".repeat(metadata.interviewFrequency || 3)}{"☆".repeat(5 - (metadata.interviewFrequency || 3))}
           </span>
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{metadata.title}</h1>
         
         <div className="flex gap-2 flex-wrap">
-          {metadata.tags.map(tag => (
+          {(metadata.tags || []).map(tag => (
             <span key={tag} className="text-xs text-muted-foreground border border-border px-2 py-0.5 rounded-full">
               #{tag}
             </span>
