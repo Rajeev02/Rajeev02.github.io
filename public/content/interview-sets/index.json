@@ -79,6 +79,41 @@
       "description": "Interview questions and answers for Volume 6 \u2013 Set 11 \u2013 State Management at Scale",
       "readingTimeMinutes": 15,
       "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-12-performance-optimization",
+      "title": "Volume 7 \u2013 Set 12 \u2013 Performance Optimization",
+      "description": "Interview questions and answers for Volume 7 \u2013 Set 12 \u2013 Performance Optimization",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-13-networking-security",
+      "title": "Volume 7 \u2013 Set 13 \u2013 Networking & Security",
+      "description": "Interview questions and answers for Volume 7 \u2013 Set 13 \u2013 Networking & Security",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-14-testing",
+      "title": "Volume 8 \u2013 Set 14 \u2013 Testing (Unit, Integration, E2E)",
+      "description": "Interview questions and answers for Volume 8 \u2013 Set 14 \u2013 Testing (Unit, Integration, E2E)",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-15-cicd-deployment",
+      "title": "Volume 8 \u2013 Set 15 \u2013 CI/CD & App Deployment",
+      "description": "Interview questions and answers for Volume 8 \u2013 Set 15 \u2013 CI/CD & App Deployment",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
+    },
+    {
+      "id": "set-16-native-modules-jsi",
+      "title": "Volume 8 \u2013 Set 16 \u2013 Native Modules & JSI",
+      "description": "Interview questions and answers for Volume 8 \u2013 Set 16 \u2013 Native Modules & JSI",
+      "readingTimeMinutes": 15,
+      "practiceTimeMinutes": 20
     }
   ]
 }
