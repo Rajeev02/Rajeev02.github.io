@@ -11,7 +11,7 @@ export async function fetchCategories(): Promise<CategoryIndex[]> {
         try {
           const catRes = await fetch(`/content/${cat.id}/index.json`);
           const catData = await catRes.json();
-          return catData;
+          return { ...cat, ...catData, topics: catData.topics || [] };
         } catch (e) {
           console.warn(`Could not load index for category ${cat.id}`);
           return { ...cat, topics: [] };
@@ -31,7 +31,7 @@ export async function fetchTopicContent(categoryId: string, topicId: string): Pr
     // 1. Get the category index to find the metadata
     const catRes = await fetch(`/content/${categoryId}/index.json`);
     const catData = await catRes.json();
-    const metadata = catData.topics.find((t: TopicMetadata) => t.id === topicId);
+    const metadata = (catData.topics || []).find((t: TopicMetadata) => t.id === topicId);
     
     if (!metadata) {
       throw new Error("Topic not found in index");
